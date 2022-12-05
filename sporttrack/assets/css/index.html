@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns/website#" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta property="og:title" content="Home - Sport Track"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:description" content=""/>
+		<meta property="og:locale" content="fr_FR"/>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta http-equiv="refresh" content="0; URL=./sign-in/">
+
+		<title>Home - Sport Track</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+
+		<link href="./assets/img/thumb.jpg" rel="icon">
+		<link href="./assets/img/thumb.jpg" rel="apple-touch-icon">
+		<link href="./assets/fonts/Bitter/Bitter.css" rel="stylesheet">
+
+		<link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./assets/css/style.css" rel="stylesheet">
+		<link rel="canonical" href="./sign-in/">
+	</head>
+	<body>
+		<div class="centered-content align-items-center">
+			<h1>Sport Track</h1>
+			<p class="centered-link">
+				Redirection...
+			</p>
+		</div>
+
+		<script>
+			window.onload = function() {
+				const page = window.location.href;
+				const destination = page.replace("assets/css/", "sign-in/");
+				const redirectLocation = window.location.href.replace(
+					page,
+					destination
+				);
+				window.location.href = redirectLocation;
+			}
+		</script>
+		<script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="./assets/js/main.js"></script>
+	</body>
+</html>

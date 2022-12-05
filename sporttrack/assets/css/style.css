@@ -1,0 +1,158 @@
+body {
+	font-family: "Bitter", serif;
+	background-color: #282a36;
+}
+
+h1 {
+	color: #f1fa8c;
+	font-weight: 600;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: #bd93f9;
+	transition: all 0.5s;
+}
+
+a:hover {
+	color: #ff79c6;
+}
+
+.button-color-active {
+	background-color: #ff79c6;
+	color: #44475a;
+}
+
+.button-not-active {
+	background-color: #282b36;
+	color: #6272a4;
+	border-color: #6272a4;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.button-not-active:hover {
+	background-color: #44475a;
+	color: #ff79c6;
+	border-color: #bd93f9;
+}
+
+.nav {
+	--nav-link-color: $purple;
+	--nav-link-hover-color: $pink;
+}
+
+.nav-pills .nav-link.active {
+	--nav-pills-link-active-color: $current-line;
+	--nav-pills-link-active-bg: $pink;
+}
+
+input:invalid {
+	border: 1px #ff5555 solid;
+}
+
+input:valid {
+	border: 1px #50fa7b solid;
+}
+
+.centered-content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 50rem;
+	transform: translate(-50%, -50%);
+	padding: 2% 5%;
+	border-radius: 25px;
+	border: 1.5px solid #6272a4;
+	background-color: #44475a;
+}
+
+.centered-link {
+	text-align: center;
+	color: #e6d7c1;
+}
+
+.form-color .form-color:focus {
+	background-color: #44475a;
+}
+
+input {
+	background: transparent;
+}
+
+label {
+	color: #8be9fd;
+}
+
+.input-content .input-content:focus {
+	color: #8be9fd;
+}
+
+.second-button {
+	position: relative;
+	margin-left: 20%;
+}
+
+.third-button {
+	position: relative;
+	margin-left: 35%;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	border: 1px solid #50fa7b;
+	-webkit-text-fill-color: #8be9fd;
+	box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+	-webkit-transition: background-color 5000s ease-in-out 0s;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-center-elements {
+	text-align: center;
+}
+
+.form-check-input {
+	background-color: #44475a;
+	color: #8be9fd;
+	border-color: #8be9fd;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%289, 233, 253, 1%29'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked {
+	background-color: #ff79c6;
+	color: #f1fa8c;
+	border-color: #f1fa8c;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28241, 250, 140, 1%29'/%3e%3c/svg%3e");
+}
+
+form:invalid button {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.submit-file-label {
+	cursor: pointer;
+	color: #8be9fd;
+	font-weight: bold;
+}
+
+.label-file:hover {
+	color: #ff79c6;
+	background-color: #6272a4;
+}
+
+.submit-file {
+	display: none;
+}
+
+.json-text {
+	display: none;
+}

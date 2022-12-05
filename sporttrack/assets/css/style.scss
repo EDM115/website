@@ -1,0 +1,189 @@
+$primary: #e6d7c1;
+$secondary: #f1d7b1;
+$tertiary: #e8e6e3;
+$background: #282b36;
+$background-2: #2f2836;
+
+// dracula official's colors
+$bg: #282a36;
+$current-line :#44475a;
+$fg: #f8f8f2;
+$comment: #6272a4;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+
+$theme-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"success": $green,
+	"info": $cyan,
+	"warning": $orange,
+	"danger": $red,
+	"light": $fg,
+	"dark": $bg
+);
+
+body {
+	font-family: "Bitter", serif;
+	background-color: $bg;
+}
+
+h1 {
+	color: $yellow;
+	font-weight: 600;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: $purple;
+	transition: all 0.5s;
+}
+
+a:hover {
+	color: $pink;
+}
+
+.button-color-active {
+	background-color: $pink;
+	color: $current-line;
+}
+
+.button-not-active {
+	background-color: $background;
+	color: $comment;
+	border-color: $comment;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.button-not-active:hover {
+	background-color: $current-line;
+	color: $pink;
+	border-color: $purple;
+}
+
+.nav {
+	--nav-link-color: $purple;
+	--nav-link-hover-color: $pink;
+}
+
+.nav-pills .nav-link.active {
+	--nav-pills-link-active-color: $current-line;
+	--nav-pills-link-active-bg: $pink;
+}
+
+input:invalid {
+	border: 1px $red solid;
+}
+
+input:valid {
+	border: 1px $green solid;
+}
+
+.centered-content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 50rem;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding: 2% 5%;
+	border-radius: 25px;
+	border: 1.5px solid $comment;
+	background-color: $current-line;
+}
+
+.centered-link {
+	text-align: center;
+	color: $primary;
+}
+
+.form-color .form-color:focus {
+	background-color: $current-line;
+}
+
+input {
+    background: transparent;
+}
+
+label {
+	color: $cyan;
+}
+
+.input-content .input-content:focus {
+	color: $cyan;
+}
+
+.second-button {
+	position: relative;
+	margin-left: 20%;
+}
+
+.third-button {
+	position: relative;
+	margin-left: 35%;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	border: 1px solid $green;
+	-webkit-text-fill-color: $cyan;
+	-webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
+	box-shadow: 0 0 0px 1000px #00000000 inset;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-center-elements {
+	text-align: center;
+}
+
+.form-check-input {
+	background-color: $current-line;
+	color: $cyan;
+	border-color: $cyan;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%289, 233, 253, 1%29'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked {
+	background-color: $pink;
+	color: $yellow;
+	border-color: $yellow;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28241, 250, 140, 1%29'/%3e%3c/svg%3e");
+}
+
+form:invalid button {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.submit-file-label {
+	cursor: pointer;
+	color: $cyan;
+	font-weight: bold;
+}
+
+.label-file:hover {
+	color: $pink;
+	background-color: $comment;
+}
+
+.submit-file {
+	display: none;
+}
+
+.json-text {
+	display: none;
+}

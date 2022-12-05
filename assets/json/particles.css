@@ -1,0 +1,5 @@
+body {
+	background: rgb(54, 54, 73);
+	opacity: 0.3;
+	z-index: -30;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns/website#" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta property="og:title" content="Modifier mes informations - Sport Track"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:description" content=""/>
+		<meta property="og:locale" content="fr_FR"/>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+		<title>Modifier mes informations - Sport Track</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+
+		<link href="../assets/img/thumb.jpg" rel="icon">
+		<link href="../assets/img/thumb.jpg" rel="apple-touch-icon">
+		<link href="../assets/fonts/Bitter/Bitter.css" rel="stylesheet">
+
+		<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+				<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+					<span class="fs-4">Sport Track</span>
+				</a>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a href="../sign-in/" class="nav-link button-not-active">Se connecter</a></li>
+					<li class="nav-item"><a href="../load/" class="nav-link button-not-active">Charger un fichier</a></li>
+					<li class="nav-item"><a href="../sign-up/" class="nav-link button-not-active">Créer un compte</a></li>
+					<li class="nav-item"><a href="#" class="nav-link active button-color-active disabled">Modifier ses informations</a></li>
+				</ul>
+			</header>
+		</div>
+
+		<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+			<div class="row align-items-center g-lg-5 py-5">
+				<div class="col-lg-5 text-center text-lg-start">
+					<h1 class="display-4 fw-bold lh-sm mb-3">Modifier ses informations</h1>
+				</div>
+				<div class="col-md-10 mx-auto col-lg-7">
+					<form action="" class="p-4 p-md-5 border rounded-3 form-color" style="background-color: #44475a;">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control input-content" id="nom-edit" name="nom-edit" placeholder=" " required>
+							<label for="nom-edit">Nom</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control input-content" id="prenom-edit" name="prenom-edit" placeholder=" " required>
+							<label for="prenom-edit">Prenom</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input class="form-control input-content" type="date" id="bdate-edit" name="bdate-edit" required>
+							<label for="bdate-edit">Date de naissance :</label>
+						</div>
+						<div class="form-floating mb-3">
+							<select class="form-select" id="sexe-edit" name="sexe-edit" required>
+								<option value="h">Homme</option>
+								<option value="f">Femme</option>
+								<option value="a">Autre</option>
+								<option value="n">Ne se prononce pas</option>
+							</select>
+							<label for="sexe-edit">Sexe :</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input class="form-control input-content" type="number" id="taille-edit" name="taille-edit" placeholder=" " required pattern="[0-9]">
+							<label for="taille-edit">Taille (cm) :</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input class="form-control input-content" id="poids-edit" name="poids-edit" placeholder=" " required pattern="^\d*(\.\d{0,2})?$" oninput="this.value=this.value.replace(',', '.');">
+							<label for="poids-edit">Poids (kg) :</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control input-content" id="mail-edit" name="mail-edit" placeholder=" " required>
+							<label for="mail-edit">Adresse mail</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control input-content" id="pwd-edit" name="pwd-edit" placeholder=" " required>
+							<label for="pwd-edit">Mot de passe</label>
+						</div>
+						<button class="w-100 btn btn-lg btn-primary" id="submit">Modifier</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="../assets/js/main.js"></script>
+	</body>
+</html>

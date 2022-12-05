@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns/website#" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta property="og:title" content="Charger un fichier - Sport Track"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:description" content=""/>
+		<meta property="og:locale" content="fr_FR"/>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+		<title>Charger un fichier - Sport Track</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+
+		<link href="../assets/img/thumb.jpg" rel="icon">
+		<link href="../assets/img/thumb.jpg" rel="apple-touch-icon">
+		<link href="../assets/fonts/Bitter/Bitter.css" rel="stylesheet">
+
+		<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+				<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+					<span class="fs-4">Sport Track</span>
+				</a>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a href="../sign-in/" class="nav-link button-not-active">Se connecter</a></li>
+					<li class="nav-item"><a href="#" class="nav-link active button-color-active disabled">Charger un fichier</a></li>
+					<li class="nav-item"><a href="../sign-up/" class="nav-link button-not-active">Créer un compte</a></li>
+					<li class="nav-item"><a href="../edit/?action=edit" class="nav-link button-not-active">Modifier ses informations</a></li>
+				</ul>
+			</header>
+		</div>
+
+		<div class="centered-content">
+			<h1>Charger un fichier</h1>
+			<form action="" class="form-center-elements" method="get">
+				<label for="file" class="submit-file-label">Cliquer pour sélectionner un fichier (JSON)</label>
+				<input type="file" id="file" class="submit-file" name="file" accept=".json, application/json" required>
+				<input type="text" autocomplete="off" id="json" class="json-text" name="json">
+				<br><br>
+				<button id="submit" class="w-100 btn btn-lg btn-primary">Envoyer le fichier</button>
+			</form>
+		</div>
+		<script src="../assets/js/main.js"></script>
+	</body>
+</html>
