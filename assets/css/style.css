@@ -449,6 +449,7 @@ section {
 	margin-top: 30px;
 	width: 100%;
 	position: relative;
+	border-radius: 15px;
 	text-align: center;
 	background: rgb(54, 54, 73);
 }
