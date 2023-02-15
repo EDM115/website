@@ -1,0 +1,31 @@
+[Errno 2] No such file or directory: '/app/Downloaded/5073109173/archive_from_5073109173.zip.temp' ✅
+
+[Errno 20] Not a directory: '/app/Downloaded/1919228034/Black Octopus Sound - Echoes by Holly Drummond.rar' ✅
+
+replace() argument 2 must be str, not None ✅
+
+Telegram says: [400 MESSAGE_ID_INVALID] - The message id is invalid (caused by "messages.ForwardMessages") ✅
+
+Telegram says: [400 QUERY_ID_INVALID] - The callback query id is invalid (caused by "messages.SetBotCallbackAnswer") ✅
+
+Telegram says: [400 MESSAGE_NOT_MODIFIED] - The message was not modified because you tried to edit it using the same content (caused by "messages.EditMessage") ✅
+
+Cannot connect to host mathematical_reasoning.zip:80 ssl:default [Name or service not known] ✅
+
+Response payload is not completed ✅
+
+Server disconnected ✅
+
+Cannot connect to host cdn3.clicknupload.net:8080 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)')] ✅
+
+400, message='Invalid character in chunk size', url=URL('https://www.dropbox.com/s/b7u7ue9mq29d5dn/CTR%20-%20Crash%20Team%20Racing%20(PT-BR)%5BDublado%20e%20Legendado%5D.rar') ✅
+
+URL should be absolute ✅
+
+Telegram says: [400 USER_IS_BLOCKED] - The user blocked you (caused by "messages.SendMessage") ✅
+
+Value after * must be an iterable, not NoneType ✅
+
+[Errno 12] Cannot allocate memory ✅
+
+{empty} ✅

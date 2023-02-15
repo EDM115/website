@@ -37,6 +37,7 @@ a:hover {
 
 body {
 	background-color: #282a36;
+	word-wrap: break-word;
 }
 
 .count-box:hover {
@@ -45,4 +46,22 @@ body {
 
 .rounded-own {
 	border-radius: 50px;
+}
+
+.error-h6 {
+	color: #ffb86c;
+}
+
+.error-p {
+	/* green color of the Dracula scheme*/
+	color: #50fa7b;
+}
+
+.svg {
+	fill: #ffb86c;
+	transition: all 0.4s ease-in-out;
+}
+
+.svg:hover {
+	fill: #f1fa8c;
 }

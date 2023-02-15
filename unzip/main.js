@@ -40,9 +40,7 @@ async function getStarsAndForks() {
 	return [stars, forks];
 };
 
-function setElements([days, linesOfCode, stars, forks]) {
-	const daysElement = document.getElementById("days-since-launch");
-	daysElement.setAttribute("data-purecounter-end", days);
+function setElements([linesOfCode, stars, forks]) {
 	const linesElement = document.getElementById("lines-of-code");
 	linesElement.setAttribute("data-purecounter-end", linesOfCode);
 	const starsElement = document.getElementById("stars");
@@ -51,9 +49,15 @@ function setElements([days, linesOfCode, stars, forks]) {
 	forksElement.setAttribute("data-purecounter-end", forks);
 }
 
+function setDays(days) {
+	const daysElement = document.getElementById("days-since-launch");
+	daysElement.setAttribute("data-purecounter-end", days);
+}
+
 window.addEventListener('load', async () => {
 	const days = getDaysSinceLaunch();
+	setDays(days);
 	const linesOfCode = await getLinesOfCode();
 	const [stars, forks] = await getStarsAndForks();
-	setElements([days, linesOfCode, stars, forks]);
+	setElements([linesOfCode, stars, forks]);
 });
