@@ -34,6 +34,12 @@ p {
 	transform: scale(1.2);
 }
 
+.vertical-center {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
 
 /* Back to top button */
 
@@ -586,6 +592,24 @@ section {
 	top: 0;
 	background: #fff;
 	border: 2px solid #ff7b00;
+}
+
+.download-button {
+	font-size: 17px;
+	font-weight: 600;
+	color: #f8f8f2;
+	background: #ff7b00;
+	display: inline-block;
+	padding: 10px 30px;
+	border-radius: 50px;
+	border-width: 0px;
+	transition: 0.5s;
+	margin-top: 20px;
+}
+
+.download-button:hover {
+	background: #ebebeb;
+	color: #ff7b00;
 }
 
 

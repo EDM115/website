@@ -76,6 +76,14 @@
 		this.classList.toggle('bi-x')
 	})
 
+	/* Preloader */
+	let preloader = select('#preloader');
+	if (preloader) {
+		window.addEventListener('load', () => {
+			preloader.remove()
+		});
+	}
+
 	/* Scroll with offset on links with a class name .scrollto */
 	on('click', '.scrollto', function(e) {
 		if (select(this.hash)) {
@@ -99,14 +107,6 @@
 			}
 		}
 	});
-
-	/* Preloader */
-	let preloader = select('#preloader');
-	if (preloader) {
-		window.addEventListener('load', () => {
-			preloader.remove()
-		});
-	}
 
 	/* Hero type effect */
 	const typed = select('.typed')

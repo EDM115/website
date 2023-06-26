@@ -1,5 +1,5 @@
 # website
-Basically my website (edm115.dev is a backup)
+Basically my website (edm115.dev is a backup... or is it ?)
 
 More info soon...
 
