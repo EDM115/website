@@ -688,7 +688,7 @@ a {
   top: 0;
   bottom: 0;
   border-radius: 11.8799px;
-  background-image: url(/assets/noise.png);
+  background-image: url(../assets/noise.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1011,7 +1011,7 @@ a {
   top: 3.0022%;
   bottom: 2.9286%;
   border-radius: 60.4341px;
-  background-image: url(/assets/photo.jpeg);
+  background-image: url(../assets/photo.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
