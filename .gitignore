@@ -5,3 +5,7 @@
 external-mods
 external-mods/
 external-mods/*
+
+node_modules
+node_modules/
+node_modules/*

@@ -21,10 +21,11 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - Not too fancy
 - Showcase of my projects
 - B&W water filling animation
-- 
-
-
-
+- Glow
+- Neon
+- A bunch of stuff I obviously don't handle well but just to show that "eh I can use that bro 🤓" and flex on poor souls visiting my website
+- It's 2 AM, what are you expecting here ?
+- ...
 
 ---
 
