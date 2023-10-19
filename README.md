@@ -6,11 +6,11 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 ## Plan on the `redesign` branch
 
 - Complete redesign
-- Will probably use some nerdy things (next.js, nuxt.js, vue.js, react, ...) dunno yet
+- Vue 3 + Vite + Vuetify (probably)
 - Drop of Bootstrap (and most libraries)
 - Dark theme
 - Usage of the Dracula color scheme if possible
-- Modern feel
+- Modern feel, glassy interface
 - Custom cursor on few elements
 - Reloadless transitions between pages
 - Holographic card effect on my logo
@@ -30,6 +30,11 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - ...
 
 ---
+
+<details>
+<summary>The boilerplate</summary>
+
+## The boilerplate
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -86,6 +91,8 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+
+</details>
 
 ---
 
