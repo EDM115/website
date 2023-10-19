@@ -1,6 +1,8 @@
 # website
 Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org](https://edm115.eu.org) is a backup)
 
+[![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
+
 ## Plan on the `redesign` branch
 
 - Complete redesign
