@@ -193,7 +193,7 @@ var pJS = function(tag_id, params){
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
 
-    if(pJS && pJS.interactivity.events.resize){
+    if(pJS?.interactivity.events.resize){
 
       window.addEventListener('resize', function(){
 
@@ -1415,7 +1415,7 @@ var pJS = function(tag_id, params){
 
 Object.deepExtend = function(destination, source) {
   for (var property in source) {
-    if (source[property] && source[property].constructor &&
+    if (source[property]?.constructor &&
      source[property].constructor === Object) {
       destination[property] = destination[property] || {};
       arguments.callee(destination[property], source[property]);
