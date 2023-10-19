@@ -1,624 +1,1634 @@
 .animated-gradient {
-	border-radius: 20px;
-	background-color: rgb(54, 54, 73);
-	-webkit-animation-name: animateBg;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-duration: 4s;
-	-webkit-animation-timing-function: linear;
-	animation-name: animateBg;
-	animation-iteration-count: infinite;
-	animation-duration: 4s;
-	animation-timing-function: linear;
+  border-radius: 20px;
+  background-color: rgb(54, 54, 73);
+  -webkit-animation-name: animateBg;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-timing-function: linear;
+  animation-name: animateBg;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes animateBg {
-	0% {
-		background: linear-gradient(0deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	1% {
-		background: linear-gradient(3.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	2% {
-		background: linear-gradient(7.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	3% {
-		background: linear-gradient(10.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	4% {
-		background: linear-gradient(14.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	5% {
-		background: linear-gradient(18deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	6% {
-		background: linear-gradient(21.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	7% {
-		background: linear-gradient(25.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	8% {
-		background: linear-gradient(28.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	9% {
-		background: linear-gradient(32.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	10% {
-		background: linear-gradient(36deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	11% {
-		background: linear-gradient(39.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	12% {
-		background: linear-gradient(43.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	13% {
-		background: linear-gradient(46.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	14% {
-		background: linear-gradient(50.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	15% {
-		background: linear-gradient(54deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	16% {
-		background: linear-gradient(57.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	17% {
-		background: linear-gradient(61.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	18% {
-		background: linear-gradient(64.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	19% {
-		background: linear-gradient(68.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	20% {
-		background: linear-gradient(72deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	21% {
-		background: linear-gradient(75.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	22% {
-		background: linear-gradient(79.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	23% {
-		background: linear-gradient(82.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	24% {
-		background: linear-gradient(86.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	25% {
-		background: linear-gradient(90deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	26% {
-		background: linear-gradient(93.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	27% {
-		background: linear-gradient(97.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	28% {
-		background: linear-gradient(100.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	29% {
-		background: linear-gradient(104.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	30% {
-		background: linear-gradient(108deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	31% {
-		background: linear-gradient(111.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	32% {
-		background: linear-gradient(115.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	33% {
-		background: linear-gradient(118.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	34% {
-		background: linear-gradient(122.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	35% {
-		background: linear-gradient(126deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	36% {
-		background: linear-gradient(129.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	37% {
-		background: linear-gradient(133.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	38% {
-		background: linear-gradient(136.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	39% {
-		background: linear-gradient(140.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	40% {
-		background: linear-gradient(144deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	41% {
-		background: linear-gradient(147.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	42% {
-		background: linear-gradient(151.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	43% {
-		background: linear-gradient(154.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	44% {
-		background: linear-gradient(158.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	45% {
-		background: linear-gradient(162deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	46% {
-		background: linear-gradient(165.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	47% {
-		background: linear-gradient(169.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	48% {
-		background: linear-gradient(172.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	49% {
-		background: linear-gradient(176.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	50% {
-		background: linear-gradient(180deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	51% {
-		background: linear-gradient(183.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	52% {
-		background: linear-gradient(187.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	53% {
-		background: linear-gradient(190.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	54% {
-		background: linear-gradient(194.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	55% {
-		background: linear-gradient(198deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	56% {
-		background: linear-gradient(201.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	57% {
-		background: linear-gradient(205.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	58% {
-		background: linear-gradient(208.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	59% {
-		background: linear-gradient(212.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	60% {
-		background: linear-gradient(216deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	61% {
-		background: linear-gradient(219.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	62% {
-		background: linear-gradient(223.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	63% {
-		background: linear-gradient(226.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	64% {
-		background: linear-gradient(230.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	65% {
-		background: linear-gradient(234deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	66% {
-		background: linear-gradient(237.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	67% {
-		background: linear-gradient(241.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	68% {
-		background: linear-gradient(244.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	69% {
-		background: linear-gradient(248.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	70% {
-		background: linear-gradient(252deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	71% {
-		background: linear-gradient(255.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	72% {
-		background: linear-gradient(259.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	73% {
-		background: linear-gradient(262.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	74% {
-		background: linear-gradient(266.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	75% {
-		background: linear-gradient(270deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	76% {
-		background: linear-gradient(273.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	77% {
-		background: linear-gradient(277.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	78% {
-		background: linear-gradient(280.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	79% {
-		background: linear-gradient(284.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	80% {
-		background: linear-gradient(288deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	81% {
-		background: linear-gradient(291.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	82% {
-		background: linear-gradient(295.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	83% {
-		background: linear-gradient(298.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	84% {
-		background: linear-gradient(302.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	85% {
-		background: linear-gradient(306deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	86% {
-		background: linear-gradient(309.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	87% {
-		background: linear-gradient(313.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	88% {
-		background: linear-gradient(316.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	89% {
-		background: linear-gradient(320.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	90% {
-		background: linear-gradient(324deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	91% {
-		background: linear-gradient(327.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	92% {
-		background: linear-gradient(331.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	93% {
-		background: linear-gradient(334.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	94% {
-		background: linear-gradient(338.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	95% {
-		background: linear-gradient(342deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	96% {
-		background: linear-gradient(345.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	97% {
-		background: linear-gradient(349.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	98% {
-		background: linear-gradient(352.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	99% {
-		background: linear-gradient(356.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	100% {
-		background: linear-gradient(360deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
+  0% {
+    background: linear-gradient(
+      0deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  1% {
+    background: linear-gradient(
+      3.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  2% {
+    background: linear-gradient(
+      7.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  3% {
+    background: linear-gradient(
+      10.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  4% {
+    background: linear-gradient(
+      14.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  5% {
+    background: linear-gradient(
+      18deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  6% {
+    background: linear-gradient(
+      21.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  7% {
+    background: linear-gradient(
+      25.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  8% {
+    background: linear-gradient(
+      28.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  9% {
+    background: linear-gradient(
+      32.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  10% {
+    background: linear-gradient(
+      36deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  11% {
+    background: linear-gradient(
+      39.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  12% {
+    background: linear-gradient(
+      43.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  13% {
+    background: linear-gradient(
+      46.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  14% {
+    background: linear-gradient(
+      50.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  15% {
+    background: linear-gradient(
+      54deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  16% {
+    background: linear-gradient(
+      57.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  17% {
+    background: linear-gradient(
+      61.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  18% {
+    background: linear-gradient(
+      64.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  19% {
+    background: linear-gradient(
+      68.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  20% {
+    background: linear-gradient(
+      72deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  21% {
+    background: linear-gradient(
+      75.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  22% {
+    background: linear-gradient(
+      79.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  23% {
+    background: linear-gradient(
+      82.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  24% {
+    background: linear-gradient(
+      86.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  25% {
+    background: linear-gradient(
+      90deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  26% {
+    background: linear-gradient(
+      93.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  27% {
+    background: linear-gradient(
+      97.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  28% {
+    background: linear-gradient(
+      100.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  29% {
+    background: linear-gradient(
+      104.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  30% {
+    background: linear-gradient(
+      108deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  31% {
+    background: linear-gradient(
+      111.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  32% {
+    background: linear-gradient(
+      115.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  33% {
+    background: linear-gradient(
+      118.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  34% {
+    background: linear-gradient(
+      122.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  35% {
+    background: linear-gradient(
+      126deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  36% {
+    background: linear-gradient(
+      129.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  37% {
+    background: linear-gradient(
+      133.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  38% {
+    background: linear-gradient(
+      136.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  39% {
+    background: linear-gradient(
+      140.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  40% {
+    background: linear-gradient(
+      144deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  41% {
+    background: linear-gradient(
+      147.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  42% {
+    background: linear-gradient(
+      151.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  43% {
+    background: linear-gradient(
+      154.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  44% {
+    background: linear-gradient(
+      158.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  45% {
+    background: linear-gradient(
+      162deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  46% {
+    background: linear-gradient(
+      165.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  47% {
+    background: linear-gradient(
+      169.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  48% {
+    background: linear-gradient(
+      172.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  49% {
+    background: linear-gradient(
+      176.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      180deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  51% {
+    background: linear-gradient(
+      183.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  52% {
+    background: linear-gradient(
+      187.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  53% {
+    background: linear-gradient(
+      190.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  54% {
+    background: linear-gradient(
+      194.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  55% {
+    background: linear-gradient(
+      198deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  56% {
+    background: linear-gradient(
+      201.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  57% {
+    background: linear-gradient(
+      205.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  58% {
+    background: linear-gradient(
+      208.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  59% {
+    background: linear-gradient(
+      212.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  60% {
+    background: linear-gradient(
+      216deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  61% {
+    background: linear-gradient(
+      219.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  62% {
+    background: linear-gradient(
+      223.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  63% {
+    background: linear-gradient(
+      226.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  64% {
+    background: linear-gradient(
+      230.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  65% {
+    background: linear-gradient(
+      234deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  66% {
+    background: linear-gradient(
+      237.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  67% {
+    background: linear-gradient(
+      241.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  68% {
+    background: linear-gradient(
+      244.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  69% {
+    background: linear-gradient(
+      248.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  70% {
+    background: linear-gradient(
+      252deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  71% {
+    background: linear-gradient(
+      255.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  72% {
+    background: linear-gradient(
+      259.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  73% {
+    background: linear-gradient(
+      262.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  74% {
+    background: linear-gradient(
+      266.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  75% {
+    background: linear-gradient(
+      270deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  76% {
+    background: linear-gradient(
+      273.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  77% {
+    background: linear-gradient(
+      277.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  78% {
+    background: linear-gradient(
+      280.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  79% {
+    background: linear-gradient(
+      284.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  80% {
+    background: linear-gradient(
+      288deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  81% {
+    background: linear-gradient(
+      291.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  82% {
+    background: linear-gradient(
+      295.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  83% {
+    background: linear-gradient(
+      298.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  84% {
+    background: linear-gradient(
+      302.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  85% {
+    background: linear-gradient(
+      306deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  86% {
+    background: linear-gradient(
+      309.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  87% {
+    background: linear-gradient(
+      313.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  88% {
+    background: linear-gradient(
+      316.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  89% {
+    background: linear-gradient(
+      320.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  90% {
+    background: linear-gradient(
+      324deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  91% {
+    background: linear-gradient(
+      327.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  92% {
+    background: linear-gradient(
+      331.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  93% {
+    background: linear-gradient(
+      334.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  94% {
+    background: linear-gradient(
+      338.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  95% {
+    background: linear-gradient(
+      342deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  96% {
+    background: linear-gradient(
+      345.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  97% {
+    background: linear-gradient(
+      349.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  98% {
+    background: linear-gradient(
+      352.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  99% {
+    background: linear-gradient(
+      356.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      360deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
 }
 
 @keyframes animateBg {
-	0% {
-		background: linear-gradient(0deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	1% {
-		background: linear-gradient(3.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	2% {
-		background: linear-gradient(7.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	3% {
-		background: linear-gradient(10.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	4% {
-		background: linear-gradient(14.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	5% {
-		background: linear-gradient(18deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	6% {
-		background: linear-gradient(21.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	7% {
-		background: linear-gradient(25.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	8% {
-		background: linear-gradient(28.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	9% {
-		background: linear-gradient(32.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	10% {
-		background: linear-gradient(36deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	11% {
-		background: linear-gradient(39.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	12% {
-		background: linear-gradient(43.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	13% {
-		background: linear-gradient(46.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	14% {
-		background: linear-gradient(50.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	15% {
-		background: linear-gradient(54deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	16% {
-		background: linear-gradient(57.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	17% {
-		background: linear-gradient(61.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	18% {
-		background: linear-gradient(64.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	19% {
-		background: linear-gradient(68.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	20% {
-		background: linear-gradient(72deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	21% {
-		background: linear-gradient(75.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	22% {
-		background: linear-gradient(79.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	23% {
-		background: linear-gradient(82.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	24% {
-		background: linear-gradient(86.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	25% {
-		background: linear-gradient(90deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	26% {
-		background: linear-gradient(93.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	27% {
-		background: linear-gradient(97.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	28% {
-		background: linear-gradient(100.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	29% {
-		background: linear-gradient(104.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	30% {
-		background: linear-gradient(108deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	31% {
-		background: linear-gradient(111.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	32% {
-		background: linear-gradient(115.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	33% {
-		background: linear-gradient(118.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	34% {
-		background: linear-gradient(122.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	35% {
-		background: linear-gradient(126deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	36% {
-		background: linear-gradient(129.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	37% {
-		background: linear-gradient(133.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	38% {
-		background: linear-gradient(136.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	39% {
-		background: linear-gradient(140.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	40% {
-		background: linear-gradient(144deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	41% {
-		background: linear-gradient(147.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	42% {
-		background: linear-gradient(151.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	43% {
-		background: linear-gradient(154.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	44% {
-		background: linear-gradient(158.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	45% {
-		background: linear-gradient(162deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	46% {
-		background: linear-gradient(165.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	47% {
-		background: linear-gradient(169.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	48% {
-		background: linear-gradient(172.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	49% {
-		background: linear-gradient(176.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	50% {
-		background: linear-gradient(180deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	51% {
-		background: linear-gradient(183.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	52% {
-		background: linear-gradient(187.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	53% {
-		background: linear-gradient(190.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	54% {
-		background: linear-gradient(194.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	55% {
-		background: linear-gradient(198deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	56% {
-		background: linear-gradient(201.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	57% {
-		background: linear-gradient(205.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	58% {
-		background: linear-gradient(208.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	59% {
-		background: linear-gradient(212.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	60% {
-		background: linear-gradient(216deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	61% {
-		background: linear-gradient(219.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	62% {
-		background: linear-gradient(223.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	63% {
-		background: linear-gradient(226.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	64% {
-		background: linear-gradient(230.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	65% {
-		background: linear-gradient(234deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	66% {
-		background: linear-gradient(237.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	67% {
-		background: linear-gradient(241.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	68% {
-		background: linear-gradient(244.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	69% {
-		background: linear-gradient(248.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	70% {
-		background: linear-gradient(252deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	71% {
-		background: linear-gradient(255.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	72% {
-		background: linear-gradient(259.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	73% {
-		background: linear-gradient(262.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	74% {
-		background: linear-gradient(266.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	75% {
-		background: linear-gradient(270deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	76% {
-		background: linear-gradient(273.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	77% {
-		background: linear-gradient(277.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	78% {
-		background: linear-gradient(280.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	79% {
-		background: linear-gradient(284.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	80% {
-		background: linear-gradient(288deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	81% {
-		background: linear-gradient(291.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	82% {
-		background: linear-gradient(295.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	83% {
-		background: linear-gradient(298.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	84% {
-		background: linear-gradient(302.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	85% {
-		background: linear-gradient(306deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	86% {
-		background: linear-gradient(309.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	87% {
-		background: linear-gradient(313.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	88% {
-		background: linear-gradient(316.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	89% {
-		background: linear-gradient(320.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	90% {
-		background: linear-gradient(324deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	91% {
-		background: linear-gradient(327.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	92% {
-		background: linear-gradient(331.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	93% {
-		background: linear-gradient(334.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	94% {
-		background: linear-gradient(338.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	95% {
-		background: linear-gradient(342deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	96% {
-		background: linear-gradient(345.6deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	97% {
-		background: linear-gradient(349.2deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	98% {
-		background: linear-gradient(352.8deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	99% {
-		background: linear-gradient(356.4deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
-	100% {
-		background: linear-gradient(360deg, rgba(60,153,111,1) 0%, rgba(179,27,158,1) 40%, rgba(217,201,51,1) 100%);
-	}
+  0% {
+    background: linear-gradient(
+      0deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  1% {
+    background: linear-gradient(
+      3.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  2% {
+    background: linear-gradient(
+      7.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  3% {
+    background: linear-gradient(
+      10.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  4% {
+    background: linear-gradient(
+      14.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  5% {
+    background: linear-gradient(
+      18deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  6% {
+    background: linear-gradient(
+      21.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  7% {
+    background: linear-gradient(
+      25.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  8% {
+    background: linear-gradient(
+      28.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  9% {
+    background: linear-gradient(
+      32.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  10% {
+    background: linear-gradient(
+      36deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  11% {
+    background: linear-gradient(
+      39.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  12% {
+    background: linear-gradient(
+      43.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  13% {
+    background: linear-gradient(
+      46.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  14% {
+    background: linear-gradient(
+      50.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  15% {
+    background: linear-gradient(
+      54deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  16% {
+    background: linear-gradient(
+      57.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  17% {
+    background: linear-gradient(
+      61.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  18% {
+    background: linear-gradient(
+      64.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  19% {
+    background: linear-gradient(
+      68.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  20% {
+    background: linear-gradient(
+      72deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  21% {
+    background: linear-gradient(
+      75.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  22% {
+    background: linear-gradient(
+      79.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  23% {
+    background: linear-gradient(
+      82.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  24% {
+    background: linear-gradient(
+      86.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  25% {
+    background: linear-gradient(
+      90deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  26% {
+    background: linear-gradient(
+      93.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  27% {
+    background: linear-gradient(
+      97.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  28% {
+    background: linear-gradient(
+      100.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  29% {
+    background: linear-gradient(
+      104.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  30% {
+    background: linear-gradient(
+      108deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  31% {
+    background: linear-gradient(
+      111.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  32% {
+    background: linear-gradient(
+      115.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  33% {
+    background: linear-gradient(
+      118.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  34% {
+    background: linear-gradient(
+      122.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  35% {
+    background: linear-gradient(
+      126deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  36% {
+    background: linear-gradient(
+      129.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  37% {
+    background: linear-gradient(
+      133.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  38% {
+    background: linear-gradient(
+      136.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  39% {
+    background: linear-gradient(
+      140.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  40% {
+    background: linear-gradient(
+      144deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  41% {
+    background: linear-gradient(
+      147.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  42% {
+    background: linear-gradient(
+      151.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  43% {
+    background: linear-gradient(
+      154.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  44% {
+    background: linear-gradient(
+      158.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  45% {
+    background: linear-gradient(
+      162deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  46% {
+    background: linear-gradient(
+      165.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  47% {
+    background: linear-gradient(
+      169.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  48% {
+    background: linear-gradient(
+      172.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  49% {
+    background: linear-gradient(
+      176.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      180deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  51% {
+    background: linear-gradient(
+      183.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  52% {
+    background: linear-gradient(
+      187.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  53% {
+    background: linear-gradient(
+      190.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  54% {
+    background: linear-gradient(
+      194.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  55% {
+    background: linear-gradient(
+      198deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  56% {
+    background: linear-gradient(
+      201.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  57% {
+    background: linear-gradient(
+      205.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  58% {
+    background: linear-gradient(
+      208.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  59% {
+    background: linear-gradient(
+      212.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  60% {
+    background: linear-gradient(
+      216deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  61% {
+    background: linear-gradient(
+      219.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  62% {
+    background: linear-gradient(
+      223.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  63% {
+    background: linear-gradient(
+      226.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  64% {
+    background: linear-gradient(
+      230.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  65% {
+    background: linear-gradient(
+      234deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  66% {
+    background: linear-gradient(
+      237.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  67% {
+    background: linear-gradient(
+      241.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  68% {
+    background: linear-gradient(
+      244.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  69% {
+    background: linear-gradient(
+      248.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  70% {
+    background: linear-gradient(
+      252deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  71% {
+    background: linear-gradient(
+      255.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  72% {
+    background: linear-gradient(
+      259.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  73% {
+    background: linear-gradient(
+      262.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  74% {
+    background: linear-gradient(
+      266.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  75% {
+    background: linear-gradient(
+      270deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  76% {
+    background: linear-gradient(
+      273.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  77% {
+    background: linear-gradient(
+      277.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  78% {
+    background: linear-gradient(
+      280.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  79% {
+    background: linear-gradient(
+      284.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  80% {
+    background: linear-gradient(
+      288deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  81% {
+    background: linear-gradient(
+      291.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  82% {
+    background: linear-gradient(
+      295.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  83% {
+    background: linear-gradient(
+      298.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  84% {
+    background: linear-gradient(
+      302.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  85% {
+    background: linear-gradient(
+      306deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  86% {
+    background: linear-gradient(
+      309.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  87% {
+    background: linear-gradient(
+      313.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  88% {
+    background: linear-gradient(
+      316.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  89% {
+    background: linear-gradient(
+      320.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  90% {
+    background: linear-gradient(
+      324deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  91% {
+    background: linear-gradient(
+      327.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  92% {
+    background: linear-gradient(
+      331.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  93% {
+    background: linear-gradient(
+      334.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  94% {
+    background: linear-gradient(
+      338.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  95% {
+    background: linear-gradient(
+      342deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  96% {
+    background: linear-gradient(
+      345.6deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  97% {
+    background: linear-gradient(
+      349.2deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  98% {
+    background: linear-gradient(
+      352.8deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  99% {
+    background: linear-gradient(
+      356.4deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      360deg,
+      rgba(60, 153, 111, 1) 0%,
+      rgba(179, 27, 158, 1) 40%,
+      rgba(217, 201, 51, 1) 100%
+    );
+  }
 }

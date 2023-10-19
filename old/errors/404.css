@@ -36,7 +36,7 @@ body {
 }
 
 .notfound .notfound-404 h1 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 230px;
   margin: 0px;
   font-weight: 900;
@@ -45,16 +45,15 @@ body {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  background: url("../assets/img/profile-img.jpg") no-repeat;
+  background: url('../assets/img/profile-img.jpg') no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: cover;
   background-position: center;
 }
 
-
 .notfound h2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #f8f8f2;
   font-size: 24px;
   font-weight: 700;
@@ -63,7 +62,7 @@ body {
 }
 
 .notfound p {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #f8f8f2;
   font-size: 14px;
   font-weight: 600;
@@ -72,7 +71,7 @@ body {
 }
 
 .notfound a {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
@@ -93,12 +92,11 @@ body {
   transform: scale(1.08);
 }
 
-
 @media only screen and (max-width: 767px) {
-    .notfound .notfound-404 {
-      height: 142px;
-    }
-    .notfound .notfound-404 h1 {
-      font-size: 112px;
-    }
+  .notfound .notfound-404 {
+    height: 142px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 112px;
+  }
 }
