@@ -13,16 +13,16 @@ const select = (el, all = false) => {
 (function replaceWebsite() {
 	const currentURL = (window.location.href).split('/')[2]
 	const regex = new RegExp('{website}', 'gi');
-	console.log('Replacing {website} with ' + currentURL + '...');
+	console.log(`Replacing {website} with ${currentURL}...`);
 	const originalHTML = document.body.innerHTML;
 	const newHTML = originalHTML.replace(regex, currentURL);
 	const numReplacements = (newHTML.match(regex) || []).length;
-	console.log('Replacement complete. ' + numReplacements + ' occurrences of {website} replaced.');
+	console.log(`Replacement complete. ${numReplacements} occurrences of {website} replaced.`);
 	if (numReplacements > 0) {
 		console.log('Replacements made in the following locations:');
 		let index = 0;
 		while (match = regex.exec(newHTML)) {
-			console.log(match.index + ': ' + match[0]);
+			console.log(`${match.index}: ${match[0]}`);
 			index = match.index + match[0].length;
 		}
 	}
