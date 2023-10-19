@@ -134,7 +134,7 @@
 			element: skilsContent,
 			offset: '80%',
 			handler(direction) {
-				let progress = select('.progress .progress-bar', true);
+				const progress = select('.progress .progress-bar', true);
 				progress.forEach((el) => {
 					el.style.width = `${el.getAttribute('aria-valuenow')}%`;
 				});
