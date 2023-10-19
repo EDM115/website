@@ -81,7 +81,6 @@ body {
   background-position: center;
 }
 
-
 .forbidden h2 {
   font-family: "Montserrat", sans-serif;
   color: #f8f8f2;
@@ -144,10 +143,10 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-    .forbidden .forbidden-403 {
-      height: 142px;
-    }
-    .forbidden .forbidden-403 h1 {
-      font-size: 112px;
-    }
+  .forbidden .forbidden-403 {
+    height: 142px;
+  }
+  .forbidden .forbidden-403 h1 {
+    font-size: 112px;
+  }
 }
