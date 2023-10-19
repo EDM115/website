@@ -32,6 +32,9 @@
 
 	/* Navbar links active state on scroll */
 	let navbarlinks = select('#navbar .scrollto', true)
+	/**
+	 * Function that adds the active class to the navbar links
+	 */
 	const navbarlinksActive = () => {
 		let position = window.scrollY + 200
 		navbarlinks.forEach(navbarlink => {
@@ -60,6 +63,9 @@
 	/* Back to top button */
 	let backtotop = select('.back-to-top')
 	if (backtotop) {
+		/**
+		 * Function that adds the active class to the back-to-top button
+		 */
 		const toggleBacktotop = () => {
 			if (window.scrollY > 100) {
 				backtotop.classList.add('active')
