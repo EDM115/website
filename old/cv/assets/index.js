@@ -108,7 +108,7 @@ function fi(e, t, n) {
     for (r in (t.ref !== void 0 && (i = t.ref),
     t.key !== void 0 && (o = "" + t.key),
     t))
-      ci.call(t, r) && !di.hasOwnProperty(r) && (l[r] = t[r]);
+      ci.call(t, r) && !Object.prototype.hasOwnProperty.call(di, r) && (l[r] = t[r]);
   var s = arguments.length - 2;
   if (s === 1) l.children = n;
   else if (1 < s) {
@@ -317,7 +317,7 @@ V.cloneElement = function (e, t, n) {
       var s = e.type.defaultProps;
     for (a in t)
       ci.call(t, a) &&
-        !di.hasOwnProperty(a) &&
+        !Object.prototype.hasOwnProperty.call(di, a) &&
         (r[a] = t[a] === void 0 && s !== void 0 ? s[a] : t[a]);
   }
   var a = arguments.length - 2;
@@ -887,7 +887,7 @@ re.xlinkHref = new fe(
   re[e] = new fe(e, 1, !1, e.toLowerCase(), null, !0, !0);
 });
 function i2(e, t, n, r) {
-  var l = re.hasOwnProperty(t) ? re[t] : null;
+  var l = Object.prototype.hasOwnProperty.call(re, t) ? re[t] : null;
   (l !== null
     ? l.type !== 0
     : r ||
@@ -1170,7 +1170,7 @@ function Fs(e) {
     n = Object.getOwnPropertyDescriptor(e.constructor.prototype, t),
     r = "" + e[t];
   if (
-    !e.hasOwnProperty(t) &&
+    !Object.prototype.hasOwnProperty.call(e, t) &&
     typeof n < "u" &&
     typeof n.get == "function" &&
     typeof n.set == "function"
@@ -1263,15 +1263,15 @@ function ml(e, t) {
     e.removeAttribute("value");
     return;
   }
-  t.hasOwnProperty("value")
+  Object.prototype.hasOwnProperty.call(t, 'value')
     ? hl(e, t.type, n)
-    : t.hasOwnProperty("defaultValue") && hl(e, t.type, mt(t.defaultValue)),
+    : Object.prototype.hasOwnProperty.call(t, 'defaultValue') && hl(e, t.type, mt(t.defaultValue)),
     t.checked == null &&
       t.defaultChecked != null &&
       (e.defaultChecked = !!t.defaultChecked);
 }
 function ro(e, t, n) {
-  if (t.hasOwnProperty("value") || t.hasOwnProperty("defaultValue")) {
+  if (Object.prototype.hasOwnProperty.call(t, 'value') || Object.prototype.hasOwnProperty.call(t, 'defaultValue')) {
     var r = t.type;
     if (
       !(
@@ -1301,7 +1301,7 @@ function Kt(e, t, n, r) {
     t = {};
     for (var l = 0; l < n.length; l++) t["$" + n[l]] = !0;
     for (n = 0; n < e.length; n++)
-      (l = t.hasOwnProperty("$" + e[n].value)),
+      (l = Object.prototype.hasOwnProperty.call(t, "$" + e[n].value)),
         e[n].selected !== l && (e[n].selected = l),
         l && r && (e[n].defaultSelected = !0);
   } else {
@@ -1456,14 +1456,14 @@ Object.keys(Bn).forEach(function (e) {
 function Mi(e, t, n) {
   return t == null || typeof t == "boolean" || t === ""
     ? ""
-    : n || typeof t != "number" || t === 0 || (Bn.hasOwnProperty(e) && Bn[e])
+    : n || typeof t != "number" || t === 0 || (Object.prototype.hasOwnProperty.call(Bn, e) && Bn[e])
     ? ("" + t).trim()
     : t + "px";
 }
 function Li(e, t) {
   e = e.style;
   for (var n in t)
-    if (t.hasOwnProperty(n)) {
+    if (Object.prototype.hasOwnProperty.call(t, n)) {
       var r = n.indexOf("--") === 0,
         l = Mi(n, t[n], r);
       n === "float" && (n = "cssFloat"), r ? e.setProperty(n, l) : (e[n] = l);
@@ -2287,7 +2287,7 @@ function xe(e) {
       (this.target = i),
       (this.currentTarget = null);
     for (var s in e)
-      e.hasOwnProperty(s) && ((n = e[s]), (this[s] = n ? n(o) : o[s]));
+      Object.prototype.hasOwnProperty.call(e, s) && ((n = e[s]), (this[s] = n ? n(o) : o[s]));
     return (
       (this.isDefaultPrevented = (
         o.defaultPrevented != null ? o.defaultPrevented : o.returnValue === !1
@@ -2867,7 +2867,7 @@ function pr(e) {
   if (!Ot[e]) return e;
   var t = Ot[e],
     n;
-  for (n in t) if (t.hasOwnProperty(n) && n in r3) return (Or[e] = t[n]);
+  for (n in t) if (Object.prototype.hasOwnProperty.call(t, n) && n in r3) return (Or[e] = t[n]);
   return e;
 }
 var l3 = pr("animationend"),
@@ -5891,33 +5891,33 @@ Y3 = function (e, t, n, r) {
     var i;
     n = null;
     for (d in l)
-      if (!r.hasOwnProperty(d) && l.hasOwnProperty(d) && l[d] != null)
+      if (!Object.prototype.hasOwnProperty.call(r, d) && Object.prototype.hasOwnProperty.call(l, d) && l[d] != null)
         if (d === "style") {
           var s = l[d];
-          for (i in s) s.hasOwnProperty(i) && (n || (n = {}), (n[i] = ""));
+          for (i in s) Object.prototype.hasOwnProperty.call(s, i) && (n || (n = {}), (n[i] = ""));
         } else
           d !== "dangerouslySetInnerHTML" &&
             d !== "children" &&
             d !== "suppressContentEditableWarning" &&
             d !== "suppressHydrationWarning" &&
             d !== "autoFocus" &&
-            (jn.hasOwnProperty(d)
+            (Object.prototype.hasOwnProperty.call(jn, d)
               ? o || (o = [])
               : (o = o || []).push(d, null));
     for (d in r) {
       var a = r[d];
       if (
         ((s = l != null ? l[d] : void 0),
-        r.hasOwnProperty(d) && a !== s && (a != null || s != null))
+        Object.prototype.hasOwnProperty.call(r, d) && a !== s && (a != null || s != null))
       )
         if (d === "style")
           if (s) {
             for (i in s)
-              !s.hasOwnProperty(i) ||
-                (a && a.hasOwnProperty(i)) ||
+              !Object.prototype.hasOwnProperty.call(s, i) ||
+                (a && Object.prototype.hasOwnProperty.call(a, i)) ||
                 (n || (n = {}), (n[i] = ""));
             for (i in a)
-              a.hasOwnProperty(i) &&
+              Object.prototype.hasOwnProperty.call(a, i) &&
                 s[i] !== a[i] &&
                 (n || (n = {}), (n[i] = a[i]));
           } else n || (o || (o = []), o.push(d, n)), (n = a);
@@ -5931,7 +5931,7 @@ Y3 = function (e, t, n, r) {
               (o = o || []).push(d, "" + a)
             : d !== "suppressContentEditableWarning" &&
               d !== "suppressHydrationWarning" &&
-              (jn.hasOwnProperty(d)
+              (Object.prototype.hasOwnProperty.call(jn, d)
                 ? (a != null && d === "onScroll" && D("scroll", e),
                   o || s === a || (o = []))
                 : (o = o || []).push(d, a));
@@ -6069,7 +6069,7 @@ function m5(e, t, n) {
           }
           gl(n, o), (l = null);
           for (var i in o)
-            if (o.hasOwnProperty(i)) {
+            if (Object.prototype.hasOwnProperty.call(o, i)) {
               var s = o[i];
               i === "children"
                 ? typeof s == "string"
@@ -6082,7 +6082,7 @@ function m5(e, t, n) {
                     (o.suppressHydrationWarning !== !0 &&
                       _1(r.textContent, s, e),
                     (l = ["children", "" + s]))
-                : jn.hasOwnProperty(i) &&
+                : Object.prototype.hasOwnProperty.call(jn, i) &&
                   s != null &&
                   i === "onScroll" &&
                   D("scroll", r);
@@ -6167,7 +6167,7 @@ function m5(e, t, n) {
             }
             gl(n, l), (s = l);
             for (o in s)
-              if (s.hasOwnProperty(o)) {
+              if (Object.prototype.hasOwnProperty.call(s, o)) {
                 var a = s[o];
                 o === "style"
                   ? Li(e, a)
@@ -6180,7 +6180,7 @@ function m5(e, t, n) {
                   : o !== "suppressContentEditableWarning" &&
                     o !== "suppressHydrationWarning" &&
                     o !== "autoFocus" &&
-                    (jn.hasOwnProperty(o)
+                    (Object.prototype.hasOwnProperty.call(jn, o)
                       ? a != null && o === "onScroll" && D("scroll", e)
                       : a != null && i2(e, o, a, i));
               }
@@ -7005,7 +7005,7 @@ function ns(e, t) {
                     : ((s = v.stateNode),
                       (a = v.memoizedProps.style),
                       (i =
-                        a != null && a.hasOwnProperty("display")
+                        a != null && Object.prototype.hasOwnProperty.call(a, 'display')
                           ? a.display
                           : null),
                       (s.style.display = Mi("display", i)));
@@ -9011,7 +9011,7 @@ function vs(e, t, n) {
   n !== void 0 && (o = "" + n),
     t.key !== void 0 && (o = "" + t.key),
     t.ref !== void 0 && (i = t.ref);
-  for (r in t) Z5.call(t, r) && !Q5.hasOwnProperty(r) && (l[r] = t[r]);
+  for (r in t) Z5.call(t, r) && !Object.prototype.hasOwnProperty.call(Q5, r) && (l[r] = t[r]);
   if (e && e.defaultProps)
     for (r in ((t = e.defaultProps), t)) l[r] === void 0 && (l[r] = t[r]);
   return {
