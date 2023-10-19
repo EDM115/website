@@ -1,5 +1,3 @@
-
-
 (function() {
 	"use strict";
 
@@ -15,7 +13,7 @@
 
 	/* Easy event listener function */
 	const on = (type, el, listener, all = false) => {
-		let selectEl = select(el, all)
+		const selectEl = select(el, all)
 		if (selectEl) {
 			if (all) {
 				selectEl.forEach(e => e.addEventListener(type, listener))
@@ -31,15 +29,15 @@
 	}
 
 	/* Navbar links active state on scroll */
-	let navbarlinks = select('#navbar .scrollto', true)
+	const navbarlinks = select('#navbar .scrollto', true)
 	/**
 	 * Function that adds the active class to the navbar links
 	 */
 	const navbarlinksActive = () => {
-		let position = window.scrollY + 200
+		const position = window.scrollY + 200
 		navbarlinks.forEach(navbarlink => {
 			if (!navbarlink.hash) return
-			let section = select(navbarlink.hash)
+			const section = select(navbarlink.hash)
 			if (!section) return
 			if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
 				navbarlink.classList.add('active')
@@ -53,7 +51,7 @@
 
 	/* Scrolls to an element with header offset */
 	const scrollto = (el) => {
-		let elementPos = select(el).offsetTop
+		const elementPos = select(el).offsetTop
 		window.scrollTo({
 			top: elementPos,
 			behavior: 'smooth'
@@ -61,7 +59,7 @@
 	}
 
 	/* Back to top button */
-	let backtotop = select('.back-to-top')
+	const backtotop = select('.back-to-top')
 	if (backtotop) {
 		/**
 		 * Function that adds the active class to the back-to-top button
@@ -85,7 +83,7 @@
 	})
 
 	/* Preloader */
-	let preloader = select('#preloader');
+	const preloader = select('#preloader');
 	if (preloader) {
 		window.addEventListener('load', () => {
 			preloader.remove()
@@ -96,10 +94,10 @@
 	on('click', '.scrollto', function(e) {
 		if (select(this.hash)) {
 			e.preventDefault()
-			let body = select('body')
+			const body = select('body')
 			if (body.classList.contains('mobile-nav-active')) {
 				body.classList.remove('mobile-nav-active')
-				let navbarToggle = select('.mobile-nav-toggle')
+				const navbarToggle = select('.mobile-nav-toggle')
 				navbarToggle.classList.toggle('bi-list')
 				navbarToggle.classList.toggle('bi-x')
 			}
@@ -119,8 +117,7 @@
 	/* Hero type effect */
 	const typed = select('.typed')
 	if (typed) {
-		let typed_strings = typed.getAttribute('data-typed-items')
-		typed_strings = typed_strings.split(',')
+		const typed_strings = typed.getAttribute('data-typed-items').split(',')
 		new Typed('.typed', {
 			strings: typed_strings,
 			loop: true,
@@ -131,13 +128,13 @@
   	}
 
 	/* Skills animation */
-	let skilsContent = select('.skills-content');
+	const skilsContent = select('.skills-content');
 	if (skilsContent) {
 		new Waypoint({
 			element: skilsContent,
 			offset: '80%',
 			handler: function(direction) {
-				let progress = select('.progress .progress-bar', true);
+				const progress = select('.progress .progress-bar', true);
 				progress.forEach((el) => {
 					el.style.width = `${el.getAttribute('aria-valuenow')}%`;
 				});
@@ -147,12 +144,12 @@
 
 	/* Porfolio isotope and filter */
 	window.addEventListener('load', () => {
-		let portfolioContainer = select('.portfolio-container');
+		const portfolioContainer = select('.portfolio-container');
 		if (portfolioContainer) {
-			let portfolioIsotope = new Isotope(portfolioContainer, {
+			const portfolioIsotope = new Isotope(portfolioContainer, {
 				itemSelector: '.portfolio-item'
 			});
-			let portfolioFilters = select('#portfolio-flters li', true);
+			const portfolioFilters = select('#portfolio-flters li', true);
 			on('click', '#portfolio-flters li', function(e) {
 				e.preventDefault();
 				portfolioFilters.forEach(el => el.classList.remove('filter-active'));
