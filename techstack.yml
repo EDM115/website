@@ -1,7 +1,8 @@
 repo_name: EDM115/website
-report_id: 602acc215c8c64e625e30ed96d6ca63f
+report_id: 8c27cfc48feceb30cd51e1e9fa5c8f82
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T12:18:06+00:00'
+timestamp: '2024-01-05T09:16:35+00:00'
 requested_by: EDM115
 provider: github
 branch: master
@@ -15,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -25,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
 - name: PHP
   description: A popular general-purpose scripting language that is especially suited
@@ -35,6 +38,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
 - name: pgvector
   description: Open-source vector similarity search for Postgres
@@ -44,6 +48,7 @@ tools:
   category: Data Stores
   sub_category: Database Tools
   image_url: https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png
+  detection_source_url: https://github.com/EDM115/website/blob/master/cv/robots.txt
   detection_source: cv/robots.txt
   last_updated_by: EDM115
   last_updated_on: 2023-07-08 13:10:22.000000000 Z
@@ -55,6 +60,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
 - name: HTML
   description: Hypertext Markup Language for creating web pages.
@@ -62,6 +68,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
+  detection_source_url: https://github.com/EDM115/website/blob/master/assets/json/particles.html
   detection_source: assets/json/particles.html
   last_updated_by: EDM115
   last_updated_on: 2022-12-05 19:52:59.000000000 Z
@@ -73,6 +80,7 @@ tools:
   category: Communications
   sub_category: Large Language Model Tools
   image_url: https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg
+  detection_source_url: https://github.com/EDM115/website/blob/master/cv/robots.txt
   detection_source: cv/robots.txt
   last_updated_by: EDM115
   last_updated_on: 2023-07-08 13:10:22.000000000 Z

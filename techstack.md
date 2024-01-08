@@ -31,7 +31,7 @@ Full tech stack [here](/techstack.md)
 
 ![](https://img.stackshare.io/repo.svg "repo") [EDM115/website](https://github.com/EDM115/website)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|7<br/>Tools used|12/14/23 <br/>Report generated|
+|7<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 
 </div>
