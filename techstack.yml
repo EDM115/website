@@ -2,11 +2,11 @@ repo_name: EDM115/website
 report_id: 8c27cfc48feceb30cd51e1e9fa5c8f82
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T09:16:35+00:00'
+timestamp: '2024-02-29T18:13:02+00:00'
 requested_by: EDM115
 provider: github
 branch: master
-detected_tools_count: 7
+detected_tools_count: 4
 tools:
 - name: CSS 3
   description: The latest evolution of the Cascading Style Sheets language
@@ -40,18 +40,6 @@ tools:
   image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
   detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
-- name: pgvector
-  description: Open-source vector similarity search for Postgres
-  website_url: https://github.com/pgvector/pgvector/
-  open_source: false
-  hosted_saas: false
-  category: Data Stores
-  sub_category: Database Tools
-  image_url: https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png
-  detection_source_url: https://github.com/EDM115/website/blob/master/cv/robots.txt
-  detection_source: cv/robots.txt
-  last_updated_by: EDM115
-  last_updated_on: 2023-07-08 13:10:22.000000000 Z
 - name: Git
   description: Fast, scalable, distributed revision control system
   website_url: http://git-scm.com/
@@ -62,25 +50,3 @@ tools:
   image_url: https://img.stackshare.io/service/1046/git.png
   detection_source_url: https://github.com/EDM115/website
   detection_source: Repo Metadata
-- name: HTML
-  description: Hypertext Markup Language for creating web pages.
-  website_url: http://
-  open_source: false
-  hosted_saas: false
-  image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
-  detection_source_url: https://github.com/EDM115/website/blob/master/assets/json/particles.html
-  detection_source: assets/json/particles.html
-  last_updated_by: EDM115
-  last_updated_on: 2022-12-05 19:52:59.000000000 Z
-- name: LangChain
-  description: Build AI apps with LLMs through composability
-  website_url: https://github.com/hwchase17/langchain
-  open_source: true
-  hosted_saas: false
-  category: Communications
-  sub_category: Large Language Model Tools
-  image_url: https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg
-  detection_source_url: https://github.com/EDM115/website/blob/master/cv/robots.txt
-  detection_source: cv/robots.txt
-  last_updated_by: EDM115
-  last_updated_on: 2023-07-08 13:10:22.000000000 Z
