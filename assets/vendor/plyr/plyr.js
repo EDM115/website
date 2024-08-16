@@ -4,8 +4,9 @@ typeof navigator === 'object' &&
       ? (module.exports = t())
       : typeof define === 'function' && define.amd
         ? define('Plyr', t)
-        : ((e = typeof globalThis !== 'undefined' ? globalThis : e || self).Plyr =
-          t())
+        : ((e =
+            typeof globalThis !== 'undefined' ? globalThis : e || self).Plyr =
+            t())
   })(this, function () {
     'use strict'
     function e (e, t, i) {
@@ -2659,7 +2660,7 @@ typeof navigator === 'object' &&
                     ? this.toggleFallback(!0)
                     : this.prefix
                       ? W(this.prefix) ||
-                  this.target[`${this.prefix}Request${this.property}`]()
+                      this.target[`${this.prefix}Request${this.property}`]()
                       : this.target.requestFullscreen({ navigationUI: 'hide' }))
         }),
         e(this, 'exit', () => {
@@ -5208,12 +5209,12 @@ typeof navigator === 'object' &&
                 ? (clearInterval(this.timers.buffering),
                   clearInterval(this.timers.playing),
                   this.embed !== null &&
-                    j(this.embed.destroy) &&
-                    this.embed.destroy(),
+                      j(this.embed.destroy) &&
+                      this.embed.destroy(),
                   i())
                 : this.isVimeo &&
-                  (this.embed !== null && this.embed.unload().then(i),
-                  setTimeout(i, 200))
+                    (this.embed !== null && this.embed.unload().then(i),
+                    setTimeout(i, 200))
           }),
           e(this, 'supports', (e) => me.mime.call(this, e)),
           (this.timers = {}),

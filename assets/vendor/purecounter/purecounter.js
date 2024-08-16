@@ -52,7 +52,7 @@
                   r === 'Map' || r === 'Set'
                     ? Array.from(e)
                     : r === 'Arguments' ||
-                      /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+                        /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
                       ? n(e, t)
                       : void 0
                 )
@@ -174,7 +174,7 @@
                             : void 0 !== r
                               ? (a = r.replace(new RegExp(/\./gi, 'gi'), n))
                               : void 0 !== o &&
-                              (a = o.replace(new RegExp(/ /gi, 'gi'), n)),
+                                (a = o.replace(new RegExp(/ /gi, 'gi'), n)),
                           void 0 !== i)
                         ) {
                           const c = u !== ',' && n !== ',' ? ',' : '.'
