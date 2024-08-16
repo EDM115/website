@@ -1,5 +1,0 @@
-Redirect 301 /ludivine.mp4 https://raw.githubusercontent.com/EDM115/website/master/ludivine.mp4
-Redirect 301 /underrated https://edm115.github.io/underrated-producers-list
-Redirect 301 /hugo https://edm115.github.io/hugo
-ErrorDocument 403 /errors/403.html
-ErrorDocument 404 /errors/404.html
