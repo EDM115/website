@@ -1,7 +1,4 @@
 .vscode
-.vscode/
-.vscode/*
-
+.well-known
 external-mods
-external-mods/
-external-mods/*
+node_modules
