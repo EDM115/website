@@ -16,13 +16,5 @@ name = "javascript"
   plugins = ["vue"]
   environment = [
     "nodejs",
-    "browser",
-    "vitest",
-    "cypress"
+    "browser"
   ]
-
-[[transformers]]
-name = "prettier"
-
-[[transformers]]
-name = "standardjs"
