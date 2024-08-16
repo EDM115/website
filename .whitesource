@@ -1,14 +1,31 @@
 {
-  "scanSettings": {
-    "baseBranches": []
-  },
   "checkRunSettings": {
-    "vulnerableCheckRunConclusionLevel": "failure",
     "displayMode": "diff",
-    "useMendCheckNames": true
+    "useMendCheckNames": true,
+    "vulnerableCheckRunConclusionLevel": "failure"
   },
   "issueSettings": {
-    "minSeverityLevel": "LOW",
-    "issueType": "DEPENDENCY"
+    "assignees": [
+      "EDM115"
+    ],
+    "customLabels": [
+      "Mend: Security"
+    ],
+    "issueType": "DEPENDENCY",
+    "minSeverityLevel": "LOW"
+  },
+  "scanSettings": {
+    "baseBranches": [
+      "master"
+    ],
+    "configMode": "AUTO",
+    "cloneSubmodules": true,
+    "exploitability": true
+  },
+  "remediateSettings": {
+    "enableRenovate": true,
+    "workflowRules": {
+      "enabled": true
+    }
   }
 }
