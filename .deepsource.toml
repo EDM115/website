@@ -1,10 +1,5 @@
 version = 1
 
-exclude_patterns = [
-  "old/cv/assets/*.js",
-  "old/cv2/assets/*.js"
-]
-
 [[analyzers]]
 name = "test-coverage"
 
@@ -21,7 +16,5 @@ name = "javascript"
   plugins = ["vue"]
   environment = [
     "nodejs",
-    "browser",
-    "vitest",
-    "cypress"
+    "browser"
   ]
