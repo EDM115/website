@@ -1,0 +1,53 @@
+name: "Lints the code with ESLint"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: "Bump Node.js to v22"
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          check-latest: true
+
+      - name: "Install dependencies"
+        run: |
+          npm ci || npm run i
+      
+      - name: "Build and lint the code"
+        run: npm run build && npm run lint-fix
+
+      - name: "Check for changes"
+        id: git-check
+        run: |
+          git diff --exit-code || echo "##[set-output name=changed;]true"
+
+      - name: "Commit changes (if any)"
+        if: steps.git-check.outputs.changed
+        run: |
+          d=`date '+%Y/%m/%dT%H:%M:%SZ'`
+          git config --local user.email ${{ secrets.GH_EMAIL }}
+          git config --local user.name ${{ secrets.GH_USERNAME }}
+          git add -A
+          git commit -m "chore: weekly lint (${d})"
+
+      - name: "Push (if changes)"
+        if: steps.git-check.outputs.changed
+        uses: "ad-m/github-push-action@v0.8.0"
+        with:
+          force: false
+          directory: '.'
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GH_TOKEN }}
