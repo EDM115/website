@@ -1,31 +1,23 @@
 <template>
   <v-app>
     <v-main>
-      <img
-        alt="Logo"
-        class="logo"
-        src="@/assets/img/profile-img.jpg"
-        width="125"
-        height="125"
-      >
+      <v-app-bar rounded>
+        <template #prepend>
+          <v-app-bar-nav-icon />
+        </template>
 
-      <div class="wrapper">
-        <RouterLink to="/">
-          Home
-        </RouterLink>
-        <RouterLink to="/about">
-          About
-        </RouterLink>
-      </div>
+        <v-app-bar-title>EDM115 ??</v-app-bar-title>
+
+        <template #append>
+          <v-btn icon="mdi-heart" />
+
+          <v-btn icon="mdi-magnify" />
+
+          <v-btn icon="mdi-dots-vertical" />
+        </template>
+      </v-app-bar>
 
       <RouterView />
     </v-main>
   </v-app>
 </template>
-
-<style scoped>
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-</style>
