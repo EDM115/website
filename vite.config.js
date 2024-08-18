@@ -1,11 +1,11 @@
-import { fileURLToPath, URL } from "node:url"
-
-import { defineConfig } from "vite"
-import Components from "unplugin-vue-components/vite"
-import Unfonts from "unplugin-fonts/vite"
-import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 import vue from "@vitejs/plugin-vue"
+import Unfonts from "unplugin-fonts/vite"
+import Components from "unplugin-vue-components/vite"
 import vueDevTools from "vite-plugin-vue-devtools"
+
+import { fileURLToPath, URL } from "node:url"
+import { defineConfig } from "vite"
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 
 export default defineConfig({
   clearScreen: false,

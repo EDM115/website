@@ -1,14 +1,14 @@
+import "@mdi/font/css/materialdesignicons.min.css"
 import "./assets/main.css"
 import "vuetify/styles"
-import "@mdi/font/css/materialdesignicons.min.css"
-
-import { createApp } from "vue"
-import { createVuetify } from "vuetify"
-import { createPinia } from "pinia"
-import { en } from "vuetify/locale"
 
 import App from "./App.vue"
 import router from "./router"
+
+import { createPinia } from "pinia"
+import { createApp } from "vue"
+import { createVuetify } from "vuetify"
+import { en } from "vuetify/locale"
 
 const app = createApp(App)
 

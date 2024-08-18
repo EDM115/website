@@ -3,10 +3,10 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 
 [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
 
-## Plan on the `redesign` branch
+## Plan
 
 - Complete redesign
-- Vue 3 + Vite + Vuetify (probably)
+- Vue 3 + Vite + Vuetify
 - Drop of Bootstrap (and most libraries)
 - Dark theme
 - Usage of the Dracula color scheme if possible
@@ -22,13 +22,13 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - Fast to load
 - Not too fancy
 - Showcase of my projects
-- B&W water filling animation
+- B&W water filling animation on load ?
 - Glow
 - Neon
 - A bunch of stuff I obviously don't handle well but just to show that "eh I can use that bro 🤓" and flex on poor souls visiting my website
 - It's 2 AM, what are you expecting here ?
 - ...
-
+- It have to act as a portfolio (showcase of my projects, my skills, my experiences, etc.) and a blog (where I can share my thoughts, my projects, etc.)
 ---
 
 ### Old stuff
