@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /assets/docs/
+Disallow: /cv/
+Disallow: /cv2/
