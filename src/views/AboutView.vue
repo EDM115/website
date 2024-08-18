@@ -1,12 +1,12 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is an about page</h1><br>
 
     <v-btn
       prepend-icon="mdi-heart"
     >
       Hey
-    </v-btn>
+    </v-btn><br>
 
     <div class="scrollable-container bg-surface-light">
       <v-pull-to-refresh
@@ -45,14 +45,15 @@ let items = ref([
 ])
 
 async function load({ done }) {
-  // Perform API call
-  console.log("loading")
   await new Promise((resolve) => setTimeout(() => resolve(), 2000))
-  items.value = Array.from({ length: 3 }, (k, v) => ({
-    title: `${v + 1}`,
-    value: v + 1
-  }))
-  console.log("load finish")
+  const length = items.value.length
+
+  for (let i = length - 1; i < length + 2; i++) {
+    items.value.push({
+      title: `${i + 2}`,
+      value: i + 2
+    })
+  }
   done("ok")
 }
 </script>
@@ -63,6 +64,8 @@ async function load({ done }) {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
