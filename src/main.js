@@ -1,5 +1,5 @@
 import "@mdi/font/css/materialdesignicons.min.css"
-import "./assets/main.css"
+import "./styles/settings.scss"
 import "vuetify/styles"
 
 import App from "./App.vue"
