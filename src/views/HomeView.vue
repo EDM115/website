@@ -1,14 +1,17 @@
 <template>
-  <main>
-    <WelcomeItem>
-      <template #icon>
-        <IconEcosystem />
-      </template>
-      <template #heading>
-        Thing
-      </template>
+  <v-app-bar rounded>
+    <template #prepend>
+      <v-app-bar-nav-icon />
+    </template>
 
-      Here we do stuff. Uhm yeah
-    </WelcomeItem>
-  </main>
+    <v-app-bar-title>EDM115 ??</v-app-bar-title>
+
+    <template #append>
+      <v-btn icon="mdi-heart" />
+
+      <v-btn icon="mdi-magnify" />
+
+      <v-btn icon="mdi-dots-vertical" />
+    </template>
+  </v-app-bar>
 </template>

@@ -20,7 +20,7 @@ app.use(createVuetify({
   },
   ssr: false,
   theme: {
-    defaultTheme: "light",
+    defaultTheme: "dark",
     themes: {
       dark: {
         colors: {
