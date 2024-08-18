@@ -2,4 +2,5 @@
 .well-known
 dist
 external-mods
+logs
 node_modules

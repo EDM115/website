@@ -29,6 +29,9 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - It's 2 AM, what are you expecting here ?
 - ...
 - It have to act as a portfolio (showcase of my projects, my skills, my experiences, etc.) and a blog (where I can share my thoughts, my projects, etc.)
+
+Have a look at [next.edm115.dev](https://next.edm115.dev) for a preview of the new website (rebuilt and updated as I can)
+
 ---
 
 ### Old stuff
