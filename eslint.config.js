@@ -4,10 +4,12 @@ import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
 
 export default [
+  {
+    ignores: [ "**/dist/*", "**/node_modules/*" ]
+  },
   js.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
   {
-    ignores: [ "**/dist/*", "**/node_modules/*" ],
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: "module",
