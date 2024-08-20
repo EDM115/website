@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="pa-4">
     <v-main>
       <v-app-bar rounded>
         <template #prepend>
