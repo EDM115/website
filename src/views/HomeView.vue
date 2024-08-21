@@ -25,7 +25,7 @@
           >
             <v-btn
               color="secondary"
-              prepend-icon="mdi-home-outline"
+              :prepend-icon="mdiHomeOutline"
               text="Home"
               variant="elevated"
             />
@@ -37,7 +37,7 @@
           >
             <v-btn
               color="secondary"
-              prepend-icon="mdi-information-outline"
+              :prepend-icon="mdiInformationOutline"
               text="About"
               variant="elevated"
             />
@@ -49,7 +49,7 @@
           >
             <v-btn
               color="secondary"
-              prepend-icon="mdi-text"
+              :prepend-icon="mdiText"
               text="Blog"
               variant="elevated"
             />
@@ -212,8 +212,8 @@
                 <v-stepper-vertical-item
                   subtitle="Summary"
                   title="EDM115"
-                  icon="mdi-account-tie-outline"
-                  edit-icon="mdi-account-tie-outline"
+                  :icon="mdiAccountTieOutline"
+                  :edit-icon="mdiAccountTieOutline"
                   value="1"
                 >
                   <v-list>
@@ -229,8 +229,8 @@
                 <v-stepper-vertical-item
                   subtitle="Education"
                   title="BUT Computer Science"
-                  icon="mdi-school-outline"
-                  edit-icon="mdi-school-outline"
+                  :icon="mdiSchoolOutline"
+                  :edit-icon="mdiSchoolOutline"
                   value="2"
                 >
                   <v-list>
@@ -247,8 +247,8 @@
                 <v-stepper-vertical-item
                   subtitle="Education"
                   title="BAC"
-                  icon="mdi-school-outline"
-                  edit-icon="mdi-school-outline"
+                  :icon="mdiSchoolOutline"
+                  :edit-icon="mdiSchoolOutline"
                   value="3"
                 >
                   <v-list>
@@ -265,8 +265,8 @@
                 <v-stepper-vertical-item
                   subtitle="Professional experience"
                   title="Internship @ Koumoul"
-                  icon="mdi-briefcase-outline"
-                  edit-icon="mdi-briefcase-outline"
+                  :icon="mdiBriefcaseOutline"
+                  :edit-icon="mdiBriefcaseOutline"
                   value="4"
                 >
                   <v-list>
@@ -286,13 +286,13 @@
           <v-btn
             class="mr-2"
             color="secondary"
-            prepend-icon="mdi-file-download"
+            :prepend-icon="mdiFileDownload"
             text="PDF"
             href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
           />
           <v-btn
             color="secondary"
-            prepend-icon="mdi-web"
+            :prepend-icon="mdiWeb"
             text="Online"
             href="/cv"
           />
@@ -386,7 +386,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-github"
+                  :icon="mdiGithub"
                   href="https://github.com/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -401,7 +401,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-telegram"
+                  :icon="mdiTelegram"
                   href="https://t.me/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -416,7 +416,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-discord"
+                  :icon="mdiDiscord"
                   href="https://discord.com/users/625240117560475658"
                   target="_blank"
                   variant="elevated"
@@ -431,7 +431,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-spotify"
+                  :icon="mdiSpotify"
                   href="https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4"
                   target="_blank"
                   variant="elevated"
@@ -446,7 +446,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-linkedin"
+                  :icon="mdiLinkedin"
                   href="https://www.linkedin.com/in/edm115/"
                   target="_blank"
                   variant="elevated"
@@ -461,7 +461,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-paypal"
+                  :icon="mdiPaypal"
                   href="https://paypal.me/8EDM115"
                   target="_blank"
                   variant="elevated"
@@ -476,7 +476,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-buymeacoffee"
+                  :icon="mdi-buymeacoffee"
                   href="https://www.buymeacoffee.com/edm115"
                   target="_blank"
                   variant="elevated"
@@ -491,7 +491,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-reddit"
+                  :icon="mdiReddit"
                   href="https://www.reddit.com/user/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -506,7 +506,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-twitter"
+                  :icon="mdiTwitter"
                   href="https://twitter.com/_EDM115"
                   target="_blank"
                   variant="elevated"
@@ -521,7 +521,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-instagram"
+                  :icon="mdiInstagram"
                   href="https://instagram.com/_edm1.15"
                   target="_blank"
                   variant="elevated"
@@ -536,7 +536,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-stack-overflow"
+                  :icon="mdiStackOverflow"
                   href="https://stackoverflow.com/users/18644204"
                   target="_blank"
                   variant="elevated"
@@ -551,7 +551,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-gitlab"
+                  :icon="mdiGitlab"
                   href="https://gitlab.com/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -566,7 +566,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-whatsapp"
+                  :icon="mdiWhatsapp"
                   href="https://api.whatsapp.com/send?phone=33667980504"
                   target="_blank"
                   variant="elevated"
@@ -581,7 +581,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-dev-to"
+                  :icon="mdiDevTo"
                   href="https://dev.to/edm115"
                   target="_blank"
                   variant="elevated"
@@ -596,7 +596,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-docker"
+                  :icon="mdiDocker"
                   href="https://hub.docker.com/u/edm115"
                   target="_blank"
                   variant="elevated"
@@ -611,7 +611,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-root-me"
+                  :icon="mdi-root-me"
                   href="https://www.root-me.org/EDM115?inc=info&lang=en"
                   target="_blank"
                   variant="elevated"
@@ -626,7 +626,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-hackthebox"
+                  :icon="mdi-hackthebox"
                   href="https://app.hackthebox.com/profile/975408"
                   target="_blank"
                   variant="elevated"
@@ -641,7 +641,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-android"
+                  :icon="mdiAndroid"
                   href="https://play.google.com/store/apps/dev?id=7941250820238177809"
                   target="_blank"
                   variant="elevated"
@@ -656,7 +656,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-spotify"
+                  :icon="mdiSpotify"
                   href="https://open.spotify.com/artist/3JUkM91cWeiEKiC7mXxClz"
                   target="_blank"
                   variant="elevated"
@@ -671,7 +671,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-apple"
+                  :icon="mdiApple"
                   href="https://music.apple.com/fr/artist/404-dj/1537587343"
                   target="_blank"
                   variant="elevated"
@@ -686,7 +686,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-soundcloud"
+                  :icon="mdiSoundcloud"
                   href="https://soundcloud.com/404dj"
                   target="_blank"
                   variant="elevated"
@@ -701,7 +701,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  icon="mdi-youtube"
+                  :icon="mdiYoutube"
                   href="https://www.youtube.com/channel/UC-Qq_oK4KjY-Csae86aLhqA"
                   target="_blank"
                   variant="elevated"
@@ -716,6 +716,36 @@
 </template>
 
 <script setup>
+import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
+import mdiAndroid from "~icons/mdi/android"
+import mdiApple from "~icons/mdi/apple"
+import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
+// import mdiBuymeacoffee from "~icons/mdi/buymeacoffee"
+import mdiDevTo from "~icons/mdi/devTo"
+import mdiDocker from "~icons/mdi/docker"
+import mdiDiscord from "~icons/mdi/discord"
+import mdiFileDownload from "~icons/mdi/fileDownload"
+import mdiGithub from "~icons/mdi/github"
+import mdiGitlab from "~icons/mdi/gitlab"
+// import mdiHackthebox from "~icons/mdi/hackthebox"
+import mdiHomeOutline from "~icons/mdi/homeOutline"
+import mdiInformationOutline from "~icons/mdi/informationOutline"
+import mdiInstagram from "~icons/mdi/instagram"
+import mdiLinkedin from "~icons/mdi/linkedin"
+import mdiPaypal from "~icons/mdi/paypal"
+import mdiReddit from "~icons/mdi/reddit"
+// import mdiRootMe from "~icons/mdi/rootMe"
+import mdiSchoolOutline from "~icons/mdi/schoolOutline"
+import mdiSoundcloud from "~icons/mdi/soundcloud"
+import mdiSpotify from "~icons/mdi/spotify"
+import mdiStackOverflow from "~icons/mdi/stackOverflow"
+import mdiTelegram from "~icons/mdi/telegram"
+import mdiText from "~icons/mdi/text"
+import mdiTwitter from "~icons/mdi/twitter"
+import mdiWeb from "~icons/mdi/web"
+import mdiWhatsapp from "~icons/mdi/whatsapp"
+import mdiYoutube from "~icons/mdi/youtube"
+
 import { ofetch } from "ofetch"
 import { onMounted, ref } from "vue"
 
@@ -728,7 +758,7 @@ const projects = ref([
     id: 1,
     name: "Unzip bot",
     description: "A Telegram bot to extract various types of archives. Supports everything, downloads from URL and file, handle password protected ones. My most advanced project so far",
-    image: "@/assets/img/projects/unzip-bot.jpg",
+    image: "src/assets/img/projects/unzip-bot.jpg",
     source: "https://github.com/EDM115/unzip-bot",
     link: "/unzip",
     linkText: "edm115.dev/unzip"
@@ -737,7 +767,7 @@ const projects = ref([
     id: 2,
     name: "CycloNantais",
     description: "The final project of CS year 1. Includes databases, graphs, stats and a JavaFX app that packs everything",
-    image: "@/assets/img/projects/nantes.png",
+    image: "src/assets/img/projects/nantes.png",
     source: "https://github.com/EDM115/SAE-Velos-Nantes",
     link: "https://github.com/EDM115/SAE-Velos-Nantes#how-to-start-",
     linkText: "How to start the app ?"
@@ -746,7 +776,7 @@ const projects = ref([
     id: 3,
     name: "Underrated producers list",
     description: "A list of underrated producers, updated every time I can. Made in collaboration with <a href=\"https://t.me/edmsamplepack\">EDM SAMPLE PACKs</a>",
-    image: "@/assets/img/projects/underrated.jpg",
+    image: "src/assets/img/projects/underrated.jpg",
     source: "https://github.com/EDM115/underrated-producers-list",
     link: "https://edm115.github.io/underrated-producers-list",
     linkText: "edm115.github.io/underrated-producers-list"
@@ -755,7 +785,7 @@ const projects = ref([
     id: 4,
     name: "Sport Track",
     description: "A web project made for an assignment. A good occasion to learn more JS and LocalStorage",
-    image: "@/assets/img/projects/sport-track.jpg",
+    image: "src/assets/img/projects/sport-track.jpg",
     source: "https://github.com/EDM115/sport-track",
     link: "/sporttrack",
     linkText: "edm115.dev/sporttrack"
@@ -764,7 +794,7 @@ const projects = ref([
     id: 5,
     name: "Uptime",
     description: "Check at any time if our services are up. Useful if this website is down",
-    image: "@/assets/img/projects/betteruptime.png",
+    image: "src/assets/img/projects/betteruptime.png",
     source: "https://betterstack.com/better-uptime",
     link: "https://up.edm115.dev",
     linkText: "up.edm115.dev"

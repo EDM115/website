@@ -6,14 +6,14 @@
           <v-app-bar-nav-icon />
         </template>
 
-        <v-app-bar-title>EDM115 ??</v-app-bar-title>
+        <v-app-bar-title>EDM115 ?? Next website preview</v-app-bar-title>
 
         <template #append>
-          <v-btn icon="mdi-heart" />
+          <v-btn :icon="mdiHeart" />
 
-          <v-btn icon="mdi-magnify" />
+          <v-btn :icon="mdiMagnify" />
 
-          <v-btn icon="mdi-dots-vertical" />
+          <v-btn :icon="mdiDotsVertical" />
         </template>
       </v-app-bar>
 
@@ -21,3 +21,9 @@
     </v-main>
   </v-app>
 </template>
+
+<script setup>
+import mdiDotsVertical from "~icons/mdi/dotsVertical"
+import mdiHeart from "~icons/mdi/heart"
+import mdiMagnify from "~icons/mdi/magnify"
+</script>

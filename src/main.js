@@ -1,4 +1,3 @@
-import "@mdi/font/css/materialdesignicons.min.css"
 import "./styles/settings.scss"
 import "vuetify/styles"
 
@@ -8,12 +7,20 @@ import router from "./router"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
 import { createVuetify } from "vuetify"
+import { aliases, mdi } from "vuetify/iconsets/mdi-svg"
 import { en } from "vuetify/locale"
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(createVuetify({
+  icons: {
+    aliases,
+    defaultSet: "mdi",
+    sets: {
+      mdi
+    }
+  },
   locale: {
     locale: "en",
     messages: { en }

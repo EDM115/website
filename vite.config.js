@@ -1,4 +1,6 @@
 import vue from "@vitejs/plugin-vue"
+import IconsResolver from "unplugin-icons/resolver"
+import Icons from "unplugin-icons/vite"
 import Unfonts from "unplugin-fonts/vite"
 import Components from "unplugin-vue-components/vite"
 import vueDevTools from "vite-plugin-vue-devtools"
@@ -23,7 +25,15 @@ export default defineConfig({
   plugins: [
     Components({
       dts: false,
+      resolvers: [
+        IconsResolver({
+          prefix: false
+        })
+      ],
       version: 3
+    }),
+    Icons({
+      compiler: "vue3"
     }),
     Unfonts({
       injectTo: "head",
