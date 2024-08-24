@@ -82,10 +82,19 @@
             Name : Lussandre Lederrey<br>
             Age : {{ age }}<br>
             City : Vannes, France<br>
-            Website : <a href="https://edm115.dev">edm115.dev</a><br>
-            Email : <a href="mailto:dev@edm115.dev">dev@edm115.dev</a><br>
+            Website : <a
+              href="https://edm115.dev"
+              target="_blank"
+            >edm115.dev</a><br>
+            Email : <a
+              href="mailto:dev@edm115.dev"
+              target="_blank"
+            >dev@edm115.dev</a><br>
             Birthday : 18th June<br>
-            Phone : <a href="tel:+33667980504">+33 6 67 98 05 04</a><br>
+            Phone : <a
+              href="tel:+33667980504"
+              target="_blank"
+            >+33 6 67 98 05 04</a><br>
             Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)<br>
           </p>
         </v-card-text>
@@ -289,12 +298,14 @@
             :prepend-icon="mdiFileDownload"
             text="PDF"
             href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+            target="_blank"
           />
           <v-btn
             color="secondary"
             :prepend-icon="mdiWeb"
             text="Online"
             href="/cv"
+            target="_blank"
           />
         </v-card-text>
       </v-card>
@@ -337,11 +348,13 @@
                     color="secondary"
                     class="mr-2"
                     text="Source code"
+                    target="_blank"
                     :href="project.source"
                   />
                   <v-btn
                     color="secondary"
                     class="mr-2"
+                    target="_blank"
                     :text="project.linkText"
                     :href="project.link"
                   />
@@ -381,7 +394,7 @@
           <p>
             <v-tooltip
               location="top"
-              text="GitHub: @EDM115"
+              text="GitHub"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -396,12 +409,12 @@
 
             <v-tooltip
               location="top"
-              text="Telegram: @EDM115"
+              text="Telegram"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiTelegram"
+                  :icon="icBaselineTelegram"
                   href="https://t.me/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -411,12 +424,12 @@
 
             <v-tooltip
               location="top"
-              text="Discord: @edm115"
+              text="Discord"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiDiscord"
+                  :icon="icBaselineDiscord"
                   href="https://discord.com/users/625240117560475658"
                   target="_blank"
                   variant="elevated"
@@ -426,7 +439,7 @@
 
             <v-tooltip
               location="top"
-              text="Spotify user profile"
+              text="Spotify"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -441,7 +454,7 @@
 
             <v-tooltip
               location="top"
-              text="LinkedIn: @EDM115"
+              text="LinkedIn"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -456,7 +469,7 @@
 
             <v-tooltip
               location="top"
-              text="PayPal: @8EDM115"
+              text="PayPal"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -471,7 +484,7 @@
 
             <v-tooltip
               location="top"
-              text="BuyMeACoffee: @EDM115"
+              text="BuyMeACoffee"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -486,7 +499,7 @@
 
             <v-tooltip
               location="top"
-              text="Reddit: @EDM115"
+              text="Reddit"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -501,13 +514,13 @@
 
             <v-tooltip
               location="top"
-              text="Twitter: @_EDM115"
+              text="𝕏"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiTwitter"
-                  href="https://twitter.com/_EDM115"
+                  :icon="pajamasTwitter"
+                  href="https://x.com/_EDM115"
                   target="_blank"
                   variant="elevated"
                 />
@@ -516,7 +529,7 @@
 
             <v-tooltip
               location="top"
-              text="Instagram: @_EDM1.15"
+              text="Instagram"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -531,7 +544,7 @@
 
             <v-tooltip
               location="top"
-              text="StackOverflow: @EDM115"
+              text="StackOverflow"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -546,12 +559,12 @@
 
             <v-tooltip
               location="top"
-              text="GitLab: @EDM115"
+              text="GitLab"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiGitlab"
+                  :icon="phGitlab"
                   href="https://gitlab.com/EDM115"
                   target="_blank"
                   variant="elevated"
@@ -561,7 +574,7 @@
 
             <v-tooltip
               location="top"
-              text="WhatsApp: +33 6 67 98 05 04"
+              text="WhatsApp"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -576,7 +589,7 @@
 
             <v-tooltip
               location="top"
-              text="Dev.to: @EDM115"
+              text="Dev.to"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -591,7 +604,7 @@
 
             <v-tooltip
               location="top"
-              text="Docker: @EDM115"
+              text="Docker Hub"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -606,7 +619,7 @@
 
             <v-tooltip
               location="top"
-              text="RootMe: @EDM115"
+              text="RootMe"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -621,7 +634,7 @@
 
             <v-tooltip
               location="top"
-              text="HackTheBox: @EDM115"
+              text="HackTheBox"
             >
               <template #activator="{ props }">
                 <v-btn
@@ -636,28 +649,13 @@
 
             <v-tooltip
               location="top"
-              text="Play Store: @EDM115"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiAndroid"
-                  href="https://play.google.com/store/apps/dev?id=7941250820238177809"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
               text="Spotify artist"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiSpotify"
-                  href="https://open.spotify.com/artist/3JUkM91cWeiEKiC7mXxClz"
+                  :icon="hugeIconsSpotify"
+                  href="https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI"
                   target="_blank"
                   variant="elevated"
                 />
@@ -671,8 +669,8 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdiApple"
-                  href="https://music.apple.com/fr/artist/404-dj/1537587343"
+                  :icon="simpleIconsAppleMusic"
+                  href="https://music.apple.com/fr/artist/edm115/1716756983"
                   target="_blank"
                   variant="elevated"
                 />
@@ -687,7 +685,7 @@
                 <v-btn
                   v-bind="props"
                   :icon="mdiSoundcloud"
-                  href="https://soundcloud.com/404dj"
+                  href="https://soundcloud.com/EDM115"
                   target="_blank"
                   variant="elevated"
                 />
@@ -696,13 +694,13 @@
 
             <v-tooltip
               location="top"
-              text="YouTube Music"
+              text="YouTube"
             >
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
                   :icon="mdiYoutube"
-                  href="https://www.youtube.com/channel/UC-Qq_oK4KjY-Csae86aLhqA"
+                  href="https://youtube.com/@_EDM115"
                   target="_blank"
                   variant="elevated"
                 />
@@ -717,16 +715,15 @@
 
 <script setup>
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
-import mdiAndroid from "~icons/mdi/android"
-import mdiApple from "~icons/mdi/apple"
+import simpleIconsAppleMusic from "~icons/simple-icons/applemusic"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
 import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import mdiDevTo from "~icons/mdi/devTo"
 import mdiDocker from "~icons/mdi/docker"
-import mdiDiscord from "~icons/mdi/discord"
+import icBaselineDiscord from "~icons/ic/baseline-discord"
 import mdiFileDownload from "~icons/mdi/fileDownload"
 import mdiGithub from "~icons/mdi/github"
-import mdiGitlab from "~icons/mdi/gitlab"
+import phGitlab from "~icons/ph/gitlab-logo"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
@@ -738,10 +735,11 @@ import simpleIconsRootme from "~icons/simple-icons/rootme"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiSoundcloud from "~icons/mdi/soundcloud"
 import mdiSpotify from "~icons/mdi/spotify"
+import hugeIconsSpotify from "~icons/hugeicons/spotify"
 import mdiStackOverflow from "~icons/mdi/stackOverflow"
-import mdiTelegram from "~icons/mdi/telegram"
+import icBaselineTelegram from "~icons/ic/baseline-telegram"
 import mdiText from "~icons/mdi/text"
-import mdiTwitter from "~icons/mdi/twitter"
+import pajamasTwitter from "~icons/pajamas/twitter"
 import mdiWeb from "~icons/mdi/web"
 import mdiWhatsapp from "~icons/mdi/whatsapp"
 import mdiYoutube from "~icons/mdi/youtube"
