@@ -12,11 +12,11 @@
   },
   "description": "EDM115's website",
   "devDependencies": {
-    "@iconify/json": "2.2.239",
+    "@iconify/json": "2.2.241",
     "@stylistic/eslint-plugin": "2.6.4",
     "@vitejs/plugin-vue": "5.1.2",
     "@vue/compiler-sfc": "3.4.38",
-    "eslint": "9.9.0",
+    "eslint": "9.9.1",
     "eslint-plugin-vue": "9.27.0",
     "js-imports-sort": "1.2.0",
     "pinia": "2.2.2",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "name": "edm115-website",
   "overrides": {
-    "eslint": "9.9.0"
+    "eslint": "9.9.1"
   },
   "private": true,
   "repository": {

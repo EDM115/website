@@ -476,7 +476,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdi-buymeacoffee"
+                  :icon="simpleIconsBuymeacoffee"
                   href="https://www.buymeacoffee.com/edm115"
                   target="_blank"
                   variant="elevated"
@@ -611,7 +611,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdi-root-me"
+                  :icon="simpleIconsRootme"
                   href="https://www.root-me.org/EDM115?inc=info&lang=en"
                   target="_blank"
                   variant="elevated"
@@ -626,7 +626,7 @@
               <template #activator="{ props }">
                 <v-btn
                   v-bind="props"
-                  :icon="mdi-hackthebox"
+                  :icon="simpleIconsHackthebox"
                   href="https://app.hackthebox.com/profile/975408"
                   target="_blank"
                   variant="elevated"
@@ -720,21 +720,21 @@ import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
 import mdiAndroid from "~icons/mdi/android"
 import mdiApple from "~icons/mdi/apple"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
-// import mdiBuymeacoffee from "~icons/mdi/buymeacoffee"
+import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import mdiDevTo from "~icons/mdi/devTo"
 import mdiDocker from "~icons/mdi/docker"
 import mdiDiscord from "~icons/mdi/discord"
 import mdiFileDownload from "~icons/mdi/fileDownload"
 import mdiGithub from "~icons/mdi/github"
 import mdiGitlab from "~icons/mdi/gitlab"
-// import mdiHackthebox from "~icons/mdi/hackthebox"
+import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiInstagram from "~icons/mdi/instagram"
 import mdiLinkedin from "~icons/mdi/linkedin"
 import mdiPaypal from "~icons/mdi/paypal"
 import mdiReddit from "~icons/mdi/reddit"
-// import mdiRootMe from "~icons/mdi/rootMe"
+import simpleIconsRootme from "~icons/simple-icons/rootme"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiSoundcloud from "~icons/mdi/soundcloud"
 import mdiSpotify from "~icons/mdi/spotify"
@@ -745,6 +745,12 @@ import mdiTwitter from "~icons/mdi/twitter"
 import mdiWeb from "~icons/mdi/web"
 import mdiWhatsapp from "~icons/mdi/whatsapp"
 import mdiYoutube from "~icons/mdi/youtube"
+
+import betteruptimePng from "@/assets/img/projects/betteruptime.png"
+import nantesPng from "@/assets/img/projects/nantes.png"
+import sportTrackJpg from "@/assets/img/projects/sport-track.jpg"
+import underratedJpg from "@/assets/img/projects/underrated.jpg"
+import unzipBotJpg from "@/assets/img/projects/unzip-bot.jpg"
 
 import { ofetch } from "ofetch"
 import { onMounted, ref } from "vue"
@@ -758,7 +764,7 @@ const projects = ref([
     id: 1,
     name: "Unzip bot",
     description: "A Telegram bot to extract various types of archives. Supports everything, downloads from URL and file, handle password protected ones. My most advanced project so far",
-    image: "src/assets/img/projects/unzip-bot.jpg",
+    image: unzipBotJpg,
     source: "https://github.com/EDM115/unzip-bot",
     link: "/unzip",
     linkText: "edm115.dev/unzip"
@@ -767,7 +773,7 @@ const projects = ref([
     id: 2,
     name: "CycloNantais",
     description: "The final project of CS year 1. Includes databases, graphs, stats and a JavaFX app that packs everything",
-    image: "src/assets/img/projects/nantes.png",
+    image: nantesPng,
     source: "https://github.com/EDM115/SAE-Velos-Nantes",
     link: "https://github.com/EDM115/SAE-Velos-Nantes#how-to-start-",
     linkText: "How to start the app ?"
@@ -776,7 +782,7 @@ const projects = ref([
     id: 3,
     name: "Underrated producers list",
     description: "A list of underrated producers, updated every time I can. Made in collaboration with <a href=\"https://t.me/edmsamplepack\">EDM SAMPLE PACKs</a>",
-    image: "src/assets/img/projects/underrated.jpg",
+    image: underratedJpg,
     source: "https://github.com/EDM115/underrated-producers-list",
     link: "https://edm115.github.io/underrated-producers-list",
     linkText: "edm115.github.io/underrated-producers-list"
@@ -785,7 +791,7 @@ const projects = ref([
     id: 4,
     name: "Sport Track",
     description: "A web project made for an assignment. A good occasion to learn more JS and LocalStorage",
-    image: "src/assets/img/projects/sport-track.jpg",
+    image: sportTrackJpg,
     source: "https://github.com/EDM115/sport-track",
     link: "/sporttrack",
     linkText: "edm115.dev/sporttrack"
@@ -794,7 +800,7 @@ const projects = ref([
     id: 5,
     name: "Uptime",
     description: "Check at any time if our services are up. Useful if this website is down",
-    image: "src/assets/img/projects/betteruptime.png",
+    image: betteruptimePng,
     source: "https://betterstack.com/better-uptime",
     link: "https://up.edm115.dev",
     linkText: "up.edm115.dev"
