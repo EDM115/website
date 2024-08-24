@@ -6,13 +6,15 @@
           <v-app-bar-nav-icon />
         </template>
 
-        <v-app-bar-title>EDM115 ?? Next website preview</v-app-bar-title>
+        <RouterLink
+          to="/"
+          class="text-decoration-none"
+          style="color: inherit;"
+        >
+          <v-app-bar-title>EDM115 ?? Next website preview</v-app-bar-title>
+        </RouterLink>
 
         <template #append>
-          <v-btn :icon="mdiHeart" />
-
-          <v-btn :icon="mdiMagnify" />
-
           <v-btn :icon="mdiDotsVertical" />
         </template>
       </v-app-bar>
@@ -24,6 +26,4 @@
 
 <script setup>
 import mdiDotsVertical from "~icons/mdi/dotsVertical"
-import mdiHeart from "~icons/mdi/heart"
-import mdiMagnify from "~icons/mdi/magnify"
 </script>

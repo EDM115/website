@@ -714,35 +714,35 @@
 </template>
 
 <script setup>
+import hugeIconsSpotify from "~icons/hugeicons/spotify"
+import icBaselineDiscord from "~icons/ic/baseline-discord"
+import icBaselineTelegram from "~icons/ic/baseline-telegram"
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
-import simpleIconsAppleMusic from "~icons/simple-icons/applemusic"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
-import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import mdiDevTo from "~icons/mdi/devTo"
 import mdiDocker from "~icons/mdi/docker"
-import icBaselineDiscord from "~icons/ic/baseline-discord"
 import mdiFileDownload from "~icons/mdi/fileDownload"
 import mdiGithub from "~icons/mdi/github"
-import phGitlab from "~icons/ph/gitlab-logo"
-import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiInstagram from "~icons/mdi/instagram"
 import mdiLinkedin from "~icons/mdi/linkedin"
 import mdiPaypal from "~icons/mdi/paypal"
 import mdiReddit from "~icons/mdi/reddit"
-import simpleIconsRootme from "~icons/simple-icons/rootme"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiSoundcloud from "~icons/mdi/soundcloud"
 import mdiSpotify from "~icons/mdi/spotify"
-import hugeIconsSpotify from "~icons/hugeicons/spotify"
 import mdiStackOverflow from "~icons/mdi/stackOverflow"
-import icBaselineTelegram from "~icons/ic/baseline-telegram"
 import mdiText from "~icons/mdi/text"
-import pajamasTwitter from "~icons/pajamas/twitter"
 import mdiWeb from "~icons/mdi/web"
 import mdiWhatsapp from "~icons/mdi/whatsapp"
 import mdiYoutube from "~icons/mdi/youtube"
+import pajamasTwitter from "~icons/pajamas/twitter"
+import phGitlab from "~icons/ph/gitlab-logo"
+import simpleIconsAppleMusic from "~icons/simple-icons/applemusic"
+import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
+import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
+import simpleIconsRootme from "~icons/simple-icons/rootme"
 
 import betteruptimePng from "@/assets/img/projects/betteruptime.png"
 import nantesPng from "@/assets/img/projects/nantes.png"
@@ -816,7 +816,7 @@ function getAge() {
 async function fetchProjectsNumber() {
   projectsNumber.value = await ofetch("https://api.github.com/users/EDM115")
     .then((data) => data.public_repos)
-    .catch((err) => {
+    .catch(() => {
       return 56
     })
 }
@@ -826,9 +826,3 @@ onMounted(async () => {
   await fetchProjectsNumber()
 })
 </script>
-
-<style scoped>
-h1, h2, h3, h4 {
-  margin-top: 1rem;
-}
-</style>
