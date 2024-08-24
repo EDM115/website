@@ -2,6 +2,9 @@ import HomeView from "../views/HomeView.vue"
 
 import { createRouter, createWebHistory } from "vue-router"
 
+const BlogView = () => import("../views/BlogView.vue")
+const ProjectsView = () => import("../views/ProjectsView.vue")
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,14 +14,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: "/about",
-      name: "about",
-      component: () => import("../views/AboutView.vue")
-    },
-    {
       path: "/blog",
       name: "blog",
-      component: () => import("../views/BlogView.vue")
+      component: BlogView
+    },
+    {
+      path: "/projects",
+      name: "projects",
+      component: ProjectsView
     }
   ]
 })

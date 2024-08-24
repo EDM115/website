@@ -1,18 +1,20 @@
 <template>
-  <h1>This is a blog page</h1><br>
+  <v-container>
+    <h1>This is a blog page</h1><br>
 
-  <v-pull-to-refresh
-    :pull-down-threshold="pullDownThreshold"
-    @load="load"
-  >
-    <v-list>
-      <v-list-item
-        v-for="item in items"
-        :key="item.value"
-        :title="item.title"
-      />
-    </v-list>
-  </v-pull-to-refresh>
+    <v-pull-to-refresh
+      :pull-down-threshold="pullDownThreshold"
+      @load="load"
+    >
+      <v-list>
+        <v-list-item
+          v-for="item in items"
+          :key="item.value"
+          :title="item.title"
+        />
+      </v-list>
+    </v-pull-to-refresh>
+  </v-container>
 </template>
 
 <script setup>

@@ -1,716 +1,718 @@
 <template>
-  <v-row
-    align="center"
-    align-content="center"
-    justify="center"
-  >
-    <v-col align="center">
-      <v-img
-        :draggable="false"
-        class="mb-4"
-        max-height="200"
-        max-width="200"
-        rounded="xl"
-        alt="EDM115 Logo"
-        src="@/assets/img/profile-img.jpg"
-      />
+  <v-container>
+    <v-row
+      align="center"
+      align-content="center"
+      justify="center"
+    >
+      <v-col align="center">
+        <v-img
+          :draggable="false"
+          class="mb-4"
+          max-height="200"
+          max-width="200"
+          rounded="xl"
+          alt="EDM115 Logo"
+          src="@/assets/img/profile-img.jpg"
+        />
 
-      <h1>EDM115</h1>
+        <h1>EDM115</h1>
 
-      <v-divider class="my-4" />
-      <v-row>
-        <v-col>
-          <RouterLink
-            to="/"
-          >
-            <v-btn
-              color="secondary"
-              :prepend-icon="mdiHomeOutline"
-              text="Home"
-              variant="elevated"
-            />
-          </RouterLink>
-        </v-col>
-        <v-col>
-          <RouterLink
-            to="/about"
-          >
-            <v-btn
-              color="secondary"
-              :prepend-icon="mdiInformationOutline"
-              text="About"
-              variant="elevated"
-            />
-          </RouterLink>
-        </v-col>
-        <v-col>
-          <RouterLink
-            to="/blog"
-          >
-            <v-btn
-              color="secondary"
-              :prepend-icon="mdiText"
-              text="Blog"
-              variant="elevated"
-            />
-          </RouterLink>
-        </v-col>
-      </v-row>
-    </v-col>
-  </v-row>
-  <v-row
-    align="center"
-    align-content="center"
-    justify="center"
-  >
-    <v-col align="center">
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>About</h2>
-        </v-card-title>
-
-        <v-card-text>
-          <p>
-            I'm a French developer, who like to play with different programming languages<br>Managing both studies, dev & relationship, I'm passionnated and involved into everything I try out<br><br>
-            Java dev • Python enthusiast • Web dev<br>
-            I mostly made things in Java, Python and HTML<br>
-            You can check all my projects on my GitHub<br>
-            Name : Lussandre Lederrey<br>
-            Age : {{ age }}<br>
-            City : Vannes, France<br>
-            Website : <a
-              href="https://edm115.dev"
-              target="_blank"
-            >edm115.dev</a><br>
-            Email : <a
-              href="mailto:dev@edm115.dev"
-              target="_blank"
-            >dev@edm115.dev</a><br>
-            Birthday : 18th June<br>
-            Phone : <a
-              href="tel:+33667980504"
-              target="_blank"
-            >+33 6 67 98 05 04</a><br>
-            Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)<br>
-          </p>
-        </v-card-text>
-      </v-card>
-
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>Stats</h2>
-        </v-card-title>
-
-        <v-card-text>
-          <p>
-            Here are some numbers about me<br>
-            Projects made : {{ projectsNumber }}<br>
-            Users of my services : {{ servicesUsers }}<br>
-            Lines of code written : {{ linesOfCode }}+<br>
-            ...
-          </p>
-        </v-card-text>
-      </v-card>
-
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>Skills</h2>
-        </v-card-title>
-
-        <v-card-text>
-          <p>
-            Here's what I master (or not)<br>
-            Python : 80%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="80"
-            /><br>
-            Java : 70%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="70"
-            /><br>
-            Git : 80%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="80"
-            /><br>
-            HTML : 85%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="85"
-            /><br>
-            CSS : 55%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="55"
-            /><br>
-            Notion : 60%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="60"
-            /><br>
-            Miro : 50%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="50"
-            /><br>
-            FL Studio : 85%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="85"
-            /><br>
-            Watch_Dogs : 100%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="100"
-            /><br>
-            Adobe softwares : 10%
-            <v-progress-circular
-              color="secondary"
-              class="ma-2"
-              model-value="10"
-            />
-          </p>
-        </v-card-text>
-      </v-card>
-
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>Resume</h2>
-        </v-card-title>
-
-        <v-card-text>
-          <p>
-            What is my path ? Discover it there<br>
-            <v-stepper-vertical
-              non-linear
-              ripple
-              multiple
-              focusable
-              editable
-              eager
-              hide-actions
+        <v-divider class="my-4" />
+        <v-row>
+          <v-col>
+            <RouterLink
+              :to="{ name: 'home' }"
             >
-              <template #default>
-                <v-stepper-vertical-item
-                  subtitle="Summary"
-                  title="EDM115"
-                  :icon="mdiAccountTieOutline"
-                  :edit-icon="mdiAccountTieOutline"
-                  value="1"
-                >
-                  <v-list>
-                    <v-list-item>
-                      <v-list-item-title>I'm a developer but I'm still studying</v-list-item-title>
-                      Vannes, France<br>
-                      <a href="mailto:dev@edm115.dev">dev@edm115.dev</a><br>
-                      <a href="tel:+33667980504">+33 6 67 98 05 04</a>
-                    </v-list-item>
-                  </v-list>
-                </v-stepper-vertical-item>
-
-                <v-stepper-vertical-item
-                  subtitle="Education"
-                  title="BUT Computer Science"
-                  :icon="mdiSchoolOutline"
-                  :edit-icon="mdiSchoolOutline"
-                  value="2"
-                >
-                  <v-list>
-                    <v-list-item>
-                      <v-list-item-title>2022 - 2025</v-list-item-title>
-                      <v-list-item-subtitle class="mb-2">
-                        IUT Vannes
-                      </v-list-item-subtitle>
-                      3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...
-                    </v-list-item>
-                  </v-list>
-                </v-stepper-vertical-item>
-
-                <v-stepper-vertical-item
-                  subtitle="Education"
-                  title="BAC"
-                  :icon="mdiSchoolOutline"
-                  :edit-icon="mdiSchoolOutline"
-                  value="3"
-                >
-                  <v-list>
-                    <v-list-item>
-                      <v-list-item-title>2019 - 2022</v-list-item-title>
-                      <v-list-item-subtitle class="mb-2">
-                        Lycée Saint-Paul, Vannes
-                      </v-list-item-subtitle>
-                      I learnt here the basics of programmation with Python and SQL
-                    </v-list-item>
-                  </v-list>
-                </v-stepper-vertical-item>
-
-                <v-stepper-vertical-item
-                  subtitle="Professional experience"
-                  title="Internship @ Koumoul"
-                  :icon="mdiBriefcaseOutline"
-                  :edit-icon="mdiBriefcaseOutline"
-                  value="4"
-                >
-                  <v-list>
-                    <v-list-item>
-                      <v-list-item-title>2024</v-list-item-title>
-                      <v-list-item-subtitle class="mb-2">
-                        Koumoul, Vannes
-                      </v-list-item-subtitle>
-                      A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...
-                    </v-list-item>
-                  </v-list>
-                </v-stepper-vertical-item>
-              </template>
-            </v-stepper-vertical>
-          </p>
-          <h3>Download my Resume</h3>
-          <v-btn
-            class="mr-2"
-            color="secondary"
-            :prepend-icon="mdiFileDownload"
-            text="PDF"
-            href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
-            target="_blank"
-          />
-          <v-btn
-            color="secondary"
-            :prepend-icon="mdiWeb"
-            text="Online"
-            href="/cv"
-            target="_blank"
-          />
-        </v-card-text>
-      </v-card>
-
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>Projects</h2>
-        </v-card-title>
-
-        <v-card-text>
-          <v-carousel
-            hide-delimiter-background
-            cycle
-            interval="8000"
-            show-arrows="hover"
-          >
-            <v-carousel-item
-              v-for="project in projects"
-              :key="project.id"
-              :src="project.image"
+              <v-btn
+                color="secondary"
+                :prepend-icon="mdiHomeOutline"
+                text="Home"
+                variant="elevated"
+              />
+            </RouterLink>
+          </v-col>
+          <v-col>
+            <RouterLink
+              :to="{ name: 'projects' }"
             >
-              <v-card
-                variant="outlined"
-                style="backdrop-filter: blur(4px);"
+              <v-btn
+                color="secondary"
+                :prepend-icon="mdiInformationOutline"
+                text="Projects"
+                variant="elevated"
+              />
+            </RouterLink>
+          </v-col>
+          <v-col>
+            <RouterLink
+              :to="{ name: 'blog' }"
+            >
+              <v-btn
+                color="secondary"
+                :prepend-icon="mdiText"
+                text="Blog"
+                variant="elevated"
+              />
+            </RouterLink>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+    <v-row
+      align="center"
+      align-content="center"
+      justify="center"
+    >
+      <v-col align="center">
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>About</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              I'm a French developer, who like to play with different programming languages<br>Managing both studies, dev & relationship, I'm passionnated and involved into everything I try out<br><br>
+              Java dev • Python enthusiast • Web dev<br>
+              I mostly made things in Java, Python and HTML<br>
+              You can check all my projects on my GitHub<br>
+              Name : Lussandre Lederrey<br>
+              Age : {{ age }}<br>
+              City : Vannes, France<br>
+              Website : <a
+                href="https://edm115.dev"
+                target="_blank"
+              >edm115.dev</a><br>
+              Email : <a
+                href="mailto:dev@edm115.dev"
+                target="_blank"
+              >dev@edm115.dev</a><br>
+              Birthday : 18th June<br>
+              Phone : <a
+                href="tel:+33667980504"
+                target="_blank"
+              >+33 6 67 98 05 04</a><br>
+              Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)<br>
+            </p>
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>Stats</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              Here are some numbers about me<br>
+              Projects made (public) : {{ projectsNumber }}<br>
+              Users of my services (has yet to be refreshed through an API) : {{ servicesUsers }}<br>
+              Lines of code written : {{ linesOfCode }}+<br>
+              ...
+            </p>
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>Skills</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              Here's what I master (or not)<br>
+              Python : 80%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="80"
+              /><br>
+              Java : 70%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="70"
+              /><br>
+              Git : 80%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="80"
+              /><br>
+              HTML : 85%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="85"
+              /><br>
+              CSS : 55%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="55"
+              /><br>
+              Notion : 60%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="60"
+              /><br>
+              Miro : 50%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="50"
+              /><br>
+              FL Studio : 85%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="85"
+              /><br>
+              Watch_Dogs : 100%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="100"
+              /><br>
+              Adobe softwares : 10%
+              <v-progress-circular
+                color="secondary"
+                class="ma-2"
+                model-value="10"
+              />
+            </p>
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>Resume</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              What is my path ? Discover it there<br>
+              <v-stepper-vertical
+                non-linear
+                ripple
+                multiple
+                focusable
+                editable
+                eager
+                hide-actions
               >
-                <v-card-title>
-                  <h3>{{ project.name }}</h3>
-                </v-card-title>
+                <template #default>
+                  <v-stepper-vertical-item
+                    subtitle="Summary"
+                    title="EDM115"
+                    :icon="mdiAccountTieOutline"
+                    :edit-icon="mdiAccountTieOutline"
+                    value="1"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>I'm a developer but I'm still studying</v-list-item-title>
+                        Vannes, France<br>
+                        <a href="mailto:dev@edm115.dev">dev@edm115.dev</a><br>
+                        <a href="tel:+33667980504">+33 6 67 98 05 04</a>
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
 
-                <v-card-text>
-                  <p>{{ project.description }}</p>
-                </v-card-text>
+                  <v-stepper-vertical-item
+                    subtitle="Education"
+                    title="BUT Computer Science"
+                    :icon="mdiSchoolOutline"
+                    :edit-icon="mdiSchoolOutline"
+                    value="2"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>2022 - 2025</v-list-item-title>
+                        <v-list-item-subtitle class="mb-2">
+                          IUT Vannes
+                        </v-list-item-subtitle>
+                        3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
 
-                <v-card-actions>
+                  <v-stepper-vertical-item
+                    subtitle="Education"
+                    title="BAC"
+                    :icon="mdiSchoolOutline"
+                    :edit-icon="mdiSchoolOutline"
+                    value="3"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>2019 - 2022</v-list-item-title>
+                        <v-list-item-subtitle class="mb-2">
+                          Lycée Saint-Paul, Vannes
+                        </v-list-item-subtitle>
+                        I learnt here the basics of programmation with Python and SQL
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
+
+                  <v-stepper-vertical-item
+                    subtitle="Professional experience"
+                    title="Internship @ Koumoul"
+                    :icon="mdiBriefcaseOutline"
+                    :edit-icon="mdiBriefcaseOutline"
+                    value="4"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>2024</v-list-item-title>
+                        <v-list-item-subtitle class="mb-2">
+                          Koumoul, Vannes
+                        </v-list-item-subtitle>
+                        A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
+                </template>
+              </v-stepper-vertical>
+            </p>
+            <h3>Download my Resume</h3>
+            <v-btn
+              class="mr-2"
+              color="secondary"
+              :prepend-icon="mdiFileDownload"
+              text="PDF"
+              href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+              target="_blank"
+            />
+            <v-btn
+              color="secondary"
+              :prepend-icon="mdiWeb"
+              text="Online"
+              href="/cv"
+              target="_blank"
+            />
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>Projects</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <v-carousel
+              hide-delimiter-background
+              cycle
+              interval="8000"
+              show-arrows="hover"
+            >
+              <v-carousel-item
+                v-for="project in projects"
+                :key="project.id"
+                :src="project.image"
+              >
+                <v-card
+                  variant="outlined"
+                  style="backdrop-filter: blur(4px) brightness(40%);"
+                >
+                  <v-card-title>
+                    <h3>{{ project.name }}</h3>
+                  </v-card-title>
+
+                  <v-card-text>
+                    <span v-html="project.description" />
+                  </v-card-text>
+
+                  <v-card-actions class="d-flex flex-column">
+                    <v-btn
+                      color="primary"
+                      class="mr-2"
+                      text="Source code"
+                      target="_blank"
+                      :href="project.source"
+                    />
+                    <v-btn
+                      color="primary"
+                      class="mr-2"
+                      target="_blank"
+                      :text="project.linkText"
+                      :href="project.link"
+                    />
+                  </v-card-actions>
+                </v-card>
+              </v-carousel-item>
+            </v-carousel>
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>Contact</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              A random aah contact form and uh yeah
+            </p>
+          </v-card-text>
+        </v-card>
+
+        <v-card
+          class="mx-auto my-4"
+          max-width="500"
+          variant="elevated"
+        >
+          <v-card-title>
+            <h2>EDM115 • Social links</h2>
+          </v-card-title>
+
+          <v-card-text>
+            <p>
+              <v-tooltip
+                location="top"
+                text="GitHub"
+              >
+                <template #activator="{ props }">
                   <v-btn
-                    color="secondary"
-                    class="mr-2"
-                    text="Source code"
+                    v-bind="props"
+                    :icon="mdiGithub"
+                    href="https://github.com/EDM115"
                     target="_blank"
-                    :href="project.source"
+                    variant="elevated"
                   />
+                </template>
+              </v-tooltip>
+
+              <v-tooltip
+                location="top"
+                text="Telegram"
+              >
+                <template #activator="{ props }">
                   <v-btn
-                    color="secondary"
-                    class="mr-2"
+                    v-bind="props"
+                    :icon="icBaselineTelegram"
+                    href="https://t.me/EDM115"
                     target="_blank"
-                    :text="project.linkText"
-                    :href="project.link"
+                    variant="elevated"
                   />
-                </v-card-actions>
-              </v-card>
-            </v-carousel-item>
-          </v-carousel>
-        </v-card-text>
-      </v-card>
+                </template>
+              </v-tooltip>
 
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>Contact</h2>
-        </v-card-title>
+              <v-tooltip
+                location="top"
+                text="Discord"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="icBaselineDiscord"
+                    href="https://discord.com/users/625240117560475658"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-        <v-card-text>
-          <p>
-            A random aah contact form and uh yeah
-          </p>
-        </v-card-text>
-      </v-card>
+              <v-tooltip
+                location="top"
+                text="Spotify"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiSpotify"
+                    href="https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-      <v-card
-        class="mx-auto my-4"
-        max-width="500"
-        variant="elevated"
-      >
-        <v-card-title>
-          <h2>EDM115 • Social links</h2>
-        </v-card-title>
+              <v-tooltip
+                location="top"
+                text="LinkedIn"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiLinkedin"
+                    href="https://www.linkedin.com/in/edm115/"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-        <v-card-text>
-          <p>
-            <v-tooltip
-              location="top"
-              text="GitHub"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiGithub"
-                  href="https://github.com/EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="PayPal"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiPaypal"
+                    href="https://paypal.me/8EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Telegram"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="icBaselineTelegram"
-                  href="https://t.me/EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="BuyMeACoffee"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="simpleIconsBuymeacoffee"
+                    href="https://www.buymeacoffee.com/edm115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Discord"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="icBaselineDiscord"
-                  href="https://discord.com/users/625240117560475658"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Reddit"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiReddit"
+                    href="https://www.reddit.com/user/EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Spotify"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiSpotify"
-                  href="https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="𝕏"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="pajamasTwitter"
+                    href="https://x.com/_EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="LinkedIn"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiLinkedin"
-                  href="https://www.linkedin.com/in/edm115/"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Instagram"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiInstagram"
+                    href="https://instagram.com/_edm1.15"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="PayPal"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiPaypal"
-                  href="https://paypal.me/8EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="StackOverflow"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiStackOverflow"
+                    href="https://stackoverflow.com/users/18644204"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="BuyMeACoffee"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="simpleIconsBuymeacoffee"
-                  href="https://www.buymeacoffee.com/edm115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="GitLab"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="phGitlab"
+                    href="https://gitlab.com/EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Reddit"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiReddit"
-                  href="https://www.reddit.com/user/EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="WhatsApp"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiWhatsapp"
+                    href="https://api.whatsapp.com/send?phone=33667980504"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="𝕏"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="pajamasTwitter"
-                  href="https://x.com/_EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Dev.to"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiDevTo"
+                    href="https://dev.to/edm115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Instagram"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiInstagram"
-                  href="https://instagram.com/_edm1.15"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Docker Hub"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiDocker"
+                    href="https://hub.docker.com/u/edm115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="StackOverflow"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiStackOverflow"
-                  href="https://stackoverflow.com/users/18644204"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="RootMe"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="simpleIconsRootme"
+                    href="https://www.root-me.org/EDM115?inc=info&lang=en"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="GitLab"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="phGitlab"
-                  href="https://gitlab.com/EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="HackTheBox"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="simpleIconsHackthebox"
+                    href="https://app.hackthebox.com/profile/975408"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="WhatsApp"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiWhatsapp"
-                  href="https://api.whatsapp.com/send?phone=33667980504"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Spotify artist"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="hugeIconsSpotify"
+                    href="https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Dev.to"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiDevTo"
-                  href="https://dev.to/edm115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="Apple Music"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="simpleIconsAppleMusic"
+                    href="https://music.apple.com/fr/artist/edm115/1716756983"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="Docker Hub"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiDocker"
-                  href="https://hub.docker.com/u/edm115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
+              <v-tooltip
+                location="top"
+                text="SoundCloud"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiSoundcloud"
+                    href="https://soundcloud.com/EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
 
-            <v-tooltip
-              location="top"
-              text="RootMe"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="simpleIconsRootme"
-                  href="https://www.root-me.org/EDM115?inc=info&lang=en"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
-              text="HackTheBox"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="simpleIconsHackthebox"
-                  href="https://app.hackthebox.com/profile/975408"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
-              text="Spotify artist"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="hugeIconsSpotify"
-                  href="https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
-              text="Apple Music"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="simpleIconsAppleMusic"
-                  href="https://music.apple.com/fr/artist/edm115/1716756983"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
-              text="SoundCloud"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiSoundcloud"
-                  href="https://soundcloud.com/EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-
-            <v-tooltip
-              location="top"
-              text="YouTube"
-            >
-              <template #activator="{ props }">
-                <v-btn
-                  v-bind="props"
-                  :icon="mdiYoutube"
-                  href="https://youtube.com/@_EDM115"
-                  target="_blank"
-                  variant="elevated"
-                />
-              </template>
-            </v-tooltip>
-          </p>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+              <v-tooltip
+                location="top"
+                text="YouTube"
+              >
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :icon="mdiYoutube"
+                    href="https://youtube.com/@_EDM115"
+                    target="_blank"
+                    variant="elevated"
+                  />
+                </template>
+              </v-tooltip>
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -761,7 +763,7 @@ const projects = ref([
   {
     id: 1,
     name: "Unzip bot",
-    description: "A Telegram bot to extract various types of archives. Supports everything, downloads from URL and file, handle password protected ones. My most advanced project so far",
+    description: "A Telegram bot to extract various types of archives.<br>Supports everything, downloads from URL and file, handle password protected ones.<br>My most advanced project so far",
     image: unzipBotJpg,
     source: "https://github.com/EDM115/unzip-bot",
     link: "/unzip",
@@ -770,7 +772,7 @@ const projects = ref([
   {
     id: 2,
     name: "CycloNantais",
-    description: "The final project of CS year 1. Includes databases, graphs, stats and a JavaFX app that packs everything",
+    description: "The final project of CS year 1.<br>Includes databases, graphs, stats and a JavaFX app that packs everything",
     image: nantesPng,
     source: "https://github.com/EDM115/SAE-Velos-Nantes",
     link: "https://github.com/EDM115/SAE-Velos-Nantes#how-to-start-",
@@ -779,7 +781,7 @@ const projects = ref([
   {
     id: 3,
     name: "Underrated producers list",
-    description: "A list of underrated producers, updated every time I can. Made in collaboration with <a href=\"https://t.me/edmsamplepack\">EDM SAMPLE PACKs</a>",
+    description: "A list of underrated producers, updated every time I can.<br>Made in collaboration with <a href=\"https://t.me/edmsamplepack\">EDM SAMPLE PACKs</a>",
     image: underratedJpg,
     source: "https://github.com/EDM115/underrated-producers-list",
     link: "https://edm115.github.io/underrated-producers-list",
@@ -788,7 +790,7 @@ const projects = ref([
   {
     id: 4,
     name: "Sport Track",
-    description: "A web project made for an assignment. A good occasion to learn more JS and LocalStorage",
+    description: "A web project made for an assignment.<br>A good occasion to learn more JS and LocalStorage",
     image: sportTrackJpg,
     source: "https://github.com/EDM115/sport-track",
     link: "/sporttrack",
@@ -797,7 +799,7 @@ const projects = ref([
   {
     id: 5,
     name: "Uptime",
-    description: "Check at any time if our services are up. Useful if this website is down",
+    description: "Check at any time if our services are up.<br>Useful if this website is down",
     image: betteruptimePng,
     source: "https://betterstack.com/better-uptime",
     link: "https://up.edm115.dev",
