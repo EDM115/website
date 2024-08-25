@@ -1,6 +1,8 @@
 import "./styles/settings.scss"
+import "aos/dist/aos.css"
 import "vuetify/styles"
 
+import AOS from "aos"
 import App from "./App.vue"
 import router from "./router"
 
@@ -12,6 +14,12 @@ import { en } from "vuetify/locale"
 
 const app = createApp(App)
 
+app.use(AOS.init({
+  duration: 1000,
+  easing: "ease-in-out",
+  once: true,
+  mirror: true
+}))
 app.use(createPinia())
 app.use(createVuetify({
   icons: {

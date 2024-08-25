@@ -24,6 +24,8 @@ export default defineConfig({
   },
   plugins: [
     Components({
+      collapseSamePrefixes: true,
+      directoryAsNamespace: true,
       dts: false,
       resolvers: [
         IconsResolver({
