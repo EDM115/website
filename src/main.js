@@ -5,14 +5,16 @@ import "vuetify/styles"
 import AOS from "aos"
 import App from "./App.vue"
 import router from "./router"
+import Vue3Autocounter from "vue3-autocounter"
 
 import { createPinia } from "pinia"
 import { createApp } from "vue"
 import { createVuetify } from "vuetify"
-import { aliases, mdi } from "vuetify/iconsets/mdi-svg"
 import { en } from "vuetify/locale"
 
 const app = createApp(App)
+
+app.component("AutoCounter", Vue3Autocounter)
 
 app.use(AOS.init({
   duration: 1000,
@@ -22,13 +24,6 @@ app.use(AOS.init({
 }))
 app.use(createPinia())
 app.use(createVuetify({
-  icons: {
-    aliases,
-    defaultSet: "mdi",
-    sets: {
-      mdi
-    }
-  },
   locale: {
     locale: "en",
     messages: { en }

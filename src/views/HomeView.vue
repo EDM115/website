@@ -117,12 +117,34 @@
             <h2>Stats</h2>
           </v-card-title>
 
-          <v-card-text>
+          <v-card-text id="statsCounters">
             <p>
               Here are some numbers about me<br>
-              Projects made (public) : {{ projectsNumber }}<br>
-              Users of my services (has yet to be refreshed through an API) : {{ servicesUsers }}<br>
-              Lines of code written : {{ linesOfCode }} (and counting...)<br>
+              Projects made (public) : <AutoCounter
+                ref="counterProjects"
+                :start-amount="0"
+                :end-amount="projectsNumber"
+                :duration="4"
+                separator=" "
+                :autoinit="false"
+              /><br>
+              Users of my services (has yet to be refreshed through an API) : <AutoCounter
+                ref="counterUsers"
+                :start-amount="0"
+                :end-amount="servicesUsers"
+                :duration="4"
+                separator=" "
+                suffix="+"
+                :autoinit="false"
+              /><br>
+              Lines of code written : <AutoCounter
+                ref="counterLoc"
+                :start-amount="0"
+                :end-amount="linesOfCode"
+                :duration="4"
+                separator=" "
+                :autoinit="false"
+              /> (and counting...)<br>
               ...
             </p>
           </v-card-text>
@@ -414,6 +436,10 @@ import { ofetch } from "ofetch"
 import { onMounted, ref } from "vue"
 
 const age = ref(20)
+const counterLoc = ref(null)
+const counterProjects = ref(null)
+const counterUsers = ref(null)
+let observer = null
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(56)
 const servicesUsers = ref(34751)
@@ -490,8 +516,24 @@ async function fetchProjectsNumber() {
     })
 }
 
+function callback(entry) {
+  if (entry[0].isIntersecting) {
+    counterLoc.value.start()
+    counterProjects.value.start()
+    counterUsers.value.start()
+    observer.unobserve(document.getElementById("statsCounters"))
+  }
+}
+
 onMounted(async () => {
   age.value = getAge()
   await fetchProjectsNumber()
+
+  observer = new IntersectionObserver(callback, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1
+  })
+  observer.observe(document.getElementById("statsCounters"))
 })
 </script>
