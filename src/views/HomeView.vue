@@ -122,7 +122,7 @@
               Here are some numbers about me<br>
               Projects made (public) : {{ projectsNumber }}<br>
               Users of my services (has yet to be refreshed through an API) : {{ servicesUsers }}<br>
-              Lines of code written : {{ linesOfCode }}+<br>
+              Lines of code written : {{ linesOfCode }} (and counting...)<br>
               ...
             </p>
           </v-card-text>
@@ -417,7 +417,62 @@ const age = ref(20)
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(56)
 const servicesUsers = ref(34751)
-const linesOfCode = ref(100000)
+
+const projectsLoc = ref({
+  // active
+
+  "ban-all-except-admins": 271,
+  "booleanfix": 364,
+  // "boubot": 4177,
+  "bulk-youtube-download": 123,
+  // "cursedChess-bot": 2658,
+  // "DiceWizard": 2741,
+  "dotfiles": 4497,
+  "EDM115": 128,
+  "website": 7757,
+  "website-v1": 137999,
+  // "edm115.fot.one / edm115.shadd.eu.org / edm115.ethar.xyz / walad.link/edm115": 384 + 3061,
+  "EDM115.github.io": 90,
+  "EDM115-discord-bot": 903,
+  "EDM115-ohmyposh-theme": 489,
+  "Grundy2": 6477,
+  "hugo": 890,
+  "jean-marie-bot": 2180,
+  "js-imports-sort": 3852,
+  "Markdown_Syntax_FR": 506,
+  "palex": 5384,
+  "school-codes": 3379,
+  "sport-track": 1582,
+  "telegram-auto-upload-folder": 199,
+  "telegram-backup-dump": 342,
+  "The-Very-Restrictive-License": 141,
+  // "ThunderBot": 2196,
+  "unzip-bot": 4683,
+  "useful-stuff": 469,
+  "web-logs": 133,
+  "school-codes-v2": 733495,
+  "IUT": 413986,
+
+  // archived
+  "bots-status": 214,
+  "drive_uploader": 1163,
+  "E5": 143,
+  "EDM115-enhanced-experience": 14338,
+  "feedback-bot": 25,
+  "HerokuBans": 17,
+  "IUT-mc-modpack": 19978,
+  "nextgen-leech": 17,
+  "portfolio": 72691,
+  "pyrogram-heroku-template": 117 + 122,
+  "sncf-wish": 86,
+  "stpaul-homepage": 201,
+  "TeleTest": 99,
+  "TextToUrl-bot": 177,
+  "underrated-producers-list": 15095,
+  "vscode-extension-test": 2750,
+  "Werewolf_Discord_bot": 70
+})
+const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => acc + cur, 0))
 
 function getAge() {
   const birthday = new Date("2004-06-18")
