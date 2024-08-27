@@ -21,7 +21,7 @@
 import { ref } from "vue"
 
 const pullDownThreshold = 64
-let items = ref([
+const items = ref([
   {
     title: "1 (Pull down to load more)",
     value: 1

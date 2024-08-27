@@ -29,6 +29,7 @@
             class="mr-2"
             text="Source"
             target="_blank"
+            rel="noopener noreferrer"
             :href="project.source"
           />
           <v-btn
@@ -36,6 +37,7 @@
             color="primary"
             class="mr-2"
             target="_blank"
+            rel="noopener noreferrer"
             :text="project.linkText"
             :href="project.link"
           />

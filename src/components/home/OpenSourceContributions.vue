@@ -54,6 +54,7 @@
               text="Link"
               :href="contrib.link"
               target="_blank"
+              rel="noopener noreferrer"
             />
           </v-stepper-vertical-item>
         </template>
@@ -95,6 +96,7 @@
               text="Link"
               :href="contrib.link"
               target="_blank"
+              rel="noopener noreferrer"
             />
           </v-stepper-vertical-item>
         </template>
@@ -118,7 +120,7 @@ const pullRequests = ref([
     name: "AlDanial/cloc",
     description: "fix: works when ran through a symlink",
     type: "pr",
-    state: "open",
+    state: "closed",
     link: "https://github.com/AlDanial/cloc/pull/850"
   },
   {
@@ -282,7 +284,7 @@ const issues = ref([
     name: "AlDanial/cloc",
     description: "[BUG] cloc won't work if ran through a symlink on Windows (ex Winget) : Can't locate PAR.pm in @INC",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/AlDanial/cloc/issues/849"
   },
   {

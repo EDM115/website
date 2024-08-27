@@ -9,6 +9,7 @@
         :icon="mdiGithub"
         href="https://github.com/EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -24,6 +25,7 @@
         :icon="icBaselineTelegram"
         href="https://t.me/EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -39,6 +41,7 @@
         :icon="icBaselineDiscord"
         href="https://discord.com/users/625240117560475658"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -54,6 +57,7 @@
         :icon="mdiSpotify"
         href="https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -69,6 +73,7 @@
         :icon="mdiLinkedin"
         href="https://www.linkedin.com/in/edm115/"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -84,6 +89,7 @@
         :icon="mdiPaypal"
         href="https://paypal.me/8EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -99,6 +105,7 @@
         :icon="simpleIconsBuymeacoffee"
         href="https://www.buymeacoffee.com/edm115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -114,6 +121,7 @@
         :icon="mdiReddit"
         href="https://www.reddit.com/user/EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -129,6 +137,7 @@
         :icon="pajamasTwitter"
         href="https://x.com/_EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -144,6 +153,7 @@
         :icon="mdiInstagram"
         href="https://instagram.com/_edm1.15"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -159,6 +169,7 @@
         :icon="mdiStackOverflow"
         href="https://stackoverflow.com/users/18644204"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -174,6 +185,7 @@
         :icon="phGitlab"
         href="https://gitlab.com/EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -189,6 +201,7 @@
         :icon="mdiWhatsapp"
         href="https://api.whatsapp.com/send?phone=33667980504"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -204,6 +217,7 @@
         :icon="mdiDevTo"
         href="https://dev.to/edm115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -219,6 +233,7 @@
         :icon="mdiDocker"
         href="https://hub.docker.com/u/edm115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -234,6 +249,7 @@
         :icon="simpleIconsRootme"
         href="https://www.root-me.org/EDM115?inc=info&lang=en"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -249,6 +265,7 @@
         :icon="simpleIconsHackthebox"
         href="https://app.hackthebox.com/profile/975408"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -264,6 +281,7 @@
         :icon="hugeIconsSpotify"
         href="https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -279,6 +297,7 @@
         :icon="simpleIconsAppleMusic"
         href="https://music.apple.com/fr/artist/edm115/1716756983"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -294,6 +313,7 @@
         :icon="mdiSoundcloud"
         href="https://soundcloud.com/EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>
@@ -309,6 +329,7 @@
         :icon="mdiYoutube"
         href="https://youtube.com/@_EDM115"
         target="_blank"
+        rel="noopener noreferrer"
         variant="elevated"
       />
     </template>

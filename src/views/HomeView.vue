@@ -89,15 +89,18 @@
               Website : <a
                 href="https://edm115.dev"
                 target="_blank"
+                rel="noopener noreferrer"
               >edm115.dev</a><br>
               Email : <a
                 href="mailto:dev@edm115.dev"
                 target="_blank"
+                rel="noopener noreferrer"
               >dev@edm115.dev</a><br>
               Birthday : 18th June<br>
               Phone : <a
                 href="tel:+33667980504"
                 target="_blank"
+                rel="noopener noreferrer"
               >+33 6 67 98 05 04</a><br>
               Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)<br>
             </p>
@@ -238,8 +241,16 @@
                       <v-list-item>
                         <v-list-item-title>I'm a developer but I'm still studying</v-list-item-title>
                         Vannes, France<br>
-                        <a href="mailto:dev@edm115.dev">dev@edm115.dev</a><br>
-                        <a href="tel:+33667980504">+33 6 67 98 05 04</a>
+                        <a
+                          href="mailto:dev@edm115.dev"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >dev@edm115.dev</a><br>
+                        <a
+                          href="tel:+33667980504"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >+33 6 67 98 05 04</a>
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
@@ -310,6 +321,7 @@
               text="PDF"
               href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
               target="_blank"
+              rel="noopener noreferrer"
             />
             <v-btn
               color="secondary"
@@ -317,6 +329,7 @@
               text="Online"
               href="/cv"
               target="_blank"
+              rel="noopener noreferrer"
             />
           </v-card-text>
         </v-card>
