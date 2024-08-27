@@ -117,6 +117,7 @@
             <h2>Stats</h2>
           </v-card-title>
 
+          <!-- We could use GSAP here : https://codepen.io/GreenSock/pen/mdXKxGL -->
           <v-card-text id="statsCounters">
             <p>
               Here are some numbers about me<br>
@@ -161,69 +162,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p>
-              Here's what I master (or not)<br>
-              Python : 80%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="80"
-              /><br>
-              Java : 70%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="70"
-              /><br>
-              Git : 80%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="80"
-              /><br>
-              HTML : 85%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="85"
-              /><br>
-              CSS : 55%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="55"
-              /><br>
-              Notion : 60%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="60"
-              /><br>
-              Miro : 50%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="50"
-              /><br>
-              FL Studio : 85%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="85"
-              /><br>
-              Watch_Dogs : 100%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="100"
-              /><br>
-              Adobe softwares : 10%
-              <v-progress-circular
-                color="secondary"
-                class="ma-2"
-                model-value="10"
-              />
-            </p>
+            <HomeSkills />
           </v-card-text>
         </v-card>
 
