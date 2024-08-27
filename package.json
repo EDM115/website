@@ -8,7 +8,7 @@
     "ofetch": "1.3.4",
     "vue": "3.4.38",
     "vue-router": "4.4.3",
-    "vuetify": "3.7.0"
+    "vuetify": "3.7.1"
   },
   "description": "EDM115's website",
   "devDependencies": {
