@@ -61,6 +61,7 @@ function callback(entries) {
       const duration = 4000
       const startTime = performance.now()
 
+      // skipcq: JS-0016
       function animate(time) {
         const elapsed = time - startTime
         const progress = Math.min(elapsed / duration, 1)
@@ -89,7 +90,7 @@ onMounted(() => {
   })
 
   for (let i = 0; i < skills.value.length; i++) {
-    observer.observe(document.getElementById("skillsCounter-" + i))
+    observer.observe(document.getElementById(`skillsCounter-${i}`))
   }
 })
 </script>
