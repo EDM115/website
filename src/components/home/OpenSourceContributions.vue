@@ -2,7 +2,7 @@
   <v-tabs
     v-model="tab"
     align-tabs="center"
-    color="secondary"
+    color="primary"
     grow
   >
     <v-tab

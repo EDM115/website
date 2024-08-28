@@ -14,7 +14,7 @@
         <v-card-text>
           <v-progress-circular
             :id="'skillsCounter-' + skill.id"
-            color="secondary"
+            color="primary"
             class="pa-4"
             :model-value="skill.displayedValue"
             :size="100"

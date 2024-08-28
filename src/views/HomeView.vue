@@ -27,7 +27,7 @@
               :to="{ name: 'home' }"
             >
               <v-btn
-                color="secondary"
+                color="primary"
                 :prepend-icon="mdiHomeOutline"
                 text="Home"
                 variant="elevated"
@@ -39,7 +39,7 @@
               :to="{ name: 'projects' }"
             >
               <v-btn
-                color="secondary"
+                color="primary"
                 :prepend-icon="mdiInformationOutline"
                 text="Projects"
                 variant="elevated"
@@ -51,7 +51,7 @@
               :to="{ name: 'blog' }"
             >
               <v-btn
-                color="secondary"
+                color="primary"
                 :prepend-icon="mdiText"
                 text="Blog"
                 variant="elevated"

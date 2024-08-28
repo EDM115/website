@@ -34,7 +34,7 @@
           />
           <v-btn
             v-if="project.link !== ''"
-            color="primary"
+            color="secondary"
             class="mr-2"
             target="_blank"
             rel="noopener noreferrer"

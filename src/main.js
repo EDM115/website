@@ -10,6 +10,7 @@ import Vue3Autocounter from "vue3-autocounter"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
 import { createVuetify } from "vuetify"
+import { aliases, mdi } from "vuetify/iconsets/mdi-svg"
 import { en } from "vuetify/locale"
 
 const app = createApp(App)
@@ -24,6 +25,11 @@ app.use(AOS.init({
 }))
 app.use(createPinia())
 app.use(createVuetify({
+  icons: {
+    aliases,
+    defaultSet: "mdi",
+    sets: { mdi }
+  },
   locale: {
     locale: "en",
     messages: { en }
@@ -34,15 +40,15 @@ app.use(createVuetify({
     themes: {
       dark: {
         colors: {
-          accent: "#53B9C8",
+          accent: "#BD93F9",
           background: "#020613",
-          error: "#EE3124",
-          info: "#53B9C8",
-          primary: "#EE3124",
-          secondary: "#2646CB",
+          error: "#FF5555",
+          info: "#8BE9FD",
+          primary: "#FFB86C",
+          secondary: "#50FA7B",
           success: "#50FA7B",
           text: "#F8F8F2",
-          warning: "#F5A249"
+          warning: "#FF79C6"
         },
         dark: true
       },
