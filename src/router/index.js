@@ -2,8 +2,29 @@ import HomeView from "../views/HomeView.vue"
 
 import { createRouter, createWebHistory } from "vue-router"
 
-const BlogView = () => import("../views/BlogView.vue")
-const ProjectsView = () => import("../views/ProjectsView.vue")
+const blogPosts = import.meta.glob("../views/blog/**/*.vue")
+
+function generateBlogRoutes() {
+  const routes = []
+
+  for (const path in blogPosts) {
+    const routePath = path
+      .replace("../views", "")
+      .replace("View.vue", "")
+      .replace(/([A-Z])/g, "-$1")
+      .toLowerCase()
+      .replace(/\/-/, "/")
+
+    routes.push({
+      path: routePath,
+      component: blogPosts[path]
+    })
+  }
+
+  console.warn(routes)
+
+  return routes
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,13 +37,14 @@ const router = createRouter({
     {
       path: "/blog",
       name: "blog",
-      component: BlogView
+      component: () => import("../views/BlogView.vue")
     },
     {
       path: "/projects",
       name: "projects",
-      component: ProjectsView
-    }
+      component: () => import("../views/ProjectsView.vue")
+    },
+    ...generateBlogRoutes()
   ]
 })
 

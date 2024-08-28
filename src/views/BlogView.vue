@@ -14,6 +14,15 @@
         />
       </v-list>
     </v-pull-to-refresh>
+
+    <v-divider class="my-4" />
+
+    <RouterLink to="/blog/2024/08/20/education-to-pro">
+      <v-btn
+        color="primary"
+        text="Education to Pro"
+      />
+    </RouterLink>
   </v-container>
 </template>
 

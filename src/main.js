@@ -11,6 +11,7 @@ console.warn = (message, ...optionalParams) => {
 
 import "./styles/settings.scss"
 import "aos/dist/aos.css"
+import "highlight.js/styles/base16/dracula.min.css"
 import "vuetify/styles"
 
 import AOS from "aos"
@@ -18,6 +19,7 @@ import App from "./App.vue"
 import router from "./router"
 import Vue3Autocounter from "vue3-autocounter"
 
+import { createHead } from "@unhead/vue"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
 import { createVuetify } from "vuetify"
@@ -25,6 +27,7 @@ import { aliases, mdi } from "vuetify/iconsets/mdi-svg"
 import { en } from "vuetify/locale"
 
 const app = createApp(App)
+const head = createHead()
 
 app.component("AutoCounter", Vue3Autocounter)
 
@@ -85,6 +88,7 @@ app.use(createVuetify({
     }
   }
 }))
+app.use(head)
 app.use(router)
 
 app.mount("#app")
