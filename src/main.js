@@ -1,3 +1,14 @@
+const originalWarn = console.warn
+
+console.warn = (message, ...optionalParams) => {
+  if (![
+    "Invalid prop: type check failed for prop \"icon\"",
+    "Invalid prop: type check failed for prop \"editIcon\""
+  ].some((warning) => message.includes(warning))) {
+    originalWarn.apply(console, [ message, ...optionalParams ])
+  }
+}
+
 import "./styles/settings.scss"
 import "aos/dist/aos.css"
 import "vuetify/styles"
@@ -41,7 +52,7 @@ app.use(createVuetify({
       dark: {
         colors: {
           accent: "#BD93F9",
-          background: "#020613",
+          background: "#00040E",
           error: "#FF5555",
           info: "#8BE9FD",
           primary: "#FFB86C",
@@ -54,18 +65,23 @@ app.use(createVuetify({
       },
       light: {
         colors: {
-          accent: "#379DAD",
-          background: "#DFDFD2",
-          error: "#EE3124",
-          info: "#379DAD",
-          primary: "#EE3124",
-          secondary: "#803EDF",
-          success: "#3CD863",
-          text: "#070B1A",
-          warning: "#FFB86C"
+          accent: "#BD93F9",
+          background: "#DBDBCC",
+          error: "#FF5555",
+          info: "#8BE9FD",
+          primary: "#FFB86C",
+          secondary: "#50FA7B",
+          success: "#50FA7B",
+          text: "#00040E",
+          warning: "#FF79C6"
         },
         dark: false
       }
+    },
+    variations: {
+      colors: [ "accent", "background", "error", "info", "primary", "secondary", "success", "text", "warning" ],
+      darken: 3,
+      lighten: 3
     }
   }
 }))

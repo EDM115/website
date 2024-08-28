@@ -15,7 +15,11 @@
         </RouterLink>
 
         <template #append>
-          <v-btn :icon="mdiDotsVertical" />
+          <v-btn
+            class="spin-animation"
+            :icon="iconTheme"
+            @click="toggleTheme"
+          />
         </template>
       </v-app-bar>
 
@@ -36,7 +40,28 @@
 </template>
 
 <script setup>
-import mdiDotsVertical from "~icons/mdi/dotsVertical"
+import mdiWeatherNight from "~icons/mdi/weatherNight"
+import mdiWeatherSunny from "~icons/mdi/weatherSunny"
+import useMainStore from "@/stores/main"
+
+import { computed, onMounted, ref } from "vue"
+import { useTheme } from "vuetify"
+
+const store = useMainStore()
+const theme = ref(store.getTheme)
+const vuetifyTheme = useTheme()
+const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
+
+function toggleTheme() {
+  theme.value = theme.value === "dark" ? "light" : "dark"
+  store.setTheme(theme.value)
+  vuetifyTheme.global.name.value = theme.value
+}
+
+onMounted(() => {
+  store.setTheme(store.getTheme)
+  vuetifyTheme.global.name.value = store.getTheme
+})
 </script>
 
 <style>
@@ -50,5 +75,18 @@ import mdiDotsVertical from "~icons/mdi/dotsVertical"
   filter: blur(0.5rem);
   opacity: 0;
   transform: translateY(-20px);
+}
+
+.spin-animation:active {
+  animation: spin 1s ease-in-out 0s 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
 }
 </style>
