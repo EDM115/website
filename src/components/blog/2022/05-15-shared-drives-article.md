@@ -17,6 +17,7 @@ https://dev.to/edm115/google-ending-edu-shared-drives-everything-you-need-to-kno
 <br>
 
 ## As you may know, Google is ending their Edu shared drive plan. On this article, we are going to see why, what would be the consequences for you and which solutions you may use
+![Google Shared Drives](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3wwwwz500b4rgymg1wrd.png)
 <br>
 
 ### 1) Is it serious ?
