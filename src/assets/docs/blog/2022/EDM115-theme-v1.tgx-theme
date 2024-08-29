@@ -1,0 +1,47 @@
+!
+name: "EDM115’s theme"
+time: 1645394137
+author: "EDM115"
+@
+bubbleUnreadShadow: 1
+lightStatusBar: 0
+parentTheme: 2
+#
+attachContact, attachFile, attachInlineBot, attachLocation, attachPhoto, avatarArchive, avatarArchivePinned, avatarReplies, avatarReplies_big, avatarSavedMessages, avatarSavedMessages_big, badge, bubbleOut_file, bubbleOut_waveformActive, checkActive, controlActive, file, fileAttach, fileGreen, fileRed, fileYellow, iconActive, inlineOutline, inputActive, playerCoverIcon, progress, promo, seekDone, sliderActive, togglerActive, togglerPositive, waveformActive: #FF5700
+background_icon, controlInactive, icon: #CDCDCD
+badgeFailed: #FF0505
+badgeFailedText, circleButtonNewChatIcon, circleButtonNewGroupIcon, circleButtonNewSecretIcon, fillingPositiveContent: #000
+badgeMuted: #B1B1B1
+badgeText: #FFFEFE
+bubbleOut_chatNegativeFilling, fillingNegative, headerRemoveBackground, inputNegative, messageNegativeLine, playerButton, playerButtonActive: #F00
+bubbleOut_waveformInactive, togglerInactive: #FFF
+chatListIcon, chatListMute, iconLight: #6783A3
+chatListVerify: #00B7FF
+chatSendButton, ticks: #23FF00
+circleButtonChat, circleButtonOverlay: #353535C8
+circleButtonNegative: #FF0016
+circleButtonNewChannel: #3600FF
+circleButtonNewChat: #E5FF00
+circleButtonNewGroup: #FF02D4
+circleButtonNewSecret: #08FF17
+circleButtonPositive: #24FF03
+circleButtonRegular, circleButtonTheme: #1E1E1EC8
+fillingPositive: #16FFE0
+iconNegative: #FF0900
+iconPositive: #05FF1B
+inputPositive: #00FF0D
+iv_textLink: #999
+iv_textLinkPressHighlight: #98989840
+messageVerticalLine: #A8A2A2
+notificationSecure: #40FF4B
+online: #03FF17
+seekReady: #BCBCBC9D
+textLink: #908E8E
+textLinkPressHighlight: #91909040
+textNegative: #FF0005
+textSecure: #4EFF59
+textSelectionHighlight: #FFFFFF6C
+togglerInactiveBackground, togglerPositiveBackground: #505050
+togglerNegative: #FF0600
+togglerPositiveContent: #04FFFC
+waveformInactive: #CFC9C9

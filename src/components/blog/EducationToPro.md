@@ -17,7 +17,7 @@ The PC has to have an admin session. If you don't, try to find how to make yours
 <br>
 
 ## Step 1 : The migration
-01. Create a new local account and make it admin. Go on Settings => Accounts => Other users and add one. Make sure it's a local account, decline as much any Microsoft related info.
+01. Create a new local account and make it admin. Go on Settings => Accounts => Other users and add one. Make sure it's a local account, decline as much as possible any Microsoft related info.
 02. Write somewhere all the apps that are installed. Some of them are system-wide but some may be just for the current user.
 03. Zip every important folder. Documents, Downloads, Images, ... I also like to zip the Appdata folder just in case.
 04. Open a cmd and type `echo %COMPUTERNAME%`. Write this somewhere ! Also your current account is very probably a cloud account, so open the settings and write down the email shown at the top under your username. If it doesn't show up, go on Settings => Accounts => Professional or School access and it should be there. If you close the session by mistake, this email will be the username to enter.
@@ -53,7 +53,7 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments" /f
 <br>
 
 08. Restart the PC. You should now be able to login with just the username and without specifying the PC name. Open a cmd as admin and run `DSREGCMD /debug /leave` and then `DSREGCMD /debug /cleanupaccounts`. This will do its best to leave linked organizations.
-09. Do `Win + R`, `regedit`, and click on `HKEY_CURRENT_USER` (so the search will start from here. click again on this when ding another search). You will now have to search for anything related to "Intune", "Enrollment" or the domain part of your school email that you noted prior (ex if it was `pc123456@school.country.com`, search for `school.country.com`). Delete the keys found (use common sense tho) to remove the last bits of organization links. You can backup the registry before if you think you will mess this up.
+09. Do `Win + R`, `regedit`, and click on `HKEY_CURRENT_USER` (so the search will start from here. click again on this when doing another search). You will now have to search for anything related to "Intune", "Enrollment" or the domain part of your school email that you noted prior (ex if it was `pc123456@school.country.com`, search for `school.country.com`). Delete the keys found (use common sense tho) to remove the last bits of organization links. You can backup the registry before if you think you will mess this up.
 <br>
 
 ## Step 3 : Final touches and quick remarks
