@@ -44,6 +44,7 @@ import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import useMainStore from "@/stores/main"
 
+import { useHead } from "@unhead/vue"
 import { computed, onMounted, ref } from "vue"
 import { useTheme } from "vuetify"
 
@@ -57,6 +58,10 @@ function toggleTheme() {
   store.setTheme(theme.value)
   vuetifyTheme.global.name.value = theme.value
 }
+
+useHead({
+  title: "EDM115 - French dev/student/gamer/music producer"
+})
 
 onMounted(() => {
   store.setTheme(store.getTheme)

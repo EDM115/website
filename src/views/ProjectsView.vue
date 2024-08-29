@@ -69,3 +69,11 @@
     </v-row>
   </v-container>
 </template>
+
+<script setup>
+import { useHead } from "@unhead/vue"
+
+useHead({
+  title: "Projects - EDM115"
+})
+</script>

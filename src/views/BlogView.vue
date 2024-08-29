@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import { useHead } from "@unhead/vue"
 import { ref } from "vue"
 
 const pullDownThreshold = 64
@@ -70,4 +71,8 @@ async function load({ done }) {
   }
   done("ok")
 }
+
+useHead({
+  title: "Blog - EDM115"
+})
 </script>

@@ -17,7 +17,6 @@ import "vuetify/styles"
 import AOS from "aos"
 import App from "./App.vue"
 import router from "./router"
-import Vue3Autocounter from "vue3-autocounter"
 
 import { createHead } from "@unhead/vue"
 import { createPinia } from "pinia"
@@ -28,8 +27,6 @@ import { en } from "vuetify/locale"
 
 const app = createApp(App)
 const head = createHead()
-
-app.component("AutoCounter", Vue3Autocounter)
 
 app.use(AOS.init({
   duration: 1000,

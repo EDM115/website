@@ -21,8 +21,6 @@ function generateBlogRoutes() {
     })
   }
 
-  console.warn(routes)
-
   return routes
 }
 
