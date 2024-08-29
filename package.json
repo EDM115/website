@@ -14,7 +14,7 @@
   "description": "EDM115's website",
   "devDependencies": {
     "@iconify/json": "2.2.242",
-    "@stylistic/eslint-plugin": "2.6.5",
+    "@stylistic/eslint-plugin": "2.7.1",
     "@unhead/vue": "1.10.0",
     "@vitejs/plugin-vue": "5.1.2",
     "@vue/compiler-sfc": "3.4.38",
