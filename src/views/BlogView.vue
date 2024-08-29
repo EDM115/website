@@ -17,10 +17,23 @@
 
     <v-divider class="my-4" />
 
-    <RouterLink to="/blog/2024/08/20/education-to-pro">
+    <RouterLink
+      class="ma-2"
+      to="/blog/2024/08/20/education-to-pro"
+    >
       <v-btn
         color="primary"
         text="Education to Pro"
+      />
+    </RouterLink>
+
+    <RouterLink
+      class="ma-2"
+      to="/blog/2022/05/15/google-ending-shared-drives"
+    >
+      <v-btn
+        color="primary"
+        text="Google ending Shared Drives"
       />
     </RouterLink>
   </v-container>
