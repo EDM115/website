@@ -18,6 +18,8 @@ import AOS from "aos"
 import App from "./App.vue"
 import router from "./router"
 
+import { GesturePlugin } from "@vueuse/gesture"
+import { MotionPlugin } from "@vueuse/motion"
 import { createHead } from "@unhead/vue"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
@@ -85,7 +87,9 @@ app.use(createVuetify({
     }
   }
 }))
+app.use(GesturePlugin)
 app.use(head)
+app.use(MotionPlugin)
 app.use(router)
 
 app.mount("#app")
