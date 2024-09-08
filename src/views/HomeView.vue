@@ -251,7 +251,7 @@
               color="secondary"
               :prepend-icon="mdiFileDownload"
               text="PDF"
-              href="@/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+              href="https://edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
               target="_blank"
               rel="noopener noreferrer"
             />
@@ -259,7 +259,7 @@
               color="secondary"
               :prepend-icon="mdiWeb"
               text="Online"
-              href="/cv"
+              href="https://edm115.dev/cv"
               target="_blank"
               rel="noopener noreferrer"
             />
