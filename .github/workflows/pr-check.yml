@@ -1,0 +1,36 @@
+name: Ensures the PR doesn't break the build
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - unlocked
+  workflow_dispatch:
+
+jobs:
+  pr-check:
+    name: "PR Check"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: "Bump Node.js to v22"
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          check-latest: true
+
+      - name: "Install dependencies"
+        run: |
+          npm ci || npm run i
+
+      - name: "Build the code"
+        run: npm run build
