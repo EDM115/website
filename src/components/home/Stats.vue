@@ -123,7 +123,7 @@ async function fetchProjectsNumber() {
 
 function animateDigits(statId, value) {
   const digitArray = String(value).split("")
-  const maxTime = 10
+  const maxTime = 8
 
   const animTl = gsap.timeline({ defaults: { ease: "none" }, repeat: 0, paused: true })
 
@@ -131,8 +131,8 @@ function animateDigits(statId, value) {
     const totalDigits = digitArray.length
     const distance = 800
     const id = `#n${statId}-${totalDigits - index - 1}`
-    const repeat = Math.pow(2, index * (parseInt(digit) + 1)) - 1
-    const duration = maxTime / (repeat + 1)
+    const duration = (index === 0 ? maxTime : maxTime / ((2 ** index) * 2))
+    const repeat = (index === 0 ? 0 : ((2 ** index) * 2) - 1)
 
     animTl.to(id, { y: `-=${-distance + (distance + (digit * 80))}`, repeat, duration }, "p1")
   })
