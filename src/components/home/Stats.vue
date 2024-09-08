@@ -130,8 +130,8 @@ function animateDigits(statId, value) {
   digitArray.forEach((digit, index) => {
     const totalDigits = digitArray.length
     const distance = 800
-    const id = `#n${statId}-${index}`
-    const repeat = Math.pow(2, ((totalDigits - index - 1)) * (parseInt(digit) + 1)) - 1
+    const id = `#n${statId}-${totalDigits - index - 1}`
+    const repeat = Math.pow(2, index * (parseInt(digit) + 1)) - 1
     const duration = maxTime / (repeat + 1)
 
     animTl.to(id, { y: `-=${-distance + (distance + (digit * 80))}`, repeat, duration }, "p1")

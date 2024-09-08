@@ -188,6 +188,24 @@
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
+                    subtitle="Professional experience"
+                    title="Internship @ Koumoul"
+                    :icon="mdiBriefcaseOutline"
+                    :edit-icon="mdiBriefcaseOutline"
+                    value="4"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>2024</v-list-item-title>
+                        <v-list-item-subtitle class="mb-2">
+                          Koumoul, Vannes
+                        </v-list-item-subtitle>
+                        A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
+
+                  <v-stepper-vertical-item
                     subtitle="Education"
                     title="BUT Computer Science"
                     :icon="mdiSchoolOutline"
@@ -219,24 +237,6 @@
                           Lycée Saint-Paul, Vannes
                         </v-list-item-subtitle>
                         I learnt here the basics of programmation with Python and SQL
-                      </v-list-item>
-                    </v-list>
-                  </v-stepper-vertical-item>
-
-                  <v-stepper-vertical-item
-                    subtitle="Professional experience"
-                    title="Internship @ Koumoul"
-                    :icon="mdiBriefcaseOutline"
-                    :edit-icon="mdiBriefcaseOutline"
-                    value="4"
-                  >
-                    <v-list>
-                      <v-list-item>
-                        <v-list-item-title>2024</v-list-item-title>
-                        <v-list-item-subtitle class="mb-2">
-                          Koumoul, Vannes
-                        </v-list-item-subtitle>
-                        A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
