@@ -34,3 +34,6 @@ jobs:
 
       - name: "Build the code"
         run: npm run build
+
+      - name: "Lint check"
+        run: npm run lint
