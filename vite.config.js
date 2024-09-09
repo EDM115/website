@@ -9,6 +9,7 @@ import Components from "unplugin-vue-components/vite"
 import vueDevTools from "vite-plugin-vue-devtools"
 import Markdown from "unplugin-vue-markdown/vite"
 
+import { MagicRegExpTransformPlugin } from "magic-regexp/transform"
 import { full as emoji } from "markdown-it-emoji"
 import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
@@ -76,6 +77,7 @@ export default defineConfig({
         md.use(mditAttrs)
       }
     }),
+    MagicRegExpTransformPlugin.vite(),
     Components({
       collapseSamePrefixes: true,
       directoryAsNamespace: true,
