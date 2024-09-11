@@ -34,23 +34,26 @@
         persistent
         max-width="350"
       >
-        <v-card class="d-flex justify-center text-center">
-          <v-card-title class="headline">
-            In development
-          </v-card-title>
-          <v-card-text>
-            This website is still in heavy development and some areas aren't ready yet.
-          </v-card-text>
-          <v-card-actions class="d-flex justify-center">
+        <v-card
+          color="error"
+          class="d-flex align-center"
+        >
+          <v-alert
+            :icon="lucideConstruction"
+            color="error"
+            title="In development"
+            text="This website is still in heavy development and some areas aren't ready yet."
+          />
+          <v-card-actions>
             <v-btn
-              color="primary"
+              color="text"
               text="Visit the old website"
               href="https://old.edm115.dev"
               target="_blank"
               rel="noopener noreferrer"
             />
             <v-btn
-              color="primary"
+              color="text"
               text="Close"
               @click="toggleDialog"
             />
@@ -75,6 +78,7 @@
 </template>
 
 <script setup>
+import lucideConstruction from "~icons/lucide/construction"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
