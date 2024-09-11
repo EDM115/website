@@ -46,4 +46,24 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.path.endsWith(".html")) {
+    next({ path: to.path.replace(".html", "") })
+  }
+
+  const blogRoutes = generateBlogRoutes().map((route) => route.path)
+
+  if (to.path.startsWith("/blog/") && !blogRoutes.includes(to.path)) {
+    next({ name: "home" })
+  } else {
+    const routeExists = router.getRoutes().some((route) => route.path === to.path)
+
+    if (routeExists) {
+      next()
+    } else {
+      next({ name: "home" })
+    }
+  }
+})
+
 export default router

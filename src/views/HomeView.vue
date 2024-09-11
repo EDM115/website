@@ -58,6 +58,17 @@
               />
             </RouterLink>
           </v-col>
+          <v-col>
+            <v-btn
+              color="primary"
+              :prepend-icon="mdiLink"
+              text="Old website"
+              variant="elevated"
+              href="https://old.edm115.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          </v-col>
         </v-row>
       </v-col>
     </v-row>
@@ -251,7 +262,7 @@
               color="secondary"
               :prepend-icon="mdiFileDownload"
               text="PDF"
-              href="https://edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+              href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
               target="_blank"
               rel="noopener noreferrer"
             />
@@ -259,7 +270,7 @@
               color="secondary"
               :prepend-icon="mdiWeb"
               text="Online"
-              href="https://edm115.dev/cv"
+              href="https://old.edm115.dev/cv"
               target="_blank"
               rel="noopener noreferrer"
             />
@@ -307,9 +318,28 @@
           </v-card-title>
 
           <v-card-text>
-            <p>
-              A random aah contact form and uh yeah
+            <p class="mb-4">
+              Not ready yet. Email and phone number available upper, and social links below<br><br>
+              If you reached this far, congratulations.<br>
+              Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit<br>
             </p>
+            <v-btn
+              class="mr-2"
+              color="secondary"
+              :prepend-icon="mdiLink"
+              text="Old"
+              href="https://old.edm115.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <v-btn
+              color="secondary"
+              :prepend-icon="mdiLink"
+              text="Live"
+              href="https://edm115.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
           </v-card-text>
         </v-card>
 
@@ -338,6 +368,7 @@ import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
 import mdiFileDownload from "~icons/mdi/fileDownload"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
+import mdiLink from "~icons/mdi/link"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiText from "~icons/mdi/text"
 import mdiWeb from "~icons/mdi/web"

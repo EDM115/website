@@ -38,8 +38,8 @@
           <v-stepper-vertical-item
             v-for="contrib in pullRequests"
             :key="contrib.id"
-            :icon="contrib.icon"
-            :edit-icon="contrib.icon"
+            :icon="contrib.state === 'open' ? contrib.icon : octiconPullRequestMerged"
+            :edit-icon="contrib.state === 'open' ? contrib.icon : octiconPullRequestMerged"
             :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
@@ -80,8 +80,8 @@
           <v-stepper-vertical-item
             v-for="contrib in issues"
             :key="contrib.id"
-            :icon="contrib.icon"
-            :edit-icon="contrib.icon"
+            :icon="contrib.state === 'open' ? contrib.icon : octiconIssueClosed"
+            :edit-icon="contrib.state === 'open' ? contrib.icon : octiconIssueClosed"
             :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
@@ -109,11 +109,21 @@
 import octiconIssueClosed from "~icons/octicon/issue-closed-16"
 import octiconIssueOpened from "~icons/octicon/issue-opened-16"
 import octiconPullRequest from "~icons/octicon/git-pull-request-16"
+import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
 
 import { ref } from "vue"
 
 const tab = ref(1)
 const pullRequests = ref([
+  {
+    id: 18,
+    icon: octiconPullRequest,
+    name: "imputnet/cobalt",
+    description: "web/i18n: added complete french translation",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/imputnet/cobalt/pull/726"
+  },
   {
     id: 17,
     icon: octiconPullRequest,
@@ -270,6 +280,15 @@ const pullRequests = ref([
 ])
 const issues = ref([
   {
+    id: 17,
+    icon: octiconIssueOpened,
+    name: "microsft/vscode",
+    description: "[BUG] Can't upgrade to 1.94",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/microsoft/vscode/issues/227899"
+  },
+  {
     id: 16,
     icon: octiconIssueOpened,
     name: "Rectify11/Installer",
@@ -316,7 +335,7 @@ const issues = ref([
   },
   {
     id: 11,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "Rectify11/Installer",
     description: "[FEATURE REQUEST] Allow in the Rectify 11 Control center to disable MFE on startup",
     type: "issue",
@@ -325,7 +344,7 @@ const issues = ref([
   },
   {
     id: 10,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "marticliment/UniGetUI",
     description: "[BUG] version 3.1.0-alpha1 cannot use winget out-of the box and breaks it",
     type: "issue",
@@ -343,7 +362,7 @@ const issues = ref([
   },
   {
     id: 8,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "SUPERCILEX/gnome-clipboard-history",
     description: "[BUG] Upgrading to GNOME 46 breaks the extension (version mismatch ?)",
     type: "issue",
@@ -352,7 +371,7 @@ const issues = ref([
   },
   {
     id: 7,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "eslint/config-inspector",
     description: "[BUG] Doesn't work when the config is outside of C: drive on Windows",
     type: "issue",
@@ -361,7 +380,7 @@ const issues = ref([
   },
   {
     id: 6,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "marticliment/UniGetUI",
     description: "[FEATURE REQUEST] Stop auto installing chocolatey",
     type: "issue",
@@ -406,7 +425,7 @@ const issues = ref([
   },
   {
     id: 1,
-    icon: octiconIssueClosed,
+    icon: octiconIssueOpened,
     name: "matafokka/ExcelDarkThemeFix",
     description: "Performance issues with ODS",
     type: "issue",

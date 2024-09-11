@@ -5,22 +5,22 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 
 ## Plan
 
-- Complete redesign
-- Vue 3 + Vite + Vuetify
-- Drop of Bootstrap (and most libraries)
-- Dark theme
-- Usage of the Dracula color scheme if possible
+- Complete redesign ✅
+- Vue 3 + Vite + Vuetify ✅
+- Drop of Bootstrap (and most libraries) ✅
+- Dark theme ✅
+- Usage of the Dracula color scheme if possible ✅
 - Modern feel, glassy interface
 - Custom cursor on few elements
-- Reloadless transitions between pages
+- Reloadless transitions between pages ✅
 - Holographic card effect on my logo
 - Breadcrumb
 - Working contact form
-- Simple colors
+- Simple colors ✅
 - Animate on scroll
 - Responsive
-- Fast to load
-- Not too fancy
+- Fast to load ✅
+- Not too fancy ✅
 - Showcase of my projects
 - B&W water filling animation on load ?
 - Glow
@@ -31,6 +31,20 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - It have to act as a portfolio (showcase of my projects, my skills, my experiences, etc.) and a blog (where I can share my thoughts, my projects, etc.)
 
 Have a look at [next.edm115.dev](https://next.edm115.dev) for a preview of the new website (rebuilt and updated as I can)
+
+## Minimal repro
+
+```bash
+git clone https://github.com/EDM115/website.git && cd website
+npm run i
+npm run dev
+```
+
+```bash
+npm run lint fix
+npm run build
+npm run serve
+```
 
 ---
 

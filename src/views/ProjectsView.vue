@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <h1>My projects</h1>
+    <h1>My projects (TBD)</h1>
+
+    <h3>Debug colors</h3>
 
     <v-row
       align="center"
@@ -8,7 +10,7 @@
       justify="center"
     >
       <v-col
-        cols="4"
+        cols="8"
         class="text-center"
       >
         <v-btn

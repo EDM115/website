@@ -3,7 +3,13 @@
     <v-main>
       <v-app-bar rounded>
         <template #prepend>
-          <v-app-bar-nav-icon />
+          <RouterLink
+            class="text-decoration-none"
+            style="color: inherit;"
+            :to="{ name: 'home' }"
+          >
+            <v-app-bar-nav-icon :icon="menuIcon" />
+          </RouterLink>
         </template>
 
         <RouterLink
@@ -11,7 +17,7 @@
           style="color: inherit;"
           :to="{ name: 'home' }"
         >
-          <v-app-bar-title>EDM115 ?? Next website preview</v-app-bar-title>
+          <v-app-bar-title>EDM115</v-app-bar-title>
         </RouterLink>
 
         <template #append>
@@ -22,6 +28,35 @@
           />
         </template>
       </v-app-bar>
+
+      <v-dialog
+        v-model="displayDialog"
+        persistent
+        max-width="350"
+      >
+        <v-card class="d-flex justify-center text-center">
+          <v-card-title class="headline">
+            In development
+          </v-card-title>
+          <v-card-text>
+            This website is still in heavy development and some areas aren't ready yet.
+          </v-card-text>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn
+              color="primary"
+              text="Visit the old website"
+              href="https://old.edm115.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <v-btn
+              color="primary"
+              text="Close"
+              @click="toggleDialog"
+            />
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
       <RouterView v-slot="{ Component, route }">
         <Transition
@@ -40,6 +75,8 @@
 </template>
 
 <script setup>
+import mdiHomeOutline from "~icons/mdi/homeOutline"
+import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import useMainStore from "@/stores/main"
@@ -50,8 +87,15 @@ import { useTheme } from "vuetify"
 
 const store = useMainStore()
 const theme = ref(store.getTheme)
+const displayDialog = ref(false)
+const menuIcon = ref(mdiMenu)
 const vuetifyTheme = useTheme()
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
+
+function toggleDialog() {
+  store.setDisplayDialog("false")
+  displayDialog.value = (store.getDisplayDialog === "true")
+}
 
 function toggleTheme() {
   theme.value = theme.value === "dark" ? "light" : "dark"
@@ -66,6 +110,11 @@ useHead({
 onMounted(() => {
   store.setTheme(store.getTheme)
   vuetifyTheme.global.name.value = store.getTheme
+  displayDialog.value = (store.getDisplayDialog === "true")
+
+  setInterval(() => {
+    menuIcon.value = menuIcon.value === mdiMenu ? mdiHomeOutline : mdiMenu
+  }, 3000)
 })
 </script>
 

@@ -58,7 +58,7 @@ function callback(entries) {
       const skill = skills.value[id]
       const startValue = skill.displayedValue
       const endValue = skill.value
-      const duration = 4000
+      const duration = 3000
       const startTime = performance.now()
 
       // skipcq: JS-0016

@@ -206,6 +206,9 @@ onMounted(async () => {
   color: rgb(var(--v-theme-primary));
   overflow: hidden;
   float: right;
+  border-radius: 8px;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .numb {
@@ -217,6 +220,7 @@ onMounted(async () => {
   height: 100%;
   width: 100%;
   line-height: 80px;
+  z-index: 1;
 }
 
 .gradmask {

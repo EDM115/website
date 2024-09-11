@@ -1,5 +1,6 @@
 <template>
   <v-carousel
+    hide-delimiters
     hide-delimiter-background
     cycle
     interval="8000"
