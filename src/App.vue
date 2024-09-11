@@ -104,8 +104,7 @@ function toggleTheme() {
 }
 
 useHead({
-  title: "EDM115 - French dev/student/gamer/music producer",
-  meta: [{ name: "darkreader-lock" }]
+  title: "EDM115 - French dev/student/gamer/music producer"
 })
 
 onMounted(() => {
