@@ -79,6 +79,7 @@
     >
       <v-col align="center">
         <v-card
+          id="about"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -119,6 +120,7 @@
         </v-card>
 
         <v-card
+          id="stats"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -134,6 +136,7 @@
         </v-card>
 
         <v-card
+          id="skills"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -149,6 +152,7 @@
         </v-card>
 
         <v-card
+          id="resume"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -278,6 +282,7 @@
         </v-card>
 
         <v-card
+          id="projects"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -293,6 +298,7 @@
         </v-card>
 
         <v-card
+          id="opensource"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -308,6 +314,7 @@
         </v-card>
 
         <v-card
+          id="contact"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"
@@ -344,6 +351,7 @@
         </v-card>
 
         <v-card
+          id="social"
           class="mx-auto my-4"
           data-aos="fade-up"
           max-width="500"

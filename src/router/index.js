@@ -43,7 +43,30 @@ const router = createRouter({
       component: () => import("../views/ProjectsView.vue")
     },
     ...generateBlogRoutes()
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ el: to.hash, behavior: "smooth" })
+        }, 500)
+      })
+    } else {
+      if (savedPosition) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(savedPosition)
+          }, 500)
+        })
+      } else {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({ top: 0, behavior: "smooth" })
+          }, 500)
+        })
+      }
+    }
+  }
 })
 
 router.beforeEach((to, from, next) => {
