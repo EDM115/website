@@ -65,8 +65,8 @@
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "preview": "vite preview --port 8888",
-    "serve": "http-server dist --port 10101"
+    "serve": "http-server dist --port 10101 --log-ip --no-dotfiles"
   },
   "type": "module",
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

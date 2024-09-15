@@ -38,8 +38,8 @@
           <v-stepper-vertical-item
             v-for="contrib in pullRequests"
             :key="contrib.id"
-            :icon="contrib.state === 'open' ? contrib.icon : octiconPullRequestMerged"
-            :edit-icon="contrib.state === 'open' ? contrib.icon : octiconPullRequestMerged"
+            :icon="contrib.state === 'open' ? octiconPullRequest : octiconPullRequestMerged"
+            :edit-icon="contrib.state === 'open' ? octiconPullRequest : octiconPullRequestMerged"
             :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
@@ -80,8 +80,8 @@
           <v-stepper-vertical-item
             v-for="contrib in issues"
             :key="contrib.id"
-            :icon="contrib.state === 'open' ? contrib.icon : octiconIssueClosed"
-            :edit-icon="contrib.state === 'open' ? contrib.icon : octiconIssueClosed"
+            :icon="contrib.state === 'open' ? octiconIssueOpened : octiconIssueClosed"
+            :edit-icon="contrib.state === 'open' ? octiconIssueOpened : octiconIssueClosed"
             :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
             :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
@@ -116,8 +116,15 @@ import { ref } from "vue"
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 19,
+    name: "geode-sdk/geode",
+    description: "updated french translation",
+    type: "pr",
+    state: "closed",
+    link: "https://github.com/geode-sdk/geode/pull/1082"
+  },
+  {
     id: 18,
-    icon: octiconPullRequest,
     name: "imputnet/cobalt",
     description: "web/i18n: added complete french translation",
     type: "pr",
@@ -126,7 +133,6 @@ const pullRequests = ref([
   },
   {
     id: 17,
-    icon: octiconPullRequest,
     name: "AlDanial/cloc",
     description: "fix: works when ran through a symlink",
     type: "pr",
@@ -135,7 +141,6 @@ const pullRequests = ref([
   },
   {
     id: 16,
-    icon: octiconPullRequest,
     name: "SpotX-Official/SpotX",
     description: "Updated the French translation",
     type: "pr",
@@ -144,7 +149,6 @@ const pullRequests = ref([
   },
   {
     id: 15,
-    icon: octiconPullRequest,
     name: "data-fair/processings",
     description: "Complete overhaul (separated Dockerfiles, Nuxt3, ...)",
     type: "pr",
@@ -153,7 +157,6 @@ const pullRequests = ref([
   },
   {
     id: 14,
-    icon: octiconPullRequest,
     name: "Rectify11/Website",
     description: "Better download button",
     type: "pr",
@@ -162,7 +165,6 @@ const pullRequests = ref([
   },
   {
     id: 13,
-    icon: octiconPullRequest,
     name: "data-fair/lib",
     description: "Colors rework",
     type: "pr",
@@ -171,7 +173,6 @@ const pullRequests = ref([
   },
   {
     id: 12,
-    icon: octiconPullRequest,
     name: "data-fair/app-charts",
     description: "v1.0 : Vue3 rewrite, new features, small bugfixes, ...",
     type: "pr",
@@ -180,7 +181,6 @@ const pullRequests = ref([
   },
   {
     id: 11,
-    icon: octiconPullRequest,
     name: "ForzaMods/Forza-Mods-AIO",
     description: "added full French translation",
     type: "pr",
@@ -189,7 +189,6 @@ const pullRequests = ref([
   },
   {
     id: 10,
-    icon: octiconPullRequest,
     name: "Rectify11/Installer",
     description: "updated and completed French translation",
     type: "pr",
@@ -198,7 +197,6 @@ const pullRequests = ref([
   },
   {
     id: 9,
-    icon: octiconPullRequest,
     name: "dracula/fl-studio-21",
     description: "update for 21.2",
     type: "pr",
@@ -207,7 +205,6 @@ const pullRequests = ref([
   },
   {
     id: 8,
-    icon: octiconPullRequest,
     name: "devblackops/Terminal-Icons",
     description: "Added dracula color theme",
     type: "pr",
@@ -216,7 +213,6 @@ const pullRequests = ref([
   },
   {
     id: 7,
-    icon: octiconPullRequest,
     name: "mon5termatt/medicat_installer",
     description: "added french translation",
     type: "pr",
@@ -225,7 +221,6 @@ const pullRequests = ref([
   },
   {
     id: 6,
-    icon: octiconPullRequest,
     name: "Keksuccino/JustZoom",
     description: "Smoother zoom",
     type: "pr",
@@ -234,7 +229,6 @@ const pullRequests = ref([
   },
   {
     id: 5,
-    icon: octiconPullRequest,
     name: "peazip/PeaZip",
     description: "[Translation] : French translation updated/reworked",
     type: "pr",
@@ -243,7 +237,6 @@ const pullRequests = ref([
   },
   {
     id: 4,
-    icon: octiconPullRequest,
     name: "SpotX-Official/SpotX",
     description: "better french translation",
     type: "pr",
@@ -252,7 +245,6 @@ const pullRequests = ref([
   },
   {
     id: 3,
-    icon: octiconPullRequest,
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "Linux Method in the Readme",
     type: "pr",
@@ -261,7 +253,6 @@ const pullRequests = ref([
   },
   {
     id: 2,
-    icon: octiconPullRequest,
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "complete reformat - better changes",
     type: "pr",
@@ -270,7 +261,6 @@ const pullRequests = ref([
   },
   {
     id: 1,
-    icon: octiconPullRequest,
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "Better script (async)",
     type: "pr",
@@ -280,26 +270,31 @@ const pullRequests = ref([
 ])
 const issues = ref([
   {
-    id: 17,
-    icon: octiconIssueOpened,
+    id: 18,
     name: "microsft/vscode",
     description: "[BUG] Can't upgrade to 1.94",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/microsoft/vscode/issues/227899"
   },
   {
+    id: 17,
+    name: "spicetify/cli",
+    description: "[FEATURE REQUEST] Allow to add our own GitHub token for requests",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/spicetify/cli/issues/3154"
+  },
+  {
     id: 16,
-    icon: octiconIssueOpened,
     name: "Rectify11/Installer",
     description: "[BUG] Can't install updates from commits semver",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/Rectify11/Installer/issues/603"
   },
   {
     id: 15,
-    icon: octiconIssueOpened,
     name: "AlDanial/cloc",
     description: "[BUG] cloc won't work if ran through a symlink on Windows (ex Winget) : Can't locate PAR.pm in @INC",
     type: "issue",
@@ -308,7 +303,6 @@ const issues = ref([
   },
   {
     id: 14,
-    icon: octiconIssueOpened,
     name: "marticliment/UniGetUI",
     description: "[ENHANCEMENT] Sorting a column should keep a second-level sorting",
     type: "issue",
@@ -317,16 +311,14 @@ const issues = ref([
   },
   {
     id: 13,
-    icon: octiconIssueOpened,
     name: "nodejs/node",
     description: "[BUG] Installing an update of Node removes any custom permissions of the folder (Windows) and locks the ability to update npm/corepack",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/nodejs/node/issues/54284"
   },
   {
     id: 12,
-    icon: octiconIssueOpened,
     name: "vuetifyjs/vuetify",
     description: "[Bug Report][3.6.9] v-date-input's width doesn't size correctly when specifying percentage",
     type: "issue",
@@ -335,7 +327,6 @@ const issues = ref([
   },
   {
     id: 11,
-    icon: octiconIssueOpened,
     name: "Rectify11/Installer",
     description: "[FEATURE REQUEST] Allow in the Rectify 11 Control center to disable MFE on startup",
     type: "issue",
@@ -344,7 +335,6 @@ const issues = ref([
   },
   {
     id: 10,
-    icon: octiconIssueOpened,
     name: "marticliment/UniGetUI",
     description: "[BUG] version 3.1.0-alpha1 cannot use winget out-of the box and breaks it",
     type: "issue",
@@ -353,7 +343,6 @@ const issues = ref([
   },
   {
     id: 9,
-    icon: octiconIssueOpened,
     name: "pyrogram/pyrogram",
     description: "[PROPOSAL] Pass the project to someone else",
     type: "issue",
@@ -362,7 +351,6 @@ const issues = ref([
   },
   {
     id: 8,
-    icon: octiconIssueOpened,
     name: "SUPERCILEX/gnome-clipboard-history",
     description: "[BUG] Upgrading to GNOME 46 breaks the extension (version mismatch ?)",
     type: "issue",
@@ -371,7 +359,6 @@ const issues = ref([
   },
   {
     id: 7,
-    icon: octiconIssueOpened,
     name: "eslint/config-inspector",
     description: "[BUG] Doesn't work when the config is outside of C: drive on Windows",
     type: "issue",
@@ -380,7 +367,6 @@ const issues = ref([
   },
   {
     id: 6,
-    icon: octiconIssueOpened,
     name: "marticliment/UniGetUI",
     description: "[FEATURE REQUEST] Stop auto installing chocolatey",
     type: "issue",
@@ -389,7 +375,6 @@ const issues = ref([
   },
   {
     id: 5,
-    icon: octiconIssueOpened,
     name: "Rectify11/Installer",
     description: "[BUG] Can't natively open services",
     type: "issue",
@@ -398,7 +383,6 @@ const issues = ref([
   },
   {
     id: 4,
-    icon: octiconIssueOpened,
     name: "python/cpython",
     description: "[BUG] Newest 3.12 install on windows misses pip",
     type: "issue",
@@ -407,7 +391,6 @@ const issues = ref([
   },
   {
     id: 3,
-    icon: octiconIssueOpened,
     name: "Rectify11/Installer",
     description: "[BUG] Pin to Quick access is gone from the context menu",
     type: "issue",
@@ -416,7 +399,6 @@ const issues = ref([
   },
   {
     id: 2,
-    icon: octiconIssueOpened,
     name: "MicaForEveryone/MicaForEveryone",
     description: "Apps using MaterialDesignInXamlToolkit may not be rendered correctly everywhere",
     type: "issue",
@@ -425,7 +407,6 @@ const issues = ref([
   },
   {
     id: 1,
-    icon: octiconIssueOpened,
     name: "matafokka/ExcelDarkThemeFix",
     description: "Performance issues with ODS",
     type: "issue",
