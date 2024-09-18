@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "Atishay-Jain.All-Autocomplete",
+    "ChakrounAnas.turbo-console-log",
+    "SilverFletcherr.vuetify-gotodocs",
+    "Vue.volar",
+    "WallabyJs.console-ninja",
+    "Zignd.html-css-class-completion",
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "formulahendry.auto-rename-tag",
+    "ishiyama.vuejs-peek",
+    "kisstkondoros.vscode-gutter-preview",
+    "mgmcdermott.vscode-language-babel",
+    "nhoizey.gremlins",
+    "pflannery.vscode-versionlens",
+    "pranaygp.vscode-css-peek",
+    "sburg.vscode-javascript-booster",
+    "vuetifyjs.vuetify-vscode",
+    "wix.vscode-import-cost"
+  ]
+}

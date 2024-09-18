@@ -1,0 +1,57 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "console-ninja.allowConsoleLogToTriggerPredictions": true,
+  "console-ninja.captureFunctions": true,
+  "console-ninja.featureSet": "Community",
+  "console-ninja.outputMode": "In View",
+  "console-ninja.showWhatsNew": false,
+  "console-ninja.toolsToEnableSupportAutomaticallyFor": {
+    "angular": false,
+    "astro": false,
+    "hydrogen": false,
+    "jest": false,
+    "live-preview-extension": true,
+    "live-server": true,
+    "live-server-extension": true,
+    "nest.js": false,
+    "next.js": false,
+    "qwik": false,
+    "remix": false
+  },
+  "console-ninja.warnOnNoToolsDetected": false,
+  "css.autoValidation": "Always",
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "eslint.ignoreUntitled": true,
+  "eslint.useFlatConfig": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "gremlins.showInProblemPane": true,
+  "html-css-class-completion.enableEmmetSupport": true,
+  "importCost.fontStyle": "italic",
+  "importCost.largePackageDarkColor": "#FF5555",
+  "importCost.largePackageLightColor": "#FF5555",
+  "importCost.mediumPackageLightColor": "#50FA7B",
+  "importCost.smallPackageDarkColor": "#50FA7B",
+  "importCost.smallPackageLightColor": "#50FA7B",
+  "vue.autoInsert.dotValue": true,
+  "vue.complete.casing.props": "autoCamel",
+  "vue.format.script.initialIndent": true,
+  "vue.format.style.initialIndent": true,
+  "vue.inlayHints.destructuredProps": true,
+  "vue.inlayHints.inlineHandlerLeading": true,
+  "vue.inlayHints.missingProps": true,
+  "vue.inlayHints.optionsWrapper": true,
+  "vue.inlayHints.vBindShorthand": true
+}
