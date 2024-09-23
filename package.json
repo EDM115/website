@@ -26,7 +26,7 @@
     "@vueuse/motion": "2.2.5",
     "@vueuse/router": "11.1.0",
     "aos": "2.3.4",
-    "eslint": "9.11.0",
+    "eslint": "9.11.1",
     "eslint-plugin-vue": "9.28.0",
     "gsap": "3.12.5",
     "highlight.js": "11.10.0",
@@ -51,7 +51,7 @@
   "license": "MIT",
   "name": "edm115-website",
   "overrides": {
-    "eslint": "9.11.0"
+    "eslint": "9.11.1"
   },
   "private": true,
   "repository": {
