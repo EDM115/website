@@ -23,7 +23,7 @@
     "@vueuse/components": "11.1.0",
     "@vueuse/core": "11.1.0",
     "@vueuse/gesture": "2.0.0",
-    "@vueuse/motion": "2.2.5",
+    "@vueuse/motion": "2.2.6",
     "@vueuse/router": "11.1.0",
     "aos": "2.3.4",
     "eslint": "9.12.0",
