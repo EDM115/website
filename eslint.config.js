@@ -33,7 +33,7 @@ export default [
       "@stylistic/comma-spacing": [ "error", { before: false, after: true }],
       "@stylistic/comma-style": [ "error", "last" ],
       "@stylistic/computed-property-spacing": [ "error", "never" ],
-      "@stylistic/curly-newline": [ "error", { minElements: 2 }],
+      "@stylistic/curly-newline": [ "error", { minElements: 1 }],
       "@stylistic/dot-location": [ "error", "property" ],
       "@stylistic/eol-last": [ "error", "always" ],
       "@stylistic/function-call-argument-newline": [ "error", "consistent" ],
