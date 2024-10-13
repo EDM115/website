@@ -19,7 +19,7 @@ export default defineConfig({
   clearScreen: false,
   css: {
     preprocessorOptions: {
-      scss: {
+      sass: {
         api: "modern-compiler"
       }
     },
