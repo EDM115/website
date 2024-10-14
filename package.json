@@ -17,7 +17,7 @@
     "@formkit/auto-animate": "0.8.2",
     "@iconify/json": "2.2.260",
     "@stylistic/eslint-plugin": "2.9.0",
-    "@unhead/vue": "1.11.7",
+    "@unhead/vue": "1.11.8",
     "@vitejs/plugin-vue": "5.1.4",
     "@vue/compiler-sfc": "3.5.12",
     "@vueuse/components": "11.1.0",
