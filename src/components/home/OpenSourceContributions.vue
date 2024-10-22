@@ -116,20 +116,12 @@ import { ref } from "vue"
 const tab = ref(1)
 const pullRequests = ref([
   {
-    id: 19,
+    id: 18,
     name: "geode-sdk/geode",
     description: "updated french translation",
     type: "pr",
     state: "closed",
     link: "https://github.com/geode-sdk/geode/pull/1082"
-  },
-  {
-    id: 18,
-    name: "imputnet/cobalt",
-    description: "web/i18n: added complete french translation",
-    type: "pr",
-    state: "open",
-    link: "https://github.com/imputnet/cobalt/pull/726"
   },
   {
     id: 17,
@@ -269,6 +261,54 @@ const pullRequests = ref([
   }
 ])
 const issues = ref([
+  {
+    id: 24,
+    name: "lukeleppan/obsidian-discordrpc",
+    description: "[BUG] Doesn't launch on start due to newer Obsidian version4",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/lukeleppan/obsidian-discordrpc/issues/24"
+  },
+  {
+    id: 23,
+    name: "pysathq/pysat",
+    description: "[BUG] Error while installing with Python 3.13 on Windows",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/pysathq/pysat/issues/180"
+  },
+  {
+    id: 22,
+    name: "TelegramPlayGround/pyrogram-tgcrypto",
+    description: "Version agnostic builds",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/TelegramPlayGround/pyrogram-tgcrypto/issues/1"
+  },
+  {
+    id: 21,
+    name: "wow-actions/update-authors",
+    description: "[BUG] The action replaces the current entry instead of adding a new one",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/wow-actions/update-authors/issues/5"
+  },
+  {
+    id: 20,
+    name: "KRTirtho/spotube",
+    description: "Stop overriding the registry value for default spotify links handler",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/KRTirtho/spotube/issues/1997"
+  },
+  {
+    id: 19,
+    name: "leonardssh/vscord",
+    description: "PSA : How to make sure the extension works (VS Code's SCM issue)",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/leonardssh/vscord/issues/343"
+  },
   {
     id: 18,
     name: "microsft/vscode",
