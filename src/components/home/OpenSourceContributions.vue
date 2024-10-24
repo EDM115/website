@@ -262,14 +262,6 @@ const pullRequests = ref([
 ])
 const issues = ref([
   {
-    id: 24,
-    name: "lukeleppan/obsidian-discordrpc",
-    description: "[BUG] Doesn't launch on start due to newer Obsidian version4",
-    type: "issue",
-    state: "open",
-    link: "https://github.com/lukeleppan/obsidian-discordrpc/issues/24"
-  },
-  {
     id: 23,
     name: "pysathq/pysat",
     description: "[BUG] Error while installing with Python 3.13 on Windows",
