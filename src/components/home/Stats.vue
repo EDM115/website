@@ -48,31 +48,32 @@ import { onMounted, ref } from "vue"
 
 let observer = null
 // Different from what you see ? I include private repos here too :)
-const projectsNumber = ref(56)
+const projectsNumber = ref(58)
 
 const projectsLoc = ref({
   // active
-
   "ban-all-except-admins": 271,
   "booleanfix": 364,
   // "boubot": 4177,
   "bulk-youtube-download": 123,
   // "cursedChess-bot": 2658,
   // "DiceWizard": 2741,
-  "dotfiles": 4497,
+  "dotfiles": 26237,
   "EDM115": 128,
   "website": 7757,
   "website-v1": 137999,
   // "edm115.fot.one / edm115.shadd.eu.org / edm115.ethar.xyz / walad.link/edm115": 384 + 3061,
   "EDM115.github.io": 90,
-  "EDM115-discord-bot": 903,
+  "EDM115-discord-bot": 1012,
   "EDM115-ohmyposh-theme": 489,
   "Grundy2": 6477,
   "hugo": 890,
   "jean-marie-bot": 2180,
   "js-imports-sort": 3852,
   "Markdown_Syntax_FR": 506,
+  "obsidian": 5907,
   "palex": 5384,
+  "random-algorithm": 203,
   "school-codes": 3379,
   "sport-track": 1582,
   "telegram-auto-upload-folder": 199,
@@ -80,10 +81,11 @@ const projectsLoc = ref({
   "The-Very-Restrictive-License": 141,
   // "ThunderBot": 2196,
   "unzip-bot": 4683,
-  "useful-stuff": 469,
+  "useful-stuff": 614,
+  "VGM-KHI-download": 140,
   "web-logs": 133,
-  "school-codes-v2": 733495,
-  "IUT": 413986,
+  "school-codes-v2": 745004,
+  "IUT": 458520,
 
   // archived
   "bots-status": 214,
@@ -108,7 +110,7 @@ const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => ac
 
 const stats = ref([
   { id: 0, name: "Projects made (public)", value: projectsNumber.value },
-  { id: 1, name: "Users of my services (has yet to be refreshed through an API)", value: 34751 },
+  { id: 1, name: "Users of my services (has yet to be refreshed through an API)", value: 39314 },
   { id: 2, name: "Lines of code written", value: linesOfCode }
 ])
 
@@ -117,7 +119,7 @@ async function fetchProjectsNumber() {
   projectsNumber.value = await ofetch("https://api.github.com/users/EDM115")
     .then((data) => data.public_repos)
     .catch(() => {
-      return 56
+      return projectsNumber.value
     })
 }
 
