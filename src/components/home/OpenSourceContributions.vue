@@ -116,6 +116,14 @@ import { ref } from "vue"
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 19,
+    name: "qubvel-org/segmentation_models.pytorch",
+    description: "fix(examples): correct Colab links",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/qubvel-org/segmentation_models.pytorch/pull/965"
+  },
+  {
     id: 18,
     name: "geode-sdk/geode",
     description: "updated french translation",
@@ -261,6 +269,22 @@ const pullRequests = ref([
   }
 ])
 const issues = ref([
+  {
+    id: 25,
+    name: "unplugin/unplugin-icons",
+    description: "Error while loading some icons : Property \"idMap\" was accessed during render but is not defined on instance.",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/unplugin/unplugin-icons/issues/385"
+  },
+  {
+    id: 24,
+    name: "nimsandu/spicetify-bloom",
+    description: "[BUG] The download progress bar and some buttons aren't themed properly",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/nimsandu/spicetify-bloom/issues/370"
+  },
   {
     id: 23,
     name: "pysathq/pysat",
