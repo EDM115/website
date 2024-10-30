@@ -131,12 +131,12 @@ function animateDigits(statId, value) {
 
   digitArray.forEach((digit, index) => {
     const totalDigits = digitArray.length
-    const distance = 800
     const id = `#n${statId}-${totalDigits - index - 1}`
     const duration = (index === 0 ? maxTime : maxTime / ((2 ** index) * 2))
     const repeat = (index === 0 ? 0 : ((2 ** index) * 2) - 1)
+    const movement = digit === "0" ? 800 : digit * 80
 
-    animTl.to(id, { y: `-=${-distance + (distance + (digit * 80))}`, repeat, duration }, "p1")
+    animTl.to(id, { y: `-=${movement}`, repeat, duration }, "p1")
   })
 
   gsap.to(animTl, { duration: maxTime, progress: 1, ease: "power3.inOut" })
