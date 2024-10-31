@@ -8,6 +8,7 @@ import Unfonts from "unplugin-fonts/vite"
 import Components from "unplugin-vue-components/vite"
 import vueDevTools from "vite-plugin-vue-devtools"
 import Markdown from "unplugin-vue-markdown/vite"
+import svgLoader from "vite-svg-loader"
 
 import { MagicRegExpTransformPlugin } from "magic-regexp/transform"
 import { full as emoji } from "markdown-it-emoji"
@@ -34,7 +35,7 @@ export default defineConfig({
   plugins: [
     vue({
       include: [ /\.vue$/, /\.md$/ ],
-      features: { optionsAPI: false },
+      // features: { optionsAPI: false },
       template: { transformAssetUrls }
     }),
     vueDevTools({ launchEditor: "code-insiders" }),
@@ -42,6 +43,11 @@ export default defineConfig({
       autoImport: { labs: true },
       styles: {
         configFile: "src/styles/settings.scss"
+      }
+    }),
+    svgLoader({
+      svgoConfig: {
+        multipass: true
       }
     }),
     Icons({

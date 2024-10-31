@@ -12,18 +12,26 @@
           {{ skill.name }}
         </v-card-title>
         <v-card-text>
-          <v-progress-circular
-            :id="'skillsCounter-' + skill.id"
-            color="primary"
-            class="pa-4"
-            :model-value="skill.displayedValue"
-            :size="100"
-            :width="10"
-          >
-            <template #default>
-              {{ skill.displayedValue }} %
-            </template>
-          </v-progress-circular>
+          <div class="progress-container">
+            <v-progress-circular
+              :id="'skillsCounter-' + skill.id"
+              color="primary"
+              class="pa-4"
+              :model-value="skill.displayedValue"
+              :size="100"
+              :width="10"
+            >
+              <template #default>
+                <div class="percentage">
+                  {{ skill.displayedValue }} %
+                </div>
+              </template>
+            </v-progress-circular>
+            <v-icon
+              :icon="skill.icon"
+              class="background-icon"
+            />
+          </div>
         </v-card-text>
       </v-card>
     </v-col>
@@ -31,20 +39,28 @@
 </template>
 
 <script setup>
+import chatGPT from "@/assets/img/icons/chatgpt_icon.svg"
+import fh5 from "@/assets/img/icons/fh5_icon.svg"
+import flStudio from "@/assets/img/icons/fl_studio_icon.svg"
+import logosDocker from "~icons/logos/docker-icon"
+import logosJava from "~icons/logos/java"
+import deviconGit from "~icons/devicon/git"
+import skillJavascript from "~icons/skill-icons/javascript"
+import vscodePython from "~icons/vscode-icons/file-type-python"
+import vscodeVue from "~icons/vscode-icons/file-type-vue"
 import { onMounted, ref } from "vue"
 
 let observer = null
 const skills = ref([
-  { id: 0, name: "Python", value: 85, displayedValue: 0 },
-  { id: 1, name: "Java", value: 75, displayedValue: 0 },
-  { id: 2, name: "Git", value: 90, displayedValue: 0 },
-  { id: 3, name: "JavaScript", value: 80, displayedValue: 0 },
-  { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0 },
-  { id: 5, name: "Docker", value: 60, displayedValue: 0 },
-  { id: 6, name: "Pyrogram", value: 85, displayedValue: 0 },
-  { id: 7, name: "FL Studio", value: 70, displayedValue: 0 },
-  { id: 8, name: "Forza Horizon", value: 100, displayedValue: 0 },
-  { id: 9, name: "ChatGPT", value: 90, displayedValue: 0 }
+  { id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython },
+  { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
+  { id: 2, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
+  { id: 3, name: "JavaScript", value: 80, displayedValue: 0, icon: skillJavascript },
+  { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0, icon: vscodeVue },
+  { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
+  { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: flStudio },
+  { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: fh5 },
+  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: chatGPT }
 ])
 
 function easeInOut(t) {
@@ -94,3 +110,46 @@ onMounted(() => {
   }
 })
 </script>
+
+<style scoped>
+.progress-container {
+  position: relative;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+}
+
+.background-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  transition: all 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.progress-container:hover .background-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;
+  height: 160%;
+  background-color: rgba(var(--v-theme-surface), 0.75);
+  border-radius: 50%;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.progress-container:hover .percentage {
+  opacity: 1;
+}
+</style>

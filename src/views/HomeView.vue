@@ -58,17 +58,6 @@
               />
             </RouterLink>
           </v-col>
-          <v-col>
-            <v-btn
-              color="primary"
-              :prepend-icon="mdiLink"
-              text="Old website"
-              variant="elevated"
-              href="https://old.edm115.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          </v-col>
         </v-row>
       </v-col>
     </v-row>
