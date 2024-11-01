@@ -442,7 +442,7 @@ const issues = ref([
     name: "python/cpython",
     description: "[BUG] Newest 3.12 install on windows misses pip",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/python/cpython/issues/117505"
   },
   {
