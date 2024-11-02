@@ -8,17 +8,19 @@ function generateBlogRoutes() {
   const routes = []
 
   for (const path in blogPosts) {
-    const routePath = path
-      .replace("../views", "")
-      .replace("View.vue", "")
-      .replace(/([A-Z])/g, "-$1")
-      .toLowerCase()
-      .replace(/\/-/, "/")
+    if (Object.prototype.hasOwnProperty.call(blogPosts, path)) {
+      const routePath = path
+        .replace("../views", "")
+        .replace("View.vue", "")
+        .replace(/([A-Z])/g, "-$1")
+        .toLowerCase()
+        .replace(/\/-/, "/")
 
-    routes.push({
-      path: routePath,
-      component: blogPosts[path]
-    })
+      routes.push({
+        path: routePath,
+        component: blogPosts[path]
+      })
+    }
   }
 
   return routes
