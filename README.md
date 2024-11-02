@@ -27,7 +27,7 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - A bunch of stuff I obviously don't handle well but just to show that "eh I can use that bro 🤓" and flex on poor souls visiting my website :x:
 - It have to act as a portfolio (showcase of my projects, my skills, my experiences, etc.) and a blog (where I can share my thoughts, my projects, etc.) :sparkle:
 
-> [!INFO]  
+> [!NOTE]  
 > Legend :  
 > - :white_check_mark: : Done
 > - :sparkle: : In progress

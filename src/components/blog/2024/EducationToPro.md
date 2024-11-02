@@ -50,8 +50,6 @@ reg delete "HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Policies"
 reg delete "HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /f
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments" /f
 ```
-<br>
-
 08. Restart the PC. You should now be able to login with just the username and without specifying the PC name. Open a cmd as admin and run `DSREGCMD /debug /leave` and then `DSREGCMD /debug /cleanupaccounts`. This will do its best to leave linked organizations.
 09. Do `Win + R`, `regedit`, and click on `HKEY_CURRENT_USER` (so the search will start from here. click again on this when doing another search). You will now have to search for anything related to "Intune", "Enrollment" or the domain part of your school email that you noted prior (ex if it was `pc123456@school.country.com`, search for `school.country.com`). Delete the keys found (use common sense tho) to remove the last bits of organization links. You can backup the registry before if you think you will mess this up.
 <br>
@@ -74,7 +72,5 @@ DISM /Online /Cleanup-Image /ScanHealth
 DISM /Online /Cleanup-Image /RestoreHealth
 sfc /scannow
 ```
-<br>
-
 02. If some cumulative updates still fail, or if when doing `Win + R`, `winver` the version is lower than the current actual one (23H2 as I write this, will soon be 24H2), let's do an in-place upgrade. Go at https://www.microsoft.com/en-us/software-download/windows11 => Download Windows 11 Disk Image (ISO) for x64 devices, select the only choice then your language and click on 64-bit download. Once downloaded, right click the .iso => Properties => Check Unblock => Ok. Then do right click => Mount, and it should appear on the left of the file explorer as a DVD. Run `Setup.exe` => Next => Accept => Check that it says "Install Windows 11 (Pro)" and "Keep personal files and apps" (by default) => Install. The PC will be inaccessible and may restart several times. But it's finally over !
 03. By now it should be fully unlocked and all settings should be accessible. Maybe go on Settings => Network and Internet => Wi-Fi => Manage known networks and remove anything linked to your school. The only setting that was locked for my gf was to change her lock screen image. To change this, copy-paste the image you want into `C:\Users\Public\Pictures` (avoid any spaces), then `Win + R`, `regedit`, paste on the top bar `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Personalization` and make the key `AllowPersonalization` to 1 (if it doesn't exist right click on Personalization folder => New => DWORD, it's hexadecimal). Then, a folder under should be called `PersonalizationDSP`. Paste the full path of your wanted lock screen background in the String keys `LockScreenImagePath` and `LockScreenImageUrl` (ex : `C:\Users\Public\Pictures\awesome_bg.png`), plus set the DWORD `LockScreenImageStatus` to 1
