@@ -7,7 +7,7 @@
       text="Back to blog list"
       @click="$router.push('/blog')"
     />
-    <BlogEducationToPro />
+    <Blog2024EducationToPro />
   </v-container>
 </template>
 

@@ -4,7 +4,7 @@ import { defineStore } from "pinia"
 
 export const useMainStore = defineStore("main", {
   state: () => ({
-    displayDialog: "true",
+    displayDialog: "false",
     theme: "dark"
   }),
   getters: {

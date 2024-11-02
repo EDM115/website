@@ -7,7 +7,7 @@
       text="Back to blog list"
       @click="$router.push('/blog')"
     />
-    <Blog202205-15-shared-drives-article />
+    <BlogTelegram202205-15-shared-drives-article />
   </v-container>
 </template>
 
