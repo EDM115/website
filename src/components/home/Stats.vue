@@ -114,7 +114,11 @@ const stats = ref([
   { id: 2, name: "Lines of code written", value: linesOfCode }
 ])
 
-
+/**
+ * Asynchronously fetches the number of projects from the GitHub API for the user "EDM115".
+ * Updates the value of "projectsNumber" with the retrieved number of public repositories.
+ * If an error occurs during the fetch operation, the function reverts to the previous value of "projectsNumber".
+ */
 async function fetchProjectsNumber() {
   projectsNumber.value = await ofetch("https://api.github.com/users/EDM115")
     .then((data) => data.public_repos)
@@ -123,6 +127,12 @@ async function fetchProjectsNumber() {
     })
 }
 
+/**
+ * Animates the digits of a specified statistic element.
+ *
+ * @param {string} statId - The ID of the statistic element to animate.
+ * @param {number} value - The value to display and animate as digits.
+ */
 function animateDigits(statId, value) {
   const digitArray = String(value).split("")
   const maxTime = 8
@@ -144,6 +154,13 @@ function animateDigits(statId, value) {
   animTl.play()
 }
 
+/**
+ * Executes a callback function for each entry in the provided entries array.
+ * If an entry is intersecting the viewport, retrieves the statistic element ID and value,
+ * then triggers the animation of the digits for the statistic element.
+ *
+ * @param {IntersectionObserverEntry[]} entries - An array of entries to observe.
+ */
 function callback(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

@@ -4,6 +4,12 @@ import { createRouter, createWebHistory } from "vue-router"
 
 const blogPosts = import.meta.glob("../views/blog/**/*.vue")
 
+/**
+ * Generates routes for blog posts based on the provided blogPosts object.
+ * Replaces specific parts of the path to create route paths and components.
+ *
+ * @returns {Array} An array of route objects containing path and component information.
+ */
 function generateBlogRoutes() {
   const routes = []
 

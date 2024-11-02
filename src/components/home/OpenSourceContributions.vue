@@ -471,6 +471,12 @@ const issues = ref([
   }
 ])
 
+/**
+ * Returns the color class based on the state of the contribution.
+ *
+ * @param {string} state - The state of the contribution ("open" or "closed").
+ * @returns {string} - The color class for the contribution state ("open-contrib-color" or "closed-contrib-color").
+ */
 function getContribColor(state) {
   return state === "open" ? "open-contrib-color" : "closed-contrib-color"
 }

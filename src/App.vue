@@ -96,11 +96,19 @@ const menuIcon = ref(mdiMenu)
 const vuetifyTheme = useTheme()
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
 
+/**
+ * Toggles the display of the dialog by setting the store's display dialog value to "false"
+ * and updating the local displayDialog value based on the store's display dialog value.
+ */
 function toggleDialog() {
   store.setDisplayDialog("false")
   displayDialog.value = (store.getDisplayDialog === "true")
 }
 
+/**
+ * Function to toggle the theme between dark and light.
+ * Updates the theme value, sets the theme in the store, and updates the global Vuetify theme name.
+ */
 function toggleTheme() {
   theme.value = theme.value === "dark" ? "light" : "dark"
   store.setTheme(theme.value)

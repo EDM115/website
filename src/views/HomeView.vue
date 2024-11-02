@@ -374,6 +374,11 @@ import { onMounted, ref } from "vue"
 
 const age = ref(20)
 
+/**
+ * Calculate my age based on the birthdate "2004-06-18".
+ *
+ * @returns {number} The calculated age.
+ */
 function getAge() {
   const birthday = new Date("2004-06-18")
   const diff = Date.now() - birthday.getTime()
