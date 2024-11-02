@@ -2,7 +2,144 @@
   $body-font-family: "Nunito"
 );
 
+@function var-color($name) {
+  @return rgb(var(--#{$name}));
+}
+
 body {
   margin: 0;
   font-family: Nunito;
+}
+
+code, kbd, pre, samp {
+  font-family: "Fira Code", monospace;
+}
+
+.markdown-body {
+  width: 80%;
+}
+
+.markdown-body > p > img {
+  width: 100%;
+  height: auto;
+}
+
+.markdown-body > ul {
+  list-style-position: inside;
+}
+
+.markdown-body > ol {
+  list-style: none;
+  counter-reset: item;
+}
+
+.markdown-body > ol > li::before {
+  content: counter(item, decimal-leading-zero) ")";
+  counter-increment: item;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.markdown-body > ul > li > ul > li {
+  margin-left: 1.5rem;
+}
+
+.markdown-body > table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.markdown-body > table,
+.markdown-body > table th,
+.markdown-body > table td {
+  border: 1px solid var-color(v-border-color);
+}
+
+.markdown-body > table th,
+.markdown-body > table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.markdown-body > blockquote {
+  border-left: 4px solid var-color(v-border-color);
+  padding: 0 1rem;
+  margin: 0.5rem 0
+}
+
+.markdown-body > blockquote > p {
+  color: var-color(v-theme-text-darken-2);
+}
+
+.markdown-body > .code-block pre > code.hljs {
+  overflow: auto;
+}
+
+.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-track {
+  background: var-color(v-theme-background-lighten-2);
+  border-radius: 10px;
+}
+
+.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-thumb {
+  background: var-color(v-theme-text-lighten-2);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-thumb:hover {
+  background: var-color(v-theme-primary);
+}
+
+.code-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #282936;
+  border-radius: 20px 20px 0px 0px;
+  font-size: 0.9rem;
+  color: #e9e9f4;
+}
+
+.code-block-lang {
+  font-weight: bold;
+}
+
+.copy-code-button {
+  background: none;
+  border: none;
+  color: var-color(v-theme-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.copy-code-button-clicked {
+  background: none;
+  border: none;
+  color: var-color(v-theme-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.copy-code-button:hover {
+  color: var-color(v-theme-secondary);
+}
+
+.code-block pre > code {
+  margin: 0;
+  border-radius: 0px 0px 20px 20px;
 }

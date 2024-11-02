@@ -21,16 +21,12 @@ https://dev.to/edm115/google-ending-edu-shared-drives-everything-you-need-to-kno
 <br>
 
 ### 1) Is it serious ?
-<br>
-
 Yes it is, and to be honest it didn't surprise me...  
 Google have [announced it](https://support.google.com/a/answer/10403871#expand-all), but it was said nearly nowhere else (that is why I'm writing this article)  
 This follow their new storage policy, which is going to take effect in July (theorically on 1st July, but it may take some days to be effective). Also, some Shared Drives may be deleted from June (Google Admin already provide a [solution to delete them](https://telegra.ph/Deleting-Shared-Drives-from-Google-Admin-panel-05-15))
 <br>
 
 ### 2) A bit of chronology...
-<br>
-
 + 24th April 2014 : Creation of Google Drive, formerly known as [project Platypus](https://chiefmarketer.com/googles-platypus-is-gdrive/) ([original blog post](http://cocaman.ch/wp/2006/07/google-testing-gdrive-codename-platypus/?/wp-content/uploads/2006/07/Platypus1152508704685.png))
 + September 2016 : Creation of Team Drives
 + 29th April 2019 : Renaming them to Shared Drives
@@ -39,16 +35,12 @@ This follow their new storage policy, which is going to take effect in July (the
 <br>
 
 ### 3) What are Team/Shared Drives ?
-<br>
-
-> ```In September 2016, Google announced Team Drives, later renamed Shared Drives, as a new way for Google Workspace teams to collaborate on documents and store files. In Shared Drives, file/folder sharing and ownership are assigned to a team rather than to an individual user. Since 2020, Shared Drives had an ability to assign different access levels to files and folders to different users and teams, and an ability to share a folder publicly. Unlike individual Google Drive, Shared Drives offer unlimited storage.```  
+> In September 2016, Google announced Team Drives, later renamed Shared Drives, as a new way for Google Workspace teams to collaborate on documents and store files. In Shared Drives, file/folder sharing and ownership are assigned to a team rather than to an individual user. Since 2020, Shared Drives had an ability to assign different access levels to files and folders to different users and teams, and an ability to share a folder publicly. Unlike individual Google Drive, Shared Drives offer unlimited storage.  
 
 They provided unlimited cloud storage for schools and enterprises that needed it
 <br>
 
 ### 4) What caused this ending ?
-<br>
-
 People were seriously abusing it...  
 While some people needed it, using it as a backup of their data, or because they have some files that were above the 15 Gb limit ; others overused it. Among them, people that runs Telegram mirror groups. Because a lot of users mirror a lot of files to Google Drive, and because making such groups is easier than ever thanks to Heroku, the number of files uploaded to Shared Drives exponentially raised.  
 As Google saw the storage consumption growing up, and as people were only abusing Edu Drives, they decided to "end" this offer.  
@@ -56,15 +48,11 @@ Plus, let me tell you something from my experience. For the context, I'm in over
 <br>
 
 ### 5) Which solutions remains for schools ?
-<br>
-
 In facts, they still can use their Edu plan. But this time, the storage is pooled with a baseline of 100 TB for all users, no longer unlimited. Meaning that administrators of schools will be more attentives to what happen on their drives, and the creation of Shared Drives will seriously be resricted.  
 The real problem may come for schools like Harvard or the MIT, them needing to store huge amount of data. The solution for them could be either buying an upper Drive plan, or having ther own servers.
 <br>
 
 ### 6) What are the consequences for the average user ?
-<br>
-
 If like me, you're in a lot of Shared Drives, they will nearly all disappear from [your drive](https://drive.google.com/drive/u/0/shared-drives).  
 If you're running one, it would be better to inform your users that the storage may end very soon, and telling them to backup their files as soon as possible.  
 If you still need to have a cloud storage, keep reading.
@@ -73,8 +61,6 @@ TeamDrives generator such as the one of [MSGsuite](https://msgsuite.eu.org/) wil
 <br>
 
 ### 7) You need to store your files on the cloud ?
-<br>
-
 Here are the best free solutions for you :  
 
 | Name | Storage offered for free | Features and limits | Link |
@@ -95,12 +81,11 @@ Here are the best free solutions for you :
 | **TeraShare** | Unlimited | Kinda the sucessor of ToutBox.fr, uses the torrent protocol. Files under 10 Gb are uploaded to the cloud, above it uses P2P (so keep the file on your computer). Folder support. You need to install the desktop client, but then the web interface can be used (you can check [this](http://terashare.net/technology) for more informations) | *http://terashare.net/* |
 | **WormHole** | 5 Gb per file/10 Gb on P2P | Files are kept for 24h. [Infos here](https://wormhole.app/faq) | *https://wormhole.app/* |
 | **Smash** | Unlimited | Files available for 7 days. [Check the features page](https://en.fromsmash.com/features) | *https://fromsmash.com/* |
-| **SwissTranfer** | 50 Gb per file max | Custom retention date up to 30 days, password protection, ... | *https://www.swisstransfer.com/en* |
+| **SwissTranfer** | 50 Gb per file max | Custom retention date up to 30 days, password protection, ... | *https://www.swisstransfer.com/en* |  
+
 <br>
 
 #### Sources :
-<br>
-
 + [Google](https://support.google.com/a/answer/10403871#expand-all)
 + Universities that uses Drive :
   + [NCKU](https://cc.ncku.edu.tw/p/16-1002-218008.php?Lang=en)
@@ -113,7 +98,5 @@ Here are the best free solutions for you :
 <br>
 
 #### Keep in touch with me :smiling_face_with_three_hearts:
-<br>
-
 https://github.com/EDM115
 https://t.me/EDM115

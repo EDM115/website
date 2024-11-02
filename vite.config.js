@@ -83,7 +83,40 @@ export default defineConfig({
           inline: true
         }),
         md.use(emoji),
-        md.use(mditAttrs)
+        md.use(mditAttrs),
+        md.renderer.rules.fence = (tokens, idx) => {
+          const token = tokens[idx]
+          const langName = token.info.trim()
+          const isSupported = hljs.getLanguage(langName)
+
+          const highlightedCode = isSupported
+            ? hljs.highlight(token.content, { language: langName }).value
+            : hljs.highlightAuto(token.content).value
+
+          // Return the HTML with language label and copy button
+          return `
+            <div class='code-block'>
+              <div class='code-block-header'>
+                <span class='code-block-lang'>${langName || "plaintext"}</span>
+                <button class='copy-code-button' onclick='
+                  navigator.clipboard.writeText(\`${token.content}\`);
+                  const btn = this;
+                  btn.textContent = "Copied !";
+                  btn.classList.add("copy-code-button-clicked");
+
+                  setTimeout(() => {
+                    btn.textContent = "Copy";
+                    btn.classList.remove("copy-code-button-clicked");
+                    btn.classList.add("copy-code-button");
+                  }, 3000);
+                '>
+                  Copy
+                </button>
+              </div>
+              <pre><code class='hljs ${langName}'>${highlightedCode}</code></pre>
+            </div>
+          `
+        }
       }
     }),
     MagicRegExpTransformPlugin.vite(),

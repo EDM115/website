@@ -2,7 +2,7 @@
   <v-container>
     <h1>Blog (TBD)</h1><br>
 
-    <h3>2 random posts, to be completed with a date sorting system. Also broken on mobile</h3>
+    <h3>2 random posts, to be completed with a date sorting system</h3>
 
     <v-divider class="my-4" />
 

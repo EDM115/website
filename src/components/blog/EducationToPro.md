@@ -9,11 +9,11 @@ meta:
 <br>
 
 ### Quick backstory
-My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine :)
+My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine \:)
 <br>
 
 ## Prerequisites
-The PC has to have an admin session. If you don't, try to find how to make yourself admin :)
+The PC has to have an admin session. If you don't, try to find how to make yourself admin \:)
 <br>
 
 ## Step 1 : The migration
