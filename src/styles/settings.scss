@@ -6,17 +6,57 @@
   @return rgb(var(--#{$name}));
 }
 
+@mixin counter-reset-start {
+  @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 {
+    &[start="#{$i}"] {
+      counter-reset: item #{$i - 1};
+    }
+  }
+}
+
 body {
   margin: 0;
   font-family: Nunito;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var-color(v-theme-background);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var-color(v-theme-text-lighten-2);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var-color(v-theme-primary);
 }
 
 code, kbd, pre, samp {
   font-family: "Fira Code", monospace;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
 .markdown-body {
   width: 80%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .markdown-body > p > img {
@@ -31,14 +71,6 @@ code, kbd, pre, samp {
 .markdown-body > ol {
   list-style: none;
   counter-reset: item;
-}
-
-@mixin counter-reset-start {
-  @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 {
-    &[start="#{$i}"] {
-      counter-reset: item #{$i - 1};
-    }
-  }
 }
 
 .markdown-body ol[start] {
@@ -59,6 +91,8 @@ code, kbd, pre, samp {
 .markdown-body > table {
   border-collapse: collapse;
   width: 100%;
+  overflow-x: auto;
+  display: block;
 }
 
 .markdown-body > table,
@@ -76,35 +110,11 @@ code, kbd, pre, samp {
 .markdown-body > blockquote {
   border-left: 4px solid var-color(v-border-color);
   padding: 0 1rem;
-  margin: 0.5rem 0
+  margin: 0.5rem 0;
 }
 
 .markdown-body > blockquote > p {
   color: var-color(v-theme-text-darken-2);
-}
-
-.markdown-body > .code-block pre > code.hljs {
-  overflow: auto;
-}
-
-.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-track {
-  background: var-color(v-theme-background-lighten-2);
-  border-radius: 10px;
-}
-
-.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-thumb {
-  background: var-color(v-theme-text-lighten-2);
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-.markdown-body > .code-block pre > code.hljs::-webkit-scrollbar-thumb:hover {
-  background: var-color(v-theme-primary);
 }
 
 .code-block {
@@ -119,7 +129,7 @@ code, kbd, pre, samp {
   padding: 0.5rem 1rem;
   background-color: #282936;
   border-radius: 20px 20px 0px 0px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #e9e9f4;
 }
 
@@ -132,9 +142,9 @@ code, kbd, pre, samp {
   border: none;
   color: var-color(v-theme-primary);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   padding: 0.2rem 0.5rem;
-  transition: color 0.3s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 .copy-code-button-clicked {
@@ -142,9 +152,9 @@ code, kbd, pre, samp {
   border: none;
   color: var-color(v-theme-secondary);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   padding: 0.2rem 0.5rem;
-  transition: color 0.3s ease;
+  transition: all 0.5s ease-in-out;
 }
 
 .copy-code-button:hover {
@@ -154,4 +164,18 @@ code, kbd, pre, samp {
 .code-block pre > code {
   margin: 0;
   border-radius: 0px 0px 20px 20px;
+}
+
+*:not(pre) > code.hljs {
+  border-radius: 10px 10px 10px 10px;
+  padding: 0.2rem 0.5rem;
+  display: inline-block;
+  text-wrap: pretty;
+  white-space: pre-line;
+  word-break: break-all;
+}
+
+.v-stepper-vertical-item__title {
+  text-wrap: pretty;
+  word-break: break-all;
 }
