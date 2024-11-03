@@ -67,10 +67,23 @@
           mode="out-in"
           name="page"
         >
-          <Component
-            :is="Component"
-            :key="route.path"
-          />
+          <div>
+            <Component
+              :is="Component"
+              :key="route.path"
+            />
+            <v-fab
+              v-show="showGoToTop"
+              app
+              appear
+              color="primary"
+              class="go-to-top"
+              :icon="mdiArrowUp"
+              location="bottom right"
+              :variant="isDarkTheme ? 'tonal' : 'elevated'"
+              @click="scrollToTop"
+            />
+          </div>
         </Transition>
       </RouterView>
     </v-main>
@@ -79,6 +92,7 @@
 
 <script setup>
 import lucideConstruction from "~icons/lucide/construction"
+import mdiArrowUp from "~icons/mdi/arrowUp"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
@@ -94,7 +108,9 @@ const theme = ref(store.getTheme)
 const displayDialog = ref(false)
 const menuIcon = ref(mdiMenu)
 const vuetifyTheme = useTheme()
+const isDarkTheme = computed(() => theme.value === "dark")
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
+const showGoToTop = ref(false)
 
 /**
  * Toggles the display of the dialog by setting the store's display dialog value to "false"
@@ -115,6 +131,14 @@ function toggleTheme() {
   vuetifyTheme.global.name.value = theme.value
 }
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
+const handleScroll = () => {
+  showGoToTop.value = window.scrollY > 100
+}
+
 useHead({
   title: "EDM115 - French dev/student/gamer/music producer"
 })
@@ -127,6 +151,8 @@ onMounted(() => {
   setInterval(() => {
     menuIcon.value = menuIcon.value === mdiMenu ? mdiHomeOutline : mdiMenu
   }, 3000)
+
+  window.addEventListener("scroll", handleScroll)
 })
 </script>
 
@@ -154,5 +180,9 @@ onMounted(() => {
   100% {
     transform: rotate(720deg);
   }
+}
+
+.go-to-top {
+  transition: all 0.5s ease-in-out;
 }
 </style>
