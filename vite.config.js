@@ -35,7 +35,7 @@ export default defineConfig({
   plugins: [
     vue({
       include: [ /\.vue$/, /\.md$/ ],
-      // features: { optionsAPI: false },
+      features: { optionsAPI: false },
       template: { transformAssetUrls }
     }),
     vueDevTools({ launchEditor: "code-insiders" }),
