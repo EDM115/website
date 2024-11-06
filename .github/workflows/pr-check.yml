@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: "Bump Node.js to v22"
+      - name: "Bump Node.js to v23"
         uses: actions/setup-node@v4
         with:
           node-version: latest
