@@ -1,3 +1,4 @@
+import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import vue from "@vitejs/plugin-vue"
 import hljs from "highlight.js"
 import mditAttrs from "markdown-it-attrs"
@@ -45,6 +46,7 @@ export default defineConfig({
         configFile: "src/styles/settings.scss"
       }
     }),
+    VueI18nPlugin(),
     svgLoader({
       svgoConfig: {
         multipass: true

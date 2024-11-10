@@ -29,7 +29,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiHomeOutline"
-                text="Home"
+                :text="t('home')"
                 variant="elevated"
               />
             </RouterLink>
@@ -41,7 +41,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiInformationOutline"
-                text="Projects"
+                :text="t('projects')"
                 variant="elevated"
               />
             </RouterLink>
@@ -53,7 +53,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiText"
-                text="Blog"
+                :text="t('blog')"
                 variant="elevated"
               />
             </RouterLink>
@@ -75,35 +75,36 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>About</h2>
+            <h2>{{ t("about") }}</h2>
           </v-card-title>
 
           <v-card-text>
             <p>
-              I'm a French developer, who like to play with different programming languages<br>Managing both studies, dev & relationship, I'm passionnated and involved into everything I try out<br><br>
-              Java dev • Python enthusiast • Web dev<br>
-              I mostly made things in Java, Python and HTML<br>
-              You can check all my projects on my GitHub<br>
-              Name : Lussandre Lederrey<br>
-              Age : {{ age }}<br>
-              City : Vannes, France<br>
-              Website : <a
+              {{ t("about1") }}<br>
+              {{ t("about2") }}<br><br>
+              {{ t("about3") }}<br>
+              {{ t("about4") }}<br>
+              {{ t("about5") }}<br>
+              {{ t("about6") }}<br>
+              {{ t("about7", { age }) }}<br>
+              {{ t("about8") }}<br>
+              {{ t("about9") }} : <a
                 href="https://edm115.dev"
                 target="_blank"
                 rel="noopener noreferrer"
               >edm115.dev</a><br>
-              Email : <a
+              {{ t("about10") }} : <a
                 href="mailto:dev@edm115.dev"
                 target="_blank"
                 rel="noopener noreferrer"
               >dev@edm115.dev</a><br>
-              Birthday : 18th June<br>
-              Phone : <a
+              {{ t("about11") }}<br>
+              {{ t("about12") }} : <a
                 href="tel:+33667980504"
                 target="_blank"
                 rel="noopener noreferrer"
               >+33 6 67 98 05 04</a><br>
-              Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)<br>
+              {{ t("about13") }}<br>
             </p>
           </v-card-text>
         </v-card>
@@ -116,7 +117,7 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Stats</h2>
+            <h2>{{ t("stats") }}</h2>
           </v-card-title>
 
           <v-card-text>
@@ -132,7 +133,7 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Skills</h2>
+            <h2>{{ t("skills") }}</h2>
           </v-card-title>
 
           <v-card-text>
@@ -148,12 +149,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Resume</h2>
+            <h2>{{ t("resume") }}</h2>
           </v-card-title>
 
           <v-card-text>
             <p>
-              What is my path ? Discover it there<br>
+              {{ t("resume1") }}<br>
               <v-stepper-vertical
                 non-linear
                 ripple
@@ -167,7 +168,7 @@
               >
                 <template #default>
                   <v-stepper-vertical-item
-                    subtitle="Summary"
+                    :subtitle="t('resume2')"
                     title="EDM115"
                     :icon="mdiAccountTieOutline"
                     :edit-icon="mdiAccountTieOutline"
@@ -175,8 +176,8 @@
                   >
                     <v-list>
                       <v-list-item>
-                        <v-list-item-title>I'm a developer but I'm still studying</v-list-item-title>
-                        Vannes, France<br>
+                        <v-list-item-title>{{ t("resume3") }}</v-list-item-title>
+                        {{ t("resume4") }}<br>
                         <a
                           href="mailto:dev@edm115.dev"
                           target="_blank"
@@ -192,8 +193,8 @@
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    subtitle="Professional experience"
-                    title="Internship @ Koumoul"
+                    :subtitle="t('resume5')"
+                    :title="t('resume6')"
                     :icon="mdiBriefcaseOutline"
                     :edit-icon="mdiBriefcaseOutline"
                     value="4"
@@ -204,14 +205,14 @@
                         <v-list-item-subtitle class="mb-2">
                           Koumoul, Vannes
                         </v-list-item-subtitle>
-                        A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...
+                        {{ t("resume7") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    subtitle="Education"
-                    title="BUT Computer Science"
+                    :subtitle="t('resume8')"
+                    :title="t('resume9')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
                     value="2"
@@ -222,14 +223,14 @@
                         <v-list-item-subtitle class="mb-2">
                           IUT Vannes
                         </v-list-item-subtitle>
-                        3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...
+                        {{ t("resume10") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    subtitle="Education"
-                    title="BAC"
+                    :subtitle="t('resume8')"
+                    :title="t('resume11')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
                     value="3"
@@ -240,7 +241,7 @@
                         <v-list-item-subtitle class="mb-2">
                           Lycée Saint-Paul, Vannes
                         </v-list-item-subtitle>
-                        I learnt here the basics of programmation with Python and SQL
+                        {{ t("resume12") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
@@ -248,13 +249,13 @@
               </v-stepper-vertical>
             </p>
             <h3 class="mt-4 mb-2">
-              Download my Resume
+              {{ t("downloadResume") }}
             </h3>
             <v-btn
               class="mr-2"
               color="secondary"
               :prepend-icon="mdiFileDownload"
-              text="PDF"
+              :text="t('downloadPdf')"
               href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -262,7 +263,7 @@
             <v-btn
               color="secondary"
               :prepend-icon="mdiWeb"
-              text="Online"
+              :text="t('downloadOnline')"
               href="https://old.edm115.dev/cv"
               target="_blank"
               rel="noopener noreferrer"
@@ -278,7 +279,7 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Projects</h2>
+            <h2>{{ t("projects") }}</h2>
           </v-card-title>
 
           <v-card-text>
@@ -294,7 +295,7 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Open Source contributions</h2>
+            <h2>{{ t("oss") }}</h2>
           </v-card-title>
 
           <v-card-text>
@@ -310,20 +311,20 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>Contact</h2>
+            <h2>{{ t("contact") }}</h2>
           </v-card-title>
 
           <v-card-text>
             <p class="mb-4">
-              Not ready yet. Email and phone number available upper, and social links below<br><br>
-              If you reached this far, congratulations.<br>
-              Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit<br>
+              {{ t("contact1") }}<br><br>
+              {{ t("contact2") }}<br>
+              {{ t("contact3") }}<br>
             </p>
             <v-btn
               class="mr-2"
               color="secondary"
               :prepend-icon="mdiLink"
-              text="Old"
+              :text="t('contact4')"
               href="https://old.edm115.dev"
               target="_blank"
               rel="noopener noreferrer"
@@ -331,7 +332,7 @@
             <v-btn
               color="secondary"
               :prepend-icon="mdiLink"
-              text="Live"
+              :text="t('contact5')"
               href="https://edm115.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
@@ -347,7 +348,7 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>EDM115 • Social links</h2>
+            <h2>EDM115 • {{ t("social") }}</h2>
           </v-card-title>
 
           <v-card-text>
@@ -359,6 +360,101 @@
   </v-container>
 </template>
 
+<i18n>
+{
+  "en": {
+    "about": "About",
+    "about1": "I'm a French developer, who like to play with different programming languages",
+    "about10": "Email",
+    "about11": "Birthday : 18th June",
+    "about12": "Phone",
+    "about13": "Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)",
+    "about2": "Managing both studies, dev & relationship, I'm passionnated and involved into everything I try out",
+    "about3": "Java dev • Python enthusiast • Web dev",
+    "about4": "I mostly made things in Java, Python and Vue",
+    "about5": "You can check all my projects on my GitHub",
+    "about6": "Name : Lussandre Lederrey",
+    "about7": "Age : {age} years old",
+    "about8": "City : Vannes, France",
+    "about9": "Website",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contact1": "Not ready yet. Email and phone number available upper, and social links below",
+    "contact2": "If you reached this far, congratulations.",
+    "contact3": "Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit",
+    "contact4": "Old",
+    "contact5": "Live",
+    "downloadOnline": "Online",
+    "downloadPdf": "PDF",
+    "downloadResume": "Download my Resume",
+    "home": "Home",
+    "oss": "Open Source contributions",
+    "projects": "Projects",
+    "resume": "Resume",
+    "resume1": "What is my path ? Discover it there",
+    "resume10": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
+    "resume11": "BAC",
+    "resume12": "I learnt here the basics of programmation with Python and SQL",
+    "resume2": "Summary",
+    "resume3": "I'm a developer but I'm still studying",
+    "resume4": "Vannes, France",
+    "resume5": "Professional experience",
+    "resume6": "Internship {'@'} Koumoul",
+    "resume7": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
+    "resume8": "Education",
+    "resume9": "BUT Computer Science",
+    "skills": "Skills",
+    "social": "Social links",
+    "stats": "Stats"
+  },
+  "fr": {
+    "about": "À propos",
+    "about1": "Je suis un développeur français, qui aime jouer avec différents langages de programmation",
+    "about10": "Email",
+    "about11": "Anniversaire : 18 Juin",
+    "about12": "Téléphone",
+    "about13": "Diplôme : Pas encore applicable (j'ai le baccalauréat, et je suis actuellement en 3ème année de BUT informatique)",
+    "about2": "Gérant à la fois les études, le dev & ma relation, je suis passionné et impliqué dans tout ce que j'essaie",
+    "about3": "Dev Java • Enthousiaste Python • Dev Web",
+    "about4": "J'ai principalement fait des choses en Java, Python et Vue",
+    "about5": "Vous pouvez consulter tous mes projets sur mon GitHub",
+    "about6": "Nom : Lussandre Lederrey",
+    "about7": "Âge : {age} ans",
+    "about8": "Ville : Vannes, France",
+    "about9": "Site web",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contact1": "Pas encore prêt. Email et numéro de téléphone disponibles ci-dessus, et liens sociaux ci-dessous",
+    "contact2": "Si vous êtes arrivé jusqu'ici, félicitations.",
+    "contact3": "Voici 2 boutons : le premier mène à l'ancienne version de mon site web, le second est la nouvelle mais mise à jour en direct à chaque commit",
+    "contact4": "Ancien",
+    "contact5": "En direct",
+    "downloadOnline": "En ligne",
+    "downloadPdf": "PDF",
+    "downloadResume": "Télécharger mon CV",
+    "home": "Accueil",
+    "oss": "Contributions Open Source",
+    "projects": "Projets",
+    "resume": "CV",
+    "resume1": "Quel est mon parcours ? Découvrez-le ici",
+    "resume10": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ...",
+    "resume11": "BAC",
+    "resume12": "J'ai appris ici les bases de la programmation avec Python et SQL",
+    "resume2": "Résumé",
+    "resume3": "Je suis un développeur mais je suis toujours en train d'étudier",
+    "resume4": "Vannes, France",
+    "resume5": "Expérience professionnelle",
+    "resume6": "Stage {'@'} Koumoul",
+    "resume7": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
+    "resume8": "Éducation",
+    "resume9": "BUT Informatique",
+    "skills": "Compétences",
+    "social": "Liens sociaux",
+    "stats": "Stats"
+  }
+}
+</i18n>
+
 <script setup>
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
@@ -369,10 +465,15 @@ import mdiLink from "~icons/mdi/link"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiText from "~icons/mdi/text"
 import mdiWeb from "~icons/mdi/web"
+import useMainStore from "@/stores/main"
 
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
+import { useI18n } from "vue-i18n"
 
 const age = ref(20)
+const store = useMainStore()
+const userLocale = computed(() => store.getI18n)
+const { locale, t } = useI18n()
 
 /**
  * Calculate my age based on the birthdate "2004-06-18".
@@ -389,5 +490,6 @@ function getAge() {
 
 onMounted(() => {
   age.value = getAge()
+  locale.value = userLocale.value
 })
 </script>

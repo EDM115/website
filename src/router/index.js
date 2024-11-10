@@ -21,6 +21,7 @@ function generateBlogRoutes() {
         .replace(/([A-Z])/g, "-$1")
         .toLowerCase()
         .replace(/\/-/, "/")
+        .replace(/\s+/g, "-")
 
       routes.push({
         path: routePath,

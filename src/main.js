@@ -15,20 +15,30 @@ import "highlight.js/styles/base16/dracula.min.css"
 import "vuetify/styles"
 
 import AOS from "aos"
+import cookie from "cookiejs"
 import App from "./App.vue"
 import router from "./router"
 
 import { GesturePlugin } from "@vueuse/gesture"
 import { MotionPlugin } from "@vueuse/motion"
 import { createHead } from "@unhead/vue"
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
 import { createVuetify } from "vuetify"
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg"
 import { en } from "vuetify/locale"
+import { createI18n } from "vue-i18n"
 
 const app = createApp(App)
 const head = createHead()
+const i18n = createI18n({
+  fallbackLocale: "en",
+  legacy: false,
+  locale: cookie("i18n") || navigator.language.split("-")[0]
+})
+
+polyfillCountryFlagEmojis()
 
 app.use(AOS.init({
   duration: 1000,
@@ -87,6 +97,7 @@ app.use(createVuetify({
     }
   }
 }))
+app.use(i18n)
 app.use(GesturePlugin)
 app.use(head)
 app.use(MotionPlugin)

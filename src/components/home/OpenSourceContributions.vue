@@ -51,7 +51,7 @@
             <v-btn
               color="primary"
               class="mt-2"
-              text="Link"
+              :text="t('link')"
               :href="contrib.link"
               target="_blank"
               rel="noopener noreferrer"
@@ -93,7 +93,7 @@
             <v-btn
               color="primary"
               class="mt-2"
-              text="Link"
+              :text="t('link')"
               :href="contrib.link"
               target="_blank"
               rel="noopener noreferrer"
@@ -105,13 +105,30 @@
   </v-tabs-window>
 </template>
 
+<i18n>
+{
+  "en": {
+    "link": "Link"
+  },
+  "fr": {
+    "link": "Lien"
+  }
+}
+</i18n>
+
 <script setup>
 import octiconIssueClosed from "~icons/octicon/issue-closed-16"
 import octiconIssueOpened from "~icons/octicon/issue-opened-16"
 import octiconPullRequest from "~icons/octicon/git-pull-request-16"
 import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
+import useMainStore from "@/stores/main"
 
-import { ref } from "vue"
+import { computed, onMounted, ref } from "vue"
+import { useI18n } from "vue-i18n"
+
+const store = useMainStore()
+const userLocale = computed(() => store.getI18n)
+const { locale, t } = useI18n()
 
 const tab = ref(1)
 const pullRequests = ref([
@@ -480,6 +497,10 @@ const issues = ref([
 function getContribColor(state) {
   return state === "open" ? "open-contrib-color" : "closed-contrib-color"
 }
+
+onMounted(() => {
+  locale.value = userLocale.value
+})
 </script>
 
 <style scoped>

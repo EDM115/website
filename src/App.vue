@@ -21,6 +21,35 @@
         </RouterLink>
 
         <template #append>
+          <v-menu open-on-hover>
+            <template #activator="{ props }">
+              <v-btn
+                v-bind="props"
+                :icon="mdiLanguage"
+                @mouseleave="i18nSwitch = false"
+                @mouseover="i18nSwitch = true"
+              >
+                <div v-if="i18nSwitch">
+                  {{ getFlagEmoji(userLocale) }}
+                </div>
+                <div v-else>
+                  <v-icon :icon="mdiLanguage" />
+                </div>
+              </v-btn>
+            </template>
+            <v-list
+              @mouseleave="i18nSwitch = false"
+              @mouseover="i18nSwitch = true"
+            >
+              <v-list-item
+                v-for="l in availableLocales"
+                :key="l"
+                :active="l === userLocale"
+                :title="getFlagEmoji(l)"
+                @click="switchLocale(l)"
+              />
+            </v-list>
+          </v-menu>
           <v-btn
             class="spin-animation"
             :icon="iconTheme"
@@ -41,20 +70,20 @@
           <v-alert
             :icon="lucideConstruction"
             color="error"
-            title="In development"
-            text="This website is still in heavy development and some areas aren't ready yet."
+            :title="t('indev.title')"
+            :text="t('indev.text')"
           />
           <v-card-actions>
             <v-btn
               color="text"
-              text="Visit the old website"
+              :text="t('indev.oldSite')"
               href="https://old.edm115.dev"
               target="_blank"
               rel="noopener noreferrer"
             />
             <v-btn
               color="text"
-              text="Close"
+              :text="t('close')"
               @click="toggleDialog"
             />
           </v-card-actions>
@@ -70,7 +99,7 @@
           <div>
             <Component
               :is="Component"
-              :key="route.path"
+              :key="userLocale + '/' + route.path"
             />
             <v-fab
               v-show="showGoToTop"
@@ -90,10 +119,34 @@
   </v-app>
 </template>
 
+<i18n>
+{
+  "en": {
+    "close": "Close",
+    "head": "EDM115 - French dev/student/gamer/music producer",
+    "indev": {
+      "oldSite": "Visit the old website",
+      "title": "In development",
+      "text": "This website is still in heavy development and some areas aren't ready yet."
+    }
+  },
+  "fr": {
+    "close": "Fermer",
+    "head": "EDM115 - Développeur français/étudiant/gamer/producteur de musique",
+    "indev": {
+      "oldSite": "Visiter l'ancien site",
+      "title": "En développement",
+      "text": "Ce site est encore en développement intensif et certaines parties ne sont pas encore prêtes."
+    }
+  }
+}
+</i18n>
+
 <script setup>
 import lucideConstruction from "~icons/lucide/construction"
 import mdiArrowUp from "~icons/mdi/arrowUp"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
+import mdiLanguage from "~icons/mdi/language"
 import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
@@ -102,6 +155,7 @@ import useMainStore from "@/stores/main"
 import { useHead } from "@unhead/vue"
 import { computed, onMounted, ref } from "vue"
 import { useTheme } from "vuetify"
+import { useI18n } from "vue-i18n"
 
 const store = useMainStore()
 const theme = ref(store.getTheme)
@@ -111,6 +165,27 @@ const vuetifyTheme = useTheme()
 const isDarkTheme = computed(() => theme.value === "dark")
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
 const showGoToTop = ref(false)
+
+const { locale, t } = useI18n()
+const availableLocales = computed(() => store.getAvailableLocales)
+const i18nSwitch = ref(false)
+const userLocale = computed(() => store.getI18n)
+
+const switchLocale = (newLocale) => {
+  locale.value = newLocale
+  store.setI18n(newLocale)
+}
+
+const getFlagEmoji = (locale) => {
+  switch (locale) {
+    case "en":
+      return "🇺🇸"
+    case "fr":
+      return "🇫🇷"
+    default:
+      return "🌐"
+  }
+}
 
 /**
  * Toggles the display of the dialog by setting the store's display dialog value to "false"
@@ -140,11 +215,12 @@ const handleScroll = () => {
 }
 
 useHead({
-  title: "EDM115 - French dev/student/gamer/music producer"
+  title: t("head")
 })
 
 onMounted(() => {
   store.setTheme(store.getTheme)
+  store.setI18n(store.getI18n)
   vuetifyTheme.global.name.value = store.getTheme
   displayDialog.value = (store.getDisplayDialog === "true")
 

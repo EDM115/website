@@ -1,5 +1,5 @@
 @use "vuetify/settings" with (
-  $body-font-family: "Nunito"
+  $body-font-family: "'Twemoji Country Flags', Nunito, serif"
 );
 
 @function var-color($name) {
@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: Nunito;
+  font-family: "Twemoji Country Flags", Nunito, serif;
 }
 
 *::-webkit-scrollbar {
@@ -178,4 +178,9 @@ p, li {
 .v-stepper-vertical-item__title {
   text-wrap: pretty;
   word-break: break-all;
+}
+
+.v-list-item-title {
+  text-wrap: pretty;
+  word-break: keep-all;
 }

@@ -41,10 +41,32 @@
   </v-col>
 </template>
 
+<i18n>
+{
+  "en": {
+    "loc": "Lines of code written",
+    "projects": "Projects made (public)",
+    "users": "Users of my services (has yet to be refreshed through an API)"
+  },
+  "fr": {
+    "loc": "Lignes de code écrites",
+    "projects": "Projets réalisés (publics)",
+    "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
+  }
+}
+</i18n>
+
 <script setup>
+import useMainStore from "@/stores/main"
+
 import { gsap } from "gsap"
 import { ofetch } from "ofetch"
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
+import { useI18n } from "vue-i18n"
+
+const store = useMainStore()
+const userLocale = computed(() => store.getI18n)
+const { locale, t } = useI18n()
 
 let observer = null
 // Different from what you see ? I include private repos here too :)
@@ -109,9 +131,9 @@ const projectsLoc = ref({
 const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => acc + cur, 0))
 
 const stats = ref([
-  { id: 0, name: "Projects made (public)", value: projectsNumber.value },
-  { id: 1, name: "Users of my services (has yet to be refreshed through an API)", value: 39314 },
-  { id: 2, name: "Lines of code written", value: linesOfCode }
+  { id: 0, name: t("projects"), value: projectsNumber.value },
+  { id: 1, name: t("users"), value: 39314 },
+  { id: 2, name: t("loc"), value: linesOfCode }
 ])
 
 /**
@@ -175,6 +197,8 @@ function callback(entries) {
 }
 
 onMounted(async () => {
+  locale.value = userLocale.value
+
   await fetchProjectsNumber()
   stats.value[0].value = projectsNumber.value
 

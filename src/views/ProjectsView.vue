@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <h1>My projects (TBD)</h1>
+    <h1>{{ t("projects") }}</h1>
 
-    <h3>Debug colors</h3>
+    <h3>{{ t("debugColors") }}</h3>
 
     <v-row
       align="center"
@@ -72,10 +72,37 @@
   </v-container>
 </template>
 
+<i18n>
+{
+  "en": {
+    "debugColors": "Debug colors",
+    "head": "Projects - EDM115",
+    "projects": "My projects (TBD)"
+  },
+  "fr": {
+    "debugColors": "Couleurs de débogage",
+    "head": "Projets - EDM115",
+    "projects": "Mes projets (pas terminé)"
+  }
+}
+</i18n>
+
 <script setup>
+import useMainStore from "@/stores/main"
+
 import { useHead } from "@unhead/vue"
+import { computed, onMounted } from "vue"
+import { useI18n } from "vue-i18n"
+
+const store = useMainStore()
+const userLocale = computed(() => store.getI18n)
+const { locale, t } = useI18n()
 
 useHead({
-  title: "Projects - EDM115"
+  title: t("head")
+})
+
+onMounted(() => {
+  locale.value = userLocale.value
 })
 </script>
