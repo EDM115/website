@@ -184,3 +184,12 @@ p, li {
   text-wrap: pretty;
   word-break: keep-all;
 }
+
+.v-list-item-subtitle {
+  display: inline-block;
+  overflow: visible;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+  word-break: keep-all;
+  white-space: wrap;
+}
