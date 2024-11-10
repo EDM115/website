@@ -176,8 +176,8 @@ const switchLocale = (newLocale) => {
   store.setI18n(newLocale)
 }
 
-const getFlagEmoji = (locale) => {
-  switch (locale) {
+const getFlagEmoji = (l) => {
+  switch (l) {
     case "en":
       return "🇺🇸"
     case "fr":
