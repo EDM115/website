@@ -171,11 +171,22 @@ const availableLocales = computed(() => store.getAvailableLocales)
 const i18nSwitch = ref(false)
 const userLocale = computed(() => store.getI18n)
 
+/**
+ * Changes the current locale.
+ *
+ * @param {string} newLocale - The country code of the locale to switch to.
+ */
 const switchLocale = (newLocale) => {
   locale.value = newLocale
   store.setI18n(newLocale)
 }
 
+/**
+ * Returns the flag emoji for a country code.
+ *
+ * @param {string} l - The country code.
+ * @returns {string} - The corresponding emoji. Defaults to 🌐.
+ */
 const getFlagEmoji = (l) => {
   switch (l) {
     case "en":
@@ -206,10 +217,17 @@ function toggleTheme() {
   vuetifyTheme.global.name.value = theme.value
 }
 
+/**
+ * Scrolls to the top of the page.
+ */
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
+/**
+ * Controls whether the go to top button is displayed depending on if we scrolled or not.
+ * Displays from 100 pixels scrolled.
+ */
 const handleScroll = () => {
   showGoToTop.value = window.scrollY > 100
 }
