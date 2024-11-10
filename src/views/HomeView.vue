@@ -204,7 +204,7 @@
                         <v-list-item-title>2024</v-list-item-title>
                         <v-list-item-subtitle class="mb-2">
                           Koumoul, Vannes
-                        </v-list-item-subtitle>
+                        </v-list-item-subtitle><br>
                         {{ t("resume7") }}
                       </v-list-item>
                     </v-list>
@@ -222,7 +222,7 @@
                         <v-list-item-title>2022 - 2025</v-list-item-title>
                         <v-list-item-subtitle class="mb-2">
                           IUT Vannes
-                        </v-list-item-subtitle>
+                        </v-list-item-subtitle><br>
                         {{ t("resume10") }}
                       </v-list-item>
                     </v-list>
@@ -240,7 +240,7 @@
                         <v-list-item-title>2019 - 2022</v-list-item-title>
                         <v-list-item-subtitle class="mb-2">
                           Lycée Saint-Paul, Vannes
-                        </v-list-item-subtitle>
+                        </v-list-item-subtitle><br>
                         {{ t("resume12") }}
                       </v-list-item>
                     </v-list>
