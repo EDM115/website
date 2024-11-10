@@ -21,7 +21,11 @@
         </RouterLink>
 
         <template #append>
-          <v-menu open-on-hover>
+          <v-menu
+            open-on-click
+            open-on-focus
+            open-on-hover
+          >
             <template #activator="{ props }">
               <v-btn
                 v-bind="props"
