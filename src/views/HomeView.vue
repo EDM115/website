@@ -121,7 +121,7 @@
           </v-card-title>
 
           <v-card-text>
-            <HomeStats />
+            <HomeStats :key="userLocale" />
           </v-card-text>
         </v-card>
 
@@ -137,7 +137,7 @@
           </v-card-title>
 
           <v-card-text>
-            <HomeSkills />
+            <HomeSkills :key="userLocale" />
           </v-card-text>
         </v-card>
 
@@ -283,7 +283,7 @@
           </v-card-title>
 
           <v-card-text>
-            <HomeProjects />
+            <HomeProjects :key="userLocale" />
           </v-card-text>
         </v-card>
 
@@ -299,7 +299,7 @@
           </v-card-title>
 
           <v-card-text>
-            <HomeOpenSourceContributions />
+            <HomeOpenSourceContributions :key="userLocale" />
           </v-card-text>
         </v-card>
 
@@ -352,7 +352,7 @@
           </v-card-title>
 
           <v-card-text>
-            <HomeSocialLinks />
+            <HomeSocialLinks :key="userLocale" />
           </v-card-text>
         </v-card>
       </v-col>
