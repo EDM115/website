@@ -137,7 +137,7 @@ const pullRequests = ref([
     name: "qubvel-org/segmentation_models.pytorch",
     description: "fix(examples): correct Colab links",
     type: "pr",
-    state: "open",
+    state: "closed",
     link: "https://github.com/qubvel-org/segmentation_models.pytorch/pull/965"
   },
   {
@@ -285,13 +285,54 @@ const pullRequests = ref([
     link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   }
 ])
+
 const issues = ref([
+  {
+    id: 30,
+    name: "oven-sh/bun",
+    description: "[BUG] Can't upgrade bun on windows if its install directory is symlinked to another drive",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/oven-sh/bun/issues/15279"
+  },
+  {
+    id: 29,
+    name: "marticliment/UniGetUI",
+    description: "[CRASH] Uniget doesn't respond for certain packages (Claude)",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/marticliment/UniGetUI/issues/2979"
+  },
+  {
+    id: 28,
+    name: "microsoft/vscode-gradle",
+    description: "[FEATURE REQUEST] Ability to run a task with environment variables like in IntelliJ",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/microsoft/vscode-gradle/issues/1624"
+  },
+  {
+    id: 27,
+    name: "8LWXpg/ptr",
+    description: "Support different zip structure",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/8LWXpg/ptr/issues/10"
+  },
+  {
+    id: 26,
+    name: "8LWXpg/ptr",
+    description: "[BUG] Doesn't work when PowerToys is installed in a custom location",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/8LWXpg/ptr/issues/9"
+  },
   {
     id: 25,
     name: "unplugin/unplugin-icons",
     description: "Error while loading some icons : Property \"idMap\" was accessed during render but is not defined on instance.",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/unplugin/unplugin-icons/issues/385"
   },
   {
