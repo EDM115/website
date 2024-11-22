@@ -292,7 +292,7 @@ const issues = ref([
     name: "oven-sh/bun",
     description: "[BUG] Can't upgrade bun on windows if its install directory is symlinked to another drive",
     type: "issue",
-    state: "closed",
+    state: "open",
     link: "https://github.com/oven-sh/bun/issues/15279"
   },
   {
@@ -300,7 +300,7 @@ const issues = ref([
     name: "marticliment/UniGetUI",
     description: "[CRASH] Uniget doesn't respond for certain packages (Claude)",
     type: "issue",
-    state: "closed",
+    state: "open",
     link: "https://github.com/marticliment/UniGetUI/issues/2979"
   },
   {
@@ -308,7 +308,7 @@ const issues = ref([
     name: "microsoft/vscode-gradle",
     description: "[FEATURE REQUEST] Ability to run a task with environment variables like in IntelliJ",
     type: "issue",
-    state: "closed",
+    state: "open",
     link: "https://github.com/microsoft/vscode-gradle/issues/1624"
   },
   {
