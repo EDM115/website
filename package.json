@@ -30,7 +30,7 @@
     "aos": "2.3.4",
     "country-flag-emoji-polyfill": "0.1.8",
     "eslint": "9.16.0",
-    "eslint-plugin-vue": "9.31.0",
+    "eslint-plugin-vue": "9.32.0",
     "gsap": "3.12.5",
     "highlight.js": "11.10.0",
     "js-imports-sort": "1.2.0",
