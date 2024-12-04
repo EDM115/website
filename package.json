@@ -39,7 +39,7 @@
     "markdown-it-attrs": "4.3.0",
     "markdown-it-emoji": "3.0.0",
     "markdown-it-highlightjs": "4.2.0",
-    "pinia": "2.2.8",
+    "pinia": "2.3.0",
     "sass-embedded": "1.82.0",
     "sass-loader": "16.0.4",
     "unplugin-icons": "0.21.0",
