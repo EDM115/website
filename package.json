@@ -32,7 +32,7 @@
     "eslint": "9.17.0",
     "eslint-plugin-vue": "9.32.0",
     "gsap": "3.12.5",
-    "highlight.js": "11.10.0",
+    "highlight.js": "11.11.0",
     "js-imports-sort": "1.2.0",
     "magic-regexp": "0.8.0",
     "markdown-it-anchor": "9.2.0",
