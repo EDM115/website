@@ -16,7 +16,7 @@
   "description": "EDM115's website",
   "devDependencies": {
     "@formkit/auto-animate": "0.8.2",
-    "@iconify/json": "2.2.287",
+    "@iconify/json": "2.2.288",
     "@intlify/unplugin-vue-i18n": "6.0.2",
     "@stylistic/eslint-plugin": "2.12.1",
     "@unhead/vue": "1.11.14",
