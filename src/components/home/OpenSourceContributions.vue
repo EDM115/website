@@ -133,6 +133,22 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 21,
+    name: "lifecompanionaac/lifecompanion",
+    description: "feat: add PhoneControl plugin",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/lifecompanionaac/lifecompanion/pull/408"
+  },
+  {
+    id: 20,
+    name: "maksimr/vscode-kotlin",
+    description: "fix: paths with spaces are handled",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/maksimr/vscode-kotlin/pull/1"
+  },
+  {
     id: 19,
     name: "qubvel-org/segmentation_models.pytorch",
     description: "fix(examples): correct Colab links",
@@ -288,6 +304,38 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 34,
+    name: "KieranP/Github-Releases-Feed",
+    description: "Bug: certain repos doesn't have their release title displayed",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/11"
+  },
+  {
+    id: 33,
+    name: "KieranP/Github-Releases-Feed",
+    description: "Feature: add some kind of attribution",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/10"
+  },
+  {
+    id: 32,
+    name: "KieranP/Github-Releases-Feed",
+    description: "Feature requests (random stuff to improve UX)",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/4"
+  },
+  {
+    id: 31,
+    name: "Abdenasser/neohtop",
+    description: "[REQUEST] Release neohtop to winget",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/Abdenasser/neohtop/issues/127"
+  },
+  {
     id: 30,
     name: "oven-sh/bun",
     description: "[BUG] Can't upgrade bun on windows if its install directory is symlinked to another drive",
@@ -356,7 +404,7 @@ const issues = ref([
     name: "TelegramPlayGround/pyrogram-tgcrypto",
     description: "Version agnostic builds",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/TelegramPlayGround/pyrogram-tgcrypto/issues/1"
   },
   {
@@ -436,7 +484,7 @@ const issues = ref([
     name: "vuetifyjs/vuetify",
     description: "[Bug Report][3.6.9] v-date-input's width doesn't size correctly when specifying percentage",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/vuetifyjs/vuetify/issues/19995"
   },
   {
