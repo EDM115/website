@@ -59,7 +59,6 @@ npm run serve
 ## NGINX setup (on my VPS)
 *(supposing that the repo is at `/home/edm115/website` and that it is built)*  
 ```bash
-sudo chown -R www-data:www-data /home/edm115/website/dist
 sudo find /home/edm115/website/dist -type d -exec chmod 755 {} \;
 sudo find /home/edm115/website/dist -type f -exec chmod 644 {} \;
 sudo chmod -R 755 /home/edm115/website/dist
