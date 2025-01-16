@@ -31,7 +31,7 @@
     "country-flag-emoji-polyfill": "0.1.8",
     "eslint": "9.18.0",
     "eslint-plugin-vue": "9.32.0",
-    "gsap": "3.12.5",
+    "gsap": "3.12.7",
     "highlight.js": "11.11.1",
     "js-imports-sort": "1.2.0",
     "magic-regexp": "0.8.0",
