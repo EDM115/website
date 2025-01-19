@@ -133,6 +133,14 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 22,
+    name: "DishpitDev/Slopify",
+    description: "feat: added anti-inspect",
+    type: "pr",
+    state: "closed",
+    link: "https://github.com/DishpitDev/Slopify/pull/408"
+  },
+  {
     id: 21,
     name: "lifecompanionaac/lifecompanion",
     description: "feat: add PhoneControl plugin",
@@ -304,7 +312,39 @@ const pullRequests = ref([
 
 const issues = ref([
   {
-    id: 34,
+    id: 39,
+    name: "hetznercloud/cli",
+    description: "Release hcloud to winget",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/hetznercloud/cli/issues/958"
+  },
+  {
+    id: 38,
+    name: "AsmSafone/HackerNews",
+    description: "Display title animation only once",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/AsmSafone/HackerNews/issues/1"
+  },
+  {
+    id: 37,
+    name: "BerriAI/litellm",
+    description: "[Bug]: v1.57.5 broke Windows compatibility on litellm cli proxy",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/BerriAI/litellm/issues/7677"
+  },
+  {
+    id: 36,
+    name: "KurimuzonAkuma/pyrogram",
+    description: "Kurigram stops receiving updates after a while",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/KurimuzonAkuma/pyrogram/issues/127"
+  },
+  {
+    id: 35,
     name: "KieranP/Github-Releases-Feed",
     description: "Bug: certain repos doesn't have their release title displayed",
     type: "issue",
@@ -312,7 +352,7 @@ const issues = ref([
     link: "https://github.com/KieranP/Github-Releases-Feed/issues/11"
   },
   {
-    id: 33,
+    id: 34,
     name: "KieranP/Github-Releases-Feed",
     description: "Feature: add some kind of attribution",
     type: "issue",
@@ -320,7 +360,7 @@ const issues = ref([
     link: "https://github.com/KieranP/Github-Releases-Feed/issues/10"
   },
   {
-    id: 32,
+    id: 33,
     name: "KieranP/Github-Releases-Feed",
     description: "Feature requests (random stuff to improve UX)",
     type: "issue",
@@ -328,12 +368,20 @@ const issues = ref([
     link: "https://github.com/KieranP/Github-Releases-Feed/issues/4"
   },
   {
-    id: 31,
+    id: 32,
     name: "Abdenasser/neohtop",
     description: "[REQUEST] Release neohtop to winget",
     type: "issue",
     state: "open",
     link: "https://github.com/Abdenasser/neohtop/issues/127"
+  },
+  {
+    id: 31,
+    name: "JanDeDobbeleer/oh-my-posh",
+    description: "[BUG] Reported installed version is wrong system-wide",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6023"
   },
   {
     id: 30,
@@ -509,7 +557,7 @@ const issues = ref([
     description: "[PROPOSAL] Pass the project to someone else",
     type: "issue",
     state: "open",
-    link: "https://github.com/pyrogram/pyrogram/issues/1425"
+    link: "https://web.archive.org/web/20241125204558/https://github.com/pyrogram/pyrogram/issues/1425"
   },
   {
     id: 8,
@@ -556,7 +604,7 @@ const issues = ref([
     name: "Rectify11/Installer",
     description: "[BUG] Pin to Quick access is gone from the context menu",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/Rectify11/Installer/issues/372"
   },
   {
