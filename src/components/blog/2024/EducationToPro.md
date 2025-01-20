@@ -6,15 +6,12 @@ meta:
 ---
 
 # How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
-<br>
 
 ### Quick backstory
 My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine \:)
-<br>
 
 ## Prerequisites
 The PC has to have an admin session. If you don't, try to find how to make yourself admin \:)
-<br>
 
 ## Step 1 : The migration
 01. Create a new local account and make it admin. Go on Settings => Accounts => Other users and add one. Make sure it's a local account, decline as much as possible any Microsoft related info.
@@ -26,7 +23,6 @@ The PC has to have an admin session. If you don't, try to find how to make yours
 07. Do `Win + R` and type `systempropertiesadvanced`. Here, click on the "PC Name" tab, Edit, and change the PC name to something more fitting to you (mine is for example `Lenovo-EDM115`).
 08. Go back on the previous user and log out after you made sure you backed up anything important (ex browser passwords, apps settings, ...)
 09. If you are on Windows Pro, open the Control Panel => BitLocker Drive Encryption => Turn off BitLocker. This will take some time but your drive will be much faster afterwards
-<br>
 
 ## Step 2 : The unlink
 01. Disable Wifi (anything that connects to internet) and restart the PC
@@ -52,7 +48,6 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments" /f
 ```
 08. Restart the PC. You should now be able to login with just the username and without specifying the PC name. Open a cmd as admin and run `DSREGCMD /debug /leave` and then `DSREGCMD /debug /cleanupaccounts`. This will do its best to leave linked organizations.
 09. Do `Win + R`, `regedit`, and click on `HKEY_CURRENT_USER` (so the search will start from here. click again on this when doing another search). You will now have to search for anything related to "Intune", "Enrollment" or the domain part of your school email that you noted prior (ex if it was `pc123456@school.country.com`, search for `school.country.com`). Delete the keys found (use common sense tho) to remove the last bits of organization links. You can backup the registry before if you think you will mess this up.
-<br>
 
 ## Step 3 : Final touches and quick remarks
 01. Open Windows Update an check for any updates available. Install them and restart as necessary. If some fail to install, it's probably because when on Intune, they restricted which versions could be installed (ex for my gf she could only install cumulative updates of every 3 month). To avoid further issues, open a cmd as admin and run the following (then check for updates again) :

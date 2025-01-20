@@ -1,5 +1,5 @@
 @use "vuetify/settings" with (
-  $body-font-family: "'Twemoji Country Flags', Nunito, serif"
+  $body-font-family: "Twemoji Country Flags, Nunito, serif"
 );
 
 @function var-color($name) {
@@ -43,6 +43,16 @@ code, kbd, pre, samp {
   font-family: "Fira Code", monospace;
 }
 
+a {
+  color: var-color(v-theme-primary);
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+
+a:hover {
+  color: var-color(v-theme-secondary);
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
@@ -57,6 +67,16 @@ p, li {
   @media (max-width: 600px) {
     width: 100%;
   }
+}
+
+.markdown-body > h1,
+.markdown-body > h2,
+.markdown-body > h3,
+.markdown-body > h4,
+.markdown-body > h5,
+.markdown-body > h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .markdown-body > p > img {
@@ -173,6 +193,17 @@ p, li {
   text-wrap: pretty;
   white-space: pre-line;
   word-break: break-all;
+}
+
+a > code.hljs {
+  text-decoration: underline;
+  text-decoration-color: var-color(v-theme-primary);
+  text-underline-offset: 0.1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+a:hover > code.hljs {
+  text-decoration-color: var-color(v-theme-secondary);
 }
 
 .v-stepper-vertical-item__title {
