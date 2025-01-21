@@ -8,6 +8,16 @@
 
     <RouterLink
       class="ma-2"
+      to="/blog/2025/01/22/how-to-send-dtmf-on-android"
+    >
+      <v-btn
+        color="primary"
+        text="How to send DTMF on Android"
+      />
+    </RouterLink>
+
+    <RouterLink
+      class="ma-2"
       to="/blog/2024/08/20/education-to-pro"
     >
       <v-btn

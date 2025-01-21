@@ -79,6 +79,12 @@ p, li {
   margin-bottom: 0.5rem;
 }
 
+.markdown-body > hr {
+  border: 2px solid var-color(v-border-color);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
 .markdown-body > p > img {
   width: 100%;
   height: auto;
@@ -86,11 +92,13 @@ p, li {
 
 .markdown-body > ul {
   list-style-position: inside;
+  padding-bottom: 1rem;
 }
 
 .markdown-body > ol {
   list-style: none;
   counter-reset: item;
+  padding-bottom: 1rem;
 }
 
 .markdown-body ol[start] {
