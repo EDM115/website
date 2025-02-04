@@ -11,7 +11,7 @@
     "vue": "3.5.13",
     "vue-i18n": "11.1.0",
     "vue-router": "4.5.0",
-    "vuetify": "3.7.9"
+    "vuetify": "3.7.11"
   },
   "description": "EDM115's website",
   "devDependencies": {
