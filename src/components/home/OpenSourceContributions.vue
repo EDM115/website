@@ -133,6 +133,14 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 23,
+    name: "AlDanial/cloc",
+    description: "feat: implement #890 and definitely solve #849",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/AlDanial/cloc/pull/891"
+  },
+  {
     id: 22,
     name: "DishpitDev/Slopify",
     description: "feat: added anti-inspect",
@@ -312,6 +320,30 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 42,
+    name: "withgraphite/year-in-code",
+    description: "[FEATURE REQUEST] Let us download the video 🙏",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/withgraphite/year-in-code/issues/42"
+  },
+  {
+    id: 41,
+    name: "Stirling-Tools/Stirling-PDF",
+    description: "[Bug]: The window is empty on Windows (it worked only once after the first install)",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/2766"
+  },
+  {
+    id: 40,
+    name: "KieranP/Github-Releases-Feed",
+    description: "Ignored repositories should be an owner+repo pair to avoid collision",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/13"
+  },
+  {
     id: 39,
     name: "hetznercloud/cli",
     description: "Release hcloud to winget",
@@ -324,7 +356,7 @@ const issues = ref([
     name: "AsmSafone/HackerNews",
     description: "Display title animation only once",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/AsmSafone/HackerNews/issues/1"
   },
   {
