@@ -41,10 +41,10 @@ const i18n = createI18n({
 polyfillCountryFlagEmojis()
 
 app.use(AOS.init({
-  duration: 1000,
+  duration: 800,
   easing: "ease-in-out",
   once: true,
-  mirror: true
+  mirror: false
 }))
 app.use(createPinia())
 app.use(createVuetify({

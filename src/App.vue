@@ -214,11 +214,34 @@ function toggleDialog() {
 /**
  * Function to toggle the theme between dark and light.
  * Updates the theme value, sets the theme in the store, and updates the global Vuetify theme name.
+ * Also removes the transition effect on the page to prevent the theme change transition.
+ * See https://paco.me/writing/disable-theme-transitions
  */
 function toggleTheme() {
+  // Create a style element to disable transitions on all elements
+  const css = document.createElement("style")
+
+  css.appendChild(document.createTextNode(`* {
+         -webkit-transition: none !important;
+         -moz-transition: none !important;
+         -o-transition: none !important;
+         -ms-transition: none !important;
+         transition: none !important;
+      }`))
+  document.head.appendChild(css)
+
   theme.value = theme.value === "dark" ? "light" : "dark"
   store.setTheme(theme.value)
   vuetifyTheme.global.name.value = theme.value
+
+  // Force a reflow to apply the new theme without transitions
+  void window.getComputedStyle(css).opacity
+  // Remove the temporary CSS to restore transitions
+  document.head.removeChild(css)
+
+  // Scroll down and up to trigger AOS and avoid content disappearing until we scroll
+  window.scrollBy(0, 1)
+  window.scrollBy(0, -1)
 }
 
 /**
