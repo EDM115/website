@@ -29,7 +29,7 @@
     "@vueuse/router": "12.7.0",
     "aos": "2.3.4",
     "country-flag-emoji-polyfill": "0.1.8",
-    "eslint": "9.20.1",
+    "eslint": "9.21.0",
     "eslint-plugin-vue": "9.32.0",
     "gsap": "3.12.7",
     "highlight.js": "11.11.1",
