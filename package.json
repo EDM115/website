@@ -20,7 +20,7 @@
     "@intlify/unplugin-vue-i18n": "6.0.3",
     "@stylistic/eslint-plugin": "4.2.0",
     "@unhead/vue": "1.11.20",
-    "@vitejs/plugin-vue": "5.2.1",
+    "@vitejs/plugin-vue": "5.2.3",
     "@vue/compiler-sfc": "3.5.13",
     "@vueuse/components": "13.0.0",
     "@vueuse/core": "13.0.0",
