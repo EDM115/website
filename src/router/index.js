@@ -94,7 +94,7 @@ router.beforeEach((to, from, next) => {
     if (routeExists) {
       next()
     } else {
-      const oldSubdomainRoutes = [ "/ludivine.mp4", "/underrated", "/hugo", "/external-mods", "/external-mods/README.txt", "/cv", "/cv2", "/assets", "/.well-known", "/planparfait", "/socials", "/sporttrack", "/unzip" ]
+      const oldSubdomainRoutes = [ "/ludivine.mp4", "/underrated", "/hugo", "/external-mods", "/external-mods/README.txt", "/cv", "/cv2", "/assets", "/.well-known", "/planparfait", "/socials", "/sporttrack", "/unzip", "/robots.txt" ]
 
       if (oldSubdomainRoutes.some((route) => to.path.startsWith(route))) {
         window.location.replace(`http://old.edm115.dev${window.location.pathname}${window.location.search}`)
