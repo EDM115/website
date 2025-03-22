@@ -3,4 +3,6 @@ dist
 external-mods
 logs
 node_modules
-package-lock.json
+pnpm-lock.yaml
+.qodo
+.eslintcache

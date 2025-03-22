@@ -19,8 +19,6 @@ import cookie from "cookiejs"
 import App from "./App.vue"
 import router from "./router"
 
-import { GesturePlugin } from "@vueuse/gesture"
-import { MotionPlugin } from "@vueuse/motion"
 import { createHead } from "@unhead/vue"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 import { createPinia } from "pinia"
@@ -98,9 +96,7 @@ app.use(createVuetify({
   }
 }))
 app.use(i18n)
-app.use(GesturePlugin)
 app.use(head)
-app.use(MotionPlugin)
 app.use(router)
 
 app.mount("#app")

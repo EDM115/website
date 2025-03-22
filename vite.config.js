@@ -11,7 +11,6 @@ import vueDevTools from "vite-plugin-vue-devtools"
 import Markdown from "unplugin-vue-markdown/vite"
 import svgLoader from "vite-svg-loader"
 
-import { MagicRegExpTransformPlugin } from "magic-regexp/transform"
 import { full as emoji } from "markdown-it-emoji"
 import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
@@ -28,7 +27,7 @@ export default defineConfig({
         api: "modern-compiler"
       }
     },
-    preprocessorMaxWorkers: 2
+    preprocessorMaxWorkers: 4
   },
   esbuild: {
     target: "esnext"
@@ -121,7 +120,6 @@ export default defineConfig({
         }
       }
     }),
-    MagicRegExpTransformPlugin.vite(),
     Components({
       collapseSamePrefixes: true,
       directoryAsNamespace: true,

@@ -8,6 +8,7 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - Vue 3 + Vite + Vuetify :white_check_mark:
 - Drop of Bootstrap (and most libraries) :white_check_mark:
 - Dark theme (by default) :white_check_mark:
+- TypeScript :x:
 - Usage of the Dracula color scheme if possible :white_check_mark:
 - Modern feel, glassy interface :x:
 - Custom cursor on few elements :x:
@@ -36,14 +37,14 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 ## Minimal repro
 ```bash
 git clone https://github.com/EDM115/website.git && cd website
-npm run i
-npm run dev
+pnpm i
+pnpm dev
 ```
 
 ```bash
-npm run lint-fix
-npm run build
-npm run serve
+pnpm lint:fix
+pnpm build
+pnpm preview
 ```
 
 ---
@@ -92,13 +93,13 @@ server {
             proxy_pass http://127.0.0.1:9898;
             break;
         }
-	
-	if ($host ~* ^cursedchess-vps) {
+
+        if ($host ~* ^cursedchess-vps) {
             proxy_pass http://127.0.0.1:6969;
             break;
         }
 
-	if ($host ~* ^dicewizard-vps) {
+        if ($host ~* ^dicewizard-vps) {
             proxy_pass http://127.0.0.1:8686;
             break;
         }
@@ -108,7 +109,7 @@ server {
             break;
         }
 
-	if ($host ~* ^logs-vps) {
+        if ($host ~* ^logs-vps) {
             proxy_pass http://127.0.0.1:10000;
             break;
         }
@@ -128,7 +129,7 @@ server {
 
         # When using npm run serve
         # return proxy_pass http://127.0.0.1:10101;
-        
+
         root /home/edm115/website/dist;
         index index.html;
         try_files $uri $uri/ /index.html;
