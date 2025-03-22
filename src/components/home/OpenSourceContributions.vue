@@ -133,11 +133,19 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 24,
+    name: "ripienaar/free-for-dev",
+    description: "chore: remove eu.org entry in Domain category",
+    type: "pr",
+    state: "closed",
+    link: "https://github.com/ripienaar/free-for-dev/pull/3680"
+  },
+  {
     id: 23,
     name: "AlDanial/cloc",
     description: "feat: implement #890 and definitely solve #849",
     type: "pr",
-    state: "open",
+    state: "closed",
     link: "https://github.com/AlDanial/cloc/pull/891"
   },
   {
@@ -320,6 +328,38 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 46,
+    name: "Stirling-Tools/Stirling-PDF",
+    description: "[Feature Request]: The windows installer should remember the installation folder",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/3213"
+  },
+  {
+    id: 45,
+    name: "dracula/obsidian",
+    description: "The bounding box of inline code blocks is slightly offset to the bottom",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/dracula/obsidian/issues/52"
+  },
+  {
+    id: 44,
+    name: "Codium-ai/codiumai-vscode-release",
+    description: "The extension should stop adding .qodo to the .gitignore",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/Codium-ai/codiumai-vscode-release/issues/195"
+  },
+  {
+    id: 43,
+    name: "marticliment/UniGetUI",
+    description: "[IMPROVEMENT] Allow to override the Winget package ID per package",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/marticliment/UniGetUI/issues/3455"
+  },
+  {
     id: 42,
     name: "withgraphite/year-in-code",
     description: "[FEATURE REQUEST] Let us download the video 🙏",
@@ -332,7 +372,7 @@ const issues = ref([
     name: "Stirling-Tools/Stirling-PDF",
     description: "[Bug]: The window is empty on Windows (it worked only once after the first install)",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/2766"
   },
   {
@@ -476,7 +516,7 @@ const issues = ref([
     name: "pysathq/pysat",
     description: "[BUG] Error while installing with Python 3.13 on Windows",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/pysathq/pysat/issues/180"
   },
   {
