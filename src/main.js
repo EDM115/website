@@ -19,7 +19,7 @@ import cookie from "cookiejs"
 import App from "./App.vue"
 import router from "./router"
 
-import { createHead } from "@unhead/vue"
+import { createHead } from "@unhead/vue/client"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 import { createPinia } from "pinia"
 import { createApp } from "vue"
