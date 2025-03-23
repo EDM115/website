@@ -28,12 +28,14 @@ jobs:
           node-version: latest
           check-latest: true
 
+      - name: "Install pnpm"
+        uses: pnpm/action-setup@v4
+
       - name: "Install dependencies"
-        run: |
-          npm run i
+        run: pnpm i
 
       - name: "Build the code"
-        run: npm run build
+        run: pnpm build
 
       - name: "Lint check"
-        run: npm run lint
+        run: pnpm lint
