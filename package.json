@@ -39,7 +39,7 @@
     "unplugin-icons": "22.1.0",
     "unplugin-vue-components": "28.4.1",
     "unplugin-vue-markdown": "28.3.1",
-    "vite": "6.2.2",
+    "vite": "6.2.3",
     "vite-plugin-vue-devtools": "7.7.2",
     "vite-plugin-vuetify": "2.1.0",
     "vite-svg-loader": "5.1.0"
