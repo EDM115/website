@@ -47,7 +47,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.6.5",
+  "packageManager": "pnpm@10.7.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
