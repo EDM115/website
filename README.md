@@ -8,7 +8,7 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 - Vue 3 + Vite + Vuetify :white_check_mark:
 - Drop of Bootstrap (and most libraries) :white_check_mark:
 - Dark theme (by default) :white_check_mark:
-- TypeScript :x:
+- TypeScript :white_check_mark:
 - Usage of the Dracula color scheme if possible :white_check_mark:
 - Modern feel, glassy interface :x:
 - Custom cursor on few elements :x:
@@ -84,18 +84,8 @@ server {
         # Redirects to handle the hosted bots
         # Hackish way to get the subdomains working with one IP
         # Don't forget to also run sudo chmod -R 755 /home/edm115/.secure
-        if ($host ~* ^foudre-vps) {
-            proxy_pass http://127.0.0.1:8989;
-            break;
-        }
-
         if ($host ~* ^jm-vps) {
             proxy_pass http://127.0.0.1:9898;
-            break;
-        }
-
-        if ($host ~* ^cursedchess-vps) {
-            proxy_pass http://127.0.0.1:6969;
             break;
         }
 
