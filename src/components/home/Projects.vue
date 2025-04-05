@@ -47,7 +47,7 @@
   </v-carousel>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import betteruptimePng from "@/assets/img/projects/betteruptime.png"
 import senescaladePng from "@/assets/img/projects/senescalade.png"
 import underratedJpg from "@/assets/img/projects/underrated.jpg"

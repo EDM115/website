@@ -11,6 +11,6 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import mdiArrowLeft from "~icons/mdi/arrow-left"
 </script>

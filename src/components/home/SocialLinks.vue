@@ -20,7 +20,7 @@
   </v-tooltip>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import hugeIconsSpotify from "~icons/hugeicons/spotify"
 import icBaselineDiscord from "~icons/ic/baseline-discord"
 import icBaselineTelegram from "~icons/ic/baseline-telegram"

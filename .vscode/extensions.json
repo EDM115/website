@@ -14,10 +14,12 @@
     "kisstkondoros.vscode-gutter-preview",
     "mgmcdermott.vscode-language-babel",
     "nhoizey.gremlins",
+    "oxc.oxc-vscode",
     "pflannery.vscode-versionlens",
     "pranaygp.vscode-css-peek",
     "sburg.vscode-javascript-booster",
     "vuetifyjs.vuetify-vscode",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "yoavbls.pretty-ts-errors"
   ]
 }

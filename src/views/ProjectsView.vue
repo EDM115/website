@@ -87,8 +87,8 @@
 }
 </i18n>
 
-<script setup>
-import useMainStore from "@/stores/main"
+<script setup lang="ts">
+import { useMainStore } from "@/stores/main"
 
 import { useHead } from "@unhead/vue"
 import { computed, onMounted } from "vue"

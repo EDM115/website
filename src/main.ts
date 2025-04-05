@@ -16,6 +16,7 @@ import "vuetify/styles"
 
 import AOS from "aos"
 import cookie from "cookiejs"
+// eslint-disable-next-line import-x/default
 import App from "./App.vue"
 import router from "./router"
 
@@ -38,12 +39,12 @@ const i18n = createI18n({
 
 polyfillCountryFlagEmojis()
 
-app.use(AOS.init({
+AOS.init({
   duration: 800,
   easing: "ease-in-out",
   once: true,
   mirror: false
-}))
+})
 app.use(createPinia())
 app.use(createVuetify({
   icons: {

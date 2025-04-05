@@ -1,27 +1,73 @@
+/* eslint-disable import-x/no-named-as-default-member */
 import js from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
+import tsParser from "@typescript-eslint/parser"
+import eslintPluginImportX from "eslint-plugin-import-x"
+import pluginOxlint from "eslint-plugin-oxlint"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
+import tseslint from "typescript-eslint"
+
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
+const { createViteImportResolver } = require("eslint-import-resolver-vite")
 
 export default [
   {
-    ignores: [ "**/dist/*", "**/node_modules/*" ]
+    ignores: [ "**/dist/", "**/node_modules/" ]
   },
-  js.configs.recommended,
+  js.configs.all,
+  ...tseslint.configs.recommended,
+  eslintPluginImportX.flatConfigs.recommended,
+  eslintPluginImportX.flatConfigs.typescript,
   ...pluginVue.configs["flat/recommended"],
   {
+    files: [ "**/*.{js,ts,vue}" ],
+    linterOptions: {
+      reportUnusedDisableDirectives: true
+    },
     languageOptions: {
-      ecmaVersion: 2021,
+      ecmaVersion: "latest",
       sourceType: "module",
       globals: {
         ...globals.browser,
         ...globals.node
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        extraFileExtensions: [ ".vue" ],
+        parser: tsParser,
+        tsconfigRootDir: import.meta.dirname
       }
     },
     plugins: {
       "@stylistic": stylistic
     },
+    settings: {
+      "import-x/parsers": {
+        "@typescript-eslint/parser": [ ".ts" ],
+        "vue-eslint-parser": [ ".vue" ]
+      },
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: false,
+          project: "tsconfig.json"
+        }),
+        createViteImportResolver({
+          viteConfig: (await import("./vite.config")).viteConfigObj
+        })
+      ]
+    },
     rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_"
+        }
+      ],
       "@stylistic/array-bracket-newline": [ "error", { multiline: true }],
       "@stylistic/array-bracket-spacing": [ "error", "always", { objectsInArrays: false, arraysInArrays: false }],
       "@stylistic/array-element-newline": [ "error", "consistent" ],
@@ -90,10 +136,20 @@ export default [
       "@stylistic/wrap-iife": [ "error", "outside" ],
       "@stylistic/wrap-regex": "error",
       "@stylistic/yield-star-spacing": [ "error", "before" ],
+      "@typescript-eslint/no-explicit-any": "warn",
+      "capitalized-comments": "off",
       "curly": [ "error", "all" ],
+      "id-length": "off",
+      "import-x/no-unresolved": [ "error", { ignore: [ "^~icons/" ] }],
+      "max-statements": "off",
       "no-unused-vars": [ "warn" ],
+      "no-useless-assignment": "off",
+      "one-var": "off",
+      "prefer-named-capture-group": "off",
+      "require-unicode-regexp": "off",
       "vue/multi-word-component-names": "off",
       "vue/no-mutating-props": "off"
     }
-  }
+  },
+  ...pluginOxlint.configs["flat/all"]
 ]

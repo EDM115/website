@@ -38,7 +38,7 @@
   </v-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import chatGPT from "@/assets/img/icons/chatgpt_icon.svg"
 import fh5 from "@/assets/img/icons/fh5_icon.svg"
 import flStudio from "@/assets/img/icons/fl_studio_icon.svg"
@@ -52,7 +52,7 @@ import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
 import { onMounted, ref } from "vue"
 
-let observer = null
+let observer: IntersectionObserver | null = null
 const skills = ref([
   { id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython },
   { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
@@ -74,7 +74,7 @@ const iconIntervals = []
  * @param {number} t - The time parameter ranging from 0 to 1.
  * @returns {number} The easing value corresponding to the input time parameter.
  */
-function easeInOut(t) {
+function easeInOut(t: number): number {
   return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)
 }
 
@@ -84,18 +84,18 @@ function easeInOut(t) {
  *
  * @param {Array} entries - The array of entries observed by the intersection observer.
  */
-function callback(entries) {
+function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      const id = entry.target.id.split("-")[1]
-      const skill = skills.value[id]
+      const [ , id ] = entry.target.id.split("-")
+      const skill = skills.value[parseInt(id)]
       const startValue = skill.displayedValue
       const endValue = skill.value
       const duration = 3000
       const startTime = performance.now()
 
       // skipcq: JS-0016
-      function animate(time) {
+      function animate(time: number) {
         const elapsed = time - startTime
         const progress = Math.min(elapsed / duration, 1)
         const easeProgress = easeInOut(progress)
@@ -110,7 +110,7 @@ function callback(entries) {
       }
 
       requestAnimationFrame(animate)
-      observer.unobserve(entry.target)
+      observer?.unobserve(entry.target)
     }
   })
 }
@@ -126,7 +126,7 @@ function startIconCycle() {
 
       iconIntervals[index] = setInterval(() => {
         currentIndex = (currentIndex + 1) % skill.icon.length
-        currentIcons.value[index] = skill.icon[currentIndex]
+        currentIcons.value[index] = (skill.icon as any[])[currentIndex]
       }, 3000)
     }
   })
@@ -140,7 +140,11 @@ onMounted(() => {
   })
 
   for (let i = 0; i < skills.value.length; i++) {
-    observer.observe(document.getElementById(`skillsCounter-${i}`))
+    const element = document.getElementById(`skillsCounter-${i}`)
+
+    if (element) {
+      observer.observe(element)
+    }
   }
 
   startIconCycle()

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import-x/default
 import HomeView from "../views/HomeView.vue"
 
 import { createRouter, createWebHistory } from "vue-router"
@@ -79,7 +80,7 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   if (to.path.endsWith(".html")) {
     next({ path: to.path.replace(".html", "") })
   }

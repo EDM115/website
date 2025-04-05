@@ -7,16 +7,20 @@ import IconsResolver from "unplugin-icons/resolver"
 import Icons from "unplugin-icons/vite"
 import Unfonts from "unplugin-fonts/vite"
 import Components from "unplugin-vue-components/vite"
-import vueDevTools from "vite-plugin-vue-devtools"
 import Markdown from "unplugin-vue-markdown/vite"
+import vueDevTools from "vite-plugin-vue-devtools"
 import svgLoader from "vite-svg-loader"
 
 import { full as emoji } from "markdown-it-emoji"
 import { fileURLToPath, URL } from "node:url"
 import { defineConfig } from "vite"
+import { checker } from "vite-plugin-checker"
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 
 export default defineConfig({
+  build: {
+    chunkSizeWarningLimit: 1000
+  },
   clearScreen: false,
   css: {
     preprocessorOptions: {
@@ -38,6 +42,10 @@ export default defineConfig({
       features: { optionsAPI: false },
       template: { transformAssetUrls }
     }),
+    checker({
+      typescript: true,
+      vueTsc: true
+    }),
     vueDevTools({ launchEditor: "code-insiders" }),
     vuetify({
       autoImport: { labs: true },
@@ -55,8 +63,8 @@ export default defineConfig({
       compiler: "vue3"
     }),
     Unfonts({
-      injectTo: "head",
       google: {
+        injectTo: "head",
         families: [
           {
             name: "Fira Code"
@@ -82,9 +90,9 @@ export default defineConfig({
         md.use(mditHljs, {
           hljs,
           inline: true
-        }),
-        md.use(emoji),
-        md.use(mditAttrs),
+        })
+        md.use(emoji)
+        md.use(mditAttrs)
         md.renderer.rules.fence = (tokens, idx) => {
           const token = tokens[idx]
           const langName = token.info.trim()
@@ -123,7 +131,7 @@ export default defineConfig({
     Components({
       collapseSamePrefixes: true,
       directoryAsNamespace: true,
-      dts: false,
+      dts: true,
       extensions: [ "vue", "md" ],
       include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
       resolvers: [
@@ -148,3 +156,11 @@ export default defineConfig({
     port: 8888
   }
 })
+
+export const viteConfigObj = {
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url))
+    }
+  }
+}

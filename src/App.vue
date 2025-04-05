@@ -146,7 +146,7 @@
 }
 </i18n>
 
-<script setup>
+<script setup lang="ts">
 import lucideConstruction from "~icons/lucide/construction"
 import mdiArrowUp from "~icons/mdi/arrowUp"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
@@ -154,7 +154,7 @@ import mdiLanguage from "~icons/mdi/language"
 import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
-import useMainStore from "@/stores/main"
+import { useMainStore } from "@/stores/main"
 
 import { useHead } from "@unhead/vue"
 import { computed, onMounted, ref } from "vue"
@@ -180,7 +180,7 @@ const userLocale = computed(() => store.getI18n)
  *
  * @param {string} newLocale - The country code of the locale to switch to.
  */
-const switchLocale = (newLocale) => {
+const switchLocale = (newLocale: string) => {
   locale.value = newLocale
   store.setI18n(newLocale)
 }
@@ -191,7 +191,7 @@ const switchLocale = (newLocale) => {
  * @param {string} l - The country code.
  * @returns {string} - The corresponding emoji. Defaults to 🌐.
  */
-const getFlagEmoji = (l) => {
+const getFlagEmoji = (l: string): string => {
   switch (l) {
     case "en":
       return "🇺🇸"
@@ -264,6 +264,7 @@ useHead({
 })
 
 onMounted(() => {
+  store.initStore()
   store.setTheme(store.getTheme)
   store.setI18n(store.getI18n)
   vuetifyTheme.global.name.value = store.getTheme

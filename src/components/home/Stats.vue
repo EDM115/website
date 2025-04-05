@@ -56,8 +56,8 @@
 }
 </i18n>
 
-<script setup>
-import useMainStore from "@/stores/main"
+<script setup lang="ts">
+import { useMainStore } from "@/stores/main"
 
 import { gsap } from "gsap"
 import { ofetch } from "ofetch"
@@ -68,7 +68,7 @@ const store = useMainStore()
 const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
-let observer = null
+let observer: IntersectionObserver | null = null
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(58)
 
@@ -144,9 +144,7 @@ const stats = ref([
 async function fetchProjectsNumber() {
   projectsNumber.value = await ofetch("https://api.github.com/users/EDM115")
     .then((data) => data.public_repos)
-    .catch(() => {
-      return projectsNumber.value
-    })
+    .catch(() => projectsNumber.value)
 }
 
 /**
@@ -155,7 +153,7 @@ async function fetchProjectsNumber() {
  * @param {string} statId - The ID of the statistic element to animate.
  * @param {number} value - The value to display and animate as digits.
  */
-function animateDigits(statId, value) {
+function animateDigits(statId: string, value: number) {
   const digitArray = String(value).split("")
   const maxTime = 8
 
@@ -166,7 +164,7 @@ function animateDigits(statId, value) {
     const id = `#n${statId}-${totalDigits - index - 1}`
     const duration = (index === 0 ? maxTime : maxTime / ((2 ** index) * 2))
     const repeat = (index === 0 ? 0 : ((2 ** index) * 2) - 1)
-    const movement = digit === "0" ? 800 : digit * 80
+    const movement = digit === "0" ? 800 : Number(digit) * 80
 
     animTl.to(id, { y: `-=${movement}`, repeat, duration }, "p1")
   })
@@ -183,15 +181,15 @@ function animateDigits(statId, value) {
  *
  * @param {IntersectionObserverEntry[]} entries - An array of entries to observe.
  */
-function callback(entries) {
+function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const statElement = entry.target
-      const statId = statElement.querySelector(".numb").id.split("-")[0].slice(1)
-      const statValue = stats.value[statId].value
+      const statId = statElement.querySelector(".numb")?.id.split("-")[0].slice(1) ?? ""
+      const statValue = stats.value[parseInt(statId)].value
 
       animateDigits(statId, statValue)
-      observer.unobserve(entry.target)
+      observer?.unobserve(entry.target)
     }
   })
 }
@@ -207,7 +205,7 @@ onMounted(async () => {
     rootMargin: "0px",
     threshold: 0.8
   })
-  document.querySelectorAll("#statsCounters").forEach((el) => observer.observe(el))
+  document.querySelectorAll("#statsCounters").forEach((el) => observer?.observe(el))
 })
 </script>
 

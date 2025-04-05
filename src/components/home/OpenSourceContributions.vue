@@ -116,12 +116,12 @@
 }
 </i18n>
 
-<script setup>
+<script setup lang="ts">
 import octiconIssueClosed from "~icons/octicon/issue-closed-16"
 import octiconIssueOpened from "~icons/octicon/issue-opened-16"
 import octiconPullRequest from "~icons/octicon/git-pull-request-16"
 import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
-import useMainStore from "@/stores/main"
+import { useMainStore } from "@/stores/main"
 
 import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
@@ -132,6 +132,14 @@ const { locale, t } = useI18n()
 
 const tab = ref(1)
 const pullRequests = ref([
+  {
+    id: 25,
+    name: "i18next/i18next-http-middleware",
+    description: "fix: Fastify no longer complains about the type",
+    type: "pr",
+    state: "closed",
+    link: "https://github.com/i18next/i18next-http-middleware/pull/83"
+  },
   {
     id: 24,
     name: "ripienaar/free-for-dev",
@@ -703,7 +711,7 @@ const issues = ref([
  * @param {string} state - The state of the contribution ("open" or "closed").
  * @returns {string} - The color class for the contribution state ("open-contrib-color" or "closed-contrib-color").
  */
-function getContribColor(state) {
+function getContribColor(state: string) {
   return state === "open" ? "open-contrib-color" : "closed-contrib-color"
 }
 

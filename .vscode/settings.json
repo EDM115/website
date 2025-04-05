@@ -2,39 +2,39 @@
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "console-ninja.allowConsoleLogToTriggerPredictions": true,
-  "console-ninja.captureFunctions": true,
-  "console-ninja.featureSet": "Community",
-  "console-ninja.outputMode": "In View",
-  "console-ninja.showWhatsNew": false,
-  "console-ninja.toolsToEnableSupportAutomaticallyFor": {
-    "angular": false,
-    "astro": false,
-    "hydrogen": false,
-    "jest": false,
-    "live-preview-extension": true,
-    "live-server": true,
-    "live-server-extension": true,
-    "nest.js": false,
-    "next.js": false,
-    "qwik": false,
-    "remix": false
-  },
-  "console-ninja.warnOnNoToolsDetected": false,
   "css.autoValidation": "Always",
   "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.ignoreUntitled": true,
+  "eslint.options": {
+    "flags": ["unstable_ts_config"]
+  },
   "eslint.useFlatConfig": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "eslint.config.ts": ".oxlintrc.json",
+    "package.json": "package-lock.json, pnpm*",
+    "README.md": "LICENSE, .gitignore, .deepsource.toml, .whitesource, AUTHORS, CONTRIBUTORS.svg, renovate.json",
+    "tsconfig.json": "tsconfig.*.json, *.d.ts"
+  },
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "gremlins.showInProblemPane": true,
@@ -45,6 +45,7 @@
   "importCost.mediumPackageLightColor": "#50FA7B",
   "importCost.smallPackageDarkColor": "#50FA7B",
   "importCost.smallPackageLightColor": "#50FA7B",
+  "oxc.enable": true,
   "vue.autoInsert.dotValue": true,
   "vue.complete.casing.props": "autoCamel",
   "vue.format.script.initialIndent": true,

@@ -455,7 +455,7 @@
 }
 </i18n>
 
-<script setup>
+<script setup lang="ts">
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
 import mdiFileDownload from "~icons/mdi/fileDownload"
@@ -465,7 +465,7 @@ import mdiLink from "~icons/mdi/link"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiText from "~icons/mdi/text"
 import mdiWeb from "~icons/mdi/web"
-import useMainStore from "@/stores/main"
+import { useMainStore } from "@/stores/main"
 
 import { computed, onMounted, ref } from "vue"
 import { useI18n } from "vue-i18n"
@@ -480,7 +480,7 @@ const { locale, t } = useI18n()
  *
  * @returns {number} The calculated age.
  */
-function getAge() {
+function getAge(): number {
   const birthday = new Date("2004-06-18")
   const diff = Date.now() - birthday.getTime()
   const ageDate = new Date(diff)
