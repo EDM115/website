@@ -235,7 +235,7 @@ function toggleTheme() {
   vuetifyTheme.global.name.value = theme.value
 
   // Force a reflow to apply the new theme without transitions
-  void window.getComputedStyle(css).opacity
+  window.getComputedStyle(css).opacity
   // Remove the temporary CSS to restore transitions
   document.head.removeChild(css)
 
