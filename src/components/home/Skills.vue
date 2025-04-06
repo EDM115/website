@@ -50,7 +50,9 @@ import vscodeNuxt from "~icons/vscode-icons/file-type-nuxt"
 import vscodePython from "~icons/vscode-icons/file-type-python"
 import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
-import { onMounted, ref } from "vue"
+import { onMounted, ref, type FunctionalComponent, type SVGAttributes } from "vue"
+
+type iconType = FunctionalComponent<SVGAttributes, {}, any, {}> | string
 
 let observer: IntersectionObserver | null = null
 const skills = ref([
@@ -126,7 +128,7 @@ function startIconCycle() {
 
       iconIntervals[index] = setInterval(() => {
         currentIndex = (currentIndex + 1) % skill.icon.length
-        currentIcons.value[index] = (skill.icon as any[])[currentIndex]
+        currentIcons.value[index] = (skill.icon as iconType[])[currentIndex]
       }, 3000)
     }
   })
