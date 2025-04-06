@@ -1,3 +1,4 @@
+// skipcq: JS-0384
 /// <reference path="./eslint-import-resolver-vite.d.ts" />
 
 /* eslint-disable import-x/no-named-as-default-member */
