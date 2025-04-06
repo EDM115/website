@@ -1,0 +1,6 @@
+lockfileIncludeTarballUrl: true
+onlyBuiltDependencies:
+  - esbuild
+resolutionMode: 'highest'
+savePrefix: ''
+virtualStoreDirMaxLength: 1024

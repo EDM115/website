@@ -13,9 +13,14 @@ import svgLoader from "vite-svg-loader"
 
 import { full as emoji } from "markdown-it-emoji"
 import { fileURLToPath, URL } from "node:url"
+import { visualizer } from "rollup-plugin-visualizer"
+import { TemplateType } from "rollup-plugin-visualizer/dist/plugin/template-types"
 import { defineConfig } from "vite"
+import { analyzer } from "vite-bundle-analyzer"
 import { checker } from "vite-plugin-checker"
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
+
+const analyze = process.env.ANALYZE === "true"
 
 export default defineConfig({
   build: {
@@ -153,7 +158,25 @@ export default defineConfig({
         })
       ],
       version: 3
-    })
+    }),
+    analyze
+      ? analyzer({
+          analyzerMode: "static",
+          openAnalyzer: false,
+          fileName: "../analyze/analyzer",
+          reportTitle: "EDM115 - Vite Bundle Analyzer"
+        })
+      : null,
+    ...(analyze
+      ? [ "treemap", "sunburst", "network", "flamegraph" ].map((template) => visualizer({
+          filename: `analyze/visualizer/${template}.html`,
+          title: `EDM115 - Rollup Plugin Visualizer (${template})`,
+          open: false,
+          gzipSize: true,
+          brotliSize: true,
+          template: template as TemplateType
+        }))
+      : [])
   ],
   preview: {
     open: true,

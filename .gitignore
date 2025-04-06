@@ -6,3 +6,5 @@ node_modules
 pnpm-lock.yaml
 .qodo
 .eslintcache
+analyze/*
+!analyze/index.html
