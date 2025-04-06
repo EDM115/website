@@ -10,12 +10,14 @@
       <v-col align="center">
         <v-img
           :draggable="false"
+          eager
           class="mb-4"
           max-height="200"
           max-width="200"
           rounded="xl"
           alt="EDM115 Logo"
-          src="@/assets/img/profile-img.jpg"
+          src="@/assets/img/profile-img-resized.webp"
+          rel="preload"
         />
 
         <h1>EDM115</h1>

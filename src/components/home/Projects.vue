@@ -48,11 +48,11 @@
 </template>
 
 <script setup lang="ts">
-import betteruptimePng from "@/assets/img/projects/betteruptime.png"
-import senescaladePng from "@/assets/img/projects/senescalade.png"
-import underratedJpg from "@/assets/img/projects/underrated.jpg"
-import unzipBotJpg from "@/assets/img/projects/unzip-bot.jpg"
-import websiteJpg from "@/assets/img/profile-img.jpg"
+import betteruptimeWebp from "@/assets/img/projects/betteruptime.webp"
+import senescaladeWebp from "@/assets/img/projects/senescalade.webp"
+import underratedWebp from "@/assets/img/projects/underrated.webp"
+import unzipBotWebp from "@/assets/img/projects/unzip-bot.webp"
+import websiteWebp from "@/assets/img/profile-img.webp"
 
 import { ref } from "vue"
 
@@ -65,7 +65,7 @@ const projects = ref([
     Supports everything, downloads from URL and file, handle password protected archives, renames and change file's thumbnails, ...
     My most advanced project so far, with more than 30k users.
     `,
-    image: unzipBotJpg,
+    image: unzipBotWebp,
     source: "https://github.com/EDM115/unzip-bot",
     link: "/unzip",
     linkText: "More info"
@@ -78,7 +78,7 @@ const projects = ref([
     Includes a Nuxt webapp, an API, a MySQL database, a Docker setup, and a ton of other stuff.
     Made as an all-in-one solution to manage the members of the Séné's climbing club.
     `,
-    image: senescaladePng,
+    image: senescaladeWebp,
     source: "https://github.com/EDM115-org/Senescalade",
     link: "https://senescalade.edm115.dev",
     linkText: "Live demo"
@@ -90,7 +90,7 @@ const projects = ref([
     The source of the website you're currently on.
     Made in Vue, Vuetify, and more stuff to fill in the dependencies.
     Don't check the v1 branch, it's the old mess in Bootstrap (old.edm115.dev).`,
-    image: websiteJpg,
+    image: websiteWebp,
     source: "https://github.com/EDM115/website",
     link: "",
     linkText: ""
@@ -292,7 +292,7 @@ const projects = ref([
     A list of underrated producers, now a stopped project.
     Made in collaboration with the EDM SAMPLE PACKs Telegram channel (t.me/edmsamplepack).
     `,
-    image: underratedJpg,
+    image: underratedWebp,
     source: "https://github.com/EDM115/underrated-producers-list",
     link: "https://edm115.github.io/underrated-producers-list",
     linkText: "Live demo"
@@ -316,7 +316,7 @@ const projects = ref([
     Check at any time if our services are up.
     Useful if this website is down.
     `,
-    image: betteruptimePng,
+    image: betteruptimeWebp,
     source: "https://betterstack.com/better-uptime",
     link: "https://up.edm115.dev",
     linkText: "Check the uptime"

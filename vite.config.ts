@@ -19,6 +19,7 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 
 export default defineConfig({
   build: {
+    cssMinify: "lightningcss",
     rollupOptions: {
       output: {
         compact: true,
