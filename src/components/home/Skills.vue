@@ -52,7 +52,7 @@ import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
 import { onMounted, ref, type FunctionalComponent, type SVGAttributes } from "vue"
 
-type iconType = FunctionalComponent<SVGAttributes, {}, any, {}> | string
+type iconType = FunctionalComponent<SVGAttributes> | string
 
 let observer: IntersectionObserver | null = null
 const skills = ref([

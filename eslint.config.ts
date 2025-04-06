@@ -146,7 +146,6 @@ export default [
       "import-x/no-unresolved": [ "error", { ignore: [ "^~icons/" ] }],
       "max-statements": "off",
       "no-underscore-dangle": "off",
-      "no-unused-vars": [ "warn" ],
       "no-useless-assignment": "off",
       "one-var": "off",
       "prefer-named-capture-group": "off",
