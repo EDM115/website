@@ -1,3 +1,5 @@
+/// <reference path="./eslint-import-resolver-vite.d.ts" />
+
 /* eslint-disable import-x/no-named-as-default-member */
 import js from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
@@ -9,7 +11,7 @@ import globals from "globals"
 import tseslint from "typescript-eslint"
 
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
-const { createViteImportResolver } = require("eslint-import-resolver-vite")
+import { createViteImportResolver } from "eslint-import-resolver-vite"
 
 export default [
   {
