@@ -19,7 +19,19 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
 
 export default defineConfig({
   build: {
-    chunkSizeWarningLimit: 1000
+    rollupOptions: {
+      output: {
+        compact: true,
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id.split("node_modules/").pop()?.split("/")[0]
+          }
+
+          return id.toString().split("/")[0]
+        },
+        validate: true
+      }
+    }
   },
   clearScreen: false,
   css: {
