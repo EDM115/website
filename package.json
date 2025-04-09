@@ -49,7 +49,7 @@
     "markdown-it-highlightjs": "4.2.0",
     "npm-run-all2": "7.0.2",
     "oxlint": "0.16.5",
-    "pinia": "3.0.1",
+    "pinia": "3.0.2",
     "rollup-plugin-visualizer": "5.14.0",
     "sass-embedded": "~1.86.3",
     "sass-loader": "16.0.5",
