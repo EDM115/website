@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [],
+  "plugins": [
+    "typescript",
+    "oxc"
+  ],
   "categories": {
     "correctness": "warn",
     "perf": "warn",
@@ -10,6 +13,87 @@
     "restriction": "off",
     "nursery": "off"
   },
-  "ignorePatterns": [ "**/dist/", "**/node_modules/" ],
-  "rules": {}
+  "env": {
+    "builtin": true,
+    "es2018": true
+  },
+  "ignorePatterns": [
+    "**/dist/",
+    "**/node_modules/"
+  ],
+  "rules": {
+    "@typescript-eslint/no-duplicate-enum-values": "error",
+    "@typescript-eslint/no-empty-object-type": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-extra-non-null-assertion": "error",
+    "@typescript-eslint/no-misused-new": "error",
+    "@typescript-eslint/no-namespace": "error",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-this-alias": "error",
+    "@typescript-eslint/no-unnecessary-type-constraint": "error",
+    "@typescript-eslint/no-unsafe-declaration-merging": "error",
+    "@typescript-eslint/no-wrapper-object-types": "error",
+    "@typescript-eslint/prefer-as-const": "error",
+    "@typescript-eslint/prefer-namespace-keyword": "error",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "import-x/namespace": "warn",
+    "import-x/default": "warn",
+    "import-x/no-named-as-default": "warn",
+    "import-x/no-named-as-default-member": "warn",
+    "import-x/no-duplicates": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.mts",
+        "**/*.cts"
+      ],
+      "rules": {
+        "no-class-assign": "off",
+        "no-const-assign": "off",
+        "no-dupe-class-members": "off",
+        "no-dupe-keys": "off",
+        "no-func-assign": "off",
+        "no-import-assign": "off",
+        "no-new-native-nonconstructor": "off",
+        "no-obj-calls": "off",
+        "no-redeclare": "off",
+        "no-setter-return": "off",
+        "no-this-before-super": "off",
+        "no-unsafe-negation": "off",
+        "no-with": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.{js,ts,vue}"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "warn",
+        "curly": [
+          "error",
+          "all"
+        ],
+        "no-unused-vars": [
+          "warn",
+          {
+            "argsIgnorePattern": "^_",
+            "destructuredArrayIgnorePattern": "^_",
+            "ignoreRestSiblings": true,
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ]
+      },
+      "env": {
+        "es2025": true,
+        "browser": true,
+        "commonjs": true,
+        "node": true,
+        "shared-node-browser": true
+      }
+    }
+  ]
 }

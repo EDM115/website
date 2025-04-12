@@ -6,13 +6,16 @@ import js from "@eslint/js"
 import stylistic from "@stylistic/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 import eslintPluginImportX from "eslint-plugin-import-x"
-import pluginOxlint from "eslint-plugin-oxlint"
+import oxlint from "eslint-plugin-oxlint"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
 import tseslint from "typescript-eslint"
 
+import { createRequire } from "module"
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
-import { createViteImportResolver } from "eslint-import-resolver-vite"
+
+const require = createRequire(import.meta.url)
+const { createViteImportResolver } = require("eslint-import-resolver-vite")
 
 export default [
   {
@@ -154,5 +157,7 @@ export default [
       "vue/no-mutating-props": "off"
     }
   },
-  ...pluginOxlint.configs["flat/all"]
+  // ...oxlint.buildFromOxlintConfigFile("./.oxlintrc.json")
+  // wait for https://github.com/oxc-project/eslint-plugin-oxlint/issues/385 to be resolved
+  ...oxlint.configs["flat/all"]
 ]
