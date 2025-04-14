@@ -157,7 +157,5 @@ export default [
       "vue/no-mutating-props": "off"
     }
   },
-  // ...oxlint.buildFromOxlintConfigFile("./.oxlintrc.json")
-  // wait for https://github.com/oxc-project/eslint-plugin-oxlint/issues/385 to be resolved
   ...oxlint.configs["flat/all"]
 ]

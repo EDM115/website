@@ -157,6 +157,7 @@ export default defineConfig({
           prefix: false
         })
       ],
+      sourcemap: false,
       version: 3
     }),
     analyze

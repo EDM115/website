@@ -30,7 +30,8 @@
   "eslint.useFlatConfig": true,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "eslint.config.ts": ".oxlintrc.json",
+    "eslint.config.ts": ".oxlintrc.json, .eslintcache",
+    "index.html": ".htaccess",
     "package.json": "package-lock.json, pnpm*",
     "README.md": "LICENSE, .gitignore, .deepsource.toml, .whitesource, AUTHORS, CONTRIBUTORS.svg, renovate.json",
     "tsconfig.json": "tsconfig.*.json, *.d.ts"
