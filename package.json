@@ -61,7 +61,7 @@
     "vite": "6.3.0",
     "vite-bundle-analyzer": "0.18.1",
     "vite-plugin-checker": "0.9.1",
-    "vite-plugin-vue-devtools": "7.7.2",
+    "vite-plugin-vue-devtools": "7.7.4",
     "vite-plugin-vuetify": "2.1.1",
     "vite-svg-loader": "5.1.0",
     "vue-tsc": "2.2.8"
