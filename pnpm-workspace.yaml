@@ -1,6 +1,11 @@
 lockfileIncludeTarballUrl: true
+
 onlyBuiltDependencies:
   - esbuild
-resolutionMode: 'highest'
+  - unrs-resolver
+
+resolutionMode: highest
+
 savePrefix: ''
+
 virtualStoreDirMaxLength: 1024
