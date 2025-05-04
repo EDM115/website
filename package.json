@@ -60,7 +60,7 @@
     "unplugin-vue-markdown": "28.3.1",
     "vite": "6.3.4",
     "vite-bundle-analyzer": "0.20.1",
-    "vite-plugin-checker": "0.9.1",
+    "vite-plugin-checker": "0.9.2",
     "vite-plugin-vue-devtools": "7.7.6",
     "vite-plugin-vuetify": "2.1.1",
     "vite-svg-loader": "5.1.0",
