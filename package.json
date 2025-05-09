@@ -25,7 +25,7 @@
     "@types/node": "^22.14.1",
     "@typescript-eslint/parser": "8.32.0",
     "@unhead/vue": "2.0.8",
-    "@vitejs/plugin-vue": "5.2.3",
+    "@vitejs/plugin-vue": "5.2.4",
     "@vue/compiler-sfc": "3.5.13",
     "@vue/tsconfig": "0.7.0",
     "aos": "2.3.4",
