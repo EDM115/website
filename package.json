@@ -24,7 +24,7 @@
     "@types/markdown-it-emoji": "3.0.1",
     "@types/node": "^22.14.1",
     "@typescript-eslint/parser": "8.32.1",
-    "@unhead/vue": "2.0.8",
+    "@unhead/vue": "2.0.9",
     "@vitejs/plugin-vue": "5.2.4",
     "@vue/compiler-sfc": "3.5.14",
     "@vue/tsconfig": "0.7.0",
