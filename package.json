@@ -32,7 +32,7 @@
     "country-flag-emoji-polyfill": "0.1.8",
     "cross-env": "7.0.3",
     "eslint": "9.27.0",
-    "eslint-import-resolver-typescript": "4.3.4",
+    "eslint-import-resolver-typescript": "4.3.5",
     "eslint-import-resolver-vite": "2.1.0",
     "eslint-plugin-import-x": "~4.11.0",
     "eslint-plugin-oxlint": "0.16.11",
