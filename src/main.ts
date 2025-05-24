@@ -9,7 +9,7 @@ console.warn = (message, ...optionalParams) => {
   }
 }
 
-import "./styles/settings.scss"
+import "./styles/global.scss"
 import "aos/dist/aos.css"
 import "highlight.js/styles/base16/dracula.min.css"
 import "vuetify/styles"

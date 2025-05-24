@@ -77,6 +77,52 @@ p, li {
 .markdown-body > h6 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  position: relative;
+  transition: text-decoration 0.3s ease-in-out;
+}
+
+.header-anchor {
+  color: inherit;
+}
+
+.header-anchor:hover {
+  color: inherit;
+}
+
+.markdown-body h1:hover,
+.markdown-body h2:hover,
+.markdown-body h3:hover,
+.markdown-body h4:hover,
+.markdown-body h5:hover,
+.markdown-body h6:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
+
+.header-copy-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-35%) translateX(-100%);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.markdown-body h1:hover .header-copy-icon,
+.markdown-body h2:hover .header-copy-icon,
+.markdown-body h3:hover .header-copy-icon,
+.markdown-body h4:hover .header-copy-icon,
+.markdown-body h5:hover .header-copy-icon,
+.markdown-body h6:hover .header-copy-icon {
+  opacity: 1;
+}
+
+.header-copy-icon svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }
 
 .markdown-body > hr {

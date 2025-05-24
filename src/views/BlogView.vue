@@ -42,12 +42,12 @@
 {
   "en": {
     "blog": "Blog (TBD)",
-    "description": "2 random posts, to be completed with a date & tag sorting system",
+    "description": "3 random posts, to be completed with a date & tag sorting system",
     "head": "Blog - EDM115",
   },
   "fr": {
     "blog": "Blog (pas terminé)",
-    "description": "2 articles aléatoires, à compléter avec un système de tri par date et par tags",
+    "description": "3 articles aléatoires, à compléter avec un système de tri par date et par tags",
     "head": "Blog - EDM115"
   }
 }

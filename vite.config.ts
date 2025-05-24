@@ -1,6 +1,9 @@
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
+import slugify from "@sindresorhus/slugify"
 import vue from "@vitejs/plugin-vue"
 import hljs from "highlight.js"
+import Token from "markdown-it/lib/token"
+import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
 import IconsResolver from "unplugin-icons/resolver"
@@ -11,6 +14,7 @@ import Markdown from "unplugin-vue-markdown/vite"
 import vueDevTools from "vite-plugin-vue-devtools"
 import svgLoader from "vite-svg-loader"
 
+import { lookupCollection } from "@iconify/json"
 import { full as emoji } from "markdown-it-emoji"
 import { fileURLToPath, URL } from "node:url"
 import { visualizer } from "rollup-plugin-visualizer"
@@ -19,6 +23,9 @@ import { defineConfig } from "vite"
 import { analyzer } from "vite-bundle-analyzer"
 import { checker } from "vite-plugin-checker"
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify"
+
+const mdi = await lookupCollection("mdi")
+const mdiLinkVariant = `<svg>${mdi.icons["link-variant"].body}</svg>`
 
 const analyze = process.env.ANALYZE === "true"
 
@@ -68,7 +75,7 @@ export default defineConfig({
     vuetify({
       autoImport: { labs: true },
       styles: {
-        configFile: "src/styles/settings.scss",
+        configFile: "src/styles/global.scss",
       },
     }),
     VueI18nPlugin(),
@@ -109,8 +116,38 @@ export default defineConfig({
           hljs,
           inline: true,
         })
+        md.use(mditAnchor, {
+          slugify: (s) => slugify(s),
+          permalink: mditAnchor.permalink.headerLink(),
+          permalinkClass: "header-link",
+        })
         md.use(emoji)
         md.use(mditAttrs)
+        md.core.ruler.push("heading_copy_icon", (state) => {
+          const { tokens } = state
+
+          for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i].type === "heading_open") {
+              const inline = tokens[i + 1]
+              const id = tokens[i].attrGet("id")!
+
+              const html = `
+                <span
+                  class="header-copy-icon"
+                  role="button"
+                  data-slug="${id}"
+                >
+                  ${mdiLinkVariant}
+                </span>
+              `.trim()
+
+              const t = new Token("html_inline", "", 0)
+
+              t.content = html
+              inline.children?.unshift(t)
+            }
+          }
+        })
         md.renderer.rules.fence = (tokens, idx) => {
           const token = tokens[idx]
           const langName = token.info.trim()
