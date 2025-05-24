@@ -2,7 +2,6 @@ import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import slugify from "@sindresorhus/slugify"
 import vue from "@vitejs/plugin-vue"
 import hljs from "highlight.js"
-import Token from "markdown-it/lib/token"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
@@ -141,7 +140,7 @@ export default defineConfig({
                 </span>
               `.trim()
 
-              const t = new Token("html_inline", "", 0)
+              const t = new state.Token("html_inline", "", 0)
 
               t.content = html
               inline.children?.unshift(t)

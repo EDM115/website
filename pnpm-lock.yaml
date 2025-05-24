@@ -78,6 +78,9 @@ importers:
       '@types/aos':
         specifier: ^3.0.7
         version: 3.0.7
+      '@types/markdown-it':
+        specifier: ^14.1.2
+        version: 14.1.2
       '@types/markdown-it-attrs':
         specifier: ^4.1.3
         version: 4.1.3
