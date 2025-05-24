@@ -68,7 +68,7 @@ const projects = ref([
     image: unzipBotWebp,
     source: "https://github.com/EDM115/unzip-bot",
     link: "/unzip",
-    linkText: "More info"
+    linkText: "More info",
   },
   {
     id: 22,
@@ -81,7 +81,7 @@ const projects = ref([
     image: senescaladeWebp,
     source: "https://github.com/EDM115-org/Senescalade",
     link: "https://senescalade.edm115.dev",
-    linkText: "Live demo"
+    linkText: "Live demo",
   },
   {
     id: 21,
@@ -93,7 +93,7 @@ const projects = ref([
     image: websiteWebp,
     source: "https://github.com/EDM115/website",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 20,
@@ -106,7 +106,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/6af5a3834d3bece8f43a033d037f85aa632d489af80fe69c0b19fb492a1aa7aa/EDM115/js-imports-sort",
     source: "https://github.com/EDM115/js-imports-sort",
     link: "https://www.npmjs.com/package/js-imports-sort",
-    linkText: "Get it on NPM"
+    linkText: "Get it on NPM",
   },
   {
     id: 19,
@@ -118,7 +118,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/750446367/42da27fd-2733-402c-8446-d263351cb1dc",
     source: "https://github.com/EDM115/palex",
     link: "https://www.npmjs.com/package/palex",
-    linkText: "Get it on NPM"
+    linkText: "Get it on NPM",
   },
   {
     id: 18,
@@ -127,7 +127,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/cec72ac95dfc861834263b7be625793fefb2b350ec05347a33f38061cc4c823c/EDM115/dotfiles",
     source: "https://github.com/EDM115/dotfiles",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 17,
@@ -139,7 +139,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/3881e6f48defc9cc37b2850704b9fc304881b27b4862869222bdcaad5dca0f8d/EDM115/web-logs",
     source: "https://github.com/EDM115/web-logs",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 16,
@@ -151,7 +151,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/698958959/95d62992-bf4a-4438-aea4-6ac272dfc73d",
     source: "https://github.com/EDM115/EDM115-ohmyposh-theme",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 15,
@@ -160,7 +160,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/538086750/2729a63f-0c0d-4b43-9407-0d9412ced5f0",
     source: "https://github.com/EDM115/school-codes-v2",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 14,
@@ -169,7 +169,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/cac7efb190bff0f2e34fb677d2f1a3654073dfde890d627916672eb011044b2d/EDM115/telegram-auto-upload-folder",
     source: "https://github.com/EDM115/telegram-auto-upload-folder",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 13,
@@ -181,7 +181,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/140637aa1732c628945d9a2369e625256102c762cffa63ffce3ebda7091f4c70/EDM115/The-Very-Restrictive-License",
     source: "https://github.com/EDM115/The-Very-Restrictive-License",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 12,
@@ -190,7 +190,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/453032821/fbe1b2cd-7e16-4fcb-aed0-d730b55035c3",
     source: "https://github.com/EDM115/Markdown_Syntax_FR",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 11,
@@ -202,7 +202,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/704829178/35896259-c6f0-4312-9386-aa92d84f2c23",
     source: "https://github.com/EDM115/booleanfix",
     link: "https://pypi.org/project/booleanfix/",
-    linkText: "Get it on PyPI"
+    linkText: "Get it on PyPI",
   },
   {
     id: 10,
@@ -214,7 +214,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/4a6e6592ead689d999f04bbbe4be857c9094c63abb6ae72518a606997df4b0f9/EDM115/planparfait",
     source: "https://github.com/EDM115/planparfait",
     link: "https://plan-parfait.flutterflow.app/",
-    linkText: "Live demo : web app (PWA)"
+    linkText: "Live demo : web app (PWA)",
   },
   {
     id: 9,
@@ -226,7 +226,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/cbe5b79e78b21d9a686b43d64c6e280f3c8b32760b50b734d9ee9de59c9f1f7d/EDM115/SAE-Velos-Nantes",
     source: "https://github.com/EDM115/SAE-Velos-Nantes",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 8,
@@ -238,7 +238,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/c7dcb98da0c1a3b23f8c9377394dd6960beb517726e25044e06ec8e6c1047202/EDM115/telegram-backup-dump",
     source: "https://github.com/EDM115/telegram-backup-dump",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 7,
@@ -247,7 +247,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/695881219/8280c8f8-767a-44df-bea0-a864831a1225",
     source: "https://github.com/EDM115/bulk-youtube-download",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 6,
@@ -259,7 +259,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/4584e75a6dadbbfc05b2875e4b0c17b84c2b87b43027e912d6376004c833357e/EDM115/ban-all-except-admins",
     source: "https://github.com/EDM115/ban-all-except-admins",
     link: "",
-    linkText: ""
+    linkText: "",
   },
   {
     id: 5,
@@ -271,7 +271,7 @@ const projects = ref([
     image: "https://repository-images.githubusercontent.com/694060583/0bec3bd0-9f62-4821-8784-93bc08fb55c3",
     source: "https://github.com/EDM115/IUT-mc-modpack",
     link: "https://modrinth.com/modpack/iut-vannes",
-    linkText: "Modrinth page"
+    linkText: "Modrinth page",
   },
   {
     id: 4,
@@ -283,7 +283,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/0388293abb189e7517d037ecf53ce2861f6037d4f235c6591229a90360c6bd42/EDM115/EDM115-enhanced-experience",
     source: "https://github.com/EDM115/EDM115-enhanced-experience",
     link: "https://modrinth.com/modpack/edm115s-enhanced-experience",
-    linkText: "Modrinth page"
+    linkText: "Modrinth page",
   },
   {
     id: 3,
@@ -295,7 +295,7 @@ const projects = ref([
     image: underratedWebp,
     source: "https://github.com/EDM115/underrated-producers-list",
     link: "https://edm115.github.io/underrated-producers-list",
-    linkText: "Live demo"
+    linkText: "Live demo",
   },
   {
     id: 2,
@@ -307,7 +307,7 @@ const projects = ref([
     image: "https://opengraph.githubassets.com/75a39b08193d996f14cf532f5f8ebd3e312b787a9421e6f32c2ec128d3e8ea10/EDM115/sport-track",
     source: "https://github.com/EDM115/sport-track",
     link: "/sporttrack",
-    linkText: "Live demo"
+    linkText: "Live demo",
   },
   {
     id: 1,
@@ -319,7 +319,7 @@ const projects = ref([
     image: betteruptimeWebp,
     source: "https://betterstack.com/better-uptime",
     link: "https://up.edm115.dev",
-    linkText: "Check the uptime"
-  }
+    linkText: "Check the uptime",
+  },
 ])
 </script>

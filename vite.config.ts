@@ -35,66 +35,66 @@ export default defineConfig({
 
           return id.toString().split("/")[0]
         },
-        validate: true
-      }
-    }
+        validate: true,
+      },
+    },
   },
   clearScreen: false,
   css: {
     preprocessorOptions: {
       sass: {
-        api: "modern-compiler"
+        api: "modern-compiler",
       },
       scss: {
-        api: "modern-compiler"
-      }
+        api: "modern-compiler",
+      },
     },
-    preprocessorMaxWorkers: 4
+    preprocessorMaxWorkers: 4,
   },
   esbuild: {
-    target: "esnext"
+    target: "esnext",
   },
   plugins: [
     vue({
       include: [ /\.vue$/, /\.md$/ ],
       features: { optionsAPI: false },
-      template: { transformAssetUrls }
+      template: { transformAssetUrls },
     }),
     checker({
       typescript: true,
-      vueTsc: true
+      vueTsc: true,
     }),
     vueDevTools({ launchEditor: "code-insiders" }),
     vuetify({
       autoImport: { labs: true },
       styles: {
-        configFile: "src/styles/settings.scss"
-      }
+        configFile: "src/styles/settings.scss",
+      },
     }),
     VueI18nPlugin(),
     svgLoader({
       svgoConfig: {
-        multipass: true
-      }
+        multipass: true,
+      },
     }),
     Icons({
-      compiler: "vue3"
+      compiler: "vue3",
     }),
     Unfonts({
       google: {
         injectTo: "head",
         families: [
           {
-            name: "Fira Code"
+            name: "Fira Code",
           },
           {
-            name: "Inter"
+            name: "Inter",
           },
           {
-            name: "Nunito"
-          }
-        ]
-      }
+            name: "Nunito",
+          },
+        ],
+      },
     }),
     Markdown({
       headEnabled: true,
@@ -102,12 +102,12 @@ export default defineConfig({
         breaks: true,
         html: true,
         linkify: true,
-        typographer: true
+        typographer: true,
       },
       markdownItSetup(md) {
         md.use(mditHljs, {
           hljs,
-          inline: true
+          inline: true,
         })
         md.use(emoji)
         md.use(mditAttrs)
@@ -144,7 +144,7 @@ export default defineConfig({
             </div>
           `
         }
-      }
+      },
     }),
     Components({
       collapseSamePrefixes: true,
@@ -154,18 +154,18 @@ export default defineConfig({
       include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
       resolvers: [
         IconsResolver({
-          prefix: false
-        })
+          prefix: false,
+        }),
       ],
       sourcemap: false,
-      version: 3
+      version: 3,
     }),
     analyze
       ? analyzer({
           analyzerMode: "static",
           openAnalyzer: false,
           fileName: "../analyze/analyzer",
-          reportTitle: "EDM115 - Vite Bundle Analyzer"
+          reportTitle: "EDM115 - Vite Bundle Analyzer",
         })
       : null,
     ...(analyze
@@ -175,29 +175,29 @@ export default defineConfig({
           open: false,
           gzipSize: true,
           brotliSize: true,
-          template: template as TemplateType
+          template: template as TemplateType,
         }))
-      : [])
+      : []),
   ],
   preview: {
     open: true,
-    port: 8000
+    port: 8000,
   },
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
-    }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
   server: {
     open: true,
-    port: 8888
-  }
+    port: 8888,
+  },
 })
 
 export const viteConfigObj = {
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
-    }
-  }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 }

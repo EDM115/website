@@ -27,7 +27,7 @@ function generateBlogRoutes() {
 
       routes.push({
         path: routePath,
-        component: blogPosts[path]
+        component: blogPosts[path],
       })
     }
   }
@@ -41,19 +41,19 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView
+      component: HomeView,
     },
     {
       path: "/blog",
       name: "blog",
-      component: () => import("../views/BlogView.vue")
+      component: () => import("../views/BlogView.vue"),
     },
     {
       path: "/projects",
       name: "projects",
-      component: () => import("../views/ProjectsView.vue")
+      component: () => import("../views/ProjectsView.vue"),
     },
-    ...generateBlogRoutes()
+    ...generateBlogRoutes(),
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
@@ -77,7 +77,7 @@ const router = createRouter({
         })
       }
     }
-  }
+  },
 })
 
 router.beforeEach((to, _from, next) => {

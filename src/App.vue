@@ -261,7 +261,7 @@ const handleScroll = () => {
 }
 
 useHead({
-  title: t("head")
+  title: t("head"),
 })
 
 onMounted(() => {

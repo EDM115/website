@@ -3,7 +3,7 @@ const originalWarn = console.warn
 console.warn = (message, ...optionalParams) => {
   if (![
     "Invalid prop: type check failed for prop \"icon\"",
-    "Invalid prop: type check failed for prop \"editIcon\""
+    "Invalid prop: type check failed for prop \"editIcon\"",
   ].some((warning) => message.includes(warning))) {
     originalWarn.apply(console, [ message, ...optionalParams ])
   }
@@ -34,7 +34,7 @@ const head = createHead()
 const i18n = createI18n({
   fallbackLocale: "en",
   legacy: false,
-  locale: cookie("i18n") || navigator.language.split("-")[0]
+  locale: cookie("i18n") || navigator.language.split("-")[0],
 })
 
 polyfillCountryFlagEmojis()
@@ -43,18 +43,18 @@ AOS.init({
   duration: 800,
   easing: "ease-in-out",
   once: true,
-  mirror: false
+  mirror: false,
 })
 app.use(createPinia())
 app.use(createVuetify({
   icons: {
     aliases,
     defaultSet: "mdi",
-    sets: { mdi }
+    sets: { mdi },
   },
   locale: {
     locale: "en",
-    messages: { en }
+    messages: { en },
   },
   ssr: false,
   theme: {
@@ -70,9 +70,9 @@ app.use(createVuetify({
           secondary: "#50FA7B",
           success: "#50FA7B",
           text: "#F8F8F2",
-          warning: "#FF79C6"
+          warning: "#FF79C6",
         },
-        dark: true
+        dark: true,
       },
       light: {
         colors: {
@@ -84,17 +84,17 @@ app.use(createVuetify({
           secondary: "#50FA7B",
           success: "#50FA7B",
           text: "#00040E",
-          warning: "#FF79C6"
+          warning: "#FF79C6",
         },
-        dark: false
-      }
+        dark: false,
+      },
     },
     variations: {
       colors: [ "accent", "background", "error", "info", "primary", "secondary", "success", "text", "warning" ],
       darken: 3,
-      lighten: 3
-    }
-  }
+      lighten: 3,
+    },
+  },
 }))
 app.use(i18n)
 app.use(head)

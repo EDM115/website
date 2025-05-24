@@ -126,14 +126,14 @@ const projectsLoc = ref({
   "TextToUrl-bot": 177,
   "underrated-producers-list": 15095,
   "vscode-extension-test": 2750,
-  "Werewolf_Discord_bot": 70
+  "Werewolf_Discord_bot": 70,
 })
 const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => acc + cur, 0))
 
 const stats = ref([
   { id: 0, name: t("projects"), value: projectsNumber.value },
   { id: 1, name: t("users"), value: 39314 },
-  { id: 2, name: t("loc"), value: linesOfCode }
+  { id: 2, name: t("loc"), value: linesOfCode },
 ])
 
 /**
@@ -203,7 +203,7 @@ onMounted(async () => {
   observer = new IntersectionObserver(callback, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.8
+    threshold: 0.8,
   })
   document.querySelectorAll("#statsCounters").forEach((el) => observer?.observe(el))
 })

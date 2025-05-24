@@ -138,7 +138,7 @@ const pullRequests = ref([
     description: "fix: Fastify no longer complains about the type",
     type: "pr",
     state: "closed",
-    link: "https://github.com/i18next/i18next-http-middleware/pull/83"
+    link: "https://github.com/i18next/i18next-http-middleware/pull/83",
   },
   {
     id: 24,
@@ -146,7 +146,7 @@ const pullRequests = ref([
     description: "chore: remove eu.org entry in Domain category",
     type: "pr",
     state: "closed",
-    link: "https://github.com/ripienaar/free-for-dev/pull/3680"
+    link: "https://github.com/ripienaar/free-for-dev/pull/3680",
   },
   {
     id: 23,
@@ -154,7 +154,7 @@ const pullRequests = ref([
     description: "feat: implement #890 and definitely solve #849",
     type: "pr",
     state: "closed",
-    link: "https://github.com/AlDanial/cloc/pull/891"
+    link: "https://github.com/AlDanial/cloc/pull/891",
   },
   {
     id: 22,
@@ -162,7 +162,7 @@ const pullRequests = ref([
     description: "feat: added anti-inspect",
     type: "pr",
     state: "closed",
-    link: "https://github.com/DishpitDev/Slopify/pull/408"
+    link: "https://github.com/DishpitDev/Slopify/pull/408",
   },
   {
     id: 21,
@@ -170,7 +170,7 @@ const pullRequests = ref([
     description: "feat: add PhoneControl plugin",
     type: "pr",
     state: "open",
-    link: "https://github.com/lifecompanionaac/lifecompanion/pull/408"
+    link: "https://github.com/lifecompanionaac/lifecompanion/pull/408",
   },
   {
     id: 20,
@@ -178,7 +178,7 @@ const pullRequests = ref([
     description: "fix: paths with spaces are handled",
     type: "pr",
     state: "open",
-    link: "https://github.com/maksimr/vscode-kotlin/pull/1"
+    link: "https://github.com/maksimr/vscode-kotlin/pull/1",
   },
   {
     id: 19,
@@ -186,7 +186,7 @@ const pullRequests = ref([
     description: "fix(examples): correct Colab links",
     type: "pr",
     state: "closed",
-    link: "https://github.com/qubvel-org/segmentation_models.pytorch/pull/965"
+    link: "https://github.com/qubvel-org/segmentation_models.pytorch/pull/965",
   },
   {
     id: 18,
@@ -194,7 +194,7 @@ const pullRequests = ref([
     description: "updated french translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/geode-sdk/geode/pull/1082"
+    link: "https://github.com/geode-sdk/geode/pull/1082",
   },
   {
     id: 17,
@@ -202,7 +202,7 @@ const pullRequests = ref([
     description: "fix: works when ran through a symlink",
     type: "pr",
     state: "closed",
-    link: "https://github.com/AlDanial/cloc/pull/850"
+    link: "https://github.com/AlDanial/cloc/pull/850",
   },
   {
     id: 16,
@@ -210,7 +210,7 @@ const pullRequests = ref([
     description: "Updated the French translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/SpotX-Official/SpotX/pull/614"
+    link: "https://github.com/SpotX-Official/SpotX/pull/614",
   },
   {
     id: 15,
@@ -218,7 +218,7 @@ const pullRequests = ref([
     description: "Complete overhaul (separated Dockerfiles, Nuxt3, ...)",
     type: "pr",
     state: "closed",
-    link: "https://github.com/data-fair/processings/pull/29"
+    link: "https://github.com/data-fair/processings/pull/29",
   },
   {
     id: 14,
@@ -226,7 +226,7 @@ const pullRequests = ref([
     description: "Better download button",
     type: "pr",
     state: "closed",
-    link: "https://github.com/Rectify11/Website/pull/3"
+    link: "https://github.com/Rectify11/Website/pull/3",
   },
   {
     id: 13,
@@ -234,7 +234,7 @@ const pullRequests = ref([
     description: "Colors rework",
     type: "pr",
     state: "closed",
-    link: "https://github.com/data-fair/lib/pull/3"
+    link: "https://github.com/data-fair/lib/pull/3",
   },
   {
     id: 12,
@@ -242,7 +242,7 @@ const pullRequests = ref([
     description: "v1.0 : Vue3 rewrite, new features, small bugfixes, ...",
     type: "pr",
     state: "closed",
-    link: "https://github.com/data-fair/app-charts/pull/42"
+    link: "https://github.com/data-fair/app-charts/pull/42",
   },
   {
     id: 11,
@@ -250,7 +250,7 @@ const pullRequests = ref([
     description: "added full French translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/ForzaMods/Forza-Mods-AIO/pull/7"
+    link: "https://github.com/ForzaMods/Forza-Mods-AIO/pull/7",
   },
   {
     id: 10,
@@ -258,7 +258,7 @@ const pullRequests = ref([
     description: "updated and completed French translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/Rectify11/Installer/pull/433"
+    link: "https://github.com/Rectify11/Installer/pull/433",
   },
   {
     id: 9,
@@ -266,7 +266,7 @@ const pullRequests = ref([
     description: "update for 21.2",
     type: "pr",
     state: "closed",
-    link: "https://github.com/dracula/fl-studio-21/pull/2"
+    link: "https://github.com/dracula/fl-studio-21/pull/2",
   },
   {
     id: 8,
@@ -274,7 +274,7 @@ const pullRequests = ref([
     description: "Added dracula color theme",
     type: "pr",
     state: "closed",
-    link: "https://github.com/devblackops/Terminal-Icons/pull/119"
+    link: "https://github.com/devblackops/Terminal-Icons/pull/119",
   },
   {
     id: 7,
@@ -282,7 +282,7 @@ const pullRequests = ref([
     description: "added french translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/mon5termatt/medicat_installer/pull/51"
+    link: "https://github.com/mon5termatt/medicat_installer/pull/51",
   },
   {
     id: 6,
@@ -290,7 +290,7 @@ const pullRequests = ref([
     description: "Smoother zoom",
     type: "pr",
     state: "closed",
-    link: "https://github.com/Keksuccino/JustZoom/pull/9"
+    link: "https://github.com/Keksuccino/JustZoom/pull/9",
   },
   {
     id: 5,
@@ -298,7 +298,7 @@ const pullRequests = ref([
     description: "[Translation] : French translation updated/reworked",
     type: "pr",
     state: "closed",
-    link: "https://github.com/peazip/PeaZip/pull/90"
+    link: "https://github.com/peazip/PeaZip/pull/90",
   },
   {
     id: 4,
@@ -306,7 +306,7 @@ const pullRequests = ref([
     description: "better french translation",
     type: "pr",
     state: "closed",
-    link: "https://github.com/SpotX-Official/SpotX/pull/253"
+    link: "https://github.com/SpotX-Official/SpotX/pull/253",
   },
   {
     id: 3,
@@ -314,7 +314,7 @@ const pullRequests = ref([
     description: "Linux Method in the Readme",
     type: "pr",
     state: "closed",
-    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/39"
+    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/39",
   },
   {
     id: 2,
@@ -322,7 +322,7 @@ const pullRequests = ref([
     description: "complete reformat - better changes",
     type: "pr",
     state: "closed",
-    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/31"
+    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/31",
   },
   {
     id: 1,
@@ -330,8 +330,8 @@ const pullRequests = ref([
     description: "Better script (async)",
     type: "pr",
     state: "closed",
-    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
-  }
+    link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30",
+  },
 ])
 
 const issues = ref([
@@ -341,7 +341,7 @@ const issues = ref([
     description: "[Feature Request]: The windows installer should remember the installation folder",
     type: "issue",
     state: "open",
-    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/3213"
+    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/3213",
   },
   {
     id: 45,
@@ -349,7 +349,7 @@ const issues = ref([
     description: "The bounding box of inline code blocks is slightly offset to the bottom",
     type: "issue",
     state: "open",
-    link: "https://github.com/dracula/obsidian/issues/52"
+    link: "https://github.com/dracula/obsidian/issues/52",
   },
   {
     id: 44,
@@ -357,7 +357,7 @@ const issues = ref([
     description: "The extension should stop adding .qodo to the .gitignore",
     type: "issue",
     state: "open",
-    link: "https://github.com/Codium-ai/codiumai-vscode-release/issues/195"
+    link: "https://github.com/Codium-ai/codiumai-vscode-release/issues/195",
   },
   {
     id: 43,
@@ -365,7 +365,7 @@ const issues = ref([
     description: "[IMPROVEMENT] Allow to override the Winget package ID per package",
     type: "issue",
     state: "open",
-    link: "https://github.com/marticliment/UniGetUI/issues/3455"
+    link: "https://github.com/marticliment/UniGetUI/issues/3455",
   },
   {
     id: 42,
@@ -373,7 +373,7 @@ const issues = ref([
     description: "[FEATURE REQUEST] Let us download the video 🙏",
     type: "issue",
     state: "open",
-    link: "https://github.com/withgraphite/year-in-code/issues/42"
+    link: "https://github.com/withgraphite/year-in-code/issues/42",
   },
   {
     id: 41,
@@ -381,7 +381,7 @@ const issues = ref([
     description: "[Bug]: The window is empty on Windows (it worked only once after the first install)",
     type: "issue",
     state: "closed",
-    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/2766"
+    link: "https://github.com/Stirling-Tools/Stirling-PDF/issues/2766",
   },
   {
     id: 40,
@@ -389,7 +389,7 @@ const issues = ref([
     description: "Ignored repositories should be an owner+repo pair to avoid collision",
     type: "issue",
     state: "closed",
-    link: "https://github.com/KieranP/Github-Releases-Feed/issues/13"
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/13",
   },
   {
     id: 39,
@@ -397,7 +397,7 @@ const issues = ref([
     description: "Release hcloud to winget",
     type: "issue",
     state: "open",
-    link: "https://github.com/hetznercloud/cli/issues/958"
+    link: "https://github.com/hetznercloud/cli/issues/958",
   },
   {
     id: 38,
@@ -405,7 +405,7 @@ const issues = ref([
     description: "Display title animation only once",
     type: "issue",
     state: "closed",
-    link: "https://github.com/AsmSafone/HackerNews/issues/1"
+    link: "https://github.com/AsmSafone/HackerNews/issues/1",
   },
   {
     id: 37,
@@ -413,7 +413,7 @@ const issues = ref([
     description: "[Bug]: v1.57.5 broke Windows compatibility on litellm cli proxy",
     type: "issue",
     state: "closed",
-    link: "https://github.com/BerriAI/litellm/issues/7677"
+    link: "https://github.com/BerriAI/litellm/issues/7677",
   },
   {
     id: 36,
@@ -421,7 +421,7 @@ const issues = ref([
     description: "Kurigram stops receiving updates after a while",
     type: "issue",
     state: "open",
-    link: "https://github.com/KurimuzonAkuma/pyrogram/issues/127"
+    link: "https://github.com/KurimuzonAkuma/pyrogram/issues/127",
   },
   {
     id: 35,
@@ -429,7 +429,7 @@ const issues = ref([
     description: "Bug: certain repos doesn't have their release title displayed",
     type: "issue",
     state: "closed",
-    link: "https://github.com/KieranP/Github-Releases-Feed/issues/11"
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/11",
   },
   {
     id: 34,
@@ -437,7 +437,7 @@ const issues = ref([
     description: "Feature: add some kind of attribution",
     type: "issue",
     state: "closed",
-    link: "https://github.com/KieranP/Github-Releases-Feed/issues/10"
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/10",
   },
   {
     id: 33,
@@ -445,7 +445,7 @@ const issues = ref([
     description: "Feature requests (random stuff to improve UX)",
     type: "issue",
     state: "closed",
-    link: "https://github.com/KieranP/Github-Releases-Feed/issues/4"
+    link: "https://github.com/KieranP/Github-Releases-Feed/issues/4",
   },
   {
     id: 32,
@@ -453,7 +453,7 @@ const issues = ref([
     description: "[REQUEST] Release neohtop to winget",
     type: "issue",
     state: "open",
-    link: "https://github.com/Abdenasser/neohtop/issues/127"
+    link: "https://github.com/Abdenasser/neohtop/issues/127",
   },
   {
     id: 31,
@@ -461,7 +461,7 @@ const issues = ref([
     description: "[BUG] Reported installed version is wrong system-wide",
     type: "issue",
     state: "closed",
-    link: "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6023"
+    link: "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6023",
   },
   {
     id: 30,
@@ -469,7 +469,7 @@ const issues = ref([
     description: "[BUG] Can't upgrade bun on windows if its install directory is symlinked to another drive",
     type: "issue",
     state: "open",
-    link: "https://github.com/oven-sh/bun/issues/15279"
+    link: "https://github.com/oven-sh/bun/issues/15279",
   },
   {
     id: 29,
@@ -477,7 +477,7 @@ const issues = ref([
     description: "[CRASH] Uniget doesn't respond for certain packages (Claude)",
     type: "issue",
     state: "open",
-    link: "https://github.com/marticliment/UniGetUI/issues/2979"
+    link: "https://github.com/marticliment/UniGetUI/issues/2979",
   },
   {
     id: 28,
@@ -485,7 +485,7 @@ const issues = ref([
     description: "[FEATURE REQUEST] Ability to run a task with environment variables like in IntelliJ",
     type: "issue",
     state: "open",
-    link: "https://github.com/microsoft/vscode-gradle/issues/1624"
+    link: "https://github.com/microsoft/vscode-gradle/issues/1624",
   },
   {
     id: 27,
@@ -493,7 +493,7 @@ const issues = ref([
     description: "Support different zip structure",
     type: "issue",
     state: "closed",
-    link: "https://github.com/8LWXpg/ptr/issues/10"
+    link: "https://github.com/8LWXpg/ptr/issues/10",
   },
   {
     id: 26,
@@ -501,7 +501,7 @@ const issues = ref([
     description: "[BUG] Doesn't work when PowerToys is installed in a custom location",
     type: "issue",
     state: "closed",
-    link: "https://github.com/8LWXpg/ptr/issues/9"
+    link: "https://github.com/8LWXpg/ptr/issues/9",
   },
   {
     id: 25,
@@ -509,7 +509,7 @@ const issues = ref([
     description: "Error while loading some icons : Property \"idMap\" was accessed during render but is not defined on instance.",
     type: "issue",
     state: "closed",
-    link: "https://github.com/unplugin/unplugin-icons/issues/385"
+    link: "https://github.com/unplugin/unplugin-icons/issues/385",
   },
   {
     id: 24,
@@ -517,7 +517,7 @@ const issues = ref([
     description: "[BUG] The download progress bar and some buttons aren't themed properly",
     type: "issue",
     state: "open",
-    link: "https://github.com/nimsandu/spicetify-bloom/issues/370"
+    link: "https://github.com/nimsandu/spicetify-bloom/issues/370",
   },
   {
     id: 23,
@@ -525,7 +525,7 @@ const issues = ref([
     description: "[BUG] Error while installing with Python 3.13 on Windows",
     type: "issue",
     state: "closed",
-    link: "https://github.com/pysathq/pysat/issues/180"
+    link: "https://github.com/pysathq/pysat/issues/180",
   },
   {
     id: 22,
@@ -533,7 +533,7 @@ const issues = ref([
     description: "Version agnostic builds",
     type: "issue",
     state: "closed",
-    link: "https://github.com/TelegramPlayGround/pyrogram-tgcrypto/issues/1"
+    link: "https://github.com/TelegramPlayGround/pyrogram-tgcrypto/issues/1",
   },
   {
     id: 21,
@@ -541,7 +541,7 @@ const issues = ref([
     description: "[BUG] The action replaces the current entry instead of adding a new one",
     type: "issue",
     state: "open",
-    link: "https://github.com/wow-actions/update-authors/issues/5"
+    link: "https://github.com/wow-actions/update-authors/issues/5",
   },
   {
     id: 20,
@@ -549,7 +549,7 @@ const issues = ref([
     description: "Stop overriding the registry value for default spotify links handler",
     type: "issue",
     state: "open",
-    link: "https://github.com/KRTirtho/spotube/issues/1997"
+    link: "https://github.com/KRTirtho/spotube/issues/1997",
   },
   {
     id: 19,
@@ -557,7 +557,7 @@ const issues = ref([
     description: "PSA : How to make sure the extension works (VS Code's SCM issue)",
     type: "issue",
     state: "open",
-    link: "https://github.com/leonardssh/vscord/issues/343"
+    link: "https://github.com/leonardssh/vscord/issues/343",
   },
   {
     id: 18,
@@ -565,7 +565,7 @@ const issues = ref([
     description: "[BUG] Can't upgrade to 1.94",
     type: "issue",
     state: "closed",
-    link: "https://github.com/microsoft/vscode/issues/227899"
+    link: "https://github.com/microsoft/vscode/issues/227899",
   },
   {
     id: 17,
@@ -573,7 +573,7 @@ const issues = ref([
     description: "[FEATURE REQUEST] Allow to add our own GitHub token for requests",
     type: "issue",
     state: "closed",
-    link: "https://github.com/spicetify/cli/issues/3154"
+    link: "https://github.com/spicetify/cli/issues/3154",
   },
   {
     id: 16,
@@ -581,7 +581,7 @@ const issues = ref([
     description: "[BUG] Can't install updates from commits semver",
     type: "issue",
     state: "closed",
-    link: "https://github.com/Rectify11/Installer/issues/603"
+    link: "https://github.com/Rectify11/Installer/issues/603",
   },
   {
     id: 15,
@@ -589,7 +589,7 @@ const issues = ref([
     description: "[BUG] cloc won't work if ran through a symlink on Windows (ex Winget) : Can't locate PAR.pm in @INC",
     type: "issue",
     state: "closed",
-    link: "https://github.com/AlDanial/cloc/issues/849"
+    link: "https://github.com/AlDanial/cloc/issues/849",
   },
   {
     id: 14,
@@ -597,7 +597,7 @@ const issues = ref([
     description: "[ENHANCEMENT] Sorting a column should keep a second-level sorting",
     type: "issue",
     state: "open",
-    link: "https://github.com/marticliment/UniGetUI/issues/2633"
+    link: "https://github.com/marticliment/UniGetUI/issues/2633",
   },
   {
     id: 13,
@@ -605,7 +605,7 @@ const issues = ref([
     description: "[BUG] Installing an update of Node removes any custom permissions of the folder (Windows) and locks the ability to update npm/corepack",
     type: "issue",
     state: "closed",
-    link: "https://github.com/nodejs/node/issues/54284"
+    link: "https://github.com/nodejs/node/issues/54284",
   },
   {
     id: 12,
@@ -613,7 +613,7 @@ const issues = ref([
     description: "[Bug Report][3.6.9] v-date-input's width doesn't size correctly when specifying percentage",
     type: "issue",
     state: "closed",
-    link: "https://github.com/vuetifyjs/vuetify/issues/19995"
+    link: "https://github.com/vuetifyjs/vuetify/issues/19995",
   },
   {
     id: 11,
@@ -621,7 +621,7 @@ const issues = ref([
     description: "[FEATURE REQUEST] Allow in the Rectify 11 Control center to disable MFE on startup",
     type: "issue",
     state: "closed",
-    link: "https://github.com/Rectify11/Installer/issues/563"
+    link: "https://github.com/Rectify11/Installer/issues/563",
   },
   {
     id: 10,
@@ -629,7 +629,7 @@ const issues = ref([
     description: "[BUG] version 3.1.0-alpha1 cannot use winget out-of the box and breaks it",
     type: "issue",
     state: "closed",
-    link: "https://github.com/marticliment/UniGetUI/issues/2286"
+    link: "https://github.com/marticliment/UniGetUI/issues/2286",
   },
   {
     id: 9,
@@ -637,7 +637,7 @@ const issues = ref([
     description: "[PROPOSAL] Pass the project to someone else",
     type: "issue",
     state: "open",
-    link: "https://web.archive.org/web/20241125204558/https://github.com/pyrogram/pyrogram/issues/1425"
+    link: "https://web.archive.org/web/20241125204558/https://github.com/pyrogram/pyrogram/issues/1425",
   },
   {
     id: 8,
@@ -645,7 +645,7 @@ const issues = ref([
     description: "[BUG] Upgrading to GNOME 46 breaks the extension (version mismatch ?)",
     type: "issue",
     state: "closed",
-    link: "https://github.com/SUPERCILEX/gnome-clipboard-history/issues/166"
+    link: "https://github.com/SUPERCILEX/gnome-clipboard-history/issues/166",
   },
   {
     id: 7,
@@ -653,7 +653,7 @@ const issues = ref([
     description: "[BUG] Doesn't work when the config is outside of C: drive on Windows",
     type: "issue",
     state: "closed",
-    link: "https://github.com/eslint/config-inspector/issues/47"
+    link: "https://github.com/eslint/config-inspector/issues/47",
   },
   {
     id: 6,
@@ -661,7 +661,7 @@ const issues = ref([
     description: "[FEATURE REQUEST] Stop auto installing chocolatey",
     type: "issue",
     state: "closed",
-    link: "https://github.com/marticliment/UniGetUI/issues/2131"
+    link: "https://github.com/marticliment/UniGetUI/issues/2131",
   },
   {
     id: 5,
@@ -669,7 +669,7 @@ const issues = ref([
     description: "[BUG] Can't natively open services",
     type: "issue",
     state: "open",
-    link: "https://github.com/Rectify11/Installer/issues/513"
+    link: "https://github.com/Rectify11/Installer/issues/513",
   },
   {
     id: 4,
@@ -677,7 +677,7 @@ const issues = ref([
     description: "[BUG] Newest 3.12 install on windows misses pip",
     type: "issue",
     state: "closed",
-    link: "https://github.com/python/cpython/issues/117505"
+    link: "https://github.com/python/cpython/issues/117505",
   },
   {
     id: 3,
@@ -685,7 +685,7 @@ const issues = ref([
     description: "[BUG] Pin to Quick access is gone from the context menu",
     type: "issue",
     state: "closed",
-    link: "https://github.com/Rectify11/Installer/issues/372"
+    link: "https://github.com/Rectify11/Installer/issues/372",
   },
   {
     id: 2,
@@ -693,7 +693,7 @@ const issues = ref([
     description: "Apps using MaterialDesignInXamlToolkit may not be rendered correctly everywhere",
     type: "issue",
     state: "open",
-    link: "https://github.com/MicaForEveryone/MicaForEveryone/issues/380"
+    link: "https://github.com/MicaForEveryone/MicaForEveryone/issues/380",
   },
   {
     id: 1,
@@ -701,8 +701,8 @@ const issues = ref([
     description: "Performance issues with ODS",
     type: "issue",
     state: "closed",
-    link: "https://github.com/matafokka/ExcelDarkThemeFix/issues/10"
-  }
+    link: "https://github.com/matafokka/ExcelDarkThemeFix/issues/10",
+  },
 ])
 
 /**

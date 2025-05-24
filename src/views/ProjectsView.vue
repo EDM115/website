@@ -99,7 +99,7 @@ const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
 useHead({
-  title: t("head")
+  title: t("head"),
 })
 
 onMounted(() => {

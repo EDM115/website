@@ -88,9 +88,8 @@
         ]
       },
       "env": {
-        "es2025": true,
+        "es2024": true,
         "browser": true,
-        "commonjs": true,
         "node": true,
         "shared-node-browser": true
       }

@@ -50,108 +50,108 @@ const socialLinks = ref([
   {
     icon: mdiGithub,
     text: "GitHub",
-    url: "https://github.com/EDM115"
+    url: "https://github.com/EDM115",
   },
   {
     icon: icBaselineTelegram,
     text: "Telegram",
-    url: "https://t.me/EDM115"
+    url: "https://t.me/EDM115",
   },
   {
     icon: icBaselineDiscord,
     text: "Discord",
-    url: "https://discord.com/users/625240117560475658"
+    url: "https://discord.com/users/625240117560475658",
   },
   {
     icon: mdiSpotify,
     text: "Spotify",
-    url: "https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4"
+    url: "https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4",
   },
   {
     icon: mdiLinkedin,
     text: "LinkedIn",
-    url: "https://www.linkedin.com/in/edm115/"
+    url: "https://www.linkedin.com/in/edm115/",
   },
   {
     icon: mdiPaypal,
     text: "PayPal",
-    url: "https://paypal.me/8EDM115"
+    url: "https://paypal.me/8EDM115",
   },
   {
     icon: simpleIconsBuymeacoffee,
     text: "BuyMeACoffee",
-    url: "https://www.buymeacoffee.com/edm115"
+    url: "https://www.buymeacoffee.com/edm115",
   },
   {
     icon: mdiReddit,
     text: "Reddit",
-    url: "https://www.reddit.com/user/EDM115"
+    url: "https://www.reddit.com/user/EDM115",
   },
   {
     icon: pajamasTwitter,
     text: "𝕏",
-    url: "https://x.com/_EDM115"
+    url: "https://x.com/_EDM115",
   },
   {
     icon: mdiInstagram,
     text: "Instagram",
-    url: "https://instagram.com/_edm1.15"
+    url: "https://instagram.com/_edm1.15",
   },
   {
     icon: mdiStackOverflow,
     text: "StackOverflow",
-    url: "https://stackoverflow.com/users/18644204"
+    url: "https://stackoverflow.com/users/18644204",
   },
   {
     icon: phGitlab,
     text: "GitLab",
-    url: "https://gitlab.com/EDM115"
+    url: "https://gitlab.com/EDM115",
   },
   {
     icon: mdiWhatsapp,
     text: "WhatsApp",
-    url: "https://api.whatsapp.com/send?phone=33667980504"
+    url: "https://api.whatsapp.com/send?phone=33667980504",
   },
   {
     icon: mdiDevTo,
     text: "Dev.to",
-    url: "https://dev.to/edm115"
+    url: "https://dev.to/edm115",
   },
   {
     icon: mdiDocker,
     text: "Docker Hub",
-    url: "https://hub.docker.com/u/edm115"
+    url: "https://hub.docker.com/u/edm115",
   },
   {
     icon: simpleIconsRootme,
     text: "RootMe",
-    url: "https://www.root-me.org/EDM115?inc=info&lang=en"
+    url: "https://www.root-me.org/EDM115?inc=info&lang=en",
   },
   {
     icon: simpleIconsHackthebox,
     text: "HackTheBox",
-    url: "https://app.hackthebox.com/profile/975408"
+    url: "https://app.hackthebox.com/profile/975408",
   },
   {
     icon: hugeIconsSpotify,
     text: "Spotify artist",
-    url: "https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI"
+    url: "https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI",
   },
   {
     icon: simpleIconsAppleMusic,
     text: "Apple Music",
-    url: "https://music.apple.com/fr/artist/edm115/1716756983"
+    url: "https://music.apple.com/fr/artist/edm115/1716756983",
   },
   {
     icon: mdiSoundcloud,
     text: "SoundCloud",
-    url: "https://soundcloud.com/EDM115"
+    url: "https://soundcloud.com/EDM115",
   },
   {
     icon: mdiYoutube,
     text: "YouTube",
-    url: "https://youtube.com/@_EDM115"
-  }
+    url: "https://youtube.com/@_EDM115",
+  },
 ])
 </script>
 

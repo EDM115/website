@@ -64,7 +64,7 @@ const skills = ref([
   { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
   { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: flStudio },
   { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: fh5 },
-  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: chatGPT }
+  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: chatGPT },
 ])
 
 const currentIcons = ref(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
@@ -138,7 +138,7 @@ onMounted(() => {
   observer = new IntersectionObserver(callback, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.8
+    threshold: 0.8,
   })
 
   for (let i = 0; i < skills.value.length; i++) {
