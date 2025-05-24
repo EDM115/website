@@ -77,7 +77,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("about") }}</h2>
+            <h2>
+              <a
+                href="#about"
+                class="internal-link"
+              >{{ t("about") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -119,7 +124,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("stats") }}</h2>
+            <h2>
+              <a
+                href="#stats"
+                class="internal-link"
+              >{{ t("stats") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -135,7 +145,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("skills") }}</h2>
+            <h2>
+              <a
+                href="#skills"
+                class="internal-link"
+              >{{ t("skills") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -151,7 +166,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("resume") }}</h2>
+            <h2>
+              <a
+                href="#resume"
+                class="internal-link"
+              >{{ t("resume") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -281,7 +301,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("projects") }}</h2>
+            <h2>
+              <a
+                href="#projects"
+                class="internal-link"
+              >{{ t("projects") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -297,7 +322,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("oss") }}</h2>
+            <h2>
+              <a
+                href="#opensource"
+                class="internal-link"
+              >{{ t("oss") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -313,7 +343,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>{{ t("contact") }}</h2>
+            <h2>
+              <a
+                href="#contact"
+                class="internal-link"
+              >{{ t("contact") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -350,7 +385,12 @@
           variant="elevated"
         >
           <v-card-title>
-            <h2>EDM115 • {{ t("social") }}</h2>
+            <h2>
+              <a
+                href="#social"
+                class="internal-link"
+              >EDM115 • {{ t("social") }}</a>
+            </h2>
           </v-card-title>
 
           <v-card-text>
@@ -495,3 +535,9 @@ onMounted(() => {
   locale.value = userLocale.value
 })
 </script>
+
+<style scoped>
+.internal-link {
+  color: inherit;
+}
+</style>
