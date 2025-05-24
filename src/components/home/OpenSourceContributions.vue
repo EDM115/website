@@ -133,6 +133,22 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
+    id: 26,
+    name: "KieranP/Github-Releases-Feed",
+    description: "fix: Read more, login input and other buttons appears correctly on whacky Windows machines that have their global styles edited by things like Rectify11",
+    type: "pr",
+    state: "closed",
+    link: "https://github.com/KieranP/Github-Releases-Feed/pull/16",
+  },
+  {
+    id: 26,
+    name: "Mayuri-Chan/pyrofork",
+    description: "fix: properly handle FloodPremiumWait",
+    type: "pr",
+    state: "open",
+    link: "https://github.com/Mayuri-Chan/pyrofork/pull/126",
+  },
+  {
     id: 25,
     name: "i18next/i18next-http-middleware",
     description: "fix: Fastify no longer complains about the type",
@@ -335,6 +351,54 @@ const pullRequests = ref([
 ])
 
 const issues = ref([
+  {
+    id: 52,
+    name: "fastify/fastify",
+    description: "Fastify drops schemas that overlaps when using oneOf",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/fastify/fastify/issues/6133",
+  },
+  {
+    id: 51,
+    name: "JanDeDobbeleer/oh-my-posh",
+    description: "Bring back the \"origin\" version when doing an upgrade",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6439",
+  },
+  {
+    id: 50,
+    name: "inocan-group/vue3-google-map",
+    description: "[BUG] AdvancedMarkers that are added to the map are styled like Markers until other AdvancedMarkers are added",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/inocan-group/vue3-google-map/issues/322",
+  },
+  {
+    id: 49,
+    name: "8LWXpg/ptr",
+    description: "[FEAT] Add an option in the config to not run PowerToys after an update",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/8LWXpg/ptr/issues/17",
+  },
+  {
+    id: 48,
+    name: "getsentry/sentry-javascript",
+    description: "Since v9.17.0, peer dependencies issues have been introduced",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/getsentry/sentry-javascript/issues/16245",
+  },
+  {
+    id: 47,
+    name: "oxc-project/eslint-plugin-oxlint",
+    description: "The plugin doesn't seem to care about categories",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/oxc-project/eslint-plugin-oxlint/issues/385",
+  },
   {
     id: 46,
     name: "Stirling-Tools/Stirling-PDF",

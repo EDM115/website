@@ -38,18 +38,54 @@
         </v-card-text>
       </v-card>
     </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="https://stats.edm115.dev/api?username=EDM115&count_private=true&show_icons=true&cache_seconds=1800&bg_color=30,833ab4,fd1d1d,fcb045&include_all_commits=True&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
+      />
+    </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="https://stats.edm115.dev/api/top-langs/?username=EDM115&langs_count=10&layout=compact&theme=merko&bg_color=30,833ab4,fd1d1d,fcb045&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
+      />
+    </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="https://github-readme-activity-graph.vercel.app/graph?username=EDM115&theme=dracula&line=50fa7b&point=ff79c6&area_color=f1fa8c&bg_color=282a36&color=8be9fd&title_color=8be9fd&area=true&hide_border=true&radius=8"
+      />
+    </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="http://github-readme-streak-stats.herokuapp.com/?user=EDM115&theme=dracula&hide_border=true&date_format=j%20M%5B%20Y%5D"
+      />
+    </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="https://github-profile-trophy.vercel.app/?username=EDM115&theme=dracula&no-bg=true&no-frame=true"
+      />
+    </v-row>
+    <v-row class="d-flex justify-center align-center">
+      <v-img
+        :draggable="false"
+        src="https://lanyard.cnrad.dev/api/625240117560475658?theme=dark&bg=282a36&borderRadius=30&animated=true&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true"
+      />
+    </v-row>
   </v-col>
 </template>
 
 <i18n>
 {
   "en": {
-    "loc": "Lines of code written",
+    "loc": "Lines of code in my projects",
     "projects": "Projects made (public)",
     "users": "Users of my services (has yet to be refreshed through an API)"
   },
   "fr": {
-    "loc": "Lignes de code écrites",
+    "loc": "Lignes de code dans mes projets",
     "projects": "Projets réalisés (publics)",
     "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
   }
@@ -70,44 +106,48 @@ const { locale, t } = useI18n()
 
 let observer: IntersectionObserver | null = null
 // Different from what you see ? I include private repos here too :)
-const projectsNumber = ref(58)
+const projectsNumber = ref(64)
 
 const projectsLoc = ref({
   // active
-  "ban-all-except-admins": 271,
-  "booleanfix": 364,
+  "ban-all-except-admins": 441,
+  "better-maps": 13787,
+  "booleanfix": 534,
   // "boubot": 4177,
-  "bulk-youtube-download": 123,
+  "bulk-youtube-download": 293,
   // "cursedChess-bot": 2658,
   // "DiceWizard": 2741,
-  "dotfiles": 26237,
-  "EDM115": 128,
-  "website": 7757,
+  "dotfiles": 35087,
+  "EDM115": 296,
+  "website": 11767,
   "website-v1": 137999,
   // "edm115.fot.one / edm115.shadd.eu.org / edm115.ethar.xyz / walad.link/edm115": 384 + 3061,
   "EDM115.github.io": 90,
-  "EDM115-discord-bot": 1012,
-  "EDM115-ohmyposh-theme": 489,
+  "EDM115-discord-bot": 1180,
+  "EDM115-ohmyposh-theme": 659,
   "Grundy2": 6477,
   "hugo": 890,
-  "jean-marie-bot": 2180,
-  "js-imports-sort": 3852,
-  "Markdown_Syntax_FR": 506,
-  "obsidian": 5907,
-  "palex": 5384,
-  "random-algorithm": 203,
+  "jean-marie-bot": 1984,
+  "js-imports-sort": 4022,
+  "learning-stack": 18412,
+  "Markdown_Syntax_FR": 674,
+  "obsidian": 9637,
+  "palex": 5552,
+  "random-algorithm": 370491 - 370118,
   "school-codes": 3379,
+  "shared-files": 380,
   "sport-track": 1582,
-  "telegram-auto-upload-folder": 199,
-  "telegram-backup-dump": 342,
-  "The-Very-Restrictive-License": 141,
+  "telegram-auto-upload-folder": 369,
+  "telegram-backup-dump": 512,
+  "The-Very-Restrictive-License": 311,
   // "ThunderBot": 2196,
-  "unzip-bot": 4683,
-  "useful-stuff": 614,
-  "VGM-KHI-download": 140,
-  "web-logs": 133,
-  "school-codes-v2": 745004,
-  "IUT": 458520,
+  "unrar-alpine": 1681,
+  "unzip-bot": 7469,
+  "useful-stuff": 794,
+  "VGM-KHI-download": 310,
+  "web-logs": 303,
+  "school-codes-v2": 885105,
+  "IUT": 396155,
 
   // archived
   "bots-status": 214,
@@ -132,7 +172,7 @@ const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => ac
 
 const stats = ref([
   { id: 0, name: t("projects"), value: projectsNumber.value },
-  { id: 1, name: t("users"), value: 39314 },
+  { id: 1, name: t("users"), value: 44674 },
   { id: 2, name: t("loc"), value: linesOfCode },
 ])
 
