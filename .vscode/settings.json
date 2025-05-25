@@ -20,7 +20,6 @@
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "css.autoValidation": "Always",
   "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.ignoreUntitled": true,
@@ -55,5 +54,6 @@
   "vue.inlayHints.inlineHandlerLeading": true,
   "vue.inlayHints.missingProps": true,
   "vue.inlayHints.optionsWrapper": true,
-  "vue.inlayHints.vBindShorthand": true
+  "vue.inlayHints.vBindShorthand": true,
+  "yaml.keyOrdering": false
 }
