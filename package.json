@@ -42,7 +42,7 @@
     "@vue/tsconfig": "~0.7.0",
     "cross-env": "~7.0.3",
     "eslint": "~9.27.0",
-    "eslint-import-resolver-typescript": "~4.3.5",
+    "eslint-import-resolver-typescript": "~4.4.0",
     "eslint-import-resolver-vite": "~2.1.0",
     "eslint-plugin-import-x": "~4.12.2",
     "eslint-plugin-oxlint": "~0.16.11",
