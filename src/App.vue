@@ -149,7 +149,6 @@
 <script setup lang="ts">
 import lucideConstruction from "~icons/lucide/construction"
 import mdiArrowUp from "~icons/mdi/arrowUp"
-import mdiCheck from "~icons/mdi/check?raw"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiMenu from "~icons/mdi/menu"
@@ -277,31 +276,6 @@ onMounted(() => {
   }, 3000)
 
   window.addEventListener("scroll", handleScroll)
-
-  document.addEventListener("click", (event) => {
-    const el = (event.target as HTMLElement).closest(".header-copy-icon")
-
-    if (!el) {
-      return
-    }
-
-    const slug = el.getAttribute("data-slug")
-
-    if (!slug) {
-      return
-    }
-
-    const url = `${location.origin}${location.pathname}#${slug}`
-
-    navigator.clipboard.writeText(url).then(() => {
-      const original = el.innerHTML
-
-      el.innerHTML = mdiCheck as unknown as string
-      setTimeout(() => {
-        el.innerHTML = original
-      }, 5000)
-    })
-  })
 })
 </script>
 

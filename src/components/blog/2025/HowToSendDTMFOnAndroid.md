@@ -360,7 +360,7 @@ And finally, to declare the accessibility service itself :
     android:accessibilityFlags="flagReportViewIds" />
 ```
 So, what the hell are we actually doing here ?  
-1. We declare an accessibility service that is triggered everytime the content of a window changes or when a view is clicked, and ask get the view IDs.
+1. We declare an accessibility service that is triggered everytime the content of a window changes or when a view is clicked, and ask to get the view IDs.
 2. On the `CallService`, we create the `DTMFAccessibilityService` and call its function.
 3. On the Accessibility service, whenever we receive an event we check if it's from the active window. If it is, we check if we're in the call screen and then open the keypad if it isn't.
 4. `isInCallScreen()` is very primitive and only checks the presence of `dialer` in the window's package name.
@@ -498,7 +498,7 @@ class DTMFAccessibilityService : AccessibilityService() {
             return
         }
 
-        // Whenever there is a window content or state change, update our root node reference
+        // Whenever there's a window content/state change, update our root node reference
         if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED || event.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
             _rootNode = rootInActiveWindow
         }
@@ -593,7 +593,7 @@ class DTMFAccessibilityService : AccessibilityService() {
     }
 
     /**
-     * Checks if a dialer button text or contentDescription is relevant for this digit.
+     * Checks if a dialer button's text or contentDescription is relevant for this digit.
      * e.g. digit = "2" matches "2", "2 ABC", "2,ABC", "2." ...
      */
     private fun isDialerButtonMatch(nodeText: String?, digit: String): Boolean {
@@ -622,7 +622,7 @@ class DTMFAccessibilityService : AccessibilityService() {
             // Skip system UI or non-dialer packages
             val nodePackage = node.packageName?.toString() ?: ""
             if (!KNOWN_DIALER_PACKAGES.any { nodePackage.contains(it, ignoreCase = true) }) {
-                // This node is not from a recognized dialer package. Skip its subtree.
+                // This node isn't from a recognized dialer package. Skip its subtree.
                 continue
             }
 

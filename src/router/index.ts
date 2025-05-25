@@ -1,39 +1,8 @@
 // eslint-disable-next-line import-x/default
 import HomeView from "../views/HomeView.vue"
+import { generateBlogChildren } from "./blogRoutes"
 
 import { createRouter, createWebHistory } from "vue-router"
-
-const blogPosts = import.meta.glob("../views/blog/**/*.vue")
-
-/**
- * Generates routes for blog posts based on the provided blogPosts object.
- * Replaces specific parts of the path to create route paths and components.
- *
- * @returns {Array} An array of route objects containing path and component information.
- */
-function generateBlogRoutes() {
-  const routes = []
-
-  for (const path in blogPosts) {
-    if (Object.prototype.hasOwnProperty.call(blogPosts, path)) {
-      const routePath = path
-        .replace("../views", "")
-        .replace("View.vue", "")
-        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
-        .replace(/([a-z\d])([A-Z])/g, "$1-$2")
-        .toLowerCase()
-        .replace(/\/-/, "/")
-        .replace(/\s+/g, "-")
-
-      routes.push({
-        path: routePath,
-        component: blogPosts[path],
-      })
-    }
-  }
-
-  return routes
-}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,11 +18,15 @@ const router = createRouter({
       component: () => import("../views/BlogView.vue"),
     },
     {
+      path: "/blog",
+      component: () => import("../layouts/BlogLayout.vue"),
+      children: [ ...generateBlogChildren() ],
+    },
+    {
       path: "/projects",
       name: "projects",
       component: () => import("../views/ProjectsView.vue"),
     },
-    ...generateBlogRoutes(),
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
@@ -85,7 +58,7 @@ router.beforeEach((to, _from, next) => {
     next({ path: to.path.replace(".html", "") })
   }
 
-  const blogRoutes = generateBlogRoutes().map((route) => route.path)
+  const blogRoutes = generateBlogChildren().map((route) => `/blog/${route.path}`)
 
   if (to.path.startsWith("/blog/") && !blogRoutes.includes(to.path)) {
     next({ name: "home" })

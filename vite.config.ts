@@ -156,23 +156,11 @@ export default defineConfig({
             ? hljs.highlight(token.content, { language: langName }).value
             : hljs.highlightAuto(token.content).value
 
-          // Return the HTML with language label and copy button
           return `
             <div class='code-block'>
               <div class='code-block-header'>
                 <span class='code-block-lang'>${langName || "plaintext"}</span>
-                <button class='copy-code-button' onclick='
-                  navigator.clipboard.writeText(\`${token.content}\`);
-                  const btn = this;
-                  btn.textContent = "Copied !";
-                  btn.classList.add("copy-code-button-clicked");
-
-                  setTimeout(() => {
-                    btn.textContent = "Copy";
-                    btn.classList.remove("copy-code-button-clicked");
-                    btn.classList.add("copy-code-button");
-                  }, 3000);
-                '>
+                <button class='copy-code-button'>
                   Copy
                 </button>
               </div>

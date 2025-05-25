@@ -1,5 +1,5 @@
 @use "vuetify/settings" with (
-  $body-font-family: "Twemoji Country Flags, Nunito, serif"
+  $body-font-family: ("Twemoji Country Flags", "Nunito", "Inter", sans-serif),
 );
 
 @function var-color($name) {
@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: "Twemoji Country Flags", Nunito, serif;
+  font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
 }
 
 *::-webkit-scrollbar {
@@ -102,9 +102,9 @@ p, li {
 
 .header-copy-icon {
   position: absolute;
-  left: 0;
+  left: -24px;
   top: 50%;
-  transform: translateY(-35%) translateX(-100%);
+  transform: translateY(-40%);
   opacity: 0;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
@@ -122,7 +122,19 @@ p, li {
 .header-copy-icon svg {
   width: 1em;
   height: 1em;
-  fill: currentColor;
+  overflow: visible;
+  fill: var-color(v-theme-primary);
+  color: var-color(v-theme-primary);
+}
+
+.header-copy-icon svg:hover {
+  fill: var-color(v-theme-success);
+  color: var-color(v-theme-success);
+}
+
+.header-copy-icon-clicked svg {
+  fill: var-color(v-theme-success);
+  color: var-color(v-theme-success);
 }
 
 .markdown-body > hr {
