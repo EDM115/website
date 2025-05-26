@@ -3,14 +3,18 @@ declare module "eslint-import-resolver-vite" {
    * An alias entry for Vite configuration.
    */
   export interface ViteAliasEntry {
-    find: string;
+    find: string | RegExp;
     replacement: string;
+    customResolver?: any;
   }
 
   /**
-   * The alias configuration can either be an object mapping strings to strings or an array of alias entries.
+   * The alias configuration can either be an object mapping strings to strings, an array of alias entries or a readonly array of alias entries.
    */
-  export type ViteAlias = { [key: string]: string } | ViteAliasEntry[]
+  export type ViteAlias =
+    | { [key: string]: string }
+    | ViteAliasEntry[]
+    | readonly ViteAliasEntry[]
 
   /**
    * Options for Vite's resolve configuration.
@@ -18,6 +22,10 @@ declare module "eslint-import-resolver-vite" {
   export interface ViteResolveOptions {
     alias?: ViteAlias;
     extensions?: string[];
+    conditions?: string[];
+    mainFields?: string[];
+    extensions?: string[];
+    preserveSymlinks?: boolean;
   }
 
   /**
@@ -67,9 +75,11 @@ declare module "eslint-import-resolver-vite" {
 
   /**
    * Resolves a module using the given Vite configuration.
+   * 
    * @param source - The module source string.
    * @param file - The file path from which the module is being resolved.
    * @param config - The resolver configuration containing a Vite config object.
+   * 
    * @returns An object indicating whether the module was found and its resolved path.
    */
   export function resolve(
@@ -80,7 +90,9 @@ declare module "eslint-import-resolver-vite" {
 
   /**
    * Creates an import resolver object for ESLint that adheres to resolver interface v3.
+   * 
    * @param config - The resolver configuration containing a Vite config object.
+   * 
    * @returns An object with the resolver interface.
    */
   export function createViteImportResolver(

@@ -1,13 +1,13 @@
 import js from "@eslint/js"
 import tsParser from "@typescript-eslint/parser"
-import { flatConfigs } from "eslint-plugin-import-x"
 import oxlint from "eslint-plugin-oxlint"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
-import { configs as tsEslintConfigs } from "typescript-eslint"
 
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
-import { createViteImportResolver, type ViteConfig } from "eslint-import-resolver-vite"
+import { createViteImportResolver } from "eslint-import-resolver-vite"
+import { flatConfigs } from "eslint-plugin-import-x"
+import { configs as tsEslintConfigs } from "typescript-eslint"
 
 export default [
   {
@@ -48,7 +48,7 @@ export default [
           project: "tsconfig.json",
         }),
         createViteImportResolver({
-          viteConfig: (await import("./vite.config")).viteConfigObj as ViteConfig,
+          viteConfig: (await import("./vite.config")).viteConfigObj,
         }),
       ],
     },

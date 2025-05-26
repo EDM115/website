@@ -3,10 +3,7 @@
   "include": [
     "vite.config.*",
     "eslint.config.*",
-    "env.d.ts",
-    "components.d.ts",
-    "eslint-import-resolver-vite.d.ts",
-    "markdown.d.ts"
+    "eslint-import-resolver-vite.d.ts"
   ],
   "compilerOptions": {
     "noEmit": true,
