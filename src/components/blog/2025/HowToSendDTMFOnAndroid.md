@@ -150,12 +150,12 @@ class CallWatcher : InCallService() {
 While this code *should* work (probably not), as you can see we extend `InCallService()`, and that would require us to be the default phone app.
 
 ## Everybody wants to be my enemy
-So because it didn't worked, I decided to do everyone's favorite activity : searching for documentation :\)  
+So because it didn't worked, I decided to do everyone's favorite activity : searching for documentation \:)  
 What I found is crazy : devs [asked for this feature](https://issuetracker.google.com/issues/36906273) all the way back in 2008 ! It was marked as *Won't Fix (Obsolete)* in 2014, and even the [patches](https://android-review.googlesource.com/c/platform/frameworks/base/+/32820) submitted by some devs were rejected in 2021.  
 From what I was able to [read](https://groups.google.com/g/discuss-webrtc/c/9W-gsv4pARU), it apparently is possible for an app to send DTMF tones but [only over VoIP](https://stackoverflow.com/a/10748408/18644204). But guess what ? It is [deprecated](https://developer.android.com/reference/kotlin/android/net/sip/SipAudioCall#senddtmf) by now !  
   
 So, time for more searches ! And I browsed everyone's second favorite website : StackOverflow (I come from a time where LLMs weren't the meta).  
-And across all the related questions, I haven't found any single answer :\(
+And across all the related questions, I haven't found any single answer \:(
 - [This one](https://stackoverflow.com/questions/8870488/android-dtmf-send-tone-overriding/12986066) suggests that we can send it at call time, but not *during* a call (and also [that one](https://stackoverflow.com/questions/2542014/how-do-i-send-dtmf-tones-and-pauses-using-android-action-call-intent-with-commas)).
 - [This one](https://stackoverflow.com/questions/10513233/working-with-dtmf-tones-in-android) was about another technology ([that one](https://stackoverflow.com/questions/10754335/send-dtmf-tones-in-ongoing-call) is the same question but with other answers that confirms what I said previously).
 - [This one](https://stackoverflow.com/questions/5343756/problem-with-sending-dtmf-tones-from-android-app-over-an-active-call) tells us that we can "fake" it by playing the frequency ourselves (but that work only when the speakerphone is enabled).
@@ -174,7 +174,7 @@ Well all of them had either the brilliant idea to suggest `android.telecom.Call.
 ## The revelation
 At this point I was convinced that it wasn't feasible. *If* it wasn't for [Andriy Antonov's solution](https://stackoverflow.com/a/65868662/18644204) !  
 This guy had a brilliant idea : Android phones have accessibility services, which allows to emulate clicks on the screen. Why not using them to click on the keypad buttons directly !  
-However, his solution had some flaws, notably the fact that we needed the screen coordinates of the buttons, and our app needed to work on all kind of Android devices (including tablets), which made this impossible. But hey, that's nothing that code couldn't solve... :\)
+However, his solution had some flaws, notably the fact that we needed the screen coordinates of the buttons, and our app needed to work on all kind of Android devices (including tablets), which made this impossible. But hey, that's nothing that code couldn't solve... \:)
 
 ## Time to lock in
 Here's the very first implementation that I made :
@@ -701,7 +701,7 @@ class DTMFAccessibilityService : AccessibilityService() {
         DTMFAccessibilityServiceSingleton.instance?.pressKeypadButton(dtmf)
     }
 ```
-Time for some explanations once again :\)
+Time for some explanations once again \:)
 1. We created (quickly) a singleton to avoid creating another `DTMFAccessibilityService` object at each call.
 2. We added a bit more possible names for the keypad button. *I'm sorry*, but if you want to use this code, you might need to i18n it depending on the countries you're targeting.
 3. The detection of the call app name is way much improved ! We first get the list of package names from all installed apps that can handle calls on the phone, and add 3 common packages just in case.
