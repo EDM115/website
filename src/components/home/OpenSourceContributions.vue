@@ -352,11 +352,19 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 53,
+    name: "pzmosquito/eslint-import-resolver-vite",
+    description: "PSA : How to make it working using TS, ESM and import-x/resolver-next",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/pzmosquito/eslint-import-resolver-vite/issues/30",
+  },
+  {
     id: 52,
     name: "fastify/fastify",
     description: "Fastify drops schemas that overlaps when using oneOf",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/fastify/fastify/issues/6133",
   },
   {
