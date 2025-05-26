@@ -7,7 +7,7 @@ import globals from "globals"
 import { configs as tsEslintConfigs } from "typescript-eslint"
 
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
-import { createViteImportResolver, ViteConfig } from "eslint-import-resolver-vite"
+import { createViteImportResolver, type ViteConfig } from "eslint-import-resolver-vite"
 
 export default [
   {
