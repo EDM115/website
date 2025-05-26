@@ -2,7 +2,11 @@
   "extends": "@tsconfig/node22/tsconfig.json",
   "include": [
     "vite.config.*",
-    "eslint.config.*"
+    "eslint.config.*",
+    "env.d.ts",
+    "components.d.ts",
+    "eslint-import-resolver-vite.d.ts",
+    "markdown.d.ts"
   ],
   "compilerOptions": {
     "noEmit": true,

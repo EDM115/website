@@ -1,5 +1,4 @@
 declare module "eslint-import-resolver-vite" {
-
   /**
    * An alias entry for Vite configuration.
    */

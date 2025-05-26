@@ -1,27 +1,20 @@
-// skipcq: JS-0384
-/// <reference path="./eslint-import-resolver-vite.d.ts" />
-
-/* eslint-disable import-x/no-named-as-default-member */
 import js from "@eslint/js"
 import tsParser from "@typescript-eslint/parser"
 import { flatConfigs } from "eslint-plugin-import-x"
 import oxlint from "eslint-plugin-oxlint"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
-import tseslint from "typescript-eslint"
+import { configs as tsEslintConfigs } from "typescript-eslint"
 
-import { createRequire } from "module"
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
-
-const require = createRequire(import.meta.url)
-const { createViteImportResolver } = require("eslint-import-resolver-vite")
+import { createViteImportResolver, ViteConfig } from "eslint-import-resolver-vite"
 
 export default [
   {
-    ignores: [ "**/dist/", "**/node_modules/", "**/*.d.ts" ],
+    ignores: [ "**/analyze/", "**/dist/", "**/node_modules/", "**/*.d.ts" ],
   },
   js.configs.all,
-  ...tseslint.configs.recommended,
+  ...tsEslintConfigs.recommended,
   flatConfigs.recommended,
   flatConfigs.typescript,
   ...pluginVue.configs["flat/recommended"],
@@ -55,7 +48,7 @@ export default [
           project: "tsconfig.json",
         }),
         createViteImportResolver({
-          viteConfig: (await import("./vite.config")).viteConfigObj,
+          viteConfig: (await import("./vite.config")).viteConfigObj as ViteConfig,
         }),
       ],
     },

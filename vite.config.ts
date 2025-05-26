@@ -28,7 +28,7 @@ const mdiLinkVariant = `<svg>${mdi.icons["link-variant"].body}</svg>`
 
 const analyze = process.env.ANALYZE === "true"
 
-export default defineConfig({
+const config = defineConfig({
   build: {
     cssMinify: "lightningcss",
     rollupOptions: {
@@ -219,9 +219,7 @@ export default defineConfig({
 })
 
 export const viteConfigObj = {
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
+  resolve: config.resolve,
 }
+
+export default config
