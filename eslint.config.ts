@@ -1,6 +1,7 @@
 // skipcq: JS-0384
 /// <reference path="./eslint-import-resolver-vite.d.ts" />
 
+/* eslint-disable import-x/no-named-as-default-member */
 import js from "@eslint/js"
 import tsParser from "@typescript-eslint/parser"
 import { flatConfigs } from "eslint-plugin-import-x"
