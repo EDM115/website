@@ -5,6 +5,13 @@
     "url": "https://github.com/EDM115/website/issues"
   },
   "dependencies": {
+    "@mdit/plugin-alert": "~0.19.0",
+    "@mdit/plugin-align": "~0.19.0",
+    "@mdit/plugin-img-lazyload": "~0.19.0",
+    "@mdit/plugin-img-size": "~0.19.0",
+    "@mdit/plugin-spoiler": "~0.19.0",
+    "@mdit/plugin-tab": "~0.19.0",
+    "@mdit/plugin-tasklist": "~0.19.0",
     "@sindresorhus/slugify": "~2.2.1",
     "aos": "~2.3.4",
     "cookiejs": "~2.1.3",

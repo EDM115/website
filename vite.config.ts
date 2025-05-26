@@ -15,6 +15,12 @@ import svgLoader from "vite-svg-loader"
 
 import { lookupCollection } from "@iconify/json"
 import { full as emoji } from "markdown-it-emoji"
+import { alert } from "@mdit/plugin-alert"
+import { imgLazyload } from "@mdit/plugin-img-lazyload"
+import { imgSize } from "@mdit/plugin-img-size"
+import { spoiler } from "@mdit/plugin-spoiler"
+import { tab } from "@mdit/plugin-tab"
+import { tasklist } from "@mdit/plugin-tasklist"
 import { fileURLToPath, URL } from "node:url"
 import { visualizer } from "rollup-plugin-visualizer"
 import { TemplateType } from "rollup-plugin-visualizer/dist/plugin/template-types"
@@ -122,6 +128,14 @@ const config = defineConfig({
         })
         md.use(emoji)
         md.use(mditAttrs)
+        md.use(alert, { deep: true })
+        md.use(imgLazyload)
+        md.use(imgSize)
+        md.use(spoiler)
+        md.use(tab, {
+          name: "tabs",
+        })
+        md.use(tasklist)
         md.core.ruler.push("heading_copy_icon", (state) => {
           const { tokens } = state
 
