@@ -4,7 +4,7 @@
 /* eslint-disable import-x/no-named-as-default-member */
 import js from "@eslint/js"
 import tsParser from "@typescript-eslint/parser"
-import eslintPluginImportX from "eslint-plugin-import-x"
+import { flatConfigs } from "eslint-plugin-import-x"
 import oxlint from "eslint-plugin-oxlint"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
@@ -22,8 +22,8 @@ export default [
   },
   js.configs.all,
   ...tseslint.configs.recommended,
-  eslintPluginImportX.flatConfigs.recommended,
-  eslintPluginImportX.flatConfigs.typescript,
+  flatConfigs.recommended,
+  flatConfigs.typescript,
   ...pluginVue.configs["flat/recommended"],
   {
     files: [ "**/*.{js,ts,vue}" ],
