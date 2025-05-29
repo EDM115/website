@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: "Bump Node.js to v23"
+      - name: "Bump Node.js to v24"
         uses: actions/setup-node@v4
         with:
           node-version: latest
@@ -39,3 +39,6 @@ jobs:
 
       - name: "Lint check"
         run: pnpm lint
+
+      - name: "Analyze check"
+        run: pnpm analyze

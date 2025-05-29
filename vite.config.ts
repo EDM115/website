@@ -218,7 +218,6 @@ const config = defineConfig({
       : []),
   ],
   preview: {
-    open: true,
     port: 8000,
   },
   resolve: {
@@ -227,7 +226,6 @@ const config = defineConfig({
     },
   },
   server: {
-    open: true,
     port: 8888,
   },
 })

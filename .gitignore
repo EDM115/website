@@ -5,3 +5,4 @@ node_modules
 .eslintcache
 analyze/*
 !analyze/index.html
+!analyze/favicon.png
