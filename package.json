@@ -32,7 +32,7 @@
   },
   "description": "EDM115's website",
   "devDependencies": {
-    "@eslint/js": "~9.27.0",
+    "@eslint/js": "~9.28.0",
     "@iconify/json": "^2.2.342",
     "@intlify/unplugin-vue-i18n": "~6.0.8",
     "@stylistic/eslint-plugin": "~4.4.0",
@@ -47,7 +47,7 @@
     "@vitejs/plugin-vue": "~5.2.4",
     "@vue/tsconfig": "~0.7.0",
     "cross-env": "~7.0.3",
-    "eslint": "~9.27.0",
+    "eslint": "~9.28.0",
     "eslint-import-resolver-typescript": "~4.4.1",
     "eslint-import-resolver-vite": "~2.1.0",
     "eslint-plugin-import-x": "~4.13.3",
