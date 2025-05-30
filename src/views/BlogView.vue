@@ -8,6 +8,16 @@
 
     <RouterLink
       class="ma-2"
+      to="/blog/2025/05/30/how-i-migrated-to-zod-4"
+    >
+      <v-btn
+        color="primary"
+        text="How I migrated to Zod 4"
+      />
+    </RouterLink>
+
+    <RouterLink
+      class="ma-2"
       to="/blog/2025/01/22/how-to-send-dtmf-on-android"
     >
       <v-btn
@@ -42,12 +52,12 @@
 {
   "en": {
     "blog": "Blog (TBD)",
-    "description": "3 random posts, to be completed with a date & tag sorting system",
+    "description": "4 random posts, to be completed with a date & tag sorting system",
     "head": "Blog - EDM115",
   },
   "fr": {
     "blog": "Blog (pas terminé)",
-    "description": "3 articles aléatoires, à compléter avec un système de tri par date et par tags",
+    "description": "4 articles aléatoires, à compléter avec un système de tri par date et par tags",
     "head": "Blog - EDM115"
   }
 }

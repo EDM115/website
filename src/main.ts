@@ -10,10 +10,10 @@ console.warn = (message, ...optionalParams) => {
 }
 
 import "./styles/global.scss"
-import "@mdit/plugin-alert/style"
-import "@mdit/plugin-spoiler/style"
+import "./styles/dracula-hljs.scss"
+import "./styles/markdown-alert.scss"
+import "./styles/markdown-spoiler.scss"
 import "aos/dist/aos.css"
-import "highlight.js/styles/base16/dracula.min.css"
 import "vuetify/styles"
 
 import AOS from "aos"

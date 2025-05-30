@@ -1,0 +1,149 @@
+/* Container */
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  background: #0B0D0F;
+  color: #F8F8F2;
+}
+
+/* Selection */
+.hljs::selection,
+.hljs ::selection {
+  background-color: #414D58;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #708CA9;
+  font-style: italic;
+}
+
+/* Punctuation & Operators */
+.hljs-punctuation,
+.hljs-operator {
+  color: #F8F8F2;
+  opacity: 0.7;
+}
+
+/* Keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword {
+  color: #FF80BF;
+  font-weight: normal;
+}
+
+/* Numbers & Constants */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol {
+  color: #9580FF;
+}
+
+/* Strings */
+.hljs-string {
+  color: #FFFF80;
+}
+
+/* Regexps, Built-ins, Doctags */
+.hljs-regexp,
+.hljs-built_in,
+.hljs-doctag {
+  color: #80FFEA;
+}
+
+/* Titles & Types */
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #80FFEA;
+}
+
+/* Class names */
+.hljs-title.class_ {
+  font-style: italic;
+}
+
+/* Function names */
+.hljs-function .hljs-title,
+.hljs-title.function_ {
+  color: #8AFF80;
+}
+
+/* Variables */
+.hljs-variable,
+.hljs-template-variable {
+  color: #F8F8F2;
+}
+
+/* Attributes */
+.hljs-attr {
+  color: #F8F8F2;
+}
+/* Attributes next to Keywords or Params */
+.hljs-keyword + .hljs-attr{
+  color: #9580FF;
+}
+.hljs-params > .hljs-attr {
+  color: #FFCA80;
+  font-style: italic;
+}
+
+/* Parameters */
+.hljs-params {
+  color: #FFCA80;
+  font-style: italic;
+}
+
+/* Tags & Properties */
+.hljs-tag,
+.hljs-property {
+  color: #FF80BF;
+}
+
+/* Links */
+.hljs-link {
+  color: #80FFEA;
+  text-decoration: underline;
+}
+
+/* Emphasis & Strong */
+.hljs-emphasis {
+  color: #FFFF80;
+  font-style: italic;
+}
+.hljs-strong {
+  color: #FFCA80;
+  font-weight: bold;
+}
+
+/* Diff markup */
+.hljs-addition {
+  color: #8AFF80;
+}
+.hljs-deletion {
+  color: #FF9580;
+}
+.hljs-changed {
+  color: #FFCA80;
+}
+
+/* Headings & Sections */
+.hljs-section {
+  color: #9580FF;
+  font-weight: bold;
+}
+
+/* Reset parsed substitutions within strings */
+.hljs-subst {
+  color: #F8F8F2;
+}

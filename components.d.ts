@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Blog2022GoogleEndingSharedDrives: typeof import('./src/components/blog/2022/GoogleEndingSharedDrives.md')['default']
     Blog2024EducationToPro: typeof import('./src/components/blog/2024/EducationToPro.md')['default']
+    Blog2025HowIMigratedToZod4: typeof import('./src/components/blog/2025/HowIMigratedToZod4.md')['default']
     Blog2025HowToSendDTMFOnAndroid: typeof import('./src/components/blog/2025/HowToSendDTMFOnAndroid.md')['default']
     BlogTelegram20210613Storytime: typeof import('./src/components/blog/telegram/2021/06-13-storytime.md')['default']
     BlogTelegram20210614Changelog: typeof import('./src/components/blog/telegram/2021/06-14-changelog.md')['default']
