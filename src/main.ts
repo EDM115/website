@@ -9,12 +9,12 @@ console.warn = (message, ...optionalParams) => {
   }
 }
 
-import "./styles/global.scss"
-import "./styles/dracula-hljs.scss"
-import "./styles/markdown-alert.scss"
-import "./styles/markdown-spoiler.scss"
 import "aos/dist/aos.css"
 import "vuetify/styles"
+import "./styles/markdown-alert.scss"
+import "./styles/markdown-spoiler.scss"
+import "./styles/dracula-hljs.scss"
+import "./styles/global.scss"
 
 import AOS from "aos"
 import cookie from "cookiejs"
