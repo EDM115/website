@@ -126,7 +126,7 @@ To use Zod v4, all you have to do is to use the latest version, and change your 
 - import { z } from "zod"
 + import { z } from "zod/v4"
 ```
-This will yield all deprecation warnings and errors so fix them first :)  
+This will yield all deprecation warnings and errors so fix them first \:)  
 > [!NOTE]  
 > Although it is in a subpath, it isn't possible to keep 2 versions of Zod on the same codebase.
   
@@ -277,6 +277,73 @@ As I was doing this migration, several things happened in Zod issues (when you h
     })
     
     return jsonSchemas
+  }
+  ```
+- I encountered an interesting issue with Fastify : apparently it can't get right tuples with "limits". Here's an example :
+  ```typescript
+  const baseObject = z.object({
+    surface: z
+      .object({ value: z.number(), unitSource: z.string() })
+      .nullable()
+      .optional(),
+    timezone: z.string().nullable().optional(),
+    presenceHours: z
+      .object({
+        timezone: z.string(),
+        hours: z.record(
+          z.enum(["0", "1", "2", "3", "4", "5", "6"]),
+          z
+            .array(
+              z.object({
+                start: z.tuple([
+                  z.number().min(0).max(23),
+                  z.number().min(0).max(59),
+                ]),
+                stop: z.tuple([
+                  z.number().min(0).max(23),
+                  z.number().min(0).max(59),
+                ]),
+              })
+            )
+            .min(1)
+        ),
+      })
+      .optional(),
+    reducedHours: z.array(z.tuple([z.string(), z.string()])).optional(),
+  })
+  
+  const extendedObject = baseObject
+    .extend({
+      siteId: z.string(),
+      organizationId: z.string(),
+    })
+    .meta({ $id: "extendedObject" })
+  ```
+  This will yield the following error if your Fastify server is in strict TypeScript mode :
+  ```logs
+  strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "extendedObject/properties/presenceHours/properties/hours/additionalProperties/items/properties/start"
+  strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "extendedObject/properties/presenceHours/properties/hours/additionalProperties/items/properties/stop"
+  strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "extendedObject/properties/reducedHours/items"
+  ```
+  If this happens to you, add this in your Schema generator function before the return :
+  ```typescript
+  // oxlint-disable-next-line no-explicit-any (or eslint)
+  function enforceTuples(obj: any) {
+    if (obj && typeof obj === "object") {
+      if ("items" in obj && Array.isArray(obj.items)) {
+        const len = obj.items.length
+        obj.minItems = len
+        obj.maxItems = len
+      }
+
+      for (const key of Object.keys(obj)) {
+        enforceTuples(obj[key])
+      }
+    }
+  }
+
+  for (const schema of jsonSchemas) {
+    enforceTuples(schema)
   }
   ```
 - This is not related to Zod but for posterity I wanted to mention it : Fastify will drop any schema in `oneOf` and `allOf` validations when they are too similar.  
