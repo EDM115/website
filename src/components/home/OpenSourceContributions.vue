@@ -352,6 +352,30 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 56,
+    name: "sass/embedded-host-node",
+    description: "[BUG] Regression in v1.89.1 : Package subpath './codegenv2' is not defined by \"exports\"",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/sass/embedded-host-node/issues/375",
+  },
+  {
+    id: 55,
+    name: "un-ts/eslint-plugin-import-x",
+    description: "[BUG] Regression in 4.15.0 : impossible to install with PNPM",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/un-ts/eslint-plugin-import-x/issues/364",
+  },
+  {
+    id: 54,
+    name: "vercel/turborepo",
+    description: "[BUG] Impossible to pnpm add globally turbo if a nearby package.json have \"type\": \"module\"",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/vercel/turborepo/issues/10524",
+  },
+  {
     id: 53,
     name: "pzmosquito/eslint-import-resolver-vite",
     description: "PSA : How to make it working using TS, ESM and import-x/resolver-next",

@@ -1,8 +1,4 @@
-hoist: false
-
 lockfileIncludeTarballUrl: true
-
-nodeLinker: hoisted
 
 onlyBuiltDependencies:
   - esbuild
@@ -11,7 +7,3 @@ onlyBuiltDependencies:
 resolutionMode: highest
 
 savePrefix: ''
-
-shamefullyHoist: true
-
-virtualStoreDirMaxLength: 1024

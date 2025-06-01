@@ -6,7 +6,6 @@
   "assignees": [
     "EDM115"
   ],
-  "cloneSubmodules": true,
   "commitBodyTable": true,
   "configMigration": true,
   "dependencyDashboard": true,
