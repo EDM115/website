@@ -52,7 +52,7 @@
     "eslint-import-resolver-vite": "~2.1.0",
     "eslint-plugin-import-x": "~4.15.0",
     "eslint-plugin-oxlint": "~0.17.0",
-    "eslint-plugin-vue": "~10.1.0",
+    "eslint-plugin-vue": "~10.2.0",
     "globals": "~16.2.0",
     "jiti": "~2.4.2",
     "js-imports-sort": "~1.2.1",
