@@ -5,7 +5,7 @@
     "url": "https://github.com/EDM115/website/issues"
   },
   "dependencies": {
-    "@mdit/plugin-alert": "~0.21.0",
+    "@mdit/plugin-alert": "~0.22.0",
     "@mdit/plugin-align": "~0.21.0",
     "@mdit/plugin-img-lazyload": "~0.21.0",
     "@mdit/plugin-img-size": "~0.21.0",
