@@ -11,7 +11,7 @@
     "@mdit/plugin-img-size": "~0.21.0",
     "@mdit/plugin-spoiler": "~0.21.0",
     "@mdit/plugin-tab": "~0.21.0",
-    "@mdit/plugin-tasklist": "~0.21.0",
+    "@mdit/plugin-tasklist": "~0.22.0",
     "@sindresorhus/slugify": "~2.2.1",
     "aos": "~2.3.4",
     "cookiejs": "~2.1.3",
