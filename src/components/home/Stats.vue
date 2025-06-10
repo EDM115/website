@@ -59,7 +59,7 @@
     <v-row class="d-flex justify-center align-center">
       <v-img
         :draggable="false"
-        src="http://github-readme-streak-stats.herokuapp.com/?user=EDM115&theme=dracula&hide_border=true&date_format=j%20M%5B%20Y%5D"
+        src="https://github-readme-streak-stats.herokuapp.com/?user=EDM115&theme=dracula&hide_border=true&date_format=j%20M%5B%20Y%5D"
       />
     </v-row>
     <v-row class="d-flex justify-center align-center">

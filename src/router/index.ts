@@ -71,7 +71,7 @@ router.beforeEach((to, _from, next) => {
       const oldSubdomainRoutes = [ "/ludivine.mp4", "/underrated", "/hugo", "/external-mods", "/external-mods/README.txt", "/cv", "/cv2", "/assets", "/.well-known", "/planparfait", "/socials", "/sporttrack", "/unzip", "/robots.txt" ]
 
       if (oldSubdomainRoutes.some((route) => to.path.startsWith(route))) {
-        window.location.replace(`http://old.edm115.dev${window.location.pathname}${window.location.search}`)
+        window.location.replace(`https://old.edm115.dev${window.location.pathname}${window.location.search}`)
       }
 
       next({ name: "home" })
