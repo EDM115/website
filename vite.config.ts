@@ -5,6 +5,7 @@ import hljs from "highlight.js"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
+import mditLinkAttributes from "markdown-it-link-attributes"
 import IconsResolver from "unplugin-icons/resolver"
 import Icons from "unplugin-icons/vite"
 import Unfonts from "unplugin-fonts/vite"
@@ -128,6 +129,15 @@ const config = defineConfig({
         })
         md.use(emoji)
         md.use(mditAttrs)
+        md.use(mditLinkAttributes, {
+          attrs: {
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          matcher(href: string, _config: unknown) {
+            return !href.startsWith("#")
+          },
+        })
         md.use(alert, { deep: true })
         md.use(imgLazyload)
         md.use(imgSize)
