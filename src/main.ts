@@ -1,14 +1,3 @@
-const originalWarn = console.warn
-
-console.warn = (message, ...optionalParams) => {
-  if (![
-    "Invalid prop: type check failed for prop \"icon\"",
-    "Invalid prop: type check failed for prop \"editIcon\"",
-  ].some((warning) => message.includes(warning))) {
-    originalWarn.apply(console, [ message, ...optionalParams ])
-  }
-}
-
 import "aos/dist/aos.css"
 import "vuetify/styles"
 import "./styles/markdown-alert.scss"

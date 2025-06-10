@@ -39,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import chatGPT from "@/assets/img/icons/chatgpt_icon.svg"
-import fh5 from "@/assets/img/icons/fh5_icon.svg"
-import flStudio from "@/assets/img/icons/fl_studio_icon.svg"
+import chatGPT from "@/assets/img/icons/chatgpt_icon.svg?component"
+import fh5 from "@/assets/img/icons/fh5_icon.svg?component"
+import flStudio from "@/assets/img/icons/fl_studio_icon.svg?component"
 import logosDocker from "~icons/logos/docker-icon"
 import logosJava from "~icons/logos/java"
 import deviconGit from "~icons/devicon/git"
@@ -50,9 +50,7 @@ import vscodeNuxt from "~icons/vscode-icons/file-type-nuxt"
 import vscodePython from "~icons/vscode-icons/file-type-python"
 import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
-import { onMounted, ref, type FunctionalComponent, type SVGAttributes } from "vue"
-
-type iconType = FunctionalComponent<SVGAttributes> | string
+import { markRaw, onMounted, ref, type FunctionalComponent, type SVGAttributes } from "vue"
 
 let observer: IntersectionObserver | null = null
 const skills = ref([
@@ -62,12 +60,12 @@ const skills = ref([
   { id: 3, name: "JavaScript", value: 80, displayedValue: 0, icon: skillJavascript },
   { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0, icon: [ vscodeVue, vscodeNuxt ] },
   { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
-  { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: flStudio },
-  { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: fh5 },
-  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: chatGPT },
+  { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: markRaw(flStudio) },
+  { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: markRaw(fh5) },
+  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: markRaw(chatGPT) },
 ])
 
-const currentIcons = ref(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
+const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
 const iconIntervals = []
 
 /**
@@ -128,7 +126,10 @@ function startIconCycle() {
 
       iconIntervals[index] = setInterval(() => {
         currentIndex = (currentIndex + 1) % skill.icon.length
-        currentIcons.value[index] = (skill.icon as iconType[])[currentIndex]
+
+        if (Array.isArray(skill.icon)) {
+          currentIcons.value[index] = skill.icon[currentIndex]
+        }
       }, 3000)
     }
   })

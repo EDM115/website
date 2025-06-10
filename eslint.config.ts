@@ -67,7 +67,7 @@ export default [
       "capitalized-comments": "off",
       "curly": [ "warn", "all" ],
       "id-length": "off",
-      "import-x/no-unresolved": [ "error", { ignore: [ "^~icons/" ] }],
+      "import-x/no-unresolved": [ "error", { ignore: [ "^~icons/", "\\.svg\\?.*$" ] }],
       "max-statements": "off",
       "no-underscore-dangle": "off",
       "no-useless-assignment": "off",
