@@ -352,6 +352,30 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 59,
+    name: "oxc-project/oxc",
+    description: "linter: The VS Code extension can crash (fix on its way)",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/oxc-project/oxc/issues/11607",
+  },
+  {
+    id: 58,
+    name: "Aebel-Shajan/scroll-minimap-for-chatgpt",
+    description: "The extension view should be disabled when in Codex",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/Aebel-Shajan/scroll-minimap-for-chatgpt/issues/33",
+  },
+  {
+    id: 57,
+    name: "rolldown/tsdown",
+    description: "Add the ability to preprocess files",
+    type: "issue",
+    state: "closed",
+    link: "https://github.com/rolldown/tsdown/issues/300",
+  },
+  {
     id: 56,
     name: "sass/embedded-host-node",
     description: "[BUG] Regression in v1.89.1 : Package subpath './codegenv2' is not defined by \"exports\"",
