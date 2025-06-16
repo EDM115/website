@@ -352,6 +352,14 @@ const pullRequests = ref([
 
 const issues = ref([
   {
+    id: 60,
+    name: "jestjs/jest",
+    description: "[Bug]: globalsCleanup causes issues with some deps, can't be properly turned off",
+    type: "issue",
+    state: "open",
+    link: "https://github.com/jestjs/jest/issues/15678",
+  },
+  {
     id: 59,
     name: "oxc-project/oxc",
     description: "linter: The VS Code extension can crash (fix on its way)",

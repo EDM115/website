@@ -1,6 +1,5 @@
 import stylistic from "@stylistic/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
-import eslintPluginImportX from "eslint-plugin-import-x"
 import vueParser from "vue-eslint-parser"
 
 export default [
@@ -25,7 +24,6 @@ export default [
     },
     plugins: {
       "@stylistic": stylistic,
-      "import-x": eslintPluginImportX,
     },
     rules: {
       "@stylistic/array-bracket-newline": [ "warn", { multiline: true }],

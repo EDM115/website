@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/default
 import HomeView from "../views/HomeView.vue"
 import { generateBlogChildren } from "./blogRoutes"
 

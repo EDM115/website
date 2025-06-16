@@ -1,3 +1,4 @@
+// oxlint-disable no-unassigned-import
 import "aos/dist/aos.css"
 import "vuetify/styles"
 import "./styles/markdown-alert.scss"
@@ -7,7 +8,7 @@ import "./styles/global.scss"
 
 import AOS from "aos"
 import cookie from "cookiejs"
-// eslint-disable-next-line import-x/default
+// oxlint-disable-next-line import/default
 import App from "./App.vue"
 import router from "./router"
 
