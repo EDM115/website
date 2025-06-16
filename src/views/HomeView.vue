@@ -517,11 +517,6 @@ const store = useMainStore()
 const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
-/**
- * Calculate my age based on the birthdate "2004-06-18".
- *
- * @returns {number} The calculated age.
- */
 function getAge(): number {
   const birthday = new Date("2004-06-18")
   const diff = Date.now() - birthday.getTime()

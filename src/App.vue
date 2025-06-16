@@ -175,22 +175,11 @@ const availableLocales = computed(() => store.getAvailableLocales)
 const i18nSwitch = ref(false)
 const userLocale = computed(() => store.getI18n)
 
-/**
- * Changes the current locale.
- *
- * @param {string} newLocale - The country code of the locale to switch to.
- */
 const switchLocale = (newLocale: string) => {
   locale.value = newLocale
   store.setI18n(newLocale)
 }
 
-/**
- * Returns the flag emoji for a country code.
- *
- * @param {string} l - The country code.
- * @returns {string} - The corresponding emoji. Defaults to 🌐.
- */
 const getFlagEmoji = (l: string): string => {
   switch (l) {
     case "en":
@@ -202,21 +191,12 @@ const getFlagEmoji = (l: string): string => {
   }
 }
 
-/**
- * Toggles the display of the dialog by setting the store's display dialog value to "false"
- * and updating the local displayDialog value based on the store's display dialog value.
- */
 function toggleDialog() {
   store.setDisplayDialog("false")
   displayDialog.value = (store.getDisplayDialog === "true")
 }
 
-/**
- * Function to toggle the theme between dark and light.
- * Updates the theme value, sets the theme in the store, and updates the global Vuetify theme name.
- * Also removes the transition effect on the page to prevent the theme change transition.
- * See https://paco.me/writing/disable-theme-transitions
- */
+// See https://paco.me/writing/disable-theme-transitions
 function toggleTheme() {
   // Create a style element to disable transitions on all elements
   const css = document.createElement("style")
@@ -245,17 +225,10 @@ function toggleTheme() {
   window.scrollBy(0, -1)
 }
 
-/**
- * Scrolls to the top of the page.
- */
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
-/**
- * Controls whether the go to top button is displayed depending on if we scrolled or not.
- * Displays from 100 pixels scrolled.
- */
 const handleScroll = () => {
   showGoToTop.value = window.scrollY > 100
 }

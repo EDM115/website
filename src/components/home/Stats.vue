@@ -38,7 +38,7 @@
         </v-card-text>
       </v-card>
     </v-row>
-    <v-row class="d-flex justify-center align-center">
+    <!-- <v-row class="d-flex justify-center align-center">
       <v-img
         :draggable="false"
         src="https://stats.edm115.dev/api?username=EDM115&count_private=true&show_icons=true&cache_seconds=1800&bg_color=30,833ab4,fd1d1d,fcb045&include_all_commits=True&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
@@ -73,7 +73,7 @@
         :draggable="false"
         src="https://lanyard.cnrad.dev/api/625240117560475658?theme=dark&bg=282a36&borderRadius=30&animated=true&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true"
       />
-    </v-row>
+    </v-row> -->
   </v-col>
 </template>
 
@@ -176,23 +176,12 @@ const stats = ref([
   { id: 2, name: t("loc"), value: linesOfCode },
 ])
 
-/**
- * Asynchronously fetches the number of projects from the GitHub API for the user "EDM115".
- * Updates the value of "projectsNumber" with the retrieved number of public repositories.
- * If an error occurs during the fetch operation, the function reverts to the previous value of "projectsNumber".
- */
 async function fetchProjectsNumber() {
   projectsNumber.value = await ofetch("https://api.github.com/users/EDM115")
     .then((data) => data.public_repos)
     .catch(() => projectsNumber.value)
 }
 
-/**
- * Animates the digits of a specified statistic element.
- *
- * @param {string} statId - The ID of the statistic element to animate.
- * @param {number} value - The value to display and animate as digits.
- */
 function animateDigits(statId: string, value: number) {
   const digitArray = String(value).split("")
   const maxTime = 8
@@ -214,13 +203,6 @@ function animateDigits(statId: string, value: number) {
   animTl.play()
 }
 
-/**
- * Executes a callback function for each entry in the provided entries array.
- * If an entry is intersecting the viewport, retrieves the statistic element ID and value,
- * then triggers the animation of the digits for the statistic element.
- *
- * @param {IntersectionObserverEntry[]} entries - An array of entries to observe.
- */
 function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

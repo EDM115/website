@@ -68,22 +68,10 @@ const skills = ref([
 const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
 const iconIntervals = []
 
-/**
- * Calculates the easing value for a given time parameter using the ease-in-out function.
- *
- * @param {number} t - The time parameter ranging from 0 to 1.
- * @returns {number} The easing value corresponding to the input time parameter.
- */
 function easeInOut(t: number): number {
   return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)
 }
 
-/**
- * Function that handles the callback for the intersection observer.
- * It animates the skill values based on the intersection status.
- *
- * @param {Array} entries - The array of entries observed by the intersection observer.
- */
 function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -115,10 +103,6 @@ function callback(entries: IntersectionObserverEntry[]) {
   })
 }
 
-/**
- * Starts cycling through icons for each skill in the skills list.
- * If a skill's icon is an array, it cycles through the icons at a 3-second interval.
- */
 function startIconCycle() {
   skills.value.forEach((skill, index) => {
     if (Array.isArray(skill.icon)) {

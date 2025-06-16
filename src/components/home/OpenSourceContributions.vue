@@ -38,19 +38,20 @@
           <v-stepper-vertical-item
             v-for="contrib in pullRequests"
             :key="contrib.id"
-            :icon="contrib.state === 'open' ? octiconPullRequest : octiconPullRequestMerged"
-            :edit-icon="contrib.state === 'open' ? octiconPullRequest : octiconPullRequestMerged"
-            :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
-            :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
-            :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
+            :icon="getContribIcon(contrib.state, contrib.type)"
+            :edit-icon="getContribIcon(contrib.state, contrib.type)"
+            :color="getContribColor(contrib.state, contrib.type)[1]"
+            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+            :subtitle="getContribName(contrib.state, contrib.type)"
             :title="contrib.name"
             :value="contrib.id"
-            :class="getContribColor(contrib.state)"
+            :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
             <v-btn
               color="primary"
               class="mt-2"
+              :prepend-icon="mdiGithub"
               :text="t('link')"
               :href="contrib.link"
               target="_blank"
@@ -80,19 +81,20 @@
           <v-stepper-vertical-item
             v-for="contrib in issues"
             :key="contrib.id"
-            :icon="contrib.state === 'open' ? octiconIssueOpened : octiconIssueClosed"
-            :edit-icon="contrib.state === 'open' ? octiconIssueOpened : octiconIssueClosed"
-            :color="contrib.state === 'open' ? '#238636' : '#8957E5'"
-            :bg-color="contrib.state === 'open' ? '#238636' : '#8957E5'"
-            :subtitle="contrib.type === 'pr' ? 'Pull Request' : 'Issue'"
+            :icon="getContribIcon(contrib.state, contrib.type)"
+            :edit-icon="getContribIcon(contrib.state, contrib.type)"
+            :color="getContribColor(contrib.state, contrib.type)[1]"
+            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+            :subtitle="getContribName(contrib.state, contrib.type)"
             :title="contrib.name"
             :value="contrib.id"
-            :class="getContribColor(contrib.state)"
+            :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
             <v-btn
               color="primary"
               class="mt-2"
+              :prepend-icon="mdiGithub"
               :text="t('link')"
               :href="contrib.link"
               target="_blank"
@@ -108,19 +110,50 @@
 <i18n>
 {
   "en": {
-    "link": "Link"
+    "issue": {
+      "open": "Open",
+      "closed": "Closed",
+      "ignored": "Ignored",
+      "unknown": "Unknown issue state",
+      "title": "Issue"
+    },
+    "link": "Open in GitHub",
+    "pr": {
+      "open": "Open",
+      "closed": "Closed",
+      "merged": "Merged",
+      "unknown": "Unknown pull request state",
+      "title": "Pull Request"
+    }
   },
   "fr": {
-    "link": "Lien"
+    "issue": {
+      "open": "ouverte",
+      "closed": "fermée",
+      "ignored": "ignorée",
+      "unknown": "État d'issue inconnu",
+      "title": "Issue"
+    },
+    "link": "Ouvrir dans GitHub",
+    "pr": {
+      "open": "ouverte",
+      "closed": "fermée",
+      "merged": "fusionnée",
+      "unknown": "État de pull request inconnu",
+      "title": "Pull Request"
+    }
   }
 }
 </i18n>
 
 <script setup lang="ts">
+import mdiGithub from "~icons/mdi/github"
 import octiconIssueClosed from "~icons/octicon/issue-closed-16"
 import octiconIssueOpened from "~icons/octicon/issue-opened-16"
 import octiconPullRequest from "~icons/octicon/git-pull-request-16"
+import octiconPullRequestClosed from "~icons/octicon/git-pull-request-closed-16"
 import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
+import pajamasIssueClose from "~icons/pajamas/issue-close"
 import { useMainStore } from "@/stores/main"
 
 import { computed, onMounted, ref } from "vue"
@@ -133,11 +166,11 @@ const { locale, t } = useI18n()
 const tab = ref(1)
 const pullRequests = ref([
   {
-    id: 26,
+    id: 27,
     name: "KieranP/Github-Releases-Feed",
     description: "fix: Read more, login input and other buttons appears correctly on whacky Windows machines that have their global styles edited by things like Rectify11",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/KieranP/Github-Releases-Feed/pull/16",
   },
   {
@@ -153,7 +186,7 @@ const pullRequests = ref([
     name: "i18next/i18next-http-middleware",
     description: "fix: Fastify no longer complains about the type",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/i18next/i18next-http-middleware/pull/83",
   },
   {
@@ -161,7 +194,7 @@ const pullRequests = ref([
     name: "ripienaar/free-for-dev",
     description: "chore: remove eu.org entry in Domain category",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/ripienaar/free-for-dev/pull/3680",
   },
   {
@@ -169,7 +202,7 @@ const pullRequests = ref([
     name: "AlDanial/cloc",
     description: "feat: implement #890 and definitely solve #849",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/AlDanial/cloc/pull/891",
   },
   {
@@ -177,7 +210,7 @@ const pullRequests = ref([
     name: "DishpitDev/Slopify",
     description: "feat: added anti-inspect",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/DishpitDev/Slopify/pull/408",
   },
   {
@@ -201,7 +234,7 @@ const pullRequests = ref([
     name: "qubvel-org/segmentation_models.pytorch",
     description: "fix(examples): correct Colab links",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/qubvel-org/segmentation_models.pytorch/pull/965",
   },
   {
@@ -209,7 +242,7 @@ const pullRequests = ref([
     name: "geode-sdk/geode",
     description: "updated french translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/geode-sdk/geode/pull/1082",
   },
   {
@@ -217,7 +250,7 @@ const pullRequests = ref([
     name: "AlDanial/cloc",
     description: "fix: works when ran through a symlink",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/AlDanial/cloc/pull/850",
   },
   {
@@ -225,7 +258,7 @@ const pullRequests = ref([
     name: "SpotX-Official/SpotX",
     description: "Updated the French translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/SpotX-Official/SpotX/pull/614",
   },
   {
@@ -233,7 +266,7 @@ const pullRequests = ref([
     name: "data-fair/processings",
     description: "Complete overhaul (separated Dockerfiles, Nuxt3, ...)",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/data-fair/processings/pull/29",
   },
   {
@@ -241,7 +274,7 @@ const pullRequests = ref([
     name: "Rectify11/Website",
     description: "Better download button",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/Rectify11/Website/pull/3",
   },
   {
@@ -249,7 +282,7 @@ const pullRequests = ref([
     name: "data-fair/lib",
     description: "Colors rework",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/data-fair/lib/pull/3",
   },
   {
@@ -257,7 +290,7 @@ const pullRequests = ref([
     name: "data-fair/app-charts",
     description: "v1.0 : Vue3 rewrite, new features, small bugfixes, ...",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/data-fair/app-charts/pull/42",
   },
   {
@@ -265,7 +298,7 @@ const pullRequests = ref([
     name: "ForzaMods/Forza-Mods-AIO",
     description: "added full French translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/ForzaMods/Forza-Mods-AIO/pull/7",
   },
   {
@@ -273,7 +306,7 @@ const pullRequests = ref([
     name: "Rectify11/Installer",
     description: "updated and completed French translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/Rectify11/Installer/pull/433",
   },
   {
@@ -281,7 +314,7 @@ const pullRequests = ref([
     name: "dracula/fl-studio-21",
     description: "update for 21.2",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/dracula/fl-studio-21/pull/2",
   },
   {
@@ -289,7 +322,7 @@ const pullRequests = ref([
     name: "devblackops/Terminal-Icons",
     description: "Added dracula color theme",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/devblackops/Terminal-Icons/pull/119",
   },
   {
@@ -297,7 +330,7 @@ const pullRequests = ref([
     name: "mon5termatt/medicat_installer",
     description: "added french translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/mon5termatt/medicat_installer/pull/51",
   },
   {
@@ -305,7 +338,7 @@ const pullRequests = ref([
     name: "Keksuccino/JustZoom",
     description: "Smoother zoom",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/Keksuccino/JustZoom/pull/9",
   },
   {
@@ -313,7 +346,7 @@ const pullRequests = ref([
     name: "peazip/PeaZip",
     description: "[Translation] : French translation updated/reworked",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/peazip/PeaZip/pull/90",
   },
   {
@@ -321,7 +354,7 @@ const pullRequests = ref([
     name: "SpotX-Official/SpotX",
     description: "better french translation",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/SpotX-Official/SpotX/pull/253",
   },
   {
@@ -329,7 +362,7 @@ const pullRequests = ref([
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "Linux Method in the Readme",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/39",
   },
   {
@@ -337,7 +370,7 @@ const pullRequests = ref([
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "complete reformat - better changes",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/31",
   },
   {
@@ -345,7 +378,7 @@ const pullRequests = ref([
     name: "TheCaduceus/WARP-UNLIMITED-ADVANCED",
     description: "Better script (async)",
     type: "pr",
-    state: "closed",
+    state: "merged",
     link: "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30",
   },
 ])
@@ -380,7 +413,7 @@ const issues = ref([
     name: "rolldown/tsdown",
     description: "Add the ability to preprocess files",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/rolldown/tsdown/issues/300",
   },
   {
@@ -396,7 +429,7 @@ const issues = ref([
     name: "un-ts/eslint-plugin-import-x",
     description: "[BUG] Regression in 4.15.0 : impossible to install with PNPM",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/un-ts/eslint-plugin-import-x/issues/364",
   },
   {
@@ -460,7 +493,7 @@ const issues = ref([
     name: "oxc-project/eslint-plugin-oxlint",
     description: "The plugin doesn't seem to care about categories",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/oxc-project/eslint-plugin-oxlint/issues/385",
   },
   {
@@ -580,7 +613,7 @@ const issues = ref([
     name: "Abdenasser/neohtop",
     description: "[REQUEST] Release neohtop to winget",
     type: "issue",
-    state: "open",
+    state: "ignored",
     link: "https://github.com/Abdenasser/neohtop/issues/127",
   },
   {
@@ -700,7 +733,7 @@ const issues = ref([
     name: "spicetify/cli",
     description: "[FEATURE REQUEST] Allow to add our own GitHub token for requests",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/spicetify/cli/issues/3154",
   },
   {
@@ -732,7 +765,7 @@ const issues = ref([
     name: "nodejs/node",
     description: "[BUG] Installing an update of Node removes any custom permissions of the folder (Windows) and locks the ability to update npm/corepack",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/nodejs/node/issues/54284",
   },
   {
@@ -740,7 +773,7 @@ const issues = ref([
     name: "vuetifyjs/vuetify",
     description: "[Bug Report][3.6.9] v-date-input's width doesn't size correctly when specifying percentage",
     type: "issue",
-    state: "closed",
+    state: "ignored",
     link: "https://github.com/vuetifyjs/vuetify/issues/19995",
   },
   {
@@ -833,14 +866,104 @@ const issues = ref([
   },
 ])
 
-/**
- * Returns the color class based on the state of the contribution.
- *
- * @param {string} state - The state of the contribution ("open" or "closed").
- * @returns {string} - The color class for the contribution state ("open-contrib-color" or "closed-contrib-color").
- */
-function getContribColor(state: string) {
-  return state === "open" ? "open-contrib-color" : "closed-contrib-color"
+function getContribColor(state: string, type: string) {
+  if (type === "pr") {
+    switch (state) {
+      case "open":
+        return ["open-contrib-color", "#238636"]
+      case "closed":
+        return ["closed-contrib-color", "#AD0116"]
+      case "merged":
+        return ["merged-contrib-color", "#8957E5"]
+      default:
+        return ["closed-contrib-color", "#3D444D"]
+    }
+  } else {
+    switch (state) {
+      case "open":
+        return ["open-contrib-color", "#238636"]
+      case "closed":
+        return ["merged-contrib-color", "#8957E5"]
+      case "ignored":
+        return ["ignored-contrib-color", "#3D444D"]
+      default:
+        return ["ignored-contrib-color", "#3D444D"]
+    }
+  }
+}
+
+function getContribIcon(state: string, type: string) {
+  if (type === "pr") {
+    switch (state) {
+      case "open":
+        return octiconPullRequest
+      case "closed":
+        return octiconPullRequestClosed
+      case "merged":
+        return octiconPullRequestMerged
+      default:
+        return octiconPullRequestClosed
+    }
+  } else {
+    switch (state) {
+      case "open":
+        return octiconIssueOpened
+      case "closed":
+        return octiconIssueClosed
+      case "ignored":
+        return pajamasIssueClose
+      default:
+        return pajamasIssueClose
+    }
+  }
+}
+
+function getContribName(state: string, type: string) {
+  const name = {title: "", state: ""}
+  if (type === "pr") {
+    switch (state) {
+      case "open":
+        name.title = t("pr.title")
+        name.state = t("pr.open")
+        break
+      case "closed":
+        name.title = t("pr.title")
+        name.state = t("pr.closed")
+        break
+      case "merged":
+        name.title = t("pr.title")
+        name.state = t("pr.merged")
+        break
+      default:
+        return `${t("pr.unknown")}`
+    }
+  } else {
+    switch (state) {
+      case "open":
+        name.title = t("issue.title")
+        name.state = t("issue.open")
+        break
+      case "closed":
+        name.title = t("issue.title")
+        name.state = t("issue.closed")
+        break
+      case "ignored":
+        name.title = t("issue.title")
+        name.state = t("issue.ignored")
+        break
+      default:
+        return `${t("issue.unknown")}`
+    }
+  }
+
+  switch (locale.value) {
+    case "fr":
+      return `${name.title} ${name.state}`
+    case "en":
+      return `${name.state} ${name.title}`
+    default:
+      return `${name.state} ${name.title}`
+  }
 }
 
 onMounted(() => {
@@ -854,8 +977,23 @@ onMounted(() => {
   color: rgb(var(--v-theme-text)) !important;
 }
 
-.closed-contrib-color {
+.merged-contrib-color {
   background-color: #8957E5E6 !important;
   color: rgb(var(--v-theme-text)) !important;
+}
+
+.closed-contrib-color {
+  background-color: #AD0116E6 !important;
+  color: rgb(var(--v-theme-text)) !important;
+}
+
+.ignored-contrib-color {
+  background-color: #3D444DE6 !important;
+  color: rgb(var(--v-theme-text)) !important;
+}
+
+.ignored-contrib-color :deep(.v-stepper-vertical-item__icon),
+.ignored-contrib-color :deep(.v-icon) {
+  rotate: -45deg;
 }
 </style>
