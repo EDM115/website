@@ -389,7 +389,7 @@ const issues = ref([
     name: "jestjs/jest",
     description: "[Bug]: globalsCleanup causes issues with some deps, can't be properly turned off",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/jestjs/jest/issues/15678",
   },
   {
@@ -397,7 +397,7 @@ const issues = ref([
     name: "oxc-project/oxc",
     description: "linter: The VS Code extension can crash (fix on its way)",
     type: "issue",
-    state: "open",
+    state: "closed",
     link: "https://github.com/oxc-project/oxc/issues/11607",
   },
   {
@@ -437,7 +437,7 @@ const issues = ref([
     name: "vercel/turborepo",
     description: "[BUG] Impossible to pnpm add globally turbo if a nearby package.json have \"type\": \"module\"",
     type: "issue",
-    state: "open",
+    state: "ignored",
     link: "https://github.com/vercel/turborepo/issues/10524",
   },
   {
@@ -870,24 +870,24 @@ function getContribColor(state: string, type: string) {
   if (type === "pr") {
     switch (state) {
       case "open":
-        return ["open-contrib-color", "#238636"]
+        return [ "open-contrib-color", "#238636" ]
       case "closed":
-        return ["closed-contrib-color", "#AD0116"]
+        return [ "closed-contrib-color", "#AD0116" ]
       case "merged":
-        return ["merged-contrib-color", "#8957E5"]
+        return [ "merged-contrib-color", "#8957E5" ]
       default:
-        return ["closed-contrib-color", "#3D444D"]
+        return [ "closed-contrib-color", "#3D444D" ]
     }
   } else {
     switch (state) {
       case "open":
-        return ["open-contrib-color", "#238636"]
+        return [ "open-contrib-color", "#238636" ]
       case "closed":
-        return ["merged-contrib-color", "#8957E5"]
+        return [ "merged-contrib-color", "#8957E5" ]
       case "ignored":
-        return ["ignored-contrib-color", "#3D444D"]
+        return [ "ignored-contrib-color", "#3D444D" ]
       default:
-        return ["ignored-contrib-color", "#3D444D"]
+        return [ "ignored-contrib-color", "#3D444D" ]
     }
   }
 }
@@ -919,7 +919,8 @@ function getContribIcon(state: string, type: string) {
 }
 
 function getContribName(state: string, type: string) {
-  const name = {title: "", state: ""}
+  const name = { title: "", state: "" }
+
   if (type === "pr") {
     switch (state) {
       case "open":
@@ -992,8 +993,7 @@ onMounted(() => {
   color: rgb(var(--v-theme-text)) !important;
 }
 
-.ignored-contrib-color :deep(.v-stepper-vertical-item__icon),
-.ignored-contrib-color :deep(.v-icon) {
+.ignored-contrib-color :deep(.v-stepper-vertical-item__avatar .v-icon) {
   rotate: -45deg;
 }
 </style>
