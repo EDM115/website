@@ -53,17 +53,6 @@ const config = defineConfig({
     },
   },
   clearScreen: false,
-  css: {
-    preprocessorOptions: {
-      sass: {
-        api: "modern-compiler",
-      },
-      scss: {
-        api: "modern-compiler",
-      },
-    },
-    preprocessorMaxWorkers: 4,
-  },
   esbuild: {
     target: "esnext",
   },
