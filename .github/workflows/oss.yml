@@ -23,26 +23,31 @@ jobs:
             const contribs = JSON.parse(fs.readFileSync(path))
 
             for (const item of contribs) {
-              const parts = new URL(item.link).pathname.split("/")
-              const [ , owner, repo, , number ] = parts
-              const num = parseInt(number, 10)
+              try {
+                const parts = new URL(item.link).pathname.split("/")
+                const [ , owner, repo, , number ] = parts
+                const num = parseInt(number, 10)
 
-              if (item.type === "pr") {
-                const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: num })
-                item.state = pr.merged ? "merged" : pr.state
-                item.description = pr.title.replace(/`/g, "")
-              } else {
-                const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: num })
-
-                if (issue.state === "open") {
-                  item.state = "open"
+                if (item.type === "pr") {
+                  const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: num })
+                  item.state = pr.merged ? "merged" : pr.state
+                  item.description = pr.title.replace(/`/g, "")
                 } else {
-                  item.state = issue.state_reason === "completed"
-                    ? "closed"
-                    : "ignored"
-                }
+                  const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: num })
 
-                item.description = issue.title.replace(/`/g, "")
+                  if (issue.state === "open") {
+                    item.state = "open"
+                  } else {
+                    item.state = issue.state_reason === "completed"
+                      ? "closed"
+                      : "ignored"
+                  }
+
+                  item.description = issue.title.replace(/`/g, "")
+                }
+              } catch (err) {
+                console.log(`⚠️ Skipping ${item.link} : ${err.message}`)
+                continue
               }
             }
 
