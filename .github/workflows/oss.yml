@@ -1,0 +1,59 @@
+name: Update open source contributions
+
+on:
+  schedule:
+    - cron: '0 4 * * 6'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Refresh contributions JSON
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs")
+            const path = "src/assets/data/contributions.json"
+            const contribs = JSON.parse(fs.readFileSync(path))
+
+            for (const item of contribs) {
+              const parts = new URL(item.link).pathname.split("/")
+              const [ , owner, repo, , number ] = parts
+              const num = parseInt(number, 10)
+
+              if (item.type === "pr") {
+                const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: num })
+                item.state = pr.merged ? "merged" : pr.state
+                item.description = pr.title.replace(/`/g, "")
+              } else {
+                const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: num })
+
+                if (issue.state === "open") {
+                  item.state = "open"
+                } else {
+                  item.state = issue.state_reason === "completed"
+                    ? "closed"
+                    : "ignored"
+                }
+
+                item.description = issue.title.replace(/`/g, "")
+              }
+            }
+
+            fs.writeFileSync(path, JSON.stringify(contribs, null, 2))
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/assets/data/contributions.json
+          git diff --cached --exit-code || (
+            git commit -m "chore: weekly oss contributions update"
+            git push
+          )
