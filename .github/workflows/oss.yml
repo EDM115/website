@@ -2,7 +2,7 @@ name: Update open source contributions
 
 on:
   schedule:
-    - cron: '0 4 * * 6'
+    - cron: "0 4 * * 6"
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,13 @@ jobs:
             const path = "src/assets/data/contributions.json"
             const contribs = JSON.parse(fs.readFileSync(path))
 
+            console.log(`>> Found ${contribs.length} contributions to process\n`)
+
             for (const item of contribs) {
+              console.log(`\n>> Processing ${item.link} ...`)
+              const oldState = item.state
+              const oldDesc = item.description
+
               try {
                 const parts = new URL(item.link).pathname.split("/")
                 const [ , owner, repo, , number ] = parts
@@ -45,13 +51,25 @@ jobs:
 
                   item.description = issue.title.replace(/`/g, "")
                 }
+
+                if (item.state !== oldState || item.description !== oldDesc) {
+                  console.log(
+                    `✅ Updated ${item.link}\n` +
+                    `\tstate : "${oldState}" → "${item.state}"\n` +
+                    `\tdesc :  "${oldDesc}" → "${item.description}"`
+                  )
+                } else {
+                  console.log(`⚪ No change for ${item.link}`)
+                }
               } catch (err) {
                 console.log(`⚠️ Skipping ${item.link} : ${err.message}`)
                 continue
               }
+
+              console.log("")
             }
 
-            fs.writeFileSync(path, JSON.stringify(contribs, null, 2))
+            fs.writeFileSync(path, JSON.stringify(contribs, null, 2) + "\n")
 
       - name: Commit and push if changed
         run: |
@@ -59,6 +77,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/assets/data/contributions.json
           git diff --cached --exit-code || (
-            git commit -m "chore: weekly oss contributions update"
+            git commit -m "chore: weekly oss contributions update [skip ci]"
             git push
           )
