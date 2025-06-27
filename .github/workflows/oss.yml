@@ -69,7 +69,7 @@ jobs:
               console.log("")
             }
 
-            fs.writeFileSync(path, JSON.stringify(contribs, null, 2) + "\n")
+            fs.writeFileSync(path, JSON.stringify(contribs, null, 2) + "\n\n")
 
       - name: Commit and push if changed
         run: |
