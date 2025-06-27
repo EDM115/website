@@ -12,7 +12,7 @@
     "name": "KieranP/Github-Releases-Feed",
     "description": "fix: Read more, login input and other buttons appears correctly on whacky Windows machines that have their global styles edited by things like Rectify11",
     "type": "pr",
-    "state": "merged",
+    "state": "closed",
     "link": "https://github.com/KieranP/Github-Releases-Feed/pull/16"
   },
   {
@@ -180,7 +180,7 @@
     "name": "Keksuccino/JustZoom",
     "description": "Smoother zoom",
     "type": "pr",
-    "state": "merged",
+    "state": "closed",
     "link": "https://github.com/Keksuccino/JustZoom/pull/9"
   },
   {
