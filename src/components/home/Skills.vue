@@ -46,7 +46,7 @@ import logosDocker from "~icons/logos/docker-icon"
 import logosJava from "~icons/logos/java"
 import deviconGit from "~icons/devicon/git"
 import skillJavascript from "~icons/skill-icons/javascript"
-import vscodeNuxt from "~icons/vscode-icons/file-type-nuxt"
+// import vscodeNuxt from "~icons/vscode-icons/file-type-nuxt"
 import vscodePython from "~icons/vscode-icons/file-type-python"
 import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
@@ -58,7 +58,8 @@ const skills = ref([
   { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
   { id: 2, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
   { id: 3, name: "JavaScript", value: 80, displayedValue: 0, icon: skillJavascript },
-  { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0, icon: [ vscodeVue, vscodeNuxt ] },
+  // { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0, icon: [ vscodeVue, vscodeNuxt ] },
+  { id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue },
   { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
   { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: markRaw(flStudio) },
   { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: markRaw(fh5) },
@@ -66,7 +67,7 @@ const skills = ref([
 ])
 
 const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
-const iconIntervals = []
+// const iconIntervals = []
 
 function easeInOut(t: number): number {
   return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)
@@ -103,7 +104,7 @@ function callback(entries: IntersectionObserverEntry[]) {
   })
 }
 
-function startIconCycle() {
+/* function startIconCycle() {
   skills.value.forEach((skill, index) => {
     if (Array.isArray(skill.icon)) {
       let currentIndex = 0
@@ -117,7 +118,7 @@ function startIconCycle() {
       }, 3000)
     }
   })
-}
+} */
 
 onMounted(() => {
   observer = new IntersectionObserver(callback, {
@@ -134,7 +135,7 @@ onMounted(() => {
     }
   }
 
-  startIconCycle()
+  // startIconCycle()
 })
 </script>
 

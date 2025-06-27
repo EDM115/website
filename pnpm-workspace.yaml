@@ -4,6 +4,9 @@ onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
 
+overrides:
+  vite: "~7.0.0"
+
 resolutionMode: highest
 
 savePrefix: ''
