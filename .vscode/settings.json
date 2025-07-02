@@ -24,7 +24,9 @@
   "eslint.format.enable": true,
   "eslint.ignoreUntitled": true,
   "eslint.options": {
-    "flags": ["unstable_ts_config"]
+    "flags": [
+      "unstable_ts_config"
+    ]
   },
   "eslint.useFlatConfig": true,
   "explorer.fileNesting.enabled": true,
@@ -47,7 +49,6 @@
   "importCost.smallPackageLightColor": "#50FA7B",
   "oxc.enable": true,
   "vue.autoInsert.dotValue": true,
-  "vue.complete.casing.props": "autoCamel",
   "vue.format.script.initialIndent": true,
   "vue.format.style.initialIndent": true,
   "vue.inlayHints.destructuredProps": true,
@@ -55,5 +56,6 @@
   "vue.inlayHints.missingProps": true,
   "vue.inlayHints.optionsWrapper": true,
   "vue.inlayHints.vBindShorthand": true,
+  "vue.suggest.propNameCasing": "preferCamelCase",
   "yaml.keyOrdering": false
 }
