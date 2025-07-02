@@ -19,8 +19,8 @@
     "Mend: Renovate"
   ],
   "osvVulnerabilityAlerts": true,
-  "prConcurrentLimit": 0,
-  "prHourlyLimit": 0,
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 1,
   "reviewers": [
     "EDM115"
   ],

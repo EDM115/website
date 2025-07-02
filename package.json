@@ -27,7 +27,7 @@
     "ofetch": "~1.4.1",
     "pinia": "~3.0.3",
     "vue": "~3.5.17",
-    "vue-i18n": "~11.1.7",
+    "vue-i18n": "~11.1.8",
     "vue-router": "~4.5.1",
     "vuetify": "~3.8.12"
   },
@@ -71,7 +71,7 @@
     "vite-plugin-vuetify": "~2.1.1",
     "vite-svg-loader": "~5.1.0",
     "vue-eslint-parser": "~10.2.0",
-    "vue-tsc": "~3.0.0"
+    "vue-tsc": "~3.0.1"
   },
   "homepage": "https://edm115.dev",
   "license": "MIT",
