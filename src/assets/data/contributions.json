@@ -4,7 +4,7 @@
     "name": "unplugin/unplugin-vue-markdown",
     "description": "[chore] Adds vite@^7 to the dependency range",
     "type": "pr",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/unplugin/unplugin-vue-markdown/pull/65"
   },
   {
@@ -222,6 +222,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 61,
+    "name": "marticliment/UniGetUI",
+    "description": "[CRASH] Clearing the icon cache and then opening the details of a package that had its icon cleared will hang UniGetUI",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/marticliment/UniGetUI/issues/3796"
   },
   {
     "id": 60,
