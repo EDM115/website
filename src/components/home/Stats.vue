@@ -106,46 +106,48 @@ const { locale, t } = useI18n()
 
 let observer: IntersectionObserver | null = null
 // Different from what you see ? I include private repos here too :)
-const projectsNumber = ref(64)
+const projectsNumber = ref(65)
 
 const projectsLoc = ref({
   // active
   "ban-all-except-admins": 441,
-  "better-maps": 13787,
+  "better-maps": 13863,
   "booleanfix": 534,
   // "boubot": 4177,
   "bulk-youtube-download": 293,
   // "cursedChess-bot": 2658,
   // "DiceWizard": 2741,
-  "dotfiles": 35087,
+  "dotfiles": 35267,
   "EDM115": 296,
-  "website": 11767,
+  "website": 11337,
   "website-v1": 137999,
   // "edm115.fot.one / edm115.shadd.eu.org / edm115.ethar.xyz / walad.link/edm115": 384 + 3061,
   "EDM115.github.io": 90,
-  "EDM115-discord-bot": 1180,
-  "EDM115-ohmyposh-theme": 659,
+  "EDM115-discord-bot": 1198,
+  "EDM115-ohmyposh-theme": 671,
   "Grundy2": 6477,
   "hugo": 890,
   "jean-marie-bot": 1984,
-  "js-imports-sort": 4022,
+  "js-imports-sort": 3549,
   "learning-stack": 18412,
   "Markdown_Syntax_FR": 674,
-  "obsidian": 9637,
+  "monorepo-hash": 4101,
+  "obsidian": 10246,
   "palex": 5552,
   "random-algorithm": 370491 - 370118,
   "school-codes": 3379,
-  "shared-files": 380,
+  "shared-files": 381,
   "sport-track": 1582,
   "telegram-auto-upload-folder": 369,
   "telegram-backup-dump": 512,
   "The-Very-Restrictive-License": 311,
   // "ThunderBot": 2196,
-  "unrar-alpine": 1681,
+  "unrar-alpine": 1689,
   "unzip-bot": 7469,
   "useful-stuff": 794,
   "VGM-KHI-download": 310,
   "web-logs": 303,
+
   "school-codes-v2": 885105,
   "IUT": 396155,
 
@@ -172,7 +174,7 @@ const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => ac
 
 const stats = ref([
   { id: 0, name: t("projects"), value: projectsNumber.value },
-  { id: 1, name: t("users"), value: 44674 },
+  { id: 1, name: t("users"), value: 46568 },
   { id: 2, name: t("loc"), value: linesOfCode },
 ])
 
