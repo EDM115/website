@@ -219,13 +219,13 @@
                     :title="t('resume6')"
                     :icon="mdiBriefcaseOutline"
                     :edit-icon="mdiBriefcaseOutline"
-                    value="4"
+                    value="2"
                   >
                     <v-list>
                       <v-list-item>
-                        <v-list-item-title>2024</v-list-item-title>
+                        <v-list-item-title>2025</v-list-item-title>
                         <v-list-item-subtitle class="mb-2">
-                          Koumoul, Vannes
+                          Nexelec, Saint-Avé
                         </v-list-item-subtitle><br>
                         {{ t("resume7") }}
                       </v-list-item>
@@ -233,11 +233,29 @@
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume8')"
-                    :title="t('resume9')"
+                    :subtitle="t('resume5')"
+                    :title="t('resume8')"
+                    :icon="mdiBriefcaseOutline"
+                    :edit-icon="mdiBriefcaseOutline"
+                    value="3"
+                  >
+                    <v-list>
+                      <v-list-item>
+                        <v-list-item-title>2024</v-list-item-title>
+                        <v-list-item-subtitle class="mb-2">
+                          Koumoul, Vannes
+                        </v-list-item-subtitle><br>
+                        {{ t("resume9") }}
+                      </v-list-item>
+                    </v-list>
+                  </v-stepper-vertical-item>
+
+                  <v-stepper-vertical-item
+                    :subtitle="t('resume10')"
+                    :title="t('resume11')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
-                    value="2"
+                    value="4"
                   >
                     <v-list>
                       <v-list-item>
@@ -245,17 +263,17 @@
                         <v-list-item-subtitle class="mb-2">
                           IUT Vannes
                         </v-list-item-subtitle><br>
-                        {{ t("resume10") }}
+                        {{ t("resume12") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume8')"
-                    :title="t('resume11')"
+                    :subtitle="t('resume10')"
+                    :title="t('resume13')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
-                    value="3"
+                    value="5"
                   >
                     <v-list>
                       <v-list-item>
@@ -263,7 +281,7 @@
                         <v-list-item-subtitle class="mb-2">
                           Lycée Saint-Paul, Vannes
                         </v-list-item-subtitle><br>
-                        {{ t("resume12") }}
+                        {{ t("resume14") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
@@ -406,18 +424,18 @@
 {
   "en": {
     "about": "About",
-    "about1": "I'm a French developer, who like to play with different programming languages",
+    "about1": "I'm a French developer who like to play with different programming languages",
     "about10": "Email",
     "about11": "Birthday : 18th June",
     "about12": "Phone",
-    "about13": "Degree : Not applicable yet (I have the baccalaureate, and I'm currently in 3rd year of Computer Science)",
-    "about2": "Managing both studies, dev & relationship, I'm passionnated and involved into everything I try out",
-    "about3": "Java dev • Python enthusiast • Web dev",
-    "about4": "I mostly made things in Java, Python and Vue",
+    "about13": "Degree : Computer Science BUT (Bachelor of Technology), Baccalureate+3",
+    "about2": "Managing both dev & relationship, I'm passionnated and involved into everything I try out",
+    "about3": "Web dev • Python enthusiast • Java dev",
+    "about4": "I mostly made things in Vue, Python and Java",
     "about5": "You can check all my projects on my GitHub",
     "about6": "Name : Lussandre Lederrey",
     "about7": "Age : {age} years old",
-    "about8": "City : Vannes, France",
+    "about8": "City : Rouen, France",
     "about9": "Website",
     "blog": "Blog",
     "contact": "Contact",
@@ -434,35 +452,37 @@
     "projects": "Projects",
     "resume": "Resume",
     "resume1": "What is my path ? Discover it there",
-    "resume10": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
-    "resume11": "BAC",
-    "resume12": "I learnt here the basics of programmation with Python and SQL",
     "resume2": "Summary",
-    "resume3": "I'm a developer but I'm still studying",
-    "resume4": "Vannes, France",
+    "resume3": "I'm a developer searching for a job",
+    "resume4": "Rouen, France",
     "resume5": "Professional experience",
-    "resume6": "Internship {'@'} Koumoul",
-    "resume7": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
-    "resume8": "Education",
-    "resume9": "BUT Computer Science",
+    "resume6": "Internship {'@'} Nexelec",
+    "resume7": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ...",
+    "resume8": "Internship {'@'} Koumoul",
+    "resume9": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
+    "resume10": "Education",
+    "resume11": "BUT Computer Science",
+    "resume12": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
+    "resume13": "BAC",
+    "resume14": "I learnt here the basics of programmation with Python and SQL",
     "skills": "Skills",
     "social": "Social links",
     "stats": "Stats"
   },
   "fr": {
     "about": "À propos",
-    "about1": "Je suis un développeur français, qui aime jouer avec différents langages de programmation",
+    "about1": "Je suis un développeur français qui aime jouer avec différents langages de programmation",
     "about10": "Email",
     "about11": "Anniversaire : 18 Juin",
     "about12": "Téléphone",
-    "about13": "Diplôme : Pas encore applicable (j'ai le baccalauréat, et je suis actuellement en 3ème année de BUT informatique)",
-    "about2": "Gérant à la fois les études, le dev & ma relation, je suis passionné et impliqué dans tout ce que j'essaie",
-    "about3": "Dev Java • Enthousiaste Python • Dev Web",
-    "about4": "J'ai principalement fait des choses en Java, Python et Vue",
+    "about13": "Diplôme : BUT Informatique, BAC+3",
+    "about2": "Gérant à la fois le dev & ma relation, je suis passionné et impliqué dans tout ce que j'essaie",
+    "about3": "Dev Web • Enthousiaste Python • Dev Java",
+    "about4": "J'ai principalement fait des choses en Vue, Python et Java",
     "about5": "Vous pouvez consulter tous mes projets sur mon GitHub",
     "about6": "Nom : Lussandre Lederrey",
     "about7": "Âge : {age} ans",
-    "about8": "Ville : Vannes, France",
+    "about8": "Ville : Rouen, France",
     "about9": "Site web",
     "blog": "Blog",
     "contact": "Contact",
@@ -479,17 +499,19 @@
     "projects": "Projets",
     "resume": "CV",
     "resume1": "Quel est mon parcours ? Découvrez-le ici",
-    "resume10": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ...",
-    "resume11": "BAC",
-    "resume12": "J'ai appris ici les bases de la programmation avec Python et SQL",
     "resume2": "Résumé",
-    "resume3": "Je suis un développeur mais je suis toujours en train d'étudier",
-    "resume4": "Vannes, France",
+    "resume3": "Je suis un développeur à la recherche d'un emploi",
+    "resume4": "Rouen, France",
     "resume5": "Expérience professionnelle",
-    "resume6": "Stage {'@'} Koumoul",
-    "resume7": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
-    "resume8": "Éducation",
-    "resume9": "BUT Informatique",
+    "resume6": "Stage {'@'} Nexelec",
+    "resume7": "Un stage de 16 semaines où j'ai appris à travailler dans une grande équipe, à utiliser Next.js, Fastify, Terraform, InfluxDB, ...",
+    "resume8": "Stage {'@'} Koumoul",
+    "resume9": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
+    "resume10": "Éducation",
+    "resume11": "BUT Informatique",
+    "resume12": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ...",
+    "resume13": "BAC",
+    "resume14": "J'ai appris ici les bases de la programmation avec Python et SQL",
     "skills": "Compétences",
     "social": "Liens sociaux",
     "stats": "Stats"
