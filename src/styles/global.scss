@@ -57,6 +57,15 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+summary h1,
+summary h2,
+summary h3,
+summary h4,
+summary h5,
+summary h6 {
+  display: inline;
+}
+
 p, li {
   text-wrap: pretty;
 }
@@ -148,18 +157,30 @@ p, li {
   height: auto;
 }
 
-.markdown-body > ul {
+.markdown-body > details {
+  margin: 1rem 0;
+}
+
+.markdown-body ul {
   list-style-position: inside;
   padding-bottom: 1rem;
 }
 
-.markdown-body > ol {
+.markdown-body .markdown-alert > ul {
+  margin-left: 1.5rem;
+}
+
+.markdown-body ol {
   list-style: none;
   counter-reset: item;
   padding-bottom: 1rem;
 }
 
-.markdown-body > ol:has(+ .code-block) {
+.markdown-body .markdown-alert > ol {
+  margin-left: 1.5rem;
+}
+
+.markdown-body ol:has(+ .code-block) {
   padding-bottom: 0rem;
 }
 
@@ -182,7 +203,7 @@ p, li {
   border-collapse: collapse;
   width: 100%;
   overflow-x: auto;
-  display: block;
+  display: contents;
 }
 
 .markdown-body > table,
@@ -265,15 +286,26 @@ p, li {
   word-break: break-all;
 }
 
-a > code.hljs {
+a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) > code.hljs {
   text-decoration: underline;
   text-decoration-color: var-color(v-theme-primary);
   text-underline-offset: 0.1rem;
   transition: all 0.4s ease-in-out;
 }
 
-a:hover > code.hljs {
+a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a):hover > code.hljs {
   text-decoration-color: var-color(v-theme-secondary);
+}
+
+h1 a:hover > code.hljs,
+h2 a:hover > code.hljs,
+h3 a:hover > code.hljs,
+h4 a:hover > code.hljs,
+h5 a:hover > code.hljs,
+h6 a:hover > code.hljs {
+  text-decoration: underline;
+  text-decoration-color: inherit;
+  text-underline-offset: 0.1rem;
 }
 
 .v-stepper-vertical-item__title {

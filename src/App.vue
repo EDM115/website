@@ -235,6 +235,12 @@ const handleScroll = () => {
 
 useHead({
   title: t("head"),
+  meta: [
+    {
+      name: "og:title",
+      content: t("head"),
+    },
+  ],
 })
 
 onMounted(() => {

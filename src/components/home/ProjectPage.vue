@@ -1,0 +1,287 @@
+<template>
+  <v-container class="d-flex flex-column align-center">
+    <div
+      v-if="loading"
+      class="loading"
+    >
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      />
+      <span class="ml-2">Loading README...</span>
+    </div>
+
+    <div
+      v-else-if="error"
+      class="error"
+    >
+      <v-alert
+        type="error"
+        :text="error"
+      />
+    </div>
+
+    <!-- eslint-disable vue/no-v-html -->
+    <div
+      v-else-if="renderedContent"
+      class="markdown-body"
+      v-html="renderedContent"
+    />
+    <!-- eslint-enable vue/no-v-html -->
+
+    <div
+      v-else
+      class="no-content"
+    >
+      <v-alert
+        type="info"
+        text="No README found for this repository."
+      />
+    </div>
+  </v-container>
+</template>
+
+<script setup lang="ts">
+import mdiLinkVariant from "~icons/mdi/linkVariant?raw"
+import { useCopyCode } from "@/composables/useCopyCode"
+import { useCopySlug } from "@/composables/useCopySlug"
+import slugify from "@sindresorhus/slugify"
+import hljs from "highlight.js"
+import MarkdownIt from "markdown-it"
+import mditAnchor from "markdown-it-anchor"
+import mditAttrs from "markdown-it-attrs"
+import mditHljs from "markdown-it-highlightjs"
+import mditLinkAttributes from "markdown-it-link-attributes"
+
+import { full as emoji } from "markdown-it-emoji"
+import { alert } from "@mdit/plugin-alert"
+import { imgLazyload } from "@mdit/plugin-img-lazyload"
+import { imgSize } from "@mdit/plugin-img-size"
+import { spoiler } from "@mdit/plugin-spoiler"
+import { tab } from "@mdit/plugin-tab"
+import { tasklist } from "@mdit/plugin-tasklist"
+import { useHead } from "@unhead/vue"
+import { ofetch } from "ofetch"
+import { computed, onMounted, ref, watch } from "vue"
+
+interface Props {
+  name: string
+  branch?: string
+}
+
+const props = defineProps<Props>()
+
+const loading = ref(false)
+const error = ref<string | null>(null)
+const markdownContent = ref<string>("")
+
+const md = new MarkdownIt({
+  breaks: true,
+  html: true,
+  linkify: true,
+  typographer: true,
+})
+  .use(mditHljs, {
+    hljs,
+    inline: true,
+  })
+  .use(mditAnchor, {
+    slugify: (s) => slugify(s),
+    permalink: mditAnchor.permalink.headerLink(),
+    permalinkClass: "header-link",
+  })
+  .use(emoji)
+  .use(mditAttrs)
+  .use(mditLinkAttributes, {
+    attrs: {
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+    matcher(href: string, _config: unknown) {
+      return !href.startsWith("#")
+    },
+  })
+  .use(alert, { deep: true })
+  .use(imgLazyload)
+  .use(imgSize)
+  .use(spoiler)
+  .use(tab, {
+    name: "tabs",
+  })
+  .use(tasklist)
+
+md.core.ruler.push("heading_copy_icon", (state) => {
+  const { tokens } = state
+
+  for (let i = 0; i < tokens.length; i++) {
+    if (tokens[i].type === "heading_open") {
+      const inline = tokens[i + 1]
+      const id = tokens[i].attrGet("id")!
+
+      const html = `
+        <span
+          class="header-copy-icon"
+          role="button"
+          data-slug="${id}"
+        >
+          ${mdiLinkVariant}
+        </span>
+      `.trim()
+
+      const t = new state.Token("html_inline", "", 0)
+
+      t.content = html
+      inline.children?.unshift(t)
+    }
+  }
+})
+
+md.renderer.rules.fence = (tokens, idx) => {
+  const token = tokens[idx]
+  const langName = token.info.trim()
+  const isSupported = hljs.getLanguage(langName)
+
+  const highlightedCode = isSupported
+    ? hljs.highlight(token.content, { language: langName }).value
+    : hljs.highlightAuto(token.content).value
+
+  return `
+    <div class='code-block'>
+      <div class='code-block-header'>
+        <span class='code-block-lang'>${langName || "plaintext"}</span>
+        <button class='copy-code-button'>
+          Copy
+        </button>
+      </div>
+      <pre><code class='hljs ${langName}'>${highlightedCode}</code></pre>
+    </div>
+  `
+}
+
+const renderedContent = computed(() => {
+  if (!markdownContent.value) {
+    return ""
+  }
+
+  return md.render(markdownContent.value)
+})
+
+async function fetchReadme() {
+  if (!props.name) {
+    return
+  }
+
+  loading.value = true
+  error.value = null
+  markdownContent.value = ""
+  const branch = props.branch || "master"
+
+  try {
+    const response = await ofetch(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
+      retry: 1,
+    })
+
+    markdownContent.value = response
+    loading.value = false
+  } catch (fetchError) {
+    try {
+      const response = await ofetch(`https://raw.githubusercontent.com/${props.name}/main/README.md`, {
+        retry: 1,
+      })
+
+      markdownContent.value = response
+      loading.value = false
+    } catch (secondError) {
+      console.error("Failed to fetch README :", secondError)
+      error.value = `Failed to fetch README for ${props.name}. Repository may not exist or README.md may not be available.`
+      loading.value = false
+    }
+  }
+}
+
+async function getRepoDetails() {
+  if (!props.name) {
+    return null
+  }
+
+  try {
+    const response = await ofetch(`https://api.github.com/repos/${props.name}`, {
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    })
+
+    if (!response || !response.full_name) {
+      throw new Error("Repository not found")
+    }
+
+    return {
+      name: response.full_name,
+      description: response.description || "",
+    }
+  } catch (error) {
+    console.error("Failed to fetch repository details :", error)
+
+    return null
+  }
+}
+
+const head = useHead({
+  title: `EDM115 - Project ${props.name}`,
+  meta: [
+    {
+      name: "og:title",
+      content: `EDM115 - Project ${props.name}`,
+    },
+  ],
+})
+
+watch(() => props.name, fetchReadme, { immediate: true })
+
+onMounted(async () => {
+  useCopySlug()
+  useCopyCode()
+  await fetchReadme()
+  const repoDetails = await getRepoDetails()
+
+  if (repoDetails) {
+    head.patch({
+      title: `EDM115 - Project ${repoDetails.name}`,
+      meta: [
+        {
+          name: "description",
+          content: repoDetails.description || `No description available for ${repoDetails.name}`,
+        },
+        {
+          name: "og:title",
+          content: `EDM115 - Project ${repoDetails.name}`,
+        },
+        {
+          name: "og:description",
+          content: repoDetails.description || `No description available for ${repoDetails.name}`,
+        },
+      ],
+    })
+  }
+})
+</script>
+
+<style scoped>
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.error,
+.no-content {
+  margin: 1rem 0;
+}
+
+.markdown-body {
+  width: 100%;
+}
+</style>

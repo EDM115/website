@@ -76,6 +76,12 @@ const { locale, t } = useI18n()
 
 useHead({
   title: t("head"),
+  meta: [
+    {
+      name: "og:title",
+      content: t("head"),
+    },
+  ],
 })
 
 onMounted(() => {

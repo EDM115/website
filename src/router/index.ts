@@ -1,5 +1,6 @@
 import HomeView from "../views/HomeView.vue"
 import { generateBlogChildren } from "./blogRoutes"
+import { generateProjectChildren } from "./projectRoutes"
 
 import { createRouter, createWebHistory } from "vue-router"
 
@@ -26,8 +27,13 @@ const router = createRouter({
       name: "projects",
       component: () => import("../views/ProjectsView.vue"),
     },
+    {
+      path: "/projects",
+      component: () => import("../layouts/ProjectLayout.vue"),
+      children: [ ...generateProjectChildren() ],
+    },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, _from, savedPosition) {
     if (to.hash) {
       return new Promise((resolve) => {
         setTimeout(() => {
