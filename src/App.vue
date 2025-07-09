@@ -42,6 +42,7 @@
               </v-btn>
             </template>
             <v-list
+              class="small-list"
               @mouseleave="i18nSwitch = false"
               @mouseover="i18nSwitch = true"
             >
@@ -286,5 +287,14 @@ onMounted(() => {
 
 .go-to-top {
   transition: all 0.5s ease-in-out;
+}
+
+.small-list .v-list-item__content {
+  min-width: 0px;
+}
+
+.small-list .v-list-item--density-compact:not(.v-list-item--nav).v-list-item--one-line {
+  padding-inline-end: 0px;
+  padding-inline-start: 16px;
 }
 </style>
