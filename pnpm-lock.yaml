@@ -5,8 +5,8 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  vite: ~7.0.0
-  vue-tsc: ~3.0.0
+  vite: ~7.0.3
+  vue-tsc: ~3.0.1
 
 importers:
 
@@ -1026,7 +1026,7 @@ packages:
     resolution: {integrity: sha512-iAliE72WsdhjzTOp2DtvKThq1VBC4REhwRcaA+zPAAph6I+OQhUXv+Xu2KS7ElxYtb7Zc/3R30Hwv1DxEo7NXQ==, tarball: https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-6.0.0.tgz}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
       vue: ^3.2.25
 
   '@volar/language-core@2.4.17':
@@ -2403,7 +2403,7 @@ packages:
     resolution: {integrity: sha512-GmaJWPAWH6lBI4fP8xKdbMZJwTgsnr8PGJOfQE52jlod8QkqSO4M529Nox2L8zYapjB5hox2wCu4N3c/LOal/A==, tarball: https://registry.npmjs.org/unplugin-fonts/-/unplugin-fonts-1.3.1.tgz}
     peerDependencies:
       '@nuxt/kit': ^3.0.0
-      vite: ~7.0.0
+      vite: ~7.0.3
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
@@ -2452,7 +2452,7 @@ packages:
     resolution: {integrity: sha512-BvDFrhsiXzVvzfq1y68jtZwHg1NYJBteSXmUK4zMdX1HT2QtKw8yimjUbDwuI1K9TW/1/L6QYiRQSl1OkHcxWg==, tarball: https://registry.npmjs.org/unplugin-vue-markdown/-/unplugin-vue-markdown-29.1.0.tgz}
     engines: {node: '>=20'}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
 
   unplugin@1.16.1:
     resolution: {integrity: sha512-4/u/j4FrCKdi17jaxuJA0jClGxB1AvU2hw/IuayPc4ay1XGaJs/rbb4v5WKwAjNifjmXK9PIFyuPiaK8azyR9w==, tarball: https://registry.npmjs.org/unplugin/-/unplugin-1.16.1.tgz}
@@ -2492,7 +2492,7 @@ packages:
   vite-hot-client@2.1.0:
     resolution: {integrity: sha512-7SpgZmU7R+dDnSmvXE1mfDtnHLHQSisdySVR7lO8ceAXvM0otZeuQQ6C8LrS5d/aYyP/QZ0hI0L+dIPrm4YlFQ==, tarball: https://registry.npmjs.org/vite-hot-client/-/vite-hot-client-2.1.0.tgz}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
 
   vite-plugin-checker@0.10.0:
     resolution: {integrity: sha512-EcAi4M5mzayH386Hc1xWi+vnfl4a+1vrDP9PVEQImUR6tIjItNK6R/98YNnJkaAq1ond2qkA6f+H49aprUgzGA==, tarball: https://registry.npmjs.org/vite-plugin-checker/-/vite-plugin-checker-0.10.0.tgz}
@@ -2504,10 +2504,10 @@ packages:
       optionator: ^0.9.4
       stylelint: '>=16'
       typescript: '*'
-      vite: ~7.0.0
+      vite: ~7.0.3
       vls: '*'
       vti: '*'
-      vue-tsc: ~3.0.0
+      vue-tsc: ~3.0.1
     peerDependenciesMeta:
       '@biomejs/biome':
         optional: true
@@ -2533,7 +2533,7 @@ packages:
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': '*'
-      vite: ~7.0.0
+      vite: ~7.0.3
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
@@ -2542,18 +2542,18 @@ packages:
     resolution: {integrity: sha512-d0fIh3wRcgSlr4Vz7bAk4va1MkdqhQgj9ANE/rBhsAjOnRfTLs2ocjFMvSUOsv6SRRXU9G+VM7yMgqDb6yI4iQ==, tarball: https://registry.npmjs.org/vite-plugin-vue-devtools/-/vite-plugin-vue-devtools-7.7.7.tgz}
     engines: {node: '>=v14.21.3'}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
 
   vite-plugin-vue-inspector@5.3.2:
     resolution: {integrity: sha512-YvEKooQcSiBTAs0DoYLfefNja9bLgkFM7NI2b07bE2SruuvX0MEa9cMaxjKVMkeCp5Nz9FRIdcN1rOdFVBeL6Q==, tarball: https://registry.npmjs.org/vite-plugin-vue-inspector/-/vite-plugin-vue-inspector-5.3.2.tgz}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
 
   vite-plugin-vuetify@2.1.1:
     resolution: {integrity: sha512-Pb7bKhQH8qPMzURmEGq2aIqCJkruFNsyf1NcrrtnjsOIkqJPMcBbiP0oJoO8/uAmyB5W/1JTbbUEsyXdMM0QHQ==, tarball: https://registry.npmjs.org/vite-plugin-vuetify/-/vite-plugin-vuetify-2.1.1.tgz}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      vite: ~7.0.0
+      vite: ~7.0.3
       vue: ^3.0.0
       vuetify: ^3.0.0
 
