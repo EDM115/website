@@ -32,7 +32,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: "Install dependencies"
-        run: pnpm i
+        run: pnpm i --frozen-lockfile
 
       - name: "Build the code"
         run: pnpm build
