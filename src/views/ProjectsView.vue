@@ -22,6 +22,15 @@
     </RouterLink>
     <RouterLink
       class="ma-2"
+      to="/projects/better-maps"
+    >
+      <v-btn
+        color="primary"
+        text="EDM115/better-maps"
+      />
+    </RouterLink>
+    <RouterLink
+      class="ma-2"
       to="/projects/unrar-alpine"
     >
       <v-btn

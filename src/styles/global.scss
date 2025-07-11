@@ -78,12 +78,12 @@ p, li {
   }
 }
 
-.markdown-body > h1,
-.markdown-body > h2,
-.markdown-body > h3,
-.markdown-body > h4,
-.markdown-body > h5,
-.markdown-body > h6 {
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   position: relative;
@@ -146,18 +146,18 @@ p, li {
   color: var-color(v-theme-success);
 }
 
-.markdown-body > hr {
+.markdown-body hr {
   border: 2px solid var-color(v-border-color);
   border-radius: 10px;
   margin: 1.5rem 0;
 }
 
-.markdown-body > p > img {
+.markdown-body p > img {
   width: 100%;
   height: auto;
 }
 
-.markdown-body > details {
+.markdown-body details {
   margin: 1rem 0;
 }
 
@@ -188,43 +188,43 @@ p, li {
   @include counter-reset-start;
 }
 
-.markdown-body > ol > li::before {
+.markdown-body ol > li::before {
   content: counter(item, decimal-leading-zero) ")";
   counter-increment: item;
   font-weight: bold;
   margin-right: 0.5rem;
 }
 
-.markdown-body > ul > li > ul > li {
+.markdown-body ul > li > ul > li {
   margin-left: 1.5rem;
 }
 
-.markdown-body > table {
+.markdown-body table {
   border-collapse: collapse;
   width: 100%;
   overflow-x: auto;
   display: contents;
 }
 
-.markdown-body > table,
-.markdown-body > table th,
-.markdown-body > table td {
+.markdown-body table,
+.markdown-body table th,
+.markdown-body table td {
   border: 1px solid var-color(v-border-color);
 }
 
-.markdown-body > table th,
-.markdown-body > table td {
+.markdown-body table th,
+.markdown-body table td {
   padding: 8px;
   text-align: left;
 }
 
-.markdown-body > blockquote {
+.markdown-body blockquote {
   border-left: 0.25em solid var-color(v-border-color);
   padding: 0 1rem;
   margin: 0.5rem 0;
 }
 
-.markdown-body > blockquote > p {
+.markdown-body blockquote > p {
   color: var-color(v-theme-text-darken-2);
 }
 

@@ -21,13 +21,27 @@
       />
     </div>
 
-    <!-- eslint-disable vue/no-v-html -->
-    <div
-      v-else-if="renderedContent"
-      class="markdown-body"
-      v-html="renderedContent"
-    />
-    <!-- eslint-enable vue/no-v-html -->
+    <template v-else-if="renderedContent">
+      <Suspense>
+        <template #fallback>
+          <div class="loading">
+            <v-progress-circular
+              indeterminate
+              color="primary"
+            />
+            <span class="ml-2">Rendering README...</span>
+          </div>
+        </template>
+        <template #default>
+          <!-- eslint-disable vue/no-v-html -->
+          <div
+            class="markdown-body"
+            v-html="renderedContent"
+          />
+          <!-- eslint-enable vue/no-v-html -->
+        </template>
+      </Suspense>
+    </template>
 
     <div
       v-else
@@ -43,8 +57,6 @@
 
 <script setup lang="ts">
 import mdiLinkVariant from "~icons/mdi/linkVariant?raw"
-import { useCopyCode } from "@/composables/useCopyCode"
-import { useCopySlug } from "@/composables/useCopySlug"
 import slugify from "@sindresorhus/slugify"
 import hljs from "highlight.js"
 import MarkdownIt from "markdown-it"
@@ -53,6 +65,9 @@ import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
 import mditLinkAttributes from "markdown-it-link-attributes"
 
+import { cleanMarkdown } from "@/composables/useCleanMarkdown"
+import { useCopyCode } from "@/composables/useCopyCode"
+import { useCopySlug } from "@/composables/useCopySlug"
 import { full as emoji } from "markdown-it-emoji"
 import { alert } from "@mdit/plugin-alert"
 import { imgLazyload } from "@mdit/plugin-img-lazyload"
@@ -174,24 +189,27 @@ async function fetchReadme() {
   loading.value = true
   error.value = null
   markdownContent.value = ""
-  const branch = props.branch || "master"
+  let branch = props.branch || "master"
 
   try {
     const response = await ofetch(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
       retry: 1,
     })
 
-    markdownContent.value = response
+    markdownContent.value = cleanMarkdown(response, props.name, branch)
     loading.value = false
   } catch (fetchError) {
+    branch = "main"
+
     try {
-      const response = await ofetch(`https://raw.githubusercontent.com/${props.name}/main/README.md`, {
+      const response = await ofetch(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
         retry: 1,
       })
 
-      markdownContent.value = response
+      markdownContent.value = cleanMarkdown(response, props.name, branch)
       loading.value = false
     } catch (secondError) {
+      branch = ""
       console.error("Failed to fetch README :", secondError)
       error.value = `Failed to fetch README for ${props.name}. Repository may not exist or README.md may not be available.`
       loading.value = false

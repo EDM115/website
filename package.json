@@ -109,5 +109,5 @@
     "type-check": "vue-tsc --build"
   },
   "type": "module",
-  "version": "0.10.0"
+  "version": "0.10.1"
 }
