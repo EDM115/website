@@ -1,8 +1,10 @@
 .well-known
 dist
+.output
+.data
+.nuxt
+.nitro
+.cache
 logs
 node_modules
 .eslintcache
-analyze/*
-!analyze/index.html
-!analyze/favicon.png

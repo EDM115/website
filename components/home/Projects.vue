@@ -48,11 +48,11 @@
 </template>
 
 <script setup lang="ts">
-import betteruptimeWebp from "@/assets/img/projects/betteruptime.webp"
-import senescaladeWebp from "@/assets/img/projects/senescalade.webp"
-import underratedWebp from "@/assets/img/projects/underrated.webp"
-import unzipBotWebp from "@/assets/img/projects/unzip-bot.webp"
-import websiteWebp from "@/assets/img/profile-img.webp"
+import betteruptimeWebp from "/img/projects/betteruptime.webp"
+import senescaladeWebp from "/img/projects/senescalade.webp"
+import underratedWebp from "/img/projects/underrated.webp"
+import unzipBotWebp from "/img/projects/unzip-bot.webp"
+import websiteWebp from "/img/profile-img.webp"
 
 import { ref } from "vue"
 
