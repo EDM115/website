@@ -152,7 +152,6 @@ import lucideConstruction from "~icons/lucide/construction"
 import mdiArrowUp from "~icons/mdi/arrowUp"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
-import mdiMenu from "~icons/mdi/menu"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import { useMainStore } from "@/stores/main"
@@ -165,7 +164,7 @@ import { useI18n } from "vue-i18n"
 const store = useMainStore()
 const theme = ref(store.getTheme)
 const displayDialog = ref(false)
-const menuIcon = ref(mdiMenu)
+const menuIcon = ref(mdiHomeOutline)
 const vuetifyTheme = useTheme()
 const isDarkTheme = computed(() => theme.value === "dark")
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
@@ -250,11 +249,6 @@ onMounted(() => {
   store.setI18n(store.getI18n)
   vuetifyTheme.global.name.value = store.getTheme
   displayDialog.value = (store.getDisplayDialog === "true")
-
-  setInterval(() => {
-    menuIcon.value = menuIcon.value === mdiMenu ? mdiHomeOutline : mdiMenu
-  }, 3000)
-
   window.addEventListener("scroll", handleScroll)
 })
 </script>
