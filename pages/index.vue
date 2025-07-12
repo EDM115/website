@@ -16,7 +16,7 @@
           max-width="200"
           rounded="xl"
           alt="EDM115 Logo"
-          src="@/assets/img/profile-img-resized.webp"
+          src="/img/profile-img-resized.webp"
           rel="preload"
         />
 

@@ -1,11 +1,13 @@
+import { withNuxt } from "./.nuxt/eslint.config.mjs"
+
 import tsParser from "@typescript-eslint/parser"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
 import vueParser from "vue-eslint-parser"
 
-export default [
+export default withNuxt(
   {
-    ignores: [ "**/analyze/", "**/dist/", "**/node_modules/", "**/*.d.ts" ],
+    ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts" ],
   },
   ...pluginVue.configs["flat/recommended"],
   {
@@ -29,8 +31,9 @@ export default [
       },
     },
     rules: {
+      "nuxt/nuxt-config-keys-order": "warn",
       "vue/multi-word-component-names": "off",
       "vue/no-mutating-props": "off",
     },
   },
-]
+)

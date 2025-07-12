@@ -6,7 +6,7 @@
           <RouterLink
             class="text-decoration-none"
             style="color: inherit;"
-            :to="{ name: 'home' }"
+            to="/"
           >
             <v-app-bar-nav-icon :icon="menuIcon" />
           </RouterLink>
@@ -15,7 +15,7 @@
         <RouterLink
           class="text-decoration-none"
           style="color: inherit;"
-          :to="{ name: 'home' }"
+          to="/"
         >
           <v-app-bar-title>EDM115</v-app-bar-title>
         </RouterLink>
@@ -94,32 +94,6 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-
-      <RouterView v-slot="{ Component, route }">
-        <Transition
-          appear
-          mode="out-in"
-          name="page"
-        >
-          <div>
-            <Component
-              :is="Component"
-              :key="userLocale + '/' + route.path"
-            />
-            <v-fab
-              v-show="showGoToTop"
-              app
-              appear
-              color="primary"
-              class="go-to-top"
-              :icon="mdiArrowUp"
-              location="bottom right"
-              :variant="isDarkTheme ? 'tonal' : 'elevated'"
-              @click="scrollToTop"
-            />
-          </div>
-        </Transition>
-      </RouterView>
     </v-main>
   </v-app>
 </template>
@@ -149,14 +123,12 @@
 
 <script setup lang="ts">
 import lucideConstruction from "~icons/lucide/construction"
-import mdiArrowUp from "~icons/mdi/arrowUp"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import { useMainStore } from "@/stores/main"
 
-import { useHead } from "@unhead/vue"
 import { computed, onMounted, ref } from "vue"
 import { useTheme } from "vuetify"
 import { useI18n } from "vue-i18n"
@@ -166,9 +138,7 @@ const theme = ref(store.getTheme)
 const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
 const vuetifyTheme = useTheme()
-const isDarkTheme = computed(() => theme.value === "dark")
 const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
-const showGoToTop = ref(false)
 
 const { locale, t } = useI18n()
 const availableLocales = computed(() => store.getAvailableLocales)
@@ -225,47 +195,13 @@ function toggleTheme() {
   window.scrollBy(0, -1)
 }
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" })
-}
-
-const handleScroll = () => {
-  showGoToTop.value = window.scrollY > 100
-}
-
-useHead({
-  title: t("head"),
-  meta: [
-    {
-      name: "og:title",
-      content: t("head"),
-    },
-  ],
-})
-
 onMounted(() => {
-  store.initStore()
-  store.setTheme(store.getTheme)
-  store.setI18n(store.getI18n)
   vuetifyTheme.global.name.value = store.getTheme
   displayDialog.value = (store.getDisplayDialog === "true")
-  window.addEventListener("scroll", handleScroll)
 })
 </script>
 
-<style>
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s ease-in-out;
-}
-
-.page-enter-from,
-.page-leave-to {
-  filter: blur(0.5rem);
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
+<style scoped>
 .spin-animation:active {
   animation: spin 1s ease-in-out 0s 1;
 }
@@ -279,10 +215,6 @@ onMounted(() => {
   }
 }
 
-.go-to-top {
-  transition: all 0.5s ease-in-out;
-}
-
 .small-list .v-list-item__content {
   min-width: 0px;
 }
@@ -292,3 +224,4 @@ onMounted(() => {
   padding-inline-start: 16px;
 }
 </style>
+

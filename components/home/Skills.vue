@@ -39,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import chatGPT from "@/assets/img/icons/chatgpt_icon.svg?component"
-import fh5 from "@/assets/img/icons/fh5_icon.svg?component"
-import flStudio from "@/assets/img/icons/fl_studio_icon.svg?component"
+import chatGPT from "/img/icons/chatgpt_icon.svg?component"
+import fh5 from "/img/icons/fh5_icon.svg?component"
+import flStudio from "/img/icons/fl_studio_icon.svg?component"
 import logosDocker from "~icons/logos/docker-icon"
 import logosJava from "~icons/logos/java"
 import deviconGit from "~icons/devicon/git"

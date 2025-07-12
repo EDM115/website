@@ -1,22 +1,15 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": [
+  "extends": "./.nuxt/tsconfig.json",
+  /* "include": [
     "env.d.ts",
     "components.d.ts",
     "eslint-import-resolver-vite.d.ts",
     "markdown.d.ts",
-    "src/**/*",
-    "src/**/*.vue"
-  ],
+    "src/** /*",
+    "src/** /*.vue"
+  ], */
   "compilerOptions": {
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
     "allowArbitraryExtensions": true,
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
     "checkJs": true,
     "disableSizeLimit": true,
     "emitDecoratorMetadata": true,
@@ -25,7 +18,7 @@
     "noErrorTruncation": true,
     "preserveWatchOutput": true,
     "removeComments": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "tsBuildInfoFile": "./.nuxt/tsconfig.tsbuildinfo",
     "types": [
       "unplugin-fonts/client",
       "unplugin-icons/types/vue"
