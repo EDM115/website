@@ -43,7 +43,7 @@
     "@types/markdown-it-emoji": "^3.0.1",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
-    "@typescript-eslint/parser": "~8.36.0",
+    "@typescript-eslint/parser": "~8.37.0",
     "@unhead/vue": "~2.0.12",
     "@vitejs/plugin-vue": "~6.0.0",
     "@vue/tsconfig": "~0.7.0",
