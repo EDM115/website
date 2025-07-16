@@ -25,7 +25,7 @@ jobs:
       - name: "Bump Node.js to v24"
         uses: actions/setup-node@v4
         with:
-          node-version: "24.3.0"
+          node-version: "24.4.1"
           check-latest: true
 
       - name: "Install pnpm"
