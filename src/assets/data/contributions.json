@@ -316,7 +316,7 @@
     "name": "inocan-group/vue3-google-map",
     "description": "[BUG] AdvancedMarkers that are added to the map are styled like Markers until other AdvancedMarkers are added",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/inocan-group/vue3-google-map/issues/322"
   },
   {
