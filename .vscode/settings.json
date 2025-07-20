@@ -32,10 +32,9 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",
-    "nuxt.config.ts": "error.vue",
-    "package.json": "package-lock.json, pnpm*",
-    "README.md": "LICENSE, .gitignore, .deepsource.toml, .whitesource, AUTHORS, CONTRIBUTORS.svg, renovate.json",
-    "tsconfig.json": "tsconfig.*.json, *.d.ts"
+    "nuxt.config.ts": "error.vue, tsconfig.*",
+    "package.json": "pnpm*",
+    "README.md": "LICENSE, .gitignore, .deepsource.toml, CONTRIBUTORS.svg"
   },
   "files.eol": "\n",
   "files.insertFinalNewline": true,

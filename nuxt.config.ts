@@ -19,7 +19,7 @@ import { tasklist } from "@mdit/plugin-tasklist"
 import { full as emoji } from "markdown-it-emoji"
 
 const mdi = await lookupCollection("mdi")
-const mdiLinkVariant = `<svg>${mdi.icons["link-variant"].body}</svg>`
+const mdiLinkVariant = `<svg>${mdi.icons["link-variant"]?.body}</svg>`
 
 export default defineNuxtConfig({
   modules: [
@@ -29,8 +29,9 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
-    "nuxt-aos",
+    "@vueuse/nuxt",
     "nuxt-svgo",
+    "unplugin-icons/nuxt",
     "vuetify-nuxt-module",
   ],
   ssr: true,
@@ -40,15 +41,20 @@ export default defineNuxtConfig({
     vueDevTools: true,
   },
   app: {
+    layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },
   },
   css: [
-    "aos/dist/aos.css",
     "~/assets/styles/markdown-alert.scss",
     "~/assets/styles/markdown-spoiler.scss",
     "~/assets/styles/dracula-hljs.scss",
-    "~/assets/styles/global.scss"
+    "~/assets/styles/global.scss",
   ],
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
+  },
   sourcemap: {
     client: false,
     server: false,
@@ -76,7 +82,7 @@ export default defineNuxtConfig({
     typedPages: true,
     viewTransition: true,
   },
-  compatibilityDate: "2025-05-15",
+  compatibilityDate: "2025-07-15",
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -158,9 +164,9 @@ export default defineNuxtConfig({
             const { tokens } = state
 
             for (let i = 0; i < tokens.length; i++) {
-              if (tokens[i].type === "heading_open") {
+              if (tokens[i]?.type === "heading_open") {
                 const inline = tokens[i + 1]
-                const id = tokens[i].attrGet("id")!
+                const id = tokens[i]?.attrGet("id")
 
                 const html = `
                   <span
@@ -175,12 +181,12 @@ export default defineNuxtConfig({
                 const t = new state.Token("html_inline", "", 0)
 
                 t.content = html
-                inline.children?.unshift(t)
+                inline?.children?.unshift(t)
               }
             }
           })
           md.renderer.rules.fence = (tokens, idx) => {
-            const token = tokens[idx]
+            const token = tokens[idx]!
             const langName = token.info.trim()
             const isSupported = hljs.getLanguage(langName)
 
@@ -205,27 +211,38 @@ export default defineNuxtConfig({
       Components({
         collapseSamePrefixes: true,
         directoryAsNamespace: true,
-        dts: true,
+        dirs: [ "app/components", "components" ],
         extensions: [ "vue", "md" ],
         include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
         resolvers: [
           IconsResolver({
-            prefix: false,
+            prefix: "",
           }),
         ],
         sourcemap: false,
         version: 3,
       }),
     ],
+    vue: {
+      include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
+    },
   },
   typescript: {
+    tsConfig: {
+      compilerOptions: {
+        allowArbitraryExtensions: true,
+        checkJs: true,
+        disableSizeLimit: true,
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true,
+        incremental: true,
+        noErrorTruncation: true,
+        preserveWatchOutput: true,
+        removeComments: true,
+        types: [ "unplugin-icons/types/vue" ],
+      },
+    },
     typeCheck: true,
-  },
-  aos: {
-    duration: 800,
-    easing: "ease-in-out",
-    once: true,
-    mirror: false,
   },
   eslint: {
     config: {
@@ -239,9 +256,6 @@ export default defineNuxtConfig({
   },
   i18n: {
     baseUrl: "/",
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     defaultLocale: "en",
     detectBrowserLanguage: {
       cookieKey: "i18n_lang",
@@ -251,7 +265,6 @@ export default defineNuxtConfig({
     experimental: {
       typedOptionsAndMessages: "all",
     },
-    lazy: true,
     locales: [
       { code: "en", name: "English" },
       { code: "fr", name: "Français" },
@@ -259,12 +272,26 @@ export default defineNuxtConfig({
     strategy: "no_prefix",
     vueI18n: "./i18n.config.ts",
   },
+  image: {
+    quality: 100,
+  },
   svgo: {
+    autoImportPath: "./public/img",
+    defaultImport: "component",
+    dts: true,
     svgoConfig: {
       multipass: true,
     },
   },
   vuetify: {
+    moduleOptions: {
+      ssrClientHints: {
+        reloadOnFirstRequest: true,
+        viewportSize: true,
+        prefersColorScheme: true,
+        prefersColorSchemeOptions: {},
+      },
+    },
     vuetifyOptions: {
       labComponents: true,
       theme: {

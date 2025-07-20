@@ -1,14 +1,30 @@
 {
+  "compilerOptions": {
+    "allowArbitraryExtensions": true,
+    "checkJs": true,
+    "disableSizeLimit": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "noErrorTruncation": true,
+    "preserveWatchOutput": true,
+    "removeComments": true,
+    "tsBuildInfoFile": "./.nuxt/tsconfig.tsbuildinfo",
+    "types": [ "unplugin-icons/types/vue" ]
+  },
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.node.json"
+      "path": "./.nuxt/tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.app.json"
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
     }
-  ],
-  "compilerOptions": {
-    "module": "NodeNext"
-  }
+  ]
 }

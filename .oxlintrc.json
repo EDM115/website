@@ -80,8 +80,6 @@
     "unicorn/consistent-function-scoping": "off",
     "unicorn/no-empty-file": "off",
     "unicorn/prefer-array-find": "error",
-    "unicorn/prefer-set-has": "error",
-    "vue/multi-word-component-names": "off",
-    "vue/no-mutating-props": "off"
+    "unicorn/prefer-set-has": "error"
   }
 }
