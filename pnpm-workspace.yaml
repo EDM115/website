@@ -1,15 +1,15 @@
 lockfileIncludeTarballUrl: true
 
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - "@parcel/watcher"
   - esbuild
   - sharp
   - unrs-resolver
 
 overrides:
-  vite: "~7.0.4"
-  vue-tsc: ~3.0.1
+  vite: "~7.0.5"
+  vue-tsc: "~3.0.3"
 
 resolutionMode: highest
 
-savePrefix: ''
+savePrefix: ""
