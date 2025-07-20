@@ -98,10 +98,6 @@ import { useMainStore } from "~/stores/main"
 import { gsap } from "gsap"
 import { computed, onMounted, ref } from "vue"
 
-interface GitHubUser {
-  public_repos: number
-}
-
 const store = useMainStore()
 const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
@@ -182,19 +178,14 @@ const stats = ref([
 
 async function fetchProjectsNumber() {
   try {
-    const { data } = await useFetch<GitHubUser>("https://api.github.com/users/EDM115/repos", {
+    const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", {
       headers: {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      pick: [ "public_repos" ],
     })
-
-    if (data.value === undefined) {
-      throw new Error("Failed to fetch public repositories count")
-    }
-
-    projectsNumber.value = data.value.public_repos
+    
+    projectsNumber.value = public_repos
   } catch (error) {
     console.error("Failed to fetch projects number :", error)
   }

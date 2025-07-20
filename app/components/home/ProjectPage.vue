@@ -195,21 +195,21 @@ async function fetchReadme() {
   let branch = props.branch || "master"
 
   try {
-    const { data } = await useFetch(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
+    const data = await $fetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
       retry: 1,
     })
 
-    markdownContent.value = cleanMarkdown(data.value as string, props.name, branch)
+    markdownContent.value = cleanMarkdown(data, props.name, branch)
     loading.value = false
   } catch (fetchError) {
     branch = "main"
 
     try {
-      const { data } = await useFetch(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
+      const data = await $fetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
         retry: 1,
       })
 
-      markdownContent.value = cleanMarkdown(data.value as string, props.name, branch)
+      markdownContent.value = cleanMarkdown(data, props.name, branch)
       loading.value = false
     } catch (secondError) {
       branch = ""
@@ -226,21 +226,20 @@ async function getRepoDetails() {
   }
 
   try {
-    const { data } = await useFetch<GitHubRepoResponse>(`https://api.github.com/repos/${props.name}`, {
+    const { full_name, description } = await $fetch<{ full_name: string; description: string }>(`https://api.github.com/repos/${props.name}`, {
       headers: {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      pick: [ "full_name", "description" ],
     })
 
-    if (!data.value?.full_name) {
+    if (!full_name) {
       throw new Error("Repository not found")
     }
 
     return {
-      name: data.value.full_name,
-      description: data.value.description || "",
+      name: full_name,
+      description: description || "",
     }
   } catch (error) {
     console.error("Failed to fetch repository details :", error)
