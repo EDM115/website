@@ -56,7 +56,7 @@
       <v-btn
         class="spin-animation"
         :icon="iconTheme"
-        @click="toggleTheme"
+        @click="onToggleTheme"
       />
     </template>
   </v-app-bar>
@@ -100,21 +100,20 @@ import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
+
 import { useCustomTheme } from "~/composables/useCustomTheme"
 import { useMainStore } from "~/stores/main"
 
-import { computed, onMounted, ref } from "vue"
-
+const { locale, t } = useI18n()
 const store = useMainStore()
-const { isDark, toggleCT } = useCustomTheme()
-const theme = ref(store.getTheme)
+const { isDark, toggleTheme } = useCustomTheme()
+
 const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
-const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
-
-const { locale, t } = useI18n()
-const availableLocales = computed(() => store.getAvailableLocales)
 const i18nSwitch = ref(false)
+
+const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
+const availableLocales = computed(() => store.getAvailableLocales)
 const userLocale = computed(() => store.getI18n)
 
 const switchLocale = (newLocale: "en" | "fr") => {
@@ -139,7 +138,7 @@ function toggleDialog() {
 }
 
 // See https://paco.me/writing/disable-theme-transitions
-function toggleTheme() {
+function onToggleTheme() {
   // Create a style element to disable transitions on all elements
   const css = document.createElement("style")
 
@@ -152,9 +151,8 @@ function toggleTheme() {
       }`))
   document.head.appendChild(css)
 
-  theme.value = theme.value === "dark" ? "light" : "dark"
-  store.setTheme(theme.value)
-  toggleCT()
+  // Change the theme via the composable (handles store and Vuetify)
+  toggleTheme()
 
   // Force a reflow to apply the new theme without transitions
   const _ = window.getComputedStyle(css).opacity

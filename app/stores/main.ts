@@ -52,25 +52,6 @@ export const useMainStore = defineStore("main", {
         this.setI18n(navigator.language.split("-")[0] as "en" | "fr" ?? "en")
       }
     },
-    initTheme() {
-      const storedTheme = cookie.get("theme")
-      const localStorageTheme = localStorage.getItem("vueuse-color-scheme")
-      let theme: "dark" | "light" = "dark"
-
-      if (storedTheme) {
-        if (typeof storedTheme === "boolean") {
-          theme = "dark"
-        } else {
-          theme = storedTheme as "dark" | "light"
-        }
-      }
-
-      if (localStorageTheme) {
-        theme = localStorageTheme === "light" ? "light" : "dark"
-      }
-
-      this.setTheme(theme)
-    },
     setDisplayDialog(displayDialog: "true" | "false") {
       this.createCookie("displayDialog", displayDialog, 1)
       this.displayDialog = displayDialog
@@ -80,13 +61,11 @@ export const useMainStore = defineStore("main", {
       this.i18n = i18n
     },
     setTheme(theme: "dark" | "light") {
-      this.createCookie("theme", theme, 30)
       this.theme = theme
     },
     initStore() {
       this.initDisplayDialog()
       this.initI18n()
-      this.initTheme()
     },
   },
 })
