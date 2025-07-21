@@ -28,7 +28,6 @@ import mdiArrowUp from "~icons/mdi/arrowUp"
 import { useCustomTheme } from "~/composables/useCustomTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
-import { onMounted } from "vue"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()

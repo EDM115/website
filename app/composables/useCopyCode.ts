@@ -1,5 +1,3 @@
-import { onMounted, onUnmounted } from "vue"
-
 export function useCopyCode() {
   const handler = (event: Event) => {
     const btn = (event.target as HTMLElement).closest(".copy-code-button")

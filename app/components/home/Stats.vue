@@ -81,11 +81,10 @@
 import { useMainStore } from "~/stores/main"
 
 import { gsap } from "gsap"
-import { computed, onMounted, ref } from "vue"
 
+const { locale, t } = useI18n()
 const store = useMainStore()
 const userLocale = computed(() => store.getI18n)
-const { locale, t } = useI18n()
 
 let observer: IntersectionObserver | null = null
 // Different from what you see ? I include private repos here too :)

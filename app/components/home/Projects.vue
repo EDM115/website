@@ -54,8 +54,6 @@ import underratedWebp from "/img/projects/underrated.webp"
 import unzipBotWebp from "/img/projects/unzip-bot.webp"
 import websiteWebp from "/img/profile-img.webp"
 
-import { ref } from "vue"
-
 const projects = ref([
   {
     id: 23,

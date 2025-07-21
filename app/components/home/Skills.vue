@@ -39,26 +39,26 @@
 </template>
 
 <script setup lang="ts">
-import chatGPT from "~~/public/img/icons/chatgpt_icon.svg"
-import fh5 from "~~/public/img/icons/fh5_icon.svg"
-import flStudio from "~~/public/img/icons/fl_studio_icon.svg"
 import logosDocker from "~icons/logos/docker-icon"
 import logosJava from "~icons/logos/java"
 import deviconGit from "~icons/devicon/git"
 import skillJavascript from "~icons/skill-icons/javascript"
-// import vscodeNuxt from "~icons/vscode-icons/file-type-nuxt"
 import vscodePython from "~icons/vscode-icons/file-type-python"
 import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
-import { markRaw, onMounted, ref, type FunctionalComponent, type SVGAttributes } from "vue"
+import chatGPT from "~~/public/img/icons/chatgpt_icon.svg"
+import fh5 from "~~/public/img/icons/fh5_icon.svg"
+import flStudio from "~~/public/img/icons/fl_studio_icon.svg"
+
+import { type FunctionalComponent, type SVGAttributes } from "vue"
 
 let observer: IntersectionObserver | null = null
+
 const skills = ref([
   { id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython },
   { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
   { id: 2, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
   { id: 3, name: "JavaScript", value: 80, displayedValue: 0, icon: skillJavascript },
-  // { id: 4, name: "Vue & Nuxt", value: 85, displayedValue: 0, icon: [ vscodeVue, vscodeNuxt ] },
   { id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue },
   { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
   { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: markRaw(flStudio) },
@@ -67,7 +67,6 @@ const skills = ref([
 ])
 
 const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
-// const iconIntervals = []
 
 function easeInOut(t: number): number {
   return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)
@@ -108,22 +107,6 @@ function callback(entries: IntersectionObserverEntry[]) {
   })
 }
 
-/* function startIconCycle() {
-  skills.value.forEach((skill, index) => {
-    if (Array.isArray(skill.icon)) {
-      let currentIndex = 0
-
-      iconIntervals[index] = setInterval(() => {
-        currentIndex = (currentIndex + 1) % skill.icon.length
-
-        if (Array.isArray(skill.icon)) {
-          currentIcons.value[index] = skill.icon[currentIndex]
-        }
-      }, 3000)
-    }
-  })
-} */
-
 onMounted(() => {
   observer = new IntersectionObserver(callback, {
     root: null,
@@ -138,8 +121,6 @@ onMounted(() => {
       observer.observe(element)
     }
   }
-
-  // startIconCycle()
 })
 </script>
 
