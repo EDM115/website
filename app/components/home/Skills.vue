@@ -80,6 +80,7 @@ function callback(entries: IntersectionObserverEntry[]) {
       if (id === undefined) {
         return
       }
+
       const skill = skills.value[parseInt(id)]!
       const startValue = skill.displayedValue
       const endValue = skill.value
