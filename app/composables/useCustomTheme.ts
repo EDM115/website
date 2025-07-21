@@ -1,17 +1,30 @@
+import { useMainStore } from "~/stores/main"
+
 export function useCustomTheme() {
   const { $vuetify } = useNuxtApp()
-  const cookie = useCookie("theme")
+  const store = useMainStore()
+  let theme: "dark" | "light" = "dark"
+
+  if (import.meta.client) {
+    const localStorageTheme = localStorage.getItem("theme")
+    if (!localStorageTheme) {
+      theme = store.getTheme
+    } else {
+      theme = localStorageTheme === "light" ? "light" : "dark"
+    }
+  }
 
   const isDark = useDark({
-    valueDark: "dark",
-    valueLight: "light",
-    initialValue: cookie.value as "dark" | "light" | null | undefined ?? "dark",
-    onChanged: (dark: boolean) => {
-      $vuetify.theme.change(dark ? "dark" : "light")
+    storageKey: "theme",
+    initialValue: theme,
+    onChanged(dark: boolean) {
+      const theme = dark ? "dark" : "light"
+      $vuetify.theme.change(theme)
+      store.setTheme(theme)
     },
   })
 
-  const toggleCT = useToggle(isDark)
+  const toggleTheme = useToggle(isDark)
 
-  return { isDark, toggleCT }
+  return { isDark, toggleTheme }
 }

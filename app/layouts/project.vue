@@ -38,6 +38,7 @@ import mdiArrowUp from "~icons/mdi/arrowUp"
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
 import { useCustomTheme } from "~/composables/useCustomTheme"
+import { useSwitchTheme } from "~/composables/useSwitchTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
@@ -89,6 +90,7 @@ const handleScroll = () => {
 onMounted(() => {
   store.initStore()
   setLocale(store.getI18n)
+  useSwitchTheme()
   window.addEventListener("scroll", handleScroll)
 })
 </script>
