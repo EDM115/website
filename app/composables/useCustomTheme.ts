@@ -7,6 +7,7 @@ export function useCustomTheme() {
 
   if (import.meta.client) {
     const localStorageTheme = localStorage.getItem("theme")
+
     if (!localStorageTheme) {
       theme = store.getTheme
     } else {
@@ -19,6 +20,7 @@ export function useCustomTheme() {
     initialValue: theme,
     onChanged(dark: boolean) {
       const theme = dark ? "dark" : "light"
+
       $vuetify.theme.change(theme)
       store.setTheme(theme)
     },
