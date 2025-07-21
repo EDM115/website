@@ -57,6 +57,7 @@
 
 <script setup lang="ts">
 import mdiLinkVariant from "~icons/mdi/linkVariant?raw"
+
 import slugify from "@sindresorhus/slugify"
 import hljs from "highlight.js"
 import MarkdownIt from "markdown-it"
@@ -68,6 +69,7 @@ import mditLinkAttributes from "markdown-it-link-attributes"
 import { cleanMarkdown } from "~/composables/useCleanMarkdown"
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
+
 import { full as emoji } from "markdown-it-emoji"
 import { alert } from "@mdit/plugin-alert"
 import { imgLazyload } from "@mdit/plugin-img-lazyload"
@@ -75,7 +77,6 @@ import { imgSize } from "@mdit/plugin-img-size"
 import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
-import { computed, onMounted, ref, watch } from "vue"
 
 interface Props {
   name: string
@@ -84,10 +85,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const { t } = useI18n()
+
 const loading = ref(false)
 const error = ref<string | null>(null)
 const markdownContent = ref<string>("")
-const { t } = useI18n()
 
 const md = new MarkdownIt({
   breaks: true,
@@ -261,6 +263,9 @@ const head = useHead({
 await fetchReadme()
 const repoDetails = await getRepoDetails()
 
+useCopySlug()
+useCopyCode()
+
 if (repoDetails) {
   head.patch({
     title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
@@ -282,11 +287,6 @@ if (repoDetails) {
 }
 
 watch(() => props.name, fetchReadme, { immediate: true })
-
-onMounted(() => {
-  useCopySlug()
-  useCopyCode()
-})
 </script>
 
 <style scoped>

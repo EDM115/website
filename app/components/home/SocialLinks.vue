@@ -43,8 +43,6 @@ import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import simpleIconsRootme from "~icons/simple-icons/rootme"
 
-import { ref } from "vue"
-
 const isHovered = ref(false)
 const socialLinks = ref([
   {

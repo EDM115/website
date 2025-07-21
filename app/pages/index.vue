@@ -443,14 +443,14 @@ import mdiLink from "~icons/mdi/link"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 import mdiText from "~icons/mdi/text"
 import mdiWeb from "~icons/mdi/web"
+
 import { useMainStore } from "~/stores/main"
 
-import { computed, onMounted, ref } from "vue"
-
-const age = ref(20)
-const store = useMainStore()
-const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
+const store = useMainStore()
+
+const age = ref(21)
+const userLocale = computed(() => store.getI18n)
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")

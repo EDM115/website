@@ -1,7 +1,5 @@
 import mdiCheck from "~icons/mdi/check?raw"
 
-import { onMounted, onUnmounted } from "vue"
-
 export function useCopySlug() {
   const handler = (event: Event) => {
     const el = (event.target as HTMLElement).closest(".header-copy-icon")

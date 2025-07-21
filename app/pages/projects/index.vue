@@ -98,11 +98,10 @@
 <script setup lang="ts">
 import { useMainStore } from "~/stores/main"
 
-import { computed, onMounted } from "vue"
-
-const store = useMainStore()
-const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
+const store = useMainStore()
+
+const userLocale = computed(() => store.getI18n)
 
 useHead({
   title: t("projects.head"),

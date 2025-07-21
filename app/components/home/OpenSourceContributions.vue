@@ -115,15 +115,15 @@ import octiconPullRequest from "~icons/octicon/git-pull-request-16"
 import octiconPullRequestClosed from "~icons/octicon/git-pull-request-closed-16"
 import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
 import pajamasIssueClose from "~icons/pajamas/issue-close"
+
 import contributions from "~/assets/data/contributions.json"
+
 import { useMainStore } from "~/stores/main"
 
-import { computed, onMounted, ref } from "vue"
-
-const store = useMainStore()
-const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
+const store = useMainStore()
 
+const userLocale = computed(() => store.getI18n)
 const tab = ref(1)
 // https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
 const pullRequests = computed(() => contributions.filter((c) => c.type === "pr"))
