@@ -86,7 +86,7 @@
 
     "dev": "nuxt dev --no-clear --no-fork",
 
-    "generate": "nuxt generate",
+    "generate": "nuxt cleanup && nuxt generate",
 
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
@@ -102,10 +102,11 @@
     "format": "eslint -c eslint.stylistic.config.ts --fix .",
 
     "preview": "nuxt preview --port 8000",
-    "start": "node .output/server/index.mjs",
+    "start:ssr": "node .output/server/index.mjs",
+    "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
 
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

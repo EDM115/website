@@ -54,6 +54,7 @@ export const useMainStore = defineStore("main", {
     },
     initTheme() {
       const storedTheme = cookie.get("theme")
+      const localStorageTheme = localStorage.getItem("vueuse-color-scheme")
       let theme: "dark" | "light" = "dark"
 
       if (storedTheme) {
@@ -62,9 +63,13 @@ export const useMainStore = defineStore("main", {
         } else {
           theme = storedTheme as "dark" | "light"
         }
-
-        this.setTheme(theme)
       }
+
+      if (localStorageTheme) {
+        theme = localStorageTheme === "light" ? "light" : "dark"
+      }
+
+      this.setTheme(theme)
     },
     setDisplayDialog(displayDialog: "true" | "false") {
       this.createCookie("displayDialog", displayDialog, 1)

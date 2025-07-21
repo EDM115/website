@@ -169,7 +169,7 @@ async function fetchProjectsNumber() {
         "X-GitHub-Api-Version": "2022-11-28",
       },
     })
-    
+
     projectsNumber.value = public_repos
   } catch (error) {
     console.error("Failed to fetch projects number :", error)

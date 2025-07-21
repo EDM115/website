@@ -191,21 +191,21 @@ async function fetchReadme() {
   let branch = props.branch || "master"
 
   try {
-    const data = await $fetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
+    const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
       retry: 1,
     })
 
-    markdownContent.value = cleanMarkdown(data, props.name, branch)
+    markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
     loading.value = false
   } catch (fetchError) {
     branch = "main"
 
     try {
-      const data = await $fetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
+      const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
         retry: 1,
       })
 
-      markdownContent.value = cleanMarkdown(data, props.name, branch)
+      markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
       loading.value = false
     } catch (secondError) {
       branch = ""
@@ -222,20 +222,24 @@ async function getRepoDetails() {
   }
 
   try {
-    const { full_name, description } = await $fetch<{ full_name: string; description: string }>(`https://api.github.com/repos/${props.name}`, {
+    const { data } = await useFetch<{ full_name: string; description?: string }>(`https://api.github.com/repos/${props.name}`, {
       headers: {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
       },
     })
 
-    if (!full_name) {
+    if (!data.value) {
+      throw new Error("Repository not found")
+    }
+
+    if (!data.value.full_name) {
       throw new Error("Repository not found")
     }
 
     return {
-      name: full_name,
-      description: description || "",
+      name: data.value.full_name,
+      description: data.value.description || "",
     }
   } catch (error) {
     console.error("Failed to fetch repository details :", error)
@@ -254,33 +258,34 @@ const head = useHead({
   ],
 })
 
+await fetchReadme()
+const repoDetails = await getRepoDetails()
+
+if (repoDetails) {
+  head.patch({
+    title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
+    meta: [
+      {
+        name: "description",
+        content: repoDetails.description || `No description available for ${repoDetails.name}`,
+      },
+      {
+        name: "og:title",
+        content: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
+      },
+      {
+        name: "og:description",
+        content: repoDetails.description || `No description available for ${repoDetails.name}`,
+      },
+    ],
+  })
+}
+
 watch(() => props.name, fetchReadme, { immediate: true })
 
-onMounted(async () => {
+onMounted(() => {
   useCopySlug()
   useCopyCode()
-  await fetchReadme()
-  const repoDetails = await getRepoDetails()
-
-  if (repoDetails) {
-    head.patch({
-      title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
-      meta: [
-        {
-          name: "description",
-          content: repoDetails.description || `No description available for ${repoDetails.name}`,
-        },
-        {
-          name: "og:title",
-          content: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
-        },
-        {
-          name: "og:description",
-          content: repoDetails.description || `No description available for ${repoDetails.name}`,
-        },
-      ],
-    })
-  }
 })
 </script>
 

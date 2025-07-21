@@ -9,7 +9,7 @@ export default withNuxt(
   {
     ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts" ],
   },
-  ...pluginVue.configs[ "flat/recommended" ],
+  ...pluginVue.configs["flat/recommended"],
   {
     files: [ "**/*.{js,ts,vue}" ],
     linterOptions: {
