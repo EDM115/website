@@ -125,7 +125,7 @@ const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
 const tab = ref(1)
-// https://github.com/pulls?q=is%3Aissue%20author%3A%40me%20sort%3Acreated-desc
+// https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
 const pullRequests = computed(() => contributions.filter((c) => c.type === "pr"))
 // https://github.com/issues/created?q=is%3Aissue%20author%3A%40me%20sort%3Acreated-desc
 const issues = computed(() => contributions.filter((c) => c.type === "issue"))
