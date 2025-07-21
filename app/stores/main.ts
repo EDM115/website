@@ -49,7 +49,7 @@ export const useMainStore = defineStore("main", {
 
         this.setI18n(i18n)
       } else {
-        this.setI18n(navigator.language.split("-")[0] as "en" | "fr" ?? "en")
+        this.setI18n((navigator.language.split("-")[0] ?? "en") as "en" | "fr")
       }
     },
     setDisplayDialog(displayDialog: "true" | "false") {

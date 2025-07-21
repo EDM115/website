@@ -200,8 +200,12 @@ function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const statElement = entry.target
-      const statId = statElement.querySelector(".numb")?.id.split("-")[0]?.slice(1) ?? ""
-      const statValue = stats.value[parseInt(statId)]?.value
+      const numbElement = statElement.querySelector(".numb")
+      const elementId = numbElement?.id ?? ""
+      const idParts = elementId.split("-")
+      const statId = idParts[0]?.slice(1) ?? ""
+      const statIndex = parseInt(statId)
+      const statValue = Number.isInteger(statIndex) ? stats.value[statIndex]?.value : 0
 
       animateDigits(statId, statValue ?? 0)
       observer?.unobserve(entry.target)

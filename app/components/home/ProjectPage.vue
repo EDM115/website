@@ -130,9 +130,9 @@ md.core.ruler.push("heading_copy_icon", (state) => {
   const { tokens } = state
 
   for (let i = 0; i < tokens.length; i++) {
-    if (tokens[i]?.type === "heading_open") {
+    if (tokens[i]?.type === "heading_open" && i + 1 < tokens.length) {
       const inline = tokens[i + 1]
-      const id = tokens[i]?.attrGet("id")
+      const id = tokens[i]?.attrGet("id") || ""
 
       const html = `
         <span
@@ -153,7 +153,12 @@ md.core.ruler.push("heading_copy_icon", (state) => {
 })
 
 md.renderer.rules.fence = (tokens, idx) => {
-  const token = tokens[idx]!
+  const token = tokens[idx]
+
+  if (!token) {
+    return ""
+  }
+
   const langName = token.info.trim()
   const isSupported = hljs.getLanguage(langName)
 
