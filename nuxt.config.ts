@@ -19,7 +19,7 @@ import { tasklist } from "@mdit/plugin-tasklist"
 import { full as emoji } from "markdown-it-emoji"
 
 const mdi = await lookupCollection("mdi")
-const mdiLinkVariant = `<svg>${mdi.icons["link-variant"]?.body}</svg>`
+const mdiLinkVariant = `<svg>${mdi.icons["link-variant"]?.body || ""}</svg>`
 
 export default defineNuxtConfig({
   modules: [
@@ -160,9 +160,9 @@ export default defineNuxtConfig({
             const { tokens } = state
 
             for (let i = 0; i < tokens.length; i++) {
-              if (tokens[i]?.type === "heading_open") {
+              if (tokens[i]?.type === "heading_open" && i + 1 < tokens.length) {
                 const inline = tokens[i + 1]
-                const id = tokens[i]?.attrGet("id")
+                const id = tokens[i]?.attrGet("id") || ""
 
                 const html = `
                   <span
@@ -182,7 +182,12 @@ export default defineNuxtConfig({
             }
           })
           md.renderer.rules.fence = (tokens, idx) => {
-            const token = tokens[idx]!
+            const token = tokens[idx]
+
+            if (!token) {
+              return ""
+            }
+
             const langName = token.info.trim()
             const isSupported = hljs.getLanguage(langName)
 
