@@ -67,6 +67,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     asyncContext: true,
+    browserDevtoolsTiming: true,
     buildCache: true,
     clientFallback: true,
     clientNodeCompat: true,
@@ -77,7 +78,9 @@ export default defineNuxtConfig({
         prefetchOn: { interaction: true, visibility: false },
       },
     },
+    inlineRouteRules: true,
     normalizeComponentNames: true,
+    parseErrorData: true,
     sharedPrerenderData: true,
     typedPages: true,
     viewTransition: true,

@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <h1>{{ t("blog") }}</h1><br>
+    <h1>{{ t("blog.title") }}</h1><br>
 
-    <h3>{{ t("description") }}</h3>
+    <h3>{{ t("blog.subtitle") }}</h3>
 
     <v-divider class="my-4" />
 
@@ -48,21 +48,6 @@
   </v-container>
 </template>
 
-<i18n>
-{
-  "en": {
-    "blog": "Blog (TBD)",
-    "description": "4 random posts, to be completed with a date & tag sorting system",
-    "head": "Blog - EDM115",
-  },
-  "fr": {
-    "blog": "Blog (pas terminé)",
-    "description": "4 articles aléatoires, à compléter avec un système de tri par date et par tags",
-    "head": "Blog - EDM115"
-  }
-}
-</i18n>
-
 <script setup lang="ts">
 import { useMainStore } from "~/stores/main"
 
@@ -73,11 +58,11 @@ const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
 useHead({
-  title: t("head"),
+  title: t("blog.head"),
   meta: [
     {
       name: "og:title",
-      content: t("head"),
+      content: t("blog.head"),
     },
   ],
 })

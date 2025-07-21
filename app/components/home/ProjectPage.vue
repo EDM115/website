@@ -82,16 +82,12 @@ interface Props {
   branch?: string
 }
 
-interface GitHubRepoResponse {
-  full_name: string
-  description: string | null
-}
-
 const props = defineProps<Props>()
 
 const loading = ref(false)
 const error = ref<string | null>(null)
 const markdownContent = ref<string>("")
+const { t } = useI18n()
 
 const md = new MarkdownIt({
   breaks: true,
@@ -249,11 +245,11 @@ async function getRepoDetails() {
 }
 
 const head = useHead({
-  title: `EDM115 - Project ${props.name}`,
+  title: `EDM115 - ${t("projects.project")} ${props.name}`,
   meta: [
     {
       name: "og:title",
-      content: `EDM115 - Project ${props.name}`,
+      content: `EDM115 - ${t("projects.project")} ${props.name}`,
     },
   ],
 })
@@ -268,7 +264,7 @@ onMounted(async () => {
 
   if (repoDetails) {
     head.patch({
-      title: `EDM115 - Project ${repoDetails.name}`,
+      title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
       meta: [
         {
           name: "description",
@@ -276,7 +272,7 @@ onMounted(async () => {
         },
         {
           name: "og:title",
-          content: `EDM115 - Project ${repoDetails.name}`,
+          content: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
         },
         {
           name: "og:description",

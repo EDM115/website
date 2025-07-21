@@ -34,11 +34,14 @@ jobs:
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile
 
-      - name: "Build the code"
-        run: pnpm build
+      - name: "Types check"
+        run: pnpm typecheck
 
       - name: "Lint check"
         run: pnpm lint
+
+      - name: "Build check"
+        run: pnpm generate  # Builds Client and Server SSR + Generates SSG
 
       - name: "Analyze check"
         run: pnpm analyze

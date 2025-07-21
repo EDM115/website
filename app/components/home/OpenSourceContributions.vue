@@ -6,11 +6,11 @@
     grow
   >
     <v-tab
-      text="Pull Requests"
+      :text="t('opensource.pr.multiple')"
       :value="1"
     />
     <v-tab
-      text="Issues"
+      :text="t('opensource.issue.multiple')"
       :value="2"
     />
   </v-tabs>
@@ -52,7 +52,7 @@
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
-              :text="t('link')"
+              :text="t('opensource.link')"
               :href="contrib.link"
               target="_blank"
               rel="noopener noreferrer"
@@ -95,7 +95,7 @@
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
-              :text="t('link')"
+              :text="t('opensource.link')"
               :href="contrib.link"
               target="_blank"
               rel="noopener noreferrer"
@@ -106,45 +106,6 @@
     </v-tabs-window-item>
   </v-tabs-window>
 </template>
-
-<i18n>
-{
-  "en": {
-    "issue": {
-      "open": "Open",
-      "closed": "Closed",
-      "ignored": "Ignored",
-      "unknown": "Unknown issue state",
-      "title": "Issue"
-    },
-    "link": "Open in GitHub",
-    "pr": {
-      "open": "Open",
-      "closed": "Closed",
-      "merged": "Merged",
-      "unknown": "Unknown pull request state",
-      "title": "Pull Request"
-    }
-  },
-  "fr": {
-    "issue": {
-      "open": "ouverte",
-      "closed": "fermée",
-      "ignored": "ignorée",
-      "unknown": "État d'issue inconnu",
-      "title": "Issue"
-    },
-    "link": "Ouvrir dans GitHub",
-    "pr": {
-      "open": "ouverte",
-      "closed": "fermée",
-      "merged": "fusionnée",
-      "unknown": "État de pull request inconnu",
-      "title": "Pull Request"
-    }
-  }
-}
-</i18n>
 
 <script setup lang="ts">
 import mdiGithub from "~icons/mdi/github"
@@ -227,36 +188,36 @@ function getContribName(state: string, type: string) {
   if (type === "pr") {
     switch (state) {
       case "open":
-        name.title = t("pr.title")
-        name.state = t("pr.open")
+        name.title = t("opensource.pr.title")
+        name.state = t("opensource.pr.open")
         break
       case "closed":
-        name.title = t("pr.title")
-        name.state = t("pr.closed")
+        name.title = t("opensource.pr.title")
+        name.state = t("opensource.pr.closed")
         break
       case "merged":
-        name.title = t("pr.title")
-        name.state = t("pr.merged")
+        name.title = t("opensource.pr.title")
+        name.state = t("opensource.pr.merged")
         break
       default:
-        return `${t("pr.unknown")}`
+        return `${t("opensource.pr.unknown")}`
     }
   } else {
     switch (state) {
       case "open":
-        name.title = t("issue.title")
-        name.state = t("issue.open")
+        name.title = t("opensource.issue.title")
+        name.state = t("opensource.issue.open")
         break
       case "closed":
-        name.title = t("issue.title")
-        name.state = t("issue.closed")
+        name.title = t("opensource.issue.title")
+        name.state = t("opensource.issue.closed")
         break
       case "ignored":
-        name.title = t("issue.title")
-        name.state = t("issue.ignored")
+        name.title = t("opensource.issue.title")
+        name.state = t("opensource.issue.ignored")
         break
       default:
-        return `${t("issue.unknown")}`
+        return `${t("opensource.issue.unknown")}`
     }
   }
 

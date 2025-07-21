@@ -19,7 +19,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require("fs")
-            const path = "src/assets/data/contributions.json"
+            const path = "app/assets/data/contributions.json"
             const contribs = JSON.parse(fs.readFileSync(path))
 
             console.log(`>> Found ${contribs.length} contributions to process\n`)
@@ -75,7 +75,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/assets/data/contributions.json
+          git add app/assets/data/contributions.json
           git diff --cached --exit-code || (
             git commit -m "chore: weekly oss contributions update [skip ci]"
             git push

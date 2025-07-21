@@ -28,7 +28,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiHomeOutline"
-                :text="t('home')"
+                :text="t('home.home')"
                 variant="elevated"
               />
             </NuxtLink>
@@ -40,7 +40,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiInformationOutline"
-                :text="t('projects')"
+                :text="t('home.projects')"
                 variant="elevated"
               />
             </NuxtLink>
@@ -52,7 +52,7 @@
               <v-btn
                 color="primary"
                 :prepend-icon="mdiText"
-                :text="t('blog')"
+                :text="t('home.blog')"
                 variant="elevated"
               />
             </NuxtLink>
@@ -78,43 +78,43 @@
                 to="#about"
                 class="internal-link"
               >
-                {{ t("about") }}
+                {{ t("home.about") }}
               </NuxtLink>
             </h2>
           </v-card-title>
 
           <v-card-text>
             <p>
-              {{ t("about1") }}<br>
-              {{ t("about2") }}<br><br>
-              {{ t("about3") }}<br>
-              {{ t("about4") }}<br>
-              {{ t("about5") }}<br>
-              {{ t("about6") }}<br>
-              {{ t("about7", { age }) }}<br>
-              {{ t("about8") }}<br>
-              {{ t("about9") }} : <NuxtLink
+              {{ t("home.about1") }}<br>
+              {{ t("home.about2") }}<br><br>
+              {{ t("home.about3") }}<br>
+              {{ t("home.about4") }}<br>
+              {{ t("home.about5") }}<br>
+              {{ t("home.about6") }}<br>
+              {{ t("home.about7", { age }) }}<br>
+              {{ t("home.about8") }}<br>
+              {{ t("home.about9") }} : <NuxtLink
                 to="https://edm115.dev"
                 target="_blank"
               >
                 edm115.dev
               </NuxtLink><br>
-              {{ t("about10") }} : <NuxtLink
+              {{ t("home.about10") }} : <NuxtLink
                 to="mailto:dev@edm115.dev"
                 target="_blank"
                 external
               >
                 dev@edm115.dev
               </NuxtLink><br>
-              {{ t("about11") }}<br>
-              {{ t("about12") }} : <NuxtLink
+              {{ t("home.about11") }}<br>
+              {{ t("home.about12") }} : <NuxtLink
                 to="tel:+33667980504"
                 target="_blank"
                 external
               >
                 +33 6 67 98 05 04
               </NuxtLink><br>
-              {{ t("about13") }}<br>
+              {{ t("home.about13") }}<br>
             </p>
           </v-card-text>
         </v-card>
@@ -131,7 +131,7 @@
                 to="#stats"
                 class="internal-link"
               >
-                {{ t("stats") }}
+                {{ t("home.stats") }}
               </NuxtLink>
             </h2>
           </v-card-title>
@@ -153,7 +153,7 @@
                 to="#skills"
                 class="internal-link"
               >
-                {{ t("skills") }}
+                {{ t("home.skills") }}
               </NuxtLink>
             </h2>
           </v-card-title>
@@ -175,14 +175,14 @@
                 to="#resume"
                 class="internal-link"
               >
-                {{ t("resume") }}
+                {{ t("home.resume") }}
               </NuxtLink>
             </h2>
           </v-card-title>
 
           <v-card-text>
             <p>
-              {{ t("resume1") }}<br>
+              {{ t("home.resume1") }}<br>
               <v-stepper-vertical
                 non-linear
                 ripple
@@ -196,7 +196,7 @@
               >
                 <template #default>
                   <v-stepper-vertical-item
-                    :subtitle="t('resume2')"
+                    :subtitle="t('home.resume2')"
                     title="EDM115"
                     :icon="mdiAccountTieOutline"
                     :edit-icon="mdiAccountTieOutline"
@@ -204,8 +204,8 @@
                   >
                     <v-list>
                       <v-list-item>
-                        <v-list-item-title>{{ t("resume3") }}</v-list-item-title>
-                        {{ t("resume4") }}<br>
+                        <v-list-item-title>{{ t("home.resume3") }}</v-list-item-title>
+                        {{ t("home.resume4") }}<br>
                         <NuxtLink
                           to="mailto:dev@edm115.dev"
                           target="_blank"
@@ -224,8 +224,8 @@
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume5')"
-                    :title="t('resume6')"
+                    :subtitle="t('home.resume5')"
+                    :title="t('home.resume6')"
                     :icon="mdiBriefcaseOutline"
                     :edit-icon="mdiBriefcaseOutline"
                     value="2"
@@ -236,14 +236,14 @@
                         <v-list-item-subtitle class="mb-2">
                           Nexelec, Saint-Avé
                         </v-list-item-subtitle><br>
-                        {{ t("resume7") }}
+                        {{ t("home.resume7") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume5')"
-                    :title="t('resume8')"
+                    :subtitle="t('home.resume5')"
+                    :title="t('home.resume8')"
                     :icon="mdiBriefcaseOutline"
                     :edit-icon="mdiBriefcaseOutline"
                     value="3"
@@ -254,14 +254,14 @@
                         <v-list-item-subtitle class="mb-2">
                           Koumoul, Vannes
                         </v-list-item-subtitle><br>
-                        {{ t("resume9") }}
+                        {{ t("home.resume9") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume10')"
-                    :title="t('resume11')"
+                    :subtitle="t('home.resume10')"
+                    :title="t('home.resume11')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
                     value="4"
@@ -272,14 +272,14 @@
                         <v-list-item-subtitle class="mb-2">
                           IUT Vannes
                         </v-list-item-subtitle><br>
-                        {{ t("resume12") }}
+                        {{ t("home.resume12") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
 
                   <v-stepper-vertical-item
-                    :subtitle="t('resume10')"
-                    :title="t('resume13')"
+                    :subtitle="t('home.resume10')"
+                    :title="t('home.resume13')"
                     :icon="mdiSchoolOutline"
                     :edit-icon="mdiSchoolOutline"
                     value="5"
@@ -290,7 +290,7 @@
                         <v-list-item-subtitle class="mb-2">
                           Lycée Saint-Paul, Vannes
                         </v-list-item-subtitle><br>
-                        {{ t("resume14") }}
+                        {{ t("home.resume14") }}
                       </v-list-item>
                     </v-list>
                   </v-stepper-vertical-item>
@@ -298,13 +298,13 @@
               </v-stepper-vertical>
             </p>
             <h3 class="mt-4 mb-2">
-              {{ t("downloadResume") }}
+              {{ t("home.downloadResume") }}
             </h3>
             <v-btn
               class="mr-2"
               color="secondary"
               :prepend-icon="mdiFileDownload"
-              :text="t('downloadPdf')"
+              :text="t('home.downloadPdf')"
               href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -312,7 +312,7 @@
             <v-btn
               color="secondary"
               :prepend-icon="mdiWeb"
-              :text="t('downloadOnline')"
+              :text="t('home.downloadOnline')"
               href="https://old.edm115.dev/cv"
               target="_blank"
               rel="noopener noreferrer"
@@ -332,7 +332,7 @@
                 to="#projects"
                 class="internal-link"
               >
-                {{ t("projects") }}
+                {{ t("home.projects") }}
               </NuxtLink>
             </h2>
           </v-card-title>
@@ -354,7 +354,7 @@
                 to="#opensource"
                 class="internal-link"
               >
-                {{ t("oss") }}
+                {{ t("home.oss") }}
               </NuxtLink>
             </h2>
           </v-card-title>
@@ -376,22 +376,22 @@
                 to="#contact"
                 class="internal-link"
               >
-                {{ t("contact") }}
+                {{ t("home.contact") }}
               </NuxtLink>
             </h2>
           </v-card-title>
 
           <v-card-text>
             <p class="mb-4">
-              {{ t("contact1") }}<br><br>
-              {{ t("contact2") }}<br>
-              {{ t("contact3") }}<br>
+              {{ t("home.contact1") }}<br><br>
+              {{ t("home.contact2") }}<br>
+              {{ t("home.contact3") }}<br>
             </p>
             <v-btn
               class="mr-2"
               color="secondary"
               :prepend-icon="mdiLink"
-              :text="t('contact4')"
+              :text="t('home.contact4')"
               href="https://old.edm115.dev"
               target="_blank"
               rel="noopener noreferrer"
@@ -399,7 +399,7 @@
             <v-btn
               color="secondary"
               :prepend-icon="mdiLink"
-              :text="t('contact5')"
+              :text="t('home.contact5')"
               href="https://edm115.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
@@ -419,7 +419,7 @@
                 to="#social"
                 class="internal-link"
               >
-                EDM115 • {{ t("social") }}
+                EDM115 • {{ t("home.social") }}
               </NuxtLink>
             </h2>
           </v-card-title>
@@ -432,105 +432,6 @@
     </v-row>
   </v-container>
 </template>
-
-<i18n>
-{
-  "en": {
-    "about": "About",
-    "about1": "I'm a French developer who like to play with different programming languages",
-    "about10": "Email",
-    "about11": "Birthday : 18th June",
-    "about12": "Phone",
-    "about13": "Degree : Computer Science BUT (Bachelor of Technology), Baccalureate+3",
-    "about2": "Managing both dev & relationship, I'm passionnated and involved into everything I try out",
-    "about3": "Web dev • Python enthusiast • Java dev",
-    "about4": "I mostly made things in Vue, Python and Java",
-    "about5": "You can check all my projects on my GitHub",
-    "about6": "Name : Lussandre Lederrey",
-    "about7": "Age : {age} years old",
-    "about8": "City : Rouen, France",
-    "about9": "Website",
-    "blog": "Blog",
-    "contact": "Contact",
-    "contact1": "Not ready yet. Email and phone number available upper, and social links below",
-    "contact2": "If you reached this far, congratulations.",
-    "contact3": "Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit",
-    "contact4": "Old",
-    "contact5": "Live",
-    "downloadOnline": "Online",
-    "downloadPdf": "PDF",
-    "downloadResume": "Download my Resume",
-    "home": "Home",
-    "oss": "Open Source contributions",
-    "projects": "Projects",
-    "resume": "Resume",
-    "resume1": "What is my path ? Discover it there",
-    "resume2": "Summary",
-    "resume3": "I'm a developer searching for a job",
-    "resume4": "Rouen, France",
-    "resume5": "Professional experience",
-    "resume6": "Internship {'@'} Nexelec",
-    "resume7": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ...",
-    "resume8": "Internship {'@'} Koumoul",
-    "resume9": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
-    "resume10": "Education",
-    "resume11": "BUT Computer Science",
-    "resume12": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
-    "resume13": "BAC",
-    "resume14": "I learnt here the basics of programmation with Python and SQL",
-    "skills": "Skills",
-    "social": "Social links",
-    "stats": "Stats"
-  },
-  "fr": {
-    "about": "À propos",
-    "about1": "Je suis un développeur français qui aime jouer avec différents langages de programmation",
-    "about10": "Email",
-    "about11": "Anniversaire : 18 Juin",
-    "about12": "Téléphone",
-    "about13": "Diplôme : BUT Informatique, BAC+3",
-    "about2": "Gérant à la fois le dev & ma relation, je suis passionné et impliqué dans tout ce que j'essaie",
-    "about3": "Dev Web • Enthousiaste Python • Dev Java",
-    "about4": "J'ai principalement fait des choses en Vue, Python et Java",
-    "about5": "Vous pouvez consulter tous mes projets sur mon GitHub",
-    "about6": "Nom : Lussandre Lederrey",
-    "about7": "Âge : {age} ans",
-    "about8": "Ville : Rouen, France",
-    "about9": "Site web",
-    "blog": "Blog",
-    "contact": "Contact",
-    "contact1": "Pas encore prêt. Email et numéro de téléphone disponibles ci-dessus, et liens sociaux ci-dessous",
-    "contact2": "Si vous êtes arrivé jusqu'ici, félicitations.",
-    "contact3": "Voici 2 boutons : le premier mène à l'ancienne version de mon site web, le second est la nouvelle mais mise à jour en direct à chaque commit",
-    "contact4": "Ancien",
-    "contact5": "En direct",
-    "downloadOnline": "En ligne",
-    "downloadPdf": "PDF",
-    "downloadResume": "Télécharger mon CV",
-    "home": "Accueil",
-    "oss": "Contributions Open Source",
-    "projects": "Projets",
-    "resume": "CV",
-    "resume1": "Quel est mon parcours ? Découvrez-le ici",
-    "resume2": "Résumé",
-    "resume3": "Je suis un développeur à la recherche d'un emploi",
-    "resume4": "Rouen, France",
-    "resume5": "Expérience professionnelle",
-    "resume6": "Stage {'@'} Nexelec",
-    "resume7": "Un stage de 16 semaines où j'ai appris à travailler dans une grande équipe, à utiliser Next.js, Fastify, Terraform, InfluxDB, ...",
-    "resume8": "Stage {'@'} Koumoul",
-    "resume9": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
-    "resume10": "Éducation",
-    "resume11": "BUT Informatique",
-    "resume12": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ...",
-    "resume13": "BAC",
-    "resume14": "J'ai appris ici les bases de la programmation avec Python et SQL",
-    "skills": "Compétences",
-    "social": "Liens sociaux",
-    "stats": "Stats"
-  }
-}
-</i18n>
 
 <script setup lang="ts">
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"

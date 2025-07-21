@@ -43,7 +43,7 @@ const isDarkTheme = computed(() => theme.value === "dark")
 const showGoToTop = ref(false)
 
 useHead({
-  title: t("main.title"),
+  title: t("main.head"),
   meta: [
     { charset: "UTF-8" },
     { name: "darkreader-lock" },
@@ -57,8 +57,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: t("main.title"),
-  ogTitle: t("main.title"),
+  title: t("main.head"),
+  ogTitle: t("main.head"),
   description: t("main.description"),
   ogDescription: t("main.description"),
   ogImage: "/img/profile-img.webp",

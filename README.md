@@ -3,37 +3,6 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 
 [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
 
-## Plan
-- Complete redesign :white_check_mark:
-- Vue 3 + Vite + Vuetify :white_check_mark:
-- Drop of Bootstrap (and most libraries) :white_check_mark:
-- Dark theme (by default) :white_check_mark:
-- TypeScript :white_check_mark:
-- Usage of the Dracula color scheme if possible :white_check_mark:
-- Modern feel, glassy interface :x:
-- Custom cursor on few elements :x:
-- Reloadless transitions between pages :white_check_mark:
-- Holographic card effect on my logo :x:
-- Breadcrumb :x:
-- Working contact form :x:
-- Simple colors :white_check_mark:
-- Animate on scroll :sparkle:
-- Responsive :sparkle:
-- Fast to load :white_check_mark:
-- Not too fancy :white_check_mark:
-- Showcase of my projects :sparkle:
-- B&W water filling animation on load ? :x:
-- Glow :x:
-- Neon :x:
-- A bunch of stuff I obviously don't handle well but just to show that "eh I can use that bro 🤓" and flex on poor souls visiting my website :x:
-- It have to act as a portfolio (showcase of my projects, my skills, my experiences, etc.) and a blog (where I can share my thoughts, my projects, etc.) :sparkle:
-
-> [!NOTE]  
-> Legend :  
-> - :white_check_mark: : Done
-> - :sparkle: : In progress
-> - :x: : Not done
-
 ## Minimal repro
 ```bash
 git clone https://github.com/EDM115/website.git && cd website

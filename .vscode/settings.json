@@ -32,7 +32,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",
-    "nuxt.config.ts": "error.vue, tsconfig.*",
+    "nuxt.config.ts": "tsconfig.*",
     "package.json": "pnpm*",
     "README.md": "LICENSE, .gitignore, .deepsource.toml, CONTRIBUTORS.svg"
   },

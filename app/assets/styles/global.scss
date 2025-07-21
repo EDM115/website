@@ -315,6 +315,7 @@ h6 a:hover > code.hljs {
 
 .v-list-item-title {
   text-wrap: pretty;
+  white-space: normal !important;
   word-break: keep-all;
 }
 
