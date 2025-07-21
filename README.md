@@ -13,7 +13,10 @@ pnpm dev
 ```bash
 pnpm lint:fix
 pnpm build
-pnpm preview
+pnpm preview:ssr
+
+pnpm generate
+pnpm preview:ssg
 ```
 
 ---

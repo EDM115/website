@@ -1,10 +1,11 @@
 export function useCustomTheme() {
   const { $vuetify } = useNuxtApp()
+  const cookie = useCookie("theme")
 
   const isDark = useDark({
     valueDark: "dark",
     valueLight: "light",
-    initialValue: "dark",
+    initialValue: cookie.value as "dark" | "light" | null | undefined ?? "dark",
     onChanged: (dark: boolean) => {
       $vuetify.theme.change(dark ? "dark" : "light")
     },

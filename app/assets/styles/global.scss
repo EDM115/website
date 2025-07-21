@@ -153,7 +153,7 @@ p, li {
 }
 
 .markdown-body p > img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -326,4 +326,12 @@ h6 a:hover > code.hljs {
   text-wrap: pretty;
   word-break: keep-all;
   white-space: wrap;
+}
+
+.force-nuxt-fonts-nunito {
+  font-family: "Nunito";
+}
+
+.force-nuxt-fonts-inter {
+  font-family: "Inter";
 }

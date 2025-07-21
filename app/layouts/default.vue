@@ -16,7 +16,7 @@
       class="go-to-top"
       :icon="mdiArrowUp"
       location="bottom right"
-      :variant="isDarkTheme ? 'tonal' : 'elevated'"
+      :variant="isDark ? 'tonal' : 'elevated'"
       @click="scrollToTop"
     />
   </v-app>
@@ -33,11 +33,8 @@ import { onMounted } from "vue"
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
 const store = useMainStore()
-const vuetifyTheme = useTheme()
 const { isDark } = useCustomTheme()
 
-const theme = ref(store.getTheme)
-const isDarkTheme = computed(() => theme.value === "dark")
 const showGoToTop = ref(false)
 
 useHead({
@@ -77,9 +74,6 @@ const handleScroll = () => {
 
 onMounted(() => {
   store.initStore()
-  store.setTheme(store.getTheme)
-  store.setI18n(store.getI18n)
-  vuetifyTheme.change(store.getTheme)
   setLocale(store.getI18n)
   window.addEventListener("scroll", handleScroll)
 })

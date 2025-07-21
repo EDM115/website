@@ -106,12 +106,11 @@ import { useMainStore } from "~/stores/main"
 import { computed, onMounted, ref } from "vue"
 
 const store = useMainStore()
-const { toggleCT } = useCustomTheme()
+const { isDark, toggleCT } = useCustomTheme()
 const theme = ref(store.getTheme)
 const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
-const vuetifyTheme = useTheme()
-const iconTheme = computed(() => (vuetifyTheme.name.value === "light" ? mdiWeatherNight : mdiWeatherSunny))
+const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
 
 const { locale, t } = useI18n()
 const availableLocales = computed(() => store.getAvailableLocales)
@@ -155,7 +154,6 @@ function toggleTheme() {
 
   theme.value = theme.value === "dark" ? "light" : "dark"
   store.setTheme(theme.value)
-  vuetifyTheme.change(theme.value)
   toggleCT()
 
   // Force a reflow to apply the new theme without transitions
@@ -165,12 +163,11 @@ function toggleTheme() {
   document.head.removeChild(css)
 
   // Scroll down and up to trigger AOS and avoid content disappearing until we scroll
-  window.scrollBy(0, 1)
-  window.scrollBy(0, -1)
+  /* window.scrollBy(0, 1)
+  window.scrollBy(0, -1) */
 }
 
 onMounted(() => {
-  vuetifyTheme.change(store.getTheme)
   displayDialog.value = (store.getDisplayDialog === "true")
 })
 </script>

@@ -110,13 +110,6 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           compact: true,
-          manualChunks(id: string) {
-            if (id.includes("node_modules")) {
-              return id.split("node_modules/").pop()?.split("/")[0]
-            }
-
-            return id.toString().split("/")[0]
-          },
           validate: true,
         },
       },
@@ -261,7 +254,7 @@ export default defineNuxtConfig({
     baseUrl: "/",
     defaultLocale: "en",
     detectBrowserLanguage: {
-      cookieKey: "i18n_lang",
+      cookieKey: "i18n",
       fallbackLocale: "en",
       useCookie: true,
     },
@@ -292,7 +285,9 @@ export default defineNuxtConfig({
         reloadOnFirstRequest: true,
         viewportSize: true,
         prefersColorScheme: true,
-        prefersColorSchemeOptions: {},
+        prefersColorSchemeOptions: {
+          cookieName: "theme",
+        },
       },
     },
     vuetifyOptions: {
