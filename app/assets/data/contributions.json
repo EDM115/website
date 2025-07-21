@@ -224,6 +224,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 62,
+    "name": "medyo/hackertab.dev",
+    "description": "[BUG] The ad is on top of the changelog",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/medyo/hackertab.dev/issues/247"
+  },
+  {
     "id": 61,
     "name": "marticliment/UniGetUI",
     "description": "[CRASH] Clearing the icon cache and then opening the details of a package that had its icon cleared will hang UniGetUI",
