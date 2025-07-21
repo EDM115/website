@@ -174,10 +174,10 @@ export default defineNuxtConfig({
                   </span>
                 `.trim()
 
-                const t = new state.Token("html_inline", "", 0)
+                const newToken = new state.Token("html_inline", "", 0)
 
-                t.content = html
-                inline?.children?.unshift(t)
+                newToken.content = html
+                inline?.children?.unshift(newToken)
               }
             }
           })
