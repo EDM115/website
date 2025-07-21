@@ -205,7 +205,9 @@ function callback(entries: IntersectionObserverEntry[]) {
       const idParts = elementId.split("-")
       const statId = idParts[0]?.slice(1) ?? ""
       const statIndex = parseInt(statId)
-      const statValue = Number.isInteger(statIndex) ? stats.value[statIndex]?.value : 0
+      const statValue = !isNaN(statIndex) && statIndex >= 0 && statIndex < stats.value.length
+        ? stats.value[statIndex]?.value ?? 0
+        : 0
 
       animateDigits(statId, statValue ?? 0)
       observer?.unobserve(entry.target)
