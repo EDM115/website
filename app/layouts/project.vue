@@ -11,7 +11,7 @@
           color="primary"
           class="mb-4"
           :prepend-icon="mdiArrowLeft"
-          :text="t('back')"
+          :text="t('projects.back')"
           @click="$router.push('/projects')"
         />
         <div>
@@ -32,17 +32,6 @@
     />
   </v-app>
 </template>
-
-<i18n>
-{
-  "en": {
-    "back": "Back to projects list",
-  },
-  "fr": {
-    "back": "Retour à la liste des projets",
-  }
-}
-</i18n>
 
 <script setup lang="ts">
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
@@ -69,12 +58,12 @@ const isDarkTheme = computed(() => theme.value === "dark")
 const showGoToTop = ref(false)
 
 useHead({
-  title: t("main.title"),
+  title: t("projects.head"),
   meta: [
     { charset: "UTF-8" },
     { name: "darkreader-lock" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { name: "description", content: t("main.description") },
+    { name: "description", content: t("projects.description") },
   ],
   link: [{ rel: "icon", type: "image/webp", href: "/img/profile-img.webp" }],
   htmlAttrs: {
@@ -83,10 +72,10 @@ useHead({
 })
 
 useSeoMeta({
-  title: t("main.title"),
-  ogTitle: t("main.title"),
-  description: t("main.description"),
-  ogDescription: t("main.description"),
+  title: t("projects.head"),
+  ogTitle: t("projects.head"),
+  description: t("projects.description"),
+  ogDescription: t("projects.description"),
   ogImage: "/img/profile-img.webp",
   ogType: "website",
   ogUrl: "https://edm115.dev",

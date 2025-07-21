@@ -77,21 +77,6 @@
   </v-col>
 </template>
 
-<i18n>
-{
-  "en": {
-    "loc": "Lines of code in my projects",
-    "projects": "Projects made (public)",
-    "users": "Users of my services (has yet to be refreshed through an API)"
-  },
-  "fr": {
-    "loc": "Lignes de code dans mes projets",
-    "projects": "Projets réalisés (publics)",
-    "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
-  }
-}
-</i18n>
-
 <script setup lang="ts">
 import { useMainStore } from "~/stores/main"
 
@@ -171,9 +156,9 @@ const projectsLoc = ref({
 const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => acc + cur, 0))
 
 const stats = ref([
-  { id: 0, name: t("projects"), value: projectsNumber.value },
-  { id: 1, name: t("users"), value: 46568 },
-  { id: 2, name: t("loc"), value: linesOfCode },
+  { id: 0, name: t("stats.projects"), value: projectsNumber.value },
+  { id: 1, name: t("stats.users"), value: 46568 },
+  { id: 2, name: t("stats.loc"), value: linesOfCode },
 ])
 
 async function fetchProjectsNumber() {

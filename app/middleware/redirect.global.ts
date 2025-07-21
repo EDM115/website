@@ -3,6 +3,10 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     return navigateTo(to.path.replace(".html", ""))
   }
 
+  if (to.path.endsWith("/") && to.path !== "/") {
+    return navigateTo(to.path.slice(0, -1))
+  }
+
   const router = useRouter()
   const routeExists = router.getRoutes().some((route) => route.path === to.path)
 
@@ -27,5 +31,11 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     if (oldSubdomainRoutes.some((route) => to.path.startsWith(route))) {
       return navigateTo(`https://old.edm115.dev${to.fullPath}`, { external: true })
     }
+
+    if (to.path.startsWith("/blog/")) {
+      return navigateTo("/blog")
+    }
+
+    return navigateTo("/")
   }
 })

@@ -1,3 +1,99 @@
 {
-  
+  "blog": {
+    "back": "Back to blog list",
+    "description": "Some random blog posts that I write when I have time",
+    "head": "Blog - EDM115",
+    "subtitle": "4 random posts, to be completed with a date & tag sorting system",
+    "title": "Blog (unfinished)"
+  },
+  "home": {
+    "about": "About",
+    "about1": "I'm a French developer who like to play with different programming languages",
+    "about10": "Email",
+    "about11": "Birthday : 18th June",
+    "about12": "Phone",
+    "about13": "Degree : Computer Science BUT (Bachelor of Technology), Baccalureate+3",
+    "about2": "Managing both dev & relationship, I'm passionnated and involved into everything I try out",
+    "about3": "Web dev • Python enthusiast • Java dev",
+    "about4": "I mostly made things in Vue, Python and Java",
+    "about5": "You can check all my projects on my GitHub",
+    "about6": "Name : Lussandre Lederrey",
+    "about7": "Age : {age} years old",
+    "about8": "City : Darnétal, France",
+    "about9": "Website",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contact1": "Not ready yet. Email and phone number available upper, and social links below",
+    "contact2": "If you reached this far, congratulations.",
+    "contact3": "Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit",
+    "contact4": "Old",
+    "contact5": "Live",
+    "downloadOnline": "Online",
+    "downloadPdf": "PDF",
+    "downloadResume": "Download my Resume",
+    "home": "Home",
+    "oss": "Open Source contributions",
+    "projects": "Projects",
+    "resume": "Resume",
+    "resume1": "What is my path ? Discover it there",
+    "resume10": "Education",
+    "resume11": "BUT Computer Science",
+    "resume12": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
+    "resume13": "BAC",
+    "resume14": "I learnt here the basics of programmation with Python and SQL",
+    "resume2": "Summary",
+    "resume3": "I'm a developer searching for a job",
+    "resume4": "Darnétal, France",
+    "resume5": "Professional experience",
+    "resume6": "Internship {'@'} Nexelec",
+    "resume7": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ...",
+    "resume8": "Internship {'@'} Koumoul",
+    "resume9": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
+    "skills": "Skills",
+    "social": "Social links",
+    "stats": "Stats"
+  },
+  "main": {
+    "description": "Find all infos about EDM115, his projects, blog posts, ...",
+    "head": "EDM115 - French dev/gamer/music producer"
+  },
+  "navbar": {
+    "close": "Close",
+    "indev": {
+      "oldSite": "Visit the old website",
+      "text": "This website is still in heavy development and some areas aren't ready yet.",
+      "title": "In development"
+    }
+  },
+  "opensource": {
+    "issue": {
+      "closed": "Closed",
+      "ignored": "Ignored",
+      "open": "Open",
+      "title": "Issue",
+      "unknown": "Unknown issue state",
+      "multiple": "Issues"
+    },
+    "link": "Open in GitHub",
+    "pr": {
+      "closed": "Closed",
+      "merged": "Merged",
+      "open": "Open",
+      "title": "Pull Request",
+      "unknown": "Unknown pull request state",
+      "multiple": "Pull Requests"
+    }
+  },
+  "projects": {
+    "back": "Back to projects list",
+    "description": "A list of all my interesting projects",
+    "head": "Projects - EDM115",
+    "project": "Project",
+    "title": "My projects (unfinished)"
+  },
+  "stats": {
+    "loc": "Lines of code in my projects",
+    "projects": "Projects made (public)",
+    "users": "Users of my services (has yet to be refreshed through an API)"
+  }
 }

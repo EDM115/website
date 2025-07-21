@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>{{ t("projects") }}</h1>
+    <h1>{{ t("projects.title") }}</h1>
 
     <NuxtLink
       class="ma-2"
@@ -95,19 +95,6 @@
   </v-container>
 </template>
 
-<i18n>
-{
-  "en": {
-    "head": "Projects - EDM115",
-    "projects": "My projects (TBD)"
-  },
-  "fr": {
-    "head": "Projets - EDM115",
-    "projects": "Mes projets (pas terminé)"
-  }
-}
-</i18n>
-
 <script setup lang="ts">
 import { useMainStore } from "~/stores/main"
 
@@ -118,11 +105,11 @@ const userLocale = computed(() => store.getI18n)
 const { locale, t } = useI18n()
 
 useHead({
-  title: t("head"),
+  title: t("projects.head"),
   meta: [
     {
       name: "og:title",
-      content: t("head"),
+      content: t("projects.head"),
     },
   ],
 })

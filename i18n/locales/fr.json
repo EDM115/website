@@ -1,3 +1,99 @@
 {
-  
+  "blog": {
+    "back": "Retour à la liste des blogs",
+    "description": "Quelques articles de blog random que j'ai écrit quand j'ai du temps",
+    "head": "Blog - EDM115",
+    "subtitle": "4 articles random, à compléter avec un système de tri par date & tag",
+    "title": "Blog (pas terminé, en anglais)"
+  },
+  "home": {
+    "about": "À propos",
+    "about1": "Je suis un développeur français qui aime jouer avec différents langages de programmation",
+    "about10": "Email",
+    "about11": "Anniversaire : 18 Juin",
+    "about12": "Téléphone",
+    "about13": "Diplôme : BUT Informatique, BAC+3",
+    "about2": "Gérant à la fois le dev & ma relation, je suis passionné et impliqué dans tout ce que j'essaie",
+    "about3": "Dev Web • Enthousiaste Python • Dev Java",
+    "about4": "J'ai principalement fait des choses en Vue, Python et Java",
+    "about5": "Vous pouvez consulter tous mes projets sur mon GitHub",
+    "about6": "Nom : Lussandre Lederrey",
+    "about7": "Âge : {age} ans",
+    "about8": "Ville : Darnétal, France",
+    "about9": "Site web",
+    "blog": "Blog",
+    "contact": "Contact",
+    "contact1": "Pas encore prêt. Email et numéro de téléphone disponibles ci-dessus, et liens sociaux ci-dessous",
+    "contact2": "Si vous êtes arrivé jusqu'ici, félicitations.",
+    "contact3": "Voici 2 boutons : le premier mène à l'ancienne version de mon site web, le second est la nouvelle mais mise à jour en direct à chaque commit",
+    "contact4": "Ancien",
+    "contact5": "En direct",
+    "downloadOnline": "En ligne",
+    "downloadPdf": "PDF",
+    "downloadResume": "Télécharger mon CV",
+    "home": "Accueil",
+    "oss": "Contributions Open Source",
+    "projects": "Projets",
+    "resume": "CV",
+    "resume1": "Quel est mon parcours ? Découvrez-le ici",
+    "resume10": "Éducation",
+    "resume11": "BUT Informatique",
+    "resume12": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ...",
+    "resume13": "BAC",
+    "resume14": "J'ai appris ici les bases de la programmation avec Python et SQL",
+    "resume2": "Résumé",
+    "resume3": "Je suis un développeur à la recherche d'un emploi",
+    "resume4": "Darnétal, France",
+    "resume5": "Expérience professionnelle",
+    "resume6": "Stage {'@'} Nexelec",
+    "resume7": "Un stage de 16 semaines où j'ai appris à travailler dans une grande équipe, à utiliser Next.js, Fastify, Terraform, InfluxDB, ...",
+    "resume8": "Stage {'@'} Koumoul",
+    "resume9": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
+    "skills": "Compétences",
+    "social": "Liens sociaux",
+    "stats": "Stats"
+  },
+  "main": {
+    "description": "Trouvez toutes les infos sur EDM115, ses projets, articles de blog, ...",
+    "head": "EDM115 - Développeur français/gamer/producteur de musique"
+  },
+  "navbar": {
+    "close": "Fermer",
+    "indev": {
+      "oldSite": "Visiter l'ancien site",
+      "text": "Ce site est encore en développement intensif et certaines parties ne sont pas encore prêtes.",
+      "title": "En développement"
+    }
+  },
+  "opensource": {
+    "issue": {
+      "closed": "fermée",
+      "ignored": "ignorée",
+      "multiple": "Issues",
+      "open": "ouverte",
+      "title": "Issue",
+      "unknown": "État d'issue inconnu"
+    },
+    "link": "Ouvrir dans GitHub",
+    "pr": {
+      "closed": "fermée",
+      "merged": "fusionnée",
+      "multiple": "Pull Requests",
+      "open": "ouverte",
+      "title": "Pull Request",
+      "unknown": "État de pull request inconnu"
+    }
+  },
+  "projects": {
+    "back": "Retour à la liste des projets",
+    "description": "Une liste de tous mes projets intéressants",
+    "head": "Projets - EDM115",
+    "project": "Projet",
+    "title": "Mes projets (pas terminé, en anglais)"
+  },
+  "stats": {
+    "loc": "Lignes de code dans mes projets",
+    "projects": "Projets réalisés (publics)",
+    "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
+  }
 }

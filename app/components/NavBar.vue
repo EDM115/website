@@ -73,49 +73,26 @@
       <v-alert
         :icon="lucideConstruction"
         color="error"
-        :title="t('indev.title')"
-        :text="t('indev.text')"
+        :title="t('navbar.indev.title')"
+        :text="t('navbar.indev.text')"
       />
       <v-card-actions>
         <v-btn
           color="text"
-          :text="t('indev.oldSite')"
+          :text="t('navbar.indev.oldSite')"
           href="https://old.edm115.dev"
           target="_blank"
           rel="noopener noreferrer"
         />
         <v-btn
           color="text"
-          :text="t('close')"
+          :text="t('navbar.close')"
           @click="toggleDialog"
         />
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
-
-<i18n>
-{
-  "en": {
-    "close": "Close",
-    "head": "EDM115 - French dev/student/gamer/music producer",
-    "indev": {
-      "oldSite": "Visit the old website",
-      "title": "In development",
-      "text": "This website is still in heavy development and some areas aren't ready yet."
-    }
-  },
-  "fr": {
-    "close": "Fermer",
-    "head": "EDM115 - Développeur français/étudiant/gamer/producteur de musique",
-    "indev": {
-      "oldSite": "Visiter l'ancien site",
-      "title": "En développement",
-      "text": "Ce site est encore en développement intensif et certaines parties ne sont pas encore prêtes."
-    }
-  }
-}
-</i18n>
 
 <script setup lang="ts">
 import lucideConstruction from "~icons/lucide/construction"
@@ -198,7 +175,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style>
 .spin-animation:active {
   animation: spin 1s ease-in-out 0s 1;
 }
