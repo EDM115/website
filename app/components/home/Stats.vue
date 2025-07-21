@@ -274,8 +274,8 @@ onMounted(async () => {
 .numb {
   color: rgb(var(--v-theme-primary));
   text-align: center;
-  font-size: 50px;
   font: "Fira Code", monospace;
+  font-size: 50px;
   font-weight: bold;
   height: 100%;
   width: 100%;
