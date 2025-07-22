@@ -55,14 +55,12 @@ const showGoToTop = ref(false)
 useHead({
   title: t("blog.head"),
   meta: [
-    { charset: "UTF-8" },
     { name: "darkreader-lock" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
     { name: "description", content: t("blog.description") },
   ],
   link: [{ rel: "icon", type: "image/webp", href: "/img/profile-img.webp" }],
   htmlAttrs: {
-    lang: i18nHead.value.htmlAttrs!.lang,
+    lang: i18nHead.value.htmlAttrs.lang ?? "en",
   },
 })
 

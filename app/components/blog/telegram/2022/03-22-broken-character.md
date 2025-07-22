@@ -1,5 +1,8 @@
 ---
-title: 2022-03-22 06:05 : broken character - EDM115 blog
+title: broken character - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-03-22T06:05:00Z
 ---
 
 Here's a buggy telegram thing :joy: pretty sure it will appear as "unsupported characters"  

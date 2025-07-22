@@ -1,5 +1,8 @@
 ---
-title: 2022-02-04 19:36 : changelog - EDM115 blog
+title: changelog - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-02-04T19:36:00Z
 ---
 
 #ytdlbot #changelog : new in 2.6.2  

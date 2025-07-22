@@ -1,5 +1,8 @@
 ---
-title: 2022-04-21 20:08 : Unzip bot announcement - EDM115 blog
+title: Unzip bot announcement - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-04-21T20:08:00Z
 ---
 
 :smiling_face_with_three_hearts: **NEW BOT ALERT** :weary:  

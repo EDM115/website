@@ -18,8 +18,8 @@ import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
 import { full as emoji } from "markdown-it-emoji"
 
-const mdi = await lookupCollection("mdi")
-const mdiLinkVariant = `<svg>${mdi.icons["link-variant"]?.body || ""}</svg>`
+const localMdi = await lookupCollection("mdi")
+const mdiLinkVariant = `<svg>${localMdi.icons["link-variant"]?.body || ""}</svg>`
 
 export default defineNuxtConfig({
   modules: [
@@ -41,14 +41,26 @@ export default defineNuxtConfig({
     vueDevTools: true,
   },
   app: {
+    head: {
+      title: "EDM115 - French dev/gamer/music producer",
+      meta: [
+        { name: "darkreader-lock" },
+        { name: "description", content: "Find all infos about EDM115, his projects, blog posts, ..." },
+      ],
+      htmlAttrs: {
+        lang: "en",
+      },
+      link: [{ rel: "icon", type: "image/webp", href: "/img/profile-img.webp" }],
+    },
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },
   },
   css: [
+    "~/assets/styles/global.scss",
     "~/assets/styles/markdown-alert.scss",
     "~/assets/styles/markdown-spoiler.scss",
     "~/assets/styles/dracula-hljs.scss",
-    "~/assets/styles/global.scss",
+    "~/assets/styles/main.scss",
   ],
   router: {
     options: {
@@ -56,8 +68,8 @@ export default defineNuxtConfig({
     },
   },
   sourcemap: {
-    client: false,
-    server: false,
+    client: true,
+    server: true,
   },
   devServer: {
     port: 8888,
@@ -286,6 +298,7 @@ export default defineNuxtConfig({
   },
   vuetify: {
     moduleOptions: {
+      prefixComposables: true,
       ssrClientHints: {
         reloadOnFirstRequest: true,
         viewportSize: true,
@@ -296,7 +309,11 @@ export default defineNuxtConfig({
       },
     },
     vuetifyOptions: {
+      directives: true,
       labComponents: true,
+      icons: {
+        defaultSet: "mdi-svg",
+      },
       theme: {
         defaultTheme: "dark",
         themes: {

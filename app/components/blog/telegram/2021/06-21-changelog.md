@@ -1,5 +1,8 @@
 ---
-title: 2021-06-21 16:27:19 : changelog - EDM115 blog
+title: changelog - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-06-21T16:27:19Z
 ---
 
 #changelog : new in 1.1  

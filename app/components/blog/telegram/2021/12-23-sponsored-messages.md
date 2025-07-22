@@ -1,7 +1,10 @@
 ---
-title: 2021-12-23 01:49 : Sponsored messages - EDM115 blog
+title: Sponsored messages - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-12-23T01:49:00Z
 ---
 
-![sponsored-messages](~/assets/img/blog/2021/12-23-sponsored-messages.webp)  
+![sponsored-messages](/img/blog/2021/12-23-sponsored-messages.webp)  
 So, this is an example of [sponsored messages](https://core.telegram.org/api/sponsored-messages)  
 :grimacing: *(no)*

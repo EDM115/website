@@ -1,5 +1,8 @@
 ---
-title: 2021-06-13 15:17:43 : storytime - EDM115 blog
+title: storytime - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-06-13T15:17:43Z
 ---
 
 #storytime Inutile backstory :  

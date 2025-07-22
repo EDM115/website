@@ -1,5 +1,8 @@
 ---
-title: 2022-01-20 19:44 : YT bot v3 - EDM115 blog
+title: YT bot v3 - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-01-20T19:44:00Z
 ---
 
 :man_technologist: **Currently working on an update of my best bot** :man_technologist:  

@@ -1,5 +1,8 @@
 ---
-title: 2021-12-18 20:39 : YT bot issues - EDM115 blog
+title: YT bot issues - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-12-18T20:39:00Z
 ---
 
 You think [bot](https://t.me/ytvideodownloaderbyedm115_bot) is **down ?**  

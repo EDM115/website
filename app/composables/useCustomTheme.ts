@@ -23,6 +23,19 @@ export function useCustomTheme() {
 
       $vuetify.theme.change(theme)
       store.setTheme(theme)
+
+      if (import.meta.client) {
+        const styleId = "color-scheme-style"
+        let styleElement = document.getElementById(styleId) as HTMLStyleElement
+
+        if (!styleElement) {
+          styleElement = document.createElement("style")
+          styleElement.id = styleId
+          document.head.appendChild(styleElement)
+        }
+
+        styleElement.textContent = `:root { color-scheme: ${theme}; }`
+      }
     },
   })
 

@@ -1,5 +1,8 @@
 ---
-title: 2021-06-14 05:03:10 : storytime - EDM115 blog
+title: storytime - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-06-14T05:03:10Z
 ---
 
 #storytime Hmmm… I see a behavior of the bot that isn't coded for it… because of bad use…  

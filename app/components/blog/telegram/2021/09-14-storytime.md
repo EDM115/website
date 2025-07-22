@@ -1,5 +1,8 @@
 ---
-title: 2021-09-14 14:34:20 : storytime - EDM115 blog
+title: storytime - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-09-14T14:34:20Z
 ---
 
 #storytime idk why the bot is behaving that strange…  

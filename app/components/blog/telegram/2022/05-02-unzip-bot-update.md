@@ -1,5 +1,8 @@
 ---
-title: 2022-05-02 19:10 : Unzip bot v3.3.5 - EDM115 blog
+title: Unzip bot v3.3.5 - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-05-02T19:10:00Z
 ---
 
 **MAJOR UPDATE :partying_face:**  

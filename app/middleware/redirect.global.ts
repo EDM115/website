@@ -25,7 +25,6 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       "/socials",
       "/sporttrack",
       "/unzip",
-      "/robots.txt",
     ]
 
     if (oldSubdomainRoutes.some((route) => to.path.startsWith(route))) {

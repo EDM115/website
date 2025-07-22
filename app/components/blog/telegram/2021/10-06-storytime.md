@@ -1,5 +1,8 @@
 ---
-title: 2021-10-06 21:39:36 : storytime - EDM115 blog
+title: storytime - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2021-10-06T21:39:36Z
 ---
 
 Hey everyone :pleading_face: #storytime once again… and probably the last  

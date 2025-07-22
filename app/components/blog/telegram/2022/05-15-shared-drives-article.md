@@ -1,8 +1,8 @@
 ---
-title: Shared Drives Article - EDM115 blog
+title: Shared Drives article - EDM115 Telegram blog
 meta:
-  - name: date
-    content: 2022-05-15 22:53
+  - name: article:published_time
+    content: 2022-05-15T22:53:00Z
 ---
 
 My first article :pleading_face:  

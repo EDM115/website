@@ -47,6 +47,9 @@
   "importCost.smallPackageDarkColor": "#50FA7B",
   "importCost.smallPackageLightColor": "#50FA7B",
   "oxc.enable": true,
+  "search.exclude": {
+    "**/*.svg": true
+  },
   "vue.autoInsert.dotValue": true,
   "vue.format.script.initialIndent": true,
   "vue.format.style.initialIndent": true,

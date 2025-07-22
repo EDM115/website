@@ -1,5 +1,8 @@
 ---
-title: 2022-04-17 15:44 : changelog - EDM115 blog
+title: changelog - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-04-17T15:44:00Z
 ---
 
 #ytdlbot #changelog The YouTube bot faced a problem today where some audios were uploaded without thumbnail  

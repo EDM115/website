@@ -1,5 +1,8 @@
 ---
-title: 2022-02-19 00:25 : Google Drive .DS_Store - EDM115 blog
+title: Google Drive .DS_Store - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-02-19T00:25:00Z
 ---
 
 Google is high :sob:  

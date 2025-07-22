@@ -1,5 +1,8 @@
 ---
-title: 2022-05-07 01:18 : Bots roadmap - EDM115 blog
+title: Bots roadmap - EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-05-07T01:18:00Z
 ---
 
 <u>REGARDING TO MY BOTS (huge changes) :pleading_face::broken_heart:</u>  
