@@ -6,6 +6,11 @@
     "subtitle": "4 random posts, to be completed with a date & tag sorting system",
     "title": "Blog (unfinished)"
   },
+  "cookies": {
+    "text": "This website uses Cloudflare Web Analytics to collect anonymous data about the usage of the website. No personal data is collected. Do you accept this ?",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
   "home": {
     "about": "About",
     "about1": "I'm a French developer who like to play with different programming languages",

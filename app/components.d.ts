@@ -73,6 +73,7 @@ declare module 'vue' {
     BlogTelegram20220523MarkupTooLong: typeof import('./components/blog/telegram/2022/05-23-markup-too-long.md')['default']
     BlogTelegram20220608BotDown: typeof import('./components/blog/telegram/2022/06-08-bot-down.md')['default']
     BlogTelegram20220608TgxFileSize: typeof import('./components/blog/telegram/2022/06-08-tgx-file-size.md')['default']
+    CookieConsent: typeof import('./components/CookieConsent.vue')['default']
     HomeOpenSourceContributions: typeof import('./components/home/OpenSourceContributions.vue')['default']
     HomeProjectPage: typeof import('./components/home/ProjectPage.vue')['default']
     HomeProjects: typeof import('./components/home/Projects.vue')['default']

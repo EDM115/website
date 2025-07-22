@@ -28,6 +28,7 @@
       :variant="isDark ? 'tonal' : 'elevated'"
       @click="scrollToTop"
     />
+    <CookieConsent />
   </v-app>
 </template>
 

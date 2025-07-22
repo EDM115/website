@@ -6,6 +6,11 @@
     "subtitle": "4 articles random, à compléter avec un système de tri par date & tag",
     "title": "Blog (pas terminé, en anglais)"
   },
+  "cookies": {
+    "text": "Ce site utilise Cloudflare Web Analytics pour collecter des données anonymes sur l'utilisation du site. Aucune donnée personnelle n'est collectée. Acceptez-vous cela ?",
+    "accept": "Accepter",
+    "reject": "Refuser"
+  },
   "home": {
     "about": "À propos",
     "about1": "Je suis un développeur français qui aime jouer avec différents langages de programmation",

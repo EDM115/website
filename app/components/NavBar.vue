@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar rounded>
+  <v-app-bar class="rounded-b-lg">
     <template #prepend>
       <NuxtLink
         class="text-decoration-none"
