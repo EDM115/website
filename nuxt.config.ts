@@ -268,7 +268,7 @@ export default defineNuxtConfig({
     provider: "google",
   },
   i18n: {
-    baseUrl: "/",
+    baseUrl: "https://edm115.dev",
     defaultLocale: "en",
     detectBrowserLanguage: {
       cookieKey: "i18n",
@@ -279,8 +279,8 @@ export default defineNuxtConfig({
       typedOptionsAndMessages: "all",
     },
     locales: [
-      { code: "en", name: "English" },
-      { code: "fr", name: "Français" },
+      { code: "en", name: "English", language: "en-US" },
+      { code: "fr", name: "Français", language: "fr-FR" },
     ],
     strategy: "no_prefix",
     vueI18n: "./i18n.config.ts",

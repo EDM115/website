@@ -53,7 +53,7 @@ useScriptCloudflareWebAnalytics({
   scriptOptions: {
     bundle: true,
     trigger: cookieConsentTrigger,
-  }
+  },
 })
 
 onMounted(() => {

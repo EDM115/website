@@ -12,28 +12,10 @@
         </v-card-title>
         <v-card-text>
           <div
-            id="container"
-            class=""
+            :id="'od-' + stat.id"
+            class="odometer mockup-odometer"
           >
-            <div
-              id="counter"
-              class="middle d-flex justify-center align-center"
-            >
-              <div
-                v-for="(digit, index) in String(stat.value).split('')"
-                :id="'digit-container-' + stat.id + '-' + ((String(stat.value).split('').length) - index - 1)"
-                :key="index"
-                class="numbmask"
-              >
-                <div
-                  :id="'n' + stat.id + '-' + ((String(stat.value).split('').length) - index - 1)"
-                  class="numb"
-                >
-                  0 1 2 3 4 5 6 7 8 9 0
-                </div>
-                <div class="gradmask fullframe" />
-              </div>
-            </div>
+            0
           </div>
         </v-card-text>
       </v-card>
@@ -80,16 +62,13 @@
 <script setup lang="ts">
 import { useMainStore } from "~/stores/main"
 
-import { gsap } from "gsap"
-
 const { locale, t } = useI18n()
 const store = useMainStore()
 const userLocale = computed(() => store.getI18n)
 
-let observer: IntersectionObserver | null = null
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(65)
-
+const usersNumber = ref(46568)
 const projectsLoc = ref({
   // active
   "ban-all-except-admins": 441,
@@ -156,9 +135,17 @@ const linesOfCode = ref(Object.values(projectsLoc.value).reduce((acc, cur) => ac
 
 const stats = ref([
   { id: 0, name: t("stats.projects"), value: projectsNumber.value },
-  { id: 1, name: t("stats.users"), value: 46568 },
-  { id: 2, name: t("stats.loc"), value: linesOfCode },
+  { id: 1, name: t("stats.users"), value: usersNumber.value },
+  { id: 2, name: t("stats.loc"), value: linesOfCode.value },
 ])
+
+interface OdometerInstance {
+  update: (value: number)=> void
+}
+
+let observer: IntersectionObserver | null = null
+let TmOdometer: unknown
+const odos = ref<OdometerInstance[]>([])
 
 async function fetchProjectsNumber() {
   try {
@@ -175,46 +162,6 @@ async function fetchProjectsNumber() {
   }
 }
 
-function animateDigits(statId: string, value: number) {
-  const digitArray = String(value).split("")
-  const maxTime = 8
-
-  const animTl = gsap.timeline({ defaults: { ease: "none" }, repeat: 0, paused: true })
-
-  digitArray.forEach((digit, index) => {
-    const totalDigits = digitArray.length
-    const id = `#n${statId}-${totalDigits - index - 1}`
-    const duration = (index === 0 ? maxTime : maxTime / ((2 ** index) * 2))
-    const repeat = (index === 0 ? 0 : ((2 ** index) * 2) - 1)
-    const movement = digit === "0" ? 800 : Number(digit) * 80
-
-    animTl.to(id, { y: `-=${movement}`, repeat, duration }, "p1")
-  })
-
-  gsap.to(animTl, { duration: maxTime, progress: 1, ease: "power3.inOut" })
-
-  animTl.play()
-}
-
-function callback(entries: IntersectionObserverEntry[]) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const statElement = entry.target
-      const numbElement = statElement.querySelector(".numb")
-      const elementId = numbElement?.id ?? ""
-      const idParts = elementId.split("-")
-      const statId = idParts[0]?.slice(1) ?? ""
-      const statIndex = parseInt(statId)
-      const statValue = !isNaN(statIndex) && statIndex >= 0 && statIndex < stats.value.length
-        ? stats.value[statIndex]?.value ?? 0
-        : 0
-
-      animateDigits(statId, statValue ?? 0)
-      observer?.unobserve(entry.target)
-    }
-  })
-}
-
 onMounted(async () => {
   locale.value = userLocale.value
 
@@ -224,72 +171,166 @@ onMounted(async () => {
     stats.value[0].value = projectsNumber.value
   }
 
-  observer = new IntersectionObserver(callback, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.8,
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement
+          const idx = Number(el.id.split("-")[1])
+
+          el.classList.remove("mockup-odometer")
+          odos.value[idx]?.update(stats.value[idx]?.value ?? 0)
+          observer?.unobserve(el)
+        }
+      })
+    },
+    { root: null, rootMargin: "0px", threshold: 0.8 },
+  )
+
+  // dynamically load tm-odometer in browser
+  const TmOdometer = (await import("tm-odometer")).default
+
+  document.querySelectorAll(".odometer").forEach((el, idx) => {
+    if (!TmOdometer) {
+      return
+    }
+
+    type OdoCtorType = new (opts: { el: HTMLElement; value: number; animation: string; duration: number; format: string; theme?: string })=> OdometerInstance
+    const OdoCtor = TmOdometer as OdoCtorType
+    const odo = new OdoCtor({
+      el: el as HTMLElement,
+      value: 0,
+      animation: "slide",
+      duration: 8000,
+      format: "( ddd)",
+    })
+
+    odos.value[idx] = odo
+    observer?.observe(el)
   })
-  document.querySelectorAll("#statsCounters").forEach((el) => observer?.observe(el))
 })
 </script>
 
-<style scoped>
-.middle {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+<style lang="scss">
+$borderRadius: .2em;
+$padding: .15em;
 
-.fullframe {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#container {
+.mockup-odometer {
+  display: inline-block;
   position: relative;
-  overflow: hidden;
-  color: rgb(var(--v-theme-primary));
-  width: 100%;
-  height: 76px;
-}
+  vertical-align: middle;
 
-#counter {
-  width: 100%;
-  height: 76px;
-  overflow: hidden;
-  position: relative;
-}
-
-.numbmask {
-  position: relative;
+  border-radius: $borderRadius;
   margin: 0px 1px;
-  height: 100%;
-  width: 33px;
+  padding: 0.35em $padding;
+
+  font-family: "Fira Code", monospace;
+  font-size: 3em !important;
+  font-weight: 600;
+  line-height: 1.2;
+
   background-color: rgb(var(--v-theme-background-lighten-2));
-  color: rgb(var(--v-theme-primary));
-  overflow: hidden;
-  float: right;
-  border-radius: 8px;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-.numb {
   color: rgb(var(--v-theme-primary));
-  text-align: center;
-  font: "Fira Code", monospace;
-  font-size: 50px;
-  font-weight: bold;
-  height: 100%;
-  width: 100%;
-  line-height: 80px;
-  z-index: 1;
 }
 
-.gradmask {
-  position: absolute;
-  background: transparent;
+.odometer.odometer-auto-theme {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  border-radius: 0.5em;
+  padding: 0.35em $padding;
+
+  font-family: "Fira Code", monospace;
+  font-size: 3em !important;
+  font-weight: 600;
+  line-height: 1.2;
+
+  color: rgb(var(--v-theme-primary));
+
+  .odometer-digit {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+
+    margin: 0px 1px;
+    padding: $padding $padding;
+
+    background-color: rgb(var(--v-theme-background-lighten-2));
+    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
+
+    &:first-child {
+      border-radius: $borderRadius 0 0 $borderRadius;
+    }
+
+    &:last-child {
+      border-radius: 0 $borderRadius $borderRadius 0;
+    }
+
+    .odometer-digit-inner {
+      display: block;
+      position: absolute;
+
+      overflow: hidden;
+      padding-top: $padding;
+      text-align: left;
+
+      top: 0;
+      left: $padding;
+      right: 0;
+      bottom: 0;
+    }
+
+    .odometer-digit-spacer {
+      display: inline-block;
+      vertical-align: middle;
+      visibility: hidden;
+    }
+
+    .odometer-ribbon {
+      display: block;
+    }
+
+    .odometer-ribbon-inner {
+      display: block;
+      backface-visibility: hidden;
+    }
+
+    .odometer-value {
+      display: block;
+      transform: translateZ(0);
+
+      &.odometer-last-value {
+        position: absolute;
+      }
+    }
+  }
+
+  &.odometer-animating-up .odometer-ribbon-inner,
+  &.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+    transition-timing-function: ease-in-out;
+  }
+
+  &.odometer-animating-up {
+    .odometer-ribbon-inner {
+      transition: transform 8s;
+    }
+
+    &.odometer-animating .odometer-ribbon-inner {
+      transform: translateY(-100%);
+    }
+  }
+
+  &.odometer-animating-down {
+    .odometer-ribbon-inner {
+      transform: translateY(-100%);
+    }
+
+    &.odometer-animating .odometer-ribbon-inner {
+      transition: transform 8s;
+      transform: translateY(0);
+    }
+  }
 }
 </style>
