@@ -144,7 +144,6 @@ interface OdometerInstance {
 }
 
 let observer: IntersectionObserver | null = null
-let TmOdometer: unknown
 const odos = ref<OdometerInstance[]>([])
 
 async function fetchProjectsNumber() {
@@ -190,13 +189,7 @@ onMounted(async () => {
   const TmOdometer = (await import("tm-odometer")).default
 
   document.querySelectorAll(".odometer").forEach((el, idx) => {
-    if (!TmOdometer) {
-      return
-    }
-
-    type OdoCtorType = new (opts: { el: HTMLElement; value: number; animation: string; duration: number; format: string; theme?: string })=> OdometerInstance
-    const OdoCtor = TmOdometer as OdoCtorType
-    const odo = new OdoCtor({
+    const odo = new TmOdometer({
       el: el as HTMLElement,
       value: 0,
       animation: "slide",
