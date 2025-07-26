@@ -5,7 +5,7 @@
   >
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main>
+    <v-main style="--v-layout-top: 64px;">
       <slot />
     </v-main>
     <v-fab

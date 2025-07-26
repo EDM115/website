@@ -5,7 +5,7 @@
   >
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main>
+    <v-main style="--v-layout-top: 64px;">
       <v-container class="d-flex flex-column align-center">
         <v-btn
           color="primary"

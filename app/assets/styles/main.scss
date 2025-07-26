@@ -2,8 +2,8 @@
   @return rgb(var(--#{$name}));
 }
 
-@mixin counter-reset-start {
-  @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 {
+@mixin counter-reset-start($max: 20) {
+  @for $i from 1 through $max {
     &[start="#{$i}"] {
       counter-reset: item #{$i - 1};
     }
@@ -35,7 +35,10 @@ body {
   background: var-color(v-theme-primary);
 }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: "Fira Code", monospace !important;
 }
 
@@ -49,7 +52,12 @@ a:hover {
   color: var-color(v-theme-secondary);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
@@ -62,7 +70,8 @@ summary h6 {
   display: inline;
 }
 
-p, li {
+p,
+li {
   text-wrap: pretty;
 }
 
@@ -234,7 +243,7 @@ p, li {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background-color: #0B0D0F;
+  background-color: #0b0d0f;
   border-radius: 20px 20px 0px 0px;
   font-size: 0.8rem;
   color: #e9e9f4;

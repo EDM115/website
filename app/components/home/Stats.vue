@@ -178,7 +178,6 @@ onMounted(async () => {
           const el = entry.target as HTMLElement
           const idx = Number(el.id.split("-")[1])
 
-          el.classList.remove("mockup-odometer")
           odos.value[idx]?.update(stats.value[idx]?.value ?? 0)
           observer?.unobserve(el)
         }
@@ -205,6 +204,7 @@ onMounted(async () => {
       format: "( ddd)",
     })
 
+    el.classList.remove("mockup-odometer")
     odos.value[idx] = odo
     observer?.observe(el)
   })

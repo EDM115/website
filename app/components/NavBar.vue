@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="rounded-b-lg">
+  <v-app-bar class="rounded-b-lg force-ssr">
     <template #prepend>
       <NuxtLink
         class="text-decoration-none"
@@ -182,6 +182,14 @@ onMounted(() => {
   100% {
     transform: rotate(720deg);
   }
+}
+
+.force-ssr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(0px);
+  width: 100%;
 }
 
 .small-list .v-list-item__content {
