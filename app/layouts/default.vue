@@ -8,24 +8,12 @@
     <v-main style="--v-layout-top: 64px;">
       <slot />
     </v-main>
-    <v-fab
-      v-show="showGoToTop"
-      app
-      appear
-      color="primary"
-      class="go-to-top"
-      :icon="mdiArrowUp"
-      location="bottom right"
-      :variant="isDark ? 'tonal' : 'elevated'"
-      @click="scrollToTop"
-    />
+    <BackToTop />
     <CookieConsent />
   </v-app>
 </template>
 
 <script lang="ts" setup>
-import mdiArrowUp from "~icons/mdi/arrowUp"
-
 import { useCustomTheme } from "~/composables/useCustomTheme"
 import { useSwitchTheme } from "~/composables/useSwitchTheme"
 import { useMainStore } from "~/stores/main"
@@ -35,8 +23,6 @@ const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
 const store = useMainStore()
 const { isDark } = useCustomTheme()
-
-const showGoToTop = ref(false)
 
 useHead({
   title: t("main.head"),
@@ -63,19 +49,10 @@ useSeoMeta({
 
 polyfillCountryFlagEmojis()
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" })
-}
-
-const handleScroll = () => {
-  showGoToTop.value = window.scrollY > 100
-}
-
 onMounted(() => {
   store.initStore()
   setLocale(store.getI18n)
   useSwitchTheme()
-  window.addEventListener("scroll", handleScroll)
 })
 </script>
 

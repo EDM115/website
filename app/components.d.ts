@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BackToTop: typeof import('./components/BackToTop.vue')['default']
     Blog2022GoogleEndingSharedDrives: typeof import('./components/blog/2022/GoogleEndingSharedDrives.md')['default']
     Blog2024EducationToPro: typeof import('./components/blog/2024/EducationToPro.md')['default']
     Blog2025HowIMigratedToZod4: typeof import('./components/blog/2025/HowIMigratedToZod4.md')['default']
