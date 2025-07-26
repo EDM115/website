@@ -81,7 +81,10 @@ function callback(entries: IntersectionObserverEntry[]) {
         return
       }
 
-      const skill = skills.value[parseInt(id)]!
+      const skill = skills.value[parseInt(id)]
+      if (!skill) {
+        return
+      }
       const startValue = skill.displayedValue
       const endValue = skill.value
       const duration = 3000
