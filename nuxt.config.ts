@@ -62,11 +62,6 @@ export default defineNuxtConfig({
     "~/assets/styles/dracula-hljs.scss",
     "~/assets/styles/main.scss",
   ],
-  router: {
-    options: {
-      scrollBehaviorType: "smooth",
-    },
-  },
   sourcemap: {
     client: true,
     server: true,
