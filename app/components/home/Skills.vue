@@ -89,6 +89,9 @@ function callback(entries: IntersectionObserverEntry[]) {
 
       // skipcq: JS-0016
       function animate(time: number) {
+        if (!skill) {
+          return
+        }
         const elapsed = time - startTime
         const progress = Math.min(elapsed / duration, 1)
         const easeProgress = easeInOut(progress)
