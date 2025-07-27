@@ -65,7 +65,7 @@
     "unplugin-vue-components": "~28.8.0",
     "unplugin-vue-markdown": "~29.1.0",
     "vite-plugin-checker": "~0.10.1",
-    "vite-plugin-vue-devtools": "~7.7.7",
+    "vite-plugin-vue-devtools": "~8.0.0",
     "vue-eslint-parser": "~10.2.0",
     "vue-tsc": "~3.0.4"
   },
