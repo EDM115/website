@@ -63,7 +63,7 @@ const skills = ref([
   { id: 5, name: "Docker", value: 70, displayedValue: 0, icon: logosDocker },
   { id: 6, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
   { id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql },
-  { id: 8, name: "Bash", value: 80, displayedValue: 0, icon: terminal },
+  { id: 8, name: "Bash", value: 80, displayedValue: 0, icon: markRaw(terminal) },
 ])
 
 const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
