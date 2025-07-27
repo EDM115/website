@@ -42,13 +42,13 @@
 import logosDocker from "~icons/logos/docker-icon"
 import logosJava from "~icons/logos/java"
 import deviconGit from "~icons/devicon/git"
-import skillJavascript from "~icons/skill-icons/javascript"
+import deviconReact from "~icons/devicon/react"
+import deviconMysql from "~icons/devicon/mysql"
+import skillTypescript from "~icons/skill-icons/typescript"
 import vscodePython from "~icons/vscode-icons/file-type-python"
 import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
-import chatGPT from "~~/public/img/icons/chatgpt_icon.svg"
-import fh5 from "~~/public/img/icons/fh5_icon.svg"
-import flStudio from "~~/public/img/icons/fl_studio_icon.svg"
+import terminal from "~~/public/img/icons/terminal.svg"
 
 import { type FunctionalComponent, type SVGAttributes } from "vue"
 
@@ -57,13 +57,13 @@ let observer: IntersectionObserver | null = null
 const skills = ref([
   { id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython },
   { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
-  { id: 2, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
-  { id: 3, name: "JavaScript", value: 80, displayedValue: 0, icon: skillJavascript },
+  { id: 2, name: "React", value: 60, displayedValue: 0, icon: deviconReact },
+  { id: 3, name: "TypeScript", value: 85, displayedValue: 0, icon: skillTypescript },
   { id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue },
-  { id: 5, name: "Docker", value: 60, displayedValue: 0, icon: logosDocker },
-  { id: 6, name: "FL Studio", value: 70, displayedValue: 0, icon: markRaw(flStudio) },
-  { id: 7, name: "Forza Horizon", value: 100, displayedValue: 0, icon: markRaw(fh5) },
-  { id: 8, name: "ChatGPT", value: 90, displayedValue: 0, icon: markRaw(chatGPT) },
+  { id: 5, name: "Docker", value: 70, displayedValue: 0, icon: logosDocker },
+  { id: 6, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
+  { id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql },
+  { id: 8, name: "Bash", value: 80, displayedValue: 0, icon: terminal },
 ])
 
 const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
@@ -82,9 +82,11 @@ function callback(entries: IntersectionObserverEntry[]) {
       }
 
       const skill = skills.value[parseInt(id)]
+
       if (!skill) {
         return
       }
+
       const startValue = skill.displayedValue
       const endValue = skill.value
       const duration = 3000
@@ -95,6 +97,7 @@ function callback(entries: IntersectionObserverEntry[]) {
         if (!skill) {
           return
         }
+
         const elapsed = time - startTime
         const progress = Math.min(elapsed / duration, 1)
         const easeProgress = easeInOut(progress)
