@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   ],
   ssr: true,
   devtools: {
-    enabled: true,
+    enabled: false,
     timeline: { enabled: true },
     vueDevTools: true,
   },
@@ -224,7 +224,7 @@ export default defineNuxtConfig({
         include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
         resolvers: [
           IconsResolver({
-            prefix: "",
+            prefix: "Icon",
           }),
         ],
         sourcemap: false,

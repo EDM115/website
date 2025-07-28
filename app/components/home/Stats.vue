@@ -15,7 +15,7 @@
             :id="'od-' + stat.id"
             class="odometer mockup-odometer"
           >
-            0
+            {{ formatZeros(stat.value) }}
           </div>
         </v-card-text>
       </v-card>
@@ -141,6 +141,13 @@ const stats = ref([
 
 interface OdometerInstance {
   update: (value: number)=> void
+}
+
+function formatZeros(value: number): string {
+  const len = value.toString().length
+  const zeros = "0".repeat(len)
+
+  return zeros.replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 }
 
 let observer: IntersectionObserver | null = null
