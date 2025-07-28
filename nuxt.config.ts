@@ -27,12 +27,14 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/image",
     "@nuxt/scripts",
+    "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
     "@vueuse/nuxt",
+    // "motion-v/nuxt",
     "nuxt-svgo",
+    "reka-ui/nuxt",
     "unplugin-icons/nuxt",
-    "vuetify-nuxt-module",
   ],
   ssr: true,
   devtools: {
@@ -56,12 +58,14 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   css: [
-    "~/assets/styles/global.scss",
     "~/assets/styles/markdown-alert.scss",
     "~/assets/styles/markdown-spoiler.scss",
     "~/assets/styles/dracula-hljs.scss",
     "~/assets/styles/main.scss",
   ],
+  colorMode: {
+    fallback: "dark",
+  },
   sourcemap: {
     client: true,
     server: true,
@@ -289,64 +293,6 @@ export default defineNuxtConfig({
     dts: true,
     svgoConfig: {
       multipass: true,
-    },
-  },
-  vuetify: {
-    moduleOptions: {
-      prefixComposables: true,
-      ssrClientHints: {
-        reloadOnFirstRequest: true,
-        viewportSize: true,
-        prefersColorScheme: true,
-        prefersColorSchemeOptions: {
-          cookieName: "theme",
-        },
-      },
-    },
-    vuetifyOptions: {
-      directives: true,
-      labComponents: true,
-      icons: {
-        defaultSet: "mdi-svg",
-      },
-      theme: {
-        defaultTheme: "dark",
-        themes: {
-          dark: {
-            colors: {
-              accent: "#BD93F9",
-              background: "#00040E",
-              error: "#FF5555",
-              info: "#8BE9FD",
-              primary: "#FFB86C",
-              secondary: "#50FA7B",
-              success: "#50FA7B",
-              text: "#F8F8F2",
-              warning: "#FF79C6",
-            },
-            dark: true,
-          },
-          light: {
-            colors: {
-              accent: "#BD93F9",
-              background: "#DBDBCC",
-              error: "#FF5555",
-              info: "#8BE9FD",
-              primary: "#FFB86C",
-              secondary: "#50FA7B",
-              success: "#50FA7B",
-              text: "#00040E",
-              warning: "#FF79C6",
-            },
-            dark: false,
-          },
-        },
-        variations: {
-          colors: [ "accent", "background", "error", "info", "primary", "secondary", "success", "text", "warning" ],
-          darken: 3,
-          lighten: 3,
-        },
-      },
     },
   },
 })

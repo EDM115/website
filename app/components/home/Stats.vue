@@ -229,9 +229,9 @@ $padding: .15em;
   font-weight: 600;
   line-height: 1.2;
 
-  background-color: rgb(var(--v-theme-background-lighten-2));
+  background-color: var(--bg-light);
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
 }
 
 .odometer.odometer-auto-theme {
@@ -247,7 +247,7 @@ $padding: .15em;
   font-weight: 600;
   line-height: 1.2;
 
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
 
   .odometer-digit {
     display: inline-block;
@@ -257,7 +257,7 @@ $padding: .15em;
     margin: 0px 1px;
     padding: $padding $padding;
 
-    background-color: rgb(var(--v-theme-background-lighten-2));
+    background-color: var(--bg-light);
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
 
     &:first-child {

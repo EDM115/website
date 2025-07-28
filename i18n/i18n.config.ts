@@ -1,13 +1,11 @@
-// skipcq: JS-C1003
-import * as en from "./locales/en"
-// skipcq: JS-C1003
-import * as fr from "./locales/fr"
+import en from "./locales/en.json"
+import fr from "./locales/fr.json"
 
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "en",
   messages: {
-    en: en.default,
-    fr: fr.default,
+    en,
+    fr,
   },
 }))

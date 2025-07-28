@@ -1,6 +1,4 @@
-@function var-color($name) {
-  @return rgb(var(--#{$name}));
-}
+@use "variables";
 
 @mixin counter-reset-start($max: 20) {
   @for $i from 1 through $max {
@@ -10,7 +8,8 @@
   }
 }
 
-body {
+body,
+html {
   margin: 0;
   font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
 }
@@ -21,18 +20,18 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: var-color(v-theme-background);
+  background: var(--bg);
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var-color(v-theme-text-lighten-2);
+  background: var(--text-light);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var-color(v-theme-primary);
+  background: var(--primary);
 }
 
 code,
@@ -43,13 +42,13 @@ samp {
 }
 
 a {
-  color: var-color(v-theme-primary);
+  color: var(--primary);
   text-decoration: none;
   transition: all 0.4s ease-in-out;
 }
 
 a:hover {
-  color: var-color(v-theme-secondary);
+  color: var(--secondary);
 }
 
 h1,
@@ -137,22 +136,22 @@ li {
   width: 1em;
   height: 1em;
   overflow: visible;
-  fill: var-color(v-theme-primary);
-  color: var-color(v-theme-primary);
+  fill: var(--primary);
+  color: var(--primary);
 }
 
 .header-copy-icon svg:hover {
-  fill: var-color(v-theme-success);
-  color: var-color(v-theme-success);
+  fill: var(--success);
+  color: var(--success);
 }
 
 .header-copy-icon-clicked svg {
-  fill: var-color(v-theme-success);
-  color: var-color(v-theme-success);
+  fill: var(--success);
+  color: var(--success);
 }
 
 .markdown-body hr {
-  border: 2px solid var-color(v-border-color);
+  border: 2px solid var(--gone);
   border-radius: 10px;
   margin: 1.5rem 0;
 }
@@ -214,7 +213,7 @@ li {
 .markdown-body table,
 .markdown-body table th,
 .markdown-body table td {
-  border: 1px solid var-color(v-border-color);
+  border: 1px solid var(--gone);
 }
 
 .markdown-body table th,
@@ -224,13 +223,13 @@ li {
 }
 
 .markdown-body blockquote {
-  border-left: 0.25em solid var-color(v-border-color);
+  border-left: 0.25em solid var(--gone);
   padding: 0 1rem;
   margin: 0.5rem 0;
 }
 
 .markdown-body blockquote > p {
-  color: var-color(v-theme-text-darken-2);
+  color: var(--text-dark);
 }
 
 .code-block {
@@ -256,7 +255,7 @@ li {
 .copy-code-button {
   background: none;
   border: none;
-  color: var-color(v-theme-primary);
+  color: var(--primary);
   cursor: pointer;
   font-size: 0.85rem;
   padding: 0.2rem 0.5rem;
@@ -266,7 +265,7 @@ li {
 .copy-code-button-clicked {
   background: none;
   border: none;
-  color: var-color(v-theme-secondary);
+  color: var(--secondary);
   cursor: pointer;
   font-size: 0.85rem;
   padding: 0.2rem 0.5rem;
@@ -274,7 +273,7 @@ li {
 }
 
 .copy-code-button:hover {
-  color: var-color(v-theme-secondary);
+  color: var(--secondary);
 }
 
 .code-block pre > code {
@@ -293,13 +292,13 @@ li {
 
 a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) > code.hljs {
   text-decoration: underline;
-  text-decoration-color: var-color(v-theme-primary);
+  text-decoration-color: var(--primary);
   text-underline-offset: 0.1rem;
   transition: all 0.4s ease-in-out;
 }
 
 a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a):hover > code.hljs {
-  text-decoration-color: var-color(v-theme-secondary);
+  text-decoration-color: var(--secondary);
 }
 
 h1 a:hover > code.hljs,

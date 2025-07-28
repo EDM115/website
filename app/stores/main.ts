@@ -7,7 +7,7 @@ export const useMainStore = defineStore("main", {
     availableLocales: [ "en", "fr" ] as const,
     displayDialog: "false" as "true" | "false",
     i18n: "en" as "en" | "fr",
-    theme: "dark" as "dark" | "light",
+    theme: "system" as "dark" | "light" | "system",
   }),
   getters: {
     getAvailableLocales(state): readonly [ "en", "fr" ] {
@@ -19,7 +19,7 @@ export const useMainStore = defineStore("main", {
     getI18n(state): "en" | "fr" {
       return state.i18n
     },
-    getTheme(state): "dark" | "light" {
+    getTheme(state): "dark" | "light" | "system" {
       return state.theme
     },
   },
@@ -60,7 +60,7 @@ export const useMainStore = defineStore("main", {
       this.createCookie("i18n", i18n, 30)
       this.i18n = i18n
     },
-    setTheme(theme: "dark" | "light") {
+    setTheme(theme: "dark" | "light" | "system") {
       this.theme = theme
     },
     initStore() {

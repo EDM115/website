@@ -159,7 +159,7 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   width: 160%;
   height: 160%;
-  background-color: rgba(var(--v-theme-surface), 0.75);
+  background-color: color-mix(in srgb, var(--gone) 75%, transparent 25%);
   border-radius: 50%;
 }
 

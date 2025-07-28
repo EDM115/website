@@ -1,3 +1,5 @@
+@use "variables";
+
 .markdown-alert {
   padding: 0 1rem;
   margin: 0.5rem 0;
@@ -36,11 +38,11 @@
 }
 
 .markdown-alert.markdown-alert-note {
-  border-left-color: #8be9fd;
+  border-left-color: var(--info);
 }
 
 .markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: #8be9fd;
+  color: var(--info);
 }
 
 .markdown-alert.markdown-alert-note .markdown-alert-title::before {
@@ -48,11 +50,11 @@
 }
 
 .markdown-alert.markdown-alert-important {
-  border-left-color: #bd93f9;
+  border-left-color: var(--accent);
 }
 
 .markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: #bd93f9;
+  color: var(--accent);
 }
 
 .markdown-alert.markdown-alert-important .markdown-alert-title::before {
@@ -60,11 +62,11 @@
 }
 
 .markdown-alert.markdown-alert-tip {
-  border-left-color: #50fa7b;
+  border-left-color: var(--success);
 }
 
 .markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: #50fa7b;
+  color: var(--success);
 }
 
 .markdown-alert.markdown-alert-tip .markdown-alert-title::before {
@@ -72,11 +74,11 @@
 }
 
 .markdown-alert.markdown-alert-warning {
-  border-left-color: #ffb86c;
+  border-left-color: var(--primary);
 }
 
 .markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: #ffb86c;
+  color: var(--primary);
 }
 
 .markdown-alert.markdown-alert-warning .markdown-alert-title::before {
@@ -84,11 +86,11 @@
 }
 
 .markdown-alert.markdown-alert-caution {
-  border-left-color: #ff5555;
+  border-left-color: var(--error);
 }
 
 .markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: #ff5555;
+  color: var(--error);
 }
 
 .markdown-alert.markdown-alert-caution .markdown-alert-title::before {

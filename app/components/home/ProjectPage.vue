@@ -300,7 +300,7 @@ watch(() => props.name, fetchReadme, { immediate: true })
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: rgb(var(--v-theme-on-surface));
+  color: var(--gone);
 }
 
 .error,

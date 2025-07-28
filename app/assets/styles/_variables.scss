@@ -1,0 +1,32 @@
+$colors: (
+  accent: #bd93f9,
+  bg: #00040e,
+  bg-light: #303339,
+  bg-dark: #000000,
+  error: #ff5555,
+  gone: #000000,
+  info: #8be9fd,
+  primary: #ffb86c,
+  secondary: #50fa7b,
+  success: #50fa7b,
+  text: #f8f8f2,
+  text-light: #ffffff,
+  text-dark: #c0c0ba,
+  warning: #ff79c6,
+);
+
+:root {
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+}
+
+.light-mode {
+  --bg: #dbdbcc;
+  --bg-light: #ffffff;
+  --bg-dark: #a4a496;
+  --gone: #ffffff;
+  --text: #00040e;
+  --text-light: #303339;
+  --text-dark: #000000;
+}

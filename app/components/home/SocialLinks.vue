@@ -159,7 +159,7 @@ const socialLinks = ref([
 }
 
 .socialsIcon:hover {
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
   transform: scale(1.2);
 }
 </style>

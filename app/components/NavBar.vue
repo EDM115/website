@@ -106,7 +106,7 @@ import { useMainStore } from "~/stores/main"
 
 const { locale, t } = useI18n()
 const store = useMainStore()
-const { isDark, toggleTheme } = useCustomTheme()
+const { isDark, changeTheme } = useCustomTheme()
 
 const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
@@ -151,18 +151,13 @@ function onToggleTheme() {
       }`))
   document.head.appendChild(css)
 
-  // Change the theme via the composable (handles store and Vuetify)
-  toggleTheme()
+  changeTheme(isDark.value ? "light" : "dark")
 
   // Force a reflow to apply the new theme without transitions
   const _ = window.getComputedStyle(css).opacity
 
   // Remove the temporary CSS to restore transitions
   document.head.removeChild(css)
-
-  // Scroll down and up to trigger AOS and avoid content disappearing until we scroll
-  /* window.scrollBy(0, 1)
-  window.scrollBy(0, -1) */
 }
 
 onMounted(() => {
