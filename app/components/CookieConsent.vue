@@ -1,6 +1,7 @@
 <template>
   <v-banner
     v-if="showBanner"
+    v-on-click-outside="() => handleAccept(false)"
     class="cookie-consent-banner rounded-t-lg"
     color="primary"
     :icon="mdiCookieAlertOutline"
@@ -30,6 +31,7 @@
 
 <script lang="ts" setup>
 import mdiCookieAlertOutline from "~icons/mdi/cookie-alert-outline"
+import { vOnClickOutside } from "@vueuse/components"
 
 const { t } = useI18n()
 
@@ -37,6 +39,10 @@ const showBanner = ref(true)
 const cloudflareWebAnalyticsToken = "bc6495e08a30452e82f5ff0613cdc85b"
 
 function handleAccept(accepted: boolean) {
+  if (!import.meta.client) {
+    return
+  }
+
   showBanner.value = false
 
   if (accepted) {

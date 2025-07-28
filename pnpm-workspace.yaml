@@ -6,10 +6,6 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-overrides:
-  vite: "~7.0.6"
-  vue-tsc: "~3.0.4"
-
 resolutionMode: highest
 
 savePrefix: ""
