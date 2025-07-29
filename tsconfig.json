@@ -9,8 +9,7 @@
     "noErrorTruncation": true,
     "preserveWatchOutput": true,
     "removeComments": true,
-    "tsBuildInfoFile": "./.nuxt/tsconfig.tsbuildinfo",
-    "types": [ "unplugin-icons/types/vue" ]
+    "tsBuildInfoFile": "./.nuxt/tsconfig.tsbuildinfo"
   },
   "files": [],
   "references": [

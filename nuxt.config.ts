@@ -251,7 +251,6 @@ export default defineNuxtConfig({
         noErrorTruncation: true,
         preserveWatchOutput: true,
         removeComments: true,
-        types: [ "unplugin-icons/types/vue" ],
       },
     },
     typeCheck: true,
