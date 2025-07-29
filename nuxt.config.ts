@@ -58,6 +58,7 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   css: [
+    "~/assets/styles/classes.scss",
     "~/assets/styles/markdown-alert.scss",
     "~/assets/styles/markdown-spoiler.scss",
     "~/assets/styles/dracula-hljs.scss",

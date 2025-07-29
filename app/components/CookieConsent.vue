@@ -12,18 +12,18 @@
     </template>
     <template #actions>
       <div class="d-flex flex-column">
-        <v-btn
+        <UiButton
           color="success"
           @click="handleAccept(true)"
         >
           {{ t('cookies.accept') }}
-        </v-btn>
-        <v-btn
+        </UiButton>
+        <UiButton
           color="error"
           @click="handleAccept(false)"
         >
           {{ t('cookies.reject') }}
-        </v-btn>
+        </UiButton>
       </div>
     </template>
   </v-banner>

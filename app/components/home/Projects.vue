@@ -24,7 +24,7 @@
         </v-card-text>
 
         <v-card-actions class="d-flex flex-column">
-          <v-btn
+          <UiButton
             color="primary"
             class="mr-2"
             text="Source"
@@ -32,7 +32,7 @@
             rel="noopener noreferrer"
             :href="project.source"
           />
-          <v-btn
+          <UiButton
             v-if="project.link !== ''"
             color="secondary"
             class="mr-2"

@@ -1,27 +1,22 @@
 <template>
-  <v-app
-    :theme="isDark ? 'dark' : 'light'"
-    class="pa-4"
-  >
+  <div style="padding: 1rem;">
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main style="--v-layout-top: 64px;">
+    <main>
       <slot />
-    </v-main>
+    </main>
     <BackToTop />
     <CookieConsent />
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { useCustomTheme } from "~/composables/useCustomTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
 const store = useMainStore()
-const { isDark } = useCustomTheme()
 
 useHead({
   title: t("main.head"),
@@ -78,9 +73,5 @@ onMounted(() => {
 .layout-leave-to {
   filter: blur(0.5rem);
   opacity: 50;
-}
-
-.go-to-top {
-  transition: all 0.5s ease-in-out;
 }
 </style>

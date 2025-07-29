@@ -48,7 +48,7 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
@@ -91,7 +91,7 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"

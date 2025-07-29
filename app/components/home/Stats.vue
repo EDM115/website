@@ -20,42 +20,6 @@
         </v-card-text>
       </v-card>
     </v-row>
-    <!-- <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://stats.edm115.dev/api?username=EDM115&count_private=true&show_icons=true&cache_seconds=1800&bg_color=30,833ab4,fd1d1d,fcb045&include_all_commits=True&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://stats.edm115.dev/api/top-langs/?username=EDM115&langs_count=10&layout=compact&theme=merko&bg_color=30,833ab4,fd1d1d,fcb045&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-readme-activity-graph.vercel.app/graph?username=EDM115&theme=dracula&line=50fa7b&point=ff79c6&area_color=f1fa8c&bg_color=282a36&color=8be9fd&title_color=8be9fd&area=true&hide_border=true&radius=8"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-readme-streak-stats.herokuapp.com/?user=EDM115&theme=dracula&hide_border=true&date_format=j%20M%5B%20Y%5D"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-profile-trophy.vercel.app/?username=EDM115&theme=dracula&no-bg=true&no-frame=true"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://lanyard.cnrad.dev/api/625240117560475658?theme=dark&bg=282a36&borderRadius=30&animated=true&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true"
-      />
-    </v-row> -->
   </v-col>
 </template>
 

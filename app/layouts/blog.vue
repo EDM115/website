@@ -1,13 +1,10 @@
 <template>
-  <v-app
-    :theme="isDark ? 'dark' : 'light'"
-    class="pa-4"
-  >
+  <div style="padding: 1rem;">
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main style="--v-layout-top: 64px;">
-      <v-container class="d-flex flex-column align-center">
-        <v-btn
+    <main>
+      <div class="d-flex flex-column align-center">
+        <UiButton
           color="primary"
           class="mb-4"
           :prepend-icon="mdiArrowLeft"
@@ -15,25 +12,23 @@
           @click="$router.push('/blog')"
         />
         <slot />
-      </v-container>
-    </v-main>
+      </div>
+    </main>
     <BackToTop />
     <CookieConsent />
-  </v-app>
+  </div>
 </template>
 
 <script setup lang="ts">
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
-import { useCustomTheme } from "~/composables/useCustomTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
 const store = useMainStore()
-const { isDark } = useCustomTheme()
 
 useHead({
   title: t("blog.head"),
@@ -92,9 +87,5 @@ onMounted(() => {
 .layout-leave-to {
   filter: blur(0.5rem);
   opacity: 50;
-}
-
-.go-to-top {
-  transition: all 0.5s ease-in-out;
 }
 </style>

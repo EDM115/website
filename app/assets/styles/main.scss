@@ -14,6 +14,14 @@ html {
   font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
 }
 
+main {
+  max-width: 100%;
+  padding-top: 4rem;
+  flex: 1 0 auto;
+  display: block;
+  transition: all .2s cubic-bezier(.4,0,.2,1);
+}
+
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;

@@ -25,7 +25,7 @@
             <NuxtLink
               to="/"
             >
-              <v-btn
+              <UiButton
                 color="primary"
                 :prepend-icon="mdiHomeOutline"
                 :text="t('home.home')"
@@ -37,7 +37,7 @@
             <NuxtLink
               to="/projects"
             >
-              <v-btn
+              <UiButton
                 color="primary"
                 :prepend-icon="mdiInformationOutline"
                 :text="t('home.projects')"
@@ -49,7 +49,7 @@
             <NuxtLink
               to="/blog"
             >
-              <v-btn
+              <UiButton
                 color="primary"
                 :prepend-icon="mdiText"
                 :text="t('home.blog')"
@@ -188,31 +188,6 @@
 
           <v-card-text>
             <LazyHomeResume
-              :key="userLocale"
-              hydrate-on-idle
-            />
-          </v-card-text>
-        </v-card>
-
-        <v-card
-          id="projects"
-          class="mx-auto my-4"
-          max-width="500"
-          variant="elevated"
-        >
-          <v-card-title>
-            <h2>
-              <NuxtLink
-                to="#projects"
-                class="internal-link"
-              >
-                {{ t("home.projects") }}
-              </NuxtLink>
-            </h2>
-          </v-card-title>
-
-          <v-card-text>
-            <LazyHomeProjects
               :key="userLocale"
               hydrate-on-idle
             />

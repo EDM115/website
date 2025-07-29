@@ -6,7 +6,7 @@
       class="ma-2"
       to="/projects/unzip-bot"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/unzip-bot"
       />
@@ -15,7 +15,7 @@
       class="ma-2"
       to="/projects/monorepo-hash"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/monorepo-hash"
       />
@@ -24,7 +24,7 @@
       class="ma-2"
       to="/projects/better-maps"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/better-maps"
       />
@@ -33,7 +33,7 @@
       class="ma-2"
       to="/projects/unrar-alpine"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/unrar-alpine"
       />
@@ -42,7 +42,7 @@
       class="ma-2"
       to="/projects/website"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/website"
       />
@@ -51,7 +51,7 @@
       class="ma-2"
       to="/projects/edm115-ohmyposh-theme"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/EDM115-ohmyposh-theme"
       />
@@ -60,7 +60,7 @@
       class="ma-2"
       to="/projects/palex"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/palex"
       />
@@ -69,7 +69,7 @@
       class="ma-2"
       to="/projects/js-imports-sort"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/js-imports-sort"
       />
@@ -78,7 +78,7 @@
       class="ma-2"
       to="/projects/markdown-syntax-fr"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/Markdown_Syntax_FR"
       />
@@ -87,7 +87,7 @@
       class="ma-2"
       to="/projects/the-very-restrictive-license"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="EDM115/The-Very-Restrictive-License"
       />

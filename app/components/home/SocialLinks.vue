@@ -7,7 +7,7 @@
     @update:model-value="isHovered = $event"
   >
     <template #activator="{ props }">
-      <v-btn
+      <UiButton
         v-bind="props"
         :icon="socialLink.icon"
         class="ma-1 socialsIcon"
