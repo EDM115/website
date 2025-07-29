@@ -15,7 +15,6 @@
 
 <script lang="ts" setup>
 import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useSwitchTheme } from "~/composables/useSwitchTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
@@ -47,12 +46,13 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
-polyfillCountryFlagEmojis()
-
 onMounted(() => {
   store.initStore()
   setLocale(store.getI18n)
-  useSwitchTheme()
+  polyfillCountryFlagEmojis(
+    "Twemoji Country Flags",
+    "/docs/TwemojiCountryFlags.woff2",
+  )
 })
 </script>
 

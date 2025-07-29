@@ -28,7 +28,6 @@ import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
 import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useSwitchTheme } from "~/composables/useSwitchTheme"
 import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
@@ -36,9 +35,6 @@ const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
 const store = useMainStore()
 const { isDark } = useCustomTheme()
-
-useCopySlug()
-useCopyCode()
 
 useHead({
   title: t("projects.head"),
@@ -68,7 +64,12 @@ polyfillCountryFlagEmojis()
 onMounted(() => {
   store.initStore()
   setLocale(store.getI18n)
-  useSwitchTheme()
+  useCopySlug()
+  useCopyCode()
+  polyfillCountryFlagEmojis(
+    "Twemoji Country Flags",
+    "/docs/TwemojiCountryFlags.woff2",
+  )
 })
 </script>
 
