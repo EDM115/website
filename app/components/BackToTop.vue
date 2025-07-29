@@ -1,6 +1,7 @@
 <template>
-  <v-fab
+  <UiButton
     v-show="showGoToTop"
+    fab
     app
     appear
     color="primary"
@@ -33,3 +34,9 @@ onMounted(() => {
   window.addEventListener("scroll", handleScroll)
 })
 </script>
+
+<style>
+.go-to-top {
+  transition: all 0.5s ease-in-out;
+}
+</style>

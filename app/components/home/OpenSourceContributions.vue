@@ -48,7 +48,7 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
@@ -91,7 +91,7 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
@@ -239,22 +239,22 @@ onMounted(() => {
 <style scoped>
 .open-contrib-color {
   background-color: #238636E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .merged-contrib-color {
   background-color: #8957E5E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .closed-contrib-color {
   background-color: #AD0116E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .ignored-contrib-color {
   background-color: #3D444DE6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .ignored-contrib-color :deep(.v-stepper-vertical-item__avatar .v-icon) {

@@ -4,7 +4,7 @@
     {{ t("home.contact2") }}<br>
     {{ t("home.contact3") }}<br>
   </p>
-  <v-btn
+  <UiButton
     class="mr-2"
     color="secondary"
     :prepend-icon="mdiLink"
@@ -13,7 +13,7 @@
     target="_blank"
     rel="noopener noreferrer"
   />
-  <v-btn
+  <UiButton
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact5')"

@@ -10,7 +10,7 @@
       class="ma-2"
       to="/blog/2025/05/30/how-i-migrated-to-zod-4"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="How I migrated to Zod 4"
       />
@@ -20,7 +20,7 @@
       class="ma-2"
       to="/blog/2025/01/22/how-to-send-dtmf-on-android"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="How to send DTMF on Android"
       />
@@ -30,7 +30,7 @@
       class="ma-2"
       to="/blog/2024/08/20/education-to-pro"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="Education to Pro"
       />
@@ -40,7 +40,7 @@
       class="ma-2"
       to="/blog/2022/05/15/google-ending-shared-drives"
     >
-      <v-btn
+      <UiButton
         color="primary"
         text="Google ending Shared Drives"
       />

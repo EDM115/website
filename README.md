@@ -3,25 +3,35 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org
 
 [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/) [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=resolved+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
 
-## Minimal repro
+## Contributing
+Start :
 ```bash
 git clone https://github.com/EDM115/website.git && cd website
-pnpm i
+pnpm i --frozen-lockfile
 pnpm dev
 ```
 
+Before commits :
 ```bash
 pnpm lint:fix
-pnpm build
-pnpm preview:ssr
+pnpm format
+```
 
+Test builds :
+```bash
+pnpm build
+pnpm start:ssr
+```
+
+Test the actual builds :
+```bash
 pnpm generate
-pnpm preview:ssg
+pnpm start:ssg
 ```
 
 ---
 
-### Old stuff
+### Status
 + **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
 + **[Main website (backup)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
 + **[Netlify preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status)
@@ -38,11 +48,12 @@ sudo chmod -R 755 /home/edm115/website/dist
 sudo chmod -R 755 /home/edm115/website
 ```
 In `/etc/nginx/sites-available/default` :
-```conf
+```nginx
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
     # Only if you have a certificate
+    # Don't forget to also run sudo chmod -R 755 /home/edm115/.secure
     ssl_certificate /home/edm115/.secure/cloudflare-origin-server.pem;
     ssl_certificate_key /home/edm115/.secure/cloudflare-origin-server.key;
 
@@ -55,42 +66,34 @@ server {
     location / {
         # Redirects to handle the hosted bots
         # Hackish way to get the subdomains working with one IP
-        # Don't forget to also run sudo chmod -R 755 /home/edm115/.secure
-        if ($host ~* ^jm-vps) {
+        if ($host ~* ^jm-vps\.) {
             proxy_pass http://127.0.0.1:9898;
             break;
         }
 
-        if ($host ~* ^dicewizard-vps) {
+        if ($host ~* ^dicewizard-vps\.) {
             proxy_pass http://127.0.0.1:8686;
             break;
         }
 
-        if ($host ~* ^edm115-discord-vps) {
+        if ($host ~* ^edm115-discord-vps\.) {
             proxy_pass http://127.0.0.1:8888;
             break;
         }
 
-        if ($host ~* ^logs-vps) {
+        if ($host ~* ^logs-vps\.) {
             proxy_pass http://127.0.0.1:10000;
             break;
         }
 
-        # No longer hosted
-        if ($host ~* ^senescalade) {
-            return 301 https://github.com/EDM115-org/Senescalade;
+        if ($host ~* ^maps\.) {
+            proxy_pass http://127.0.0.1:27400;
         }
 
         # Also pass URL params
-        if ($host ~* ^next) {
+        if ($host ~* ^next\.) {
             return 301 https://edm115.netlify.app$request_uri;
         }
-
-        # Global else case for raw requests to the IP, when the website was hosted elsewhere
-        # return 301 https://edm115.dev;
-
-        # When using npm run serve
-        # return proxy_pass http://127.0.0.1:10101;
 
         root /home/edm115/website/dist;
         index index.html;

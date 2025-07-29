@@ -7,7 +7,7 @@
     @update:model-value="isHovered = $event"
   >
     <template #activator="{ props }">
-      <v-btn
+      <UiButton
         v-bind="props"
         :icon="socialLink.icon"
         class="ma-1 socialsIcon"
@@ -159,7 +159,7 @@ const socialLinks = ref([
 }
 
 .socialsIcon:hover {
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
   transform: scale(1.2);
 }
 </style>

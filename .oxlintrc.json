@@ -16,9 +16,8 @@
     "nursery": "off"
   },
   "env": {
-    "es2024": true,
+    "es2025": true,
     "browser": true,
-    "node": true,
     "shared-node-browser": true
   },
   "ignorePatterns": [
