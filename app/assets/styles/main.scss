@@ -12,6 +12,9 @@ body,
 html {
   margin: 0;
   font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
+
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 main {

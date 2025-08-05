@@ -9,6 +9,7 @@ $colors: (
   primary: #ffb86c,
   secondary: #50fa7b,
   success: #50fa7b,
+  surface: #303339,
   text: #f8f8f2,
   text-light: #ffffff,
   text-dark: #c0c0ba,
@@ -19,6 +20,9 @@ $colors: (
   @each $name, $value in $colors {
     --#{$name}: #{$value};
   }
+
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --dark-mode-bg: #00040e;
 }
 
 .light-mode {
@@ -29,4 +33,5 @@ $colors: (
   --text: #00040e;
   --text-light: #303339;
   --text-dark: #000000;
+  --surface: #a4a496;
 }
