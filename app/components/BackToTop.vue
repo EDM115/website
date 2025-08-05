@@ -2,12 +2,9 @@
   <UiButton
     v-show="showGoToTop"
     fab
-    app
-    appear
     color="primary"
     class="go-to-top"
     :icon="mdiArrowUp"
-    location="bottom right"
     :variant="isDark ? 'tonal' : 'elevated'"
     @click="scrollToTop"
   />

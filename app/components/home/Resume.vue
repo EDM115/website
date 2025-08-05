@@ -123,17 +123,13 @@
     color="secondary"
     :prepend-icon="mdiFileDownload"
     :text="t('home.downloadPdf')"
-    href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
   />
   <UiButton
     color="secondary"
     :prepend-icon="mdiWeb"
     :text="t('home.downloadOnline')"
-    href="https://old.edm115.dev/cv"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://old.edm115.dev/cv"
   />
 </template>
 

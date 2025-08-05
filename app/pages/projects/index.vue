@@ -2,96 +2,66 @@
   <v-container>
     <h1>{{ t("projects.title") }}</h1>
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/projects/unzip-bot"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/unzip-bot"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/unzip-bot"
+      text="EDM115/unzip-bot"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/monorepo-hash"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/monorepo-hash"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/monorepo-hash"
+      text="EDM115/monorepo-hash"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/better-maps"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/better-maps"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/better-maps"
+      text="EDM115/better-maps"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/unrar-alpine"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/unrar-alpine"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/unrar-alpine"
+      text="EDM115/unrar-alpine"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/website"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/website"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/website"
+      text="EDM115/website"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/edm115-ohmyposh-theme"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/EDM115-ohmyposh-theme"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/edm115-ohmyposh-theme"
+      text="EDM115/EDM115-ohmyposh-theme"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/palex"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/palex"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/palex"
+      text="EDM115/palex"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/js-imports-sort"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/js-imports-sort"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/js-imports-sort"
+      text="EDM115/js-imports-sort"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/markdown-syntax-fr"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/Markdown_Syntax_FR"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/markdown-syntax-fr"
+      text="EDM115/Markdown_Syntax_FR"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/the-very-restrictive-license"
-    >
-      <UiButton
-        color="primary"
-        text="EDM115/The-Very-Restrictive-License"
-      />
-    </NuxtLink>
+      color="primary"
+      link="/projects/the-very-restrictive-license"
+      text="EDM115/The-Very-Restrictive-License"
+    />
   </v-container>
 </template>
 

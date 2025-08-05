@@ -6,45 +6,33 @@
 
     <v-divider class="my-4" />
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/blog/2025/05/30/how-i-migrated-to-zod-4"
-    >
-      <UiButton
-        color="primary"
-        text="How I migrated to Zod 4"
-      />
-    </NuxtLink>
+      color="primary"
+      link="/blog/2025/05/30/how-i-migrated-to-zod-4"
+      text="How I migrated to Zod 4"
+    />
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/blog/2025/01/22/how-to-send-dtmf-on-android"
-    >
-      <UiButton
-        color="primary"
-        text="How to send DTMF on Android"
-      />
-    </NuxtLink>
+      color="primary"
+      link="/blog/2025/01/22/how-to-send-dtmf-on-android"
+      text="How to send DTMF on Android"
+    />
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/blog/2024/08/20/education-to-pro"
-    >
-      <UiButton
-        color="primary"
-        text="Education to Pro"
-      />
-    </NuxtLink>
+      color="primary"
+      link="/blog/2024/08/20/education-to-pro"
+      text="Education to Pro"
+    />
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/blog/2022/05/15/google-ending-shared-drives"
-    >
-      <UiButton
-        color="primary"
-        text="Google ending Shared Drives"
-      />
-    </NuxtLink>
+      color="primary"
+      link="/blog/2022/05/15/google-ending-shared-drives"
+      text="Google ending Shared Drives"
+    />
   </v-container>
 </template>
 

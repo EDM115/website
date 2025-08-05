@@ -11,9 +11,7 @@
         v-bind="props"
         :icon="socialLink.icon"
         class="ma-1 socialsIcon"
-        :href="socialLink.url"
-        target="_blank"
-        rel="noopener noreferrer"
+        :link="socialLink.url"
         variant="flat"
       />
     </template>

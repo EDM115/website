@@ -5,27 +5,32 @@
     :class="classes"
     :aria-disabled="props.disabled ? 'true' : undefined"
   >
-    <component
-      :is="props.prependIcon"
-      v-if="props.prependIcon"
-      class="ui-btn--icon"
-    />
-    <component
-      :is="props.icon"
-      v-if="props.icon"
-      class="ui-btn--icon-only"
-    />
-    <button
-      v-else
-      class="ui-btn--inside-text"
-    >
-      {{ text }}
+    <button>
+      <component
+        :is="props.prependIcon"
+        v-if="!props.icon && props.prependIcon"
+        class="ui-btn--icon-prepend"
+      />
+      <component
+        :is="props.icon"
+        v-if="props.icon"
+        class="ui-btn--icon-only"
+      />
+      <span
+        v-else
+        class="ui-btn--inside-text"
+      >
+        <template v-if="props.text">
+          {{ text }}
+        </template>
+        <slot v-else />
+      </span>
+      <component
+        :is="props.appendIcon"
+        v-if="!props.icon && props.appendIcon"
+        class="ui-btn--icon-append"
+      />
     </button>
-    <component
-      :is="props.appendIcon"
-      v-if="props.appendIcon"
-      class="ui-btn--icon"
-    />
   </NuxtLink>
 
   <button
@@ -35,8 +40,8 @@
   >
     <component
       :is="props.prependIcon"
-      v-if="props.prependIcon"
-      class="ui-btn--icon"
+      v-if="!props.icon && props.prependIcon"
+      class="ui-btn--icon-prepend"
     />
     <component
       :is="props.icon"
@@ -47,12 +52,15 @@
       v-else
       class="ui-btn--inside-text"
     >
-      {{ text }}
+      <template v-if="props.text">
+        {{ text }}
+      </template>
+      <slot v-else />
     </span>
     <component
       :is="props.appendIcon"
-      v-if="props.appendIcon"
-      class="ui-btn--icon"
+      v-if="!props.icon && props.appendIcon"
+      class="ui-btn--icon-append"
     />
   </button>
 </template>
@@ -62,53 +70,113 @@ import type { Component } from "vue"
 import { colorVars } from "./colors"
 
 const props = defineProps<{
+  /**
+   * Size of the button
+   * @default "md"
+   */
   size?: "sm" | "md" | "lg"
+  /**
+   * The text to display inside the button  
+   * If an `icon` is provided, the text won't be rendered  
+   * If you pass a children element to an `UiButton` with `text` set, only the text will be rendered
+   */
   text?: string
+  /**
+   * The link to navigate to when the button is clicked  
+   * Uses `NuxtLink` under the hood for prefetching
+   */
   link?: string
+  /**
+   * The color of the button
+   */
   color?: keyof typeof colorVars
-  variant?: "elevated" | "outlined" | "tonal"
-  fab?: boolean
+  /**
+   * The variant of the button  
+   * - `elevated` : Fully color the button, with a nice box shadow  
+   * - `outlined` : Adds a colored inner border with no background  
+   * - `tonal` : Tints the background with the provided color  
+   * - `flat` : Transparent background with no shadow  
+   * @default "elevated"
+   */
+  variant?: "elevated" | "outlined" | "tonal" | "flat"
+  /**
+   * Makes the button into a Floating Action Button  
+   * If enabled, will stick it to a corner of the screen  
+   * When no value is provided, it defaults to `bottom right`
+   */
+  fab?: boolean | "bottom right" | "bottom left" | "top right" | "top left"
+  /**
+   * Transforms the button into a circular shape with the icon displayed in the middle  
+   * No text can be rendered this way
+   */
   icon?: Component
+  /**
+   * Inserts an icon at before the text
+   */
   prependIcon?: Component
+  /**
+   * Inserts an icon at after the text
+   */
   appendIcon?: Component
+  /**
+   * Disables any interaction with the button
+   */
   disabled?: boolean
 }>()
 
-// derive class names
+function fabClassBuilder(fab: boolean | string): string {
+  if (typeof fab === "boolean") {
+    return fab ? "ui-btn--fab ui-btn--fab--bottom-right" : ""
+  } else {
+    return `ui-btn--fab ui-btn--fab--${fab.replace(" ", "-")}`
+  }
+} 
+
 const classes = computed(() => [
   "ui-btn",
   `ui-btn--${props.size ?? "md"}`,
   `ui-btn--${props.variant ?? "elevated"}`,
-  props.color && `ui-btn--${props.color}`,
-  { "ui-btn--fab": props.fab, "is-disabled": props.disabled },
+  props.color ? `ui-btn--${props.color}` : "",
+  props.icon ? "ui-btn--icon-only" : "",
+  props.prependIcon ? "ui-btn--icon-prepend" : "",
+  props.appendIcon ? "ui-btn--icon-append" : "",
+  props.fab ? fabClassBuilder(props.fab) : "",
+  props.disabled ? "ui-btn--disabled" : "",
 ])
 </script>
 
 <style scoped lang="scss">
 .ui-btn {
   display: inline-flex;
+  vertical-align: middle;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
-  transition: box-shadow .2s;
+  transition: all .2s;
   background-color: var(--surface);
   color: var(--text);
 
   &--sm {
-    padding: 0.25em 0.5em;
-    font-size: 0.875rem;
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+    height: 1.75rem;
+    --ui-btn-height: 28px;
   }
 
   &--md {
-    padding: 0.5em 1em;
-    font-size: 1rem;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    height: 2.25rem;
+    --ui-btn-height: 36px;
   }
 
   &--lg {
-    padding: 0.75em 1.5em;
-    font-size: 1.125rem;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    height: 2.75rem;
+    --ui-btn-height: 44px;
   }
 
   &--elevated {
@@ -186,38 +254,115 @@ const classes = computed(() => [
   }
 
   &--tonal {
-    background-color: rgb(from var(--surface) r g b / 35%);
+    background-color: rgb(from var(--surface) r g b / 20%);
 
     &.ui-btn--primary {
-      background-color: rgb(from var(--primary) r g b / 35%);
+      background-color: rgb(from var(--primary) r g b / 20%);
     }
 
     &.ui-btn--secondary {
-      background-color: rgb(from var(--secondary) r g b / 35%);
+      background-color: rgb(from var(--secondary) r g b / 20%);
     }
 
     &.ui-btn--accent {
-      background-color: rgb(from var(--accent) r g b / 35%);
+      background-color: rgb(from var(--accent) r g b / 20%);
     }
 
     &.ui-btn--error {
-      background-color: rgb(from var(--error) r g b / 35%);
+      background-color: rgb(from var(--error) r g b / 20%);
     }
 
     &.ui-btn--info {
-      background-color: rgb(from var(--info) r g b / 35%);
+      background-color: rgb(from var(--info) r g b / 20%);
     }
 
     &.ui-btn--success {
-      background-color: rgb(from var(--success) r g b / 35%);
+      background-color: rgb(from var(--success) r g b / 20%);
     }
 
     &.ui-btn--warning {
-      background-color: rgb(from var(--warning) r g b / 35%);
+      background-color: rgb(from var(--warning) r g b / 20%);
     }
 
     &.ui-btn--text {
-      background-color: rgb(from var(--text) r g b / 35%);
+      background-color: rgb(from var(--text) r g b / 20%);
+    }
+
+    &:hover {
+      color: var(--surface);
+
+      &.ui-btn--primary {
+        color: var(--primary);
+      }
+
+      &.ui-btn--secondary {
+        color: var(--secondary);
+      }
+
+      &.ui-btn--accent {
+        color: var(--accent);
+      }
+
+      &.ui-btn--error {
+        color: var(--error);
+      }
+
+      &.ui-btn--info {
+        color: var(--info);
+      }
+
+      &.ui-btn--success {
+        color: var(--success);
+      }
+
+      &.ui-btn--warning {
+        color: var(--warning);
+      }
+
+      &.ui-btn--text {
+        color: var(--text);
+      }
+    }
+
+    & .ui-btn--inside-text {
+      background-color: transparent;
+    }
+  }
+
+  &--flat {
+    background-color: transparent;
+    box-shadow: none;
+
+    &.ui-btn--primary {
+      color: var(--primary);
+    }
+
+    &.ui-btn--secondary {
+      color: var(--secondary);
+    }
+
+    &.ui-btn--accent {
+      color: var(--accent);
+    }
+
+    &.ui-btn--error {
+      color: var(--error);
+    }
+
+    &.ui-btn--info {
+      color: var(--info);
+    }
+
+    &.ui-btn--success {
+      color: var(--success);
+    }
+
+    &.ui-btn--warning {
+      color: var(--warning);
+    }
+
+    &.ui-btn--text {
+      color: var(--text);
     }
   }
 
@@ -254,16 +399,64 @@ const classes = computed(() => [
   }
 
   &--fab {
+    margin: 0.75rem;
+    position: fixed;
+
+    &--bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+
+    &--bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+
+    &--top-right {
+      top: 0;
+      right: 0;
+    }
+
+    &--top-left {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--inside-text {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  &--icon-only {
     border-radius: 50%;
-    padding: 0.75em;
+    padding: 0.2em;
+    height: 2em;
+    width: 2em;
+    font-size: 1.5em;
+  }
+
+  &--icon-prepend {
+    grid-area: prepend;
+    margin-inline: calc(var(--ui-btn-height) / -9) calc(var(--ui-btn-height) / 9);
+  }
+
+  &--icon-append {
+    grid-area: append;
+    margin-inline: calc(var(--ui-btn-height) / 9) calc(var(--ui-btn-height) / -9);
+  }
+
+  & button {
+    display: inline-flex;
+    align-items: center;
+    background-color: inherit;
+    color: inherit;
   }
 }
-
-.is-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.ui-btn--icon,
-.ui-btn--icon-only { margin: 0; }
 </style>

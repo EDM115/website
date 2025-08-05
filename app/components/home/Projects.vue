@@ -28,18 +28,14 @@
             color="primary"
             class="mr-2"
             text="Source"
-            target="_blank"
-            rel="noopener noreferrer"
-            :href="project.source"
+            :link="project.source"
           />
           <UiButton
             v-if="project.link !== ''"
             color="secondary"
             class="mr-2"
-            target="_blank"
-            rel="noopener noreferrer"
+            :link="project.link"
             :text="project.linkText"
-            :href="project.link"
           />
         </v-card-actions>
       </v-card>

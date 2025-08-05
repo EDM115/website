@@ -9,17 +9,13 @@
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact4')"
-    href="https://old.edm115.dev"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://old.edm115.dev"
   />
   <UiButton
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact5')"
-    href="https://edm115.netlify.app"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://edm115.netlify.app"
   />
 </template>
 

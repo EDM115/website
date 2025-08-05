@@ -22,40 +22,31 @@
         <v-divider class="my-4" />
         <v-row>
           <v-col>
-            <NuxtLink
-              to="/"
-            >
-              <UiButton
-                color="primary"
-                :prepend-icon="mdiHomeOutline"
-                :text="t('home.home')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiHomeOutline"
+              :text="t('home.home')"
+              link="/"
+              variant="elevated"
+            />
           </v-col>
           <v-col>
-            <NuxtLink
-              to="/projects"
-            >
-              <UiButton
-                color="primary"
-                :prepend-icon="mdiInformationOutline"
-                :text="t('home.projects')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiInformationOutline"
+              :text="t('home.projects')"
+              link="/projects"
+              variant="elevated"
+            />
           </v-col>
           <v-col>
-            <NuxtLink
-              to="/blog"
-            >
-              <UiButton
-                color="primary"
-                :prepend-icon="mdiText"
-                :text="t('home.blog')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiText"
+              :text="t('home.blog')"
+              link="/blog"
+              variant="elevated"
+            />
           </v-col>
         </v-row>
       </v-col>

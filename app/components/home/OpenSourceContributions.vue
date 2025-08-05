@@ -53,9 +53,7 @@
               class="mt-2"
               :prepend-icon="mdiGithub"
               :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
+              :link="contrib.link"
             />
           </v-stepper-vertical-item>
         </template>
@@ -96,9 +94,7 @@
               class="mt-2"
               :prepend-icon="mdiGithub"
               :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
+              :link="contrib.link"
             />
           </v-stepper-vertical-item>
         </template>
