@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     vueDevTools: true,
   },
   app: {
+    baseURL: "/",
     head: {
       title: "EDM115 - French dev/gamer/music producer",
       meta: [
