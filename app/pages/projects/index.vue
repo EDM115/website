@@ -66,12 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "~/stores/main"
-
-const { locale, t } = useI18n()
-const store = useMainStore()
-
-const userLocale = computed(() => store.getI18n)
+const { t } = useI18n()
 
 useHead({
   title: t("projects.head"),
@@ -81,9 +76,5 @@ useHead({
       content: t("projects.head"),
     },
   ],
-})
-
-onMounted(() => {
-  locale.value = userLocale.value
 })
 </script>

@@ -129,7 +129,7 @@
 
           <v-card-text>
             <LazyHomeStats
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -154,7 +154,7 @@
 
           <v-card-text>
             <LazyHomeSkills
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -179,7 +179,7 @@
 
           <v-card-text>
             <LazyHomeResume
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -204,7 +204,7 @@
 
           <v-card-text>
             <LazyHomeOpenSourceContributions
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -229,7 +229,7 @@
 
           <v-card-text>
             <LazyHomeContact
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -254,7 +254,7 @@
 
           <v-card-text>
             <LazyHomeSocialLinks
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -269,13 +269,9 @@ import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiText from "~icons/mdi/text"
 
-import { useMainStore } from "~/stores/main"
-
 const { locale, t } = useI18n()
-const store = useMainStore()
 
 const age = ref(21)
-const userLocale = computed(() => store.getI18n)
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")
@@ -287,7 +283,6 @@ function getAge(): number {
 
 onMounted(() => {
   age.value = getAge()
-  locale.value = userLocale.value
 })
 </script>
 

@@ -70,26 +70,31 @@ import type { Component } from "vue"
 import { colorVars } from "./colors"
 
 const props = defineProps<{
+
   /**
    * Size of the button
    * @default "md"
    */
   size?: "sm" | "md" | "lg"
+
   /**
    * The text to display inside the button  
    * If an `icon` is provided, the text won't be rendered  
    * If you pass a children element to an `UiButton` with `text` set, only the text will be rendered
    */
   text?: string
+
   /**
    * The link to navigate to when the button is clicked  
    * Uses `NuxtLink` under the hood for prefetching
    */
   link?: string
+
   /**
    * The color of the button
    */
   color?: keyof typeof colorVars
+
   /**
    * The variant of the button  
    * - `elevated` : Fully color the button, with a nice box shadow  
@@ -99,25 +104,30 @@ const props = defineProps<{
    * @default "elevated"
    */
   variant?: "elevated" | "outlined" | "tonal" | "flat"
+
   /**
    * Makes the button into a Floating Action Button  
    * If enabled, will stick it to a corner of the screen  
    * When no value is provided, it defaults to `bottom right`
    */
   fab?: boolean | "bottom right" | "bottom left" | "top right" | "top left"
+
   /**
    * Transforms the button into a circular shape with the icon displayed in the middle  
    * No text can be rendered this way
    */
   icon?: Component
+
   /**
    * Inserts an icon at before the text
    */
   prependIcon?: Component
+
   /**
    * Inserts an icon at after the text
    */
   appendIcon?: Component
+
   /**
    * Disables any interaction with the button
    */
@@ -130,7 +140,7 @@ function fabClassBuilder(fab: boolean | string): string {
   } else {
     return `ui-btn--fab ui-btn--fab--${fab.replace(" ", "-")}`
   }
-} 
+}
 
 const classes = computed(() => [
   "ui-btn",

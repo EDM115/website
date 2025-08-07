@@ -23,12 +23,10 @@
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
-import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
-const store = useMainStore()
 
 useHead({
   title: t("blog.head"),
@@ -54,8 +52,7 @@ useSeoMeta({
 })
 
 onMounted(() => {
-  store.initStore()
-  setLocale(store.getI18n)
+  setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
   useCopySlug()
   useCopyCode()
   polyfillCountryFlagEmojis(

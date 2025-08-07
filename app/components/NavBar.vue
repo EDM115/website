@@ -32,7 +32,7 @@
             @mouseover="i18nSwitch = true"
           >
             <div v-if="i18nSwitch">
-              {{ getFlagEmoji(userLocale) }}
+              {{ getFlagEmoji(locale) }}
             </div>
             <div v-else>
               <v-icon :icon="mdiLanguage" />
@@ -47,7 +47,7 @@
           <v-list-item
             v-for="l in availableLocales"
             :key="l"
-            :active="l === userLocale"
+            :active="l === locale"
             :title="getFlagEmoji(l)"
             @click="switchLocale(l)"
           />
@@ -69,22 +69,18 @@ import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 
 import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useMainStore } from "~/stores/main"
 
 const { locale } = useI18n()
-const store = useMainStore()
 const { isDark, changeTheme } = useCustomTheme()
 
 const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
 
+const availableLocales = [ "en", "fr" ] as const
 const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
-const availableLocales = computed(() => store.getAvailableLocales)
-const userLocale = computed(() => store.getI18n)
 
 const switchLocale = (newLocale: "en" | "fr") => {
   locale.value = newLocale
-  store.setI18n(newLocale)
 }
 
 const getFlagEmoji = (l: string): string => {

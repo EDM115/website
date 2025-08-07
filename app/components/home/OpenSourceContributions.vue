@@ -114,12 +114,8 @@ import pajamasIssueClose from "~icons/pajamas/issue-close"
 
 import contributions from "~/assets/data/contributions.json"
 
-import { useMainStore } from "~/stores/main"
-
 const { locale, t } = useI18n()
-const store = useMainStore()
 
-const userLocale = computed(() => store.getI18n)
 const tab = ref(1)
 // https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
 const pullRequests = computed(() => contributions.filter((c) => c.type === "pr"))
@@ -226,10 +222,6 @@ function getContribName(state: string, type: string) {
       return `${name.state} ${name.title}`
   }
 }
-
-onMounted(() => {
-  locale.value = userLocale.value
-})
 </script>
 
 <style scoped>

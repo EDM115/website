@@ -24,11 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "~/stores/main"
-
-const { locale, t } = useI18n()
-const store = useMainStore()
-const userLocale = computed(() => store.getI18n)
+const { t } = useI18n()
 
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(65)
@@ -133,8 +129,6 @@ async function fetchProjectsNumber() {
 }
 
 onMounted(async () => {
-  locale.value = userLocale.value
-
   await fetchProjectsNumber()
 
   if (stats.value[0] !== undefined && stats.value[0].value !== projectsNumber.value) {

@@ -29,7 +29,6 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
-    "@pinia/nuxt",
     "@vueuse/nuxt",
     "nuxt-svgo",
     "unplugin-icons/nuxt",
@@ -65,6 +64,8 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     fallback: "dark",
+    storage: "localStorage",
+    storageKey: "theme",
   },
   sourcemap: {
     client: true,
@@ -269,9 +270,8 @@ export default defineNuxtConfig({
     baseUrl: "https://edm115.dev",
     defaultLocale: "en",
     detectBrowserLanguage: {
-      cookieKey: "i18n",
       fallbackLocale: "en",
-      useCookie: true,
+      useCookie: false,
     },
     experimental: {
       typedOptionsAndMessages: "all",
