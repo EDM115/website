@@ -1,33 +1,33 @@
 <template>
   <NuxtLink
-    v-if="props.link"
-    :to="props.link"
+    v-if="link"
+    :to="link"
     :class="classes"
-    :aria-disabled="props.disabled ? 'true' : undefined"
+    :aria-disabled="disabled ? 'true' : undefined"
   >
     <button>
       <component
-        :is="props.prependIcon"
-        v-if="!props.icon && props.prependIcon"
+        :is="prependIcon"
+        v-if="!icon && prependIcon"
         class="ui-btn--icon-prepend"
       />
       <component
-        :is="props.icon"
-        v-if="props.icon"
+        :is="icon"
+        v-if="icon"
         class="ui-btn--icon-only"
       />
       <span
         v-else
         class="ui-btn--inside-text"
       >
-        <template v-if="props.text">
+        <template v-if="text">
           {{ text }}
         </template>
         <slot v-else />
       </span>
       <component
-        :is="props.appendIcon"
-        v-if="!props.icon && props.appendIcon"
+        :is="appendIcon"
+        v-if="!icon && appendIcon"
         class="ui-btn--icon-append"
       />
     </button>
@@ -36,30 +36,30 @@
   <button
     v-else
     :class="classes"
-    :disabled="props.disabled"
+    :disabled="disabled"
   >
     <component
-      :is="props.prependIcon"
-      v-if="!props.icon && props.prependIcon"
+      :is="prependIcon"
+      v-if="!icon && prependIcon"
       class="ui-btn--icon-prepend"
     />
     <component
-      :is="props.icon"
-      v-if="props.icon"
+      :is="icon"
+      v-if="icon"
       class="ui-btn--icon-only"
     />
     <span
       v-else
       class="ui-btn--inside-text"
     >
-      <template v-if="props.text">
+      <template v-if="text">
         {{ text }}
       </template>
       <slot v-else />
     </span>
     <component
-      :is="props.appendIcon"
-      v-if="!props.icon && props.appendIcon"
+      :is="appendIcon"
+      v-if="!icon && appendIcon"
       class="ui-btn--icon-append"
     />
   </button>
