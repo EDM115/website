@@ -2,9 +2,11 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
     "import",
-    "typescript",
     "oxc",
-    "unicorn"
+    "regex",
+    "typescript",
+    "unicorn",
+    "vue"
   ],
   "categories": {
     "correctness": "warn",

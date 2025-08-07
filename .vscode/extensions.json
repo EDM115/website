@@ -2,8 +2,8 @@
   "recommendations": [
     "Vue.volar",
     "Zignd.html-css-class-completion",
-    "aaron-bond.better-comments",
     "dbaeumer.vscode-eslint",
+    "edwinhuish.better-comments-next",
     "formulahendry.auto-rename-tag",
     "ishiyama.vuejs-peek",
     "kisstkondoros.vscode-gutter-preview",
