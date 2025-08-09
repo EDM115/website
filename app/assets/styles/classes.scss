@@ -4,6 +4,18 @@ html {
   tab-size: 2;
   word-break: normal;
   overflow-y: scroll;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+html.overflow-y-hidden {
+  overflow-y: hidden !important;
 }
 
 *,
@@ -48,7 +60,6 @@ small {
 }
 
 abbr[title] {
-  text-decoration: underline;
   border-bottom: none;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
@@ -152,33 +163,24 @@ button {
 [type="button"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
+  outline: 1px dotted buttontext;
 }
 
 [type="reset"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
+  outline: 1px dotted buttontext;
 }
 
 [type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
+  outline: 1px dotted buttontext;
 }
 
 button::-moz-focus-inner {
   border-style: none;
   padding: 0;
-}
-
-[type="button"]::-moz-focus-inner {
-  outline: 1px dotted buttontext;
-}
-
-[type="reset"]::-moz-focus-inner {
-  outline: 1px dotted buttontext;
-}
-
-[type="submit"]::-moz-focus-inner {
-  outline: 1px dotted buttontext;
 }
 
 button:-moz-focusring {
@@ -271,21 +273,6 @@ progress {
   padding: 16px 0 16px 24px;
   font-size: 18px;
   font-weight: 300;
-}
-
-html {
-  direction: ltr;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  font-size: 1rem;
-  line-height: 1.5;
-  overflow-x: hidden;
-}
-
-html.overflow-y-hidden {
-  overflow-y: hidden !important;
 }
 
 @supports (-webkit-touch-callout: none) {
