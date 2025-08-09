@@ -2,9 +2,11 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
     "import",
-    "typescript",
     "oxc",
-    "unicorn"
+    "regex",
+    "typescript",
+    "unicorn",
+    "vue"
   ],
   "categories": {
     "correctness": "warn",
@@ -16,9 +18,8 @@
     "nursery": "off"
   },
   "env": {
-    "es2024": true,
+    "es2025": true,
     "browser": true,
-    "node": true,
     "shared-node-browser": true
   },
   "ignorePatterns": [

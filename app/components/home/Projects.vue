@@ -24,22 +24,18 @@
         </v-card-text>
 
         <v-card-actions class="d-flex flex-column">
-          <v-btn
+          <UiButton
             color="primary"
             class="mr-2"
             text="Source"
-            target="_blank"
-            rel="noopener noreferrer"
-            :href="project.source"
+            :link="project.source"
           />
-          <v-btn
+          <UiButton
             v-if="project.link !== ''"
             color="secondary"
             class="mr-2"
-            target="_blank"
-            rel="noopener noreferrer"
+            :link="project.link"
             :text="project.linkText"
-            :href="project.link"
           />
         </v-card-actions>
       </v-card>
@@ -86,7 +82,7 @@ const projects = ref([
     name: "website",
     description: `
     The source of the website you're currently on.
-    Made in Vue, Vuetify, and more stuff to fill in the dependencies.
+    Made with Nuxt, Reka UI, and more stuff to fill in the dependencies.
     Don't check the v1 branch, it's the old mess in Bootstrap (old.edm115.dev).`,
     image: websiteWebp,
     source: "https://github.com/EDM115/website",

@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ui
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          persist-credentials: false
+
+      - name: "Bump Node.js to v24"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.3.0"
+          check-latest: true
+
+      - name: "Install pnpm"
+        uses: pnpm/action-setup@v4
+
+      - name: "Install dependencies"
+        run: pnpm i --frozen-lockfile
+      
+      - name: "Prepare the project for GitHub Pages"
+        run: |
+          # update app.baseURL to "/website/"
+          sed -i 's|baseURL: "/",|baseURL: "/website/",|' nuxt.config.ts
+
+      - name: "Build for GitHub Pages"
+        run: pnpm nuxt generate --preset github_pages
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./.output/public
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

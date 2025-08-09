@@ -48,7 +48,8 @@
   "importCost.smallPackageLightColor": "#50FA7B",
   "oxc.enable": true,
   "search.exclude": {
-    "**/*.svg": true
+    "**/*.svg": true,
+    "pnpm-lock.yaml": true
   },
   "vue.autoInsert.dotValue": true,
   "vue.format.script.initialIndent": true,

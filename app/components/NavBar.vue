@@ -25,19 +25,19 @@
         open-on-hover
       >
         <template #activator="{ props }">
-          <v-btn
+          <UiButton
             v-bind="props"
             :icon="mdiLanguage"
             @mouseleave="i18nSwitch = false"
             @mouseover="i18nSwitch = true"
           >
             <div v-if="i18nSwitch">
-              {{ getFlagEmoji(userLocale) }}
+              {{ getFlagEmoji(locale) }}
             </div>
             <div v-else>
               <v-icon :icon="mdiLanguage" />
             </div>
-          </v-btn>
+          </UiButton>
         </template>
         <v-list
           class="small-list"
@@ -47,78 +47,40 @@
           <v-list-item
             v-for="l in availableLocales"
             :key="l"
-            :active="l === userLocale"
+            :active="l === locale"
             :title="getFlagEmoji(l)"
             @click="switchLocale(l)"
           />
         </v-list>
       </v-menu>
-      <v-btn
+      <UiButton
         class="spin-animation"
         :icon="iconTheme"
         @click="onToggleTheme"
       />
     </template>
   </v-app-bar>
-
-  <v-dialog
-    v-model="displayDialog"
-    persistent
-    max-width="350"
-  >
-    <v-card
-      color="error"
-      class="d-flex align-center"
-    >
-      <v-alert
-        :icon="lucideConstruction"
-        color="error"
-        :title="t('navbar.indev.title')"
-        :text="t('navbar.indev.text')"
-      />
-      <v-card-actions>
-        <v-btn
-          color="text"
-          :text="t('navbar.indev.oldSite')"
-          href="https://old.edm115.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <v-btn
-          color="text"
-          :text="t('navbar.close')"
-          @click="toggleDialog"
-        />
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
 </template>
 
 <script setup lang="ts">
-import lucideConstruction from "~icons/lucide/construction"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 
 import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useMainStore } from "~/stores/main"
 
-const { locale, t } = useI18n()
-const store = useMainStore()
-const { isDark, toggleTheme } = useCustomTheme()
+const { locale } = useI18n()
+const { isDark, changeTheme } = useCustomTheme()
 
-const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
 
+const availableLocales = [ "en", "fr" ] as const
 const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
-const availableLocales = computed(() => store.getAvailableLocales)
-const userLocale = computed(() => store.getI18n)
 
 const switchLocale = (newLocale: "en" | "fr") => {
   locale.value = newLocale
-  store.setI18n(newLocale)
 }
 
 const getFlagEmoji = (l: string): string => {
@@ -130,11 +92,6 @@ const getFlagEmoji = (l: string): string => {
     default:
       return "🌐"
   }
-}
-
-function toggleDialog() {
-  store.setDisplayDialog("false")
-  displayDialog.value = (store.getDisplayDialog === "true")
 }
 
 // See https://paco.me/writing/disable-theme-transitions
@@ -151,23 +108,14 @@ function onToggleTheme() {
       }`))
   document.head.appendChild(css)
 
-  // Change the theme via the composable (handles store and Vuetify)
-  toggleTheme()
+  changeTheme(isDark.value ? "light" : "dark")
 
   // Force a reflow to apply the new theme without transitions
   const _ = window.getComputedStyle(css).opacity
 
   // Remove the temporary CSS to restore transitions
   document.head.removeChild(css)
-
-  // Scroll down and up to trigger AOS and avoid content disappearing until we scroll
-  /* window.scrollBy(0, 1)
-  window.scrollBy(0, -1) */
 }
-
-onMounted(() => {
-  displayDialog.value = (store.getDisplayDialog === "true")
-})
 </script>
 
 <style>

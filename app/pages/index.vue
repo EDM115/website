@@ -22,40 +22,31 @@
         <v-divider class="my-4" />
         <v-row>
           <v-col>
-            <NuxtLink
-              to="/"
-            >
-              <v-btn
-                color="primary"
-                :prepend-icon="mdiHomeOutline"
-                :text="t('home.home')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiHomeOutline"
+              :text="t('home.home')"
+              link="/"
+              variant="elevated"
+            />
           </v-col>
           <v-col>
-            <NuxtLink
-              to="/projects"
-            >
-              <v-btn
-                color="primary"
-                :prepend-icon="mdiInformationOutline"
-                :text="t('home.projects')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiInformationOutline"
+              :text="t('home.projects')"
+              link="/projects"
+              variant="elevated"
+            />
           </v-col>
           <v-col>
-            <NuxtLink
-              to="/blog"
-            >
-              <v-btn
-                color="primary"
-                :prepend-icon="mdiText"
-                :text="t('home.blog')"
-                variant="elevated"
-              />
-            </NuxtLink>
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiText"
+              :text="t('home.blog')"
+              link="/blog"
+              variant="elevated"
+            />
           </v-col>
         </v-row>
       </v-col>
@@ -138,7 +129,7 @@
 
           <v-card-text>
             <LazyHomeStats
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -163,7 +154,7 @@
 
           <v-card-text>
             <LazyHomeSkills
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -188,32 +179,7 @@
 
           <v-card-text>
             <LazyHomeResume
-              :key="userLocale"
-              hydrate-on-idle
-            />
-          </v-card-text>
-        </v-card>
-
-        <v-card
-          id="projects"
-          class="mx-auto my-4"
-          max-width="500"
-          variant="elevated"
-        >
-          <v-card-title>
-            <h2>
-              <NuxtLink
-                to="#projects"
-                class="internal-link"
-              >
-                {{ t("home.projects") }}
-              </NuxtLink>
-            </h2>
-          </v-card-title>
-
-          <v-card-text>
-            <LazyHomeProjects
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -238,7 +204,7 @@
 
           <v-card-text>
             <LazyHomeOpenSourceContributions
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -263,7 +229,7 @@
 
           <v-card-text>
             <LazyHomeContact
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -288,7 +254,7 @@
 
           <v-card-text>
             <LazyHomeSocialLinks
-              :key="userLocale"
+              :key="locale"
               hydrate-on-idle
             />
           </v-card-text>
@@ -303,13 +269,9 @@ import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiText from "~icons/mdi/text"
 
-import { useMainStore } from "~/stores/main"
-
 const { locale, t } = useI18n()
-const store = useMainStore()
 
 const age = ref(21)
-const userLocale = computed(() => store.getI18n)
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")
@@ -321,7 +283,6 @@ function getAge(): number {
 
 onMounted(() => {
   age.value = getAge()
-  locale.value = userLocale.value
 })
 </script>
 

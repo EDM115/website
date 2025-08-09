@@ -1,12 +1,10 @@
 <template>
-  <v-fab
+  <UiButton
     v-show="showGoToTop"
-    app
-    appear
+    fab
     color="primary"
     class="go-to-top"
     :icon="mdiArrowUp"
-    location="bottom right"
     :variant="isDark ? 'tonal' : 'elevated'"
     @click="scrollToTop"
   />
@@ -33,3 +31,9 @@ onMounted(() => {
   window.addEventListener("scroll", handleScroll)
 })
 </script>
+
+<style>
+.go-to-top {
+  transition: all 0.5s ease-in-out;
+}
+</style>

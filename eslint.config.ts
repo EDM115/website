@@ -18,10 +18,7 @@ export default withNuxt(
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
+      globals: { ...globals.browser },
       parser: vueParser,
       parserOptions: {
         ecmaVersion: "latest",

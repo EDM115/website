@@ -115,28 +115,22 @@
       </template>
     </v-stepper-vertical>
   </p>
-  <ClientOnly>
-    <h3 class="mt-4 mb-2">
-      {{ t("home.downloadResume") }}
-    </h3>
-    <v-btn
-      class="mr-2"
-      color="secondary"
-      :prepend-icon="mdiFileDownload"
-      :text="t('home.downloadPdf')"
-      href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-    />
-    <v-btn
-      color="secondary"
-      :prepend-icon="mdiWeb"
-      :text="t('home.downloadOnline')"
-      href="https://old.edm115.dev/cv"
-      target="_blank"
-      rel="noopener noreferrer"
-    />
-  </ClientOnly>
+  <h3 class="mt-4 mb-2">
+    {{ t("home.downloadResume") }}
+  </h3>
+  <UiButton
+    class="mr-2"
+    color="secondary"
+    :prepend-icon="mdiFileDownload"
+    :text="t('home.downloadPdf')"
+    link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+  />
+  <UiButton
+    color="secondary"
+    :prepend-icon="mdiWeb"
+    :text="t('home.downloadOnline')"
+    link="https://old.edm115.dev/cv"
+  />
 </template>
 
 <script setup lang="ts">

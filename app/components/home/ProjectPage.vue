@@ -268,9 +268,6 @@ const head = useHead({
 await fetchReadme()
 const repoDetails = await getRepoDetails()
 
-useCopySlug()
-useCopyCode()
-
 if (repoDetails) {
   head.patch({
     title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
@@ -292,6 +289,11 @@ if (repoDetails) {
 }
 
 watch(() => props.name, fetchReadme, { immediate: true })
+
+onMounted(() => {
+  useCopySlug()
+  useCopyCode()
+})
 </script>
 
 <style scoped>
@@ -300,7 +302,7 @@ watch(() => props.name, fetchReadme, { immediate: true })
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: rgb(var(--v-theme-on-surface));
+  color: var(--gone);
 }
 
 .error,

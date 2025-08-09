@@ -4,22 +4,18 @@
     {{ t("home.contact2") }}<br>
     {{ t("home.contact3") }}<br>
   </p>
-  <v-btn
+  <UiButton
     class="mr-2"
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact4')"
-    href="https://old.edm115.dev"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://old.edm115.dev"
   />
-  <v-btn
+  <UiButton
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact5')"
-    href="https://edm115.netlify.app"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://edm115.netlify.app"
   />
 </template>
 

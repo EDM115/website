@@ -48,14 +48,12 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
               :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
+              :link="contrib.link"
             />
           </v-stepper-vertical-item>
         </template>
@@ -91,14 +89,12 @@
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
-            <v-btn
+            <UiButton
               color="primary"
               class="mt-2"
               :prepend-icon="mdiGithub"
               :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
+              :link="contrib.link"
             />
           </v-stepper-vertical-item>
         </template>
@@ -118,12 +114,8 @@ import pajamasIssueClose from "~icons/pajamas/issue-close"
 
 import contributions from "~/assets/data/contributions.json"
 
-import { useMainStore } from "~/stores/main"
-
 const { locale, t } = useI18n()
-const store = useMainStore()
 
-const userLocale = computed(() => store.getI18n)
 const tab = ref(1)
 // https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
 const pullRequests = computed(() => contributions.filter((c) => c.type === "pr"))
@@ -230,31 +222,27 @@ function getContribName(state: string, type: string) {
       return `${name.state} ${name.title}`
   }
 }
-
-onMounted(() => {
-  locale.value = userLocale.value
-})
 </script>
 
 <style scoped>
 .open-contrib-color {
   background-color: #238636E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .merged-contrib-color {
   background-color: #8957E5E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .closed-contrib-color {
   background-color: #AD0116E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .ignored-contrib-color {
   background-color: #3D444DE6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  color: var(--text) !important;
 }
 
 .ignored-contrib-color :deep(.v-stepper-vertical-item__avatar .v-icon) {

@@ -1,10 +1,9 @@
 {
   "recommendations": [
-    "SilverFletcherr.vuetify-gotodocs",
     "Vue.volar",
     "Zignd.html-css-class-completion",
-    "aaron-bond.better-comments",
     "dbaeumer.vscode-eslint",
+    "edwinhuish.better-comments-next",
     "formulahendry.auto-rename-tag",
     "ishiyama.vuejs-peek",
     "kisstkondoros.vscode-gutter-preview",
@@ -13,7 +12,6 @@
     "oxc.oxc-vscode",
     "pflannery.vscode-versionlens",
     "pranaygp.vscode-css-peek",
-    "vuetifyjs.vuetify-vscode",
     "wix.vscode-import-cost",
     "yoavbls.pretty-ts-errors"
   ]

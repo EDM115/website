@@ -64,7 +64,7 @@ export default [
       "@stylistic/no-multi-spaces": "warn",
       "@stylistic/no-multiple-empty-lines": [ "warn", { max: 2, maxEOF: 1, maxBOF: 0 }],
       "@stylistic/no-tabs": "warn",
-      "@stylistic/no-trailing-spaces": "warn",
+      "@stylistic/no-trailing-spaces": [ "warn", { ignoreComments: true }],
       "@stylistic/no-whitespace-before-property": "warn",
       "@stylistic/object-curly-spacing": [ "warn", "always" ],
       "@stylistic/operator-linebreak": [ "warn", "before" ],
