@@ -1,11 +1,11 @@
 <template>
-  <v-container>
-    <v-row
+  <UiContainer>
+    <UiRow
       align="center"
       align-content="center"
       justify="center"
     >
-      <v-col align="center">
+      <UiCol align="center">
         <NuxtImg
           :draggable="false"
           preload
@@ -19,9 +19,9 @@
 
         <h1>EDM115</h1>
 
-        <v-divider class="my-4" />
-        <v-row>
-          <v-col>
+        <UiDivider class="my-4" />
+        <UiRow>
+          <UiCol>
             <UiButton
               color="primary"
               :prepend-icon="mdiHomeOutline"
@@ -29,8 +29,8 @@
               link="/"
               variant="elevated"
             />
-          </v-col>
-          <v-col>
+          </UiCol>
+          <UiCol>
             <UiButton
               color="primary"
               :prepend-icon="mdiInformationOutline"
@@ -38,8 +38,8 @@
               link="/projects"
               variant="elevated"
             />
-          </v-col>
-          <v-col>
+          </UiCol>
+          <UiCol>
             <UiButton
               color="primary"
               :prepend-icon="mdiText"
@@ -47,23 +47,23 @@
               link="/blog"
               variant="elevated"
             />
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
-    <v-row
+          </UiCol>
+        </UiRow>
+      </UiCol>
+    </UiRow>
+    <UiRow
       align="center"
       align-content="center"
       justify="center"
     >
-      <v-col align="center">
-        <v-card
+      <UiCol align="center">
+        <UiCard
           id="about"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#about"
@@ -72,9 +72,9 @@
                 {{ t("home.about") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <p>
               {{ t("home.about1") }}<br>
               {{ t("home.about2") }}<br><br>
@@ -107,16 +107,16 @@
               </NuxtLink><br>
               {{ t("home.about13") }}<br>
             </p>
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="stats"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#stats"
@@ -125,23 +125,23 @@
                 {{ t("home.stats") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeStats
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="skills"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#skills"
@@ -150,23 +150,23 @@
                 {{ t("home.skills") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeSkills
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="resume"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#resume"
@@ -175,23 +175,23 @@
                 {{ t("home.resume") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeResume
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="opensource"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#opensource"
@@ -200,23 +200,23 @@
                 {{ t("home.oss") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeOpenSourceContributions
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="contact"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#contact"
@@ -225,23 +225,23 @@
                 {{ t("home.contact") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeContact
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
+          </UiCardText>
+        </UiCard>
 
-        <v-card
+        <UiCard
           id="social"
           class="mx-auto my-4"
           max-width="500"
           variant="elevated"
         >
-          <v-card-title>
+          <UiCardTitle>
             <h2>
               <NuxtLink
                 to="#social"
@@ -250,18 +250,18 @@
                 EDM115 • {{ t("home.social") }}
               </NuxtLink>
             </h2>
-          </v-card-title>
+          </UiCardTitle>
 
-          <v-card-text>
+          <UiCardText>
             <LazyHomeSocialLinks
               :key="locale"
               hydrate-on-idle
             />
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+          </UiCardText>
+        </UiCard>
+      </UiCol>
+    </UiRow>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">

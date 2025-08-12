@@ -1,19 +1,19 @@
 <template>
-  <v-row>
-    <v-col
+  <UiRow>
+    <UiCol
       v-for="skill in skills"
       :key="skill.name"
       cols="12"
       md="6"
       lg="4"
     >
-      <v-card class="ma-2">
-        <v-card-title style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+      <UiCard class="ma-2">
+        <UiCardTitle style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
           {{ skill.name }}
-        </v-card-title>
-        <v-card-text>
+        </UiCardTitle>
+        <UiCardText>
           <div class="progress-container">
-            <v-progress-circular
+            <UiProgressCircular
               :id="'skillsCounter-' + skill.id"
               color="primary"
               class="pa-4"
@@ -26,16 +26,16 @@
                   {{ skill.displayedValue }} %
                 </div>
               </template>
-            </v-progress-circular>
-            <v-icon
+            </UiProgressCircular>
+            <UiIcon
               :icon="currentIcons[skill.id]"
               class="background-icon"
             />
           </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+        </UiCardText>
+      </UiCard>
+    </UiCol>
+  </UiRow>
 </template>
 
 <script setup lang="ts">

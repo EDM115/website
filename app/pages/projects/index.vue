@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <UiContainer>
     <h1>{{ t("projects.title") }}</h1>
 
     <UiButton
@@ -62,7 +62,7 @@
       link="/projects/the-very-restrictive-license"
       text="EDM115/The-Very-Restrictive-License"
     />
-  </v-container>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">

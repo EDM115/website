@@ -1,7 +1,7 @@
 <template>
   <p>
     {{ t("home.resume1") }}<br>
-    <v-stepper-vertical
+    <UiStepperVertical
       non-linear
       ripple
       multiple
@@ -13,16 +13,16 @@
       :mandatory="false"
     >
       <template #default>
-        <v-stepper-vertical-item
+        <UiStepperVerticalItem
           :subtitle="t('home.resume2')"
           title="EDM115"
           :icon="mdiAccountTieOutline"
           :edit-icon="mdiAccountTieOutline"
           value="1"
         >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>{{ t("home.resume3") }}</v-list-item-title>
+          <UiList>
+            <UiListItem>
+              <UiListItemTitle>{{ t("home.resume3") }}</UiListItemTitle>
               {{ t("home.resume4") }}<br>
               <NuxtLink
                 to="mailto:dev@edm115.dev"
@@ -37,83 +37,83 @@
               >
                 +33 6 67 98 05 04
               </NuxtLink>
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+            </UiListItem>
+          </UiList>
+        </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
+        <UiStepperVerticalItem
           :subtitle="t('home.resume5')"
           :title="t('home.resume6')"
           :icon="mdiBriefcaseOutline"
           :edit-icon="mdiBriefcaseOutline"
           value="2"
         >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2025</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+          <UiList>
+            <UiListItem>
+              <UiListItemTitle>2025</UiListItemTitle>
+              <UiListItemSubtitle class="mb-2">
                 Nexelec, Saint-Avé
-              </v-list-item-subtitle><br>
+              </UiListItemSubtitle><br>
               {{ t("home.resume7") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+            </UiListItem>
+          </UiList>
+        </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
+        <UiStepperVerticalItem
           :subtitle="t('home.resume5')"
           :title="t('home.resume8')"
           :icon="mdiBriefcaseOutline"
           :edit-icon="mdiBriefcaseOutline"
           value="3"
         >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2024</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+          <UiList>
+            <UiListItem>
+              <UiListItemTitle>2024</UiListItemTitle>
+              <UiListItemSubtitle class="mb-2">
                 Koumoul, Vannes
-              </v-list-item-subtitle><br>
+              </UiListItemSubtitle><br>
               {{ t("home.resume9") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+            </UiListItem>
+          </UiList>
+        </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
+        <UiStepperVerticalItem
           :subtitle="t('home.resume10')"
           :title="t('home.resume11')"
           :icon="mdiSchoolOutline"
           :edit-icon="mdiSchoolOutline"
           value="4"
         >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2022 - 2025</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+          <UiList>
+            <UiListItem>
+              <UiListItemTitle>2022 - 2025</UiListItemTitle>
+              <UiListItemSubtitle class="mb-2">
                 IUT Vannes
-              </v-list-item-subtitle><br>
+              </UiListItemSubtitle><br>
               {{ t("home.resume12") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+            </UiListItem>
+          </UiList>
+        </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
+        <UiStepperVerticalItem
           :subtitle="t('home.resume10')"
           :title="t('home.resume13')"
           :icon="mdiSchoolOutline"
           :edit-icon="mdiSchoolOutline"
           value="5"
         >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2019 - 2022</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+          <UiList>
+            <UiListItem>
+              <UiListItemTitle>2019 - 2022</UiListItemTitle>
+              <UiListItemSubtitle class="mb-2">
                 Lycée Saint-Paul, Vannes
-              </v-list-item-subtitle><br>
+              </UiListItemSubtitle><br>
               {{ t("home.resume14") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+            </UiListItem>
+          </UiList>
+        </UiStepperVerticalItem>
       </template>
-    </v-stepper-vertical>
+    </UiStepperVertical>
   </p>
   <h3 class="mt-4 mb-2">
     {{ t("home.downloadResume") }}

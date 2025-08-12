@@ -1,10 +1,10 @@
 <template>
-  <v-container class="d-flex flex-column align-center">
+  <UiContainer class="d-flex flex-column align-center">
     <div
       v-if="loading"
       class="loading"
     >
-      <v-progress-circular
+      <UiProgressCircular
         indeterminate
         color="primary"
       />
@@ -15,7 +15,7 @@
       v-else-if="error"
       class="error"
     >
-      <v-alert
+      <UiAlert
         type="error"
         :text="error"
       />
@@ -25,7 +25,7 @@
       <Suspense>
         <template #fallback>
           <div class="loading">
-            <v-progress-circular
+            <UiProgressCircular
               indeterminate
               color="primary"
             />
@@ -47,12 +47,12 @@
       v-else
       class="no-content"
     >
-      <v-alert
+      <UiAlert
         type="info"
         text="No README found for this repository."
       />
     </div>
-  </v-container>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">

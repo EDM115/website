@@ -1,29 +1,29 @@
 <template>
-  <v-carousel
+  <UiCarousel
     hide-delimiters
     hide-delimiter-background
     cycle
-    interval="8000"
+  :interval="8000"
     show-arrows="hover"
   >
-    <v-carousel-item
+    <UiCarouselItem
       v-for="project in projects"
       :key="project.id"
       :src="project.image"
     >
-      <v-card
+      <UiCard
         variant="outlined"
         style="backdrop-filter: blur(4px) brightness(40%);"
       >
-        <v-card-title>
+        <UiCardTitle>
           <h3>{{ project.name }}</h3>
-        </v-card-title>
+        </UiCardTitle>
 
-        <v-card-text style="white-space: pre-wrap;">
+        <UiCardText style="white-space: pre-wrap;">
           {{ project.description }}
-        </v-card-text>
+        </UiCardText>
 
-        <v-card-actions class="d-flex flex-column">
+        <UiCardActions class="d-flex flex-column">
           <UiButton
             color="primary"
             class="mr-2"
@@ -37,10 +37,10 @@
             :link="project.link"
             :text="project.linkText"
           />
-        </v-card-actions>
-      </v-card>
-    </v-carousel-item>
-  </v-carousel>
+        </UiCardActions>
+      </UiCard>
+    </UiCarouselItem>
+  </UiCarousel>
 </template>
 
 <script setup lang="ts">

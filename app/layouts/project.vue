@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 1rem;">
+  <div>
     <NuxtRouteAnnouncer />
     <NavBar />
     <main>
@@ -52,12 +52,11 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
-polyfillCountryFlagEmojis()
+useCopySlug()
+useCopyCode()
 
 onMounted(() => {
   setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
-  useCopySlug()
-  useCopyCode()
   polyfillCountryFlagEmojis(
     "Twemoji Country Flags",
     "/docs/TwemojiCountryFlags.woff2",

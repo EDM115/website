@@ -1,12 +1,12 @@
 <template>
-  <v-app-bar class="rounded-b-lg force-ssr">
+  <UiAppBar class="rounded-b-lg force-ssr">
     <template #prepend>
       <NuxtLink
         class="text-decoration-none"
         style="color: inherit;"
         to="/"
       >
-        <v-app-bar-nav-icon :icon="menuIcon" />
+        <UiAppBarNavIcon :icon="menuIcon" />
       </NuxtLink>
     </template>
 
@@ -15,15 +15,13 @@
       style="color: inherit;"
       to="/"
     >
-      <v-app-bar-title>EDM115</v-app-bar-title>
+      <UiAppBarTitle>
+        EDM115
+      </UiAppBarTitle>
     </NuxtLink>
 
     <template #append>
-      <v-menu
-        open-on-click
-        open-on-focus
-        open-on-hover
-      >
+      <UiMenu>
         <template #activator="{ props }">
           <UiButton
             v-bind="props"
@@ -35,31 +33,32 @@
               {{ getFlagEmoji(locale) }}
             </div>
             <div v-else>
-              <v-icon :icon="mdiLanguage" />
+              <UiIcon :icon="mdiLanguage" />
             </div>
           </UiButton>
         </template>
-        <v-list
+        <UiList
           class="small-list"
           @mouseleave="i18nSwitch = false"
           @mouseover="i18nSwitch = true"
         >
-          <v-list-item
+          <UiListItem
             v-for="l in availableLocales"
             :key="l"
             :active="l === locale"
-            :title="getFlagEmoji(l)"
             @click="switchLocale(l)"
-          />
-        </v-list>
-      </v-menu>
+          >
+            {{ getFlagEmoji(l) }}
+          </UiListItem>
+        </UiList>
+      </UiMenu>
       <UiButton
         class="spin-animation"
         :icon="iconTheme"
         @click="onToggleTheme"
       />
     </template>
-  </v-app-bar>
+  </UiAppBar>
 </template>
 
 <script setup lang="ts">

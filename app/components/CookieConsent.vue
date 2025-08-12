@@ -1,5 +1,5 @@
 <template>
-  <v-banner
+  <UiBanner
     v-if="showBanner"
     v-on-click-outside="() => handleAccept(false)"
     class="cookie-consent-banner rounded-t-lg"
@@ -26,7 +26,7 @@
         </UiButton>
       </div>
     </template>
-  </v-banner>
+  </UiBanner>
 </template>
 
 <script lang="ts" setup>

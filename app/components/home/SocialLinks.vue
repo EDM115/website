@@ -1,10 +1,9 @@
 <template>
-  <v-tooltip
+  <UiTooltip
     v-for="socialLink in socialLinks"
     :key="socialLink.text"
     location="top"
     :text="socialLink.text"
-    @update:model-value="isHovered = $event"
   >
     <template #activator="{ props }">
       <UiButton
@@ -15,7 +14,7 @@
         variant="flat"
       />
     </template>
-  </v-tooltip>
+  </UiTooltip>
 </template>
 
 <script setup lang="ts">
@@ -41,7 +40,6 @@ import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import simpleIconsRootme from "~icons/simple-icons/rootme"
 
-const isHovered = ref(false)
 const socialLinks = ref([
   {
     icon: mdiGithub,

@@ -1,29 +1,29 @@
 <template>
-  <v-tabs
+  <UiTabs
     v-model="tab"
     align-tabs="center"
     color="primary"
     grow
   >
-    <v-tab
+    <UiTab
       :text="t('opensource.pr.multiple')"
       :value="1"
     />
-    <v-tab
+    <UiTab
       :text="t('opensource.issue.multiple')"
       :value="2"
     />
-  </v-tabs>
+  </UiTabs>
 
-  <v-tabs-window
+  <UiTabsWindow
     v-model="tab"
     class="mt-2"
   >
-    <v-tabs-window-item
+    <UiTabsWindowItem
       eager
       :value="1"
     >
-      <v-stepper-vertical
+      <UiStepperVertical
         non-linear
         ripple
         flat
@@ -35,7 +35,7 @@
         :mandatory="false"
       >
         <template #default>
-          <v-stepper-vertical-item
+          <UiStepperVerticalItem
             v-for="contrib in pullRequests"
             :key="contrib.id"
             :icon="getContribIcon(contrib.state, contrib.type)"
@@ -55,16 +55,16 @@
               :text="t('opensource.link')"
               :link="contrib.link"
             />
-          </v-stepper-vertical-item>
+          </UiStepperVerticalItem>
         </template>
-      </v-stepper-vertical>
-    </v-tabs-window-item>
+      </UiStepperVertical>
+    </UiTabsWindowItem>
 
-    <v-tabs-window-item
+    <UiTabsWindowItem
       eager
       :value="2"
     >
-      <v-stepper-vertical
+      <UiStepperVertical
         non-linear
         ripple
         flat
@@ -76,7 +76,7 @@
         :mandatory="false"
       >
         <template #default>
-          <v-stepper-vertical-item
+          <UiStepperVerticalItem
             v-for="contrib in issues"
             :key="contrib.id"
             :icon="getContribIcon(contrib.state, contrib.type)"
@@ -96,11 +96,11 @@
               :text="t('opensource.link')"
               :link="contrib.link"
             />
-          </v-stepper-vertical-item>
+          </UiStepperVerticalItem>
         </template>
-      </v-stepper-vertical>
-    </v-tabs-window-item>
-  </v-tabs-window>
+      </UiStepperVertical>
+    </UiTabsWindowItem>
+  </UiTabsWindow>
 </template>
 
 <script setup lang="ts">

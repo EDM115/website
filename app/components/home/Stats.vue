@@ -1,26 +1,26 @@
 <template>
-  <v-col>
-    <v-row
+  <UiCol>
+    <UiRow
       v-for="stat in stats"
       id="statsCounters"
       :key="stat.id"
       class="d-flex justify-center align-center"
     >
-      <v-card class="ma-2">
-        <v-card-title style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+      <UiCard class="ma-2">
+        <UiCardTitle style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
           {{ stat.name }}
-        </v-card-title>
-        <v-card-text>
+        </UiCardTitle>
+        <UiCardText>
           <div
             :id="'od-' + stat.id"
             class="odometer mockup-odometer"
           >
             {{ formatZeros(stat.value) }}
           </div>
-        </v-card-text>
-      </v-card>
-    </v-row>
-  </v-col>
+        </UiCardText>
+      </UiCard>
+    </UiRow>
+  </UiCol>
 </template>
 
 <script setup lang="ts">

@@ -1,10 +1,10 @@
 <template>
-  <v-container>
+  <UiContainer>
     <h1>{{ t("blog.title") }}</h1><br>
 
     <h3>{{ t("blog.subtitle") }}</h3>
 
-    <v-divider class="my-4" />
+    <UiDivider class="my-4" />
 
     <UiButton
       class="ma-2"
@@ -33,7 +33,7 @@
       link="/blog/2022/05/15/google-ending-shared-drives"
       text="Google ending Shared Drives"
     />
-  </v-container>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">
