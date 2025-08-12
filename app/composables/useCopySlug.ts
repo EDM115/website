@@ -16,7 +16,7 @@ export function useCopySlug() {
 
     const url = `${location.origin}${location.pathname}#${slug}`
 
-    navigator.clipboard.writeText(url).then(() => {
+    void navigator.clipboard.writeText(url).then(() => {
       const original = el.innerHTML
 
       el.innerHTML = mdiCheck as unknown as string

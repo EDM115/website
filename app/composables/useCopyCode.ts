@@ -10,7 +10,7 @@ export function useCopyCode() {
     const codeEl = block?.querySelector("pre code")
     const text = codeEl?.textContent ?? ""
 
-    navigator.clipboard.writeText(text).then(() => {
+    void navigator.clipboard.writeText(text).then(() => {
       const orig = btn.textContent
 
       btn.textContent = "Copied !"
