@@ -139,6 +139,8 @@ onMounted(() => {
   position: relative;
   display: inline-block;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .background-icon {
@@ -146,21 +148,27 @@ onMounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 35%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 50px;
   transition: all 0.5s ease-in-out;
-  z-index: -1;
+  z-index: 1;
 }
 
-.progress-container:hover .background-icon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 160%;
-  height: 160%;
-  background-color: color-mix(in srgb, var(--gone) 75%, transparent 25%);
-  border-radius: 50%;
+.background-icon svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.progress-container:hover .background-icon {
+  filter: opacity(0.8) blur(1.5px);
 }
 
 .percentage {
@@ -170,6 +178,7 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
 }
 
 .progress-container:hover .percentage {
