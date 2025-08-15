@@ -17,7 +17,6 @@
           :subtitle="t('home.resume2')"
           title="EDM115"
           :icon="mdiAccountTieOutline"
-          :edit-icon="mdiAccountTieOutline"
           value="1"
         >
           <UiList>
@@ -45,7 +44,6 @@
           :subtitle="t('home.resume5')"
           :title="t('home.resume6')"
           :icon="mdiBriefcaseOutline"
-          :edit-icon="mdiBriefcaseOutline"
           value="2"
         >
           <UiList>
@@ -63,7 +61,6 @@
           :subtitle="t('home.resume5')"
           :title="t('home.resume8')"
           :icon="mdiBriefcaseOutline"
-          :edit-icon="mdiBriefcaseOutline"
           value="3"
         >
           <UiList>
@@ -81,7 +78,6 @@
           :subtitle="t('home.resume10')"
           :title="t('home.resume11')"
           :icon="mdiSchoolOutline"
-          :edit-icon="mdiSchoolOutline"
           value="4"
         >
           <UiList>
@@ -99,7 +95,6 @@
           :subtitle="t('home.resume10')"
           :title="t('home.resume13')"
           :icon="mdiSchoolOutline"
-          :edit-icon="mdiSchoolOutline"
           value="5"
         >
           <UiList>

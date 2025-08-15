@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import type { Component } from "vue"
 
-const props = defineProps<{ title: string; subtitle?: string; icon?: Component; editIcon?: Component; value?: string | number; color?: string; bgColor?: string }>()
+const props = defineProps<{ title: string; subtitle?: string; icon?: Component; value?: string | number; color?: string; bgColor?: string }>()
 
 const colorClass = computed(() => (props.color ? `bg-${props.color}` : ""))
 </script>
