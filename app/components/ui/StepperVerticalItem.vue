@@ -1,47 +1,162 @@
 <template>
   <div
     class="ui-stepper-item"
-    :class="colorClass"
+    :class="[{ 'is-open': isOpen, 'is-clickable': true }]"
+    :style="rootStyle"
   >
-    <div class="ui-stepper-item__header">
-      <UiIcon
-        v-if="icon"
-        :icon="icon"
-      />
+    <!-- marker that sits on the vertical thread; z-index ensures the thread goes "through" icons -->
+    <div
+      aria-hidden="true"
+      class="ui-stepper-item__marker"
+    >
+      <div class="ui-stepper-item__marker-icon">
+        <UiIcon
+          v-if="icon"
+          :icon="icon"
+        />
+        <div
+          v-else
+          class="ui-stepper-item__dot"
+        />
+      </div>
+    </div>
+
+    <button
+      class="ui-stepper-item__header"
+      type="button"
+      :aria-expanded="isOpen ? 'true' : 'false'"
+      :aria-controls="`panel-${uid}`"
+      @click="toggle"
+    >
       <div class="ui-stepper-item__titles">
         <div class="ui-stepper-item__title">
           {{ title }}
         </div>
-        <div class="ui-stepper-item__subtitle">
+        <div
+          v-if="subtitle"
+          class="ui-stepper-item__subtitle"
+        >
           {{ subtitle }}
         </div>
       </div>
-    </div>
-    <div class="ui-stepper-item__body">
-      <slot />
-    </div>
+      <UiIcon
+        class="ui-stepper-item__chevron"
+        :icon="isOpen ? mdiChevronUp : mdiChevronDown"
+      />
+    </button>
+    <transition name="roll">
+      <div
+        v-if="isOpen"
+        :id="`panel-${uid}`"
+        ref="bodyRef"
+        class="ui-stepper-item__body"
+      >
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Component } from "vue"
 
-const props = defineProps<{ title: string; subtitle?: string; icon?: Component; value?: string | number; color?: string; bgColor?: string }>()
+import mdiChevronDown from "~icons/mdi/chevronDown"
+import mdiChevronUp from "~icons/mdi/chevronUp"
 
-const colorClass = computed(() => (props.color ? `bg-${props.color}` : ""))
+const props = defineProps<{
+  title: string;
+  subtitle?: string;
+  icon?: Component;
+  value?: string | number;
+  color?: string;
+  bgColor?: string;
+}>()
+
+const isOpen = ref(false)
+const bodyRef = ref<HTMLElement | null>(null)
+const uid = Math.random().toString(36).slice(2)
+
+// Apply theming so icon marker is encompassed by item color/bg
+const rootStyle = computed(() => {
+  const style: Record<string, string> = {}
+  if (props.bgColor) {
+    style.backgroundColor = props.bgColor
+    style["--ui-item-bg"] = props.bgColor
+  }
+  if (props.color) {
+    style.color = props.color
+    style["--ui-item-border"] = props.color
+  }
+  return style
+})
+
+function toggle() {
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <style scoped>
 .ui-stepper-item {
+  position: relative;
   background: color-mix(in srgb, var(--surface) 80%, transparent);
   border-radius: .5rem;
-  padding: .75rem 1rem;
+  padding: .5rem .75rem .75rem .75rem;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+.ui-stepper-item.is-clickable:hover {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+.ui-stepper-item.is-open {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+.ui-stepper-item__marker {
+  position: absolute;
+  left: calc(-.5 * var(--ui-stepper-axis) - 1rem);
+  width: 2rem;
+  top: .5rem;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.ui-stepper-item__marker-icon {
+  background-color: var(--ui-item-bg, inherit);
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.ui-stepper-item__dot {
+  width: .5rem;
+  height: .5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gone) 72%, transparent);
 }
 
 .ui-stepper-item__header {
   display: flex;
   gap: .5rem;
   align-items: center;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: .5rem .25rem;
+  margin: 0;
+  cursor: pointer;
+  border-radius: .375rem;
+}
+
+.ui-stepper-item__header:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--primary) 60%, var(--gone));
+  outline-offset: 2px;
 }
 
 .ui-stepper-item__title {
@@ -51,5 +166,32 @@ const colorClass = computed(() => (props.color ? `bg-${props.color}` : ""))
 .ui-stepper-item__subtitle {
   opacity: .8;
   font-size: .875rem;
+}
+
+.ui-stepper-item__chevron {
+  margin-left: auto;
+  opacity: .8;
+}
+
+.ui-stepper-item__body {
+  padding: 0 .5rem 0 .25rem;
+  overflow: hidden;
+}
+
+.roll-enter-from,
+.roll-leave-to {
+  max-height: 0;
+  transform: translateY(-4px);
+  opacity: 0;
+}
+.roll-enter-active,
+.roll-leave-active {
+  transition: max-height .25s ease, opacity .2s ease, transform .2s ease;
+}
+.roll-enter-to,
+.roll-leave-from {
+  max-height: 500px;
+  transform: translateY(0);
+  opacity: 1;
 }
 </style>
