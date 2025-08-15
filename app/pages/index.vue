@@ -61,7 +61,7 @@
           id="about"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -114,7 +114,7 @@
           id="stats"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -139,7 +139,7 @@
           id="skills"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -164,7 +164,7 @@
           id="resume"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -189,7 +189,7 @@
           id="opensource"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -214,7 +214,7 @@
           id="contact"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>
@@ -239,7 +239,7 @@
           id="social"
           class="mx-auto my-4"
           max-width="500"
-          variant="elevated"
+          variant="flat"
         >
           <UiCardTitle>
             <h2>

@@ -42,6 +42,13 @@ defineProps<{ color?: "primary" | "secondary" | "accent" | "info" | "success" | 
   position: fixed;
   // TODO : Add positionning
   bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.ui-banner__prepend {
+  transform: scale(1.5);
 }
 
 .ui-banner--primary {

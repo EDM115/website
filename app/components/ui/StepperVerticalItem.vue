@@ -4,7 +4,6 @@
     :class="[{ 'is-open': isOpen, 'is-clickable': true }]"
     :style="rootStyle"
   >
-    <!-- marker that sits on the vertical thread; z-index ensures the thread goes "through" icons -->
     <div
       aria-hidden="true"
       class="ui-stepper-item__marker"
@@ -79,14 +78,17 @@ const uid = Math.random().toString(36).slice(2)
 // Apply theming so icon marker is encompassed by item color/bg
 const rootStyle = computed(() => {
   const style: Record<string, string> = {}
+
   if (props.bgColor) {
     style.backgroundColor = props.bgColor
     style["--ui-item-bg"] = props.bgColor
   }
+
   if (props.color) {
     style.color = props.color
     style["--ui-item-border"] = props.color
   }
+
   return style
 })
 
@@ -123,7 +125,7 @@ function toggle() {
 }
 
 .ui-stepper-item__marker-icon {
-  background-color: var(--ui-item-bg, inherit);
+  background-color: var(--ui-item-bg, var(--surface));
   border-radius: 999px;
   width: 2rem;
   height: 2rem;

@@ -21,6 +21,6 @@
   top: 1.5rem;
   bottom: 0;
   width: 2px;
-  background: color-mix(in srgb, var(--gone) 18%, transparent);
+  background: var(--surface);
 }
 </style>

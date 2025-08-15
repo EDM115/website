@@ -2,7 +2,7 @@
   <UiBanner
     v-if="showBanner"
     v-on-click-outside="() => handleAccept(false)"
-    class="cookie-consent-banner rounded-t-lg"
+    class="rounded-t-lg"
     color="primary"
     :icon="mdiCookieAlertOutline"
     lines="one"
@@ -11,7 +11,7 @@
       {{ t('cookies.text') }}
     </template>
     <template #actions>
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column ga-2">
         <UiButton
           color="success"
           @click="handleAccept(true)"
@@ -70,23 +70,3 @@ onMounted(() => {
   }
 })
 </script>
-
-<style scoped>
-.cookie-consent-banner.v-banner {
-  position: fixed !important;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-.cookie-consent-banner :deep(.v-banner__content .v-banner-text) {
-  -webkit-line-clamp: none !important;
-  line-clamp: none !important;
-  padding: 0.8rem 0rem !important;
-}
-
-.cookie-consent-banner :deep(.v-banner__prepend) {
-  margin-top: 0.8rem !important;
-}
-</style>
