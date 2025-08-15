@@ -1,5 +1,5 @@
 <template>
-  <UiAppBar class="rounded-b-lg force-ssr">
+  <UiAppBar class="rounded-b-lg">
     <template #prepend>
       <NuxtLink
         class="text-decoration-none"
@@ -38,7 +38,7 @@
           </UiButton>
         </template>
         <UiList
-          class="small-list"
+          compact
           @mouseleave="i18nSwitch = false"
           @mouseover="i18nSwitch = true"
         >
@@ -53,9 +53,8 @@
         </UiList>
       </UiMenu>
       <UiButton
-        class="spin-animation"
         :icon="iconTheme"
-        @click="onToggleTheme"
+        @click="toggleTheme"
       />
     </template>
   </UiAppBar>
@@ -70,7 +69,7 @@ import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import { useCustomTheme } from "~/composables/useCustomTheme"
 
 const { locale } = useI18n()
-const { isDark, changeTheme } = useCustomTheme()
+const { isDark, toggleTheme } = useCustomTheme()
 
 const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
@@ -92,60 +91,4 @@ const getFlagEmoji = (l: string): string => {
       return "🌐"
   }
 }
-
-// See https://paco.me/writing/disable-theme-transitions
-function onToggleTheme() {
-  // Create a style element to disable transitions on all elements
-  const css = document.createElement("style")
-
-  css.appendChild(document.createTextNode(`* {
-         -webkit-transition: none !important;
-         -moz-transition: none !important;
-         -o-transition: none !important;
-         -ms-transition: none !important;
-         transition: none !important;
-      }`))
-  document.head.appendChild(css)
-
-  changeTheme(isDark.value ? "light" : "dark")
-
-  // Force a reflow to apply the new theme without transitions
-  const _ = window.getComputedStyle(css).opacity
-
-  // Remove the temporary CSS to restore transitions
-  document.head.removeChild(css)
-}
 </script>
-
-<style>
-.spin-animation:active {
-  animation: spin 1s ease-in-out 0s 1;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(720deg);
-  }
-}
-
-.force-ssr {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translateY(0px);
-  width: 100%;
-}
-
-.small-list .v-list-item__content {
-  min-width: 0px;
-}
-
-.small-list .v-list-item--density-compact:not(.v-list-item--nav).v-list-item--one-line {
-  padding-inline-end: 0px;
-  padding-inline-start: 16px;
-}
-</style>
-

@@ -7,7 +7,7 @@
     <div class="ui-menu__activator">
       <slot
         name="activator"
-        :props="{ onClick: () => (open = !open) }"
+        :props="{ onClick: () => (clickToClose ? open = !open : open = true) }"
       />
     </div>
     <div
@@ -21,6 +21,10 @@
 
 <script setup lang="ts">
 const open = ref(false)
+
+defineProps<{
+  clickToClose?: boolean
+}>()
 </script>
 
 <style scoped>
