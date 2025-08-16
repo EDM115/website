@@ -21,7 +21,9 @@
         >
           <UiList>
             <UiListItem>
-              <UiListItemTitle>{{ t("home.resume3") }}</UiListItemTitle>
+              <template #title>
+                {{ t("home.resume3") }}
+              </template>
               {{ t("home.resume4") }}<br>
               <NuxtLink
                 to="mailto:dev@edm115.dev"
@@ -48,10 +50,14 @@
         >
           <UiList>
             <UiListItem>
-              <UiListItemTitle>2025</UiListItemTitle>
-              <UiListItemSubtitle class="mb-2">
-                Nexelec, Saint-Avé
-              </UiListItemSubtitle><br>
+              <template #title>
+                2025
+              </template>
+              <template #subtitle>
+                <div class="mb-2">
+                  Nexelec, Saint-Avé
+                </div>
+              </template><br>
               {{ t("home.resume7") }}
             </UiListItem>
           </UiList>
@@ -65,10 +71,14 @@
         >
           <UiList>
             <UiListItem>
-              <UiListItemTitle>2024</UiListItemTitle>
-              <UiListItemSubtitle class="mb-2">
-                Koumoul, Vannes
-              </UiListItemSubtitle><br>
+              <template #title>
+                2024
+              </template>
+              <template #subtitle>
+                <div class="mb-2">
+                  Koumoul, Vannes
+                </div>
+              </template><br>
               {{ t("home.resume9") }}
             </UiListItem>
           </UiList>
@@ -82,10 +92,14 @@
         >
           <UiList>
             <UiListItem>
-              <UiListItemTitle>2022 - 2025</UiListItemTitle>
-              <UiListItemSubtitle class="mb-2">
-                IUT Vannes
-              </UiListItemSubtitle><br>
+              <template #title>
+                2022 - 2025
+              </template>
+              <template #subtitle>
+                <div class="mb-2">
+                  IUT Vannes
+                </div>
+              </template><br>
               {{ t("home.resume12") }}
             </UiListItem>
           </UiList>
@@ -99,10 +113,14 @@
         >
           <UiList>
             <UiListItem>
-              <UiListItemTitle>2019 - 2022</UiListItemTitle>
-              <UiListItemSubtitle class="mb-2">
-                Lycée Saint-Paul, Vannes
-              </UiListItemSubtitle><br>
+              <template #title>
+                2019 - 2022
+              </template>
+              <template #subtitle>
+                <div class="mb-2">
+                  Lycée Saint-Paul, Vannes
+                </div>
+              </template><br>
               {{ t("home.resume14") }}
             </UiListItem>
           </UiList>
