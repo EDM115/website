@@ -1,13 +1,11 @@
 <template>
   <UiAppBar class="rounded-b-lg">
     <template #prepend>
-      <NuxtLink
-        class="text-decoration-none"
-        style="color: inherit;"
+      <UiButton
+        :icon="menuIcon"
+        variant="flat"
         to="/"
-      >
-        <UiAppBarNavIcon :icon="menuIcon" />
-      </NuxtLink>
+      />
     </template>
 
     <NuxtLink
@@ -15,9 +13,7 @@
       style="color: inherit;"
       to="/"
     >
-      <UiAppBarTitle>
-        EDM115
-      </UiAppBarTitle>
+      EDM115
     </NuxtLink>
 
     <template #append>

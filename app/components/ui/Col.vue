@@ -5,7 +5,12 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ cols?: number | string; md?: number | string; lg?: number | string; align?: "start" | "center" | "end" }>()
+const props = defineProps<{
+  cols?: number | string
+  md?: number | string
+  lg?: number | string
+  align?: "start" | "center" | "end"
+}>()
 
 function toSpan(n?: number | string) {
   if (!n && n !== 0) {

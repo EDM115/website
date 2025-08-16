@@ -9,7 +9,11 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ variant?: "elevated" | "outlined" | "flat"; maxWidth?: string | number }>()
+const props = defineProps<{
+  variant?: "elevated" | "outlined" | "flat"
+  maxWidth?: string | number
+}>()
+
 const classes = computed(() => [
   "ui-card",
   props.variant ? `ui-card--${props.variant}` : "ui-card--elevated",
@@ -20,21 +24,21 @@ const maxWidthStyle = computed(() => (props.maxWidth !== undefined
   : undefined))
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-card {
   background: var(--surface);
   color: var(--text);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-md);
-}
 
-.ui-card--outlined {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 30%, transparent);
-  background: color-mix(in srgb, var(--surface) 50%, transparent);
-}
+  &--outlined {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 30%, transparent);
+    background: color-mix(in srgb, var(--surface) 50%, transparent);
+  }
 
-.ui-card--flat {
-  box-shadow: none;
-  background: transparent;
+  &--flat {
+    box-shadow: none;
+    background: transparent;
+  }
 }
 </style>

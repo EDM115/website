@@ -10,7 +10,10 @@
 <script setup lang="ts">
 import { computed, inject } from "vue"
 
-const props = defineProps<{ value: string | number; eager?: boolean; modelValue?: string | number }>()
+const props = defineProps<{
+  value: string | number
+  modelValue?: string | number
+}>()
 
 const injected = inject<Readonly<{ value: string | number }> | undefined>("uiTabsModel", undefined) as unknown as { value?: string | number } | undefined
 

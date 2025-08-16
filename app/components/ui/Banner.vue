@@ -1,9 +1,6 @@
 <template>
-  <div
-    class="ui-banner"
-    :class="[color ? `ui-banner--${color}` : '']"
-  >
-    <div class="ui-banner__prepend">
+  <div :class="`ui-banner ${color ? `ui-banner--${color}` : ''}`">
+    <div class="ui-banner--prepend">
       <slot name="prepend">
         <UiIcon
           v-if="icon"
@@ -11,12 +8,12 @@
         />
       </slot>
     </div>
-    <div class="ui-banner__content">
+    <div class="ui-banner--content">
       <div class="ui-banner-text">
         <slot name="text" />
       </div>
     </div>
-    <div class="ui-banner__actions">
+    <div class="ui-banner--actions">
       <slot name="actions" />
     </div>
   </div>
@@ -25,7 +22,12 @@
 <script setup lang="ts">
 import type { Component } from "vue"
 
-defineProps<{ color?: "primary" | "secondary" | "accent" | "info" | "success" | "warning" | "error"; icon?: Component; lines?: "one" | "two" }>()
+import { colorVars } from "./colors"
+
+defineProps<{
+  color?: keyof typeof colorVars
+  icon?: Component
+}>()
 </script>
 
 <style scoped lang="scss">
@@ -45,37 +47,37 @@ defineProps<{ color?: "primary" | "secondary" | "accent" | "info" | "success" | 
   left: 0;
   right: 0;
   z-index: 1000;
-}
 
-.ui-banner__prepend {
-  transform: scale(1.5);
-}
+  &--prepend {
+    transform: scale(1.5);
+  }
 
-.ui-banner--primary {
-  background: color-mix(in srgb, var(--primary) 20%, var(--surface));
-}
+  &--primary {
+    background: color-mix(in srgb, var(--primary) 20%, var(--surface));
+  }
 
-.ui-banner--secondary {
-  background: color-mix(in srgb, var(--secondary) 20%, var(--surface));
-}
+  &--secondary {
+    background: color-mix(in srgb, var(--secondary) 20%, var(--surface));
+  }
 
-.ui-banner--accent {
-  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
-}
+  &--accent {
+    background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+  }
 
-.ui-banner--info {
-  background: color-mix(in srgb, var(--info) 20%, var(--surface));
-}
+  &--info {
+    background: color-mix(in srgb, var(--info) 20%, var(--surface));
+  }
 
-.ui-banner--success {
-  background: color-mix(in srgb, var(--success) 20%, var(--surface));
-}
+  &--success {
+    background: color-mix(in srgb, var(--success) 20%, var(--surface));
+  }
 
-.ui-banner--warning {
-  background: color-mix(in srgb, var(--warning) 20%, var(--surface));
-}
+  &--warning {
+    background: color-mix(in srgb, var(--warning) 20%, var(--surface));
+  }
 
-.ui-banner--error {
-  background: color-mix(in srgb, var(--error) 20%, var(--surface));
+  &--error {
+    background: color-mix(in srgb, var(--error) 20%, var(--surface));
+  }
 }
 </style>

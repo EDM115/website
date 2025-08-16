@@ -3,5 +3,8 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ text: string; value: string | number }>()
+defineProps<{
+  text: string
+  value: string | number
+}>()
 </script>

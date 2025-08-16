@@ -13,7 +13,11 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ text: string; location?: "top" | "bottom" | "left" | "right" }>()
+const props = defineProps<{
+  text: string
+  location?: "top" | "bottom" | "left" | "right"
+}>()
+
 const open = ref(false)
 const location = computed(() => props.location ?? "top")
 

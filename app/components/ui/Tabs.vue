@@ -1,6 +1,6 @@
 <template>
   <div class="ui-tabs">
-    <div class="ui-tabs__headers">
+    <div class="ui-tabs--headers">
       <button
         v-for="tab in tabs"
         :key="tab.value"
@@ -23,7 +23,10 @@ import type { VNode } from "vue"
 type Tab = { text: string; value: string | number }
 type VNodeWithProps = VNode & { props?: Record<string, unknown> | null }
 
-defineProps<{ modelValue: string | number; color?: string; grow?: boolean }>()
+defineProps<{
+  modelValue: string | number
+  color?: string
+}>()
 
 defineEmits<{ (e: "update:modelValue", v: string | number): void }>()
 
@@ -51,18 +54,18 @@ const tabs = (slots.default?.() || [])
 </script>
 
 <style scoped>
-.ui-tabs__headers {
-  display: flex;
-  gap: .25rem;
-  justify-content: center;
-}
-
 .ui-tab {
   padding: .5rem 1rem;
   border-radius: .5rem;
   background: transparent;
   color: var(--text);
   cursor: pointer;
+}
+
+.ui-tabs--headers {
+  display: flex;
+  gap: .25rem;
+  justify-content: center;
 }
 
 .ui-tab.active {

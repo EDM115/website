@@ -1,14 +1,14 @@
 <template>
-  <div
-    class="ui-alert"
-    :class="`ui-alert--${type}`"
-  >
+  <div :class="`ui-alert ${type ? `ui-alert--${type}` : ''}`">
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{ type?: "info" | "success" | "warning" | "error"; text?: string }>()
+defineProps<{
+  type?: "info" | "success" | "warning" | "error"
+  text?: string
+}>()
 </script>
 
 <style scoped lang="scss">

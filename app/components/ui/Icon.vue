@@ -6,10 +6,18 @@
     v-bind="$attrs"
   />
 </template>
+
 <script setup lang="ts">
 import type { Component } from "vue"
-const props = defineProps<{ icon?: Component }>()
+
+defineProps<{
+  icon?: Component
+}>()
 </script>
+
 <style scoped>
-.ui-icon { display: inline-flex; vertical-align: middle; }
+.ui-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
 </style>

@@ -6,40 +6,40 @@
   >
     <div
       aria-hidden="true"
-      class="ui-stepper-item__marker"
+      class="ui-stepper-item--marker"
     >
-      <div class="ui-stepper-item__marker-icon">
+      <div class="ui-stepper-item--marker-icon">
         <UiIcon
           v-if="icon"
           :icon="icon"
         />
         <div
           v-else
-          class="ui-stepper-item__dot"
+          class="ui-stepper-item--dot"
         />
       </div>
     </div>
 
     <button
-      class="ui-stepper-item__header"
+      class="ui-stepper-item--header"
       type="button"
       :aria-expanded="isOpen ? 'true' : 'false'"
       :aria-controls="`panel-${uid}`"
       @click="toggle"
     >
-      <div class="ui-stepper-item__titles">
-        <div class="ui-stepper-item__title">
+      <div class="ui-stepper-item--titles">
+        <div class="ui-stepper-item--title">
           {{ title }}
         </div>
         <div
           v-if="subtitle"
-          class="ui-stepper-item__subtitle"
+          class="ui-stepper-item--subtitle"
         >
           {{ subtitle }}
         </div>
       </div>
       <UiIcon
-        class="ui-stepper-item__chevron"
+        class="ui-stepper-item--chevron"
         :icon="isOpen ? mdiChevronUp : mdiChevronDown"
       />
     </button>
@@ -48,7 +48,7 @@
         v-if="isOpen"
         :id="`panel-${uid}`"
         ref="bodyRef"
-        class="ui-stepper-item__body"
+        class="ui-stepper-item--body"
       >
         <slot />
       </div>
@@ -114,7 +114,7 @@ function toggle() {
   background: color-mix(in srgb, var(--surface) 92%, transparent);
 }
 
-.ui-stepper-item__marker {
+.ui-stepper-item--marker {
   position: absolute;
   left: calc(-.5 * var(--ui-stepper-axis) - 1rem);
   width: 2rem;
@@ -124,7 +124,7 @@ function toggle() {
   pointer-events: none;
 }
 
-.ui-stepper-item__marker-icon {
+.ui-stepper-item--marker-icon {
   background-color: var(--ui-item-bg, var(--surface));
   border-radius: 999px;
   width: 2rem;
@@ -135,14 +135,14 @@ function toggle() {
   position: relative;
 }
 
-.ui-stepper-item__dot {
+.ui-stepper-item--dot {
   width: .5rem;
   height: .5rem;
   border-radius: 999px;
   background: color-mix(in srgb, var(--gone) 72%, transparent);
 }
 
-.ui-stepper-item__header {
+.ui-stepper-item--header {
   display: flex;
   gap: .5rem;
   align-items: center;
@@ -156,26 +156,26 @@ function toggle() {
   border-radius: .375rem;
 }
 
-.ui-stepper-item__header:focus-visible {
+.ui-stepper-item--header:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--primary) 60%, var(--gone));
   outline-offset: 2px;
 }
 
-.ui-stepper-item__title {
+.ui-stepper-item--title {
   font-weight: 600;
 }
 
-.ui-stepper-item__subtitle {
+.ui-stepper-item--subtitle {
   opacity: .8;
   font-size: .875rem;
 }
 
-.ui-stepper-item__chevron {
+.ui-stepper-item--chevron {
   margin-left: auto;
   opacity: .8;
 }
 
-.ui-stepper-item__body {
+.ui-stepper-item--body {
   padding: 0 .5rem 0 .25rem;
   overflow: hidden;
 }

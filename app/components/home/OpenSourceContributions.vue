@@ -3,7 +3,6 @@
     v-model="tab"
     align-tabs="center"
     color="primary"
-    grow
   >
     <UiTab
       :text="t('opensource.pr.multiple')"
@@ -20,20 +19,9 @@
     class="mt-2"
   >
     <UiTabsWindowItem
-      eager
       :value="1"
     >
-      <UiStepperVertical
-        non-linear
-        ripple
-        flat
-        multiple
-        focusable
-        editable
-        eager
-        hide-actions
-        :mandatory="false"
-      >
+      <UiStepperVertical>
         <template #default>
           <UiStepperVerticalItem
             v-for="contrib in pullRequests"
@@ -59,20 +47,9 @@
     </UiTabsWindowItem>
 
     <UiTabsWindowItem
-      eager
       :value="2"
     >
-      <UiStepperVertical
-        non-linear
-        ripple
-        flat
-        multiple
-        focusable
-        editable
-        eager
-        hide-actions
-        :mandatory="false"
-      >
+      <UiStepperVertical>
         <template #default>
           <UiStepperVerticalItem
             v-for="contrib in issues"
