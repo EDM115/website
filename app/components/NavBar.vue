@@ -4,7 +4,7 @@
       <UiButton
         :icon="menuIcon"
         variant="flat"
-        to="/"
+        link="/"
       />
     </template>
 
