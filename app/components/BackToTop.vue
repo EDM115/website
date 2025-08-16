@@ -5,7 +5,7 @@
     color="primary"
     class="go-to-top"
     :icon="mdiArrowUp"
-    :variant="isDark ? 'tonal' : 'elevated'"
+    :variant="variant"
     @click="scrollToTop"
   />
 </template>
@@ -18,6 +18,14 @@ import { useCustomTheme } from "~/composables/useCustomTheme"
 const { isDark } = useCustomTheme()
 
 const showGoToTop = ref(false)
+const mounted = ref(false)
+const variant = computed(() => {
+  if (!mounted.value) {
+    return "tonal"
+  }
+
+  return isDark.value ? "tonal" : "elevated"
+})
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" })
@@ -29,6 +37,11 @@ function handleScroll() {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
+  mounted.value = true
+})
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll)
 })
 </script>
 
