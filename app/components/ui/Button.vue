@@ -5,32 +5,30 @@
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"
   >
-    <button>
-      <component
-        :is="prependIcon"
-        v-if="!icon && prependIcon"
-        class="ui-btn--icon-prepend"
-      />
-      <component
-        :is="icon"
-        v-if="icon"
-        class="ui-btn--icon-only"
-      />
-      <span
-        v-else
-        class="ui-btn--inside-text"
-      >
-        <template v-if="text">
-          {{ text }}
-        </template>
-        <slot v-else />
-      </span>
-      <component
-        :is="appendIcon"
-        v-if="!icon && appendIcon"
-        class="ui-btn--icon-append"
-      />
-    </button>
+    <component
+      :is="prependIcon"
+      v-if="!icon && prependIcon"
+      class="ui-btn--icon-prepend"
+    />
+    <component
+      :is="icon"
+      v-if="icon"
+      class="ui-btn--icon-only"
+    />
+    <span
+      v-else
+      class="ui-btn--inside-text"
+    >
+      <template v-if="text">
+        {{ text }}
+      </template>
+      <slot v-else />
+    </span>
+    <component
+      :is="appendIcon"
+      v-if="!icon && appendIcon"
+      class="ui-btn--icon-append"
+    />
   </NuxtLink>
 
   <button
