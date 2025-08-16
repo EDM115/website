@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-list-item-title {
   font-weight: 600;
 }

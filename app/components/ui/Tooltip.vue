@@ -14,7 +14,15 @@
 
 <script setup lang="ts">
 const props = defineProps<{
+
+  /**
+   * Tooltip text to display
+   */
   text: string
+
+  /**
+   * Preferred location around the activator
+   */
   location?: "top" | "bottom" | "left" | "right"
 }>()
 
@@ -30,7 +38,7 @@ function hide() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-tooltip-wrapper {
   position: relative;
   display: inline-block;
@@ -45,29 +53,29 @@ function hide() {
   white-space: nowrap;
   box-shadow: var(--shadow-md);
   font-size: .875rem;
-}
 
-.ui-tooltip--top {
-  bottom: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-}
+  &--top {
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-.ui-tooltip--bottom {
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-}
+  &--bottom {
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-.ui-tooltip--left {
-  right: calc(100% + 6px);
-  top: 50%;
-  transform: translateY(-50%);
-}
+  &--left {
+    right: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-.ui-tooltip--right {
-  left: calc(100% + 6px);
-  top: 50%;
-  transform: translateY(-50%);
+  &--right {
+    left: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 </style>

@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-container {
   width: 100%;
   margin-inline: auto;

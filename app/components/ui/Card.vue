@@ -10,7 +10,18 @@
 
 <script setup lang="ts">
 const props = defineProps<{
+
+  /**
+   * Visual style of the card surface
+   * - `elevated` : default with shadow
+   * - `outlined` : inner border, subtle bg
+   * - `flat` : no shadow, transparent bg
+   */
   variant?: "elevated" | "outlined" | "flat"
+
+  /**
+   * Maximum width for the card container (px or any CSS size)
+   */
   maxWidth?: string | number
 }>()
 

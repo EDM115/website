@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-list-item-subtitle {
   opacity: .8;
   font-size: .9rem;

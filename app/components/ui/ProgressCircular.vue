@@ -31,10 +31,30 @@
 
 <script setup lang="ts">
 const props = defineProps<{
+
+  /**
+   * Progress percentage (0-100) when determinate
+   */
   modelValue?: number
+
+  /**
+   * Shows an indeterminate spinner
+   */
   indeterminate?: boolean
+
+  /**
+   * Size in pixels of the spinner square
+   */
   size?: number
+
+  /**
+   * Stroke width for the circle in pixels
+   */
   width?: number
+
+  /**
+   * CSS color for the progress stroke
+   */
   color?: string
 }>()
 

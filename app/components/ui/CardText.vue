@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-card-text {
   padding: 0.75rem 1rem 1rem 1rem;
 }

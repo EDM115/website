@@ -5,7 +5,7 @@
   >
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-divider {
   border: none;
   border-top: 1px solid color-mix(in srgb, var(--text) 20%, transparent);

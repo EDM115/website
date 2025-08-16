@@ -25,7 +25,15 @@ import type { Component } from "vue"
 import { colorVars } from "./colors"
 
 defineProps<{
+
+  /**
+   * Color theme applied to the banner background
+   */
   color?: keyof typeof colorVars
+
+  /**
+   * Optional icon displayed in the prepend slot by default
+   */
   icon?: Component
 }>()
 </script>

@@ -8,6 +8,10 @@
 import { provide, toRef } from "vue"
 
 const props = defineProps<{
+
+  /**
+   * Value of the active tab to show
+  */
   modelValue: string | number
 }>()
 

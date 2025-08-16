@@ -23,11 +23,15 @@
 const open = ref(false)
 
 defineProps<{
+
+  /**
+   * Use this to avoid closing the menu when clicking on the activator
+   */
   clickToClose?: boolean
 }>()
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-menu {
   position: relative;
   display: inline-block;

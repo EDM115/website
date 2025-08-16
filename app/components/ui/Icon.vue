@@ -11,11 +11,15 @@
 import type { Component } from "vue"
 
 defineProps<{
+
+  /**
+   * The icon component to render
+   */
   icon?: Component
 }>()
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-icon {
   display: inline-flex;
   vertical-align: middle;

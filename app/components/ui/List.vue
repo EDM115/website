@@ -6,6 +6,10 @@
 
 <script setup lang="ts">
 const props = defineProps<{
+
+  /**
+   * Disables the minimum width
+  */
   compact?: boolean
 }>()
 

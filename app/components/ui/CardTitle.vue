@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ui-card-title {
   padding: 1rem 1rem 0 1rem;
   font-weight: 600;

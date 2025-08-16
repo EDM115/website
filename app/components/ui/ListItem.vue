@@ -6,6 +6,10 @@
 
 <script setup lang="ts">
 defineProps<{
+
+  /**
+   * Marks the list item as active (highlighted)
+  */
   active?: boolean
 }>()
 </script>
