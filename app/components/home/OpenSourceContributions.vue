@@ -22,27 +22,25 @@
       :value="1"
     >
       <UiStepperVertical>
-        <template #default>
-          <UiStepperVerticalItem
-            v-for="contrib in pullRequests"
-            :key="contrib.id"
-            :icon="getContribIcon(contrib.state, contrib.type)"
-            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
-            :subtitle="getContribName(contrib.state, contrib.type)"
-            :title="contrib.name"
-            :value="contrib.id"
-            :class="getContribColor(contrib.state, contrib.type)[0]"
-          >
-            {{ contrib.description }}<br>
-            <UiButton
-              color="primary"
-              class="mt-2"
-              :prepend-icon="mdiGithub"
-              :text="t('opensource.link')"
-              :link="contrib.link"
-            />
-          </UiStepperVerticalItem>
-        </template>
+        <UiStepperVerticalItem
+          v-for="contrib in pullRequests"
+          :key="contrib.id"
+          :icon="getContribIcon(contrib.state, contrib.type)"
+          :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+          :subtitle="getContribName(contrib.state, contrib.type)"
+          :title="contrib.name"
+          :value="contrib.id"
+          :class="getContribColor(contrib.state, contrib.type)[0]"
+        >
+          {{ contrib.description }}<br>
+          <UiButton
+            color="primary"
+            class="mt-2"
+            :prepend-icon="mdiGithub"
+            :text="t('opensource.link')"
+            :link="contrib.link"
+          />
+        </UiStepperVerticalItem>
       </UiStepperVertical>
     </UiTabsWindowItem>
 
@@ -50,27 +48,25 @@
       :value="2"
     >
       <UiStepperVertical>
-        <template #default>
-          <UiStepperVerticalItem
-            v-for="contrib in issues"
-            :key="contrib.id"
-            :icon="getContribIcon(contrib.state, contrib.type)"
-            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
-            :subtitle="getContribName(contrib.state, contrib.type)"
-            :title="contrib.name"
-            :value="contrib.id"
-            :class="getContribColor(contrib.state, contrib.type)[0]"
-          >
-            {{ contrib.description }}<br>
-            <UiButton
-              color="primary"
-              class="mt-2"
-              :prepend-icon="mdiGithub"
-              :text="t('opensource.link')"
-              :link="contrib.link"
-            />
-          </UiStepperVerticalItem>
-        </template>
+        <UiStepperVerticalItem
+          v-for="contrib in issues"
+          :key="contrib.id"
+          :icon="getContribIcon(contrib.state, contrib.type)"
+          :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+          :subtitle="getContribName(contrib.state, contrib.type)"
+          :title="contrib.name"
+          :value="contrib.id"
+          :class="getContribColor(contrib.state, contrib.type)[0]"
+        >
+          {{ contrib.description }}<br>
+          <UiButton
+            color="primary"
+            class="mt-2"
+            :prepend-icon="mdiGithub"
+            :text="t('opensource.link')"
+            :link="contrib.link"
+          />
+        </UiStepperVerticalItem>
       </UiStepperVertical>
     </UiTabsWindowItem>
   </UiTabsWindow>

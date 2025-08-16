@@ -9,9 +9,7 @@
       </slot>
     </div>
     <div class="ui-banner--content">
-      <div class="ui-banner-text">
-        <slot name="text" />
-      </div>
+      <slot />
     </div>
     <div class="ui-banner--actions">
       <slot name="actions" />

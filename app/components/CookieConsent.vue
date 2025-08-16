@@ -7,9 +7,8 @@
     :icon="mdiCookieAlertOutline"
     lines="one"
   >
-    <template #text>
-      {{ t('cookies.text') }}
-    </template>
+    {{ t('cookies.text') }}
+
     <template #actions>
       <div class="d-flex flex-column ga-2">
         <UiButton

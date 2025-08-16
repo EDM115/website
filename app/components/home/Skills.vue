@@ -21,11 +21,9 @@
             :size="100"
             :width="10"
           >
-            <template #default>
-              <div class="percentage">
-                {{ skill.displayedValue }} %
-              </div>
-            </template>
+            <div class="percentage">
+              {{ skill.displayedValue }} %
+            </div>
           </UiProgressCircular>
           <UiIcon
             :icon="currentIcons[skill.id]"
