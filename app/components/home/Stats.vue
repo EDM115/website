@@ -7,17 +7,16 @@
       class="d-flex justify-center align-center"
     >
       <UiCard class="ma-2">
-        <UiCardTitle style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+        <template #title>
           {{ stat.name }}
-        </UiCardTitle>
-        <UiCardText>
-          <div
-            :id="'od-' + stat.id"
-            class="odometer mockup-odometer"
-          >
-            {{ formatZeros(stat.value) }}
-          </div>
-        </UiCardText>
+        </template>
+
+        <div
+          :id="'od-' + stat.id"
+          class="odometer mockup-odometer"
+        >
+          {{ formatZeros(stat.value) }}
+        </div>
       </UiCard>
     </UiRow>
   </UiCol>

@@ -63,7 +63,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#about"
@@ -72,42 +72,40 @@
                 {{ t("home.about") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <p>
-              {{ t("home.about1") }}<br>
-              {{ t("home.about2") }}<br><br>
-              {{ t("home.about3") }}<br>
-              {{ t("home.about4") }}<br>
-              {{ t("home.about5") }}<br>
-              {{ t("home.about6") }}<br>
-              {{ t("home.about7", { age }) }}<br>
-              {{ t("home.about8") }}<br>
-              {{ t("home.about9") }} : <NuxtLink
-                to="https://edm115.dev"
-                target="_blank"
-              >
-                edm115.dev
-              </NuxtLink><br>
-              {{ t("home.about10") }} : <NuxtLink
-                to="mailto:dev@edm115.dev"
-                target="_blank"
-                external
-              >
-                dev@edm115.dev
-              </NuxtLink><br>
-              {{ t("home.about11") }}<br>
-              {{ t("home.about12") }} : <NuxtLink
-                to="tel:+33667980504"
-                target="_blank"
-                external
-              >
-                +33 6 67 98 05 04
-              </NuxtLink><br>
-              {{ t("home.about13") }}<br>
-            </p>
-          </UiCardText>
+          <p>
+            {{ t("home.about1") }}<br>
+            {{ t("home.about2") }}<br><br>
+            {{ t("home.about3") }}<br>
+            {{ t("home.about4") }}<br>
+            {{ t("home.about5") }}<br>
+            {{ t("home.about6") }}<br>
+            {{ t("home.about7", { age }) }}<br>
+            {{ t("home.about8") }}<br>
+            {{ t("home.about9") }} : <NuxtLink
+              to="https://edm115.dev"
+              target="_blank"
+            >
+              edm115.dev
+            </NuxtLink><br>
+            {{ t("home.about10") }} : <NuxtLink
+              to="mailto:dev@edm115.dev"
+              target="_blank"
+              external
+            >
+              dev@edm115.dev
+            </NuxtLink><br>
+            {{ t("home.about11") }}<br>
+            {{ t("home.about12") }} : <NuxtLink
+              to="tel:+33667980504"
+              target="_blank"
+              external
+            >
+              +33 6 67 98 05 04
+            </NuxtLink><br>
+            {{ t("home.about13") }}<br>
+          </p>
         </UiCard>
 
         <UiCard
@@ -116,7 +114,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#stats"
@@ -125,14 +123,12 @@
                 {{ t("home.stats") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeStats
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeStats
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
 
         <UiCard
@@ -141,7 +137,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#skills"
@@ -150,14 +146,12 @@
                 {{ t("home.skills") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeSkills
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeSkills
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
 
         <UiCard
@@ -166,7 +160,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#resume"
@@ -175,14 +169,12 @@
                 {{ t("home.resume") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeResume
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeResume
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
 
         <UiCard
@@ -191,7 +183,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#opensource"
@@ -200,14 +192,12 @@
                 {{ t("home.oss") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeOpenSourceContributions
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeOpenSourceContributions
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
 
         <UiCard
@@ -216,7 +206,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#contact"
@@ -225,14 +215,12 @@
                 {{ t("home.contact") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeContact
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeContact
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
 
         <UiCard
@@ -241,7 +229,7 @@
           max-width="500"
           variant="flat"
         >
-          <UiCardTitle>
+          <template #title>
             <h2>
               <NuxtLink
                 to="#social"
@@ -250,14 +238,12 @@
                 EDM115 • {{ t("home.social") }}
               </NuxtLink>
             </h2>
-          </UiCardTitle>
+          </template>
 
-          <UiCardText>
-            <LazyHomeSocialLinks
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCardText>
+          <LazyHomeSocialLinks
+            :key="locale"
+            hydrate-on-idle
+          />
         </UiCard>
       </UiCol>
     </UiRow>

@@ -8,31 +8,30 @@
       lg="4"
     >
       <UiCard class="ma-2">
-        <UiCardTitle style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+        <template #title>
           {{ skill.name }}
-        </UiCardTitle>
-        <UiCardText>
-          <div class="progress-container">
-            <UiProgressCircular
-              :id="'skillsCounter-' + skill.id"
-              color="primary"
-              class="pa-4"
-              :model-value="skill.displayedValue"
-              :size="100"
-              :width="10"
-            >
-              <template #default>
-                <div class="percentage">
-                  {{ skill.displayedValue }} %
-                </div>
-              </template>
-            </UiProgressCircular>
-            <UiIcon
-              :icon="currentIcons[skill.id]"
-              class="background-icon"
-            />
-          </div>
-        </UiCardText>
+        </template>
+
+        <div class="progress-container">
+          <UiProgressCircular
+            :id="'skillsCounter-' + skill.id"
+            color="primary"
+            class="pa-4"
+            :model-value="skill.displayedValue"
+            :size="100"
+            :width="10"
+          >
+            <template #default>
+              <div class="percentage">
+                {{ skill.displayedValue }} %
+              </div>
+            </template>
+          </UiProgressCircular>
+          <UiIcon
+            :icon="currentIcons[skill.id]"
+            class="background-icon"
+          />
+        </div>
       </UiCard>
     </UiCol>
   </UiRow>

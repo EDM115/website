@@ -4,7 +4,15 @@
     v-bind="$attrs"
     :style="maxWidthStyle"
   >
-    <slot />
+    <div class="ui-card--title">
+      <slot name="title" />
+    </div>
+    <div class="ui-card--content">
+      <slot />
+    </div>
+    <div class="ui-card--actions">
+      <slot name="actions" />
+    </div>
   </div>
 </template>
 
@@ -50,6 +58,25 @@ const maxWidthStyle = computed(() => (props.maxWidth !== undefined
   &--flat {
     box-shadow: none;
     background: transparent;
+  }
+
+  &--title {
+    padding: 1rem 1rem 0 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    overflow-wrap: normal;
+    overflow: visible;
+    white-space: wrap;
+  }
+  
+  &--content {
+    padding: 0.75rem 1rem 1rem 1rem;
+  }
+  
+  &--actions {
+    padding: 0.75rem 1rem 1rem 1rem;
+    display: flex;
+    gap: .5rem;
   }
 }
 </style>
