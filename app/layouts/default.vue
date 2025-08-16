@@ -1,9 +1,14 @@
 <template>
   <div>
+    <div class="app-bg" />
     <NuxtRouteAnnouncer />
     <NavBar />
     <main>
-      <slot />
+      <UiContainer>
+        <div class="centered-stack section">
+          <slot />
+        </div>
+      </UiContainer>
     </main>
     <BackToTop />
     <CookieConsent />

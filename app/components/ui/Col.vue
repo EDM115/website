@@ -71,13 +71,49 @@ const classes = computed(() => [
 
 @media (min-width: 960px) {
   .ui-col-md-12 { width: 100%; }
+  .ui-col-md-11 { width: 91.6667%; }
+  .ui-col-md-10 { width: 83.3333%; }
+  .ui-col-md-9 { width: 75%; }
+  .ui-col-md-8 { width: 66.6667%; }
+  .ui-col-md-7 { width: 58.3333%; }
   .ui-col-md-6 { width: 50%; }
+  .ui-col-md-5 { width: 41.6667%; }
   .ui-col-md-4 { width: 33.3333%; }
+  .ui-col-md-3 { width: 25%; }
+  .ui-col-md-2 { width: 16.6667%; }
+  .ui-col-md-1 { width: 8.3333%; }
 }
 
 @media (min-width: 1280px) {
   .ui-col-lg-12 { width: 100%; }
+  .ui-col-lg-11 { width: 91.6667%; }
+  .ui-col-lg-10 { width: 83.3333%; }
+  .ui-col-lg-9 { width: 75%; }
+  .ui-col-lg-8 { width: 66.6667%; }
+  .ui-col-lg-7 { width: 58.3333%; }
   .ui-col-lg-6 { width: 50%; }
+  .ui-col-lg-5 { width: 41.6667%; }
   .ui-col-lg-4 { width: 33.3333%; }
+  .ui-col-lg-3 { width: 25%; }
+  .ui-col-lg-2 { width: 16.6667%; }
+  .ui-col-lg-1 { width: 8.3333%; }
+}
+
+.ui-col.align-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ui-col.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ui-col.align-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 </style>

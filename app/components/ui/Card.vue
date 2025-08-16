@@ -68,11 +68,11 @@ const maxWidthStyle = computed(() => (props.maxWidth !== undefined
     overflow: visible;
     white-space: wrap;
   }
-  
+
   &--content {
     padding: 0.75rem 1rem 1rem 1rem;
   }
-  
+
   &--actions {
     padding: 0.75rem 1rem 1rem 1rem;
     display: flex;

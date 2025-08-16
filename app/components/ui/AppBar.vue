@@ -28,6 +28,14 @@
   padding: 0.5rem 1rem;
   box-shadow: var(--shadow-md);
 
+  &.navbar-glass {
+    background: rgb(from var(--surface) r g b / 40%);
+    backdrop-filter: var(--backdrop-filter);
+    -webkit-backdrop-filter: var(--backdrop-filter);
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+    box-shadow: var(--glass-shadow);
+  }
+
   &--prepend,
   &--append {
     display: flex;

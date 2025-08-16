@@ -1,5 +1,5 @@
 <template>
-  <UiAppBar class="rounded-b-lg">
+  <UiAppBar class="rounded-b-lg navbar-glass">
     <template #prepend>
       <UiButton
         :icon="menuIcon"
@@ -22,6 +22,7 @@
           <UiButton
             v-bind="props"
             :icon="mdiLanguage"
+            variant="flat"
             @mouseleave="i18nSwitch = false"
             @mouseover="i18nSwitch = true"
           >
@@ -50,6 +51,7 @@
       </UiMenu>
       <UiButton
         :icon="iconTheme"
+        variant="flat"
         @click="toggleTheme"
       />
     </template>

@@ -1,18 +1,21 @@
 <template>
   <div>
+    <div class="app-bg" />
     <NuxtRouteAnnouncer />
     <NavBar />
     <main>
-      <div class="d-flex flex-column align-center">
-        <UiButton
-          color="primary"
-          class="mb-4"
-          :prepend-icon="mdiArrowLeft"
-          :text="t('projects.back')"
-          @click="$router.push('/projects')"
-        />
-        <slot />
-      </div>
+      <UiContainer>
+        <div class="d-flex flex-column align-center section">
+          <UiButton
+            color="primary"
+            class="mb-4"
+            :prepend-icon="mdiArrowLeft"
+            :text="t('projects.back')"
+            @click="$router.push('/projects')"
+          />
+          <slot />
+        </div>
+      </UiContainer>
     </main>
     <BackToTop />
     <CookieConsent />

@@ -12,17 +12,97 @@ body,
 html {
   margin: 0;
   font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
-
   background-color: var(--bg);
   color: var(--text);
+  min-height: 100%;
+  background-image: var(--gradient-hero);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 main {
   max-width: 100%;
-  padding-top: 4rem;
+  padding-bottom: 1rem;
   flex: 1 0 auto;
   display: block;
-  transition: all .2s cubic-bezier(.4,0,.2,1);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.app-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.app-bg::before {
+  content: "";
+  position: absolute;
+  inset: -10vh;
+  background: var(--gradient-hero);
+  filter: blur(40px) saturate(140%);
+}
+
+.app-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60rem 30rem at 50% -10%, rgb(255 255 255 / 06%), transparent),
+    radial-gradient(50rem 26rem at 10% 110%, rgb(255 255 255 / 04%), transparent);
+  mix-blend-mode: overlay;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.frost {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.navbar-glass {
+  background: rgb(from var(--surface) r g b / 40%);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+}
+
+.ui-app-bar.navbar-glass {
+  background: rgb(from var(--surface) r g b / 40%) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.centered-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.section {
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 6rem);
+}
+
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 *::-webkit-scrollbar {
@@ -91,6 +171,11 @@ li {
   @media (max-width: 600px) {
     width: 100%;
   }
+}
+
+.ui-card.glass,
+.ui-app-bar.navbar-glass {
+  border-radius: 16px;
 }
 
 .markdown-body h1,
@@ -253,10 +338,11 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background-color: #0b0d0f;
+  background-color: rgb(from #0b0d0f r g b / 80%);
   border-radius: 20px 20px 0px 0px;
   font-size: 0.8rem;
   color: #e9e9f4;
+  backdrop-filter: blur(8px);
 }
 
 .code-block-lang {
@@ -349,4 +435,24 @@ h6 a:hover > code.hljs {
 
 .force-nuxt-fonts-inter {
   font-family: "Inter";
+}
+
+@media (max-width: 960px) {
+  .header-copy-icon {
+    left: -18px;
+  }
+
+  .markdown-body {
+    width: 100%;
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

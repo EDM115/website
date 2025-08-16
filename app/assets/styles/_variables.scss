@@ -23,15 +23,33 @@ $colors: (
 
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --dark-mode-bg: #00040e;
+
+  --glass-bg: rgb(13 17 23 / 55%);
+  --glass-bg-strong: rgb(13 17 23 / 75%);
+  --glass-border: 1px solid rgb(255 255 255 / 10%);
+  --glass-shadow: 0 10px 30px rgb(0 0 0 / 40%);
+  --backdrop-filter: saturate(160%) blur(14px);
+
+  --gradient-hero: radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb, var(--accent) 26%, transparent), transparent),
+                   radial-gradient(900px 400px at -10% 10%, color-mix(in srgb, var(--info) 22%, transparent), transparent),
+                   radial-gradient(800px 600px at 50% 120%, color-mix(in srgb, var(--primary) 20%, transparent), transparent);
+  --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  --ring-hero: conic-gradient(from 180deg at 50% 50%, var(--primary), var(--secondary), var(--accent), var(--primary));
 }
 
 .light-mode {
-  --bg: #dbdbcc;
+  --bg: #eae7de;
   --bg-light: #ffffff;
-  --bg-dark: #a4a496;
+  --bg-dark: #c7c4b6;
   --gone: #ffffff;
-  --text: #00040e;
-  --text-light: #303339;
+  --text: #0a0a0a;
+  --text-light: #2b2b2b;
   --text-dark: #000000;
-  --surface: #a4a496;
+  --surface: #ffffff;
+
+  --glass-bg: rgb(255 255 255 / 65%);
+  --glass-bg-strong: rgb(255 255 255 / 85%);
+  --glass-border: 1px solid rgb(10 10 10 / 10%);
+  --glass-shadow: 0 10px 30px rgb(17 24 39 / 15%);
+  --backdrop-filter: saturate(160%) blur(12px);
 }
