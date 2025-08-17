@@ -1,6 +1,8 @@
 <template>
-  <p>
-    {{ t("home.resume1") }}<br>
+  <div>
+    <p class="mb-4">
+      {{ t("home.resume1") }}<br>
+    </p>
     <UiStepperVertical>
       <UiStepperVerticalItem
         :subtitle="t('home.resume2')"
@@ -115,23 +117,23 @@
         </UiList>
       </UiStepperVerticalItem>
     </UiStepperVertical>
-  </p>
-  <h3 class="mt-4 mb-2">
-    {{ t("home.downloadResume") }}
-  </h3>
-  <UiButton
-    class="mr-2"
-    color="secondary"
-    :prepend-icon="mdiFileDownload"
-    :text="t('home.downloadPdf')"
-    link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
-  />
-  <UiButton
-    color="secondary"
-    :prepend-icon="mdiWeb"
-    :text="t('home.downloadOnline')"
-    link="https://old.edm115.dev/cv"
-  />
+    <h3 class="mt-4 mb-2">
+      {{ t("home.downloadResume") }}
+    </h3>
+    <UiButton
+      class="mr-2"
+      color="secondary"
+      :prepend-icon="mdiFileDownload"
+      :text="t('home.downloadPdf')"
+      link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+    />
+    <UiButton
+      color="secondary"
+      :prepend-icon="mdiWeb"
+      :text="t('home.downloadOnline')"
+      link="https://old.edm115.dev/cv"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
