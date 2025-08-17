@@ -31,6 +31,7 @@
           :text="t('home.home')"
           link="/"
           variant="elevated"
+          aria="Home"
         />
         <UiButton
           color="secondary"
@@ -38,6 +39,7 @@
           :text="t('home.projects')"
           link="/projects"
           variant="elevated"
+          aria="Projects"
         />
         <UiButton
           color="accent"
@@ -45,6 +47,7 @@
           :text="t('home.blog')"
           link="/blog"
           variant="elevated"
+          aria="Blog"
         />
       </div>
     </section>
@@ -69,6 +72,7 @@
                 <NuxtLink
                   to="#about"
                   class="internal-link"
+                  aria-label="About section"
                 >
                   {{ t('home.about') }}
                 </NuxtLink>
@@ -87,6 +91,7 @@
               <NuxtLink
                 to="https://edm115.dev"
                 target="_blank"
+                aria-label="EDM115's website"
               >
                 edm115.dev
               </NuxtLink><br>
@@ -95,6 +100,7 @@
                 to="mailto:dev@edm115.dev"
                 target="_blank"
                 external
+                aria-label="EDM115's email"
               >
                 dev@edm115.dev
               </NuxtLink><br>
@@ -104,6 +110,7 @@
                 to="tel:+33667980504"
                 target="_blank"
                 external
+                aria-label="EDM115's phone number"
               >
                 +33 6 67 98 05 04
               </NuxtLink><br>
@@ -127,6 +134,7 @@
                 <NuxtLink
                   to="#stats"
                   class="internal-link"
+                  aria-label="Statistics section"
                 >
                   {{ t('home.stats') }}
                 </NuxtLink>
@@ -154,6 +162,7 @@
                 <NuxtLink
                   to="#skills"
                   class="internal-link"
+                  aria-label="Skills section"
                 >
                   {{ t('home.skills') }}
                 </NuxtLink>
@@ -181,6 +190,7 @@
                 <NuxtLink
                   to="#resume"
                   class="internal-link"
+                  aria-label="Resume section"
                 >
                   {{ t('home.resume') }}
                 </NuxtLink>
@@ -208,6 +218,7 @@
                 <NuxtLink
                   to="#opensource"
                   class="internal-link"
+                  aria-label="Open Source section"
                 >
                   {{ t('home.oss') }}
                 </NuxtLink>
@@ -235,6 +246,7 @@
                 <NuxtLink
                   to="#contact"
                   class="internal-link"
+                  aria-label="Contact section"
                 >
                   {{ t('home.contact') }}
                 </NuxtLink>
@@ -262,6 +274,7 @@
                 <NuxtLink
                   to="#social"
                   class="internal-link"
+                  aria-label="Social links section"
                 >
                   EDM115 • {{ t('home.social') }}
                 </NuxtLink>

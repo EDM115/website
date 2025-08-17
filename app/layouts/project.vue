@@ -11,6 +11,7 @@
             style="margin-bottom: 16px;"
             :prepend-icon="mdiArrowLeft"
             :text="t('projects.back')"
+            aria="Back to the projects list"
             @click="$router.push('/projects')"
           />
           <slot />

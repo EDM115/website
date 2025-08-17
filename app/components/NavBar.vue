@@ -8,6 +8,7 @@
         :icon="menuIcon"
         variant="frosted"
         link="/"
+        aria="Home"
       />
     </template>
 
@@ -19,6 +20,7 @@
             :icon="mdiLanguage"
             color="text"
             variant="frosted"
+            aria="Language switcher"
             @mouseleave="i18nSwitch = false"
             @mouseover="i18nSwitch = true"
           >
@@ -49,6 +51,7 @@
         :icon="iconTheme"
         color="text"
         variant="frosted"
+        aria="Theme switcher"
         @click="toggleTheme"
       />
     </template>

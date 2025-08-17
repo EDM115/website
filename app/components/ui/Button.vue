@@ -4,6 +4,7 @@
     :to="link"
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"
+    :aria-label="aria"
   >
     <component
       :is="prependIcon"
@@ -131,6 +132,11 @@ const props = defineProps<{
    * Disables any interaction with the button
    */
   disabled?: boolean
+
+  /**
+   * Aria label for accessibility
+   */
+  aria?: string
 }>()
 
 function fabClassBuilder(fab: boolean | string): string {

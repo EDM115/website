@@ -20,12 +20,14 @@
               to="mailto:dev@edm115.dev"
               target="_blank"
               external
+              aria-label="EDM115's email"
             >
               dev@edm115.dev
             </NuxtLink><br>
             <NuxtLink
               to="tel:+33667980504"
               target="_blank"
+              aria-label="EDM115's phone number"
             >
               +33 6 67 98 05 04
             </NuxtLink>
@@ -126,12 +128,14 @@
       :prepend-icon="mdiFileDownload"
       :text="t('home.downloadPdf')"
       link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+      aria="Download PDF resume"
     />
     <UiButton
       color="secondary"
       :prepend-icon="mdiWeb"
       :text="t('home.downloadOnline')"
       link="https://old.edm115.dev/cv"
+      aria="Access online resume"
     />
   </div>
 </template>

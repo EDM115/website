@@ -11,6 +11,7 @@
             style="margin-bottom: 16px;"
             :prepend-icon="mdiArrowLeft"
             :text="t('blog.back')"
+            aria="Back to the blog list"
             @click="$router.push('/blog')"
           />
           <slot />

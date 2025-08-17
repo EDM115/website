@@ -13,12 +13,14 @@
       <div class="flex-actions">
         <UiButton
           color="success"
+          aria="Accept cookies"
           @click="handleAccept(true)"
         >
           {{ t('cookies.accept') }}
         </UiButton>
         <UiButton
           color="error"
+          aria="Reject cookies"
           @click="handleAccept(false)"
         >
           {{ t('cookies.reject') }}

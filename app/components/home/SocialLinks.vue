@@ -12,6 +12,7 @@
         class="socialsIcon"
         :link="socialLink.url"
         variant="flat"
+        :aria="`Link to EDM115's ${socialLink.text}`"
       />
     </template>
   </UiTooltip>

@@ -39,6 +39,7 @@
             :prepend-icon="mdiGithub"
             :text="t('opensource.link')"
             :link="contrib.link"
+            aria="GitHub link"
           />
         </UiStepperVerticalItem>
       </UiStepperVertical>
@@ -65,6 +66,7 @@
             :prepend-icon="mdiGithub"
             :text="t('opensource.link')"
             :link="contrib.link"
+            aria="GitHub link"
           />
         </UiStepperVerticalItem>
       </UiStepperVertical>

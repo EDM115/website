@@ -6,6 +6,7 @@
     class="go-to-top"
     :icon="mdiArrowUp"
     :variant="variant"
+    aria="Go to top"
     @click="scrollToTop"
   />
 </template>

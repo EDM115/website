@@ -10,12 +10,14 @@
     :prepend-icon="mdiLink"
     :text="t('home.contact4')"
     link="https://old.edm115.dev"
+    aria="Old EDM115 website"
   />
   <UiButton
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact5')"
     link="https://edm115.netlify.app"
+    aria="Live EDM115 website"
   />
 </template>
 
