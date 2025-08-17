@@ -10,7 +10,7 @@
     {{ t('cookies.text') }}
 
     <template #actions>
-      <div class="d-flex flex-column ga-2">
+      <div class="flex-actions">
         <UiButton
           color="success"
           @click="handleAccept(true)"
@@ -69,3 +69,16 @@ onMounted(() => {
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.rounded-t-lg {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.flex-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>

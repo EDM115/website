@@ -214,7 +214,7 @@ function getContribName(state: string, type: string) {
   color: var(--text) !important;
 }
 
-.ignored-contrib-color :deep(.v-stepper-vertical-item__avatar .v-icon) {
+.ignored-contrib-color :deep(.ui-stepper-item--marker-icon) {
   rotate: -45deg;
 }
 </style>

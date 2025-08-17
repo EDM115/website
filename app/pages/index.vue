@@ -4,7 +4,8 @@
       <NuxtImg
         :draggable="false"
         preload
-        class="mb-4 rounded-xl glass"
+        class="glass"
+        style="border-radius: 24px; margin-bottom: 16px;"
         height="200"
         width="200"
         alt="EDM115 Logo"
@@ -19,17 +20,11 @@
         EDM115
       </h1>
 
-      <p
-        class="mt-2"
-        style="color:var(--text-dark); max-width:60ch;"
-      >
+      <p style="color:var(--text-dark); max-width:60ch; margin-top: 8px;">
         {{ t('main.description') }}
       </p>
 
-      <div
-        class="d-flex"
-        style="gap:.75rem; flex-wrap:wrap; justify-content:center;"
-      >
+      <div style="gap:.75rem; display: flex; flex-wrap:wrap; justify-content:center;">
         <UiButton
           color="primary"
           :prepend-icon="mdiHomeOutline"

@@ -145,3 +145,21 @@ import mdiWeb from "~icons/mdi/web"
 
 const { t } = useI18n()
 </script>
+
+<style lang="scss" scoped>
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+</style>

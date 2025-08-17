@@ -4,7 +4,7 @@
 
     <h3>{{ t("blog.subtitle") }}</h3>
 
-    <UiDivider class="my-4" />
+    <UiDivider style="margin-top: 16px; margin-bottom: 16px;" />
 
     <UiButton
       class="ma-2"
@@ -49,3 +49,9 @@ useHead({
   ],
 })
 </script>
+
+<style lang="scss" scoped>
+.ma-2 {
+  margin: 8px;
+}
+</style>

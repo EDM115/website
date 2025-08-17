@@ -1,12 +1,12 @@
 <template>
-  <p class="mb-4">
+  <p style="margin-bottom: 16px;">
     {{ t("home.contact1") }}<br><br>
     {{ t("home.contact2") }}<br>
     {{ t("home.contact3") }}<br>
   </p>
   <UiButton
-    class="mr-2"
     color="secondary"
+    style="margin-right: 8px;"
     :prepend-icon="mdiLink"
     :text="t('home.contact4')"
     link="https://old.edm115.dev"

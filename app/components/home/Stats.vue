@@ -4,9 +4,9 @@
       v-for="stat in stats"
       id="statsCounters"
       :key="stat.id"
-      class="d-flex justify-center align-center"
+      style="align-items: center; display: flex; justify-content: center;"
     >
-      <UiCard class="ma-2">
+      <UiCard style="margin: 8px;">
         <template #title>
           {{ stat.name }}
         </template>

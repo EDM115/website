@@ -9,7 +9,7 @@
       <UiButton
         v-bind="props"
         :icon="socialLink.icon"
-        class="ma-1 socialsIcon"
+        class="socialsIcon"
         :link="socialLink.url"
         variant="flat"
       />
@@ -151,6 +151,7 @@ const socialLinks = ref([
 
 <style scoped>
 .socialsIcon {
+  margin: 4px;
   transition: all 0.2s ease-in-out;
 }
 

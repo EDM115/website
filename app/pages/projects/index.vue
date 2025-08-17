@@ -78,3 +78,9 @@ useHead({
   ],
 })
 </script>
+
+<style lang="scss" scoped>
+.ma-2 {
+  margin: 8px;
+}
+</style>

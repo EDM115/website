@@ -42,5 +42,61 @@ const classes = computed(() => [
   > * {
     padding: 0.5rem;
   }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &.align-end {
+    align-items: flex-end;
+  }
+
+  &.align-stretch {
+    align-items: stretch;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-space-between {
+    justify-content: space-between;
+  }
+
+  &.justify-space-around {
+    justify-content: space-around;
+  }
+
+  &.justify-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.align-content-start {
+    align-content: flex-start;
+  }
+
+  &.align-content-center {
+    align-content: center;
+  }
+
+  &.align-content-end {
+    align-content: flex-end;
+  }
+
+  &.align-content-stretch {
+    align-content: stretch;
+  }
 }
 </style>

@@ -5,10 +5,10 @@
     <NavBar />
     <main>
       <UiContainer>
-        <div class="d-flex flex-column align-center">
+        <div style="align-items: center; display: flex; flex-direction: column;">
           <UiButton
             color="primary"
-            class="mb-4"
+            style="margin-bottom: 16px;"
             :prepend-icon="mdiArrowLeft"
             :text="t('projects.back')"
             @click="$router.push('/projects')"

@@ -1,5 +1,5 @@
 <template>
-  <UiContainer class="d-flex flex-column align-center">
+  <UiContainer style="align-items: center; display: flex; flex-direction: column;">
     <div
       v-if="loading"
       class="loading"
@@ -8,7 +8,7 @@
         indeterminate
         color="primary"
       />
-      <span class="ml-2">Loading README...</span>
+      <span style="margin-left: 8px;">Loading README...</span>
     </div>
 
     <div
@@ -29,7 +29,7 @@
               indeterminate
               color="primary"
             />
-            <span class="ml-2">Rendering README...</span>
+            <span style="margin-left: 8px;">Rendering README...</span>
           </div>
         </template>
         <template #default>

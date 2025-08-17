@@ -87,3 +87,10 @@ const getFlagEmoji = (l: string): string => {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.rounded-b-lg {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+</style>
