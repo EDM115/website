@@ -9,6 +9,10 @@
             aria-label="EDM115 holographic card"
           >
             <div class="holo-inner">
+              <span
+                class="holo-glow"
+                aria-hidden="true"
+              />
               <NuxtImg
                 :draggable="false"
                 preload
@@ -326,10 +330,6 @@ onMounted(() => {
     el.style.setProperty("--ty", `${ty}px`)
     el.style.setProperty("--mx", `${x * 100}%`)
     el.style.setProperty("--my", `${y * 100}%`)
-
-    // orient glow to follow current vector
-    const angle = Math.atan2(py, px) * (180 / Math.PI)
-    el.style.setProperty("--glow-rot", `${angle}deg`)
   }
 
   const onMouseMove = (e: MouseEvent) => {
@@ -367,7 +367,7 @@ onMounted(() => {
       const amp = lerp(0.9, 1.05, p)
       setVars(x, y, amp)
 
-      // animate gloss/caustics/glow rotation
+      // animate gloss/caustics angles during idle (no glow rotation)
       const n = noise2(x, y, tIdle)
       const gloss = ((tIdle + n * 0.5) % (Math.PI * 2)) * (180 / Math.PI)
       el.style.setProperty("--gloss-angle", `${gloss}deg`)
@@ -449,7 +449,6 @@ onMounted(() => {
   --mx: 50%;
   --my: 50%;
   --gloss-angle: 45deg;
-  --glow-rot: 0deg;
   --proximity: 0;   /* 0..1 distance-based */
   --intensity: 0;   /* eased proximity */
 
@@ -463,16 +462,15 @@ onMounted(() => {
   isolation: isolate; /* ensure blend layers stay within */
 }
 
-.holo-card::before {
-  /* soft animated glow underneath */
-  content: "";
+.holo-glow {
+  /* soft animated glow behind the image, follows tilt because it's inside .holo-inner */
   position: absolute;
   inset: -14px;
   z-index: 0;
   border-radius: inherit;
   background:
     radial-gradient(60% 60% at 50% 50%, rgb(255 255 255 / 0.20), transparent 70%),
-    conic-gradient(from var(--glow-rot),
+    conic-gradient(
       rgb(255 184 108 / 0.20),
       rgb(80 250 123 / 0.18),
       rgb(139 233 253 / 0.18),
@@ -483,7 +481,6 @@ onMounted(() => {
   mix-blend-mode: screen;
   opacity: calc(0.15 + 0.35 * var(--intensity));
   pointer-events: none;
-  transform: rotate(var(--glow-rot));
   animation: glow-pulse 6s ease-in-out infinite alternate;
 }
 
@@ -582,7 +579,7 @@ onMounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .holo-card::before,
+  .holo-glow,
   .holo-sparkles {
     animation: none !important;
   }
