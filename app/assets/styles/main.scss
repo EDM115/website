@@ -403,26 +403,6 @@ h6 a:hover > code.hljs {
   text-underline-offset: 0.1rem;
 }
 
-.v-stepper-vertical-item__title {
-  text-wrap: pretty;
-  word-break: break-all;
-}
-
-.v-list-item-title {
-  text-wrap: pretty;
-  white-space: normal !important;
-  word-break: keep-all;
-}
-
-.v-list-item-subtitle {
-  display: inline-block;
-  overflow: visible;
-  overflow-wrap: normal;
-  text-wrap: pretty;
-  word-break: keep-all;
-  white-space: wrap;
-}
-
 .force-nuxt-fonts-nunito {
   font-family: "Nunito";
 }

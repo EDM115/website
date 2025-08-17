@@ -195,23 +195,23 @@ function getContribName(state: string, type: string) {
 
 <style scoped>
 .open-contrib-color {
-  background-color: #238636E6 !important;
-  color: var(--text) !important;
+  background-color: #238636E6;
+  color: var(--text);
 }
 
 .merged-contrib-color {
-  background-color: #8957E5E6 !important;
-  color: var(--text) !important;
+  background-color: #8957E5E6;
+  color: var(--text);
 }
 
 .closed-contrib-color {
-  background-color: #AD0116E6 !important;
-  color: var(--text) !important;
+  background-color: #AD0116E6;
+  color: var(--text);
 }
 
 .ignored-contrib-color {
-  background-color: #3D444DE6 !important;
-  color: var(--text) !important;
+  background-color: #3D444DE6;
+  color: var(--text);
 }
 
 .ignored-contrib-color :deep(.ui-stepper-item--marker-icon) {

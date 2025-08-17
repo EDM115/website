@@ -230,7 +230,7 @@ $padding: .15em;
   padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
-  font-size: 3em !important;
+  font-size: 3em;
   font-weight: 600;
   line-height: 1.2;
 
@@ -248,7 +248,7 @@ $padding: .15em;
   padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
-  font-size: 3em !important;
+  font-size: 3em;
   font-weight: 600;
   line-height: 1.2;
 
