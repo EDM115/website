@@ -205,9 +205,8 @@ li {
 
 .header-copy-icon {
   position: absolute;
-  left: -24px;
-  top: 50%;
-  transform: translateY(-40%);
+  left: -1.5rem;
+  top: -0.4rem;
   opacity: 0;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
@@ -223,11 +222,12 @@ li {
 }
 
 .header-copy-icon svg {
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
   overflow: visible;
   fill: var(--primary);
   color: var(--primary);
+  vertical-align: middle;
 }
 
 .header-copy-icon svg:hover {
@@ -413,7 +413,7 @@ h6 a:hover > code.hljs {
 
 @media (max-width: 960px) {
   .header-copy-icon {
-    left: -18px;
+    left: -1.125rem;
   }
 
   .markdown-body {
