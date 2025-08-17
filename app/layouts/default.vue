@@ -5,7 +5,7 @@
     <NavBar />
     <main>
       <UiContainer>
-        <div class="centered-stack section">
+        <div class="centered-stack">
           <slot />
         </div>
       </UiContainer>

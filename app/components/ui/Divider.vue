@@ -1,8 +1,5 @@
 <template>
-  <hr
-    class="ui-divider"
-    v-bind="$attrs"
-  >
+  <hr class="ui-divider">
 </template>
 
 <style scoped lang="scss">

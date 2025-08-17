@@ -1,7 +1,6 @@
 <template>
   <div
     :class="classes"
-    v-bind="$attrs"
     :style="maxWidthStyle"
   >
     <div class="ui-card--title">

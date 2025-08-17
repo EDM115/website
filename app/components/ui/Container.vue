@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="ui-container"
-    v-bind="$attrs"
-  >
+  <div class="ui-container">
     <slot />
   </div>
 </template>

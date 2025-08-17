@@ -99,9 +99,10 @@ const props = defineProps<{
    * - `outlined` : Adds a colored inner border with no background  
    * - `tonal` : Tints the background with the provided color  
    * - `flat` : Transparent background with no shadow  
+  * - `frosted` : Glassy frosted background with blur
    * @default "elevated"
    */
-  variant?: "elevated" | "outlined" | "tonal" | "flat"
+  variant?: "elevated" | "outlined" | "tonal" | "flat" | "frosted"
 
   /**
    * Makes the button into a Floating Action Button  
@@ -190,42 +191,50 @@ const classes = computed(() => [
   &--elevated {
     box-shadow: var(--shadow-md);
     background-color: var(--surface);
-
+    
     &.ui-btn--primary {
       color: var(--dark-mode-bg);
+      background-color: var(--primary);
     }
 
     &.ui-btn--secondary {
       color: var(--dark-mode-bg);
+      background-color: var(--secondary);
     }
 
     &.ui-btn--accent {
       color: var(--dark-mode-bg);
+      background-color: var(--accent);
     }
 
     &.ui-btn--error {
       color: var(--dark-mode-bg);
+      background-color: var(--error);
     }
 
     &.ui-btn--info {
       color: var(--dark-mode-bg);
+      background-color: var(--info);
     }
 
     &.ui-btn--success {
       color: var(--dark-mode-bg);
+      background-color: var(--success);
     }
 
     &.ui-btn--warning {
       color: var(--dark-mode-bg);
+      background-color: var(--warning);
     }
 
     &.ui-btn--text {
       color: var(--dark-mode-bg);
+      background-color: var(--text);
     }
   }
 
   &--outlined {
-    background-color: transparent !important;
+    background-color: transparent;
     box-shadow: inset 0 0 0 2px var(--text);
 
     &.ui-btn--primary {
@@ -374,36 +383,44 @@ const classes = computed(() => [
     }
   }
 
-  &--primary {
-    background-color: var(--primary);
-  }
+  &--frosted {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-filter);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    color: var(--text);
 
-  &--secondary {
-    background-color: var(--secondary);
-  }
+    &.ui-btn--primary {
+      color: var(--primary);
+    }
 
-  &--accent {
-    background-color: var(--accent);
-  }
+    &.ui-btn--secondary {
+      color: var(--secondary);
+    }
 
-  &--error {
-    background-color: var(--error);
-  }
+    &.ui-btn--accent {
+      color: var(--accent);
+    }
 
-  &--info {
-    background-color: var(--info);
-  }
+    &.ui-btn--error {
+      color: var(--error);
+    }
 
-  &--success {
-    background-color: var(--success);
-  }
+    &.ui-btn--info {
+      color: var(--info);
+    }
 
-  &--warning {
-    background-color: var(--warning);
-  }
+    &.ui-btn--success {
+      color: var(--success);
+    }
 
-  &--text {
-    background-color: var(--text);
+    &.ui-btn--warning {
+      color: var(--warning);
+    }
+
+    &.ui-btn--text {
+      color: var(--text);
+    }
   }
 
   &--fab {

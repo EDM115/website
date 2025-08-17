@@ -1,20 +1,15 @@
 <template>
-  <UiAppBar class="rounded-b-lg navbar-glass">
+  <UiAppBar
+    class="rounded-b-lg"
+    invisible
+  >
     <template #prepend>
       <UiButton
         :icon="menuIcon"
-        variant="flat"
+        variant="frosted"
         link="/"
       />
     </template>
-
-    <NuxtLink
-      class="text-decoration-none"
-      style="color: inherit;"
-      to="/"
-    >
-      EDM115
-    </NuxtLink>
 
     <template #append>
       <UiMenu>
@@ -22,7 +17,8 @@
           <UiButton
             v-bind="props"
             :icon="mdiLanguage"
-            variant="flat"
+            color="text"
+            variant="frosted"
             @mouseleave="i18nSwitch = false"
             @mouseover="i18nSwitch = true"
           >
@@ -51,7 +47,8 @@
       </UiMenu>
       <UiButton
         :icon="iconTheme"
-        variant="flat"
+        color="text"
+        variant="frosted"
         @click="toggleTheme"
       />
     </template>

@@ -3,7 +3,6 @@
     :is="icon"
     v-if="icon"
     class="ui-icon"
-    v-bind="$attrs"
   />
 </template>
 

@@ -5,7 +5,7 @@
     <NavBar />
     <main>
       <UiContainer>
-        <div class="d-flex flex-column align-center section">
+        <div class="d-flex flex-column align-center">
           <UiButton
             color="primary"
             class="mb-4"

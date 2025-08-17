@@ -54,7 +54,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section>
       <UiRow
         justify="center"
         align="start"

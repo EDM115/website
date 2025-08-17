@@ -31,6 +31,8 @@ main {
 .app-bg {
   position: fixed;
   inset: 0;
+  width: fit-content;
+  height: fit-content;
   pointer-events: none;
   z-index: -2;
 }
@@ -56,7 +58,6 @@ main {
 .glass {
   background: var(--glass-bg);
   backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--backdrop-filter);
   border: var(--glass-border);
   box-shadow: var(--glass-shadow);
 }
@@ -64,7 +65,6 @@ main {
 .frost {
   background: var(--glass-bg-strong);
   backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--backdrop-filter);
   border: var(--glass-border);
   box-shadow: var(--glass-shadow);
 }
@@ -72,7 +72,6 @@ main {
 .navbar-glass {
   background: rgb(from var(--surface) r g b / 40%);
   backdrop-filter: var(--backdrop-filter);
-  -webkit-backdrop-filter: var(--backdrop-filter);
   border-bottom: 1px solid rgb(255 255 255 / 10%);
 }
 
@@ -90,17 +89,12 @@ main {
   gap: 1rem;
 }
 
-.section {
-  padding-block: clamp(2rem, 4vw, 4rem);
-}
-
 .hero {
   padding-block: clamp(2.5rem, 6vw, 6rem);
 }
 
 .gradient-text {
   background: var(--gradient-brand);
-  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
