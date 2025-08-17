@@ -1,6 +1,12 @@
 export function useCopyCode() {
   const handler = (event: Event) => {
-    const btn = (event.target as HTMLElement).closest(".copy-code-button")
+    const target = event.target
+
+    if (!(target instanceof HTMLElement)) {
+      return
+    }
+
+    const btn = target.closest(".copy-code-button")
 
     if (!btn) {
       return
@@ -22,6 +28,11 @@ export function useCopyCode() {
     })
   }
 
-  onMounted(() => document.addEventListener("click", handler))
-  onUnmounted(() => document.removeEventListener("click", handler))
+  onMounted(() => {
+    document.addEventListener("click", handler)
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener("click", handler)
+  })
 }
