@@ -32,7 +32,7 @@ defineProps<{
   justify-content: space-between;
   background: var(--surface);
   color: var(--text);
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   box-shadow: var(--shadow-md);
 
   &.navbar-glass {

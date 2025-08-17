@@ -1,71 +1,64 @@
 <template>
   <UiContainer>
-    <section class="hero centered-stack">
-      <NuxtImg
-        :draggable="false"
-        preload
-        class="glass"
-        style="border-radius: 24px; margin-bottom: 16px;"
-        height="200"
-        width="200"
-        alt="EDM115 Logo"
-        src="/img/profile-img.webp"
-        :placeholder="[200, 200, 50, 5]"
-      />
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <NuxtImg
+            :draggable="false"
+            preload
+            class="glass hero-image"
+            height="350"
+            width="350"
+            alt="EDM115 Logo"
+            src="/img/profile-img.webp"
+            :placeholder="[200, 200, 50, 5]"
+          />
+        </div>
 
-      <h1
-        class="gradient-text"
-        style="font-size:clamp(2rem,6vw,4rem); line-height:1.05;"
-      >
-        EDM115
-      </h1>
+        <div class="hero-right">
+          <h1
+            class="gradient-text"
+            style="font-size:clamp(2rem,6vw,4rem); line-height:1.05; margin:0 0 0.5rem 0;"
+          >
+            EDM115
+          </h1>
 
-      <p style="color:var(--text-dark); max-width:60ch; margin-top: 8px;">
-        {{ t('main.description') }}
-      </p>
+          <p style="color:var(--text-dark); max-width:60ch; margin-top: 0;">
+            {{ t('main.description') }}
+          </p>
 
-      <div style="gap:.75rem; display: flex; flex-wrap:wrap; justify-content:center;">
-        <UiButton
-          color="primary"
-          :prepend-icon="mdiHomeOutline"
-          :text="t('home.home')"
-          link="/"
-          variant="elevated"
-          aria="Home"
-        />
-        <UiButton
-          color="secondary"
-          :prepend-icon="mdiInformationOutline"
-          :text="t('home.projects')"
-          link="/projects"
-          variant="elevated"
-          aria="Projects"
-        />
-        <UiButton
-          color="accent"
-          :prepend-icon="mdiText"
-          :text="t('home.blog')"
-          link="/blog"
-          variant="elevated"
-          aria="Blog"
-        />
-      </div>
-    </section>
+          <div style="gap:.75rem; display: flex; flex-wrap:wrap; margin-top:1rem; justify-content: center;">
+            <UiButton
+              color="primary"
+              :prepend-icon="mdiHomeOutline"
+              :text="t('home.home')"
+              link="/"
+              variant="elevated"
+              aria="Home"
+            />
+            <UiButton
+              color="secondary"
+              :prepend-icon="mdiInformationOutline"
+              :text="t('home.projects')"
+              link="/projects"
+              variant="elevated"
+              aria="Projects"
+            />
+            <UiButton
+              color="accent"
+              :prepend-icon="mdiText"
+              :text="t('home.blog')"
+              link="/blog"
+              variant="elevated"
+              aria="Blog"
+            />
+          </div>
 
-    <section>
-      <UiRow
-        justify="center"
-        align="start"
-      >
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="about"
-            class="glass"
+            class="glass hero-about"
             variant="outlined"
+            style="margin-top:1rem;"
           >
             <template #title>
               <h2>
@@ -117,13 +110,7 @@
               {{ t('home.about13') }}<br>
             </p>
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="stats"
             class="glass"
@@ -145,13 +132,7 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="skills"
             class="glass"
@@ -173,13 +154,7 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="resume"
             class="glass"
@@ -201,13 +176,7 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="opensource"
             class="glass"
@@ -229,13 +198,7 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="contact"
             class="glass"
@@ -257,13 +220,7 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
 
-        <UiCol
-          cols="12"
-          md="12"
-          lg="12"
-        >
           <UiCard
             id="social"
             class="glass"
@@ -285,8 +242,8 @@
               hydrate-on-idle
             />
           </UiCard>
-        </UiCol>
-      </UiRow>
+        </div>
+      </div>
     </section>
   </UiContainer>
 </template>

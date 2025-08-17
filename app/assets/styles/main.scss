@@ -90,7 +90,56 @@ main {
 }
 
 .hero {
-  padding-block: clamp(2.5rem, 6vw, 6rem);
+  padding-block: clamp(1rem, 3vw, 3rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.hero-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 5rem);
+}
+
+.hero-image {
+  border-radius: 24px;
+  max-width: 100%;
+  height: auto;
+  width: 350px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-about {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding-inline: 1rem;
+  }
+
+  .hero-image {
+    width: 200px;
+  }
+
+  .hero-left {
+    position: static;
+    height: auto;
+  }
 }
 
 .gradient-text {
