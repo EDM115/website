@@ -36,6 +36,7 @@
     v-else
     :class="classes"
     :disabled="disabled"
+    :aria-label="aria"
   >
     <component
       :is="prependIcon"
