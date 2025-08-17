@@ -112,6 +112,9 @@ function formatZeros(value: number): string {
 let observer: IntersectionObserver | null = null
 const odos = ref<OdometerInstance[]>([])
 
+// new: keep mutation observers so we re-apply grouping when odometer DOM changes
+const digitObservers = ref<MutationObserver[]>([])
+
 async function fetchProjectsNumber() {
   try {
     const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", {
@@ -164,7 +167,52 @@ onMounted(async () => {
     el.classList.remove("mockup-odometer")
     odos.value[idx] = odo
     observer?.observe(el)
+
+    function applyDigitGrouping(container: HTMLElement) {
+      const allDigits = Array.from(container.querySelectorAll<HTMLElement>(".odometer-digit"))
+      const visibleDigits = allDigits.filter((d) => {
+        const val = d.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
+
+        return val.trim() !== ""
+      })
+
+      allDigits.forEach((d) => {
+        d.classList.remove("group-left", "group-right", "both-groups")
+      })
+
+      let i = visibleDigits.length
+      const groups: HTMLElement[][] = []
+
+      while (i > 0) {
+        const start = Math.max(0, i - 3)
+
+        groups.unshift(visibleDigits.slice(start, i))
+        i -= 3
+      }
+
+      groups.forEach((group) => {
+        if (group.length === 1) {
+          group[0]?.classList.add("both-groups")
+        } else {
+          group[0]?.classList.add("group-left")
+          group[group.length - 1]?.classList.add("group-right")
+        }
+      })
+    }
+
+    applyDigitGrouping(el as HTMLElement)
+
+    const mo = new MutationObserver(() => applyDigitGrouping(el as HTMLElement))
+
+    mo.observe(el as HTMLElement, { childList: true, subtree: true, characterData: true })
+    digitObservers.value[idx] = mo
   })
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  digitObservers.value.forEach((m) => m.disconnect())
+  digitObservers.value = []
 })
 </script>
 
@@ -217,12 +265,16 @@ $padding: .15em;
     background-color: var(--bg-light);
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
 
-    &:first-child {
+    &.group-left {
       border-radius: $borderRadius 0 0 $borderRadius;
     }
 
-    &:last-child {
+    &.group-right {
       border-radius: 0 $borderRadius $borderRadius 0;
+    }
+
+    &.both-groups {
+      border-radius: $borderRadius;
     }
 
     .odometer-digit-inner {

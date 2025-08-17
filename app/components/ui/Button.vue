@@ -191,7 +191,7 @@ const classes = computed(() => [
   &--elevated {
     box-shadow: var(--shadow-md);
     background-color: var(--surface);
-    
+
     &.ui-btn--primary {
       color: var(--dark-mode-bg);
       background-color: var(--primary);
