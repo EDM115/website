@@ -17,6 +17,7 @@ import mdiArrowUp from "~icons/mdi/arrowUp"
 import { useCustomTheme } from "~/composables/useCustomTheme"
 
 const { isDark } = useCustomTheme()
+const router = useRouter()
 
 const showGoToTop = ref(false)
 const mounted = ref(false)
@@ -30,6 +31,7 @@ const variant = computed(() => {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" })
+  router.replace({ hash: "" })
 }
 
 function handleScroll() {

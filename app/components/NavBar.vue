@@ -3,7 +3,10 @@
     class="rounded-b-lg"
     invisible
   >
-    <template #prepend>
+    <template
+      v-if="route.path !== '/'"
+      #prepend
+    >
       <UiButton
         :icon="menuIcon"
         variant="frosted"
@@ -68,6 +71,7 @@ import { useCustomTheme } from "~/composables/useCustomTheme"
 
 const { locale } = useI18n()
 const { isDark, toggleTheme } = useCustomTheme()
+const route = useRoute()
 
 const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
