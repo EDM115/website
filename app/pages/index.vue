@@ -5,11 +5,11 @@
         <div class="hero-left">
           <div
             ref="holoCard"
-            :class="['holo-card', 'glass', disableAnimation ? 'is-disabled' : '']"
+            :class="['holo-card', 'glass', enableAnimation ? '' : 'is-disabled']"
           >
             <div class="holo-inner">
               <span
-                v-if="!disableAnimation"
+                v-if="enableAnimation"
                 class="holo-glow"
                 aria-hidden="true"
               />
@@ -24,25 +24,25 @@
                 :placeholder="[200, 200, 50, 5]"
               />
               <canvas
-                v-if="!disableAnimation"
+                v-if="enableAnimation"
                 ref="causticsCanvas"
                 class="holo-caustics"
                 aria-hidden="true"
               />
               <span
-                v-if="!disableAnimation"
+                v-if="enableAnimation"
                 class="holo-overlay"
                 aria-hidden="true"
               />
             </div>
           </div>
           <UiCheckbox
-            name="disable-animation"
+            name="enable-polychrome-animation"
             color="primary"
             toggle
             style="padding-top: 32px;"
-            :model-value="disableAnimation"
-            @update:model-value="(val) => disableAnimation = val"
+            :model-value="enableAnimation"
+            @update:model-value="(val) => enableAnimation = val"
           >
             {{ t('home.disableAnimation') }}
           </UiCheckbox>
@@ -289,7 +289,7 @@ import mdiText from "~icons/mdi/text"
 const { locale, t } = useI18n()
 
 const age = ref(21)
-const disableAnimation = ref(false)
+const enableAnimation = ref(true)
 const holoCard = ref<HTMLElement | null>(null)
 const causticsCanvas = ref<HTMLCanvasElement | null>(null)
 let isHovering = false
@@ -317,15 +317,23 @@ function getAge(): number {
 
 onMounted(() => {
   age.value = getAge()
+
+  const lsAnim = localStorage.getItem("enable-polychrome-animation")
+
+  if (lsAnim !== null) {
+    enableAnimation.value = lsAnim === "true"
+  }
+
   const el = holoCard.value
 
   if (!el) {
     return
   }
+  
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
   if (prefersReducedMotion) {
-    disableAnimation.value = true
+    enableAnimation.value = false
   }
 
   const DEG_MULT = 16
@@ -362,7 +370,7 @@ onMounted(() => {
   }
 
   const onMouseMove = (e: MouseEvent) => {
-    if (disableAnimation.value) {
+    if (!enableAnimation.value) {
       return
     }
 
@@ -383,7 +391,7 @@ onMounted(() => {
   const startIdle = () => {
     stopIdle()
 
-    if (prefersReducedMotion || disableAnimation.value) {
+    if (prefersReducedMotion || !enableAnimation.value) {
       return
     }
 
@@ -449,7 +457,7 @@ onMounted(() => {
 
   // global pointer proximity to smooth transition before hover
   const onDocMove = (e: MouseEvent) => {
-    if (disableAnimation.value) {
+    if (!enableAnimation.value) {
       return
     }
 
@@ -524,7 +532,7 @@ onMounted(() => {
         }
 
         const draw = () => {
-          if (disableAnimation.value) {
+          if (!enableAnimation.value) {
             if (causticsRaf !== null) {
               cancelAnimationFrame(causticsRaf)
               causticsRaf = null
@@ -610,7 +618,7 @@ onMounted(() => {
         }
 
         const startCaustics = () => {
-          if (!disableAnimation.value && causticsRaf === null) {
+          if (enableAnimation.value && causticsRaf === null) {
             causticsRaf = requestAnimationFrame(draw)
           }
         }
@@ -648,17 +656,19 @@ onMounted(() => {
   })
 })
 
-watch(disableAnimation, (val) => {
+watch(enableAnimation, (val) => {
   const el = holoCard.value
   if (el) {
     if (val) {
-      el.classList.add("is-disabled")
-      stopIdleFn?.()
-      stopCausticsFn?.()
-    } else {
       el.classList.remove("is-disabled")
       startIdleFn?.()
       startCausticsFn?.()
+      localStorage.setItem("enable-polychrome-animation", "true")
+    } else {
+      el.classList.add("is-disabled")
+      stopIdleFn?.()
+      stopCausticsFn?.()
+      localStorage.setItem("enable-polychrome-animation", "false")
     }
   }
 })
