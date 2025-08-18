@@ -73,10 +73,14 @@ let startQueued = false
 let started = false
 
 // worker
-let worker: Worker | null = null
 let usingOffscreen = false
+let viewportTicking = false
+let lastClientX: number | null = null
+let lastClientY: number | null = null
+let worker: Worker | null = null
 let lastRect: DOMRect | null = null
 let onWindowResize: (()=> void) | null = null
+let onWindowScroll: (()=> void) | null = null
 
 const MAX_DPR = props.maxDpr ?? 2
 const FPS = props.fps ?? 30
@@ -134,6 +138,34 @@ function updateIntensityVars(el: HTMLElement) {
 
   if (worker) {
     worker.postMessage({ type: "setIntensity", intensity: cssIntensity }, [])
+  }
+}
+
+function recalcPointerAndRect(doResize: boolean) {
+  const el = root.value
+
+  if (!el) {
+    return
+  }
+
+  if (doResize) {
+    resizeCanvas()
+  } else {
+    lastRect = el.getBoundingClientRect()
+  }
+
+  if (lastClientX != null && lastClientY != null && lastRect) {
+    const x = clamp((lastClientX - lastRect.left) / lastRect.width)
+    const y = clamp((lastClientY - lastRect.top) / lastRect.height)
+
+    ptrX = x
+    ptrY = y
+
+    if (isHovering) {
+      setVars(x, y, 1.12)
+    }
+
+    updateIntensityVars(el)
   }
 }
 
@@ -412,6 +444,9 @@ function onPointerMove(e: PointerEvent) {
   }
 
   const rect = lastRect ?? el.getBoundingClientRect()
+
+  lastClientX = e.clientX
+  lastClientY = e.clientY
   const x = clamp((e.clientX - rect.left) / rect.width)
   const y = clamp((e.clientY - rect.top) / rect.height)
 
@@ -454,6 +489,9 @@ function onDocumentPointerMove(e: PointerEvent) {
   }
 
   const rect = lastRect ?? el.getBoundingClientRect()
+
+  lastClientX = e.clientX
+  lastClientY = e.clientY
 
   if (!docMoveQueued) {
     docMoveQueued = true
@@ -614,6 +652,21 @@ onMounted(() => {
 
   // global pointer tracking for smooth approach/leave fade
   window.addEventListener("pointermove", onDocumentPointerMove, { passive: true })
+
+  // when viewport changes (scroll), update rect/pointer ratios to avoid overlay offset
+  onWindowScroll = () => {
+    if (viewportTicking) {
+      return
+    }
+
+    viewportTicking = true
+    requestAnimationFrame(() => {
+      recalcPointerAndRect(false)
+      viewportTicking = false
+    })
+  }
+
+  window.addEventListener("scroll", onWindowScroll, { passive: true })
 })
 
 // Also react to direct v-model prop changes
@@ -632,6 +685,11 @@ onBeforeUnmount(() => {
   if (onWindowResize) {
     window.removeEventListener("resize", onWindowResize)
     onWindowResize = null
+  }
+
+  if (onWindowScroll) {
+    window.removeEventListener("scroll", onWindowScroll)
+    onWindowScroll = null
   }
 
   window.removeEventListener("pointermove", onDocumentPointerMove as EventListener)
