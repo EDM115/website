@@ -5,10 +5,11 @@
         <div class="hero-left">
           <div
             ref="holoCard"
-            class="holo-card glass"
+            :class="['holo-card', 'glass', disableAnimation ? 'is-disabled' : '']"
           >
             <div class="holo-inner">
               <span
+                v-if="!disableAnimation"
                 class="holo-glow"
                 aria-hidden="true"
               />
@@ -23,16 +24,28 @@
                 :placeholder="[200, 200, 50, 5]"
               />
               <canvas
+                v-if="!disableAnimation"
                 ref="causticsCanvas"
                 class="holo-caustics"
                 aria-hidden="true"
               />
               <span
+                v-if="!disableAnimation"
                 class="holo-overlay"
                 aria-hidden="true"
               />
             </div>
           </div>
+          <UiCheckbox
+            name="disable-animation"
+            color="primary"
+            toggle
+            style="padding-top: 32px;"
+            :model-value="disableAnimation"
+            @update:model-value="(val) => disableAnimation = val"
+          >
+            {{ t('home.disableAnimation') }}
+          </UiCheckbox>
         </div>
 
         <div class="hero-right">
@@ -276,6 +289,7 @@ import mdiText from "~icons/mdi/text"
 const { locale, t } = useI18n()
 
 const age = ref(21)
+const disableAnimation = ref(false)
 const holoCard = ref<HTMLElement | null>(null)
 const causticsCanvas = ref<HTMLCanvasElement | null>(null)
 let isHovering = false
@@ -288,6 +302,10 @@ let ptrY = 0.5
 let causticsRaf: number | null = null
 let tCaustics = 0
 let cssIntensity = 0
+let startIdleFn: (() => void) | null = null
+let stopIdleFn: (() => void) | null = null
+let startCausticsFn: (() => void) | null = null
+let stopCausticsFn: (() => void) | null = null
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")
@@ -305,6 +323,10 @@ onMounted(() => {
     return
   }
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  if (prefersReducedMotion) {
+    disableAnimation.value = true
+  }
 
   const DEG_MULT = 16
   const PX_MULT = 10
@@ -340,6 +362,10 @@ onMounted(() => {
   }
 
   const onMouseMove = (e: MouseEvent) => {
+    if (disableAnimation.value) {
+      return
+    }
+
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
     const x = ((e.clientX - rect.left) / rect.width)
     const y = ((e.clientY - rect.top) / rect.height)
@@ -357,7 +383,7 @@ onMounted(() => {
   const startIdle = () => {
     stopIdle()
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || disableAnimation.value) {
       return
     }
 
@@ -403,6 +429,10 @@ onMounted(() => {
     idleRaf = requestAnimationFrame(loop)
   }
 
+  // expose start/stop to watcher
+  startIdleFn = startIdle
+  stopIdleFn = stopIdle
+
   const onEnter = () => {
     isHovering = true
     el.classList.add("is-hover")
@@ -419,6 +449,10 @@ onMounted(() => {
 
   // global pointer proximity to smooth transition before hover
   const onDocMove = (e: MouseEvent) => {
+    if (disableAnimation.value) {
+      return
+    }
+
     const rect = el.getBoundingClientRect()
     const cx = clamp(((e.clientX - rect.left) / rect.width))
     const cy = clamp(((e.clientY - rect.top) / rect.height))
@@ -490,6 +524,15 @@ onMounted(() => {
         }
 
         const draw = () => {
+          if (disableAnimation.value) {
+            if (causticsRaf !== null) {
+              cancelAnimationFrame(causticsRaf)
+              causticsRaf = null
+            }
+
+            return
+          }
+
           resize()
           tCaustics += 0.03
 
@@ -547,6 +590,7 @@ onMounted(() => {
               const center = 0.09
               const sigma = 0.045
               let edge = Math.exp(-(((diff - center) * (diff - center)) / (2 * sigma * sigma)))
+
               // gentle softening
               edge = Math.pow(edge, 0.85)
               // final intensity, modulated by approach intensity for subtlety
@@ -565,7 +609,27 @@ onMounted(() => {
           causticsRaf = requestAnimationFrame(draw)
         }
 
-        causticsRaf = requestAnimationFrame(draw)
+        const startCaustics = () => {
+          if (!disableAnimation.value && causticsRaf === null) {
+            causticsRaf = requestAnimationFrame(draw)
+          }
+        }
+
+        const stopCaustics = () => {
+          if (causticsRaf !== null) {
+            cancelAnimationFrame(causticsRaf)
+            causticsRaf = null
+          }
+
+          // also clear frame for visual stop
+          ctx.clearRect(0, 0, w, h)
+        }
+
+        // expose to watcher
+        startCausticsFn = startCaustics
+        stopCausticsFn = stopCaustics
+
+        startCaustics()
       }
     }
   }
@@ -582,6 +646,21 @@ onMounted(() => {
       causticsRaf = null
     }
   })
+})
+
+watch(disableAnimation, (val) => {
+  const el = holoCard.value
+  if (el) {
+    if (val) {
+      el.classList.add("is-disabled")
+      stopIdleFn?.()
+      stopCausticsFn?.()
+    } else {
+      el.classList.remove("is-disabled")
+      startIdleFn?.()
+      startCausticsFn?.()
+    }
+  }
 })
 </script>
 
@@ -647,6 +726,25 @@ onMounted(() => {
 
 .holo-card.is-hover .holo-inner {
   transition: transform 40ms ease-out;
+}
+
+/* Disabled state: no transforms/animations/caustics */
+.holo-card.is-disabled .holo-inner {
+  transform: none !important;
+  transition: none !important;
+}
+
+.holo-card.is-disabled .holo-overlay {
+  transition: none !important;
+}
+
+.holo-card.is-disabled .holo-glow {
+  animation: none !important;
+  opacity: 0.15; /* keep subtle base glow */
+}
+
+.holo-card.is-disabled .holo-caustics {
+  opacity: 0 !important;
 }
 
 .hero-image {
