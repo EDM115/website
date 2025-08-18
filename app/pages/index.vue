@@ -6,7 +6,6 @@
           <div
             ref="holoCard"
             class="holo-card glass"
-            aria-label="EDM115 holographic card"
           >
             <div class="holo-inner">
               <span
@@ -29,10 +28,6 @@
               />
               <span
                 class="holo-overlay"
-                aria-hidden="true"
-              />
-              <span
-                class="holo-sparkles"
                 aria-hidden="true"
               />
             </div>
@@ -284,7 +279,8 @@ const holoCard = ref<HTMLElement | null>(null)
 let isHovering = false
 let idleRaf: number | null = null
 let tIdle = 0
-let proximity = 0 // 0..1 how close pointer is to card (1 = inside)
+// 0..1 how close pointer is to card (1 = inside)
+let proximity = 0
 let ptrX = 0.5
 let ptrY = 0.5
 
@@ -299,30 +295,36 @@ function getAge(): number {
 onMounted(() => {
   age.value = getAge()
   const el = holoCard.value
-  if (!el) { return }
-  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const DEG_MULT = 16 // stronger tilt than before
+  if (!el) {
+    return
+  }
+  const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  const DEG_MULT = 16
   const PX_MULT = 10
-  const HOVER_AMP = 1.12 // slight boost on hover
+  const HOVER_AMP = 1.12
 
   const clamp = (n: number, min = 0, max = 1) => Math.min(max, Math.max(min, n))
-  const lerp = (a: number, b: number, t: number) => a + (b - a) * t
-  const ease = (x: number) => x * x * (3 - 2 * x) // smoothstep
+  const lerp = (a: number, b: number, t: number) => a + ((b - a) * t)
+  const ease = (x: number) => (x * x) * (3 - (2 * x))
 
   // lightweight noise helpers (sin-based fractal noise)
-  const noise1 = (t: number) => (Math.sin(t * 1.27) + Math.sin(t * 0.71 + 1.3) + Math.sin(t * 0.41 + 4.2)) / 3
-  const noise2 = (x: number, y: number, t: number) =>
-    (Math.sin((x + t) * 2.1) + Math.sin((y - t * 0.7) * 1.7 + 1.1) + Math.sin((x - y + t * 0.5) * 1.3 + 2.7)) / 3
+  const noise1 = (t: number) => (Math.sin((t * 1.27)) + Math.sin(((t * 0.71) + 1.3)) + Math.sin(((t * 0.41) + 4.2))) / 3
+  const noise2 = (x: number, y: number, t: number) => (Math.sin(((x + t) * 2.1)) + Math.sin((((y - (t * 0.7)) * 1.7) + 1.1)) + Math.sin((((x - y + (t * 0.5)) * 1.3) + 2.7))) / 3
 
   const setVars = (x: number, y: number, amp = 1) => {
-    // x, y in [0,1]
+    // x, y in [0, 1]
     const px = x - 0.5
     const py = y - 0.5
-    const rotX = py * DEG_MULT * amp // deg
-    const rotY = -px * DEG_MULT * amp // deg
-    const tx = px * PX_MULT * amp // px
-    const ty = py * PX_MULT * amp // px
+
+    // deg
+    const rotX = (py * DEG_MULT) * amp
+    const rotY = (-(px * DEG_MULT)) * amp
+
+    // px
+    const tx = (px * PX_MULT) * amp
+    const ty = (py * PX_MULT) * amp
 
     el.style.setProperty("--rx", `${rotX}deg`)
     el.style.setProperty("--ry", `${rotY}deg`)
@@ -334,9 +336,10 @@ onMounted(() => {
 
   const onMouseMove = (e: MouseEvent) => {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
-    const x = (e.clientX - rect.left) / rect.width
-    const y = (e.clientY - rect.top) / rect.height
-  setVars(x, y, HOVER_AMP)
+    const x = ((e.clientX - rect.left) / rect.width)
+    const y = ((e.clientY - rect.top) / rect.height)
+
+    setVars(x, y, HOVER_AMP)
   }
 
   const stopIdle = () => {
@@ -348,15 +351,19 @@ onMounted(() => {
 
   const startIdle = () => {
     stopIdle()
-  if (isHovering) { return }
-    if (prefersReducedMotion) { return }
+
+    if (prefersReducedMotion) {
+      return
+    }
+
     const loop = () => {
       const speedBase = 0.015
-      const speed = speedBase * (0.3 + 0.7 * (1 - proximity))
+      const speed = speedBase * (0.3 + (0.7 * (1 - proximity)))
+
       tIdle += speed
       const r = 0.28
-      const idleX = 0.5 + Math.cos(tIdle) * r
-      const idleY = 0.5 + Math.sin(tIdle * 0.8) * r
+      const idleX = 0.5 + (Math.cos(tIdle) * r)
+      const idleY = 0.5 + (Math.sin(tIdle * 0.8) * r)
 
       // blend idle target toward pointer as proximity increases
       const p = ease(proximity)
@@ -365,13 +372,19 @@ onMounted(() => {
 
       // slightly increase amplitude as we get closer
       const amp = lerp(0.9, 1.05, p)
-      setVars(x, y, amp)
 
-      // animate gloss/caustics angles during idle (no glow rotation)
+      // While hovering, pointer controls tilt. Keep overlay rotation running regardless.
+      if (!isHovering) {
+        setVars(x, y, amp)
+      }
+
+      // animate gloss/caustics angles during idle
       const n = noise2(x, y, tIdle)
-      const gloss = ((tIdle + n * 0.5) % (Math.PI * 2)) * (180 / Math.PI)
+      const gloss = (((tIdle + (n * 0.5)) % (Math.PI * 2)) * (180 / Math.PI))
+
       el.style.setProperty("--gloss-angle", `${gloss}deg`)
-      const cAng = gloss * 1.1 + noise1(tIdle * 0.8) * 30
+      const cAng = ((gloss * 1.1) + (noise1(tIdle * 0.8) * 30))
+
       el.style.setProperty("--caustics-angle", `${cAng}deg`)
 
       // update proximity-based intensity for CSS
@@ -380,18 +393,18 @@ onMounted(() => {
 
       idleRaf = requestAnimationFrame(loop)
     }
+
     idleRaf = requestAnimationFrame(loop)
   }
 
   const onEnter = () => {
     isHovering = true
     el.classList.add("is-hover")
-    stopIdle()
   }
+
   const onLeave = () => {
     isHovering = false
     el.classList.remove("is-hover")
-    startIdle()
   }
 
   el.addEventListener("mousemove", onMouseMove)
@@ -401,8 +414,9 @@ onMounted(() => {
   // global pointer proximity to smooth transition before hover
   const onDocMove = (e: MouseEvent) => {
     const rect = el.getBoundingClientRect()
-    const cx = clamp((e.clientX - rect.left) / rect.width)
-    const cy = clamp((e.clientY - rect.top) / rect.height)
+    const cx = clamp(((e.clientX - rect.left) / rect.width))
+    const cy = clamp(((e.clientY - rect.top) / rect.height))
+
     ptrX = cx
     ptrY = cy
 
@@ -410,19 +424,26 @@ onMounted(() => {
     const dx = e.clientX < rect.left ? rect.left - e.clientX : e.clientX > rect.right ? e.clientX - rect.right : 0
     const dy = e.clientY < rect.top ? rect.top - e.clientY : e.clientY > rect.bottom ? e.clientY - rect.bottom : 0
     const dist = Math.hypot(dx, dy)
-    const radius = 220 // px influence radius
-    proximity = clamp(1 - dist / radius)
+    // px influence radius
+    const radius = 220
 
-  // expose CSS variables for gradual opacity/intensity when approaching
-  const p = ease(proximity)
-  el.style.setProperty("--proximity", `${proximity.toFixed(3)}`)
-  el.style.setProperty("--intensity", `${p.toFixed(3)}`)
+    proximity = clamp(1 - (dist / radius))
+
+    // expose CSS variables for gradual opacity/intensity when approaching
+    const p = ease(proximity)
+
+    el.style.setProperty("--proximity", `${proximity.toFixed(3)}`)
+    el.style.setProperty("--intensity", `${p.toFixed(3)}`)
   }
+
   window.addEventListener("mousemove", onDocMove, { passive: true })
 
   // initialize
   setVars(0.5, 0.5)
-  if (!prefersReducedMotion) { startIdle() }
+
+  if (!prefersReducedMotion) {
+    startIdle()
+  }
 
   onUnmounted(() => {
     el.removeEventListener("mousemove", onMouseMove)
@@ -502,7 +523,6 @@ onMounted(() => {
   border-radius: inherit;
 }
 
-/* Holographic overlays */
 .holo-overlay {
   position: absolute;
   inset: 0;
@@ -514,23 +534,30 @@ onMounted(() => {
     radial-gradient(60% 60% at var(--mx) var(--my), rgb(255 255 255 / 0.28), transparent 60%),
     /* iridescent conic gradient */
     conic-gradient(from var(--gloss-angle) at var(--mx) var(--my),
-      #ff0080 0deg,
-      #ff8c00 60deg,
-      #ffeb3b 120deg,
-      #00e676 180deg,
-      #00e5ff 240deg,
-      #2979ff 300deg,
-      #d500f9 360deg
+      hsl(0, 100%, 50%),
+      hsl(30, 100%, 50%),
+      hsl(60, 100%, 50%),
+      hsl(90, 100%, 50%),
+      hsl(120, 100%, 50%),
+      hsl(150, 100%, 50%),
+      hsl(180, 100%, 50%),
+      hsl(210, 100%, 50%),
+      hsl(240, 100%, 50%),
+      hsl(270, 100%, 50%),
+      hsl(300, 100%, 50%),
+      hsl(330, 100%, 50%),
+      hsl(360, 100%, 50%)
     );
-  filter: saturate(130%) brightness(105%) contrast(105%);
+  filter: saturate(120%) brightness(105%) contrast(105%);
   transition: opacity 150ms ease, filter 150ms ease;
 }
+
 .holo-caustics {
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  opacity: calc(0.08 + 0.22 * var(--intensity));
+  opacity: calc(0.08 + 0.42 * var(--intensity));
   mix-blend-mode: soft-light;
   background:
     /* faint vignette following focus */
@@ -547,27 +574,6 @@ onMounted(() => {
   filter: saturate(115%) contrast(105%);
 }
 
-.holo-sparkles {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  opacity: calc(0.08 + 0.20 * var(--intensity));
-  background:
-    radial-gradient(10px 10px at 20% 30%, rgb(255 255 255 / 0.6), transparent 60%),
-    radial-gradient(8px 8px at 80% 65%, rgb(255 255 255 / 0.5), transparent 60%),
-    radial-gradient(6px 6px at 40% 80%, rgb(255 255 255 / 0.4), transparent 60%),
-    radial-gradient(12px 12px at 60% 20%, rgb(255 255 255 / 0.5), transparent 60%);
-  animation: sparkles-move 6s linear infinite;
-}
-
-@keyframes sparkles-move {
-  0% { transform: translate3d(-2%, -2%, 0); }
-  50% { transform: translate3d(2%, 2%, 0); }
-  100% { transform: translate3d(-2%, -2%, 0); }
-}
-
 /* Hover scale for subtle lift */
 .holo-card:hover .holo-inner {
   transform: translate3d(var(--tx), var(--ty), 0) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.015);
@@ -575,12 +581,12 @@ onMounted(() => {
 
 @keyframes glow-pulse {
   0% { opacity: 0.25; }
-  100% { opacity: 0.4; }
+  100% { opacity: 0.6; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .holo-glow,
-  .holo-sparkles {
+  .holo-caustics {
     animation: none !important;
   }
 }
