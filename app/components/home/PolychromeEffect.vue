@@ -81,6 +81,8 @@ let worker: Worker | null = null
 let lastRect: DOMRect | null = null
 let onWindowResize: (()=> void) | null = null
 let onWindowScroll: (()=> void) | null = null
+// track fallback rAF so we can cancel/restart cleanly when toggling
+let fallbackRaf: number | null = null
 
 const MAX_DPR = props.maxDpr ?? 2
 const FPS = props.fps ?? 30
@@ -278,6 +280,7 @@ function startCaustics() {
         }
 
         raf = null
+        fallbackRaf = null
         ctx.clearRect(0, 0, cvs.width, cvs.height)
 
         return
@@ -367,10 +370,12 @@ function startCaustics() {
       ctx.clearRect(0, 0, w, h)
       ctx.putImageData(img, 0, 0)
       raf = requestAnimationFrame(draw)
+      fallbackRaf = raf
     }
 
     resizeCanvas()
     raf = requestAnimationFrame(draw)
+    fallbackRaf = raf
 
     if (!onWindowResize) {
       onWindowResize = () => resizeCanvas()
@@ -580,22 +585,39 @@ function handleEnableChange(v: boolean) {
   if (v) {
     // Re-start loops if they were previously stopped
     started = false
-    queueStart()
+    // Ensure v-if DOM (canvas/glows/overlay) exists before starting
+    nextTick(() => {
+      const el = root.value
+
+      if (el) {
+        lastRect = el.getBoundingClientRect()
+      }
+
+      queueStart()
+    })
   } else {
     stopIdle()
     // Remove will-change when paused
     inner.value?.style.removeProperty("will-change")
 
-    // Stop and clean worker or fallback
-    if (usingOffscreen) {
-      worker?.postMessage({ type: "stop" }, [])
-    } else {
-      const cvs = canvasEl.value
-      const ctx = cvs?.getContext("2d")
+    // Stop and fully clean worker or fallback. With v-if, the canvas will be removed, so an OffscreenCanvas previously transferred becomes orphaned. We must terminate and recreate on next enable.
+    if (usingOffscreen && worker) {
+      worker.postMessage({ type: "stop" }, [])
+      worker.terminate()
+      worker = null
+      usingOffscreen = false
+    }
 
-      if (ctx && cvs) {
-        ctx.clearRect(0, 0, cvs.width, cvs.height)
-      }
+    if (fallbackRaf) {
+      cancelAnimationFrame(fallbackRaf)
+      fallbackRaf = null
+    }
+
+    const cvs = canvasEl.value
+    const ctx = cvs?.getContext("2d")
+
+    if (ctx && cvs) {
+      ctx.clearRect(0, 0, cvs.width, cvs.height)
     }
 
     // Allow future starts
