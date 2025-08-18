@@ -88,6 +88,7 @@ declare module 'vue' {
     UiBanner: typeof import('./components/ui/Banner.vue')['default']
     UiButton: typeof import('./components/ui/Button.vue')['default']
     UiCard: typeof import('./components/ui/Card.vue')['default']
+    UiCheckbox: typeof import('./components/ui/Checkbox.vue')['default']
     UiCol: typeof import('./components/ui/Col.vue')['default']
     UiContainer: typeof import('./components/ui/Container.vue')['default']
     UiDivider: typeof import('./components/ui/Divider.vue')['default']
