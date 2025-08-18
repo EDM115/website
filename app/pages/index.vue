@@ -22,7 +22,8 @@
                 src="/img/profile-img.webp"
                 :placeholder="[200, 200, 50, 5]"
               />
-              <span
+              <canvas
+                ref="causticsCanvas"
                 class="holo-caustics"
                 aria-hidden="true"
               />
@@ -276,6 +277,7 @@ const { locale, t } = useI18n()
 
 const age = ref(21)
 const holoCard = ref<HTMLElement | null>(null)
+const causticsCanvas = ref<HTMLCanvasElement | null>(null)
 let isHovering = false
 let idleRaf: number | null = null
 let tIdle = 0
@@ -283,6 +285,9 @@ let tIdle = 0
 let proximity = 0
 let ptrX = 0.5
 let ptrY = 0.5
+let causticsRaf: number | null = null
+let tCaustics = 0
+let cssIntensity = 0
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")
@@ -390,6 +395,7 @@ onMounted(() => {
       // update proximity-based intensity for CSS
       el.style.setProperty("--proximity", `${proximity.toFixed(3)}`)
       el.style.setProperty("--intensity", `${p.toFixed(3)}`)
+      cssIntensity = p
 
       idleRaf = requestAnimationFrame(loop)
     }
@@ -434,6 +440,7 @@ onMounted(() => {
 
     el.style.setProperty("--proximity", `${proximity.toFixed(3)}`)
     el.style.setProperty("--intensity", `${p.toFixed(3)}`)
+    cssIntensity = p
   }
 
   window.addEventListener("mousemove", onDocMove, { passive: true })
@@ -443,6 +450,124 @@ onMounted(() => {
 
   if (!prefersReducedMotion) {
     startIdle()
+    // start canvas-based caustics
+    const cvs = causticsCanvas.value
+
+    if (cvs) {
+      const ctx = cvs.getContext("2d")
+
+      if (ctx) {
+        ctx.imageSmoothingEnabled = true
+        let w = 0, h = 0
+        const MAX_DPR = 2
+        const resize = () => {
+          const rect = el.getBoundingClientRect()
+          const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR)
+          // Render at a moderate internal resolution for performance
+          const targetW = Math.max(96, Math.floor(rect.width * dpr * 0.7))
+          const targetH = Math.max(96, Math.floor(rect.height * dpr * 0.7))
+
+          if (targetW !== w || targetH !== h) {
+            w = targetW
+            h = targetH
+            cvs.width = w
+            cvs.height = h
+            cvs.style.width = "100%"
+            cvs.style.height = "100%"
+          }
+        }
+
+        // small utility: fractional part
+        const fract = (v: number) => v - Math.floor(v)
+        // hash to 0..1
+        const hash1 = (i: number, j: number) => fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
+        // two randoms 0..1 per cell
+        const rand2 = (i: number, j: number) => {
+          const a = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
+          const b = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
+
+          return [ a, b ] as const
+        }
+
+        const draw = () => {
+          resize()
+          tCaustics += 0.03
+
+          // Worley (cellular) noise field for organic cell-like caustics
+          // World scale: how many cells across
+          const SCALE = 8.5
+          const img = ctx.createImageData(w, h)
+          const data = img.data
+          const invW = 1 / w
+          const invH = 1 / h
+          let p = 0
+
+          for (let y = 0; y < h; y++) {
+            const py = (y + 0.5) * invH * SCALE
+
+            for (let x = 0; x < w; x++) {
+              const px = (x + 0.5) * invW * SCALE
+
+              const ix = Math.floor(px)
+              const iy = Math.floor(py)
+              const fx = px - ix
+              const fy = py - iy
+
+              // track nearest and second-nearest distances (squared)
+              let f1 = 1e9
+              let f2 = 1e9
+
+              for (let oy = -1; oy <= 1; oy++) {
+                for (let ox = -1; ox <= 1; ox++) {
+                  const cx = ix + ox
+                  const cy = iy + oy
+                  const [ rx, ry ] = rand2(cx, cy)
+                  // subtle per-cell motion
+                  const ph = hash1(cx, cy) * Math.PI * 2
+                  const offx = Math.sin((tCaustics * 1.2) + ph) * 0.28
+                  const offy = Math.cos((tCaustics * 1.35) + ph) * 0.28
+                  const sx = (ox + rx + offx) - fx
+                  const sy = (oy + ry + offy) - fy
+                  const d2 = (sx * sx) + (sy * sy)
+
+                  if (d2 < f1) {
+                    f2 = f1
+                    f1 = d2
+                  } else if (d2 < f2) {
+                    f2 = d2
+                  }
+                }
+              }
+
+              // Use Euclidean distances for smoother, rounder cells
+              const d1 = Math.sqrt(f1)
+              const d2s = Math.sqrt(f2)
+              const diff = d2s - d1
+              // Smooth, rounded edges via Gaussian shaping around a center
+              const center = 0.09
+              const sigma = 0.045
+              let edge = Math.exp(-(((diff - center) * (diff - center)) / (2 * sigma * sigma)))
+              // gentle softening
+              edge = Math.pow(edge, 0.85)
+              // final intensity, modulated by approach intensity for subtlety
+              const m = Math.max(0.0, Math.min(1.0, edge * (0.5 + (cssIntensity * 0.7))))
+
+              // warm-white lines with alpha from intensity
+              data[p++] = 235
+              data[p++] = 245
+              data[p++] = 255
+              data[p++] = Math.floor(m * 255)
+            }
+          }
+
+          ctx.clearRect(0, 0, w, h)
+          ctx.putImageData(img, 0, 0)
+          causticsRaf = requestAnimationFrame(draw)
+        }
+
+        causticsRaf = requestAnimationFrame(draw)
+      }
+    }
   }
 
   onUnmounted(() => {
@@ -451,6 +576,11 @@ onMounted(() => {
     el.removeEventListener("mouseleave", onLeave)
     window.removeEventListener("mousemove", onDocMove as EventListener)
     stopIdle()
+
+    if (causticsRaf !== null) {
+      cancelAnimationFrame(causticsRaf)
+      causticsRaf = null
+    }
   })
 })
 </script>
@@ -511,6 +641,7 @@ onMounted(() => {
   transition: transform 150ms ease;
   will-change: transform;
   border-radius: inherit;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -557,21 +688,9 @@ onMounted(() => {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  opacity: calc(0.08 + 0.42 * var(--intensity));
+  opacity: calc(0.05 + 0.05 * var(--intensity));
   mix-blend-mode: soft-light;
-  background:
-    /* faint vignette following focus */
-    radial-gradient(80% 80% at var(--mx) var(--my), rgb(255 255 255 / 0.06), transparent 70%),
-    /* overlapping conic bands to approximate evolving caustics */
-    repeating-conic-gradient(from var(--caustics-angle) at 50% 50%,
-      rgb(255 255 255 / 0.06) 0deg 8deg,
-      transparent 8deg 16deg),
-    conic-gradient(from calc(var(--caustics-angle) * -1) at 50% 50%,
-      rgb(0 229 255 / 0.08),
-      rgb(255 121 198 / 0.08),
-      rgb(255 235 59 / 0.08),
-      rgb(0 229 255 / 0.08));
-  filter: saturate(115%) contrast(105%);
+  display: block;
 }
 
 /* Hover scale for subtle lift */
