@@ -6,7 +6,7 @@
       :key="stat.id"
       style="align-items: center; display: flex; justify-content: center;"
     >
-      <UiCard style="margin: 8px;">
+      <UiCard variant="flat">
         <template #title>
           {{ stat.name }}
         </template>

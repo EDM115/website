@@ -196,6 +196,10 @@ function getContribName(state: string, type: string) {
 </script>
 
 <style scoped>
+.mt-2 {
+  margin-top: 16px;
+}
+
 .open-contrib-color {
   background-color: #238636E6;
   color: var(--text);

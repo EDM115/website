@@ -7,7 +7,7 @@
       md="6"
       lg="4"
     >
-      <UiCard style="margin: 8px;">
+      <UiCard variant="flat">
         <template #title>
           {{ skill.name }}
         </template>
@@ -16,7 +16,7 @@
           <UiProgressCircular
             :id="'skillsCounter-' + skill.id"
             color="primary"
-            style="padding: 16px;"
+            style="padding: 8px;"
             :model-value="skill.displayedValue"
             :size="100"
             :width="10"
