@@ -77,6 +77,7 @@ declare module 'vue' {
     CookieConsent: typeof import('./components/CookieConsent.vue')['default']
     HomeContact: typeof import('./components/home/Contact.vue')['default']
     HomeOpenSourceContributions: typeof import('./components/home/OpenSourceContributions.vue')['default']
+    HomePolychromeEffect: typeof import('./components/home/PolychromeEffect.vue')['default']
     HomeProjectPage: typeof import('./components/home/ProjectPage.vue')['default']
     HomeResume: typeof import('./components/home/Resume.vue')['default']
     HomeSkills: typeof import('./components/home/Skills.vue')['default']
