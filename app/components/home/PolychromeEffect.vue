@@ -16,6 +16,7 @@
       ref="inner"
       class="holo-inner"
     >
+      <!-- This secondary glow is needed to have an uniform background for the holo-overlay to take place. Otherwise, pitch black regions won't have the Polychrome effect, and it will appear over-saturated -->
       <span
         v-if="enabled"
         class="holo-glow"
@@ -252,9 +253,9 @@ function startCaustics() {
 
     if (offscreen) {
       usingOffscreen = true
-      const workerURL = altRendering.value ? "./PolychromeAltEffect.worker.ts" : "./PolychromeEffect.worker.ts"
-
-      worker = new Worker(new URL(workerURL, import.meta.url), { type: "module" })
+      worker = altRendering.value
+        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { type: "module" })
+        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
       const q = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
       const dpr = q.dpr
