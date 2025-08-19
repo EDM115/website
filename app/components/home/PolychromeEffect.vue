@@ -768,6 +768,8 @@ onBeforeUnmount(() => {
   outline: 1px solid rgb(255 255 255 / 7%);
   /* ensure blend layers stay within */
   isolation: isolate;
+
+  background: color-mix(in srgb, var(--surface) 50%, transparent) !important;
 }
 
 .holo-inner {

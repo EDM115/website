@@ -491,4 +491,8 @@ const classes = computed(() => [
     color: inherit;
   }
 }
+
+.light-mode .ui-btn:not(.ui-btn--frosted):not(.ui-btn--flat) {
+  color: var(--dark-mode-text);
+}
 </style>

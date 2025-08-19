@@ -1,19 +1,24 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:map";
+
 $colors: (
-  accent: #bd93f9,
+  accent: #ff79c6,
   bg: #00040e,
-  bg-light: #303339,
+  bg-light: #282a36,
   bg-dark: #000000,
   error: #ff5555,
   gone: #000000,
   info: #8be9fd,
   primary: #ffb86c,
-  secondary: #50fa7b,
+  secondary: #bd93f9,
   success: #50fa7b,
-  surface: #303339,
-  text: #f8f8f2,
-  text-light: #ffffff,
-  text-dark: #c0c0ba,
-  warning: #ff79c6,
+  surface: #282a36,
+  text: #eae7de,
+  text-light: #f8f8f2,
+  text-dark: #c7c4b6,
+  text-muted: #c7c4b6,
+  warning: #f1fa8c,
 );
 
 :root {
@@ -23,33 +28,156 @@ $colors: (
 
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --dark-mode-bg: #00040e;
+  --dark-mode-text: #eae7de;
 
   --glass-bg: rgb(13 17 23 / 55%);
   --glass-bg-strong: rgb(13 17 23 / 75%);
   --glass-border: 1px solid rgb(255 255 255 / 10%);
   --glass-shadow: 0 10px 30px rgb(0 0 0 / 40%);
-  --backdrop-filter: saturate(160%) blur(14px);
+  --backdrop-filter:
+    saturate(160%)
+    blur(14px);
 
-  --gradient-hero: radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb, var(--accent) 26%, transparent), transparent),
-                   radial-gradient(900px 400px at -10% 10%, color-mix(in srgb, var(--info) 22%, transparent), transparent),
-                   radial-gradient(800px 600px at 50% 120%, color-mix(in srgb, var(--primary) 20%, transparent), transparent);
-  --gradient-brand: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-  --ring-hero: conic-gradient(from 180deg at 50% 50%, var(--primary), var(--secondary), var(--accent), var(--primary));
+  --gradient-hero:
+    radial-gradient(
+      1200px 600px at 80% -10%,
+      color-mix(
+        in srgb,
+        var(--secondary) 25%,
+        transparent
+      ),
+    transparent),
+    radial-gradient(
+      900px 400px at -10% 10%,
+      color-mix(
+        in srgb,
+        var(--info) 25%,
+        transparent
+      ),
+      transparent
+    ),
+    radial-gradient(
+      800px 600px at 50% 120%,
+      color-mix(
+        in srgb,
+        var(--primary) 20%,
+        transparent
+      ),
+      transparent
+    );
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--primary) 25%,
+    var(--info) 50%,
+    var(--secondary) 75%
+  );
+  --ring-hero: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--primary),
+    var(--secondary),
+    var(--accent),
+    var(--primary)
+  );
 }
+
+// Contrast helpers (WCAG 2.1)
+@function _lin($x) {
+  @return if($x <= 0.03928, $x / 12.92, math.pow(($x + 0.055) / 1.055, 2.4));
+}
+
+@function _rel-lum($c) {
+  $r: red($c) / 255;
+  $g: green($c) / 255;
+  $b: blue($c) / 255;
+
+  $r: _lin($r);
+  $g: _lin($g);
+  $b: _lin($b);
+
+  @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
+}
+
+@function _contrast($a, $b) {
+  $l1: _rel-lum($a);
+  $l2: _rel-lum($b);
+  @if $l1 < $l2 { $t: $l1; $l1: $l2; $l2: $t; }
+  @return ($l1 + 0.05) / ($l2 + 0.05);
+}
+
+// Punchy but legible inks for light backgrounds:
+// - Start with a saturation boost
+// - Iteratively darken a bit and add more saturation until contrast is met
+@function vivid-ink-on-light(
+  $color,
+  $bg,
+  $min: 4.5,             // target contrast (AA normal text)
+  $max-steps: 18,
+  $sat-boost: 16%,       // initial saturation bump
+  $lightness-step: 6%,   // per-iteration darken
+  $sat-step: 6%,         // per-iteration extra saturation
+  $min-lightness: 28%    // do not go too close to black
+) {
+  $try: color.scale($color, $saturation: $sat-boost);
+  $i: 0;
+
+  @if _contrast($try, $bg) >= $min {
+    @return $try;
+  }
+
+  @while _contrast($try, $bg) < $min and $i < $max-steps {
+    $try: color.scale($try, $lightness: -$lightness-step, $saturation: $sat-step);
+    $i: $i + 1;
+
+    @if color.channel($try, "lightness", $space: hsl) <= $min-lightness {
+      @return $try;
+    }
+  }
+
+  @return $try;
+}
+
+// Target light surface used in light mode
+$light-surface: #f8f8f2;
+
+$light-ink-variants: (
+  accent:    vivid-ink-on-light(map.get($colors, accent),    $light-surface),
+  primary:   vivid-ink-on-light(map.get($colors, primary),   $light-surface),
+  secondary: vivid-ink-on-light(map.get($colors, secondary), $light-surface),
+  success:   vivid-ink-on-light(map.get($colors, success),   $light-surface),
+  info:      vivid-ink-on-light(map.get($colors, info),      $light-surface),
+  warning:   vivid-ink-on-light(map.get($colors, warning),   $light-surface),
+  error:     vivid-ink-on-light(map.get($colors, error),     $light-surface),
+);
 
 .light-mode {
   --bg: #eae7de;
-  --bg-light: #ffffff;
+  --bg-light: #f8f8f2;
   --bg-dark: #c7c4b6;
   --gone: #ffffff;
-  --text: #0a0a0a;
-  --text-light: #2b2b2b;
+  --text: #00040e;
+  --text-light: #282a36;
+  --text-muted: #282a36;
   --text-dark: #000000;
-  --surface: #ffffff;
+  --surface: #f8f8f2;
+
+  --accent: #e1409b;
+  --primary: #f17e26;
+  --secondary: #a84ef2;
+  --success: #1ee34f;
+  --info: #18c4eb;
+  --warning: #cede1c;
+  --error: #f52828;
+
+  /* --accent: #{map.get($light-ink-variants, accent)};
+  --primary: #{map.get($light-ink-variants, primary)};
+  --secondary: #{map.get($light-ink-variants, secondary)};
+  --success: #{map.get($light-ink-variants, success)};
+  --info: #{map.get($light-ink-variants, info)};
+  --warning: #{map.get($light-ink-variants, warning)};
+  --error: #{map.get($light-ink-variants, error)}; */
 
   --glass-bg: rgb(255 255 255 / 65%);
   --glass-bg-strong: rgb(255 255 255 / 85%);
   --glass-border: 1px solid rgb(10 10 10 / 10%);
   --glass-shadow: 0 10px 30px rgb(17 24 39 / 15%);
-  --backdrop-filter: saturate(160%) blur(12px);
 }

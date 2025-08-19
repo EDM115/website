@@ -50,8 +50,16 @@ main {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60rem 30rem at 50% -10%, rgb(255 255 255 / 06%), transparent),
-    radial-gradient(50rem 26rem at 10% 110%, rgb(255 255 255 / 04%), transparent);
+    radial-gradient(
+      60rem 30rem at 50% -10%,
+      rgb(255 255 255 / 06%),
+      transparent
+    ),
+    radial-gradient(
+      50rem 26rem at 10% 110%,
+      rgb(255 255 255 / 04%),
+      transparent
+    );
   mix-blend-mode: overlay;
 }
 
@@ -353,7 +361,7 @@ li {
 .markdown-body table,
 .markdown-body table th,
 .markdown-body table td {
-  border: 1px solid var(--gone);
+  border: 1px solid var(--secondary);
 }
 
 .markdown-body table th,
@@ -363,13 +371,13 @@ li {
 }
 
 .markdown-body blockquote {
-  border-left: 0.25em solid var(--gone);
+  border-left: 0.25em solid var(--secondary);
   padding: 0 1rem;
   margin: 0.5rem 0;
 }
 
 .markdown-body blockquote > p {
-  color: var(--text-dark);
+  color: var(--text-muted);
 }
 
 .code-block {

@@ -32,7 +32,7 @@
           <UiCheckbox
             v-if="enableCounter > 4"
             name="alt-polychrome-animation"
-            color="accent"
+            color="secondary"
             toggle
             style="padding-top: 16px;"
             :model-value="alternativeRendering"
@@ -64,7 +64,7 @@
               aria="Home"
             />
             <UiButton
-              color="secondary"
+              color="primary"
               :prepend-icon="mdiInformationOutline"
               :text="t('home.projects')"
               link="/projects"
@@ -72,7 +72,7 @@
               aria="Projects"
             />
             <UiButton
-              color="accent"
+              color="primary"
               :prepend-icon="mdiText"
               :text="t('home.blog')"
               link="/blog"
