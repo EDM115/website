@@ -97,7 +97,7 @@ const props = defineProps<{
 
 const isOpen = ref(false)
 const bodyRef = ref<HTMLElement | null>(null)
-const uid = Math.random().toString(36).slice(2)
+const uid = useId()
 
 // Apply theming so icon marker is encompassed by item color/bg
 const rootStyle = computed(() => {

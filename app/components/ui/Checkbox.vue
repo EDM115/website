@@ -132,11 +132,13 @@ function onBlur() {
   emit("blur")
 }
 
+const rid = useId()
+
 const color = computed(() => props.color)
 const disabled = computed(() => props.disabled)
 const toggle = computed(() => props.toggle)
 const id = computed(() => props.id)
-const name = computed(() => props.name ?? `checkbox-${Math.random().toString(36).substring(2, 9)}`)
+const name = computed(() => props.name ?? `checkbox-${rid}`)
 const value = computed(() => props.value)
 const aria = computed(() => props.aria)
 const label = computed(() => props.label)
