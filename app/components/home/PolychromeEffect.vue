@@ -30,7 +30,7 @@
       />
       <span
         v-if="enabled"
-        class="holo-overlay"
+        :class="[ 'holo-overlay', { 'alt-rendering': altRendering } ]"
         aria-hidden="true"
       />
     </div>
@@ -42,6 +42,7 @@ const props = defineProps<{
   modelValue?: boolean
   maxDpr?: number
   fps?: number
+  alt?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -53,6 +54,7 @@ const inner = ref<HTMLElement | null>(null)
 const canvasEl = ref<HTMLCanvasElement | null>(null)
 
 const enabled = ref(props.modelValue ?? true)
+const altRendering = computed(() => props.alt ?? false)
 
 watch(enabled, (v) => emit("update:modelValue", v))
 
@@ -65,6 +67,10 @@ let proximity = 0
 let ptrX = 0.5
 let ptrY = 0.5
 let cssIntensity = 0
+// dynamic overlay hues derived from polychrome shader
+// 0..360
+let polyHueBase = 0
+let polyTime = 0
 let prefersReducedMotion = false
 let saveData = false
 let effectiveCores = 4
@@ -127,6 +133,14 @@ function setVars(x: number, y: number, amp = 1) {
   el.style.setProperty("--ty", `${ty}px`)
   el.style.setProperty("--mx", `${x * 100}%`)
   el.style.setProperty("--my", `${y * 100}%`)
+
+  if (altRendering.value) {
+    // set hue seeds so overlay follows pointer subtly
+    const hue = ((x * 360) + (y * 60)) % 360
+
+    polyHueBase = hue
+    el.style.setProperty("--poly-hue", `${hue.toFixed(1)}deg`)
+  }
 }
 
 function updateIntensityVars(el: HTMLElement) {
@@ -238,7 +252,9 @@ function startCaustics() {
 
     if (offscreen) {
       usingOffscreen = true
-      worker = new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
+      const workerURL = altRendering.value ? "./PolychromeAltEffect.worker.ts" : "./PolychromeEffect.worker.ts"
+
+      worker = new Worker(new URL(workerURL, import.meta.url), { type: "module" })
       const q = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
       const dpr = q.dpr
@@ -419,6 +435,14 @@ function startIdle() {
 
     el.style.setProperty("--gloss-angle", `${gloss}deg`)
     el.style.setProperty("--caustics-angle", `${(gloss * 1.1)}deg`)
+
+    if (altRendering.value) {
+      // polychrome overlay hue/time drift akin to shader polychrome.y contribution
+      polyTime += 0.012
+      const drift = (polyTime * 40) % 360
+
+      el.style.setProperty("--poly-drift", `${drift.toFixed(1)}deg`)
+    }
     updateIntensityVars(el)
     idleRaf = requestAnimationFrame(loop)
   }
@@ -844,6 +868,16 @@ onBeforeUnmount(() => {
     brightness(105%)
     contrast(105%);
   transition: opacity 150ms ease, filter 150ms ease;
+
+  &.alt-rendering {
+    filter:
+      saturate(120%)
+      brightness(105%)
+      contrast(105%)
+      /* tie hue to pointer base and drifting time like shader polychrome */
+      hue-rotate(var(--poly-hue, 0deg))
+      hue-rotate(var(--poly-drift, 0deg));
+  }
 }
 
 .holo-caustics {

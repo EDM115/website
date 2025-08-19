@@ -3,7 +3,11 @@
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-left">
-          <HomePolychromeEffect v-model="enableAnimation">
+          <HomePolychromeEffect
+            :id="`hero-polychrome-effect-${alternativeRendering ? 'alt' : 'default'}`"
+            v-model="enableAnimation"
+            :alt="alternativeRendering"
+          >
             <NuxtImg
               :draggable="false"
               preload
@@ -24,6 +28,17 @@
             @update:model-value="(val) => enableAnimation = val"
           >
             {{ t('home.disableAnimation') }}
+          </UiCheckbox>
+          <UiCheckbox
+            v-if="enableCounter > 4"
+            name="alt-polychrome-animation"
+            color="accent"
+            toggle
+            style="padding-top: 16px;"
+            :model-value="alternativeRendering"
+            @update:model-value="(val) => alternativeRendering = val"
+          >
+            {{ t('home.alternativeAnimation') }}
           </UiCheckbox>
         </div>
 
@@ -269,6 +284,8 @@ const { locale, t } = useI18n()
 
 const age = ref(21)
 const enableAnimation = ref(true)
+const alternativeRendering = ref(false)
+const enableCounter = ref(0)
 
 function getAge(): number {
   const birthday = new Date("2004-06-18")
@@ -297,6 +314,10 @@ onMounted(() => {
 watch(enableAnimation, (val) => {
   localStorage.setItem("enable-polychrome-animation", val ? "true" : "false")
   window.dispatchEvent(new CustomEvent("polychrome-toggle", { detail: val }))
+
+  if (val) {
+    enableCounter.value++
+  }
 })
 </script>
 
