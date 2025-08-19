@@ -2,7 +2,13 @@ import mdiCheck from "~icons/mdi/check?raw"
 
 export function useCopySlug() {
   const handler = (event: Event) => {
-    const el = (event.target as HTMLElement).closest(".header-copy-icon")
+    const target = event.target
+
+    if (!(target instanceof HTMLElement)) {
+      return
+    }
+
+    const el = target.closest(".header-copy-icon")
 
     if (!el) {
       return
@@ -16,10 +22,10 @@ export function useCopySlug() {
 
     const url = `${location.origin}${location.pathname}#${slug}`
 
-    navigator.clipboard.writeText(url).then(() => {
+    void navigator.clipboard.writeText(url).then(() => {
       const original = el.innerHTML
 
-      el.innerHTML = mdiCheck as unknown as string
+      el.innerHTML = mdiCheck
       el.classList.add("header-copy-icon-clicked")
       setTimeout(() => {
         el.innerHTML = original
@@ -28,6 +34,11 @@ export function useCopySlug() {
     })
   }
 
-  onMounted(() => document.addEventListener("click", handler))
-  onUnmounted(() => document.removeEventListener("click", handler))
+  onMounted(() => {
+    document.addEventListener("click", handler)
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener("click", handler)
+  })
 }

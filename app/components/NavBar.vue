@@ -1,124 +1,86 @@
 <template>
-  <v-app-bar class="rounded-b-lg force-ssr">
-    <template #prepend>
-      <NuxtLink
-        class="text-decoration-none"
-        style="color: inherit;"
-        to="/"
-      >
-        <v-app-bar-nav-icon :icon="menuIcon" />
-      </NuxtLink>
+  <UiAppBar
+    class="rounded-b-lg"
+    invisible
+  >
+    <template
+      v-if="route.path !== '/'"
+      #prepend
+    >
+      <UiButton
+        :icon="menuIcon"
+        variant="frosted"
+        link="/"
+        aria="Home"
+      />
     </template>
 
-    <NuxtLink
-      class="text-decoration-none"
-      style="color: inherit;"
-      to="/"
-    >
-      <v-app-bar-title>EDM115</v-app-bar-title>
-    </NuxtLink>
-
     <template #append>
-      <v-menu
-        open-on-click
-        open-on-focus
-        open-on-hover
-      >
+      <UiMenu>
         <template #activator="{ props }">
-          <v-btn
+          <UiButton
             v-bind="props"
             :icon="mdiLanguage"
+            color="text"
+            variant="frosted"
+            aria="Language switcher"
             @mouseleave="i18nSwitch = false"
             @mouseover="i18nSwitch = true"
           >
             <div v-if="i18nSwitch">
-              {{ getFlagEmoji(userLocale) }}
+              {{ getFlagEmoji(locale) }}
             </div>
             <div v-else>
-              <v-icon :icon="mdiLanguage" />
+              <UiIcon :icon="mdiLanguage" />
             </div>
-          </v-btn>
+          </UiButton>
         </template>
-        <v-list
-          class="small-list"
+        <UiList
+          compact
           @mouseleave="i18nSwitch = false"
           @mouseover="i18nSwitch = true"
         >
-          <v-list-item
+          <UiListItem
             v-for="l in availableLocales"
             :key="l"
-            :active="l === userLocale"
-            :title="getFlagEmoji(l)"
+            :active="l === locale"
             @click="switchLocale(l)"
-          />
-        </v-list>
-      </v-menu>
-      <v-btn
-        class="spin-animation"
+          >
+            {{ getFlagEmoji(l) }}
+          </UiListItem>
+        </UiList>
+      </UiMenu>
+      <UiButton
         :icon="iconTheme"
-        @click="onToggleTheme"
+        color="text"
+        variant="frosted"
+        aria="Theme switcher"
+        @click="toggleTheme"
       />
     </template>
-  </v-app-bar>
-
-  <v-dialog
-    v-model="displayDialog"
-    persistent
-    max-width="350"
-  >
-    <v-card
-      color="error"
-      class="d-flex align-center"
-    >
-      <v-alert
-        :icon="lucideConstruction"
-        color="error"
-        :title="t('navbar.indev.title')"
-        :text="t('navbar.indev.text')"
-      />
-      <v-card-actions>
-        <v-btn
-          color="text"
-          :text="t('navbar.indev.oldSite')"
-          href="https://old.edm115.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <v-btn
-          color="text"
-          :text="t('navbar.close')"
-          @click="toggleDialog"
-        />
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  </UiAppBar>
 </template>
 
 <script setup lang="ts">
-import lucideConstruction from "~icons/lucide/construction"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 
 import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useMainStore } from "~/stores/main"
 
-const { locale, t } = useI18n()
-const store = useMainStore()
+const { locale } = useI18n()
 const { isDark, toggleTheme } = useCustomTheme()
+const route = useRoute()
 
-const displayDialog = ref(false)
 const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
 
+const availableLocales = [ "en", "fr" ] as const
 const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
-const availableLocales = computed(() => store.getAvailableLocales)
-const userLocale = computed(() => store.getI18n)
 
 const switchLocale = (newLocale: "en" | "fr") => {
   locale.value = newLocale
-  store.setI18n(newLocale)
 }
 
 const getFlagEmoji = (l: string): string => {
@@ -131,74 +93,11 @@ const getFlagEmoji = (l: string): string => {
       return "🌐"
   }
 }
-
-function toggleDialog() {
-  store.setDisplayDialog("false")
-  displayDialog.value = (store.getDisplayDialog === "true")
-}
-
-// See https://paco.me/writing/disable-theme-transitions
-function onToggleTheme() {
-  // Create a style element to disable transitions on all elements
-  const css = document.createElement("style")
-
-  css.appendChild(document.createTextNode(`* {
-         -webkit-transition: none !important;
-         -moz-transition: none !important;
-         -o-transition: none !important;
-         -ms-transition: none !important;
-         transition: none !important;
-      }`))
-  document.head.appendChild(css)
-
-  // Change the theme via the composable (handles store and Vuetify)
-  toggleTheme()
-
-  // Force a reflow to apply the new theme without transitions
-  const _ = window.getComputedStyle(css).opacity
-
-  // Remove the temporary CSS to restore transitions
-  document.head.removeChild(css)
-
-  // Scroll down and up to trigger AOS and avoid content disappearing until we scroll
-  /* window.scrollBy(0, 1)
-  window.scrollBy(0, -1) */
-}
-
-onMounted(() => {
-  displayDialog.value = (store.getDisplayDialog === "true")
-})
 </script>
 
-<style>
-.spin-animation:active {
-  animation: spin 1s ease-in-out 0s 1;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(720deg);
-  }
-}
-
-.force-ssr {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translateY(0px);
-  width: 100%;
-}
-
-.small-list .v-list-item__content {
-  min-width: 0px;
-}
-
-.small-list .v-list-item--density-compact:not(.v-list-item--nav).v-list-item--one-line {
-  padding-inline-end: 0px;
-  padding-inline-start: 16px;
+<style lang="scss" scoped>
+.rounded-b-lg {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 </style>
-

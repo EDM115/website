@@ -1,45 +1,26 @@
-import { useMainStore } from "~/stores/main"
-
 export function useCustomTheme() {
-  const { $vuetify } = useNuxtApp()
-  const store = useMainStore()
-  let theme: "dark" | "light" = "dark"
+  const theme = useColorMode()
 
-  if (import.meta.client) {
-    const localStorageTheme = localStorage.getItem("theme")
-
-    if (!localStorageTheme) {
-      theme = store.getTheme
-    } else {
-      theme = localStorageTheme === "light" ? "light" : "dark"
+  const isDark = computed(() => {
+    if (theme.preference === "dark") {
+      return true
     }
-  }
 
-  const isDark = useDark({
-    storageKey: "theme",
-    initialValue: theme,
-    onChanged(dark: boolean) {
-      const theme = dark ? "dark" : "light"
+    if (theme.preference === "light") {
+      return false
+    }
 
-      $vuetify.theme.change(theme)
-      store.setTheme(theme)
-
-      if (import.meta.client) {
-        const styleId = "color-scheme-style"
-        let styleElement = document.getElementById(styleId) as HTMLStyleElement
-
-        if (!styleElement) {
-          styleElement = document.createElement("style")
-          styleElement.id = styleId
-          document.head.appendChild(styleElement)
-        }
-
-        styleElement.textContent = `:root { color-scheme: ${theme}; }`
-      }
-    },
+    // system
+    return theme.value === "dark"
   })
 
-  const toggleTheme = useToggle(isDark)
+  function changeTheme(themeName: "dark" | "light" | "system") {
+    theme.preference = themeName
+  }
 
-  return { isDark, toggleTheme }
+  function toggleTheme() {
+    changeTheme(isDark.value ? "light" : "dark")
+  }
+
+  return { isDark, theme, changeTheme, toggleTheme }
 }

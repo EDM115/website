@@ -1,32 +1,33 @@
 <template>
-  <v-banner
+  <UiBanner
     v-if="showBanner"
     v-on-click-outside="() => handleAccept(false)"
-    class="cookie-consent-banner rounded-t-lg"
+    class="rounded-t-lg"
     color="primary"
     :icon="mdiCookieAlertOutline"
     lines="one"
   >
-    <template #text>
-      {{ t('cookies.text') }}
-    </template>
+    {{ t('cookies.text') }}
+
     <template #actions>
-      <div class="d-flex flex-column">
-        <v-btn
+      <div class="flex-actions">
+        <UiButton
           color="success"
+          aria="Accept cookies"
           @click="handleAccept(true)"
         >
           {{ t('cookies.accept') }}
-        </v-btn>
-        <v-btn
+        </UiButton>
+        <UiButton
           color="error"
+          aria="Reject cookies"
           @click="handleAccept(false)"
         >
           {{ t('cookies.reject') }}
-        </v-btn>
+        </UiButton>
       </div>
     </template>
-  </v-banner>
+  </UiBanner>
 </template>
 
 <script lang="ts" setup>
@@ -71,22 +72,15 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-.cookie-consent-banner.v-banner {
-  position: fixed !important;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+<style lang="scss" scoped>
+.rounded-t-lg {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.cookie-consent-banner :deep(.v-banner__content .v-banner-text) {
-  -webkit-line-clamp: none !important;
-  line-clamp: none !important;
-  padding: 0.8rem 0rem !important;
-}
-
-.cookie-consent-banner :deep(.v-banner__prepend) {
-  margin-top: 0.8rem !important;
+.flex-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 </style>

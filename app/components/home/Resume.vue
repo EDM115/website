@@ -1,142 +1,143 @@
 <template>
-  <p>
-    {{ t("home.resume1") }}<br>
-    <v-stepper-vertical
-      non-linear
-      ripple
-      multiple
-      flat
-      focusable
-      editable
-      eager
-      hide-actions
-      :mandatory="false"
-    >
-      <template #default>
-        <v-stepper-vertical-item
-          :subtitle="t('home.resume2')"
-          title="EDM115"
-          :icon="mdiAccountTieOutline"
-          :edit-icon="mdiAccountTieOutline"
-          value="1"
-        >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>{{ t("home.resume3") }}</v-list-item-title>
-              {{ t("home.resume4") }}<br>
-              <NuxtLink
-                to="mailto:dev@edm115.dev"
-                target="_blank"
-                external
-              >
-                dev@edm115.dev
-              </NuxtLink><br>
-              <NuxtLink
-                to="tel:+33667980504"
-                target="_blank"
-              >
-                +33 6 67 98 05 04
-              </NuxtLink>
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+  <div>
+    <p class="mb-4">
+      {{ t("home.resume1") }}<br>
+    </p>
+    <UiStepperVertical>
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume2')"
+        title="EDM115"
+        :icon="mdiAccountTieOutline"
+        value="1"
+      >
+        <UiList>
+          <UiListItem>
+            <template #title>
+              {{ t("home.resume3") }}
+            </template>
+            {{ t("home.resume4") }}<br>
+            <NuxtLink
+              to="mailto:dev@edm115.dev"
+              target="_blank"
+              external
+              aria-label="EDM115's email"
+            >
+              dev@edm115.dev
+            </NuxtLink><br>
+            <NuxtLink
+              to="tel:+33667980504"
+              target="_blank"
+              aria-label="EDM115's phone number"
+            >
+              +33 6 67 98 05 04
+            </NuxtLink>
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
-          :subtitle="t('home.resume5')"
-          :title="t('home.resume6')"
-          :icon="mdiBriefcaseOutline"
-          :edit-icon="mdiBriefcaseOutline"
-          value="2"
-        >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2025</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume5')"
+        :title="t('home.resume6')"
+        :icon="mdiBriefcaseOutline"
+        value="2"
+      >
+        <UiList>
+          <UiListItem>
+            <template #title>
+              2025
+            </template>
+            <template #subtitle>
+              <div class="mb-2">
                 Nexelec, Saint-Avé
-              </v-list-item-subtitle><br>
-              {{ t("home.resume7") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+              </div>
+            </template><br>
+            {{ t("home.resume7") }}
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
-          :subtitle="t('home.resume5')"
-          :title="t('home.resume8')"
-          :icon="mdiBriefcaseOutline"
-          :edit-icon="mdiBriefcaseOutline"
-          value="3"
-        >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2024</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume5')"
+        :title="t('home.resume8')"
+        :icon="mdiBriefcaseOutline"
+        value="3"
+      >
+        <UiList>
+          <UiListItem>
+            <template #title>
+              2024
+            </template>
+            <template #subtitle>
+              <div class="mb-2">
                 Koumoul, Vannes
-              </v-list-item-subtitle><br>
-              {{ t("home.resume9") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+              </div>
+            </template><br>
+            {{ t("home.resume9") }}
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
-          :subtitle="t('home.resume10')"
-          :title="t('home.resume11')"
-          :icon="mdiSchoolOutline"
-          :edit-icon="mdiSchoolOutline"
-          value="4"
-        >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2022 - 2025</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume10')"
+        :title="t('home.resume11')"
+        :icon="mdiSchoolOutline"
+        value="4"
+      >
+        <UiList>
+          <UiListItem>
+            <template #title>
+              2022 - 2025
+            </template>
+            <template #subtitle>
+              <div class="mb-2">
                 IUT Vannes
-              </v-list-item-subtitle><br>
-              {{ t("home.resume12") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
+              </div>
+            </template><br>
+            {{ t("home.resume12") }}
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
 
-        <v-stepper-vertical-item
-          :subtitle="t('home.resume10')"
-          :title="t('home.resume13')"
-          :icon="mdiSchoolOutline"
-          :edit-icon="mdiSchoolOutline"
-          value="5"
-        >
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>2019 - 2022</v-list-item-title>
-              <v-list-item-subtitle class="mb-2">
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume10')"
+        :title="t('home.resume13')"
+        :icon="mdiSchoolOutline"
+        value="5"
+      >
+        <UiList>
+          <UiListItem>
+            <template #title>
+              2019 - 2022
+            </template>
+            <template #subtitle>
+              <div class="mb-2">
                 Lycée Saint-Paul, Vannes
-              </v-list-item-subtitle><br>
-              {{ t("home.resume14") }}
-            </v-list-item>
-          </v-list>
-        </v-stepper-vertical-item>
-      </template>
-    </v-stepper-vertical>
-  </p>
-  <ClientOnly>
+              </div>
+            </template><br>
+            {{ t("home.resume14") }}
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
+    </UiStepperVertical>
     <h3 class="mt-4 mb-2">
       {{ t("home.downloadResume") }}
     </h3>
-    <v-btn
+    <UiButton
       class="mr-2"
       color="secondary"
       :prepend-icon="mdiFileDownload"
       :text="t('home.downloadPdf')"
-      href="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
+      link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+      aria="Download PDF resume"
     />
-    <v-btn
+    <UiButton
       color="secondary"
       :prepend-icon="mdiWeb"
       :text="t('home.downloadOnline')"
-      href="https://old.edm115.dev/cv"
-      target="_blank"
-      rel="noopener noreferrer"
+      link="https://old.edm115.dev/cv"
+      aria="Access online resume"
     />
-  </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -148,3 +149,21 @@ import mdiWeb from "~icons/mdi/web"
 
 const { t } = useI18n()
 </script>
+
+<style lang="scss" scoped>
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+</style>

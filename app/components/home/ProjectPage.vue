@@ -1,21 +1,21 @@
 <template>
-  <v-container class="d-flex flex-column align-center">
+  <UiContainer style="align-items: center; display: flex; flex-direction: column;">
     <div
       v-if="loading"
       class="loading"
     >
-      <v-progress-circular
+      <UiProgressCircular
         indeterminate
         color="primary"
       />
-      <span class="ml-2">Loading README...</span>
+      <span style="margin-left: 8px;">Loading README...</span>
     </div>
 
     <div
       v-else-if="error"
       class="error"
     >
-      <v-alert
+      <UiAlert
         type="error"
         :text="error"
       />
@@ -25,11 +25,11 @@
       <Suspense>
         <template #fallback>
           <div class="loading">
-            <v-progress-circular
+            <UiProgressCircular
               indeterminate
               color="primary"
             />
-            <span class="ml-2">Rendering README...</span>
+            <span style="margin-left: 8px;">Rendering README...</span>
           </div>
         </template>
         <template #default>
@@ -47,12 +47,12 @@
       v-else
       class="no-content"
     >
-      <v-alert
+      <UiAlert
         type="info"
         text="No README found for this repository."
       />
     </div>
-  </v-container>
+  </UiContainer>
 </template>
 
 <script setup lang="ts">
@@ -268,9 +268,6 @@ const head = useHead({
 await fetchReadme()
 const repoDetails = await getRepoDetails()
 
-useCopySlug()
-useCopyCode()
-
 if (repoDetails) {
   head.patch({
     title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
@@ -292,6 +289,11 @@ if (repoDetails) {
 }
 
 watch(() => props.name, fetchReadme, { immediate: true })
+
+onMounted(() => {
+  useCopySlug()
+  useCopyCode()
+})
 </script>
 
 <style scoped>
@@ -300,7 +302,7 @@ watch(() => props.name, fetchReadme, { immediate: true })
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: rgb(var(--v-theme-on-surface));
+  color: var(--gone);
 }
 
 .error,

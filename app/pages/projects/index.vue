@@ -1,107 +1,82 @@
 <template>
-  <v-container>
+  <UiContainer>
     <h1>{{ t("projects.title") }}</h1>
 
-    <NuxtLink
+    <UiButton
       class="ma-2"
-      to="/projects/unzip-bot"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/unzip-bot"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/unzip-bot"
+      text="EDM115/unzip-bot"
+      aria="EDM115/unzip-bot"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/monorepo-hash"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/monorepo-hash"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/monorepo-hash"
+      text="EDM115/monorepo-hash"
+      aria="EDM115/monorepo-hash"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/better-maps"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/better-maps"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/better-maps"
+      text="EDM115/better-maps"
+      aria="EDM115/better-maps"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/unrar-alpine"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/unrar-alpine"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/unrar-alpine"
+      text="EDM115/unrar-alpine"
+      aria="EDM115/unrar-alpine"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/website"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/website"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/website"
+      text="EDM115/website"
+      aria="EDM115/website"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/edm115-ohmyposh-theme"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/EDM115-ohmyposh-theme"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/edm115-ohmyposh-theme"
+      text="EDM115/EDM115-ohmyposh-theme"
+      aria="EDM115/EDM115-ohmyposh-theme"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/palex"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/palex"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/palex"
+      text="EDM115/palex"
+      aria="EDM115/palex"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/js-imports-sort"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/js-imports-sort"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/js-imports-sort"
+      text="EDM115/js-imports-sort"
+      aria="EDM115/js-imports-sort"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/markdown-syntax-fr"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/Markdown_Syntax_FR"
-      />
-    </NuxtLink>
-    <NuxtLink
+      color="primary"
+      link="/projects/markdown-syntax-fr"
+      text="EDM115/Markdown_Syntax_FR"
+      aria="EDM115/Markdown_Syntax_FR"
+    />
+    <UiButton
       class="ma-2"
-      to="/projects/the-very-restrictive-license"
-    >
-      <v-btn
-        color="primary"
-        text="EDM115/The-Very-Restrictive-License"
-      />
-    </NuxtLink>
-  </v-container>
+      color="primary"
+      link="/projects/the-very-restrictive-license"
+      text="EDM115/The-Very-Restrictive-License"
+      aria="EDM115/The-Very-Restrictive-License"
+    />
+  </UiContainer>
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "~/stores/main"
-
-const { locale, t } = useI18n()
-const store = useMainStore()
-
-const userLocale = computed(() => store.getI18n)
+const { t } = useI18n()
 
 useHead({
   title: t("projects.head"),
@@ -112,8 +87,10 @@ useHead({
     },
   ],
 })
-
-onMounted(() => {
-  locale.value = userLocale.value
-})
 </script>
+
+<style lang="scss" scoped>
+.ma-2 {
+  margin: 8px;
+}
+</style>

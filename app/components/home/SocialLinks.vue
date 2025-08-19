@@ -1,23 +1,21 @@
 <template>
-  <v-tooltip
+  <UiTooltip
     v-for="socialLink in socialLinks"
     :key="socialLink.text"
     location="top"
     :text="socialLink.text"
-    @update:model-value="isHovered = $event"
   >
     <template #activator="{ props }">
-      <v-btn
+      <UiButton
         v-bind="props"
         :icon="socialLink.icon"
-        class="ma-1 socialsIcon"
-        :href="socialLink.url"
-        target="_blank"
-        rel="noopener noreferrer"
+        class="socialsIcon"
+        :link="socialLink.url"
         variant="flat"
+        :aria="`Link to EDM115's ${socialLink.text}`"
       />
     </template>
-  </v-tooltip>
+  </UiTooltip>
 </template>
 
 <script setup lang="ts">
@@ -43,7 +41,6 @@ import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import simpleIconsRootme from "~icons/simple-icons/rootme"
 
-const isHovered = ref(false)
 const socialLinks = ref([
   {
     icon: mdiGithub,
@@ -155,11 +152,12 @@ const socialLinks = ref([
 
 <style scoped>
 .socialsIcon {
+  margin: 4px;
   transition: all 0.2s ease-in-out;
 }
 
 .socialsIcon:hover {
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
   transform: scale(1.2);
 }
 </style>

@@ -1,70 +1,29 @@
 <template>
-  <v-col>
-    <v-row
+  <UiCol>
+    <UiRow
       v-for="stat in stats"
       id="statsCounters"
       :key="stat.id"
-      class="d-flex justify-center align-center"
+      style="align-items: center; display: flex; justify-content: center;"
     >
-      <v-card class="ma-2">
-        <v-card-title style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+      <UiCard variant="flat">
+        <template #title>
           {{ stat.name }}
-        </v-card-title>
-        <v-card-text>
-          <div
-            :id="'od-' + stat.id"
-            class="odometer mockup-odometer"
-          >
-            {{ formatZeros(stat.value) }}
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-row>
-    <!-- <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://stats.edm115.dev/api?username=EDM115&count_private=true&show_icons=true&cache_seconds=1800&bg_color=30,833ab4,fd1d1d,fcb045&include_all_commits=True&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://stats.edm115.dev/api/top-langs/?username=EDM115&langs_count=10&layout=compact&theme=merko&bg_color=30,833ab4,fd1d1d,fcb045&title_color=fff&icon_color=fff&border_color=000&text_color=70ffff"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-readme-activity-graph.vercel.app/graph?username=EDM115&theme=dracula&line=50fa7b&point=ff79c6&area_color=f1fa8c&bg_color=282a36&color=8be9fd&title_color=8be9fd&area=true&hide_border=true&radius=8"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-readme-streak-stats.herokuapp.com/?user=EDM115&theme=dracula&hide_border=true&date_format=j%20M%5B%20Y%5D"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://github-profile-trophy.vercel.app/?username=EDM115&theme=dracula&no-bg=true&no-frame=true"
-      />
-    </v-row>
-    <v-row class="d-flex justify-center align-center">
-      <v-img
-        :draggable="false"
-        src="https://lanyard.cnrad.dev/api/625240117560475658?theme=dark&bg=282a36&borderRadius=30&animated=true&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true"
-      />
-    </v-row> -->
-  </v-col>
+        </template>
+
+        <div
+          :id="'od-' + stat.id"
+          class="odometer mockup-odometer"
+        >
+          {{ formatZeros(stat.value) }}
+        </div>
+      </UiCard>
+    </UiRow>
+  </UiCol>
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "~/stores/main"
-
-const { locale, t } = useI18n()
-const store = useMainStore()
-const userLocale = computed(() => store.getI18n)
+const { t } = useI18n()
 
 // Different from what you see ? I include private repos here too :)
 const projectsNumber = ref(65)
@@ -153,6 +112,9 @@ function formatZeros(value: number): string {
 let observer: IntersectionObserver | null = null
 const odos = ref<OdometerInstance[]>([])
 
+// new: keep mutation observers so we re-apply grouping when odometer DOM changes
+const digitObservers = ref<MutationObserver[]>([])
+
 async function fetchProjectsNumber() {
   try {
     const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", {
@@ -169,8 +131,6 @@ async function fetchProjectsNumber() {
 }
 
 onMounted(async () => {
-  locale.value = userLocale.value
-
   await fetchProjectsNumber()
 
   if (stats.value[0] !== undefined && stats.value[0].value !== projectsNumber.value) {
@@ -207,7 +167,52 @@ onMounted(async () => {
     el.classList.remove("mockup-odometer")
     odos.value[idx] = odo
     observer?.observe(el)
+
+    function applyDigitGrouping(container: HTMLElement) {
+      const allDigits = Array.from(container.querySelectorAll<HTMLElement>(".odometer-digit"))
+      const visibleDigits = allDigits.filter((d) => {
+        const val = d.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
+
+        return val.trim() !== ""
+      })
+
+      allDigits.forEach((d) => {
+        d.classList.remove("group-left", "group-right", "both-groups")
+      })
+
+      let i = visibleDigits.length
+      const groups: HTMLElement[][] = []
+
+      while (i > 0) {
+        const start = Math.max(0, i - 3)
+
+        groups.unshift(visibleDigits.slice(start, i))
+        i -= 3
+      }
+
+      groups.forEach((group) => {
+        if (group.length === 1) {
+          group[0]?.classList.add("both-groups")
+        } else {
+          group[0]?.classList.add("group-left")
+          group[group.length - 1]?.classList.add("group-right")
+        }
+      })
+    }
+
+    applyDigitGrouping(el as HTMLElement)
+
+    const mo = new MutationObserver(() => applyDigitGrouping(el as HTMLElement))
+
+    mo.observe(el as HTMLElement, { childList: true, subtree: true, characterData: true })
+    digitObservers.value[idx] = mo
   })
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  digitObservers.value.forEach((m) => m.disconnect())
+  digitObservers.value = []
 })
 </script>
 
@@ -225,13 +230,13 @@ $padding: .15em;
   padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
-  font-size: 3em !important;
+  font-size: 3em;
   font-weight: 600;
   line-height: 1.2;
 
-  background-color: rgb(var(--v-theme-background-lighten-2));
+  background-color: var(--bg-light);
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
 }
 
 .odometer.odometer-auto-theme {
@@ -243,11 +248,11 @@ $padding: .15em;
   padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
-  font-size: 3em !important;
+  font-size: 3em;
   font-weight: 600;
   line-height: 1.2;
 
-  color: rgb(var(--v-theme-primary));
+  color: var(--primary);
 
   .odometer-digit {
     display: inline-block;
@@ -257,15 +262,19 @@ $padding: .15em;
     margin: 0px 1px;
     padding: $padding $padding;
 
-    background-color: rgb(var(--v-theme-background-lighten-2));
+    background-color: var(--bg-light);
     box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.5), inset 0px -5px 5px rgba(0, 0, 0, 0.5);
 
-    &:first-child {
+    &.group-left {
       border-radius: $borderRadius 0 0 $borderRadius;
     }
 
-    &:last-child {
+    &.group-right {
       border-radius: 0 $borderRadius $borderRadius 0;
+    }
+
+    &.both-groups {
+      border-radius: $borderRadius;
     }
 
     .odometer-digit-inner {

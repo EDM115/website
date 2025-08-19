@@ -1,25 +1,23 @@
 <template>
-  <p class="mb-4">
+  <p style="margin-bottom: 16px;">
     {{ t("home.contact1") }}<br><br>
     {{ t("home.contact2") }}<br>
     {{ t("home.contact3") }}<br>
   </p>
-  <v-btn
-    class="mr-2"
+  <UiButton
     color="secondary"
+    style="margin-right: 8px;"
     :prepend-icon="mdiLink"
     :text="t('home.contact4')"
-    href="https://old.edm115.dev"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://old.edm115.dev"
+    aria="Old EDM115 website"
   />
-  <v-btn
+  <UiButton
     color="secondary"
     :prepend-icon="mdiLink"
     :text="t('home.contact5')"
-    href="https://edm115.netlify.app"
-    target="_blank"
-    rel="noopener noreferrer"
+    link="https://edm115.netlify.app"
+    aria="Live EDM115 website"
   />
 </template>
 

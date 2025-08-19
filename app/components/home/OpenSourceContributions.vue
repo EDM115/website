@@ -1,110 +1,79 @@
 <template>
-  <v-tabs
+  <UiTabs
     v-model="tab"
     align-tabs="center"
     color="primary"
-    grow
   >
-    <v-tab
+    <UiTab
       :text="t('opensource.pr.multiple')"
       :value="1"
     />
-    <v-tab
+    <UiTab
       :text="t('opensource.issue.multiple')"
       :value="2"
     />
-  </v-tabs>
+  </UiTabs>
 
-  <v-tabs-window
+  <UiTabsWindow
     v-model="tab"
     class="mt-2"
   >
-    <v-tabs-window-item
-      eager
+    <UiTabsWindowItem
       :value="1"
     >
-      <v-stepper-vertical
-        non-linear
-        ripple
-        flat
-        multiple
-        focusable
-        editable
-        eager
-        hide-actions
-        :mandatory="false"
-      >
-        <template #default>
-          <v-stepper-vertical-item
-            v-for="contrib in pullRequests"
-            :key="contrib.id"
-            :icon="getContribIcon(contrib.state, contrib.type)"
-            :edit-icon="getContribIcon(contrib.state, contrib.type)"
-            :color="getContribColor(contrib.state, contrib.type)[1]"
-            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
-            :subtitle="getContribName(contrib.state, contrib.type)"
-            :title="contrib.name"
-            :value="contrib.id"
-            :class="getContribColor(contrib.state, contrib.type)[0]"
-          >
-            {{ contrib.description }}<br>
-            <v-btn
-              color="primary"
-              class="mt-2"
-              :prepend-icon="mdiGithub"
-              :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          </v-stepper-vertical-item>
-        </template>
-      </v-stepper-vertical>
-    </v-tabs-window-item>
+      <UiStepperVertical>
+        <UiStepperVerticalItem
+          v-for="contrib in pullRequests"
+          :key="contrib.id"
+          :icon="getContribIcon(contrib.state, contrib.type)"
+          :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+          color="#eae7de"
+          :subtitle="getContribName(contrib.state, contrib.type)"
+          :title="contrib.name"
+          :value="contrib.id"
+          :class="getContribColor(contrib.state, contrib.type)[0]"
+        >
+          {{ contrib.description }}<br>
+          <UiButton
+            color="primary"
+            class="mt-2"
+            :prepend-icon="mdiGithub"
+            :text="t('opensource.link')"
+            :link="contrib.link"
+            aria="GitHub link"
+          />
+        </UiStepperVerticalItem>
+      </UiStepperVertical>
+    </UiTabsWindowItem>
 
-    <v-tabs-window-item
-      eager
+    <UiTabsWindowItem
       :value="2"
     >
-      <v-stepper-vertical
-        non-linear
-        ripple
-        flat
-        multiple
-        focusable
-        editable
-        eager
-        hide-actions
-        :mandatory="false"
-      >
-        <template #default>
-          <v-stepper-vertical-item
-            v-for="contrib in issues"
-            :key="contrib.id"
-            :icon="getContribIcon(contrib.state, contrib.type)"
-            :edit-icon="getContribIcon(contrib.state, contrib.type)"
-            :color="getContribColor(contrib.state, contrib.type)[1]"
-            :bg-color="getContribColor(contrib.state, contrib.type)[1]"
-            :subtitle="getContribName(contrib.state, contrib.type)"
-            :title="contrib.name"
-            :value="contrib.id"
-            :class="getContribColor(contrib.state, contrib.type)[0]"
-          >
-            {{ contrib.description }}<br>
-            <v-btn
-              color="primary"
-              class="mt-2"
-              :prepend-icon="mdiGithub"
-              :text="t('opensource.link')"
-              :href="contrib.link"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          </v-stepper-vertical-item>
-        </template>
-      </v-stepper-vertical>
-    </v-tabs-window-item>
-  </v-tabs-window>
+      <UiStepperVertical>
+        <UiStepperVerticalItem
+          v-for="contrib in issues"
+          :key="contrib.id"
+          :icon="getContribIcon(contrib.state, contrib.type)"
+          :bg-color="getContribColor(contrib.state, contrib.type)[1]"
+          color="#eae7de"
+          :subtitle="getContribName(contrib.state, contrib.type)"
+          :title="contrib.name"
+          :value="contrib.id"
+          :class="getContribColor(contrib.state, contrib.type)[0]"
+        >
+          {{ contrib.description }}<br>
+          <UiButton
+            color="primary"
+            class="mt-2"
+            :prepend-icon="mdiGithub"
+            :text="t('opensource.link')"
+            :link="contrib.link"
+            aria="GitHub link"
+          />
+        </UiStepperVerticalItem>
+      </UiStepperVertical>
+    </UiTabsWindowItem>
+  </UiTabsWindow>
 </template>
 
 <script setup lang="ts">
@@ -118,12 +87,8 @@ import pajamasIssueClose from "~icons/pajamas/issue-close"
 
 import contributions from "~/assets/data/contributions.json"
 
-import { useMainStore } from "~/stores/main"
-
 const { locale, t } = useI18n()
-const store = useMainStore()
 
-const userLocale = computed(() => store.getI18n)
 const tab = ref(1)
 // https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
 const pullRequests = computed(() => contributions.filter((c) => c.type === "pr"))
@@ -230,34 +195,34 @@ function getContribName(state: string, type: string) {
       return `${name.state} ${name.title}`
   }
 }
-
-onMounted(() => {
-  locale.value = userLocale.value
-})
 </script>
 
 <style scoped>
+.mt-2 {
+  margin-top: 16px;
+}
+
 .open-contrib-color {
-  background-color: #238636E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  background-color: #238636E6;
+  color: var(--text);
 }
 
 .merged-contrib-color {
-  background-color: #8957E5E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  background-color: #8957E5E6;
+  color: var(--text);
 }
 
 .closed-contrib-color {
-  background-color: #AD0116E6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  background-color: #AD0116E6;
+  color: var(--text);
 }
 
 .ignored-contrib-color {
-  background-color: #3D444DE6 !important;
-  color: rgb(var(--v-theme-text)) !important;
+  background-color: #3D444DE6;
+  color: var(--text);
 }
 
-.ignored-contrib-color :deep(.v-stepper-vertical-item__avatar .v-icon) {
+.ignored-contrib-color :deep(.ui-stepper-item--marker-icon) {
   rotate: -45deg;
 }
 </style>

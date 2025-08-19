@@ -1,41 +1,38 @@
 <template>
-  <v-row>
-    <v-col
+  <UiRow>
+    <UiCol
       v-for="skill in skills"
       :key="skill.name"
       cols="12"
       md="6"
       lg="4"
     >
-      <v-card class="ma-2">
-        <v-card-title style="overflow-wrap: normal; overflow: visible; white-space: wrap;">
+      <UiCard variant="flat">
+        <template #title>
           {{ skill.name }}
-        </v-card-title>
-        <v-card-text>
-          <div class="progress-container">
-            <v-progress-circular
-              :id="'skillsCounter-' + skill.id"
-              color="primary"
-              class="pa-4"
-              :model-value="skill.displayedValue"
-              :size="100"
-              :width="10"
-            >
-              <template #default>
-                <div class="percentage">
-                  {{ skill.displayedValue }} %
-                </div>
-              </template>
-            </v-progress-circular>
-            <v-icon
-              :icon="currentIcons[skill.id]"
-              class="background-icon"
-            />
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+        </template>
+
+        <div class="progress-container">
+          <UiProgressCircular
+            :id="'skillsCounter-' + skill.id"
+            color="primary"
+            style="padding: 8px;"
+            :model-value="skill.displayedValue"
+            :size="100"
+            :width="10"
+          >
+            <div class="percentage">
+              {{ skill.displayedValue }} %
+            </div>
+          </UiProgressCircular>
+          <UiIcon
+            :icon="currentIcons[skill.id]"
+            class="background-icon"
+          />
+        </div>
+      </UiCard>
+    </UiCol>
+  </UiRow>
 </template>
 
 <script setup lang="ts">
@@ -139,6 +136,8 @@ onMounted(() => {
   position: relative;
   display: inline-block;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .background-icon {
@@ -146,21 +145,27 @@ onMounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 35%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 50px;
   transition: all 0.5s ease-in-out;
-  z-index: -1;
+  z-index: 1;
 }
 
-.progress-container:hover .background-icon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 160%;
-  height: 160%;
-  background-color: rgba(var(--v-theme-surface), 0.75);
-  border-radius: 50%;
+.background-icon svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.progress-container:hover .background-icon {
+  filter: opacity(0.8) blur(1.5px);
 }
 
 .percentage {
@@ -170,6 +175,7 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
 }
 
 .progress-container:hover .percentage {

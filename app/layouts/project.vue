@@ -1,25 +1,26 @@
 <template>
-  <v-app
-    :theme="isDark ? 'dark' : 'light'"
-    class="pa-4"
-  >
+  <div>
+    <div class="app-bg" />
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main style="--v-layout-top: 64px;">
-      <v-container class="d-flex flex-column align-center">
-        <v-btn
-          color="primary"
-          class="mb-4"
-          :prepend-icon="mdiArrowLeft"
-          :text="t('projects.back')"
-          @click="$router.push('/projects')"
-        />
-        <slot />
-      </v-container>
-    </v-main>
+    <main>
+      <UiContainer>
+        <div style="align-items: center; display: flex; flex-direction: column;">
+          <UiButton
+            color="primary"
+            style="margin-bottom: 16px;"
+            :prepend-icon="mdiArrowLeft"
+            :text="t('projects.back')"
+            aria="Back to the projects list"
+            @click="$router.push('/projects')"
+          />
+          <slot />
+        </div>
+      </UiContainer>
+    </main>
     <BackToTop />
     <CookieConsent />
-  </v-app>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -27,18 +28,10 @@ import mdiArrowLeft from "~icons/mdi/arrowLeft"
 
 import { useCopyCode } from "~/composables/useCopyCode"
 import { useCopySlug } from "~/composables/useCopySlug"
-import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useSwitchTheme } from "~/composables/useSwitchTheme"
-import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
-const store = useMainStore()
-const { isDark } = useCustomTheme()
-
-useCopySlug()
-useCopyCode()
 
 useHead({
   title: t("projects.head"),
@@ -63,12 +56,15 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
-polyfillCountryFlagEmojis()
+useCopySlug()
+useCopyCode()
 
 onMounted(() => {
-  store.initStore()
-  setLocale(store.getI18n)
-  useSwitchTheme()
+  setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
+  polyfillCountryFlagEmojis(
+    "Twemoji Country Flags",
+    "/docs/TwemojiCountryFlags.woff2",
+  )
 })
 </script>
 

@@ -1,27 +1,11 @@
 [
   {
-    "id": 28,
-    "name": "unplugin/unplugin-vue-markdown",
-    "description": "[chore] Adds vite@^7 to the dependency range",
-    "type": "pr",
-    "state": "closed",
-    "link": "https://github.com/unplugin/unplugin-vue-markdown/pull/65"
-  },
-  {
-    "id": 27,
+    "id": 26,
     "name": "KieranP/Github-Releases-Feed",
     "description": "fix: Read more, login input and other buttons appears correctly on whacky Windows machines that have their global styles edited by things like Rectify11",
     "type": "pr",
     "state": "closed",
     "link": "https://github.com/KieranP/Github-Releases-Feed/pull/16"
-  },
-  {
-    "id": 26,
-    "name": "Mayuri-Chan/pyrofork",
-    "description": "fix: properly handle FloodPremiumWait",
-    "type": "pr",
-    "state": "closed",
-    "link": "https://github.com/Mayuri-Chan/pyrofork/pull/126"
   },
   {
     "id": 25,
@@ -224,7 +208,7 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
-    "id": 62,
+    "id": 61,
     "name": "medyo/hackertab.dev",
     "description": "[BUG] The ad is on top of the changelog",
     "type": "issue",
@@ -232,7 +216,7 @@
     "link": "https://github.com/medyo/hackertab.dev/issues/247"
   },
   {
-    "id": 61,
+    "id": 60,
     "name": "marticliment/UniGetUI",
     "description": "[CRASH] Clearing the icon cache and then opening the details of a package that had its icon cleared will hang UniGetUI",
     "type": "issue",
@@ -240,7 +224,7 @@
     "link": "https://github.com/marticliment/UniGetUI/issues/3796"
   },
   {
-    "id": 60,
+    "id": 59,
     "name": "jestjs/jest",
     "description": "[Bug]: globalsCleanup causes issues with some deps, can't be properly turned off",
     "type": "issue",
@@ -248,7 +232,7 @@
     "link": "https://github.com/jestjs/jest/issues/15678"
   },
   {
-    "id": 59,
+    "id": 58,
     "name": "oxc-project/oxc",
     "description": "linter: The VS Code extension can crash (fix on its way)",
     "type": "issue",
@@ -256,7 +240,7 @@
     "link": "https://github.com/oxc-project/oxc/issues/11607"
   },
   {
-    "id": 58,
+    "id": 57,
     "name": "Aebel-Shajan/scroll-minimap-for-chatgpt",
     "description": "The extension view should be disabled when in Codex",
     "type": "issue",
@@ -264,7 +248,7 @@
     "link": "https://github.com/Aebel-Shajan/scroll-minimap-for-chatgpt/issues/33"
   },
   {
-    "id": 57,
+    "id": 56,
     "name": "rolldown/tsdown",
     "description": "Add the ability to preprocess files",
     "type": "issue",
@@ -272,7 +256,7 @@
     "link": "https://github.com/rolldown/tsdown/issues/300"
   },
   {
-    "id": 56,
+    "id": 55,
     "name": "sass/embedded-host-node",
     "description": "[BUG] Regression in v1.89.1 : Package subpath './codegenv2' is not defined by \"exports\"",
     "type": "issue",
@@ -280,7 +264,7 @@
     "link": "https://github.com/sass/embedded-host-node/issues/375"
   },
   {
-    "id": 55,
+    "id": 54,
     "name": "un-ts/eslint-plugin-import-x",
     "description": "[BUG] Regression in 4.15.0 : impossible to install with PNPM",
     "type": "issue",
@@ -288,7 +272,7 @@
     "link": "https://github.com/un-ts/eslint-plugin-import-x/issues/364"
   },
   {
-    "id": 54,
+    "id": 53,
     "name": "vercel/turborepo",
     "description": "[BUG] Impossible to pnpm add globally turbo if a nearby package.json have \"type\": \"module\"",
     "type": "issue",
@@ -296,7 +280,7 @@
     "link": "https://github.com/vercel/turborepo/issues/10524"
   },
   {
-    "id": 53,
+    "id": 52,
     "name": "pzmosquito/eslint-import-resolver-vite",
     "description": "PSA : How to make it working using TS, ESM and import-x/resolver-next",
     "type": "issue",
@@ -304,7 +288,7 @@
     "link": "https://github.com/pzmosquito/eslint-import-resolver-vite/issues/30"
   },
   {
-    "id": 52,
+    "id": 51,
     "name": "fastify/fastify",
     "description": "Fastify drops schemas that overlaps when using oneOf",
     "type": "issue",
@@ -312,7 +296,7 @@
     "link": "https://github.com/fastify/fastify/issues/6133"
   },
   {
-    "id": 51,
+    "id": 50,
     "name": "JanDeDobbeleer/oh-my-posh",
     "description": "Bring back the \"origin\" version when doing an upgrade",
     "type": "issue",
@@ -320,7 +304,7 @@
     "link": "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6439"
   },
   {
-    "id": 50,
+    "id": 49,
     "name": "inocan-group/vue3-google-map",
     "description": "[BUG] AdvancedMarkers that are added to the map are styled like Markers until other AdvancedMarkers are added",
     "type": "issue",
@@ -328,7 +312,7 @@
     "link": "https://github.com/inocan-group/vue3-google-map/issues/322"
   },
   {
-    "id": 49,
+    "id": 48,
     "name": "8LWXpg/ptr",
     "description": "[FEAT] Add an option in the config to not run PowerToys after an update",
     "type": "issue",
@@ -336,7 +320,7 @@
     "link": "https://github.com/8LWXpg/ptr/issues/17"
   },
   {
-    "id": 48,
+    "id": 47,
     "name": "getsentry/sentry-javascript",
     "description": "Since v9.17.0, peer dependencies issues have been introduced",
     "type": "issue",
@@ -344,7 +328,7 @@
     "link": "https://github.com/getsentry/sentry-javascript/issues/16245"
   },
   {
-    "id": 47,
+    "id": 46,
     "name": "oxc-project/eslint-plugin-oxlint",
     "description": "The plugin doesn't seem to care about categories",
     "type": "issue",
@@ -352,7 +336,7 @@
     "link": "https://github.com/oxc-project/eslint-plugin-oxlint/issues/385"
   },
   {
-    "id": 46,
+    "id": 45,
     "name": "Stirling-Tools/Stirling-PDF",
     "description": "[Feature Request]: The windows installer should remember the installation folder",
     "type": "issue",
@@ -360,7 +344,7 @@
     "link": "https://github.com/Stirling-Tools/Stirling-PDF/issues/3213"
   },
   {
-    "id": 45,
+    "id": 44,
     "name": "dracula/obsidian",
     "description": "The bounding box of inline code blocks is slightly offset to the bottom",
     "type": "issue",
@@ -368,7 +352,7 @@
     "link": "https://github.com/dracula/obsidian/issues/52"
   },
   {
-    "id": 44,
+    "id": 43,
     "name": "Codium-ai/codiumai-vscode-release",
     "description": "The extension should stop adding .qodo to the .gitignore",
     "type": "issue",
@@ -376,7 +360,7 @@
     "link": "https://github.com/Codium-ai/codiumai-vscode-release/issues/195"
   },
   {
-    "id": 43,
+    "id": 42,
     "name": "marticliment/UniGetUI",
     "description": "[IMPROVEMENT] Allow to override the Winget package ID per package",
     "type": "issue",
@@ -384,7 +368,7 @@
     "link": "https://github.com/marticliment/UniGetUI/issues/3455"
   },
   {
-    "id": 42,
+    "id": 41,
     "name": "withgraphite/year-in-code",
     "description": "[FEATURE REQUEST] Let us download the video 🙏",
     "type": "issue",
@@ -392,7 +376,7 @@
     "link": "https://github.com/withgraphite/year-in-code/issues/42"
   },
   {
-    "id": 41,
+    "id": 40,
     "name": "Stirling-Tools/Stirling-PDF",
     "description": "[Bug]: The window is empty on Windows (it worked only once after the first install)",
     "type": "issue",
@@ -400,7 +384,7 @@
     "link": "https://github.com/Stirling-Tools/Stirling-PDF/issues/2766"
   },
   {
-    "id": 40,
+    "id": 39,
     "name": "KieranP/Github-Releases-Feed",
     "description": "Ignored repositories should be an owner+repo pair to avoid collision",
     "type": "issue",
@@ -408,7 +392,7 @@
     "link": "https://github.com/KieranP/Github-Releases-Feed/issues/13"
   },
   {
-    "id": 39,
+    "id": 38,
     "name": "hetznercloud/cli",
     "description": "Release hcloud to winget",
     "type": "issue",
@@ -416,7 +400,7 @@
     "link": "https://github.com/hetznercloud/cli/issues/958"
   },
   {
-    "id": 38,
+    "id": 37,
     "name": "AsmSafone/HackerNews",
     "description": "Display title animation only once",
     "type": "issue",
@@ -424,7 +408,7 @@
     "link": "https://github.com/AsmSafone/HackerNews/issues/1"
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "BerriAI/litellm",
     "description": "[Bug]: v1.57.5 broke Windows compatibility on litellm cli proxy",
     "type": "issue",
@@ -432,7 +416,7 @@
     "link": "https://github.com/BerriAI/litellm/issues/7677"
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "KurimuzonAkuma/pyrogram",
     "description": "Kurigram stops receiving updates after a while",
     "type": "issue",
@@ -440,7 +424,7 @@
     "link": "https://github.com/KurimuzonAkuma/pyrogram/issues/127"
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "KieranP/Github-Releases-Feed",
     "description": "Bug: certain repos doesn't have their release title displayed",
     "type": "issue",
@@ -448,7 +432,7 @@
     "link": "https://github.com/KieranP/Github-Releases-Feed/issues/11"
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "KieranP/Github-Releases-Feed",
     "description": "Feature: add some kind of attribution",
     "type": "issue",
@@ -456,20 +440,12 @@
     "link": "https://github.com/KieranP/Github-Releases-Feed/issues/10"
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "KieranP/Github-Releases-Feed",
     "description": "Feature requests (random stuff to improve UX)",
     "type": "issue",
     "state": "closed",
     "link": "https://github.com/KieranP/Github-Releases-Feed/issues/4"
-  },
-  {
-    "id": 32,
-    "name": "Abdenasser/neohtop",
-    "description": "[REQUEST] Release neohtop to winget",
-    "type": "issue",
-    "state": "ignored",
-    "link": "https://github.com/Abdenasser/neohtop/issues/127"
   },
   {
     "id": 31,

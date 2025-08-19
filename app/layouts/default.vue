@@ -1,28 +1,25 @@
 <template>
-  <v-app
-    :theme="isDark ? 'dark' : 'light'"
-    class="pa-4"
-  >
+  <div>
+    <div class="app-bg" />
     <NuxtRouteAnnouncer />
     <NavBar />
-    <v-main style="--v-layout-top: 64px;">
-      <slot />
-    </v-main>
+    <main>
+      <UiContainer>
+        <div class="centered-stack">
+          <slot />
+        </div>
+      </UiContainer>
+    </main>
     <BackToTop />
     <CookieConsent />
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { useCustomTheme } from "~/composables/useCustomTheme"
-import { useSwitchTheme } from "~/composables/useSwitchTheme"
-import { useMainStore } from "~/stores/main"
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const { t, setLocale } = useI18n()
-const store = useMainStore()
-const { isDark } = useCustomTheme()
 
 useHead({
   title: t("main.head"),
@@ -47,12 +44,12 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
-polyfillCountryFlagEmojis()
-
 onMounted(() => {
-  store.initStore()
-  setLocale(store.getI18n)
-  useSwitchTheme()
+  setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
+  polyfillCountryFlagEmojis(
+    "Twemoji Country Flags",
+    "/docs/TwemojiCountryFlags.woff2",
+  )
 })
 </script>
 
@@ -78,9 +75,5 @@ onMounted(() => {
 .layout-leave-to {
   filter: blur(0.5rem);
   opacity: 50;
-}
-
-.go-to-top {
-  transition: all 0.5s ease-in-out;
 }
 </style>
