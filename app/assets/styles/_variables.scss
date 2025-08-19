@@ -82,13 +82,13 @@ $colors: (
 
 // Contrast helpers (WCAG 2.1)
 @function _lin($x) {
-  @return if($x <= 0.03928, $x / 12.92, math.pow(($x + 0.055) / 1.055, 2.4));
+  @return if($x <= 0.03928, math.div($x, 12.92), math.pow(math.div($x + 0.055, 1.055), 2.4));
 }
 
 @function _rel-lum($c) {
-  $r: red($c) / 255;
-  $g: green($c) / 255;
-  $b: blue($c) / 255;
+  $r: math.div(color.channel($c, "red", $space: rgb), 255);
+  $g: math.div(color.channel($c, "green", $space: rgb), 255);
+  $b: math.div(color.channel($c, "blue", $space: rgb), 255);
 
   $r: _lin($r);
   $g: _lin($g);
@@ -100,8 +100,10 @@ $colors: (
 @function _contrast($a, $b) {
   $l1: _rel-lum($a);
   $l2: _rel-lum($b);
+
   @if $l1 < $l2 { $t: $l1; $l1: $l2; $l2: $t; }
-  @return ($l1 + 0.05) / ($l2 + 0.05);
+
+  @return math.div($l1 + 0.05, $l2 + 0.05);
 }
 
 // Punchy but legible inks for light backgrounds:
