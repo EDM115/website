@@ -3,6 +3,8 @@ title: How I migrated to Zod 4 - EDM115 blog
 meta:
   - name: description
     content: How I migrated the company monorepo to Zod v4 during my internship
+  - name: summary
+    content: This article details my experience migrating a company monorepo to Zod v4 during my internship. It covers the challenges faced, the solutions implemented, and practical tips for developers looking to upgrade their Zod usage.
 ---
 
 # How I migrated the company monorepo to Zod v4 during my internship

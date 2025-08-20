@@ -3,8 +3,7 @@
     "back": "Back to blog list",
     "description": "Some random blog posts that I write when I have time",
     "head": "Blog - EDM115",
-    "subtitle": "4 random posts, to be completed with a date & tag sorting system",
-    "title": "Blog (unfinished)"
+    "title": "Blog"
   },
   "cookies": {
     "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Do you accept this ?",
@@ -28,12 +27,6 @@
     "about9": "Website",
     "alternativeAnimation": "Alternative effect rendering",
     "blog": "Blog",
-    "contact": "Contact",
-    "contact1": "Not ready yet. Email and phone number available upper, and social links below",
-    "contact2": "If you reached this far, congratulations.",
-    "contact3": "Here's 2 buttons : the first lead to the old version of my website, the second one is the new one but updated live at each commit",
-    "contact4": "Old",
-    "contact5": "Live",
     "disableAnimation": "Polychrome effect",
     "downloadOnline": "Online",
     "downloadPdf": "PDF",
@@ -100,7 +93,7 @@
     "description": "A list of all my interesting projects",
     "head": "Projects - EDM115",
     "project": "Project",
-    "title": "My projects (unfinished)"
+    "title": "My projects"
   },
   "stats": {
     "loc": "Lines of code in my projects",

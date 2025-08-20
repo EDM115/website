@@ -3,8 +3,7 @@
     "back": "Retour à la liste des blogs",
     "description": "Quelques articles de blog random que j'ai écrit quand j'ai du temps",
     "head": "Blog - EDM115",
-    "subtitle": "4 articles random, à compléter avec un système de tri par date & tag",
-    "title": "Blog (pas terminé, en anglais)"
+    "title": "Blog"
   },
   "cookies": {
     "text": "Nous utilisons Cloudflare Web Analytics pour collecter des données anonymes sur votre utilisation de ce site. Acceptez-vous cela ?",
@@ -28,12 +27,6 @@
     "about9": "Site web",
     "alternativeAnimation": "Rendu d'effet alternatif",
     "blog": "Blog",
-    "contact": "Contact",
-    "contact1": "Pas encore prêt. Email et numéro de téléphone disponibles ci-dessus, et liens sociaux ci-dessous",
-    "contact2": "Si vous êtes arrivé jusqu'ici, félicitations.",
-    "contact3": "Voici 2 boutons : le premier mène à l'ancienne version de mon site web, le second est la nouvelle mais mise à jour en direct à chaque commit",
-    "contact4": "Ancien",
-    "contact5": "En direct",
     "disableAnimation": "Effet polychrome",
     "downloadOnline": "En ligne",
     "downloadPdf": "PDF",
@@ -100,7 +93,7 @@
     "description": "Une liste de tous mes projets intéressants",
     "head": "Projets - EDM115",
     "project": "Projet",
-    "title": "Mes projets (pas terminé, en anglais)"
+    "title": "Mes projets"
   },
   "stats": {
     "loc": "Lignes de code dans mes projets",

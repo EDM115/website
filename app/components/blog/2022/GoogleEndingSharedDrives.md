@@ -3,6 +3,8 @@ title: Google ending Edu shared drives, everything you need to know - EDM115 blo
 meta:
   - name: date
     content: 2022-05-15 22:53
+  - name: summary
+    content: Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. If you rely on Edu Shared Drives, expect many drives and links to disappear as administrators will face pooled quotas and tighter controls.
 ---
 
 # Google ending Edu shared drives : everything you need to know

@@ -2,78 +2,28 @@
   <UiContainer>
     <h1>{{ t("projects.title") }}</h1>
 
-    <UiDivider style="margin-top: 16px; margin-bottom: 16px;" />
+    <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/unzip-bot"
-      text="EDM115/unzip-bot"
-      aria="EDM115/unzip-bot"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/monorepo-hash"
-      text="EDM115/monorepo-hash"
-      aria="EDM115/monorepo-hash"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/better-maps"
-      text="EDM115/better-maps"
-      aria="EDM115/better-maps"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/unrar-alpine"
-      text="EDM115/unrar-alpine"
-      aria="EDM115/unrar-alpine"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/website"
-      text="EDM115/website"
-      aria="EDM115/website"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/edm115-ohmyposh-theme"
-      text="EDM115/EDM115-ohmyposh-theme"
-      aria="EDM115/EDM115-ohmyposh-theme"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/palex"
-      text="EDM115/palex"
-      aria="EDM115/palex"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/js-imports-sort"
-      text="EDM115/js-imports-sort"
-      aria="EDM115/js-imports-sort"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/markdown-syntax-fr"
-      text="EDM115/Markdown_Syntax_FR"
-      aria="EDM115/Markdown_Syntax_FR"
-    />
-    <UiButton
-      class="ma-2"
-      color="primary"
-      link="/projects/the-very-restrictive-license"
-      text="EDM115/The-Very-Restrictive-License"
-      aria="EDM115/The-Very-Restrictive-License"
-    />
+    <div class="showcases">
+      <UiShowcase
+        v-for="project in projects"
+        :key="project.title"
+        :link="project.link"
+        :aria="project.title"
+        :image="project.image"
+      >
+        <template #title>
+          <h3 style="text-align: left;">
+            {{ project.title }}
+          </h3>
+        </template>
+        <template #description>
+          <p style="text-align: left;">
+            {{ project.description }}
+          </p>
+        </template>
+      </UiShowcase>
+    </div>
   </UiContainer>
 </template>
 
@@ -89,10 +39,75 @@ useHead({
     },
   ],
 })
+
+const projects = ref([
+  {
+    title: "unzip-bot",
+    description: "Telegram bot deployable to heroku that can extract every archive !",
+    link: "/projects/unzip-bot",
+    image: "/img/projects/unzip-bot.webp",
+  },
+  {
+    title: "monorepo-hash",
+    description: "A CLI tool to generate hashes for the workspaces of your monorepo",
+    link: "/projects/monorepo-hash",
+    image: "/img/projects/monorepo-hash.webp",
+  },
+  {
+    title: "better-maps",
+    description: "A quick way to add pin-points to a map, with details, filters and more. Made for my gf",
+    link: "/projects/better-maps",
+    image: "/img/projects/better-maps.webp",
+  },
+  {
+    title: "unrar-alpine",
+    description: "UnRAR, built for Alpine Linux. Automatically built and released at each new version",
+    link: "/projects/unrar-alpine",
+    image: "/img/projects/unrar-alpine.webp",
+  },
+  {
+    title: "website",
+    description: "Basically my website, made with Nuxt",
+    link: "/projects/website",
+    image: "/img/projects/website.webp",
+  },
+  {
+    title: "EDM115-ohmyposh-theme",
+    description: "My very own Oh My Posh theme",
+    link: "/projects/edm115-ohmyposh-theme",
+    image: "/img/projects/edm115-ohmyposh-theme.webp",
+  },
+  {
+    title: "palex",
+    description: "A javascript package to help you create color palettes",
+    link: "/projects/palex",
+    image: "/img/projects/palex.webp",
+  },
+  {
+    title: "js-imports-sort",
+    description: "A simple script to sort Javascript imports the way I want",
+    link: "/projects/js-imports-sort",
+    image: "/img/projects/js-imports-sort.webp",
+  },
+  {
+    title: "Markdown_Syntax_FR",
+    description: "Help to write in Markdown on Github [French]",
+    link: "/projects/markdown-syntax-fr",
+    image: "/img/projects/markdown-syntax-fr.webp",
+  },
+  {
+    title: "The-Very-Restrictive-License",
+    description: "A very restrictive license. Anyway...",
+    link: "/projects/the-very-restrictive-license",
+    image: "/img/projects/the-very-restrictive-license.webp",
+  },
+])
 </script>
 
 <style lang="scss" scoped>
-.ma-2 {
-  margin: 8px;
+.showcases {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 </style>
