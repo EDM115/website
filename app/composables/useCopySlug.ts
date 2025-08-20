@@ -4,7 +4,7 @@ export function useCopySlug() {
   const handler = (event: Event) => {
     const target = event.target
 
-    if (!(target instanceof HTMLElement)) {
+    if (!(target instanceof HTMLElement || target instanceof SVGElement)) {
       return
     }
 
@@ -25,7 +25,7 @@ export function useCopySlug() {
     void navigator.clipboard.writeText(url).then(() => {
       const original = el.innerHTML
 
-      el.innerHTML = mdiCheck
+      el.innerHTML = mdiCheck.replace(/<svg\b[^>]*>/i, "<svg>")
       el.classList.add("header-copy-icon-clicked")
       setTimeout(() => {
         el.innerHTML = original

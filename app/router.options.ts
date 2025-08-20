@@ -6,7 +6,7 @@ export default {
       return {
         el: to.hash,
         behavior: "smooth",
-        top: 16,
+        top: 80,
       }
     } else {
       if (savedPosition) {

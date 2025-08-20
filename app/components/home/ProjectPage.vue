@@ -140,7 +140,7 @@ md.core.ruler.push("heading_copy_icon", (state) => {
           role="button"
           data-slug="${id}"
         >
-          ${mdiLinkVariant}
+          ${mdiLinkVariant.replace(/<svg\b[^>]*>/i, "<svg>")}
         </span>
       `.trim()
 

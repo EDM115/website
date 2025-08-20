@@ -268,21 +268,10 @@ li {
 }
 
 .header-copy-icon {
-  position: absolute;
-  left: -1.5rem;
+  position: relative;
   top: -0.4rem;
-  opacity: 0;
+  padding-right: 1rem;
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.markdown-body h1:hover .header-copy-icon,
-.markdown-body h2:hover .header-copy-icon,
-.markdown-body h3:hover .header-copy-icon,
-.markdown-body h4:hover .header-copy-icon,
-.markdown-body h5:hover .header-copy-icon,
-.markdown-body h6:hover .header-copy-icon {
-  opacity: 1;
 }
 
 .header-copy-icon svg {
@@ -292,6 +281,7 @@ li {
   fill: var(--primary);
   color: var(--primary);
   vertical-align: middle;
+  transition: fill 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .header-copy-icon svg:hover {
@@ -476,10 +466,6 @@ h6 a:hover > code.hljs {
 }
 
 @media (max-width: 960px) {
-  .header-copy-icon {
-    left: -1.125rem;
-  }
-
   .markdown-body {
     width: 100%;
   }
