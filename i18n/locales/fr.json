@@ -72,6 +72,10 @@
       "title": "En développement"
     }
   },
+  "nuxtSiteConfig": {
+    "description": "Trouvez toutes les infos sur EDM115, ses projets, articles de blog, ...",
+    "name": "EDM115 - Développeur français/gamer/producteur de musique"
+  },
   "opensource": {
     "issue": {
       "closed": "fermée",

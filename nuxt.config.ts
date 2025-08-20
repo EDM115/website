@@ -17,6 +17,7 @@ import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
 import { full as emoji } from "markdown-it-emoji"
+import { definePerson } from "nuxt-schema-org/schema"
 
 const localMdi = await lookupCollection("mdi")
 const mdiLinkVariant = `<svg>${localMdi.icons["link-variant"]?.body || ""}</svg>`
@@ -29,7 +30,9 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
+    "@nuxtjs/seo",
     "@vueuse/nuxt",
+    // "nuxt-module-feed",
     "nuxt-svgo",
     "unplugin-icons/nuxt",
   ],
@@ -62,6 +65,11 @@ export default defineNuxtConfig({
     "~/assets/styles/dracula-hljs.scss",
     "~/assets/styles/main.scss",
   ],
+  site: { 
+    description: "Find all infos about EDM115, his projects, blog posts, ...",
+    name: "EDM115 - French dev/gamer/music producer",
+    url: "https://edm115.dev",
+  },
   colorMode: {
     fallback: "dark",
     storage: "localStorage",
@@ -263,6 +271,20 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
+  /* feed: {
+    sources: [
+      {
+        path: "/feed.xml",
+        type: "rss2",
+        cacheTime: 432000,
+      },
+      {
+        path: "/feed.json",
+        type: "json1",
+        cacheTime: 432000,
+      },
+    ]
+  }, */
   fonts: {
     processCSSVariables: true,
     provider: "google",
@@ -286,6 +308,34 @@ export default defineNuxtConfig({
   },
   image: {
     quality: 100,
+  },
+  linkChecker: {
+    report: {
+      html: true,
+      markdown: true,
+      json: true,
+    }
+  },
+  ogImage: {
+    // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
+    enabled: false
+  },
+  schemaOrg: {
+    identity: definePerson({
+      name: "EDM115",
+      image: "/img/profile-img.webp",
+      description: "EDM115 - French dev/gamer/music producer",
+      url: "https://edm115.dev",
+      sameAs: [
+        "https://www.linkedin.com/in/edm115",
+        "https://github.com/edm115",
+        "https://x.com/_EDM115",
+        "https://www.reddit.com/user/EDM115",
+      ]
+    }),
+  },
+  sitemap: {
+    cacheMaxAgeSeconds: 432000,
   },
   svgo: {
     autoImportPath: "./public/img",

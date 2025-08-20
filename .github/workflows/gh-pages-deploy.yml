@@ -31,6 +31,7 @@ jobs:
         run: |
           # update app.baseURL to "/website/"
           sed -i 's|baseURL: "/",|baseURL: "/website/",|' nuxt.config.ts
+          sed -i 's|edm115.dev|edm115.github.io/website|g' nuxt.config.ts
 
       - name: "Build for GitHub Pages"
         run: pnpm nuxt generate --preset github_pages

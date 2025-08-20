@@ -50,9 +50,9 @@
             EDM115
           </h1>
 
-          <p style="color:var(--text-dark); max-width:60ch; margin-top: 0;">
+          <!-- <p style="color:var(--text-dark); max-width:60ch; margin-top: 0;">
             {{ t('main.description') }}
-          </p>
+          </p> -->
 
           <div style="gap:.75rem; display: flex; flex-wrap:wrap; margin-top:1rem; justify-content: center;">
             <UiButton

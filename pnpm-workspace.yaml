@@ -6,6 +6,9 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
+publicHoistPattern:
+  - "nuxt-schema-org"
+
 resolutionMode: highest
 
 savePrefix: ""

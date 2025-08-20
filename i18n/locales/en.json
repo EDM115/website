@@ -72,6 +72,10 @@
       "title": "In development"
     }
   },
+  "nuxtSiteConfig": {
+    "description": "Find all infos about EDM115, his projects, blog posts, ...",
+    "name": "EDM115 - French dev/gamer/music producer"
+  },
   "opensource": {
     "issue": {
       "closed": "Closed",
