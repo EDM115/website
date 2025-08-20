@@ -227,7 +227,6 @@ $padding: .15em;
 
   border-radius: $borderRadius;
   margin: 0px 1px;
-  padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
   font-size: 3em;
@@ -245,7 +244,6 @@ $padding: .15em;
   vertical-align: middle;
 
   border-radius: 0.5em;
-  padding: 0.35em $padding;
 
   font-family: "Fira Code", monospace;
   font-size: 3em;

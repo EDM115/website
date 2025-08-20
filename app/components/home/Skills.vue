@@ -3,11 +3,14 @@
     <UiCol
       v-for="skill in skills"
       :key="skill.name"
-      cols="12"
+      cols="4"
       md="6"
       lg="4"
     >
-      <UiCard variant="flat">
+      <UiCard
+        small
+        variant="flat"
+      >
         <template #title>
           {{ skill.name }}
         </template>

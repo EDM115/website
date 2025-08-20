@@ -6,10 +6,13 @@
     <div class="ui-card--title">
       <slot name="title" />
     </div>
-    <div class="ui-card--content">
+    <div :class="['ui-card--content', props.small ? 'ui-card--content--small' : '']">
       <slot />
     </div>
-    <div class="ui-card--actions">
+    <div
+      v-if="actions"
+      class="ui-card--actions"
+    >
       <slot name="actions" />
     </div>
   </div>
@@ -30,6 +33,16 @@ const props = defineProps<{
    * Maximum width for the card container (px or any CSS size)
    */
   maxWidth?: string | number
+
+  /**
+   * Display or not the actions slot
+   */
+  actions?: boolean
+
+  /**
+   * Small variant, no content padding
+   */
+  small?: boolean
 }>()
 
 const classes = computed(() => [
@@ -70,6 +83,10 @@ const maxWidthStyle = computed(() => (props.maxWidth !== undefined
 
   &--content {
     padding: 0.75rem 1rem 1rem 1rem;
+
+    &--small {
+      padding: 0;
+    }
   }
 
   &--actions {

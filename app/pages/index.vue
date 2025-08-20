@@ -227,28 +227,6 @@
           </UiCard>
 
           <UiCard
-            id="contact"
-            class="glass"
-            variant="outlined"
-          >
-            <template #title>
-              <h2>
-                <NuxtLink
-                  to="#contact"
-                  class="internal-link"
-                  aria-label="Contact section"
-                >
-                  {{ t('home.contact') }}
-                </NuxtLink>
-              </h2>
-            </template>
-            <LazyHomeContact
-              :key="locale"
-              hydrate-on-idle
-            />
-          </UiCard>
-
-          <UiCard
             id="social"
             class="glass"
             variant="outlined"
