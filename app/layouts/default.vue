@@ -45,6 +45,9 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
+useCopySlug()
+useCopyCode()
+
 onMounted(() => {
   setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
   polyfillCountryFlagEmojis(
