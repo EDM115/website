@@ -88,13 +88,19 @@ main {
   box-shadow: var(--glass-shadow) !important;
 }
 
-.centered-stack {
+.centered-stack-home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 1rem;
+}
+
+.centered-stack-blog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .hero {

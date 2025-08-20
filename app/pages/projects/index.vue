@@ -2,6 +2,8 @@
   <UiContainer>
     <h1>{{ t("projects.title") }}</h1>
 
+    <UiDivider style="margin-top: 16px; margin-bottom: 16px;" />
+
     <UiButton
       class="ma-2"
       color="primary"

@@ -8,10 +8,16 @@
       #prepend
     >
       <UiButton
-        :icon="menuIcon"
+        :icon="mdiHomeOutline"
         variant="frosted"
         link="/"
         aria="Home"
+      />
+      <UiButton
+        :icon="mdiArrowLeft"
+        variant="frosted"
+        :link="goBack()"
+        aria="Back"
       />
     </template>
 
@@ -62,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
@@ -73,7 +80,6 @@ const { locale } = useI18n()
 const { isDark, toggleTheme } = useCustomTheme()
 const route = useRoute()
 
-const menuIcon = ref(mdiHomeOutline)
 const i18nSwitch = ref(false)
 
 const availableLocales = [ "en", "fr" ] as const
@@ -92,6 +98,26 @@ const getFlagEmoji = (l: string): string => {
     default:
       return "🌐"
   }
+}
+
+function goBack() {
+  const path = route.path
+  
+  if (path === "/") {
+    return "/"
+  }
+
+  let end = -1
+
+  if (path.startsWith("/blog/")) {
+    end = -4
+  }
+
+  return path
+    .split("/")
+    .slice(0, end)
+    .join("/")
+    || "/"
 }
 </script>
 

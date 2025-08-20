@@ -5,7 +5,7 @@
     <NavBar />
     <main>
       <UiContainer>
-        <div class="centered-stack">
+        <div :class="route.path.split('/').length < 3 ? 'centered-stack-home' : 'centered-stack-blog'">
           <slot />
         </div>
       </UiContainer>
@@ -19,6 +19,7 @@
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
+const route = useRoute()
 const { t, setLocale } = useI18n()
 
 useHead({
