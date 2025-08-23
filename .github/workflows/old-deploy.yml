@@ -54,7 +54,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_H }}
           username: ${{ secrets.SSH_U }}
-          key: ${{ secrets.SSH_P }}
+          password: ${{ secrets.SSH_P }}
           script: |
             cd www/static_site || exit 1
             find . -maxdepth 1 ! -name '.' ! -name '.well-known' -exec rm -rf {} +
