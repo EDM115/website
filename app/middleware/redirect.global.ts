@@ -12,24 +12,33 @@ export default defineNuxtRouteMiddleware((to, _from) => {
   const routeExists = router.getRoutes().some((route) => route.path === to.path)
 
   if (!routeExists) {
-    const oldSubdomainRoutes = [
-      "/ludivine.mp4",
-      "/underrated",
-      "/hugo",
-      "/external-mods",
-      "/external-mods/README.txt",
-      "/cv",
-      "/cv2",
-      "/assets",
-      "/.well-known",
-      "/planparfait",
-      "/socials",
-      "/sporttrack",
-      "/unzip",
-    ]
+    const internalMap: Record<string, string> = {
+      "/cv": "https://edm115.dev/web/cv",
+      "/cv2": "https://edm115.dev/web/cv2",
+      "/unzip": "https://edm115.dev/web/unzip",
+    }
 
-    if (oldSubdomainRoutes.some((route) => to.path.startsWith(route))) {
-      return navigateTo(`https://old.edm115.dev${to.fullPath}`, { external: true })
+    const externalMap: Record<string, string> = {
+      "/hugo": "https://edm115.github.io/hugo",
+      "/ludivine.mp4": "https://raw.githubusercontent.com/EDM115/website/v1/ludivine.mp4",
+      "/sporttrack": "https://edm115.github.io/sport-track",
+      "/underrated": "https://edm115.github.io/underrated-producers-list",
+    }
+
+    if (Object.keys(internalMap).some((route) => to.path.startsWith(route))) {
+      const match = Object.keys(internalMap).find((route) => to.path.startsWith(route))
+
+      if (match) {
+        return navigateTo(internalMap[match])
+      }
+    }
+
+    if (Object.keys(externalMap).some((route) => to.path.startsWith(route))) {
+      const match = Object.keys(externalMap).find((route) => to.path.startsWith(route))
+
+      if (match) {
+        return navigateTo(externalMap[match], { external: true })
+      }
     }
 
     if (to.path.startsWith("/blog/")) {

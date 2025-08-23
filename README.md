@@ -1,5 +1,5 @@
 # `EDM115/website`
-Basically my website, hosted at [edm115.dev](https://edm115.dev) ([edm115.eu.org](https://edm115.eu.org) is a backup (also available at [old.edm115.dev](https://old.edm115.dev)), real-time preview of the latest commit at [edm115.netlify.app](https://edm115.netlify.app))
+Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time preview of the latest commit at [edm115.netlify.app](https://edm115.netlify.app))
 
 [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)  
 [![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=resolved+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
@@ -34,8 +34,8 @@ pnpm start:ssg
 
 ### Status
 + **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
-+ **[Main website (backup)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
 + **[Netlify preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status)
++ **[Main website (backup)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
 
 ---
 

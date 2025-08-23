@@ -127,14 +127,14 @@
       color="secondary"
       :prepend-icon="mdiFileDownload"
       :text="t('home.downloadPdf')"
-      link="https://old.edm115.dev/assets/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+      link="https://edm115.dev/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
       aria="Download PDF resume"
     />
     <UiButton
       color="secondary"
       :prepend-icon="mdiWeb"
       :text="t('home.downloadOnline')"
-      link="https://old.edm115.dev/cv"
+      link="https://edm115.dev/web/cv"
       aria="Access online resume"
     />
   </div>
