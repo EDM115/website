@@ -75,7 +75,6 @@ declare module 'vue' {
     BlogTelegram20220608BotDown: typeof import('./components/blog/telegram/2022/06-08-bot-down.md')['default']
     BlogTelegram20220608TgxFileSize: typeof import('./components/blog/telegram/2022/06-08-tgx-file-size.md')['default']
     CookieConsent: typeof import('./components/CookieConsent.vue')['default']
-    HomeContact: typeof import('./components/home/Contact.vue')['default']
     HomeOpenSourceContributions: typeof import('./components/home/OpenSourceContributions.vue')['default']
     HomePolychromeEffect: typeof import('./components/home/PolychromeEffect.vue')['default']
     HomeProjectPage: typeof import('./components/home/ProjectPage.vue')['default']
