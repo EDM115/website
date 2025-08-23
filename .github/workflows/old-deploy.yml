@@ -1,0 +1,62 @@
+name: Deploy to edm115.eu.org
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v5"
+        with:
+          persist-credentials: false
+
+      - name: "Bump Node.js to v24"
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          check-latest: true
+
+      - name: "Install pnpm"
+        uses: pnpm/action-setup@v4
+
+      - name: "Install dependencies"
+        run: pnpm i --frozen-lockfile
+      
+      - name: "Prepare the project for edm115.eu.org"
+        run: |
+          sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
+          sed -i 's|edm115.dev/|edm115.eu.org/|g' app/components/home/Resume.vue
+          sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
+          sed -i 's|edm115.dev|edm115.eu.org|g' app/middleware/redirect.global.ts
+
+      - name: "Build for edm115.eu.org"
+        run: pnpm nuxt generate --preset static
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: ./.output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: static-site
+
+      - name: "Deploy to edm115.eu.org"
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_H }}
+          username: ${{ secrets.SSH_U }}
+          key: ${{ secrets.SSH_P }}
+          script: |
+            cd www/static_site || exit 1
+            find . -maxdepth 1 ! -name '.' ! -name '.well-known' -exec rm -rf {} +
+            cp -r ${{ github.workspace }}/static-site/* .
+            logout || exit 1
