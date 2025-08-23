@@ -15,7 +15,7 @@
     "@nuxt/eslint": "~1.9.0",
     "@nuxt/fonts": "~0.11.4",
     "@nuxt/image": "~1.11.0",
-    "@nuxt/scripts": "~0.11.10",
+    "@nuxt/scripts": "~0.11.13",
     "@nuxtjs/color-mode": "~3.5.2",
     "@nuxtjs/i18n": "~10.0.6",
     "@nuxtjs/seo": "~3.1.0",
@@ -35,7 +35,7 @@
     "nuxt-module-feed": "~1.1.4",
     "nuxt-svgo": "~4.2.6",
     "tm-odometer": "~2.0.0",
-    "vue": "~3.5.18",
+    "vue": "~3.5.19",
     "vue-i18n": "~11.1.11"
   },
   "description": "EDM115's website",
@@ -48,7 +48,7 @@
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
     "@typescript-eslint/parser": "~8.40.0",
-    "eslint": "~9.33.0",
+    "eslint": "~9.34.0",
     "eslint-plugin-vue": "~10.4.0",
     "globals": "~16.3.0",
     "jiti": "~2.5.1",
@@ -87,15 +87,13 @@
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
 
-    "lint:eslint": "eslint . --cache --cache-location .eslintcache",
-    "lint:fix:eslint": "eslint . --fix",
+    "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency auto .",
+    "lint:fix:eslint": "eslint --concurrency auto --fix .",
 
-    "lint:oxlint": "oxlint . --ignore-path .gitignore --type-aware",
-    "lint:fix:oxlint": "oxlint . --fix --ignore-path .gitignore --type-aware",
+    "lint:oxlint": "oxlint --ignore-path .gitignore --type-aware .",
+    "lint:fix:oxlint": "oxlint --fix --ignore-path .gitignore --type-aware .",
 
-    "lint:no-cache:eslint": "eslint .",
-
-    "format": "eslint -c eslint.stylistic.config.ts --fix .",
+    "format": "eslint -c eslint.stylistic.config.ts --concurrency auto --fix .",
 
     "preview": "nuxt preview --port 8000",
     "start:ssr": "node .output/server/index.mjs",
