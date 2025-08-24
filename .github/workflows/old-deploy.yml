@@ -37,7 +37,7 @@ jobs:
       - name: "Build for edm115.eu.org"
         run: pnpm nuxt generate --preset static
 
-      - name: Upload artifact
+      - name: "Upload artifact"
         uses: actions/upload-artifact@v4
         with:
           name: static-site
@@ -47,13 +47,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download the artifact
+      - name: "Download the artifact"
         uses: actions/download-artifact@v5
         with:
           name: static-site
-          path: $GITHUB_WORKSPACE/static-site
+          path: static-site
 
-      - name: "Deploy to edm115.eu.org"
+      - name: "Clean remote dir"
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_H }}
@@ -61,6 +61,13 @@ jobs:
           password: ${{ secrets.SSH_P }}
           script: |
             cd www/static_site || exit 1
-            find . -maxdepth 1 ! -name '.' ! -name '.well-known' -exec rm -rf {} +
-            cp -r $GITHUB_WORKSPACE/static-site/* .
-            logout || exit 1
+            find . -maxdepth 1 ! -name '.' ! -name '.well-known' -exec rm -fr {} +
+      
+      - name: "Upload static files"
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_H }}
+          username: ${{ secrets.SSH_U }}
+          password: ${{ secrets.SSH_P }}
+          source: "static-site/*"
+          target: "www/static_site"
