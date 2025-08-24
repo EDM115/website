@@ -23,9 +23,11 @@
     "shared-node-browser": true
   },
   "ignorePatterns": [
-    "**/analyze/",
+    "**/.nuxt/",
+    "**/.output/",
     "**/dist/",
-    "**/node_modules/"
+    "**/node_modules/",
+    "**/public/web/**"
   ],
   "rules": {
     "capitalized-comments": "off",

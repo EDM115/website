@@ -1,21 +1,30 @@
 // skipcq: JS-0045
+let redirected = false
+
 export default defineNuxtRouteMiddleware((to, _from) => {
   if (to.path.endsWith(".html")) {
+    redirected = true
+
     return navigateTo(to.path.replace(".html", ""))
   }
 
   if (to.path.endsWith("/") && to.path !== "/") {
+    redirected = true
+
     return navigateTo(to.path.slice(0, -1))
   }
 
   const router = useRouter()
-  const routeExists = router.getRoutes().some((route) => route.path === to.path)
+  const publicPaths = [
+    "/web/cv",
+    "/web/cv2",
+  ]
+  const routeExists = router.getRoutes().some((route) => route.path === to.path) || publicPaths.includes(to.path)
 
   if (!routeExists) {
     const internalMap: Record<string, string> = {
-      "/cv": "https://edm115.dev/web/cv",
-      "/cv2": "https://edm115.dev/web/cv2",
-      "/unzip": "https://edm115.dev/web/unzip",
+      "/cv2": "/web/cv2",
+      "/cv": "/web/cv",
     }
 
     const externalMap: Record<string, string> = {
@@ -29,6 +38,8 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       const match = Object.keys(internalMap).find((route) => to.path.startsWith(route))
 
       if (match) {
+        redirected = true
+
         return navigateTo(internalMap[match])
       }
     }
@@ -37,14 +48,19 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       const match = Object.keys(externalMap).find((route) => to.path.startsWith(route))
 
       if (match) {
+        redirected = true
+
         return navigateTo(externalMap[match], { external: true })
       }
     }
 
     if (to.path.startsWith("/blog/")) {
+      redirected = true
       return navigateTo("/blog")
     }
 
-    return navigateTo("/")
+    if (!redirected) {
+      return navigateTo("/")
+    }
   }
 })

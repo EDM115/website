@@ -63,7 +63,6 @@
     "unplugin-vue-components": "~29.0.0",
     "unplugin-vue-markdown": "~29.1.0",
     "vite-plugin-checker": "~0.10.2",
-    "vite-plugin-vue-devtools": "~8.0.0",
     "vue-eslint-parser": "~10.2.0",
     "vue-tsc": "~3.0.6"
   },
@@ -90,8 +89,8 @@
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency auto .",
     "lint:fix:eslint": "eslint --concurrency auto --fix .",
 
-    "lint:oxlint": "oxlint --ignore-path .gitignore --type-aware .",
-    "lint:fix:oxlint": "oxlint --fix --ignore-path .gitignore --type-aware .",
+    "lint:oxlint": "oxlint --type-aware .",
+    "lint:fix:oxlint": "oxlint --fix --type-aware .",
 
     "format": "eslint -c eslint.stylistic.config.ts --concurrency auto --fix .",
 

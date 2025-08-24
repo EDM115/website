@@ -39,8 +39,8 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: {
     enabled: false,
-    timeline: { enabled: true },
-    vueDevTools: true,
+    timeline: { enabled: false },
+    // vueDevTools: false,
   },
   app: {
     baseURL: "/",

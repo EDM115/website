@@ -7,7 +7,7 @@ import vueParser from "vue-eslint-parser"
 
 export default withNuxt(
   {
-    ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts" ],
+    ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts", "**/public/web/" ],
   },
   ...pluginVue.configs["flat/recommended"],
   {
