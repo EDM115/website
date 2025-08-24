@@ -96,6 +96,7 @@ declare module 'vue' {
     UiList: typeof import('./components/ui/List.vue')['default']
     UiListItem: typeof import('./components/ui/ListItem.vue')['default']
     UiMenu: typeof import('./components/ui/Menu.vue')['default']
+    UiOdometer: typeof import('./components/ui/Odometer.vue')['default']
     UiProgressCircular: typeof import('./components/ui/ProgressCircular.vue')['default']
     UiRow: typeof import('./components/ui/Row.vue')['default']
     UiShowcase: typeof import('./components/ui/Showcase.vue')['default']

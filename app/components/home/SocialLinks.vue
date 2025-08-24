@@ -41,7 +41,7 @@ import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import simpleIconsRootme from "~icons/simple-icons/rootme"
 
-const socialLinks = ref([
+const socialLinks = computed(() => [
   {
     icon: mdiGithub,
     text: "GitHub",

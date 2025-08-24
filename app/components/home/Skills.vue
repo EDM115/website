@@ -29,7 +29,7 @@
             </div>
           </UiProgressCircular>
           <UiIcon
-            :icon="currentIcons[skill.id]"
+            :icon="skill.icon"
             class="background-icon"
           />
         </div>
@@ -50,8 +50,6 @@ import vscodeVue from "~icons/vscode-icons/file-type-vue"
 
 import terminal from "~~/public/img/icons/terminal.svg"
 
-import { type FunctionalComponent, type SVGAttributes } from "vue"
-
 let observer: IntersectionObserver | null = null
 
 const skills = ref([
@@ -65,8 +63,6 @@ const skills = ref([
   { id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql },
   { id: 8, name: "Bash", value: 80, displayedValue: 0, icon: markRaw(terminal) },
 ])
-
-const currentIcons = ref<FunctionalComponent<SVGAttributes>[]>(skills.value.map((skill) => (Array.isArray(skill.icon) ? skill.icon[0] : skill.icon)))
 
 function easeInOut(t: number): number {
   return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)

@@ -40,7 +40,7 @@ useHead({
   ],
 })
 
-const projects = ref([
+const projects = computed(() => [
   {
     title: "unzip-bot",
     description: "Telegram bot deployable to heroku that can extract every archive !",

@@ -42,7 +42,7 @@ useHead({
 // summary prompt for GPT-5 Thinking mini :
 // here is your task : based on the following blog posts, you will generate a 2 sentence summary, without revealing too much, as these 2 sentences will serve as the blog post excerpt in the blog list
 
-const blogPosts = ref([
+const blogPosts = computed(() => [
   {
     id: 4,
     title: "How I migrated to Zod 4",

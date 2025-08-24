@@ -154,10 +154,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <LazyHomeStats
-              :key="locale"
-              hydrate-on-idle
-            />
+            <LazyHomeStats hydrate-on-idle />
           </UiCard>
 
           <UiCard
@@ -176,10 +173,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <LazyHomeSkills
-              :key="locale"
-              hydrate-on-idle
-            />
+            <LazyHomeSkills hydrate-on-idle />
           </UiCard>
 
           <UiCard
@@ -198,10 +192,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <LazyHomeResume
-              :key="locale"
-              hydrate-on-idle
-            />
+            <LazyHomeResume hydrate-on-idle />
           </UiCard>
 
           <UiCard
@@ -220,10 +211,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <LazyHomeOpenSourceContributions
-              :key="locale"
-              hydrate-on-idle
-            />
+            <LazyHomeOpenSourceContributions hydrate-on-idle />
           </UiCard>
 
           <UiCard
@@ -242,10 +230,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <LazyHomeSocialLinks
-              :key="locale"
-              hydrate-on-idle
-            />
+            <LazyHomeSocialLinks hydrate-on-idle />
           </UiCard>
         </div>
       </div>
@@ -258,7 +243,7 @@ import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiText from "~icons/mdi/text"
 
-const { locale, t } = useI18n()
+const { t } = useI18n()
 
 const age = ref(21)
 const enableAnimation = ref(true)
