@@ -27,6 +27,9 @@ jobs:
       - name: "Prepare the project for edm115.eu.org"
         run: |
           sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
+          sed -i 's|client: true|client: false|g' nuxt.config.ts
+          sed -i 's|server: true|server: false|g' nuxt.config.ts
+          sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
           sed -i 's|edm115.dev/|edm115.eu.org/|g' app/components/home/Resume.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/middleware/redirect.global.ts
@@ -48,7 +51,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: static-site
-          path: ./static-site
+          path: $GITHUB_WORKSPACE/static-site
 
       - name: "Deploy to edm115.eu.org"
         uses: appleboy/ssh-action@v1
@@ -59,5 +62,5 @@ jobs:
           script: |
             cd www/static_site || exit 1
             find . -maxdepth 1 ! -name '.' ! -name '.well-known' -exec rm -rf {} +
-            cp -r ${{ github.workspace }}/static-site/* .
+            cp -r $GITHUB_WORKSPACE/static-site/* .
             logout || exit 1
