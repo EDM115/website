@@ -114,7 +114,7 @@
               <UiCol
                 v-for="skill in issues"
                 :key="skill.name"
-                cols="6"
+                cols="12"
                 md="12"
                 lg="6"
               >
