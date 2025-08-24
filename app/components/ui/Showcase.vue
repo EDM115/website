@@ -64,6 +64,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
+
   /**
    * Controls whether the image slot is rendered
    */

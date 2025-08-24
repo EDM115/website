@@ -99,5 +99,30 @@
     "loc": "Lignes de code dans mes projets",
     "projects": "Projets réalisés (publics)",
     "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
+  },
+  "unzip": {
+    "about": "À propos",
+    "about1": "Écrit en Python, utilisant des bibliothèques comme pyrofork et stockant les données dans MongoDB Atlas, ce bot vise à offrir une expérience transparente pour obtenir des fichiers à partir d'archives sur Telegram.",
+    "about2": "Ce bot a commencé à être en ligne le 22 mai 2022.",
+    "about3": "Initialement conçu pour Heroku, il est maintenant hébergé sur Hetzner. Et malgré son coût mensuel, il reste gratuit :)",
+    "description": "Ce bot répondra à tous vos besoins liés aux archives sur Telegram ! Il peut extraire des archives (même protégées par mot de passe et séparées en parties), les télécharger à partir d'URL directes, changer leur miniature, les renommer, et bien plus encore !",
+    "github": "EDM115/unzip-bot",
+    "head": "unzip-bot - EDM115",
+    "help": {
+      "subtitle": "Vous avez une erreur avec le bot ? Vous voulez savoir ce que cela signifie ? Cette section est pour vous !",
+      "title": "Aide"
+    },
+    "stats": {
+      "data": "Gigaoctets traités",
+      "days": "Jours depuis le lancement",
+      "files": "Fichiers téléchargés",
+      "forks": "Forks",
+      "links": "Liens téléchargés",
+      "loc": "Lignes de code",
+      "stars": "Étoiles",
+      "title": "Statistiques (pas en direct)",
+      "users": "Utilisateurs"
+    },
+    "telegram": "{'@'}unzip_edm115bot"
   }
 }

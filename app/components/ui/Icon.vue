@@ -21,6 +21,17 @@ defineProps<{
 <style scoped lang="scss">
 .ui-icon {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
   vertical-align: middle;
+}
+
+.ui-icon :where(svg) {
+  width: 1em;
+  height: 1em;
+  display: block;
 }
 </style>

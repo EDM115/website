@@ -6,9 +6,9 @@
     "title": "Blog"
   },
   "cookies": {
-    "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Do you accept this ?",
     "accept": "Accept",
-    "reject": "Reject"
+    "reject": "Reject",
+    "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Do you accept this ?"
   },
   "home": {
     "about": "About",
@@ -73,19 +73,19 @@
     "issue": {
       "closed": "Closed",
       "ignored": "Ignored",
+      "multiple": "Issues",
       "open": "Open",
       "title": "Issue",
-      "unknown": "Unknown issue state",
-      "multiple": "Issues"
+      "unknown": "Unknown issue state"
     },
     "link": "Open in GitHub",
     "pr": {
       "closed": "Closed",
       "merged": "Merged",
+      "multiple": "Pull Requests",
       "open": "Open",
       "title": "Pull Request",
-      "unknown": "Unknown pull request state",
-      "multiple": "Pull Requests"
+      "unknown": "Unknown pull request state"
     }
   },
   "projects": {
@@ -99,5 +99,30 @@
     "loc": "Lines of code in my projects",
     "projects": "Projects made (public)",
     "users": "Users of my services (has yet to be refreshed through an API)"
+  },
+  "unzip": {
+    "about": "About",
+    "about1": "Written in Python, using libraries like pyrofork and storing data in MongoDB Atlas, this bot aims to provide a seamless experience for getting files from archives on Telegram.",
+    "about2": "This bot started being online on the 22nd May of 2022.",
+    "about3": "Originally made for Heroku, it is now hosted on Hetzner. And despite costing me every month, it is still free :)",
+    "description": "This bot will suit all your archive related needs on Telegram ! It can extract archives (even password protected and split ones), download them from direct URL's, change their thumbnail, rename them, and much more !",
+    "github": "EDM115/unzip-bot",
+    "head": "unzip-bot - EDM115",
+    "help": {
+      "subtitle": "You have an error with the bot ? You want to know what it means ? This section is for you !",
+      "title": "Help"
+    },
+    "stats": {
+      "data": "Gigabytes processed",
+      "days": "Days since launch",
+      "files": "Files downloaded",
+      "forks": "Forks",
+      "links": "Links downloaded",
+      "loc": "Lines of code",
+      "stars": "Stars",
+      "title": "Stats (not live)",
+      "users": "Users"
+    },
+    "telegram": "{'@'}unzip_edm115bot"
   }
 }

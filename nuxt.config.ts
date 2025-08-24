@@ -65,7 +65,7 @@ export default defineNuxtConfig({
     "~/assets/styles/dracula-hljs.scss",
     "~/assets/styles/main.scss",
   ],
-  site: { 
+  site: {
     description: "Find all infos about EDM115, his projects, blog posts, ...",
     name: "EDM115 - French dev/gamer/music producer",
     url: "https://edm115.dev",
@@ -271,6 +271,7 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
+
   /* feed: {
     sources: [
       {
@@ -314,11 +315,11 @@ export default defineNuxtConfig({
       html: true,
       markdown: true,
       json: true,
-    }
+    },
   },
   ogImage: {
     // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
-    enabled: false
+    enabled: false,
   },
   schemaOrg: {
     identity: definePerson({
@@ -331,8 +332,11 @@ export default defineNuxtConfig({
         "https://github.com/edm115",
         "https://x.com/_EDM115",
         "https://www.reddit.com/user/EDM115",
-      ]
+      ],
     }),
+  },
+  seo: {
+    automaticDefaults: false,
   },
   sitemap: {
     cacheMaxAgeSeconds: 432000,

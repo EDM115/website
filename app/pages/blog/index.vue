@@ -66,7 +66,7 @@ const blogPosts = computed(() => [
     title: "Google ending Shared Drives",
     description: "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. If you rely on Edu Shared Drives, expect many drives and links to disappear as administrators will face pooled quotas and tighter controls.",
     link: "/blog/2022/05/15/google-ending-shared-drives",
-  }
+  },
 ])
 </script>
 

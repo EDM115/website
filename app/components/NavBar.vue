@@ -102,7 +102,7 @@ const getFlagEmoji = (l: string): string => {
 
 function goBack() {
   const path = route.path
-  
+
   if (path === "/") {
     return "/"
   }

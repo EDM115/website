@@ -79,6 +79,7 @@ const maxWidthStyle = computed(() => (props.maxWidth !== undefined
     overflow-wrap: normal;
     overflow: visible;
     white-space: wrap;
+    word-break: break-word;
   }
 
   &--content {

@@ -8,7 +8,13 @@
     >
       <UiCard variant="flat">
         <template #title>
-          {{ stat.name }}
+          <span class="ui-stat-title">
+            <UiIcon
+              v-if="stat.icon"
+              :icon="stat.icon"
+            />
+            {{ stat.name }}
+          </span>
         </template>
 
         <div
@@ -23,11 +29,14 @@
 </template>
 
 <script setup lang="ts">
+import { type FunctionalComponent, type SVGAttributes } from "vue"
+
 const props = defineProps<{
   stats: {
     id: number
     name: string
     value: number
+    icon?: FunctionalComponent<SVGAttributes>
   }[]
 }>()
 
@@ -44,9 +53,8 @@ function formatZeros(value: number): string {
 
 let observer: IntersectionObserver | null = null
 const odos = ref<OdometerInstance[]>([])
-
-// new: keep mutation observers so we re-apply grouping when odometer DOM changes
 const digitObservers = ref<MutationObserver[]>([])
+const odometersReady = ref(false)
 
 onMounted(async () => {
   observer = new IntersectionObserver(
@@ -119,6 +127,8 @@ onMounted(async () => {
     mo.observe(el as HTMLElement, { childList: true, subtree: true, characterData: true })
     digitObservers.value[idx] = mo
   })
+
+  odometersReady.value = true
 })
 
 onBeforeUnmount(() => {
@@ -126,6 +136,17 @@ onBeforeUnmount(() => {
   digitObservers.value.forEach((m) => m.disconnect())
   digitObservers.value = []
 })
+
+watch(
+  () => props.stats.map((s) => s.value),
+  (vals) => {
+    if (!odometersReady.value) {
+      return
+    }
+
+    vals.forEach((v, i) => odos.value[i]?.update(v))
+  },
+)
 </script>
 
 <style lang="scss">
@@ -251,5 +272,12 @@ $padding: .15em;
       transform: translateY(0);
     }
   }
+}
+
+.ui-stat-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
 }
 </style>

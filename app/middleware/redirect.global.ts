@@ -56,6 +56,7 @@ export default defineNuxtRouteMiddleware((to, _from) => {
 
     if (to.path.startsWith("/blog/")) {
       redirected = true
+
       return navigateTo("/blog")
     }
 
