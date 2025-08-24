@@ -51,6 +51,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: static-site
+          path: static-site
 
       - name: "Clean remote dir"
         uses: appleboy/ssh-action@v1
@@ -68,5 +69,7 @@ jobs:
           host: ${{ secrets.SSH_H }}
           username: ${{ secrets.SSH_U }}
           password: ${{ secrets.SSH_P }}
-          source: "static-site/*"
+          source: "static-site"
           target: "www/static_site"
+          strip_components: 1
+          overwrite: true
