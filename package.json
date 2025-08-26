@@ -56,7 +56,7 @@
     "npm-run-all2": "~8.0.4",
     "oxlint": "~1.12.0",
     "oxlint-tsgolint": "~0.0.4",
-    "sass-embedded": "~1.90.0",
+    "sass-embedded": "~1.91.0",
     "sass-loader": "~16.0.5",
     "typescript": "~5.9.2",
     "unplugin-icons": "~22.2.0",
