@@ -47,6 +47,8 @@
   "importCost.smallPackageDarkColor": "#50FA7B",
   "importCost.smallPackageLightColor": "#50FA7B",
   "oxc.enable": true,
+  "oxc.typeAware": true,
+  "oxc.unusedDisableDirectives": "warn",
   "search.exclude": {
     "**/*.svg": true,
     "pnpm-lock.yaml": true
