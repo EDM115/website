@@ -208,6 +208,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 62,
+    "name": "oxc-project/oxc",
+    "description": "linter: type-aware checking won't work in the VS Code extension when Node is dynamically added to the path",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/oxc-project/oxc/issues/13497"
+  },
+  {
     "id": 61,
     "name": "medyo/hackertab.dev",
     "description": "[BUG] The ad is on top of the changelog",
