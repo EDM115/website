@@ -118,19 +118,17 @@ export default defineNuxtConfig({
     },
     esbuild: { options: { target: "esnext" } },
     minify: true,
-    rollupConfig: { output: {
-      compact: true,
-      validate: true,
-    } },
   },
   vite: {
     build: {
       chunkSizeWarningLimit: 2000,
       cssMinify: "lightningcss",
-      rollupOptions: { output: {
-        compact: true,
-        validate: true,
-      } },
+      /* rollupOptions: {
+        output: {
+          /// @ts-expect-error Exists in rolldown
+          minify: true,
+        },
+      }, */
     },
     clearScreen: false,
     plugins: [
