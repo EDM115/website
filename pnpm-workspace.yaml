@@ -6,6 +6,9 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
+overrides:
+  vite: "npm:rolldown-vite@latest"
+
 publicHoistPattern:
   - "nuxt-schema-org"
 

@@ -27,12 +27,12 @@ defineProps<{
   /**
    * Color theme applied to the banner background
    */
-  color?: keyof typeof colorVars
+  color?: keyof typeof colorVars;
 
   /**
    * Optional icon displayed in the prepend slot by default
    */
-  icon?: Component
+  icon?: Component;
 }>()
 </script>
 

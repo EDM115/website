@@ -27,31 +27,35 @@ const props = defineProps<{
    * - `outlined` : inner border, subtle bg
    * - `flat` : no shadow, transparent bg
    */
-  variant?: "elevated" | "outlined" | "flat"
+  variant?: "elevated" | "outlined" | "flat";
 
   /**
    * Maximum width for the card container (px or any CSS size)
    */
-  maxWidth?: string | number
+  maxWidth?: string | number;
 
   /**
    * Display or not the actions slot
    */
-  actions?: boolean
+  actions?: boolean;
 
   /**
    * Small variant, no content padding
    */
-  small?: boolean
+  small?: boolean;
 }>()
 
 const classes = computed(() => [
   "ui-card",
-  props.variant ? `ui-card--${props.variant}` : "ui-card--elevated",
+  props.variant
+    ? `ui-card--${props.variant}`
+    : "ui-card--elevated",
 ])
 
 const maxWidthStyle = computed(() => (props.maxWidth !== undefined
-  ? { maxWidth: typeof props.maxWidth === "number" ? `${props.maxWidth}px` : String(props.maxWidth) }
+  ? { maxWidth: typeof props.maxWidth === "number"
+      ? `${props.maxWidth}px`
+      : String(props.maxWidth) }
   : undefined))
 </script>
 

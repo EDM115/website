@@ -131,8 +131,13 @@ addEventListener("message", (e: MessageEvent) => {
 
       fps = Math.max(10, Math.min(60, msg.fps ?? 30))
       frameInterval = 1000 / fps
-      quality = typeof msg.quality === "number" ? msg.quality : 1
-      ctx = canvas.getContext("2d", { alpha: true, desynchronized: true })
+      quality = typeof msg.quality === "number"
+        ? msg.quality
+        : 1
+      ctx = canvas.getContext("2d", {
+        alpha: true,
+        desynchronized: true,
+      })
       w = msg.width
       h = msg.height
       running = true

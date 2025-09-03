@@ -22,16 +22,17 @@ export function useCopySlug() {
 
     const url = `${location.origin}${location.pathname}#${slug}`
 
-    void navigator.clipboard.writeText(url).then(() => {
-      const original = el.innerHTML
+    void navigator.clipboard.writeText(url)
+      .then(() => {
+        const original = el.innerHTML
 
-      el.innerHTML = mdiCheck.replace(/<svg\b[^>]*>/i, "<svg>")
-      el.classList.add("header-copy-icon-clicked")
-      setTimeout(() => {
-        el.innerHTML = original
-        el.classList.remove("header-copy-icon-clicked")
-      }, 3000)
-    })
+        el.innerHTML = mdiCheck.replace(/<svg\b[^>]*>/i, "<svg>")
+        el.classList.add("header-copy-icon-clicked")
+        setTimeout(() => {
+          el.innerHTML = original
+          el.classList.remove("header-copy-icon-clicked")
+        }, 3000)
+      })
   }
 
   onMounted(() => {

@@ -40,15 +40,13 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  modelValue?: boolean
-  maxDpr?: number
-  fps?: number
-  alt?: boolean
+  modelValue?: boolean;
+  maxDpr?: number;
+  fps?: number;
+  alt?: boolean;
 }>()
 
-const emit = defineEmits<{
-  (e: "update:modelValue", v: boolean): void
-}>()
+const emit = defineEmits<{ (e: "update:modelValue", v: boolean): void }>()
 
 const root = ref<HTMLElement | null>(null)
 const inner = ref<HTMLElement | null>(null)
@@ -154,7 +152,10 @@ function updateIntensityVars(el: HTMLElement) {
   cssIntensity = p
 
   if (worker) {
-    worker.postMessage({ type: "setIntensity", intensity: cssIntensity }, [])
+    worker.postMessage({
+      "type": "setIntensity",
+      "intensity": cssIntensity,
+    }, [])
   }
 }
 
@@ -188,8 +189,15 @@ function recalcPointerAndRect(doResize: boolean) {
 
 function computeQuality() {
   // conservative quality selection
-  type NetInfo = { saveData?: boolean; downlink?: number }
-  const navConn = (navigator as unknown as Navigator & { connection?: NetInfo; hardwareConcurrency?: number })
+  type NetInfo = {
+    saveData?: boolean;
+    downlink?: number;
+  }
+
+  const navConn = navigator as unknown as Navigator & {
+    connection?: NetInfo;
+    hardwareConcurrency?: number;
+  }
   const hasSaveData = navConn.connection?.saveData === true
   const downlink = navConn.connection?.downlink ?? 10
 
@@ -200,18 +208,38 @@ function computeQuality() {
   lowMemory = effectiveCores <= 2
 
   if (prefersReducedMotion || hasSaveData) {
-    return { enable: false, quality: 0.75, fps: 20, dpr: 1 }
+    return {
+      enable: false,
+      quality: 0.75,
+      fps: 20,
+      dpr: 1,
+    }
   }
 
   if (lowMemory) {
-    return { enable: true, quality: 0.9, fps: 24, dpr: 1 }
+    return {
+      enable: true,
+      quality: 0.9,
+      fps: 24,
+      dpr: 1,
+    }
   }
 
   if (effectiveCores <= 4 || downlink < 1.5) {
-    return { enable: true, quality: 1.0, fps: 28, dpr: Math.min(MAX_DPR, 1.5) }
+    return {
+      enable: true,
+      quality: 1.0,
+      fps: 28,
+      dpr: Math.min(MAX_DPR, 1.5),
+    }
   }
 
-  return { enable: true, quality: 1.1, fps: FPS, dpr: MAX_DPR }
+  return {
+    enable: true,
+    quality: 1.1,
+    fps: FPS,
+    dpr: MAX_DPR,
+  }
 }
 
 function resizeCanvas(rect?: DOMRect) {
@@ -230,7 +258,11 @@ function resizeCanvas(rect?: DOMRect) {
   const targetH = Math.max(96, Math.floor(lastRect.height * dpr * 0.7))
 
   if (usingOffscreen) {
-    worker?.postMessage({ type: "resize", width: targetW, height: targetH })
+    worker?.postMessage({
+      "type": "resize",
+      "width": targetW,
+      "height": targetH,
+    })
   } else {
     if (cvs.width !== targetW || cvs.height !== targetH) {
       cvs.width = targetW
@@ -254,16 +286,26 @@ function startCaustics() {
     if (offscreen) {
       usingOffscreen = true
       worker = altRendering.value
-        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { type: "module" })
-        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
+        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { "type": "module" })
+        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { "type": "module" })
       const q = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
       const dpr = q.dpr
       const width = Math.max(96, Math.floor(rect.width * dpr * 0.7))
       const height = Math.max(96, Math.floor(rect.height * dpr * 0.7))
 
-      worker.postMessage({ type: "init", canvas: offscreen, width, height, fps: q.fps, quality: q.quality }, [ offscreen ])
-      worker.postMessage({ type: "setIntensity", intensity: cssIntensity }, [])
+      worker.postMessage({
+        "type": "init",
+        "canvas": offscreen,
+        width,
+        height,
+        "fps": q.fps,
+        "quality": q.quality,
+      }, [offscreen])
+      worker.postMessage({
+        "type": "setIntensity",
+        "intensity": cssIntensity,
+      }, [])
 
       if (!onWindowResize) {
         onWindowResize = () => resizeCanvas()
@@ -444,6 +486,7 @@ function startIdle() {
 
       el.style.setProperty("--poly-drift", `${drift.toFixed(1)}deg`)
     }
+
     updateIntensityVars(el)
     idleRaf = requestAnimationFrame(loop)
   }
@@ -492,8 +535,16 @@ function onPointerMove(e: PointerEvent) {
     requestAnimationFrame(() => {
       docMoveQueued = false
       // distance from card rect (0 if inside)
-      const dx = e.clientX < rect.left ? rect.left - e.clientX : e.clientX > rect.right ? e.clientX - rect.right : 0
-      const dy = e.clientY < rect.top ? rect.top - e.clientY : e.clientY > rect.bottom ? e.clientY - rect.bottom : 0
+      const dx = e.clientX < rect.left
+        ? rect.left - e.clientX
+        : e.clientX > rect.right
+          ? e.clientX - rect.right
+          : 0
+      const dy = e.clientY < rect.top
+        ? rect.top - e.clientY
+        : e.clientY > rect.bottom
+          ? e.clientY - rect.bottom
+          : 0
       const dist = Math.hypot(dx, dy)
       const radius = 220
 
@@ -530,8 +581,16 @@ function onDocumentPointerMove(e: PointerEvent) {
       // Update pointer ratios for blending even when not hovering
       ptrX = clamp((e.clientX - rect.left) / rect.width)
       ptrY = clamp((e.clientY - rect.top) / rect.height)
-      const dx = e.clientX < rect.left ? rect.left - e.clientX : e.clientX > rect.right ? e.clientX - rect.right : 0
-      const dy = e.clientY < rect.top ? rect.top - e.clientY : e.clientY > rect.bottom ? e.clientY - rect.bottom : 0
+      const dx = e.clientX < rect.left
+        ? rect.left - e.clientX
+        : e.clientX > rect.right
+          ? e.clientX - rect.right
+          : 0
+      const dy = e.clientY < rect.top
+        ? rect.top - e.clientY
+        : e.clientY > rect.bottom
+          ? e.clientY - rect.bottom
+          : 0
       const dist = Math.hypot(dx, dy)
       const radius = 220
 
@@ -579,8 +638,11 @@ function queueStart() {
 
     // If an Offscreen worker already exists, just resume it; else start
     if (usingOffscreen && worker) {
-      worker.postMessage({ type: "start" }, [])
-      worker.postMessage({ type: "setIntensity", intensity: cssIntensity }, [])
+      worker.postMessage({ "type": "start" }, [])
+      worker.postMessage({
+        "type": "setIntensity",
+        "intensity": cssIntensity,
+      }, [])
     } else {
       startCaustics()
     }
@@ -627,7 +689,7 @@ function handleEnableChange(v: boolean) {
 
     // Stop and fully clean worker or fallback. With v-if, the canvas will be removed, so an OffscreenCanvas previously transferred becomes orphaned. We must terminate and recreate on next enable.
     if (usingOffscreen && worker) {
-      worker.postMessage({ type: "stop" }, [])
+      worker.postMessage({ "type": "stop" }, [])
       worker.terminate()
       worker = null
       usingOffscreen = false

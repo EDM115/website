@@ -68,27 +68,27 @@ const props = defineProps<{
   /**
    * Controls whether the image slot is rendered
    */
-  image?: string
+  image?: string;
 
   /**
    * Alternative text for the image
    */
-  alt?: string
+  alt?: string;
 
   /**
    * Optional link; when provided, the title is wrapped in a NuxtLink
    */
-  link?: string
+  link?: string;
 
   /**
    * Controls whether the actions slot is rendered
    */
-  actions?: boolean
+  actions?: boolean;
 
   /**
    * Aria label for the title link (when link is provided)
    */
-  aria?: string
+  aria?: string;
 }>()
 
 const image = computed(() => props.image)

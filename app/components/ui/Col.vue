@@ -10,22 +10,22 @@ const props = defineProps<{
   /**
    * Number of columns (1-12) the col spans on xs screens
    */
-  cols?: number | string
+  cols?: number | string;
 
   /**
    * Number of columns (1-12) on md (>= 960px) screens
    */
-  md?: number | string
+  md?: number | string;
 
   /**
    * Number of columns (1-12) on lg (>= 1280px) screens
    */
-  lg?: number | string
+  lg?: number | string;
 
   /**
    * Cross-axis alignment for content
    */
-  align?: "start" | "center" | "end"
+  align?: "start" | "center" | "end";
 }>()
 
 function toSpan(n?: number | string) {
@@ -39,9 +39,15 @@ function toSpan(n?: number | string) {
 const classes = computed(() => [
   "ui-col",
   `ui-col-${toSpan(props.cols)}`,
-  props.md ? `ui-col-md-${toSpan(props.md)}` : "",
-  props.lg ? `ui-col-lg-${toSpan(props.lg)}` : "",
-  props.align ? `align-${props.align}` : "",
+  props.md
+    ? `ui-col-md-${toSpan(props.md)}`
+    : "",
+  props.lg
+    ? `ui-col-lg-${toSpan(props.lg)}`
+    : "",
+  props.align
+    ? `align-${props.align}`
+    : "",
 ])
 </script>
 

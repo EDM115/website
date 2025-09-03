@@ -98,6 +98,7 @@
   "stats": {
     "loc": "Lines of code in my projects",
     "projects": "Projects made (public)",
+    "title": "Stats",
     "users": "Users of my services (has yet to be refreshed through an API)"
   },
   "unzip": {

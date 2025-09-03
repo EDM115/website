@@ -53,19 +53,39 @@ import terminal from "~~/public/img/icons/terminal.svg"
 let observer: IntersectionObserver | null = null
 
 const skills = ref([
-  { id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython },
-  { id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava },
-  { id: 2, name: "React", value: 60, displayedValue: 0, icon: deviconReact },
-  { id: 3, name: "TypeScript", value: 85, displayedValue: 0, icon: skillTypescript },
-  { id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue },
-  { id: 5, name: "Docker", value: 70, displayedValue: 0, icon: logosDocker },
-  { id: 6, name: "Git", value: 90, displayedValue: 0, icon: deviconGit },
-  { id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql },
-  { id: 8, name: "Bash", value: 80, displayedValue: 0, icon: markRaw(terminal) },
+  {
+    id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython,
+  },
+  {
+    id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava,
+  },
+  {
+    id: 2, name: "React", value: 60, displayedValue: 0, icon: deviconReact,
+  },
+  {
+    id: 3, name: "TypeScript", value: 85, displayedValue: 0, icon: skillTypescript,
+  },
+  {
+    id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue,
+  },
+  {
+    id: 5, name: "Docker", value: 70, displayedValue: 0, icon: logosDocker,
+  },
+  {
+    id: 6, name: "Git", value: 90, displayedValue: 0, icon: deviconGit,
+  },
+  {
+    id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql,
+  },
+  {
+    id: 8, name: "Bash", value: 80, displayedValue: 0, icon: markRaw(terminal),
+  },
 ])
 
 function easeInOut(t: number): number {
-  return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t)
+  return t < 0.5
+    ? 2 * t * t
+    : -1 + ((4 - (2 * t)) * t)
 }
 
 function callback(entries: IntersectionObserverEntry[]) {

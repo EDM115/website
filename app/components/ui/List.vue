@@ -5,17 +5,20 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable @stylistic/object-curly-newline */
 const props = defineProps<{
-
   /**
    * Disables the minimum width
-  */
-  compact?: boolean
+   */
+  compact?: boolean;
 }>()
+/* eslint-enable @stylistic/object-curly-newline */
 
 const classes = computed(() => [
   "ui-list",
-  props.compact ? "ui-list--compact" : "",
+  props.compact
+    ? "ui-list--compact"
+    : "",
 ])
 </script>
 

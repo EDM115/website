@@ -284,8 +284,16 @@ const issues = computed(() => ([
 
 useHead({
   title: t("unzip.head"),
-  meta: [{ name: "description", content: t("unzip.description") }],
-  link: [{ rel: "icon", type: "image/webp", href: "/img/projects/unzip-bot.webp" }],
+  meta: [
+    {
+      name: "description", content: t("unzip.description"),
+    },
+  ],
+  link: [
+    {
+      "rel": "icon", "type": "image/webp", "href": "/img/projects/unzip-bot.webp",
+    },
+  ],
 })
 
 useSeoMeta({
@@ -306,12 +314,12 @@ function daysSinceLaunch() {
 
 async function getRepoDetails() {
   try {
-    const { data } = await useFetch<{ stargazers_count: number; forks_count: number }>("https://api.github.com/repos/EDM115/unzip-bot", {
-      headers: {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    })
+    const { data } = await useFetch<{
+      stargazers_count: number; forks_count: number;
+    }>("https://api.github.com/repos/EDM115/unzip-bot", { headers: {
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    } })
 
     if (!data.value) {
       throw new Error("Repository not found")
@@ -334,7 +342,9 @@ async function getRepoDetails() {
 
 async function getLoc() {
   try {
-    const { data } = await useFetch<{ language: string, linesOfCode: number }[]>("https://api.codetabs.com/v1/loc?github=EDM115/unzip-bot&branch=v7-rework-part-1")
+    const { data } = await useFetch<{
+      language: string; linesOfCode: number;
+    }[]>("https://api.codetabs.com/v1/loc?github=EDM115/unzip-bot&branch=v7-rework-part-1")
 
     if (!data.value) {
       throw new Error("LoC API down")
@@ -342,7 +352,9 @@ async function getLoc() {
 
     const totalLoc = data.value.find((item: { language: string }) => item.language === "Total")
 
-    return totalLoc ? totalLoc.linesOfCode : 0
+    return totalLoc
+      ? totalLoc.linesOfCode
+      : 0
   } catch (error) {
     console.error("Failed to fetch LOC :", error)
 

@@ -50,10 +50,6 @@
             EDM115
           </h1>
 
-          <!-- <p style="color:var(--text-dark); max-width:60ch; margin-top: 0;">
-            {{ t('main.description') }}
-          </p> -->
-
           <div style="gap:.75rem; display: flex; flex-wrap:wrap; margin-top:1rem; justify-content: center;">
             <UiButton
               color="primary"
@@ -275,7 +271,9 @@ onMounted(() => {
 })
 
 watch(enableAnimation, (val) => {
-  localStorage.setItem("enable-polychrome-animation", val ? "true" : "false")
+  localStorage.setItem("enable-polychrome-animation", val
+    ? "true"
+    : "false")
   window.dispatchEvent(new CustomEvent("polychrome-toggle", { detail: val }))
 
   if (val) {

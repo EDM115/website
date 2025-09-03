@@ -20,18 +20,25 @@ import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 
 const i18nHead = useLocaleHead()
 const route = useRoute()
-const { t, setLocale } = useI18n()
+const {
+  t,
+  setLocale,
+} = useI18n()
 
 useHead({
   title: t("main.head"),
   meta: [
     { name: "darkreader-lock" },
-    { name: "description", content: t("main.description") },
+    {
+      name: "description", content: t("main.description"),
+    },
   ],
-  link: [{ rel: "icon", type: "image/webp", href: "/img/profile-img.webp" }],
-  htmlAttrs: {
-    lang: i18nHead.value.htmlAttrs.lang ?? "en",
-  },
+  link: [
+    {
+      "rel": "icon", "type": "image/webp", "href": "/img/profile-img.webp",
+    },
+  ],
+  htmlAttrs: { lang: i18nHead.value.htmlAttrs.lang ?? "en" },
 })
 
 useSeoMeta({

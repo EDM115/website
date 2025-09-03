@@ -16,7 +16,9 @@ export function cleanMarkdown(raw: string, repoName: string, branch: string): st
     /(?<!!)\[([^\]]+)\]\(\s*(?:\.\/|\/)?(?!https?:\/\/|#)([^)]+)\)/g,
     (_full, text, path) => {
       const isFile = (/\.[^/]+$/).test(path)
-      const type = isFile ? "blob" : "tree"
+      const type = isFile
+        ? "blob"
+        : "tree"
 
       return `[${text}](https://github.com/${repoName}/${type}/${branch}/${path})`
     },

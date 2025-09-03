@@ -26,11 +26,16 @@ const variant = computed(() => {
     return "tonal"
   }
 
-  return isDark.value ? "tonal" : "elevated"
+  return isDark.value
+    ? "tonal"
+    : "elevated"
 })
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" })
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
   router.replace({ hash: "" })
 }
 

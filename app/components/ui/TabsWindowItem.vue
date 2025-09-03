@@ -8,19 +8,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from "vue"
-
 const props = defineProps<{
 
   /**
    * The value associated with this window
    */
-  value: string | number
+  value: string | number;
 
   /**
    * Optional external modelValue, injected from parent if not provided
    */
-  modelValue?: string | number
+  modelValue?: string | number;
 }>()
 
 const injected = inject<Readonly<{ value: string | number }> | undefined>("uiTabsModel", undefined) as unknown as { value?: string | number } | undefined

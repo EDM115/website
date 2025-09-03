@@ -87,7 +87,10 @@ import pajamasIssueClose from "~icons/pajamas/issue-close"
 
 import contributions from "~/assets/data/contributions.json"
 
-const { locale, t } = useI18n()
+const {
+  locale,
+  t,
+} = useI18n()
 
 const tab = ref(1)
 // https://github.com/pulls?q=is%3Apr%20author%3A%40me%20sort%3Acreated-desc
@@ -148,21 +151,27 @@ function getContribIcon(state: string, type: string) {
 }
 
 function getContribName(state: string, type: string) {
-  const name = { title: "", state: "" }
+  const name = {
+    title: "",
+    state: "",
+  }
 
   if (type === "pr") {
     switch (state) {
       case "open":
         name.title = t("opensource.pr.title")
         name.state = t("opensource.pr.open")
+
         break
       case "closed":
         name.title = t("opensource.pr.title")
         name.state = t("opensource.pr.closed")
+
         break
       case "merged":
         name.title = t("opensource.pr.title")
         name.state = t("opensource.pr.merged")
+
         break
       default:
         return `${t("opensource.pr.unknown")}`
@@ -172,14 +181,17 @@ function getContribName(state: string, type: string) {
       case "open":
         name.title = t("opensource.issue.title")
         name.state = t("opensource.issue.open")
+
         break
       case "closed":
         name.title = t("opensource.issue.title")
         name.state = t("opensource.issue.closed")
+
         break
       case "ignored":
         name.title = t("opensource.issue.title")
         name.state = t("opensource.issue.ignored")
+
         break
       default:
         return `${t("opensource.issue.unknown")}`

@@ -19,8 +19,15 @@ export function useCustomTheme() {
   }
 
   function toggleTheme() {
-    changeTheme(isDark.value ? "light" : "dark")
+    changeTheme(isDark.value
+      ? "light"
+      : "dark")
   }
 
-  return { isDark, theme, changeTheme, toggleTheme }
+  return {
+    isDark,
+    theme,
+    changeTheme,
+    toggleTheme,
+  }
 }

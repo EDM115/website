@@ -18,12 +18,12 @@ const props = defineProps<{
   /**
    * Tooltip text to display
    */
-  text: string
+  text: string;
 
   /**
    * Preferred location around the activator
    */
-  location?: "top" | "bottom" | "left" | "right"
+  location?: "top" | "bottom" | "left" | "right";
 }>()
 
 const open = ref(false)

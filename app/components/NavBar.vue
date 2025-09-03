@@ -77,13 +77,18 @@ import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 import { useCustomTheme } from "~/composables/useCustomTheme"
 
 const { locale } = useI18n()
-const { isDark, toggleTheme } = useCustomTheme()
+const {
+  isDark,
+  toggleTheme,
+} = useCustomTheme()
 const route = useRoute()
 
 const i18nSwitch = ref(false)
 
 const availableLocales = [ "en", "fr" ] as const
-const iconTheme = computed(() => (isDark.value ? mdiWeatherSunny : mdiWeatherNight))
+const iconTheme = computed(() => (isDark.value
+  ? mdiWeatherSunny
+  : mdiWeatherNight))
 
 const switchLocale = (newLocale: "en" | "fr") => {
   locale.value = newLocale

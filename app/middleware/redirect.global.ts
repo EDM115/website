@@ -19,7 +19,8 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     "/web/cv",
     "/web/cv2",
   ]
-  const routeExists = router.getRoutes().some((route) => route.path === to.path) || publicPaths.includes(to.path)
+  const routeExists = router.getRoutes()
+    .some((route) => route.path === to.path) || publicPaths.includes(to.path)
 
   if (!routeExists) {
     const internalMap: Record<string, string> = {
@@ -34,8 +35,10 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       "/underrated": "https://edm115.github.io/underrated-producers-list",
     }
 
-    if (Object.keys(internalMap).some((route) => to.path.startsWith(route))) {
-      const match = Object.keys(internalMap).find((route) => to.path.startsWith(route))
+    if (Object.keys(internalMap)
+      .some((route) => to.path.startsWith(route))) {
+      const match = Object.keys(internalMap)
+        .find((route) => to.path.startsWith(route))
 
       if (match) {
         redirected = true
@@ -44,8 +47,10 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       }
     }
 
-    if (Object.keys(externalMap).some((route) => to.path.startsWith(route))) {
-      const match = Object.keys(externalMap).find((route) => to.path.startsWith(route))
+    if (Object.keys(externalMap)
+      .some((route) => to.path.startsWith(route))) {
+      const match = Object.keys(externalMap)
+        .find((route) => to.path.startsWith(route))
 
       if (match) {
         redirected = true

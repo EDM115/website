@@ -20,7 +20,11 @@
 <script setup lang="ts">
 import type { VNode } from "vue"
 
-type Tab = { text: string; value: string | number }
+type Tab = {
+  text: string;
+  value: string | number;
+}
+
 type VNodeWithProps = VNode & { props?: Record<string, unknown> | null }
 
 defineProps<{
@@ -28,12 +32,12 @@ defineProps<{
   /**
    * Current active tab value
    */
-  modelValue: string | number
+  modelValue: string | number;
 
   /**
    * Optional color for active state styling
    */
-  color?: string
+  color?: string;
 }>()
 
 defineEmits<{ (e: "update:modelValue", v: string | number): void }>()
@@ -43,11 +47,13 @@ const slots = useSlots()
 function getVNodeProps(v: VNode | unknown) {
   const node = v as VNodeWithProps
 
-  return (node && typeof node === "object" && "props" in node) ? (node.props ?? null) : null
+  return (node && typeof node === "object" && "props" in node)
+    ? (node.props ?? null)
+    : null
 }
 
 function isUiTab(v: VNode | unknown) {
-  const asAny = v as unknown as { type?: { name?: string } }
+  const asAny = v as unknown as { "type"?: { name?: string } }
 
   return asAny?.type?.name === "UiTab"
 }
@@ -57,7 +63,10 @@ const tabs = (slots.default?.() || [])
   .map((v: VNode | unknown) => {
     const p = getVNodeProps(v) as Record<string, unknown> | null
 
-    return { text: (p?.text as string) || "", value: (p?.value as string | number) }
+    return {
+      text: (p?.text as string) || "",
+      value: (p?.value as string | number),
+    }
   }) as Tab[]
 </script>
 

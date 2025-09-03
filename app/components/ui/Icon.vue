@@ -9,13 +9,14 @@
 <script setup lang="ts">
 import type { Component } from "vue"
 
+/* eslint-disable @stylistic/object-curly-newline */
 defineProps<{
-
   /**
    * The icon component to render
    */
-  icon?: Component
+  icon?: Component;
 }>()
+/* eslint-enable @stylistic/object-curly-newline */
 </script>
 
 <style scoped lang="scss">

@@ -8,11 +8,11 @@ defineProps<{
   /**
    * Label shown on the tab header button
    */
-  text: string
+  text: string;
 
   /**
    * Unique value identifying the tab
    */
-  value: string | number
+  value: string | number;
 }>()
 </script>

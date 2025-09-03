@@ -5,23 +5,17 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// Different from what you see ? I include private repos here too :)
-const projectsNumber = ref(65)
+const projectsNumber = ref(58)
 const usersNumber = ref(46568)
 const projectsLoc = computed(() => ({
   // active
   "ban-all-except-admins": 441,
   "better-maps": 13863,
   "booleanfix": 534,
-  // "boubot": 4177,
   "bulk-youtube-download": 293,
-  // "cursedChess-bot": 2658,
-  // "DiceWizard": 2741,
   "dotfiles": 35267,
-  "EDM115": 296,
-  "website": 11337,
-  "website-v1": 137999,
-  // "edm115.fot.one / edm115.shadd.eu.org / edm115.ethar.xyz / walad.link/edm115": 384 + 3061,
+  "EDM115": 192,
+  "website": 20250,
   "EDM115.github.io": 90,
   "EDM115-discord-bot": 1198,
   "EDM115-ohmyposh-theme": 671,
@@ -30,9 +24,10 @@ const projectsLoc = computed(() => ({
   "jean-marie-bot": 1984,
   "js-imports-sort": 3549,
   "learning-stack": 18412,
+  "llm-benchmark-demo": 11040,
   "Markdown_Syntax_FR": 674,
-  "monorepo-hash": 4101,
-  "obsidian": 10246,
+  "monorepo-hash": 4202,
+  "obsidian": 18466,
   "palex": 5552,
   "random-algorithm": 370491 - 370118,
   "school-codes": 3379,
@@ -41,9 +36,8 @@ const projectsLoc = computed(() => ({
   "telegram-auto-upload-folder": 369,
   "telegram-backup-dump": 512,
   "The-Very-Restrictive-License": 311,
-  // "ThunderBot": 2196,
-  "unrar-alpine": 1689,
-  "unzip-bot": 7469,
+  "unrar-alpine": 1699,
+  "unzip-bot": 7447,
   "useful-stuff": 794,
   "VGM-KHI-download": 310,
   "web-logs": 303,
@@ -70,22 +64,27 @@ const projectsLoc = computed(() => ({
   "vscode-extension-test": 2750,
   "Werewolf_Discord_bot": 70,
 }))
-const linesOfCode = computed(() => Object.values(projectsLoc.value).reduce((acc, cur) => acc + cur, 0))
+const linesOfCode = computed(() => Object.values(projectsLoc.value)
+  .reduce((acc, cur) => acc + cur, 0))
 
 const stats = computed(() => [
-  { id: 0, name: t("stats.projects"), value: projectsNumber.value },
-  { id: 1, name: t("stats.users"), value: usersNumber.value },
-  { id: 2, name: t("stats.loc"), value: linesOfCode.value },
+  {
+    id: 0, name: t("stats.projects"), value: projectsNumber.value,
+  },
+  {
+    id: 1, name: t("stats.users"), value: usersNumber.value,
+  },
+  {
+    id: 2, name: t("stats.loc"), value: linesOfCode.value,
+  },
 ])
 
 async function fetchProjectsNumber() {
   try {
-    const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", {
-      headers: {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    })
+    const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", { headers: {
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    } })
 
     projectsNumber.value = public_repos
   } catch (error) {

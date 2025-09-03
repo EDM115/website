@@ -48,15 +48,23 @@ export default defineNuxtConfig({
       title: "EDM115 - French dev/gamer/music producer",
       meta: [
         { name: "darkreader-lock" },
-        { name: "description", content: "Find all infos about EDM115, his projects, blog posts, ..." },
+        {
+          name: "description", content: "Find all infos about EDM115, his projects, blog posts, ...",
+        },
       ],
-      htmlAttrs: {
-        lang: "en",
-      },
-      link: [{ rel: "icon", type: "image/webp", href: "/img/profile-img.webp" }],
+      htmlAttrs: { lang: "en" },
+      link: [
+        {
+          "rel": "icon", "type": "image/webp", "href": "/img/profile-img.webp",
+        },
+      ],
     },
-    layoutTransition: { name: "layout", mode: "out-in" },
-    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: {
+      name: "layout", mode: "out-in",
+    },
+    pageTransition: {
+      name: "page", mode: "out-in",
+    },
   },
   css: [
     "~/assets/styles/classes.scss",
@@ -79,12 +87,8 @@ export default defineNuxtConfig({
     client: true,
     server: true,
   },
-  devServer: {
-    port: 8888,
-  },
-  future: {
-    typescriptBundlerResolution: true,
-  },
+  devServer: { port: 8888 },
+  future: { typescriptBundlerResolution: true },
   experimental: {
     asyncContext: true,
     browserDevtoolsTiming: true,
@@ -92,12 +96,13 @@ export default defineNuxtConfig({
     clientFallback: true,
     clientNodeCompat: true,
     crossOriginPrefetch: true,
-    defaults: {
-      nuxtLink: {
-        prefetch: true,
-        prefetchOn: { interaction: true, visibility: false },
+    defaults: { nuxtLink: {
+      prefetch: true,
+      prefetchOn: {
+        interaction: true, visibility: false,
       },
-    },
+    } },
+    entryImportMap: true,
     inlineRouteRules: true,
     normalizeComponentNames: true,
     parseErrorData: true,
@@ -111,35 +116,25 @@ export default defineNuxtConfig({
       brotli: true,
       gzip: true,
     },
-    esbuild: {
-      options: {
-        target: "esnext",
-      },
-    },
+    esbuild: { options: { target: "esnext" } },
     minify: true,
-    rollupConfig: {
-      output: {
-        compact: true,
-        validate: true,
-      },
-    },
+    rollupConfig: { output: {
+      compact: true,
+      validate: true,
+    } },
   },
   vite: {
     build: {
       chunkSizeWarningLimit: 2000,
       cssMinify: "lightningcss",
-      rollupOptions: {
-        output: {
-          compact: true,
-          validate: true,
-        },
-      },
+      rollupOptions: { output: {
+        compact: true,
+        validate: true,
+      } },
     },
     clearScreen: false,
     plugins: [
-      Icons({
-        compiler: "vue3",
-      }),
+      Icons({ compiler: "vue3" }),
       Markdown({
         headEnabled: true,
         markdownItOptions: {
@@ -173,9 +168,7 @@ export default defineNuxtConfig({
           md.use(imgLazyload)
           md.use(imgSize)
           md.use(spoiler)
-          md.use(tab, {
-            name: "tabs",
-          })
+          md.use(tab, { name: "tabs" })
           md.use(tasklist)
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state
@@ -236,41 +229,31 @@ export default defineNuxtConfig({
         dirs: [ "app/components", "components" ],
         extensions: [ "vue", "md" ],
         include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
-        resolvers: [
-          IconsResolver({
-            prefix: "Icon",
-          }),
-        ],
+        resolvers: [IconsResolver({ prefix: "Icon" })],
         sourcemap: true,
         version: 3,
       }),
     ],
-    vue: {
-      include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
-    },
+    vue: { include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ] },
   },
   typescript: {
-    tsConfig: {
-      compilerOptions: {
-        allowArbitraryExtensions: true,
-        checkJs: true,
-        disableSizeLimit: true,
-        emitDecoratorMetadata: true,
-        experimentalDecorators: true,
-        incremental: true,
-        noErrorTruncation: true,
-        preserveWatchOutput: true,
-        removeComments: true,
-      },
-    },
+    tsConfig: { compilerOptions: {
+      allowArbitraryExtensions: true,
+      checkJs: true,
+      disableSizeLimit: true,
+      emitDecoratorMetadata: true,
+      experimentalDecorators: true,
+      incremental: true,
+      noErrorTruncation: true,
+      preserveWatchOutput: true,
+      removeComments: true,
+    } },
     typeCheck: true,
   },
-  eslint: {
-    config: {
-      autoInit: false,
-      standalone: false,
-    },
-  },
+  eslint: { config: {
+    autoInit: false,
+    standalone: false,
+  } },
 
   /* feed: {
     sources: [
@@ -297,56 +280,44 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: false,
     },
-    experimental: {
-      typedOptionsAndMessages: "all",
-    },
+    experimental: { typedOptionsAndMessages: "all" },
     locales: [
-      { code: "en", name: "English", language: "en-US" },
-      { code: "fr", name: "Français", language: "fr-FR" },
+      {
+        code: "en", name: "English", language: "en-US",
+      },
+      {
+        code: "fr", name: "Français", language: "fr-FR",
+      },
     ],
     strategy: "no_prefix",
     vueI18n: "./i18n.config.ts",
   },
-  image: {
-    quality: 100,
-  },
-  linkChecker: {
-    report: {
-      html: true,
-      markdown: true,
-      json: true,
-    },
-  },
-  ogImage: {
-    // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
-    enabled: false,
-  },
-  schemaOrg: {
-    identity: definePerson({
-      name: "EDM115",
-      image: "/img/profile-img.webp",
-      description: "EDM115 - French dev/gamer/music producer",
-      url: "https://edm115.dev",
-      sameAs: [
-        "https://www.linkedin.com/in/edm115",
-        "https://github.com/edm115",
-        "https://x.com/_EDM115",
-        "https://www.reddit.com/user/EDM115",
-      ],
-    }),
-  },
-  seo: {
-    automaticDefaults: false,
-  },
-  sitemap: {
-    cacheMaxAgeSeconds: 432000,
-  },
+  image: { quality: 100 },
+  linkChecker: { report: {
+    html: true,
+    markdown: true,
+    json: true,
+  } },
+  // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
+  ogImage: { enabled: false },
+  schemaOrg: { identity: definePerson({
+    name: "EDM115",
+    image: "/img/profile-img.webp",
+    description: "EDM115 - French dev/gamer/music producer",
+    url: "https://edm115.dev",
+    sameAs: [
+      "https://www.linkedin.com/in/edm115",
+      "https://github.com/edm115",
+      "https://x.com/_EDM115",
+      "https://www.reddit.com/user/EDM115",
+    ],
+  }) },
+  seo: { automaticDefaults: false },
+  sitemap: { cacheMaxAgeSeconds: 432000 },
   svgo: {
     autoImportPath: "./public/img",
     defaultImport: "component",
     dts: true,
-    svgoConfig: {
-      multipass: true,
-    },
+    svgoConfig: { multipass: true },
   },
 })

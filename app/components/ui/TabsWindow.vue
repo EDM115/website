@@ -5,15 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { provide, toRef } from "vue"
-
+/* eslint-disable @stylistic/object-curly-newline */
 const props = defineProps<{
-
   /**
    * Value of the active tab to show
-  */
-  modelValue: string | number
+   */
+  modelValue: string | number;
 }>()
+/* eslint-enable @stylistic/object-curly-newline */
 
 provide("uiTabsModel", toRef(props, "modelValue"))
 </script>

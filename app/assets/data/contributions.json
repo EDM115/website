@@ -208,6 +208,22 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 64,
+    "name": "eslint-stylistic/eslint-stylistic",
+    "description": "object-curly-newline: minProperties option doesn't respect comments",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/eslint-stylistic/eslint-stylistic/issues/971"
+  },
+  {
+    "id": 63,
+    "name": "dracula/leetcode",
+    "description": "Stylus couldn't read the UserCSS",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/dracula/leetcode/issues/2"
+  },
+  {
     "id": 62,
     "name": "oxc-project/oxc",
     "description": "linter: type-aware checking won't work in the VS Code extension when Node is dynamically added to the path",

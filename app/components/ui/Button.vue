@@ -75,25 +75,25 @@ const props = defineProps<{
    * Size of the button
    * @default "md"
    */
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg";
 
   /**
    * The text to display inside the button  
    * If an `icon` is provided, the text won't be rendered  
    * If you pass a children element to an `UiButton` with `text` set, only the text will be rendered
    */
-  text?: string
+  text?: string;
 
   /**
    * The link to navigate to when the button is clicked  
    * Uses `NuxtLink` under the hood for prefetching
    */
-  link?: string
+  link?: string;
 
   /**
    * The color of the button
    */
-  color?: keyof typeof colorVars
+  color?: keyof typeof colorVars;
 
   /**
    * The variant of the button  
@@ -104,45 +104,47 @@ const props = defineProps<{
   * - `frosted` : Glassy frosted background with blur
    * @default "elevated"
    */
-  variant?: "elevated" | "outlined" | "tonal" | "flat" | "frosted"
+  variant?: "elevated" | "outlined" | "tonal" | "flat" | "frosted";
 
   /**
    * Makes the button into a Floating Action Button  
    * If enabled, will stick it to a corner of the screen  
    * When no value is provided, it defaults to `bottom right`
    */
-  fab?: boolean | "bottom right" | "bottom left" | "top right" | "top left"
+  fab?: boolean | "bottom right" | "bottom left" | "top right" | "top left";
 
   /**
    * Transforms the button into a circular shape with the icon displayed in the middle  
    * No text can be rendered this way
    */
-  icon?: Component
+  icon?: Component;
 
   /**
    * Inserts an icon at before the text
    */
-  prependIcon?: Component
+  prependIcon?: Component;
 
   /**
    * Inserts an icon at after the text
    */
-  appendIcon?: Component
+  appendIcon?: Component;
 
   /**
    * Disables any interaction with the button
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Aria label for accessibility
    */
-  aria?: string
+  aria?: string;
 }>()
 
 function fabClassBuilder(fab: boolean | string): string {
   if (typeof fab === "boolean") {
-    return fab ? "ui-btn--fab ui-btn--fab--bottom-right" : ""
+    return fab
+      ? "ui-btn--fab ui-btn--fab--bottom-right"
+      : ""
   } else {
     return `ui-btn--fab ui-btn--fab--${fab.replace(" ", "-")}`
   }
@@ -152,12 +154,24 @@ const classes = computed(() => [
   "ui-btn",
   `ui-btn--${props.size ?? "md"}`,
   `ui-btn--${props.variant ?? "elevated"}`,
-  props.color ? `ui-btn--${props.color}` : "",
-  props.icon ? "ui-btn--icon-only" : "",
-  props.prependIcon ? "ui-btn--icon-prepend" : "",
-  props.appendIcon ? "ui-btn--icon-append" : "",
-  props.fab ? fabClassBuilder(props.fab) : "",
-  props.disabled ? "ui-btn--disabled" : "",
+  props.color
+    ? `ui-btn--${props.color}`
+    : "",
+  props.icon
+    ? "ui-btn--icon-only"
+    : "",
+  props.prependIcon
+    ? "ui-btn--icon-prepend"
+    : "",
+  props.appendIcon
+    ? "ui-btn--icon-append"
+    : "",
+  props.fab
+    ? fabClassBuilder(props.fab)
+    : "",
+  props.disabled
+    ? "ui-btn--disabled"
+    : "",
 ])
 </script>
 

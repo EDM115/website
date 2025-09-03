@@ -29,20 +29,19 @@
 </template>
 
 <script setup lang="ts">
-import { type FunctionalComponent, type SVGAttributes } from "vue"
+import {
+  type FunctionalComponent,
+  type SVGAttributes,
+} from "vue"
 
-const props = defineProps<{
-  stats: {
-    id: number
-    name: string
-    value: number
-    icon?: FunctionalComponent<SVGAttributes>
-  }[]
-}>()
+const props = defineProps<{ stats: {
+  id: number;
+  name: string;
+  value: number;
+  icon?: FunctionalComponent<SVGAttributes>;
+}[]; }>()
 
-interface OdometerInstance {
-  update: (value: number)=> void
-}
+interface OdometerInstance { update: (value: number)=> void }
 
 function formatZeros(value: number): string {
   const len = value.toString().length
@@ -69,64 +68,73 @@ onMounted(async () => {
         }
       })
     },
-    { root: null, rootMargin: "0px", threshold: 0.8 },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.8,
+    },
   )
 
   // dynamically load tm-odometer in browser
   const TmOdometer = (await import("tm-odometer")).default
 
-  document.querySelectorAll(".odometer").forEach((el, idx) => {
-    const odo = new TmOdometer({
-      el: el as HTMLElement,
-      value: 0,
-      animation: "slide",
-      duration: 8000,
-      format: "( ddd)",
-    })
-
-    el.classList.remove("mockup-odometer")
-    odos.value[idx] = odo
-    observer?.observe(el)
-
-    function applyDigitGrouping(container: HTMLElement) {
-      const allDigits = Array.from(container.querySelectorAll<HTMLElement>(".odometer-digit"))
-      const visibleDigits = allDigits.filter((d) => {
-        const val = d.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
-
-        return val.trim() !== ""
+  document.querySelectorAll(".odometer")
+    .forEach((el, idx) => {
+      const odo = new TmOdometer({
+        el: el as HTMLElement,
+        value: 0,
+        animation: "slide",
+        duration: 8000,
+        format: "( ddd)",
       })
 
-      allDigits.forEach((d) => {
-        d.classList.remove("group-left", "group-right", "both-groups")
-      })
+      el.classList.remove("mockup-odometer")
+      odos.value[idx] = odo
+      observer?.observe(el)
 
-      let i = visibleDigits.length
-      const groups: HTMLElement[][] = []
+      function applyDigitGrouping(container: HTMLElement) {
+        const allDigits = Array.from(container.querySelectorAll<HTMLElement>(".odometer-digit"))
+        const visibleDigits = allDigits.filter((d) => {
+          const val = d.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
 
-      while (i > 0) {
-        const start = Math.max(0, i - 3)
+          return val.trim() !== ""
+        })
 
-        groups.unshift(visibleDigits.slice(start, i))
-        i -= 3
+        allDigits.forEach((d) => {
+          d.classList.remove("group-left", "group-right", "both-groups")
+        })
+
+        let i = visibleDigits.length
+        const groups: HTMLElement[][] = []
+
+        while (i > 0) {
+          const start = Math.max(0, i - 3)
+
+          groups.unshift(visibleDigits.slice(start, i))
+          i -= 3
+        }
+
+        groups.forEach((group) => {
+          if (group.length === 1) {
+            group[0]?.classList.add("both-groups")
+          } else {
+            group[0]?.classList.add("group-left")
+            group[group.length - 1]?.classList.add("group-right")
+          }
+        })
       }
 
-      groups.forEach((group) => {
-        if (group.length === 1) {
-          group[0]?.classList.add("both-groups")
-        } else {
-          group[0]?.classList.add("group-left")
-          group[group.length - 1]?.classList.add("group-right")
-        }
+      applyDigitGrouping(el as HTMLElement)
+
+      const mo = new MutationObserver(() => applyDigitGrouping(el as HTMLElement))
+
+      mo.observe(el as HTMLElement, {
+        childList: true,
+        subtree: true,
+        characterData: true,
       })
-    }
-
-    applyDigitGrouping(el as HTMLElement)
-
-    const mo = new MutationObserver(() => applyDigitGrouping(el as HTMLElement))
-
-    mo.observe(el as HTMLElement, { childList: true, subtree: true, characterData: true })
-    digitObservers.value[idx] = mo
-  })
+      digitObservers.value[idx] = mo
+    })
 
   odometersReady.value = true
 })

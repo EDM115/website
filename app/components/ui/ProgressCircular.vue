@@ -35,27 +35,27 @@ const props = defineProps<{
   /**
    * Progress percentage (0-100) when determinate
    */
-  modelValue?: number
+  modelValue?: number;
 
   /**
    * Shows an indeterminate spinner
    */
-  indeterminate?: boolean
+  indeterminate?: boolean;
 
   /**
    * Size in pixels of the spinner square
    */
-  size?: number
+  size?: number;
 
   /**
    * Stroke width for the circle in pixels
    */
-  width?: number
+  width?: number;
 
   /**
    * CSS color for the progress stroke
    */
-  color?: string
+  color?: string;
 }>()
 
 const size = computed(() => props.size ?? 40)
@@ -72,7 +72,10 @@ const dashOffset = computed(() => {
   return circumference * (1 - (val / 100))
 })
 
-const sizeStyle = computed(() => ({ width: `${size.value}px`, height: `${size.value}px` }))
+const sizeStyle = computed(() => ({
+  width: `${size.value}px`,
+  height: `${size.value}px`,
+}))
 </script>
 
 <style scoped lang="scss">

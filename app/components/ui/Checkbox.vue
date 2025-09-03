@@ -46,69 +46,70 @@ const props = defineProps<{
   /**
    * The checked state of the checkbox (v-model)
    */
-  modelValue?: boolean
+  modelValue?: boolean;
 
   /**
    * Optional color theme for the control
    */
-  color?: keyof typeof colorVars
+  color?: keyof typeof colorVars;
 
   /**
    * Render as a toggle (switch) instead of a square checkbox
    */
-  toggle?: boolean
+  toggle?: boolean;
 
   /**
    * When true, shows an indeterminate state (only for the default checkbox)
    */
-  indeterminate?: boolean
+  indeterminate?: boolean;
 
   /**
    * Disable interaction
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Optional label text when no default slot is provided
    */
-  label?: string
+  label?: string;
 
   /**
    * Checkbox ID
    */
-  id?: string
+  id?: string;
 
   /**
    * Checkbox name
    */
-  name?: string
+  name?: string;
 
   /**
    * Checkbox value
    */
-  value?: string
+  value?: string;
 
   /**
    * Aria label when no visible label is present
    */
-  aria?: string
+  aria?: string;
 }>()
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: boolean): void
-  (e: "change", value: boolean): void
-  (e: "focus"): void
-  (e: "blur"): void
+  (e: "update:modelValue", value: boolean): void;
+  (e: "change", value: boolean): void;
+  (e: "focus"): void;
+  (e: "blur"): void;
 }>()
 
 const inputEl = ref<HTMLInputElement | null>(null)
 
 const model = computed<boolean>({
-  get: () => props.modelValue ?? false,
-  set: (val) => {
+  "get": () => props.modelValue ?? false,
+  "set": (val) => {
     if (props.disabled) {
       return
     }
+
     emit("update:modelValue", val)
     emit("change", val)
   },

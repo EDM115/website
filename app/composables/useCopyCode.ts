@@ -16,16 +16,17 @@ export function useCopyCode() {
     const codeEl = block?.querySelector("pre code")
     const text = codeEl?.textContent ?? ""
 
-    void navigator.clipboard.writeText(text).then(() => {
-      const orig = btn.textContent
+    void navigator.clipboard.writeText(text)
+      .then(() => {
+        const orig = btn.textContent
 
-      btn.textContent = "Copied !"
-      btn.classList.add("copy-code-button-clicked")
-      setTimeout(() => {
-        btn.textContent = orig
-        btn.classList.remove("copy-code-button-clicked")
-      }, 3000)
-    })
+        btn.textContent = "Copied !"
+        btn.classList.add("copy-code-button-clicked")
+        setTimeout(() => {
+          btn.textContent = orig
+          btn.classList.remove("copy-code-button-clicked")
+        }, 3000)
+      })
   }
 
   onMounted(() => {

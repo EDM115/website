@@ -79,8 +79,8 @@ import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
 
 interface Props {
-  name: string
-  branch?: string
+  name: string;
+  branch?: string;
 }
 
 const props = defineProps<Props>()
@@ -121,9 +121,7 @@ const md = new MarkdownIt({
   .use(imgLazyload)
   .use(imgSize)
   .use(spoiler)
-  .use(tab, {
-    name: "tabs",
-  })
+  .use(tab, { name: "tabs" })
   .use(tasklist)
 
 md.core.ruler.push("heading_copy_icon", (state) => {
@@ -198,9 +196,7 @@ async function fetchReadme() {
   let branch = props.branch || "master"
 
   try {
-    const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
-      retry: 1,
-    })
+    const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, { retry: 1 })
 
     markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
     loading.value = false
@@ -208,9 +204,7 @@ async function fetchReadme() {
     branch = "main"
 
     try {
-      const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, {
-        retry: 1,
-      })
+      const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, { retry: 1 })
 
       markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
       loading.value = false
@@ -229,12 +223,12 @@ async function getRepoDetails() {
   }
 
   try {
-    const { data } = await useFetch<{ full_name: string; description?: string }>(`https://api.github.com/repos/${props.name}`, {
-      headers: {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    })
+    const { data } = await useFetch<{
+      full_name: string; description?: string;
+    }>(`https://api.github.com/repos/${props.name}`, { headers: {
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    } })
 
     if (!data.value) {
       throw new Error("Repository not found")

@@ -13,13 +13,14 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable @stylistic/object-curly-newline */
 defineProps<{
-
   /**
    * Whether the background gets transparent
    */
-  invisible?: boolean
+  invisible?: boolean;
 }>()
+/* eslint-enable @stylistic/object-curly-newline */
 </script>
 
 <style scoped lang="scss">
