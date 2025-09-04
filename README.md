@@ -1,8 +1,8 @@
 # `EDM115/website`
-Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time preview of the latest commit at [edm115.netlify.app](https://edm115.netlify.app))
+Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time preview of the latest commit at [next.edm115.dev](https://next.edm115.dev))
 
-[![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)  
-[![DeepSource](https://app.deepsource.com/gh/EDM115/website.svg/?label=resolved+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
+[![DeepSource - Active issues](https://app.deepsource.com/gh/EDM115/website.svg/?label=active+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)  
+[![DeepSource - Resolved issues](https://app.deepsource.com/gh/EDM115/website.svg/?label=resolved+issues&show_trend=true&token=N0wq5KKIR-8bZ-Jsa88xTbRm)](https://app.deepsource.com/gh/EDM115/website/)
 
 ## Contributing
 Start :
@@ -24,7 +24,7 @@ pnpm build
 pnpm start:ssr
 ```
 
-Test the actual builds :
+Test the actual rendered builds :
 ```bash
 pnpm generate
 pnpm start:ssg
@@ -90,6 +90,14 @@ server {
             proxy_pass http://127.0.0.1:27400;
         }
 
+        if ($host ~* ^senescalade\.) {
+            return 301 https://github.com/EDM115-org/Senescalade;
+        }
+        
+        if ($host ~* ^next\.) {
+            return 301 https://edm115.netlify.app$request_uri;
+        }
+
         # Also pass URL params
         if ($host ~* ^next\.) {
             return 301 https://edm115.netlify.app$request_uri;
@@ -97,7 +105,7 @@ server {
 
         root /home/edm115/website/dist;
         index index.html;
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/index.html /index.html;
     }
 }
 ```

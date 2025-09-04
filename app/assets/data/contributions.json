@@ -208,12 +208,20 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
-    "id": 64,
+    "id": 65,
     "name": "eslint-stylistic/eslint-stylistic",
     "description": "object-curly-newline: minProperties option doesn't respect comments",
     "type": "issue",
     "state": "open",
     "link": "https://github.com/eslint-stylistic/eslint-stylistic/issues/971"
+  },
+  {
+    "id": 64,
+    "name": "cnrad/lanyard-profile-readme",
+    "description": "[FEATURE REQUEST] Allow to customize the text color as well",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/cnrad/lanyard-profile-readme/issues/77"
   },
   {
     "id": 63,

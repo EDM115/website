@@ -123,6 +123,7 @@ export default defineNuxtConfig({
     build: {
       chunkSizeWarningLimit: 2000,
       cssMinify: "lightningcss",
+
       /* rollupOptions: {
         output: {
           /// @ts-expect-error Exists in rolldown

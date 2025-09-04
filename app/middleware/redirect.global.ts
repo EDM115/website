@@ -1,17 +1,20 @@
-// skipcq: JS-0045
-let redirected = false
-
 export default defineNuxtRouteMiddleware((to, _from) => {
   if (to.path.endsWith(".html")) {
-    redirected = true
-
-    return navigateTo(to.path.replace(".html", ""))
+    return navigateTo({
+      path: to.path.replace(".html", ""),
+      hash: to.hash,
+      query: to.query,
+      replace: true,
+    })
   }
 
   if (to.path.endsWith("/") && to.path !== "/") {
-    redirected = true
-
-    return navigateTo(to.path.slice(0, -1))
+    return navigateTo({
+      path: to.path.slice(0, -1),
+      hash: to.hash,
+      query: to.query,
+      replace: true,
+    })
   }
 
   const router = useRouter()
@@ -20,7 +23,8 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     "/web/cv2",
   ]
   const routeExists = router.getRoutes()
-    .some((route) => route.path === to.path) || publicPaths.includes(to.path)
+    .some((route) => route.path === to.path)
+    || publicPaths.includes(to.path)
 
   if (!routeExists) {
     const internalMap: Record<string, string> = {
@@ -35,38 +39,45 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       "/underrated": "https://edm115.github.io/underrated-producers-list",
     }
 
-    if (Object.keys(internalMap)
-      .some((route) => to.path.startsWith(route))) {
-      const match = Object.keys(internalMap)
-        .find((route) => to.path.startsWith(route))
+    const internal = Object.keys(internalMap)
+      .find((route) => to.path.startsWith(route))
 
-      if (match) {
-        redirected = true
-
-        return navigateTo(internalMap[match])
-      }
+    if (internal) {
+      return navigateTo({
+        path: internalMap[internal],
+        hash: to.hash,
+        query: to.query,
+        replace: true,
+      })
     }
 
-    if (Object.keys(externalMap)
-      .some((route) => to.path.startsWith(route))) {
-      const match = Object.keys(externalMap)
-        .find((route) => to.path.startsWith(route))
+    const external = Object.keys(externalMap)
+      .find((route) => to.path.startsWith(route))
 
-      if (match) {
-        redirected = true
+    if (external) {
+      const url = new URL(externalMap[external] ?? "")
 
-        return navigateTo(externalMap[match], { external: true })
+      if (to.hash) {
+        url.hash = to.hash
       }
+
+      if (to.query && Object.keys(to.query).length) {
+        // oxlint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+        url.search = new URLSearchParams(to.query as Record<string, string>)
+          .toString()
+      }
+
+      return navigateTo(url.toString(), { external: true })
     }
 
     if (to.path.startsWith("/blog/")) {
-      redirected = true
-
-      return navigateTo("/blog")
+      return navigateTo({
+        path: "/blog", hash: to.hash, query: to.query, replace: true,
+      })
     }
 
-    if (!redirected) {
-      return navigateTo("/")
-    }
+    return navigateTo({
+      path: "/", hash: to.hash, query: to.query, replace: true,
+    })
   }
 })

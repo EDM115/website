@@ -127,6 +127,7 @@ addEventListener("message", (e: MessageEvent) => {
 
   switch (msg.type) {
     case "init": {
+      // oxlint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       const canvas = msg.canvas as OffscreenCanvas
 
       fps = Math.max(10, Math.min(60, msg.fps ?? 30))
