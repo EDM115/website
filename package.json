@@ -48,7 +48,7 @@
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
     "@typescript-eslint/parser": "~8.42.0",
-    "eslint": "~9.34.0",
+    "eslint": "~9.35.0",
     "eslint-plugin-vue": "~10.4.0",
     "globals": "~16.3.0",
     "jiti": "~2.5.1",
