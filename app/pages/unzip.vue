@@ -151,12 +151,12 @@ import octiconStar from "~icons/octicon/star-16"
 
 const { t } = useI18n()
 
-const stars = ref(112)
-const forks = ref(155)
-const days = ref(1190)
-const loc = ref(7541)
+let stars = 112
+let forks = 155
+let days = 1190
+let loc = 7541
 
-const stats = computed(() => [
+const stats = [
   {
     id: 0,
     name: t("unzip.stats.users"),
@@ -166,25 +166,25 @@ const stats = computed(() => [
   {
     id: 1,
     name: t("unzip.stats.stars"),
-    value: stars.value,
+    value: stars,
     icon: octiconStar,
   },
   {
     id: 2,
     name: t("unzip.stats.forks"),
-    value: forks.value,
+    value: forks,
     icon: octiconRepoForked,
   },
   {
     id: 3,
     name: t("unzip.stats.days"),
-    value: days.value,
+    value: days,
     icon: mdiCalendarRangeOutline,
   },
   {
     id: 4,
     name: t("unzip.stats.loc"),
-    value: loc.value,
+    value: loc,
     icon: mdiCode,
   },
   {
@@ -205,9 +205,9 @@ const stats = computed(() => [
     value: 1494212,
     icon: biHdd,
   },
-])
+]
 
-const issues = computed(() => ([
+const issues = [
   {
     name: "[Errno 2] No such file or directory: '/app/Downloaded/{ID}/{archive_name}.temp'",
     description: "There was an error during the renaming of your file",
@@ -280,7 +280,7 @@ const issues = computed(() => ([
     name: "Got another error ?",
     description: "Report it in the Telegram chat (@EDM115_chat)",
   },
-]))
+]
 
 useHead({
   title: t("unzip.head"),
@@ -363,19 +363,19 @@ async function getLoc() {
 }
 
 onMounted(async () => {
-  days.value = daysSinceLaunch()
+  days = daysSinceLaunch()
 
   const repoDetails = await getRepoDetails()
 
   if (repoDetails) {
-    stars.value = repoDetails.stars
-    forks.value = repoDetails.forks
+    stars = repoDetails.stars
+    forks = repoDetails.forks
   }
 
   const locValue = await getLoc()
 
   if (locValue !== 0) {
-    loc.value = locValue
+    loc = locValue
   }
 })
 </script>

@@ -40,7 +40,7 @@ useHead({
   ],
 })
 
-const projects = computed(() => [
+const projects = [
   {
     title: "unzip-bot",
     description: "Telegram bot deployable to heroku that can extract every archive !",
@@ -101,7 +101,7 @@ const projects = computed(() => [
     link: "/projects/the-very-restrictive-license",
     image: "/img/projects/the-very-restrictive-license.webp",
   },
-])
+]
 </script>
 
 <style lang="scss" scoped>

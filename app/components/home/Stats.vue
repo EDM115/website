@@ -5,9 +5,9 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const projectsNumber = ref(58)
-const usersNumber = ref(46568)
-const projectsLoc = computed(() => ({
+let projectsNumber = 57
+let usersNumber = 46568
+const projectsLoc = {
   // active
   "ban-all-except-admins": 441,
   "better-maps": 13863,
@@ -63,19 +63,17 @@ const projectsLoc = computed(() => ({
   "underrated-producers-list": 15095,
   "vscode-extension-test": 2750,
   "Werewolf_Discord_bot": 70,
-}))
-const linesOfCode = computed(() => Object.values(projectsLoc.value)
-  .reduce((acc, cur) => acc + cur, 0))
+}
 
 const stats = computed(() => [
   {
-    id: 0, name: t("stats.projects"), value: projectsNumber.value,
+    id: 0, name: t("stats.projects"), value: projectsNumber,
   },
   {
-    id: 1, name: t("stats.users"), value: usersNumber.value,
+    id: 1, name: t("stats.users"), value: usersNumber,
   },
   {
-    id: 2, name: t("stats.loc"), value: linesOfCode.value,
+    id: 2, name: t("stats.loc"), value: Object.values(projectsLoc).reduce((acc, cur) => acc + cur, 0),
   },
 ])
 
@@ -86,7 +84,7 @@ async function fetchProjectsNumber() {
       "X-GitHub-Api-Version": "2022-11-28",
     } })
 
-    projectsNumber.value = public_repos
+    projectsNumber = public_repos
   } catch (error) {
     console.error("Failed to fetch projects number :", error)
   }
@@ -94,9 +92,5 @@ async function fetchProjectsNumber() {
 
 onMounted(async () => {
   await fetchProjectsNumber()
-
-  if (stats.value[0] !== undefined && stats.value[0].value !== projectsNumber.value) {
-    stats.value[0].value = projectsNumber.value
-  }
 })
 </script>

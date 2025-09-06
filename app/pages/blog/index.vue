@@ -42,7 +42,7 @@ useHead({
 // summary prompt for GPT-5 Thinking mini :
 // here is your task : based on the following blog posts, you will generate a 2 sentence summary, without revealing too much, as these 2 sentences will serve as the blog post excerpt in the blog list
 
-const blogPosts = computed(() => [
+const blogPosts = [
   {
     id: 4,
     title: "How I migrated to Zod 4",
@@ -67,7 +67,7 @@ const blogPosts = computed(() => [
     description: "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. If you rely on Edu Shared Drives, expect many drives and links to disappear as administrators will face pooled quotas and tighter controls.",
     link: "/blog/2022/05/15/google-ending-shared-drives",
   },
-])
+]
 </script>
 
 <style lang="scss" scoped>

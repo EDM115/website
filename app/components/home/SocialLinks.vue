@@ -41,7 +41,7 @@ import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
 import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
 import simpleIconsRootme from "~icons/simple-icons/rootme"
 
-const socialLinks = computed(() => [
+const socialLinks = [
   {
     icon: mdiGithub,
     text: "GitHub",
@@ -147,7 +147,7 @@ const socialLinks = computed(() => [
     text: "YouTube",
     url: "https://youtube.com/@_EDM115",
   },
-])
+]
 </script>
 
 <style scoped>

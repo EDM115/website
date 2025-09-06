@@ -30,22 +30,9 @@
             color="text"
             variant="frosted"
             aria="Language switcher"
-            @mouseleave="i18nSwitch = false"
-            @mouseover="i18nSwitch = true"
-          >
-            <div v-if="i18nSwitch">
-              {{ getFlagEmoji(locale) }}
-            </div>
-            <div v-else>
-              <UiIcon :icon="mdiLanguage" />
-            </div>
-          </UiButton>
+          />
         </template>
-        <UiList
-          compact
-          @mouseleave="i18nSwitch = false"
-          @mouseover="i18nSwitch = true"
-        >
+        <UiList compact>
           <UiListItem
             v-for="l in availableLocales"
             :key="l"
@@ -82,8 +69,6 @@ const {
   toggleTheme,
 } = useCustomTheme()
 const route = useRoute()
-
-const i18nSwitch = ref(false)
 
 const availableLocales = [ "en", "fr" ] as const
 const iconTheme = computed(() => (isDark.value

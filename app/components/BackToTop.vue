@@ -19,10 +19,11 @@ import { useCustomTheme } from "~/composables/useCustomTheme"
 const { isDark } = useCustomTheme()
 const router = useRouter()
 
+let mounted = false
 const showGoToTop = ref(false)
-const mounted = ref(false)
+
 const variant = computed(() => {
-  if (!mounted.value) {
+  if (!mounted) {
     return "tonal"
   }
 
@@ -45,7 +46,7 @@ function handleScroll() {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
-  mounted.value = true
+  mounted = true
 })
 
 onUnmounted(() => {

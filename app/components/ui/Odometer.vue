@@ -51,9 +51,9 @@ function formatZeros(value: number): string {
 }
 
 let observer: IntersectionObserver | null = null
-const odos = ref<OdometerInstance[]>([])
-const digitObservers = ref<MutationObserver[]>([])
-const odometersReady = ref(false)
+let odometersReady = false
+let odos: OdometerInstance[] = []
+let digitObservers: MutationObserver[] = []
 
 onMounted(async () => {
   observer = new IntersectionObserver(
@@ -63,7 +63,7 @@ onMounted(async () => {
           const el = entry.target as HTMLElement
           const idx = Number(el.id.split("-")[1])
 
-          odos.value[idx]?.update(props.stats[idx]?.value ?? 0)
+          odos[idx]?.update(props.stats[idx]?.value ?? 0)
           observer?.unobserve(el)
         }
       })
@@ -89,7 +89,7 @@ onMounted(async () => {
       })
 
       el.classList.remove("mockup-odometer")
-      odos.value[idx] = odo
+      odos[idx] = odo
       observer?.observe(el)
 
       function applyDigitGrouping(container: HTMLElement) {
@@ -133,26 +133,26 @@ onMounted(async () => {
         subtree: true,
         characterData: true,
       })
-      digitObservers.value[idx] = mo
+      digitObservers[idx] = mo
     })
 
-  odometersReady.value = true
+  odometersReady = true
 })
 
 onBeforeUnmount(() => {
   observer?.disconnect()
-  digitObservers.value.forEach((m) => m.disconnect())
-  digitObservers.value = []
+  digitObservers.forEach((m) => m.disconnect())
+  digitObservers = []
 })
 
 watch(
   () => props.stats.map((s) => s.value),
   (vals) => {
-    if (!odometersReady.value) {
+    if (!odometersReady) {
       return
     }
 
-    vals.forEach((v, i) => odos.value[i]?.update(v))
+    vals.forEach((v, i) => odos[i]?.update(v))
   },
 )
 </script>
