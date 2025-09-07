@@ -117,7 +117,7 @@ const model = computed<boolean>({
 
 function syncIndeterminate() {
   if (inputEl.value) {
-    inputEl.value.indeterminate = !!props.indeterminate && !model.value
+    inputEl.value.indeterminate = Boolean(props.indeterminate) && !model.value
   }
 }
 

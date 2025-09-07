@@ -724,7 +724,7 @@ function handleEnableChange(v: boolean) {
 onMounted(() => {
   // listen for global toggle
   window.addEventListener("polychrome-toggle", (e: Event) => {
-    const v = !!(e as CustomEvent<boolean>).detail
+    const v = Boolean((e as CustomEvent<boolean>).detail)
 
     handleEnableChange(v)
   })
