@@ -14,7 +14,6 @@ let height = 0
 let running = false
 let fps = 30
 let frameInterval = 1000 / fps
-let tCaustics = 0
 let intensity = 0
 let quality = 1
 let lastTime = 0
@@ -67,7 +66,6 @@ function drawFrame(now: number) {
   }
 
   lastTime = now
-  tCaustics += 0.03
   const img = ctx.createImageData(width, height)
   const data = img.data
   const invW = 1 / width

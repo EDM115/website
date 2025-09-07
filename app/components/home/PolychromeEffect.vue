@@ -138,7 +138,7 @@ function setVars(x: number, y: number, amp = 1) {
     const hue = ((x * 360) + (y * 60)) % 360
 
     polyHueBase = hue
-    el.style.setProperty("--poly-hue", `${hue.toFixed(1)}deg`)
+    el.style.setProperty("--poly-hue", `${polyHueBase.toFixed(1)}deg`)
   }
 }
 
@@ -207,7 +207,7 @@ function computeQuality() {
   // very low memory heuristic (Chrome only has experimental API, so guess via cores)
   lowMemory = effectiveCores <= 2
 
-  if (prefersReducedMotion || hasSaveData) {
+  if (prefersReducedMotion || saveData) {
     return {
       enable: false,
       quality: 0.75,
