@@ -95,10 +95,8 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: boolean): void;
-  (e: "change", value: boolean): void;
-  (e: "focus"): void;
-  (e: "blur"): void;
+  (e: "update:modelValue" | "change", value: boolean): void;
+  (e: "focus" | "blur"): void;
 }>()
 
 const inputEl = ref<HTMLInputElement | null>(null)
