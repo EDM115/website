@@ -22,6 +22,7 @@ export function useCopySlug() {
 
     const url = `${location.origin}${location.pathname}#${slug}`
 
+    // skipcq: JS-0098
     void navigator.clipboard.writeText(url)
       .then(() => {
         const original = el.innerHTML
