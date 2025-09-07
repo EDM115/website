@@ -40,7 +40,7 @@ defineProps<{
   color?: string;
 }>()
 
-defineEmits<(e: "update:modelValue", v: string | number) => void>()
+defineEmits<(e: "update:modelValue", v: string | number)=> void>()
 
 const slots = useSlots()
 

@@ -73,7 +73,10 @@ const stats = computed(() => [
     id: 1, name: t("stats.users"), value: usersNumber,
   },
   {
-    id: 2, name: t("stats.loc"), value: Object.values(projectsLoc).reduce((acc, cur) => acc + cur, 0),
+    id: 2,
+    name: t("stats.loc"),
+    value: Object.values(projectsLoc)
+      .reduce((acc, cur) => acc + cur, 0),
   },
 ])
 

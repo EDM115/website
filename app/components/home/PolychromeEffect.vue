@@ -46,7 +46,7 @@ const props = defineProps<{
   alt?: boolean;
 }>()
 
-const emit = defineEmits<(e: "update:modelValue", v: boolean) => void>()
+const emit = defineEmits<(e: "update:modelValue", v: boolean)=> void>()
 
 const root = ref<HTMLElement | null>(null)
 const inner = ref<HTMLElement | null>(null)
