@@ -1,3 +1,4 @@
+// skipcq: JS-0045
 export default defineNuxtRouteMiddleware((to, _from) => {
   if (to.path.endsWith(".html")) {
     return navigateTo({
