@@ -6,7 +6,7 @@
 const { t } = useI18n()
 
 let projectsNumber = 57
-let usersNumber = 46568
+const usersNumber = 46568
 const projectsLoc = {
   // active
   "ban-all-except-admins": 441,

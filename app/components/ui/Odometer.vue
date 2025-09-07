@@ -143,6 +143,7 @@ onBeforeUnmount(() => {
   observer?.disconnect()
   digitObservers.forEach((m) => m.disconnect())
   digitObservers = []
+  odos = []
 })
 
 watch(
