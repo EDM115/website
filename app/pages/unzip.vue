@@ -315,7 +315,8 @@ function daysSinceLaunch() {
 async function getRepoDetails() {
   try {
     const { data } = await useFetch<{
-      stargazers_count: number; forks_count: number;
+      stargazers_count: number;
+      forks_count: number;
     }>("https://api.github.com/repos/EDM115/unzip-bot", { headers: {
       "Accept": "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
@@ -343,7 +344,8 @@ async function getRepoDetails() {
 async function getLoc() {
   try {
     const { data } = await useFetch<{
-      language: string; linesOfCode: number;
+      language: string;
+      linesOfCode: number;
     }[]>("https://api.codetabs.com/v1/loc?github=EDM115/unzip-bot&branch=v7-rework-part-1")
 
     if (!data.value) {

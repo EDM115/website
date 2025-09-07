@@ -224,7 +224,8 @@ async function getRepoDetails() {
 
   try {
     const { data } = await useFetch<{
-      full_name: string; description?: string;
+      full_name: string;
+      description?: string;
     }>(`https://api.github.com/repos/${props.name}`, { headers: {
       "Accept": "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",

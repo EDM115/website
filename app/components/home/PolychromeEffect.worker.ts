@@ -9,8 +9,8 @@
  */
 
 let ctx: OffscreenCanvasRenderingContext2D | null = null
-let w = 0
-let h = 0
+let width = 0
+let height = 0
 let running = false
 let fps = 30
 let frameInterval = 1000 / fps
@@ -25,10 +25,10 @@ const fract = (v: number) => v - Math.floor(v)
 const hash1 = (i: number, j: number) => fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
 // two randoms 0..1 per cell
 const rand2 = (i: number, j: number) => {
-  const a = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
-  const b = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
+  const fractA = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
+  const fractB = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
 
-  return [ a, b ] as const
+  return [ fractA, fractB ] as const
 }
 
 function drawFrame(now: number) {
@@ -47,19 +47,19 @@ function drawFrame(now: number) {
 
   lastTime = now
   tCaustics += 0.03
-  const img = ctx.createImageData(w, h)
+  const img = ctx.createImageData(width, height)
   const data = img.data
-  const invW = 1 / w
-  const invH = 1 / h
-  let p = 0
+  const invW = 1 / width
+  const invH = 1 / height
+  let pointer = 0
 
   // Scale controls how many cells across. Adjust slightly with quality.
   const SCALE = 8.5 * quality
 
-  for (let y = 0; y < h; y++) {
+  for (let y = 0; y < height; y++) {
     const py = (y + 0.5) * invH * SCALE
 
-    for (let x = 0; x < w; x++) {
+    for (let x = 0; x < width; x++) {
       const px = (x + 0.5) * invW * SCALE
 
       const ix = Math.floor(px)
@@ -105,16 +105,16 @@ function drawFrame(now: number) {
       // gentle softening
       edge = Math.pow(edge, 0.85)
       // final intensity, modulated by approach intensity for subtlety
-      const m = Math.max(0.0, Math.min(1.0, edge * (0.5 + (intensity * 0.7))))
+      const alphaMask = Math.max(0.0, Math.min(1.0, edge * (0.5 + (intensity * 0.7))))
 
-      data[p++] = 235
-      data[p++] = 245
-      data[p++] = 255
-      data[p++] = Math.floor(m * 255)
+      data[pointer++] = 235
+      data[pointer++] = 245
+      data[pointer++] = 255
+      data[pointer++] = Math.floor(alphaMask * 255)
     }
   }
 
-  ctx.clearRect(0, 0, w, h)
+  ctx.clearRect(0, 0, width, height)
   ctx.putImageData(img, 0, 0)
 
   setTimeout(() => {
@@ -139,8 +139,8 @@ addEventListener("message", (e: MessageEvent) => {
         alpha: true,
         desynchronized: true,
       })
-      w = msg.width
-      h = msg.height
+      width = msg.width
+      height = msg.height
       running = true
       lastTime = 0
       setTimeout(() => {
@@ -150,8 +150,8 @@ addEventListener("message", (e: MessageEvent) => {
       break
     }
     case "resize": {
-      w = msg.width
-      h = msg.height
+      width = msg.width
+      height = msg.height
 
       // nothing else to do, next frame will draw at new size
       break

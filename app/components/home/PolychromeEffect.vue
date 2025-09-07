@@ -90,7 +90,7 @@ let onWindowScroll: (()=> void) | null = null
 let fallbackRaf: number | null = null
 
 const MAX_DPR = props.maxDpr ?? 2
-const FPS = props.fps ?? 30
+const FPS = props.fps ?? 60
 
 function clamp(n: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, n))
@@ -144,12 +144,12 @@ function setVars(x: number, y: number, amp = 1) {
 
 function updateIntensityVars(el: HTMLElement) {
   // blend idle target toward pointer as proximity increases
-  const p = ease(proximity)
+  const easedProximity = ease(proximity)
 
   // update proximity-based intensity for CSS
   el.style.setProperty("--proximity", `${proximity.toFixed(3)}`)
-  el.style.setProperty("--intensity", `${p.toFixed(3)}`)
-  cssIntensity = p
+  el.style.setProperty("--intensity", `${easedProximity.toFixed(3)}`)
+  cssIntensity = easedProximity
 
   if (worker) {
     worker.postMessage({
@@ -173,14 +173,14 @@ function recalcPointerAndRect(doResize: boolean) {
   }
 
   if (lastClientX != null && lastClientY != null && lastRect) {
-    const x = clamp((lastClientX - lastRect.left) / lastRect.width)
-    const y = clamp((lastClientY - lastRect.top) / lastRect.height)
+    const xVal = clamp((lastClientX - lastRect.left) / lastRect.width)
+    const yVal = clamp((lastClientY - lastRect.top) / lastRect.height)
 
-    ptrX = x
-    ptrY = y
+    ptrX = xVal
+    ptrY = yVal
 
     if (isHovering) {
-      setVars(x, y, 1.12)
+      setVars(xVal, yVal, 1.12)
     }
 
     updateIntensityVars(el)
@@ -211,7 +211,7 @@ function computeQuality() {
     return {
       enable: false,
       quality: 0.75,
-      fps: 20,
+      fps: 15,
       dpr: 1,
     }
   }
@@ -219,8 +219,8 @@ function computeQuality() {
   if (lowMemory) {
     return {
       enable: true,
-      quality: 0.9,
-      fps: 24,
+      quality: 0.8,
+      fps: 20,
       dpr: 1,
     }
   }
@@ -229,7 +229,7 @@ function computeQuality() {
     return {
       enable: true,
       quality: 1.0,
-      fps: 28,
+      fps: 30,
       dpr: Math.min(MAX_DPR, 1.5),
     }
   }
@@ -288,9 +288,9 @@ function startCaustics() {
       worker = altRendering.value
         ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { "type": "module" })
         : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { "type": "module" })
-      const q = computeQuality()
+      const quality = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
-      const dpr = q.dpr
+      const dpr = quality.dpr
       const width = Math.max(96, Math.floor(rect.width * dpr * 0.7))
       const height = Math.max(96, Math.floor(rect.height * dpr * 0.7))
 
@@ -299,8 +299,8 @@ function startCaustics() {
         "canvas": offscreen,
         width,
         height,
-        "fps": q.fps,
-        "quality": q.quality,
+        "fps": quality.fps,
+        "quality": quality.quality,
       }, [offscreen])
       worker.postMessage({
         "type": "setIntensity",
@@ -328,7 +328,7 @@ function startCaustics() {
 
     let raf: number | null = null
     let last = 0
-    let t = 0
+    let time = 0
     const q = computeQuality()
     const interval = 1000 / q.fps
 
@@ -352,14 +352,14 @@ function startCaustics() {
       }
 
       last = now
-      t += 0.03
-      const w = cvs.width
-      const h = cvs.height
-      const img = ctx.createImageData(w, h)
+      time += 0.03
+      const width = cvs.width
+      const height = cvs.height
+      const img = ctx.createImageData(width, height)
       const data = img.data
-      const invW = 1 / w
-      const invH = 1 / h
-      let p = 0
+      const invW = 1 / width
+      const invH = 1 / height
+      let pointer = 0
       // Worley (cellular) noise field for organic cell-like caustics
       // World scale : how many cells across
       const SCALE = 8.5
@@ -369,16 +369,16 @@ function startCaustics() {
       const hash1 = (i: number, j: number) => fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
       // two randoms 0..1 per cell
       const rand2 = (i: number, j: number) => {
-        const a = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
-        const b = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
+        const fractA = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
+        const fractB = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
 
-        return [ a, b ] as const
+        return [ fractA, fractB ] as const
       }
 
-      for (let y = 0; y < h; y++) {
+      for (let y = 0; y < height; y++) {
         const py = (y + 0.5) * invH * SCALE
 
-        for (let x = 0; x < w; x++) {
+        for (let x = 0; x < width; x++) {
           const px = (x + 0.5) * invW * SCALE
           const ix = Math.floor(px)
           const iy = Math.floor(py)
@@ -394,14 +394,15 @@ function startCaustics() {
               const [ rx, ry ] = rand2(cx, cy)
               // subtle per-cell motion
               const ph = hash1(cx, cy) * Math.PI * 2
-              const offx = Math.sin((t * 1.2) + ph) * 0.28
-              const offy = Math.cos((t * 1.35) + ph) * 0.28
+              const offx = Math.sin((time * 1.2) + ph) * 0.28
+              const offy = Math.cos((time * 1.35) + ph) * 0.28
               const sx = (ox + rx + offx) - fx
               const sy = (oy + ry + offy) - fy
               const d2 = (sx * sx) + (sy * sy)
 
               if (d2 < f1) {
-                f2 = f1; f1 = d2
+                f2 = f1
+                f1 = d2
               } else if (d2 < f2) {
                 f2 = d2
               }
@@ -420,13 +421,16 @@ function startCaustics() {
           // gentle softening
           edge = Math.pow(edge, 0.85)
           // final intensity, modulated by approach intensity for subtlety
-          const m = Math.max(0.0, Math.min(1.0, edge * (0.5 + (cssIntensity * 0.7))))
+          const alphaMask = Math.max(0.0, Math.min(1.0, edge * (0.5 + (cssIntensity * 0.7))))
 
-          data[p++] = 235; data[p++] = 245; data[p++] = 255; data[p++] = Math.floor(m * 255)
+          data[pointer++] = 235
+          data[pointer++] = 245
+          data[pointer++] = 255
+          data[pointer++] = Math.floor(alphaMask * 255)
         }
       }
 
-      ctx.clearRect(0, 0, w, h)
+      ctx.clearRect(0, 0, width, height)
       ctx.putImageData(img, 0, 0)
       raf = requestAnimationFrame(draw)
       fallbackRaf = raf
@@ -459,18 +463,18 @@ function startIdle() {
     const speed = speedBase * (0.3 + (0.7 * (1 - proximity)))
 
     tIdle += speed
-    const r = 0.28
-    const idleX = 0.5 + (Math.cos(tIdle) * r)
-    const idleY = 0.5 + (Math.sin(tIdle * 0.8) * r)
-    const p = ease(proximity)
-    const x = lerp(idleX, ptrX, p)
-    const y = lerp(idleY, ptrY, p)
+    const radius = 0.28
+    const idleX = 0.5 + (Math.cos(tIdle) * radius)
+    const idleY = 0.5 + (Math.sin(tIdle * 0.8) * radius)
+    const easedProximity = ease(proximity)
+    const xVal = lerp(idleX, ptrX, easedProximity)
+    const yVal = lerp(idleY, ptrY, easedProximity)
     // slightly increase amplitude as we get closer
-    const amp = lerp(0.9, 1.05, p)
+    const amp = lerp(0.9, 1.05, easedProximity)
 
     // While hovering, pointer controls tilt. Keep overlay rotation running regardless.
     if (!isHovering) {
-      setVars(x, y, amp)
+      setVars(xVal, yVal, amp)
     }
 
     // animate gloss/caustics angles during idle
@@ -520,13 +524,14 @@ function onPointerMove(e: PointerEvent) {
 
   lastClientX = e.clientX
   lastClientY = e.clientY
-  const x = clamp((e.clientX - rect.left) / rect.width)
-  const y = clamp((e.clientY - rect.top) / rect.height)
+  const xVal = clamp((e.clientX - rect.left) / rect.width)
+  const yVal = clamp((e.clientY - rect.top) / rect.height)
 
-  ptrX = x; ptrY = y
+  ptrX = xVal
+  ptrY = yVal
 
   if (isHovering) {
-    setVars(x, y, 1.12)
+    setVars(xVal, yVal, 1.12)
   }
 
   if (!docMoveQueued) {
@@ -601,11 +606,13 @@ function onDocumentPointerMove(e: PointerEvent) {
 }
 
 function onEnter() {
-  isHovering = true; root.value?.classList.add("is-hover")
+  isHovering = true
+  root.value?.classList.add("is-hover")
 }
 
 function onLeave() {
-  isHovering = false; root.value?.classList.remove("is-hover")
+  isHovering = false
+  root.value?.classList.remove("is-hover")
 }
 
 let resizeObs: ResizeObserver | null = null
@@ -636,7 +643,7 @@ function queueStart() {
     setVars(0.5, 0.5)
     startIdle()
 
-    // If an Offscreen worker already exists, just resume it; else start
+    // If an Offscreen worker already exists just resume it, else start
     if (usingOffscreen && worker) {
       worker.postMessage({ "type": "start" }, [])
       worker.postMessage({
@@ -730,9 +737,9 @@ onMounted(() => {
   })
 
   // compute initial enable/quality
-  const q = computeQuality()
+  const quality = computeQuality()
 
-  if (!q.enable) {
+  if (!quality.enable) {
     enabled.value = false
 
     return
@@ -743,7 +750,8 @@ onMounted(() => {
     const visible = entries.some((e) => e.isIntersecting)
 
     if (visible) {
-      interObs?.disconnect(); interObs = null
+      interObs?.disconnect()
+      interObs = null
       queueStart()
     }
   })
@@ -787,9 +795,12 @@ watch(() => props.modelValue, (val) => {
 
 onBeforeUnmount(() => {
   stopIdle()
-  resizeObs?.disconnect(); resizeObs = null
-  interObs?.disconnect(); interObs = null
-  worker?.terminate(); worker = null
+  resizeObs?.disconnect()
+  resizeObs = null
+  interObs?.disconnect()
+  interObs = null
+  worker?.terminate()
+  worker = null
 
   if (onWindowResize) {
     window.removeEventListener("resize", onWindowResize)

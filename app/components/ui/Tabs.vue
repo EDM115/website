@@ -61,11 +61,11 @@ function isUiTab(v: VNode | unknown) {
 const tabs = (slots.default?.() || [])
   .filter((v: VNode | unknown) => isUiTab(v) || (getVNodeProps(v) && "text" in (getVNodeProps(v) as Record<string, unknown>)))
   .map((v: VNode | unknown) => {
-    const p = getVNodeProps(v) as Record<string, unknown> | null
+    const nodeProps = getVNodeProps(v) as Record<string, unknown> | null
 
     return {
-      text: (p?.text as string) || "",
-      value: (p?.value as string | number),
+      text: (nodeProps?.text as string) || "",
+      value: (nodeProps?.value as string | number),
     }
   }) as Tab[]
 </script>

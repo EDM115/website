@@ -9,8 +9,8 @@
  */
 
 let ctx: OffscreenCanvasRenderingContext2D | null = null
-let w = 0
-let h = 0
+let width = 0
+let height = 0
 let running = false
 let fps = 30
 let frameInterval = 1000 / fps
@@ -26,11 +26,11 @@ const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 function holographicField(px: number, py: number, t: number, grid: number, scale: number) {
   // uv in [0..1]
   // quantize like shader floors by texture grid to stabilize
-  const u = Math.floor(px * grid) / grid
-  const v = Math.floor(py * grid) / grid
+  const uQuantized = Math.floor(px * grid) / grid
+  const vQuantized = Math.floor(py * grid) / grid
   // center and scale
-  const cx = (u - 0.5) * scale
-  const cy = (v - 0.5) * scale
+  const cx = (uQuantized - 0.5) * scale
+  const cy = (vQuantized - 0.5) * scale
 
   const fp1x = cx + (50 * Math.sin(-(t / 143.6340)))
   const fp1y = cy + (50 * Math.cos(-(t / 99.4324)))
@@ -68,31 +68,31 @@ function drawFrame(now: number) {
 
   lastTime = now
   tCaustics += 0.03
-  const img = ctx.createImageData(w, h)
+  const img = ctx.createImageData(width, height)
   const data = img.data
-  const invW = 1 / w
-  const invH = 1 / h
-  let p = 0
+  const invW = 1 / width
+  const invH = 1 / height
+  let pointer = 0
 
   // Grid and scale parameters derived from the Balatro holographic shader
-  // Larger scale -> wider swirls; grid controls quantization stability
-  const GRID = Math.max(16, Math.floor(Math.min(w, h) / 6))
+  // Larger scale -> wider swirls, grid controls quantization stability
+  const GRID = Math.max(16, Math.floor(Math.min(width, height) / 6))
   const SCALE = 250 * quality
 
   // holo uniforms approximation
   // driven by proximity/intensity (0..1)
   const holoX = clamp(intensity)
   const holoY = clamp(intensity)
-  const t = (holoY * 7.221) + (now / 1000)
+  const tSeconds = (holoY * 7.221) + (now / 1000)
 
-  for (let y = 0; y < h; y++) {
+  for (let y = 0; y < height; y++) {
     const py = (y + 0.5) * invH
 
-    for (let x = 0; x < w; x++) {
+    for (let x = 0; x < width; x++) {
       const px = (x + 0.5) * invW
 
       // compute shader-like field
-      const field = holographicField(px, py, t, GRID, SCALE)
+      const field = holographicField(px, py, tSeconds, GRID, SCALE)
       // res per shader: (.5 + .5*cos(holo.x*2.612 + (field - .5)*PI))
       const res = 0.5 + (0.5 * Math.cos((holoX * 2.612) + ((field - 0.5) * Math.PI)))
 
@@ -100,21 +100,21 @@ function drawFrame(now: number) {
       // Peak around res ~ 1.0, with sigma controlling width
       const center = 0.92
       const sigma = 0.07
-      let m = Math.exp(-(((res - center) * (res - center)) / (2 * sigma * sigma)))
+      let alphaMask = Math.exp(-(((res - center) * (res - center)) / (2 * sigma * sigma)))
 
       // amplify with intensity and quality
-      m = Math.pow(m, 0.85) * (0.45 + (intensity * 0.8))
-      m = clamp(m, 0, 1)
+      alphaMask = Math.pow(alphaMask, 0.85) * (0.45 + (intensity * 0.8))
+      alphaMask = clamp(alphaMask, 0, 1)
 
       // subtle holographic tint
-      data[p++] = 225
-      data[p++] = 238
-      data[p++] = 255
-      data[p++] = Math.floor(m * 255)
+      data[pointer++] = 225
+      data[pointer++] = 238
+      data[pointer++] = 255
+      data[pointer++] = Math.floor(alphaMask * 255)
     }
   }
 
-  ctx.clearRect(0, 0, w, h)
+  ctx.clearRect(0, 0, width, height)
   ctx.putImageData(img, 0, 0)
 
   setTimeout(() => {
@@ -139,8 +139,8 @@ addEventListener("message", (e: MessageEvent) => {
         alpha: true,
         desynchronized: true,
       })
-      w = msg.width
-      h = msg.height
+      width = msg.width
+      height = msg.height
       running = true
       lastTime = 0
       setTimeout(() => {
@@ -150,8 +150,8 @@ addEventListener("message", (e: MessageEvent) => {
       break
     }
     case "resize": {
-      w = msg.width
-      h = msg.height
+      width = msg.width
+      height = msg.height
 
       // nothing else to do, next frame will draw at new size
       break
