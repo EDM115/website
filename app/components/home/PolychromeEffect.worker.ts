@@ -177,5 +177,8 @@ addEventListener("message", (e: MessageEvent) => {
 
       break
     }
+    case "default": {
+      break
+    }
   }
 })
