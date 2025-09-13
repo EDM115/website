@@ -228,7 +228,7 @@
     "name": "dracula/leetcode",
     "description": "Stylus couldn't read the UserCSS",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/dracula/leetcode/issues/2"
   },
   {
@@ -572,7 +572,7 @@
     "name": "KRTirtho/spotube",
     "description": "Stop overriding the registry value for default spotify links handler",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/KRTirtho/spotube/issues/1997"
   },
   {
