@@ -208,6 +208,22 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 67,
+    "name": "JanDeDobbeleer/oh-my-posh",
+    "description": "Since v26.21.0, the user set theme will last from 1 to some prompts, before going back to the default one",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/JanDeDobbeleer/oh-my-posh/issues/6744"
+  },
+  {
+    "id": 66,
+    "name": "hetznercloud/cli",
+    "description": "[RELEASE] v1.52.0 is missing the binary assets",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/hetznercloud/cli/issues/1148"
+  },
+  {
     "id": 65,
     "name": "eslint-stylistic/eslint-stylistic",
     "description": "object-curly-newline: minProperties option doesn't respect comments",

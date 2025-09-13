@@ -23,6 +23,15 @@ export function cleanMarkdown(raw: string, repoName: string, branch: string): st
       return `[${text}](https://github.com/${repoName}/${type}/${branch}/${path})`
     },
   )
+  // clean internal anchor links
+  content = content.replace(
+    /\[([^\]]+)\]\(\s*#([^)]+)\)/g,
+    (_full, text, anchor) => {
+      const cleanAnchor = anchor.replace(/-+$/, "")
+
+      return `[${text}](#${cleanAnchor})`
+    },
+  )
 
   return content
 }

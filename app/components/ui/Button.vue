@@ -1,6 +1,7 @@
 <template>
   <NuxtLink
     v-if="link"
+    :target="link.startsWith('/') ? '_self' : '_blank '"
     :to="link"
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"

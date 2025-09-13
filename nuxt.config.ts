@@ -1,5 +1,7 @@
 import slugify from "@sindresorhus/slugify"
+import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
+import type Token from "markdown-it/lib/token.mjs"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
@@ -16,11 +18,33 @@ import { imgSize } from "@mdit/plugin-img-size"
 import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
+import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
 import { definePerson } from "nuxt-schema-org/schema"
 
 const localMdi = await lookupCollection("mdi")
 const mdiLinkVariant = `<svg>${localMdi.icons["link-variant"]?.body || ""}</svg>`
+
+const erx = emojiRegex()
+
+function demojifyToGithub(s: string) {
+  return s.replace(erx, (m) => {
+    const name = emojiToName[m]
+
+    if (!name) {
+      return " "
+    }
+
+    return ` ${name.replace(/_/g, " ")} `
+  })
+}
+
+function getTokensText(tokens: Token[]) {
+  return tokens
+    .filter((token) => ![ "html_inline", "image" ].includes(token.type))
+    .map((t) => t.content)
+    .join("")
+}
 
 export default defineNuxtConfig({
   modules: [
@@ -147,12 +171,13 @@ export default defineNuxtConfig({
             hljs,
             inline: true,
           })
-          md.use(mditAnchor, {
-            slugify: (s) => slugify(s),
+          .use(emoji)
+          .use(mditAnchor, {
+            slugify: (s) => slugify(demojifyToGithub(s)),
             permalink: mditAnchor.permalink.headerLink(),
             permalinkClass: "header-link",
+            getTokensText,
           })
-          md.use(emoji)
           md.use(mditAttrs)
           md.use(mditLinkAttributes, {
             attrs: {
@@ -289,7 +314,6 @@ export default defineNuxtConfig({
       },
     ],
     strategy: "no_prefix",
-    vueI18n: "./i18n.config.ts",
   },
   image: { quality: 100 },
   linkChecker: { report: {

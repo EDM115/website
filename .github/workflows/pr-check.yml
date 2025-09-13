@@ -42,5 +42,11 @@ jobs:
       - name: "Build check"
         run: pnpm generate  # Builds Client and Server SSR + Generates SSG
 
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuxt-output
+          path: ./.output
+        
       - name: "Analyze check"
         run: pnpm analyze

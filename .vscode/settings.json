@@ -54,8 +54,7 @@
     "pnpm-lock.yaml": true
   },
   "vue.autoInsert.dotValue": true,
-  "vue.format.script.initialIndent": true,
-  "vue.format.style.initialIndent": true,
+  "vue.editor.focusMode": true,
   "vue.inlayHints.destructuredProps": true,
   "vue.inlayHints.inlineHandlerLeading": true,
   "vue.inlayHints.missingProps": true,
