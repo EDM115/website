@@ -47,7 +47,7 @@ jobs:
 
       - name: "Push (if changes)"
         if: steps.git-check.outputs.changed
-        uses: "ad-m/github-push-action@v0.8.0"
+        uses: "ad-m/github-push-action@v1.0.0"
         with:
           force: false
           directory: '.'
