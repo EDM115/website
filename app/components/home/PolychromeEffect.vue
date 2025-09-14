@@ -48,9 +48,9 @@ const props = defineProps<{
 
 const emit = defineEmits<(e: "update:modelValue", v: boolean)=> void>()
 
-const root = ref<HTMLElement | null>(null)
-const inner = ref<HTMLElement | null>(null)
-const canvasEl = ref<HTMLCanvasElement | null>(null)
+const root = useTemplateRef("root")
+const inner = useTemplateRef("inner")
+const canvasEl = useTemplateRef("canvasEl")
 
 const enabled = ref(props.modelValue ?? true)
 const altRendering = computed(() => props.alt ?? false)

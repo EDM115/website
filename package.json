@@ -71,7 +71,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.16.0",
+  "packageManager": "pnpm@10.16.1",
   "private": true,
   "repository": {
     "type": "git",
@@ -105,5 +105,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.3.1"
+  "version": "2.3.2"
 }

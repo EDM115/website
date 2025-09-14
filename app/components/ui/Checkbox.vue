@@ -99,7 +99,7 @@ const emit = defineEmits<{
   (e: "focus" | "blur"): void;
 }>()
 
-const inputEl = ref<HTMLInputElement | null>(null)
+const inputEl = useTemplateRef("inputEl")
 
 const model = computed<boolean>({
   "get": () => props.modelValue ?? false,

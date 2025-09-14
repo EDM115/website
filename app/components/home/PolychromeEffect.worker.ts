@@ -8,11 +8,37 @@
  * - stop
  */
 
+interface InitMessage {
+  "type": "init";
+  "canvas": OffscreenCanvas;
+  "width": number;
+  "height": number;
+  "fps": number;
+  "quality": number;
+}
+
+interface ResizeMessage {
+  "type": "resize";
+  "width": number;
+  "height": number;
+}
+
+interface SetIntensityMessage {
+  "type": "setIntensity";
+  "intensity": number;
+}
+
+interface StartMessage { "type": "start" }
+
+interface StopMessage { "type": "stop" }
+
+type Message = InitMessage | ResizeMessage | SetIntensityMessage | StartMessage | StopMessage
+
 let ctx: OffscreenCanvasRenderingContext2D | null = null
 let width = 0
 let height = 0
 let running = false
-let fps = 30
+let fps = 60
 let frameInterval = 1000 / fps
 let tCaustics = 0
 let intensity = 0
@@ -122,19 +148,16 @@ function drawFrame(now: number) {
   }, frameInterval)
 }
 
-addEventListener("message", (e: MessageEvent) => {
+addEventListener("message", (e: MessageEvent<Message>) => {
   const msg = e.data
 
   switch (msg.type) {
     case "init": {
-      // oxlint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      const canvas = msg.canvas as OffscreenCanvas
+      const canvas = msg.canvas
 
-      fps = Math.max(10, Math.min(60, msg.fps ?? 30))
+      fps = Math.max(10, Math.min(60, msg.fps))
       frameInterval = 1000 / fps
-      quality = typeof msg.quality === "number"
-        ? msg.quality
-        : 1
+      quality = msg.quality
       ctx = canvas.getContext("2d", {
         alpha: true,
         desynchronized: true,
@@ -177,7 +200,7 @@ addEventListener("message", (e: MessageEvent) => {
 
       break
     }
-    case "default": {
+    default: {
       break
     }
   }
