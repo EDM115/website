@@ -33,9 +33,11 @@ jobs:
           sed -i 's|client: true|client: false|g' nuxt.config.ts
           sed -i 's|server: true|server: false|g' nuxt.config.ts
           sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
-          sed -i 's|edm115.dev/|edm115.eu.org/|g' app/components/home/Resume.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
-          sed -i 's|edm115.dev|edm115.eu.org|g' app/middleware/redirect.global.ts
+          # Avoid bundling the resume files since they balloon the size by x8
+          sed -i 's|/docs|https://edm115/docs|g' app/components/home/Resume.vue
+          rm -f public/docs/CV_*.pdf
+          rm -f public/docs/Resume_*.pdf
 
       - name: "Build for edm115.eu.org"
         run: pnpm nuxt generate --preset static

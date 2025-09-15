@@ -19,10 +19,7 @@ export default defineNuxtRouteMiddleware((to, _from) => {
   }
 
   const router = useRouter()
-  const publicPaths = [
-    "/web/cv",
-    "/web/cv2",
-  ]
+  const publicPaths: string[] = []
   const routeExists = router.getRoutes()
     .some((route) => route.path === to.path)
     || publicPaths.includes(to.path)
