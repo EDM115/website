@@ -123,19 +123,11 @@
       {{ t("home.downloadResume") }}
     </h3>
     <UiButton
-      class="mr-2"
       color="secondary"
       :prepend-icon="mdiFileDownload"
       :text="t('home.downloadPdf')"
-      link="https://edm115.dev/docs/Resume_Lussandre_Lederrey_EDM115.pdf"
+      :link="resumeLink"
       aria="Download PDF resume"
-    />
-    <UiButton
-      color="secondary"
-      :prepend-icon="mdiWeb"
-      :text="t('home.downloadOnline')"
-      link="https://edm115.dev/web/cv"
-      aria="Access online resume"
     />
   </div>
 </template>
@@ -145,9 +137,17 @@ import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
 import mdiFileDownload from "~icons/mdi/fileDownload"
 import mdiSchoolOutline from "~icons/mdi/schoolOutline"
-import mdiWeb from "~icons/mdi/web"
 
-const { t } = useI18n()
+const {
+  locale,
+  t,
+} = useI18n()
+
+const resumeLink = computed(() => {
+  return locale.value === "fr"
+    ? "/docs/CV_EDM115.pdf"
+    : "/docs/Resume_EDM115.pdf"
+})
 </script>
 
 <style lang="scss" scoped>

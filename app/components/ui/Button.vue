@@ -2,6 +2,7 @@
   <NuxtLink
     v-if="link"
     :target="link.startsWith('/') ? '_self' : '_blank '"
+    :external="!link.startsWith('/') || link.startsWith('/docs/')"
     :to="link"
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"

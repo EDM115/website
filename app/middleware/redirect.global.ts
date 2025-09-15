@@ -28,19 +28,16 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     || publicPaths.includes(to.path)
 
   if (!routeExists) {
-    const internalMap: Record<string, string> = {
-      "/cv2": "/web/cv2",
-      "/cv": "/web/cv",
-    }
+    // used for pre-built HTML pages
+    // const internalMap: Record<string, string> = {}
 
     const externalMap: Record<string, string> = {
       "/hugo": "https://edm115.github.io/hugo",
-      "/ludivine.mp4": "https://raw.githubusercontent.com/EDM115/website/v1/ludivine.mp4",
       "/sporttrack": "https://edm115.github.io/sport-track",
       "/underrated": "https://edm115.github.io/underrated-producers-list",
     }
 
-    const internal = Object.keys(internalMap)
+    /* const internal = Object.keys(internalMap)
       .find((route) => to.path.startsWith(route))
 
     if (internal) {
@@ -50,7 +47,7 @@ export default defineNuxtRouteMiddleware((to, _from) => {
         query: to.query,
         replace: true,
       })
-    }
+    } */
 
     const external = Object.keys(externalMap)
       .find((route) => to.path.startsWith(route))
