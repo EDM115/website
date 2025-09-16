@@ -89,7 +89,7 @@ const sizeStyle = computed(() => ({
 
   &--fg {
     stroke: var(--primary);
-    transition: stroke-dashoffset .3s ease;
+    transition: stroke-dashoffset var(--pc-duration, 3s) var(--pc-ease, ease-in-out);
   }
 
   &--content {
@@ -99,6 +99,14 @@ const sizeStyle = computed(() => ({
     align-items: center;
     justify-content: center;
     font-weight: 600;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-progress-circular {
+    &--fg {
+      transition: none;
+    }
   }
 }
 

@@ -19,7 +19,7 @@
           <UiProgressCircular
             :id="'skillsCounter-' + skill.id"
             color="primary"
-            style="padding: 8px;"
+            style="padding: 8px; --pc-duration: 3s; --pc-ease: cubic-bezier(.42,0,.58,1);"
             :model-value="skill.displayedValue"
             :size="100"
             :width="10"
@@ -82,54 +82,27 @@ const skills = ref([
   },
 ])
 
-function easeInOut(t: number): number {
-  return t < 0.5
-    ? 2 * t * t
-    : -1 + ((4 - (2 * t)) * t)
-}
-
 function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const [ , id ] = entry.target.id.split("-")
-
-      if (id === undefined) {
-        return
-      }
-
-      const skill = skills.value[parseInt(id)]
-
-      if (!skill) {
-        return
-      }
-
-      const startValue = skill.displayedValue
-      const endValue = skill.value
-      const duration = 3000
-      const startTime = performance.now()
-
-      // skipcq: JS-0016
-      function animate(time: number) {
-        if (!skill) {
-          return
-        }
-
-        const elapsed = time - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        const easeProgress = easeInOut(progress)
-
-        skill.displayedValue = Math.floor(startValue + ((endValue - startValue) * easeProgress))
-
-        if (progress < 1) {
-          requestAnimationFrame(animate)
-        } else {
-          skill.displayedValue = endValue
-        }
-      }
-
-      requestAnimationFrame(animate)
-      observer?.unobserve(entry.target)
+    if (!entry.isIntersecting) {
+      return
     }
+
+    const [ , id ] = entry.target.id.split("-")
+
+    if (id === undefined) {
+      return
+    }
+
+    const skill = skills.value[parseInt(id)]
+
+    if (!skill) {
+      return
+    }
+
+    skill.displayedValue = skill.value
+
+    observer?.unobserve(entry.target)
   })
 }
 

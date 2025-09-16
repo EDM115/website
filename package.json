@@ -27,7 +27,7 @@
     "emoji-regex-xs": "~2.0.1",
     "gemoji": "~8.1.0",
     "highlight.js": "~11.11.1",
-    "light-odometer": "~0.0.9",
+    "light-odometer": "~0.1.0",
     "markdown-it": "~14.1.0",
     "markdown-it-anchor": "~9.2.0",
     "markdown-it-attrs": "~4.3.1",
@@ -105,5 +105,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.3.4"
+  "version": "2.3.5"
 }

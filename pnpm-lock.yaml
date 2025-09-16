@@ -75,8 +75,8 @@ importers:
         specifier: ~11.11.1
         version: 11.11.1
       light-odometer:
-        specifier: ~0.0.9
-        version: 0.0.9
+        specifier: ~0.1.0
+        version: 0.1.0
       markdown-it:
         specifier: ~14.1.0
         version: 14.1.0
@@ -3787,8 +3787,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==, tarball: https://registry.npmjs.org/levn/-/levn-0.4.1.tgz}
     engines: {node: '>= 0.8.0'}
 
-  light-odometer@0.0.9:
-    resolution: {integrity: sha512-H7p/VCZrtIwAXJc1XEn+ewQ4UTKLjHqVAObZgpQsD+eMiVktaZIOxKbba+gSTeZ3eETo8YDM9smuR1Anq3lyQQ==, tarball: https://registry.npmjs.org/light-odometer/-/light-odometer-0.0.9.tgz}
+  light-odometer@0.1.0:
+    resolution: {integrity: sha512-q1GvImlas7tIeVRaoy8yPomQ7TFJO7P5V3ulwHMOsFvlyTEWtjQXE2Ur1VmS7GLhv31x1pMASGCxNhwAHatB0w==, tarball: https://registry.npmjs.org/light-odometer/-/light-odometer-0.1.0.tgz}
 
   lighthouse-logger@2.0.2:
     resolution: {integrity: sha512-vWl2+u5jgOQuZR55Z1WM0XDdrJT6mzMP8zHUct7xTlWhuQs+eV0g+QL0RQdFjT54zVmbhLCP8vIVpy1wGn/gCg==, tarball: https://registry.npmjs.org/lighthouse-logger/-/lighthouse-logger-2.0.2.tgz}
@@ -9715,7 +9715,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  light-odometer@0.0.9: {}
+  light-odometer@0.1.0: {}
 
   lighthouse-logger@2.0.2:
     dependencies:
