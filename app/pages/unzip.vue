@@ -151,12 +151,12 @@ import octiconStar from "~icons/octicon/star-16"
 
 const { t } = useI18n()
 
-let stars = 112
-let forks = 155
-let days = 1190
-let loc = 7541
+const stars = ref(112)
+const forks = ref(155)
+const days = ref(1190)
+const loc = ref(7237)
 
-const stats = [
+const stats = computed(() => [
   {
     id: 0,
     name: t("unzip.stats.users"),
@@ -205,7 +205,7 @@ const stats = [
     value: 1494212,
     icon: biHdd,
   },
-]
+])
 
 const issues = [
   {
@@ -314,7 +314,7 @@ function daysSinceLaunch() {
 
 async function getRepoDetails() {
   try {
-    const { data } = await useFetch<{
+    const data = await $fetch<{
       stargazers_count: number;
       forks_count: number;
     }>("https://api.github.com/repos/EDM115/unzip-bot", { headers: {
@@ -322,17 +322,17 @@ async function getRepoDetails() {
       "X-GitHub-Api-Version": "2022-11-28",
     } })
 
-    if (!data.value) {
+    if (!data) {
       throw new Error("Repository not found")
     }
 
-    if (!data.value.stargazers_count || !data.value.forks_count) {
+    if (!data.stargazers_count || !data.forks_count) {
       throw new Error("Repository not found")
     }
 
     return {
-      stars: data.value.stargazers_count,
-      forks: data.value.forks_count,
+      stars: data.stargazers_count,
+      forks: data.forks_count,
     }
   } catch (error) {
     console.error("Failed to fetch repository details :", error)
@@ -343,16 +343,16 @@ async function getRepoDetails() {
 
 async function getLoc() {
   try {
-    const { data } = await useFetch<{
+    const data = await $fetch<{
       language: string;
       linesOfCode: number;
     }[]>("https://api.codetabs.com/v1/loc?github=EDM115/unzip-bot&branch=v7-rework-part-1")
 
-    if (!data.value) {
+    if (!data) {
       throw new Error("LoC API down")
     }
 
-    const totalLoc = data.value.find((item: { language: string }) => item.language === "Total")
+    const totalLoc = data.find((item: { language: string }) => item.language === "Total")
 
     return totalLoc
       ? totalLoc.linesOfCode
@@ -365,19 +365,19 @@ async function getLoc() {
 }
 
 onMounted(async () => {
-  days = daysSinceLaunch()
+  days.value = daysSinceLaunch()
 
   const repoDetails = await getRepoDetails()
 
   if (repoDetails) {
-    stars = repoDetails.stars
-    forks = repoDetails.forks
+    stars.value = repoDetails.stars
+    forks.value = repoDetails.forks
   }
 
   const locValue = await getLoc()
 
   if (locValue !== 0) {
-    loc = locValue
+    loc.value = locValue
   }
 })
 </script>

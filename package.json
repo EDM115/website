@@ -27,6 +27,7 @@
     "emoji-regex-xs": "~2.0.1",
     "gemoji": "~8.1.0",
     "highlight.js": "~11.11.1",
+    "light-odometer": "~0.0.9",
     "markdown-it": "~14.1.0",
     "markdown-it-anchor": "~9.2.0",
     "markdown-it-attrs": "~4.3.1",
@@ -36,7 +37,6 @@
     "nuxt": "~4.1.2",
     "nuxt-module-feed": "~1.1.4",
     "nuxt-svgo": "~4.2.6",
-    "tm-odometer": "~2.0.0",
     "vue": "~3.5.21",
     "vue-i18n": "~11.1.12"
   },
@@ -49,14 +49,14 @@
     "@types/markdown-it-emoji": "^3.0.1",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
-    "@typescript-eslint/parser": "~8.43.0",
+    "@typescript-eslint/parser": "~8.44.0",
     "eslint": "~9.35.0",
     "eslint-plugin-vue": "~10.4.0",
     "globals": "~16.4.0",
     "jiti": "~2.5.1",
     "lightningcss": "~1.30.1",
     "npm-run-all2": "~8.0.4",
-    "oxlint": "~1.15.0",
+    "oxlint": "~1.16.0",
     "oxlint-tsgolint": "~0.2.0",
     "sass-embedded": "~1.92.1",
     "sass-loader": "~16.0.5",
@@ -105,5 +105,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.3.3"
+  "version": "2.3.4"
 }

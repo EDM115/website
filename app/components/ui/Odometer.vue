@@ -1,8 +1,7 @@
 <template>
-  <UiCol>
+  <UiCol id="statsCounters">
     <UiRow
       v-for="stat in stats"
-      id="statsCounters"
       :key="stat.id"
       style="align-items: center; display: flex; justify-content: center;"
     >
@@ -19,7 +18,7 @@
 
         <div
           :id="'od-' + stat.id"
-          class="odometer mockup-odometer"
+          class="mockup-odometer"
         >
           {{ formatZeros(stat.value) }}
         </div>
@@ -29,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import LightOdometer from "light-odometer"
+
 import {
   type FunctionalComponent,
   type SVGAttributes,
@@ -37,14 +38,13 @@ import {
 const props = defineProps<{ stats: {
   id: number;
   name: string;
-  value: number;
+  value: number | Ref<number>;
   icon?: FunctionalComponent<SVGAttributes>;
 }[]; }>()
 
-interface OdometerInstance { update: (value: number)=> void }
-
-function formatZeros(value: number): string {
-  const len = value.toString().length
+function formatZeros(value: number | Ref<number>): string {
+  const num = unref(value) ?? 0
+  const len = num.toString().length
   const zeros = "0".repeat(len)
 
   return zeros.replace(/\B(?=(\d{3})+(?!\d))/g, " ")
@@ -52,20 +52,66 @@ function formatZeros(value: number): string {
 
 let observer: IntersectionObserver | null = null
 let odometersReady = false
-let odos: OdometerInstance[] = []
-let digitObservers: MutationObserver[] = []
+let odos: Record<number, LightOdometer> = {}
+let digitObservers: Record<number, MutationObserver> = {}
+let unsubscribers: Array<()=> void> = []
+const pending = new Map<number, number>()
+const revealed = new Set<number>()
 
-onMounted(async () => {
+function attachEvents(odo: LightOdometer, id: number) {
+  const onDone = (e: Event) => {
+    // After finishing, if a pending value exists, apply it immediately
+    const next = pending.get(id)
+
+    if (typeof next === "number") {
+      pending.delete(id)
+      // shorten duration for subsequent updates if desired
+      const opts = odo.getOptions()
+
+      if ((opts.duration ?? 2000) !== 2000) {
+        odo.setOptions({ duration: 2000 })
+      }
+
+      odo.update(next)
+    }
+  }
+
+  odo.on("odometerdone", onDone)
+  unsubscribers.push(() => odo.off("odometerdone", onDone))
+}
+
+onMounted(() => {
+  window.odometerOptions = { selector: ".mockup-odometer" }
+
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement
-          const idx = Number(el.id.split("-")[1])
-
-          odos[idx]?.update(props.stats[idx]?.value ?? 0)
-          observer?.unobserve(el)
+        if (!entry.isIntersecting) {
+          return
         }
+
+        const el = entry.target as HTMLElement
+        const idFromEl = Number(el.id.split("-")[1])
+        const stat = props.stats.find((s) => s.id === idFromEl)
+
+        revealed.add(idFromEl)
+
+        const queued = pending.get(idFromEl)
+        const newVal = typeof queued === "number"
+          ? queued
+          : (unref(stat?.value) ?? 0)
+
+        if (typeof queued === "number") {
+          pending.delete(idFromEl)
+        }
+
+        if (isRef(stat?.value)) {
+          odos[idFromEl]?.update(newVal)
+        } else {
+          odos[idFromEl]?.animateOnceAndDisconnect(newVal)
+        }
+
+        observer?.unobserve(el)
       })
     },
     {
@@ -75,21 +121,25 @@ onMounted(async () => {
     },
   )
 
-  // dynamically load tm-odometer in browser
-  const TmOdometer = (await import("tm-odometer")).default
+  const scope = document.getElementById("statsCounters") ?? document
 
-  document.querySelectorAll(".odometer")
-    .forEach((el, idx) => {
-      const odo = new TmOdometer({
+  scope.querySelectorAll(".mockup-odometer")
+    .forEach((el) => {
+      const id = Number((el as HTMLElement).id.split("-")[1])
+      const odo = new LightOdometer({
         el: el as HTMLElement,
+        id,
         value: 0,
         animation: "slide",
         duration: 8000,
         format: "( ddd)",
+        framerate: 20,
       })
 
+      attachEvents(odo, id)
+
       el.classList.remove("mockup-odometer")
-      odos[idx] = odo
+      odos[id] = odo
       observer?.observe(el)
 
       function applyDigitGrouping(container: HTMLElement) {
@@ -133,7 +183,7 @@ onMounted(async () => {
         subtree: true,
         characterData: true,
       })
-      digitObservers[idx] = mo
+      digitObservers[id] = mo
     })
 
   odometersReady = true
@@ -141,19 +191,58 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   observer?.disconnect()
-  digitObservers.forEach((m) => m.disconnect())
-  digitObservers = []
-  odos = []
+  Object.values(digitObservers)
+    .forEach((m) => m.disconnect())
+  digitObservers = {}
+  Object.values(odos)
+    .forEach((o) => o.disconnect())
+  odos = {}
+  unsubscribers.forEach((u) => u())
+  unsubscribers = []
 })
 
 watch(
-  () => props.stats.map((s) => s.value),
-  (vals) => {
+  () => props.stats.map((s) => unref(s.value)),
+  (newVals, oldVals) => {
     if (!odometersReady) {
       return
     }
 
-    vals.forEach((v, i) => odos[i]?.update(v))
+    newVals.forEach((v, i) => {
+      const id = props.stats[i]?.id
+
+      if (id == null || v === oldVals[i]) {
+        return
+      }
+
+      if (isRef(props.stats[i]?.value)) {
+        const odo = odos[id]
+
+        if (!odo) {
+          return
+        }
+
+        // If not yet revealed, just queue and return
+        if (!revealed.has(id)) {
+          pending.set(id, v ?? 0)
+
+          return
+        }
+
+        // If currently animating, just store the latest requested value
+        if (odo.isAnimating) {
+          pending.set(id, v ?? 0)
+        } else {
+          const opts = odo.getOptions()
+
+          if ((opts.duration ?? 2000) !== 2000) {
+            odo.setOptions({ duration: 2000 })
+          }
+
+          odo.update(v ?? 0)
+        }
+      }
+    })
   },
 )
 </script>
@@ -180,7 +269,7 @@ $padding: .15em;
   color: var(--primary);
 }
 
-.odometer.odometer-auto-theme {
+.odometer-auto-theme {
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -249,9 +338,11 @@ $padding: .15em;
     .odometer-value {
       display: block;
       transform: translateZ(0);
+      user-select: none;
 
       &.odometer-last-value {
         position: absolute;
+        user-select: text;
       }
     }
   }
@@ -263,7 +354,7 @@ $padding: .15em;
 
   &.odometer-animating-up {
     .odometer-ribbon-inner {
-      transition: transform 8s;
+      transition: transform var(--odometer-duration, 2000ms);
     }
 
     &.odometer-animating .odometer-ribbon-inner {
@@ -277,7 +368,7 @@ $padding: .15em;
     }
 
     &.odometer-animating .odometer-ribbon-inner {
-      transition: transform 8s;
+      transition: transform var(--odometer-duration, 2000ms);
       transform: translateY(0);
     }
   }
