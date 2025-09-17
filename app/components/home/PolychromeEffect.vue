@@ -24,7 +24,7 @@
       />
       <slot />
       <canvas
-        v-if="enabled"
+        v-if="enabled && !isMobile"
         ref="canvasEl"
         class="holo-caustics"
         aria-hidden="true"
@@ -54,6 +54,7 @@ const canvasEl = useTemplateRef("canvasEl")
 
 const enabled = ref(props.modelValue ?? true)
 const altRendering = computed(() => props.alt ?? false)
+const { isMobile } = useDevice()
 
 watch(enabled, (v) => emit("update:modelValue", v))
 
@@ -243,6 +244,10 @@ function computeQuality() {
 }
 
 function resizeCanvas(rect?: DOMRect) {
+  if (isMobile.value) {
+    return
+  }
+
   const cvs = canvasEl.value
   const el = root.value
 
@@ -272,6 +277,10 @@ function resizeCanvas(rect?: DOMRect) {
 }
 
 function startCaustics() {
+  if (isMobile.value) {
+    return
+  }
+
   const cvs = canvasEl.value
   const el = root.value
 
@@ -695,6 +704,9 @@ function handleEnableChange(v: boolean) {
     inner.value?.style.removeProperty("will-change")
 
     // Stop and fully clean worker or fallback. With v-if, the canvas will be removed, so an OffscreenCanvas previously transferred becomes orphaned. We must terminate and recreate on next enable.
+    // Remember if the canvas was transferred to Offscreen to avoid main-thread getContext()
+    const wasUsingOffscreen = usingOffscreen
+
     if (usingOffscreen && worker) {
       worker.postMessage({ "type": "stop" }, [])
       worker.terminate()
@@ -707,11 +719,21 @@ function handleEnableChange(v: boolean) {
       fallbackRaf = null
     }
 
+    // If we had transferred control to OffscreenCanvas, calling getContext() will throw.
+    // In that case, rely on CSS (.is-disabled) to hide the last frame instead of clearing.
     const cvs = canvasEl.value
-    const ctx = cvs?.getContext("2d")
 
-    if (ctx && cvs) {
-      ctx.clearRect(0, 0, cvs.width, cvs.height)
+    if (cvs && !wasUsingOffscreen) {
+      try {
+        const ctx = cvs.getContext("2d")
+
+        if (ctx) {
+          ctx.clearRect(0, 0, cvs.width, cvs.height)
+        }
+      } catch {
+        // Ignore : can happen if the canvas was transferred, visibility is controlled via CSS.
+        void 0
+      }
     }
 
     // Allow future starts
@@ -790,6 +812,56 @@ onMounted(() => {
 watch(() => props.modelValue, (val) => {
   if (typeof val === "boolean") {
     handleEnableChange(val)
+  }
+})
+
+// Stop caustics on mobile and restart on desktop
+watch(isMobile, (mobile) => {
+  if (mobile) {
+    const wasUsingOffscreen = usingOffscreen
+
+    if (usingOffscreen && worker) {
+      try {
+        worker.postMessage({ "type": "stop" } as const, [])
+      } catch {
+        // Ignored : worker might already be stopped or disposed
+        void 0
+      }
+      worker.terminate()
+      worker = null
+      usingOffscreen = false
+    }
+
+    if (fallbackRaf) {
+      cancelAnimationFrame(fallbackRaf)
+      fallbackRaf = null
+    }
+
+    const cvs = canvasEl.value
+
+    if (cvs && !wasUsingOffscreen) {
+      try {
+        const ctx = cvs.getContext("2d")
+
+        if (ctx) {
+          ctx.clearRect(0, 0, cvs.width, cvs.height)
+        }
+      } catch {
+        // Ignore : canvas might be in an invalid state
+        void 0
+      }
+    }
+
+    // mark not started so we can re-init when leaving mobile
+    started = false
+  } else {
+    // leaving mobile: restart caustics if enabled
+    if (enabled.value) {
+      started = false
+      nextTick(() => {
+        queueStart()
+      })
+    }
   }
 })
 

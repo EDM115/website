@@ -12,6 +12,12 @@
   max-width: 1200px;
 }
 
+@media (max-width: 640px) {
+  .ui-container {
+    padding-inline: 0;
+  }
+}
+
 @media (min-width: 1280px) {
   .ui-container {
     max-width: 1280px;
