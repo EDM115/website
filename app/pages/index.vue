@@ -1,5 +1,5 @@
 <template>
-  <UiContainer>
+  <UiContainer style="padding-inline: 0;">
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-left">

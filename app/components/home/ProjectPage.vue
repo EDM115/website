@@ -330,8 +330,4 @@ onMounted(() => {
 .no-content {
   margin: 1rem 0;
 }
-
-.markdown-body {
-  width: 100%;
-}
 </style>

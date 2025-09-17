@@ -22,7 +22,6 @@
         preload
         class="ui-showcase--image"
         height="200"
-        width="200"
         :alt="alt || ''"
         :src="image"
         :placeholder="[100, 100, 50, 5]"
@@ -110,12 +109,16 @@ const aria = computed(() => props.aria)
     display: flex;
     align-items: center;
     gap: .75rem;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
   }
 
   &--image {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: .375rem;
     margin-right: .5rem;
 
@@ -130,6 +133,10 @@ const aria = computed(() => props.aria)
     display: flex;
     flex-direction: column;
     min-width: 0;
+
+    @media (max-width: 640px) {
+      align-items: center;
+    }
   }
 
   &--title {

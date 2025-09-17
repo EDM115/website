@@ -4,11 +4,9 @@
     <NuxtRouteAnnouncer />
     <NavBar />
     <main>
-      <UiContainer>
-        <div :class="route.path.split('/').length < 3 ? 'centered-stack-home' : 'centered-stack-blog'">
-          <slot />
-        </div>
-      </UiContainer>
+      <div :class="route.path.split('/').length < 3 ? 'centered-stack-home' : 'centered-stack-blog'">
+        <slot />
+      </div>
     </main>
     <BackToTop />
     <CookieConsent />

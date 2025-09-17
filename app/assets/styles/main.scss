@@ -40,7 +40,7 @@ main {
 .app-bg::before {
   content: "";
   position: absolute;
-  inset: -10vh;
+  inset: -10lvh;
   background: var(--gradient-hero);
   filter: blur(40px) saturate(140%);
 }
@@ -121,7 +121,7 @@ main {
   justify-content: center;
   position: sticky;
   top: 0;
-  height: calc(100vh - 5rem);
+  height: calc(100svh - 5rem);
 }
 
 .hero-image {
@@ -300,9 +300,13 @@ li {
   margin: 1.5rem 0;
 }
 
-.markdown-body p > img {
+.markdown-body img {
   max-width: 100%;
   height: auto;
+
+  @media (max-width: 600px) {
+    max-width: 90svw;
+  }
 }
 
 .markdown-body details {
@@ -467,7 +471,7 @@ h6 a:hover > code.hljs {
 
 @media (max-width: 960px) {
   .markdown-body {
-    width: 100%;
+    width: 90svw;
   }
 }
 

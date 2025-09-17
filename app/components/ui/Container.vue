@@ -14,7 +14,7 @@
 
 @media (max-width: 640px) {
   .ui-container {
-    padding-inline: 0;
+    width: 95svw;
   }
 }
 
