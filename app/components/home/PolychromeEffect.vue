@@ -154,8 +154,8 @@ function updateIntensityVars(el: HTMLElement) {
 
   if (worker) {
     worker.postMessage({
-      "type": "setIntensity",
-      "intensity": cssIntensity,
+      type: "setIntensity",
+      intensity: cssIntensity,
     }, [])
   }
 }
@@ -264,9 +264,9 @@ function resizeCanvas(rect?: DOMRect) {
 
   if (usingOffscreen) {
     worker?.postMessage({
-      "type": "resize",
-      "width": targetW,
-      "height": targetH,
+      type: "resize",
+      width: targetW,
+      height: targetH,
     })
   } else {
     if (cvs.width !== targetW || cvs.height !== targetH) {
@@ -295,8 +295,8 @@ function startCaustics() {
     if (offscreen) {
       usingOffscreen = true
       worker = altRendering.value
-        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { "type": "module" })
-        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { "type": "module" })
+        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { type: "module" })
+        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
       const quality = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
       const dpr = quality.dpr
@@ -304,16 +304,16 @@ function startCaustics() {
       const height = Math.max(96, Math.floor(rect.height * dpr * 0.7))
 
       worker.postMessage({
-        "type": "init",
-        "canvas": offscreen,
+        type: "init",
+        canvas: offscreen,
         width,
         height,
-        "fps": quality.fps,
-        "quality": quality.quality,
+        fps: quality.fps,
+        quality: quality.quality,
       }, [offscreen])
       worker.postMessage({
-        "type": "setIntensity",
-        "intensity": cssIntensity,
+        type: "setIntensity",
+        intensity: cssIntensity,
       }, [])
 
       if (!onWindowResize) {
@@ -654,10 +654,10 @@ function queueStart() {
 
     // If an Offscreen worker already exists just resume it, else start
     if (usingOffscreen && worker) {
-      worker.postMessage({ "type": "start" }, [])
+      worker.postMessage({ type: "start" }, [])
       worker.postMessage({
-        "type": "setIntensity",
-        "intensity": cssIntensity,
+        type: "setIntensity",
+        intensity: cssIntensity,
       }, [])
     } else {
       startCaustics()
@@ -708,7 +708,7 @@ function handleEnableChange(v: boolean) {
     const wasUsingOffscreen = usingOffscreen
 
     if (usingOffscreen && worker) {
-      worker.postMessage({ "type": "stop" }, [])
+      worker.postMessage({ type: "stop" }, [])
       worker.terminate()
       worker = null
       usingOffscreen = false
@@ -822,7 +822,7 @@ watch(isMobile, (mobile) => {
 
     if (usingOffscreen && worker) {
       try {
-        worker.postMessage({ "type": "stop" } as const, [])
+        worker.postMessage({ type: "stop" } as const, [])
       } catch {
         // Ignored : worker might already be stopped or disposed
         void 0

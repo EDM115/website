@@ -71,7 +71,7 @@
     <NuxtImg
       preload
       alt="Discord presence"
-      src="https://lanyard.cnrad.dev/api/625240117560475658?borderRadius=20px&bg=00040e&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true&theme=dark)](https://discord.com/users/625240117560475658"
+      src="https://lanyard.cnrad.dev/api/625240117560475658?borderRadius=20px&bg=00040e&idleMessage=No%20RPC%20activity%20detected&showDisplayName=true&theme=dark"
       placeholder
       loading="lazy"
     />

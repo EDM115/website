@@ -53,7 +53,7 @@ function getVNodeProps(v: VNode | unknown) {
 }
 
 function isUiTab(v: VNode | unknown) {
-  const asAny = v as unknown as { "type"?: { name?: string } }
+  const asAny = v as unknown as { type?: { name?: string } }
 
   return asAny?.type?.name === "UiTab"
 }

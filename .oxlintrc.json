@@ -26,8 +26,7 @@
     "**/.nuxt/",
     "**/.output/",
     "**/dist/",
-    "**/node_modules/",
-    "**/public/web/**"
+    "**/node_modules/"
   ],
   "rules": {
     "capitalized-comments": "off",

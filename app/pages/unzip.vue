@@ -291,7 +291,7 @@ useHead({
   ],
   link: [
     {
-      "rel": "icon", "type": "image/webp", "href": "/img/projects/unzip-bot.webp",
+      rel: "icon", type: "image/webp", href: "/img/projects/unzip-bot.webp",
     },
   ],
 })

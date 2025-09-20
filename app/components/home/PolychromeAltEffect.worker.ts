@@ -9,28 +9,28 @@
  */
 
 interface InitMessage {
-  "type": "init";
-  "canvas": OffscreenCanvas;
-  "width": number;
-  "height": number;
-  "fps": number;
-  "quality": number;
+  type: "init";
+  canvas: OffscreenCanvas;
+  width: number;
+  height: number;
+  fps: number;
+  quality: number;
 }
 
 interface ResizeMessage {
-  "type": "resize";
-  "width": number;
-  "height": number;
+  type: "resize";
+  width: number;
+  height: number;
 }
 
 interface SetIntensityMessage {
-  "type": "setIntensity";
-  "intensity": number;
+  type: "setIntensity";
+  intensity: number;
 }
 
-interface StartMessage { "type": "start" }
+interface StartMessage { type: "start" }
 
-interface StopMessage { "type": "stop" }
+interface StopMessage { type: "stop" }
 
 type Message = InitMessage | ResizeMessage | SetIntensityMessage | StartMessage | StopMessage
 

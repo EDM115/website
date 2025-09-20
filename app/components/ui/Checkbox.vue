@@ -102,8 +102,8 @@ const emit = defineEmits<{
 const inputEl = useTemplateRef("inputEl")
 
 const model = computed<boolean>({
-  "get": () => props.modelValue ?? false,
-  "set": (val) => {
+  get: () => props.modelValue ?? false,
+  set: (val) => {
     if (props.disabled) {
       return
     }

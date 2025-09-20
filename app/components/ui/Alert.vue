@@ -10,12 +10,12 @@ defineProps<{
   /**
    * Visual style of the alert
    */
-  "type"?: "info" | "success" | "warning" | "error";
+  type?: "info" | "success" | "warning" | "error";
 
   /**
    * Optional text content to render, if omitted the default slot is used
    */
-  "text"?: string;
+  text?: string;
 }>()
 </script>
 

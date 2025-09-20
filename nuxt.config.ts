@@ -79,7 +79,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: "en" },
       link: [
         {
-          "rel": "icon", "type": "image/webp", "href": "/img/profile-img.webp",
+          rel: "icon", type: "image/webp", href: "/img/profile-img.webp",
         },
       ],
     },

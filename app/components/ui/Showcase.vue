@@ -89,12 +89,6 @@ const props = defineProps<{
    */
   aria?: string;
 }>()
-
-const image = computed(() => props.image)
-const alt = computed(() => props.alt)
-const link = computed(() => props.link)
-const actions = computed(() => props.actions)
-const aria = computed(() => props.aria)
 </script>
 
 <style scoped lang="scss">

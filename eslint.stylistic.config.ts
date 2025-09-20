@@ -3,7 +3,7 @@ import tsParser from "@typescript-eslint/parser"
 import vueParser from "vue-eslint-parser"
 
 export default [
-  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts", "**/public/web/" ] },
+  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/*.d.ts" ] },
   {
     files: ["**/*.{js,ts,vue}"],
     linterOptions: { reportUnusedDisableDirectives: false },
@@ -70,7 +70,7 @@ export default [
             parameters: "first", body: 1, returnType: 1,
           },
           StaticBlock: { body: 1 },
-          CallExpression: { "arguments": "first" },
+          CallExpression: { arguments: "first" },
           ArrayExpression: "first",
           ObjectExpression: "first",
           ImportDeclaration: "first",

@@ -33,7 +33,7 @@ useHead({
   ],
   link: [
     {
-      "rel": "icon", "type": "image/webp", "href": "/img/profile-img.webp",
+      rel: "icon", type: "image/webp", href: "/img/profile-img.webp",
     },
   ],
   htmlAttrs: { lang: i18nHead.value.htmlAttrs.lang ?? "en" },

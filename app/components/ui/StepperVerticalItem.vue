@@ -47,7 +47,6 @@
       <div
         v-if="isOpen"
         :id="`panel-${uid}`"
-        ref="bodyRef"
         class="ui-stepper-item--body"
       >
         <slot />
@@ -96,7 +95,6 @@ const props = defineProps<{
 }>()
 
 const isOpen = ref(false)
-const bodyRef = useTemplateRef("bodyRef")
 const uid = useId()
 
 // Apply theming so icon marker is encompassed by item color/bg
