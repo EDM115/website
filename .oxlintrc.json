@@ -1,22 +1,9 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["./node_modules/edm115-lint/.oxlintrc.base.json"],
   "plugins": [
-    "import",
-    "oxc",
-    "regex",
-    "typescript",
-    "unicorn",
     "vue"
   ],
-  "categories": {
-    "correctness": "warn",
-    "perf": "warn",
-    "suspicious": "warn",
-    "pedantic": "off",
-    "style": "off",
-    "restriction": "off",
-    "nursery": "off"
-  },
   "env": {
     "es2025": true,
     "browser": true,
@@ -27,61 +14,5 @@
     "**/.output/",
     "**/dist/",
     "**/node_modules/"
-  ],
-  "rules": {
-    "capitalized-comments": "off",
-    "curly": [
-      "error",
-      "all"
-    ],
-    "id-length": "off",
-    "import/no-duplicates": "error",
-    "import/no-named-as-default": "warn",
-    "import/no-named-as-default-member": "warn",
-    "import/no-unresolved": [ "error", { "ignore": [ "^~icons/", "\\.svg\\?.*$" ] }],
-    "max-statements": "off",
-    "no-array-constructor": "error",
-    "no-await-in-loop": "error",
-    "no-case-declarations": "error",
-    "no-empty": "error",
-    "no-fallthrough": "error",
-    "no-prototype-builtins": "error",
-    "no-redeclare": "error",
-    "no-regex-spaces": "error",
-    "no-unexpected-multiline": "off",
-    "no-unused-expressions": "error",
-    "no-useless-call": "error",
-    "no-underscore-dangle": "off",
-    "no-useless-assignment": "off",
-    "no-var": "error",
-    "one-var": "off",
-    "prefer-named-capture-group": "off",
-    "require-unicode-regexp": "off",
-    "oxc/no-accumulating-spread": "error",
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
-    "typescript/ban-ts-comment": "error",
-    "typescript/no-empty-object-type": "error",
-    "typescript/no-explicit-any": "warn",
-    "typescript/no-namespace": "error",
-    "typescript/no-require-imports": "error",
-    "typescript/no-unnecessary-type-constraint": "error",
-    "typescript/no-unsafe-function-type": "error",
-    "typescript/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_",
-        "destructuredArrayIgnorePattern": "^_",
-        "ignoreRestSiblings": true,
-        "varsIgnorePattern": "^_"
-      }
-    ],
-    "typescript/prefer-as-const": "error",
-    "typescript/triple-slash-reference": "off",
-    "unicorn/consistent-function-scoping": "off",
-    "unicorn/no-empty-file": "off",
-    "unicorn/prefer-array-find": "error",
-    "unicorn/prefer-set-has": "error"
-  }
+  ]
 }
