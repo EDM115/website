@@ -45,7 +45,9 @@ let quality = 1
 let lastTime = 0
 
 // utility helpers
-const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
+function clamp(v: number, a = 0, b = 1) {
+  return Math.min(b, Math.max(a, v))
+}
 
 // Shader-inspired dynamic field from Balatro holographic shader
 function holographicField(px: number, py: number, t: number, grid: number, scale: number) {

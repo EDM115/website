@@ -373,11 +373,15 @@ function startCaustics() {
       // World scale : how many cells across
       const SCALE = 8.5
       // small utility: fractional part
-      const fract = (v: number) => v - Math.floor(v)
+      function fract(v: number) {
+        return v - Math.floor(v)
+      }
       // hash to 0..1
-      const hash1 = (i: number, j: number) => fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
+      function hash1(i: number, j: number) {
+        return fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
+      }
       // two randoms 0..1 per cell
-      const rand2 = (i: number, j: number) => {
+      function rand2(i: number, j: number) {
         const fractA = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
         const fractB = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
 

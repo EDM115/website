@@ -75,11 +75,11 @@ const iconTheme = computed(() => (isDark.value
   ? mdiWeatherSunny
   : mdiWeatherNight))
 
-const switchLocale = (newLocale: "en" | "fr") => {
+function switchLocale(newLocale: "en" | "fr") {
   locale.value = newLocale
 }
 
-const getFlagEmoji = (l: string): string => {
+function getFlagEmoji(l: string): string {
   switch (l) {
     case "en":
       return "🇺🇸"

@@ -34,7 +34,6 @@
         </template>
         <template #default>
           <!-- eslint-disable vue/no-v-html -->
-          <!-- skipcq: JS-0693 -->
           <div
             class="markdown-body"
             v-html="renderedContent"
