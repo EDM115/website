@@ -59,7 +59,7 @@ const pending = new Map<number, number>()
 const revealed = new Set<number>()
 
 function attachEvents(odo: LightOdometer, id: number) {
-  const onDone = (e: Event) => {
+  const onDone = (_e: Event) => {
     // After finishing, if a pending value exists, apply it immediately
     const next = pending.get(id)
 
