@@ -338,8 +338,8 @@ function startCaustics() {
     let raf: number | null = null
     let last = 0
     let time = 0
-    const q = computeQuality()
-    const interval = 1000 / q.fps
+    const quality = computeQuality()
+    const interval = 1000 / quality.fps
 
     const draw = (now: number) => {
       if (!enabled.value) {
@@ -666,10 +666,10 @@ function queueStart() {
 
   // Defer: after Nuxt ready -> requestIdle -> next frame
   onNuxtReady(() => {
-    const w = window as Window & { requestIdleCallback?: (cb: IdleRequestCallback)=> number }
+    const win = window as Window & { requestIdleCallback?: (cb: IdleRequestCallback)=> number }
 
-    if (typeof w.requestIdleCallback === "function") {
-      w.requestIdleCallback(() => {
+    if (typeof win.requestIdleCallback === "function") {
+      win.requestIdleCallback(() => {
         requestAnimationFrame(start)
       })
     } else {
@@ -753,9 +753,9 @@ function handleEnableChange(v: boolean) {
 onMounted(() => {
   // listen for global toggle
   window.addEventListener("polychrome-toggle", (e: Event) => {
-    const v = Boolean((e as CustomEvent<boolean>).detail)
+    const val = Boolean((e as CustomEvent<boolean>).detail)
 
-    handleEnableChange(v)
+    handleEnableChange(val)
   })
 
   // compute initial enable/quality
