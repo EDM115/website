@@ -732,6 +732,7 @@ function handleEnableChange(v: boolean) {
         }
       } catch {
         // Ignore : can happen if the canvas was transferred, visibility is controlled via CSS.
+        // skipcq: JS-0098
         void 0
       }
     }
@@ -825,6 +826,7 @@ watch(isMobile, (mobile) => {
         worker.postMessage({ type: "stop" } as const, [])
       } catch {
         // Ignored : worker might already be stopped or disposed
+        // skipcq: JS-0098
         void 0
       }
       worker.terminate()
@@ -848,6 +850,7 @@ watch(isMobile, (mobile) => {
         }
       } catch {
         // Ignore : canvas might be in an invalid state
+        // skipcq: JS-0098
         void 0
       }
     }
