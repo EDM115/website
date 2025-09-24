@@ -64,7 +64,7 @@
     "typescript": "~5.9.2",
     "unplugin-icons": "~22.3.0",
     "unplugin-vue-components": "~29.1.0",
-    "unplugin-vue-markdown": "~29.1.0",
+    "unplugin-vue-markdown": "~29.2.0",
     "vite-plugin-checker": "~0.10.3",
     "vue-eslint-parser": "~10.2.0",
     "vue-tsc": "~3.0.8"
