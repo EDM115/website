@@ -1,5 +1,5 @@
 ---
-title: bot down - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-06-08T17:31:00Z

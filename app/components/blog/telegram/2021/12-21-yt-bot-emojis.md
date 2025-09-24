@@ -1,5 +1,5 @@
 ---
-title: YT bot emojis - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-21T14:23:00Z

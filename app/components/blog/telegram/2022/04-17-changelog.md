@@ -1,5 +1,5 @@
 ---
-title: changelog - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-04-17T15:44:00Z

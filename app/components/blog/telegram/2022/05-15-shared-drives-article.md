@@ -1,5 +1,5 @@
 ---
-title: Shared Drives article - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-05-15T22:53:00Z

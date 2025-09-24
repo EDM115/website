@@ -1,5 +1,5 @@
 ---
-title: YT bot auto delete - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-25T00:01:00Z

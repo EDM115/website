@@ -1,5 +1,5 @@
 ---
-title: Telegram X deleted message - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-01-08T18:51:00Z

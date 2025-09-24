@@ -1,5 +1,5 @@
 ---
-title: storytime - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-10-06T21:39:36Z

@@ -1,5 +1,5 @@
 ---
-title: YT bot v3 - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-01-20T19:44:00Z

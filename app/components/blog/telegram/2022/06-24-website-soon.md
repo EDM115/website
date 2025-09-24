@@ -1,0 +1,11 @@
+---
+title: EDM115 Telegram blog
+meta:
+  - name: article:published_time
+    content: 2022-06-24T00:15:39Z
+---
+
+![website-soon](/img/blog/2022/06-24-website-soon.webp)
+Website coming soon 😃
+
+Why searching for an FTP client on Android when you have Cx File Explorer… 😏

@@ -1,5 +1,5 @@
 ---
-title: Google Drive file policy - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-16T10:08:00Z

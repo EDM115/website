@@ -1,5 +1,5 @@
 ---
-title: YT bot notification - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-26T16:44:00Z

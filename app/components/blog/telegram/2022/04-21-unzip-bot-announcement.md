@@ -1,5 +1,5 @@
 ---
-title: Unzip bot announcement - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-04-21T20:08:00Z

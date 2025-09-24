@@ -1,5 +1,5 @@
 ---
-title: YT bot issues - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-18T20:39:00Z

@@ -1,5 +1,5 @@
 ---
-title: Bots roadmap - EDM115 Telegram blog
+title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-05-16T23:50:00Z
