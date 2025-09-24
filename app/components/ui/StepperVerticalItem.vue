@@ -175,6 +175,7 @@ function toggle() {
     margin: 0;
     cursor: pointer;
     border-radius: .375rem;
+    overflow-wrap: anywhere;
 
     &:focus-visible {
       outline: 2px solid color-mix(in srgb, var(--primary) 60%, var(--gone));

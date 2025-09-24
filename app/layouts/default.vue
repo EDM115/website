@@ -74,15 +74,4 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(-20px);
 }
-
-.layout-enter-active,
-.layout-leave-active {
-  transition: all 0.2s ease-in-out;
-}
-
-.layout-enter-from,
-.layout-leave-to {
-  filter: blur(0.5rem);
-  opacity: 50;
-}
 </style>
