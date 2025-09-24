@@ -242,7 +242,7 @@ import mdiText from "~icons/mdi/text"
 const { t } = useI18n()
 
 const age = ref(21)
-const enableAnimation = ref(true)
+const enableAnimation = ref(false)
 const alternativeRendering = ref(false)
 const enableCounter = ref(0)
 
