@@ -85,6 +85,7 @@
     "cleanup": "nuxt cleanup",
 
     "dev": "nuxt dev --no-clear --no-fork",
+    "dev:expose": "nuxt dev --no-clear --no-fork --host",
 
     "generate": "nuxt generate",
 
