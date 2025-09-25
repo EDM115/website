@@ -40,7 +40,7 @@ importers:
         version: 1.11.0(db0@0.3.2)(ioredis@5.8.0)(magicast@0.3.5)
       '@nuxt/scripts':
         specifier: ~0.12.0
-        version: 0.12.0(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.21(typescript@5.9.2)))(db0@0.3.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))
+        version: 0.12.1(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.21(typescript@5.9.2)))(db0@0.3.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))
       '@nuxtjs/color-mode':
         specifier: ~3.5.2
         version: 3.5.2(magicast@0.3.5)
@@ -923,8 +923,8 @@ packages:
     resolution: {integrity: sha512-uFr13C6c52OFbF3hZVIV65KvhQRyrwp1GlAm7EVNGjebY8279QEel57T4R9UA1dn2Et6CBynBFhWoFwwo97Pig==, tarball: https://registry.npmjs.org/@nuxt/schema/-/schema-4.1.2.tgz}
     engines: {node: ^14.18.0 || >=16.10.0}
 
-  '@nuxt/scripts@0.12.0':
-    resolution: {integrity: sha512-u+lDBE2PxP8WDmcl165WgfpSbxSgpYAet8sDr3N5MIxIZ8uNK0tU65kKEUpCzDOmFWMjMbZqGZarSBY45GlBsw==, tarball: https://registry.npmjs.org/@nuxt/scripts/-/scripts-0.12.0.tgz}
+  '@nuxt/scripts@0.12.1':
+    resolution: {integrity: sha512-B6h6pT0tAuScve+6opooJL9Zj45OMxaXspxtG65NhXvoT61qQhA/9Mjx1DedWJT7le6YffIvDcciKVrb6xXYYA==, tarball: https://registry.npmjs.org/@nuxt/scripts/-/scripts-0.12.1.tgz}
     peerDependencies:
       '@googlemaps/markerclusterer': ^2.6.2
       '@paypal/paypal-js': ^8.1.2
@@ -6871,7 +6871,7 @@ snapshots:
       std-env: 3.9.0
       ufo: 1.6.1
 
-  '@nuxt/scripts@0.12.0(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.21(typescript@5.9.2)))(db0@0.3.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))':
+  '@nuxt/scripts@0.12.1(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.17(vue@3.5.21(typescript@5.9.2)))(db0@0.3.2)(ioredis@5.8.0)(magicast@0.3.5)(typescript@5.9.2)(vue@3.5.21(typescript@5.9.2))':
     dependencies:
       '@googlemaps/markerclusterer': 2.6.2
       '@nuxt/kit': 4.1.2(magicast@0.3.5)
