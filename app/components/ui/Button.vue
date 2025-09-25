@@ -1,8 +1,8 @@
 <template>
   <NuxtLink
     v-if="link"
-    :target="link.startsWith('/') ? '_self' : '_blank '"
-    :external="!link.startsWith('/') || link.startsWith('/docs/')"
+    :target="linkTarget"
+    :external="linkExternal"
     :to="link"
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"
@@ -175,6 +175,12 @@ const classes = computed(() => [
     ? "ui-btn--disabled"
     : "",
 ])
+
+const isLocal = computed(() => !!props.link && props.link.startsWith("/"))
+const isDocs = computed(() => !!props.link && props.link.startsWith("/docs/"))
+
+const linkTarget = computed(() => (isLocal.value && !isDocs.value) ? "_self" : "_blank")
+const linkExternal = computed(() => !isLocal.value || isDocs.value)
 </script>
 
 <style scoped lang="scss">
