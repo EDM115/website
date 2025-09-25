@@ -30,7 +30,7 @@
   </UiBanner>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import mdiCookieAlertOutline from "~icons/mdi/cookie-alert-outline"
 import { vOnClickOutside } from "@vueuse/components"
 

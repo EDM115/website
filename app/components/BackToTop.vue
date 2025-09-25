@@ -11,7 +11,7 @@
   />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import mdiArrowUp from "~icons/mdi/arrowUp"
 
 import { useCustomTheme } from "~/composables/useCustomTheme"
