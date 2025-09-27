@@ -22,7 +22,6 @@
 import hugeIconsSpotify from "~icons/hugeicons/spotify"
 import icBaselineDiscord from "~icons/ic/baseline-discord"
 import icBaselineTelegram from "~icons/ic/baseline-telegram"
-import mdiDevTo from "~icons/mdi/devTo"
 import mdiDocker from "~icons/mdi/docker"
 import mdiGithub from "~icons/mdi/github"
 import mdiInstagram from "~icons/mdi/instagram"
@@ -35,11 +34,8 @@ import mdiStackOverflow from "~icons/mdi/stackOverflow"
 import mdiWhatsapp from "~icons/mdi/whatsapp"
 import mdiYoutube from "~icons/mdi/youtube"
 import pajamasTwitter from "~icons/pajamas/twitter"
-import phGitlab from "~icons/ph/gitlab-logo"
 import simpleIconsAppleMusic from "~icons/simple-icons/applemusic"
 import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
-import simpleIconsHackthebox from "~icons/simple-icons/hackthebox"
-import simpleIconsRootme from "~icons/simple-icons/rootme"
 
 const socialLinks = [
   {
@@ -98,34 +94,14 @@ const socialLinks = [
     url: "https://stackoverflow.com/users/18644204",
   },
   {
-    icon: phGitlab,
-    text: "GitLab",
-    url: "https://gitlab.com/EDM115",
-  },
-  {
     icon: mdiWhatsapp,
     text: "WhatsApp",
     url: "https://api.whatsapp.com/send?phone=33667980504",
   },
   {
-    icon: mdiDevTo,
-    text: "Dev.to",
-    url: "https://dev.to/edm115",
-  },
-  {
     icon: mdiDocker,
     text: "Docker Hub",
     url: "https://hub.docker.com/u/edm115",
-  },
-  {
-    icon: simpleIconsRootme,
-    text: "RootMe",
-    url: "https://www.root-me.org/EDM115?inc=info&lang=en",
-  },
-  {
-    icon: simpleIconsHackthebox,
-    text: "HackTheBox",
-    url: "https://app.hackthebox.com/profile/975408",
   },
   {
     icon: hugeIconsSpotify,
