@@ -56,7 +56,6 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
-    // "nuxt-module-feed",
     "nuxt-svgo",
     "unplugin-icons/nuxt",
   ],
@@ -64,7 +63,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
     timeline: { enabled: false },
-    // vueDevTools: false,
   },
   app: {
     baseURL: "/",
@@ -147,13 +145,6 @@ export default defineNuxtConfig({
     build: {
       chunkSizeWarningLimit: 2000,
       cssMinify: "lightningcss",
-
-      /* rollupOptions: {
-        output: {
-          /// @ts-expect-error Exists in rolldown
-          minify: true,
-        },
-      }, */
     },
     clearScreen: false,
     plugins: [
@@ -278,21 +269,6 @@ export default defineNuxtConfig({
     autoInit: false,
     standalone: false,
   } },
-
-  /* feed: {
-    sources: [
-      {
-        path: "/feed.xml",
-        type: "rss2",
-        cacheTime: 432000,
-      },
-      {
-        path: "/feed.json",
-        type: "json1",
-        cacheTime: 432000,
-      },
-    ]
-  }, */
   fonts: {
     processCSSVariables: true,
     provider: "google",

@@ -14,7 +14,7 @@
         :value="2"
       />
     </UiTabs>
-  
+
     <UiTabsWindow
       v-model="tab"
       class="mt-2"
@@ -46,7 +46,7 @@
           </UiStepperVerticalItem>
         </UiStepperVertical>
       </UiTabsWindowItem>
-  
+
       <UiTabsWindowItem
         :value="2"
       >

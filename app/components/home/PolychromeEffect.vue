@@ -372,14 +372,17 @@ function startCaustics() {
       // Worley (cellular) noise field for organic cell-like caustics
       // World scale : how many cells across
       const SCALE = 8.5
+
       // small utility: fractional part
       function fract(v: number) {
         return v - Math.floor(v)
       }
+
       // hash to 0..1
       function hash1(i: number, j: number) {
         return fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
       }
+
       // two randoms 0..1 per cell
       function rand2(i: number, j: number) {
         const fractA = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)

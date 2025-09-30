@@ -179,7 +179,9 @@ const classes = computed(() => [
 const isLocal = computed(() => !!props.link && props.link.startsWith("/"))
 const isDocs = computed(() => !!props.link && props.link.startsWith("/docs/"))
 
-const linkTarget = computed(() => (isLocal.value && !isDocs.value) ? "_self" : "_blank")
+const linkTarget = computed(() => ((isLocal.value && !isDocs.value)
+  ? "_self"
+  : "_blank"))
 const linkExternal = computed(() => !isLocal.value || isDocs.value)
 </script>
 
