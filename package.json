@@ -70,7 +70,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.18.0",
   "private": true,
   "repository": {
     "type": "git",
