@@ -216,6 +216,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 69,
+    "name": "database64128/youtube-dl-wpf",
+    "description": "[BUG] Since v1.13.0, the UI completely hangs after a few seconds of a download",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/database64128/youtube-dl-wpf/issues/226"
+  },
+  {
     "id": 68,
     "name": "github/copilot-cli",
     "description": "Bring back the GitHub Copilot in the CLI commands to not break workflows",
