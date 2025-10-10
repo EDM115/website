@@ -176,8 +176,8 @@ const classes = computed(() => [
     : "",
 ])
 
-const isLocal = computed(() => !!props.link && props.link.startsWith("/"))
-const isDocs = computed(() => !!props.link && props.link.startsWith("/docs/"))
+const isLocal = computed(() => props.link !== undefined && props.link.startsWith("/"))
+const isDocs = computed(() => props.link !== undefined && props.link.startsWith("/docs/"))
 
 const linkTarget = computed(() => ((isLocal.value && !isDocs.value)
   ? "_self"
