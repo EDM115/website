@@ -11,14 +11,12 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @stylistic/object-curly-newline */
 defineProps<{
   /**
    * Marks the list item as active (highlighted)
    */
   active?: boolean;
 }>()
-/* eslint-enable @stylistic/object-curly-newline */
 </script>
 
 <style scoped lang="scss">

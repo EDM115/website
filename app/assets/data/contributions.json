@@ -252,7 +252,7 @@
     "name": "eslint-stylistic/eslint-stylistic",
     "description": "object-curly-newline: minProperties option doesn't respect comments",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/eslint-stylistic/eslint-stylistic/issues/971"
   },
   {

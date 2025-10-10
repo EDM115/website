@@ -22,14 +22,12 @@
 <script setup lang="ts">
 const open = ref(false)
 
-/* eslint-disable @stylistic/object-curly-newline */
 defineProps<{
   /**
    * Use this to avoid closing the menu when clicking on the activator
    */
   clickToClose?: boolean;
 }>()
-/* eslint-enable @stylistic/object-curly-newline */
 </script>
 
 <style scoped lang="scss">
