@@ -1,5 +1,11 @@
 <template>
-  <header :class="`ui-app-bar ${invisible ? 'ui-app-bar--invisible' : ''}`">
+  <header
+    :class="[
+      'ui-app-bar',
+      invisible && 'ui-app-bar--invisible',
+      hitThrough && 'ui-app-bar--hit-through',
+    ]"
+  >
     <div class="ui-app-bar--prepend">
       <slot name="prepend" />
     </div>
@@ -13,14 +19,17 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @stylistic/object-curly-newline */
 defineProps<{
   /**
    * Whether the background gets transparent
    */
   invisible?: boolean;
+
+  /**
+   * Allow clicks to pass through the bar except on its controls
+   */
+  hitThrough?: boolean;
 }>()
-/* eslint-enable @stylistic/object-curly-newline */
 </script>
 
 <style scoped lang="scss">
@@ -65,6 +74,19 @@ defineProps<{
   &--title {
     font-weight: 700;
     font-size: 1.25rem;
+  }
+
+  &--hit-through {
+    pointer-events: none;
+
+    .ui-app-bar--prepend,
+    .ui-app-bar--append {
+      pointer-events: auto;
+    }
+
+    .ui-app-bar--title {
+      pointer-events: none;
+    }
   }
 }
 </style>

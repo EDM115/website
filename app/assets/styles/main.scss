@@ -28,6 +28,50 @@ main {
   transition: opacity .2s ease, transform .2s ease;
 }
 
+// Credits to https://github.com/rudrodip/theme-toggle-effect
+:root.theme-transition::view-transition-group(root) {
+  animation-timing-function: linear(
+    0 0%,
+    0.1 2%,
+    0.2 5%,
+    0.3 10%,
+    0.4 25%,
+    0.5 35%,
+    0.6 50%,
+    0.7 65%,
+    0.8 80%,
+    0.9 90%,
+    1 100%
+  );
+}
+
+:root.theme-transition::view-transition-new(root) {
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='40' cy='0' r='20' fill='white'/></svg>")
+    top right / 0 no-repeat;
+  mask-origin: content-box;
+  animation: scale 0.8s;
+  animation-fill-mode: both;
+  transform-origin: top right;
+}
+
+:root.theme-transition::view-transition-old(root),
+:root.theme-transition.dark-mode::view-transition-old(root) {
+  animation: none;
+  animation-fill-mode: both;
+  transform-origin: top right;
+  z-index: -1;
+}
+:root.theme-transition.dark-mode::view-transition-new(root) {
+  animation: scale 0.8s;
+  animation-fill-mode: both;
+}
+
+@keyframes scale {
+  to {
+    mask-size: 300vmax;
+  }
+}
+
 .app-bg {
   position: fixed;
   inset: 0;

@@ -56,7 +56,7 @@
     "jiti": "~2.6.1",
     "lightningcss": "~1.30.2",
     "npm-run-all2": "~8.0.4",
-    "oxlint": "~1.20.0",
+    "oxlint": "~1.22.0",
     "oxlint-tsgolint": "~0.2.0",
     "sass-embedded": "~1.93.2",
     "sass-loader": "~16.0.5",
@@ -70,7 +70,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.18.1",
+  "packageManager": "pnpm@10.18.2",
   "private": true,
   "repository": {
     "type": "git",
@@ -105,5 +105,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.3.6"
+  "version": "2.3.7"
 }

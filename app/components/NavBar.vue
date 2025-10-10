@@ -2,6 +2,7 @@
   <UiAppBar
     class="rounded-b-lg"
     invisible
+    hit-through
   >
     <template
       v-if="route.path !== '/'"
@@ -48,7 +49,7 @@
         color="text"
         variant="frosted"
         aria="Theme switcher"
-        @click="toggleTheme"
+        @click="switchTheme"
       />
     </template>
   </UiAppBar>
@@ -77,6 +78,27 @@ const iconTheme = computed(() => (isDark.value
 
 function switchLocale(newLocale: "en" | "fr") {
   locale.value = newLocale
+}
+
+function switchTheme() {
+  const root = document.documentElement
+
+  root.classList.add("theme-transition")
+
+  if (!document.startViewTransition) {
+    toggleTheme()
+    root.classList.remove("theme-transition")
+
+    return
+  }
+
+  const tx = document.startViewTransition(() => {
+    toggleTheme()
+  })
+
+  tx.finished.finally(() => {
+    root.classList.remove("theme-transition")
+  })
 }
 
 function getFlagEmoji(l: string): string {
