@@ -1,5 +1,5 @@
 <template>
-  <UiOdometer :stats="stats" />
+  <UiOdometer :stats />
 </template>
 
 <script setup lang="ts">

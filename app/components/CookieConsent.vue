@@ -72,7 +72,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .rounded-t-lg {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;

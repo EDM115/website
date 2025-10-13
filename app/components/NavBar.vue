@@ -133,7 +133,7 @@ function goBack() {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .rounded-b-lg {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;

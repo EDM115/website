@@ -191,9 +191,8 @@ declare module 'vue' {
     UiStepperVertical: typeof import('./components/ui/StepperVertical.vue')['default']
     UiStepperVerticalItem: typeof import('./components/ui/StepperVerticalItem.vue')['default']
     UiTab: typeof import('./components/ui/Tab.vue')['default']
+    UiTabPanel: typeof import('./components/ui/TabPanel.vue')['default']
     UiTabs: typeof import('./components/ui/Tabs.vue')['default']
-    UiTabsWindow: typeof import('./components/ui/TabsWindow.vue')['default']
-    UiTabsWindowItem: typeof import('./components/ui/TabsWindowItem.vue')['default']
     UiTooltip: typeof import('./components/ui/Tooltip.vue')['default']
   }
 }

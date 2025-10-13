@@ -37,8 +37,9 @@
   <button
     v-else
     :class="classes"
-    :disabled="disabled"
+    :disabled
     :aria-label="aria"
+    type="button"
   >
     <component
       :is="prependIcon"

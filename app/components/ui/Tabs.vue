@@ -1,33 +1,32 @@
 <template>
-  <div class="ui-tabs">
-    <div class="ui-tabs--headers">
-      <button
-        v-for="tab in tabs"
-        :key="tab.value"
-        class="ui-tab"
-        :class="{ active: modelValue === tab.value }"
-        @click="$emit('update:modelValue', tab.value)"
-      >
-        {{ tab.text }}
-      </button>
+  <div
+    class="ui-tabs"
+    :style="styleVars"
+  >
+    <div
+      class="ui-tabs--headers"
+      :class="alignClass"
+    >
+      <slot
+        name="tabs"
+        :current="modelValue"
+        :select="selectTab"
+      />
     </div>
-    <div class="ui-tabs__body">
-      <slot />
+
+    <div class="ui-tabs--body">
+      <slot
+        name="panels"
+        :current="modelValue"
+      >
+        <slot />
+      </slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { VNode } from "vue"
-
-type Tab = {
-  text: string;
-  value: string | number;
-}
-
-type VNodeWithProps = VNode & { props?: Record<string, unknown> | null }
-
-defineProps<{
+const props = defineProps<{
 
   /**
    * Current active tab value
@@ -35,59 +34,82 @@ defineProps<{
   modelValue: string | number;
 
   /**
-   * Optional color for active state styling
+   * Optional color for the active tab
    */
   color?: string;
+
+  /**
+   * Alignment for the tab headers
+   */
+  alignTabs?: "left" | "center" | "right";
 }>()
 
-defineEmits<(e: "update:modelValue", v: string | number)=> void>()
+const emit = defineEmits<{ (e: "update:modelValue", value: string | number): void }>()
 
-const slots = useSlots()
+const alignClass = computed(() => {
+  switch (props.alignTabs) {
+    case "left":
+      return "align-left"
+    case "right":
+      return "align-right"
+    default:
+      return "align-center"
+  }
+})
 
-function getVNodeProps(v: VNode | unknown) {
-  const node = v as VNodeWithProps
+const accent = computed(() => {
+  if (!props.color) {
+    return "var(--primary)"
+  }
 
-  return (node && typeof node === "object" && "props" in node)
-    ? (node.props ?? null)
-    : null
+  if (props.color.startsWith("var(")) {
+    return props.color
+  }
+
+  if (props.color.startsWith("--")) {
+    return `var(${props.color})`
+  }
+
+  if (props.color.startsWith("#") || props.color.startsWith("rgb") || props.color.startsWith("hsl")) {
+    return props.color
+  }
+
+  return `var(--${props.color})`
+})
+
+const styleVars = computed(() => ({
+  "--ui-tabs-accent": accent.value,
+}))
+
+function selectTab(value: string | number) {
+  if (value !== props.modelValue) {
+    emit("update:modelValue", value)
+  }
 }
-
-function isUiTab(v: VNode | unknown) {
-  const asAny = v as unknown as { type?: { name?: string } }
-
-  return asAny?.type?.name === "UiTab"
-}
-
-const tabs = (slots.default?.() || [])
-  .filter((v: VNode | unknown) => isUiTab(v) || (getVNodeProps(v) && "text" in (getVNodeProps(v) as Record<string, unknown>)))
-  .map((v: VNode | unknown) => {
-    const nodeProps = getVNodeProps(v) as Record<string, unknown> | null
-
-    return {
-      text: (nodeProps?.text as string) || "",
-      value: (nodeProps?.value as string | number),
-    }
-  }) as Tab[]
 </script>
 
 <style scoped lang="scss">
 .ui-tabs {
+  display: flex;
+  flex-direction: column;
+
   &--headers {
     display: flex;
-    gap: .25rem;
-    justify-content: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    &.align-center {
+      justify-content: center;
+    }
+
+    &.align-right {
+      justify-content: flex-end;
+    }
   }
-}
 
-.ui-tab {
-  padding: .5rem 1rem;
-  border-radius: .5rem;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-
-  &.active {
-    background: color-mix(in srgb, var(--primary) 25%, transparent);
+  &--body {
+    margin-top: 1rem;
   }
 }
 </style>

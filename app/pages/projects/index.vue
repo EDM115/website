@@ -104,7 +104,7 @@ const projects = [
 ]
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .showcases {
   display: grid;
   grid-template-columns: 1fr;

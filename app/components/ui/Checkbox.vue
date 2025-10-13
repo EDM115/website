@@ -13,9 +13,9 @@
       v-model="model"
       class="ui-checkbox--input"
       type="checkbox"
-      :name="name"
-      :value="value"
-      :disabled="disabled"
+      :name
+      :value
+      :disabled
       :aria-label="aria"
       @focus="onFocus"
       @blur="onBlur"

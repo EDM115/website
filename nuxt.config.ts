@@ -228,7 +228,7 @@ export default defineNuxtConfig({
               <div class='code-block'>
                 <div class='code-block-header'>
                   <span class='code-block-lang'>${langName || "plaintext"}</span>
-                  <button class='copy-code-button'>
+                  <button class='copy-code-button' type='button'>
                     Copy
                   </button>
                 </div>

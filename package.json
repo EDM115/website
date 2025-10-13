@@ -48,7 +48,7 @@
     "@types/markdown-it-emoji": "^3.0.1",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
-    "@typescript-eslint/parser": "~8.46.0",
+    "@typescript-eslint/parser": "~8.46.1",
     "edm115-lint": "~0.1.1",
     "eslint": "~9.37.0",
     "eslint-plugin-vue": "~10.5.0",
@@ -56,7 +56,7 @@
     "jiti": "~2.6.1",
     "lightningcss": "~1.30.2",
     "npm-run-all2": "~8.0.4",
-    "oxlint": "~1.22.0",
+    "oxlint": "~1.23.0",
     "oxlint-tsgolint": "~0.2.0",
     "sass-embedded": "~1.93.2",
     "sass-loader": "~16.0.5",
@@ -105,5 +105,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.3.8"
+  "version": "2.3.9"
 }

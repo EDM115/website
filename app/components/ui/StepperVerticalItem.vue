@@ -11,7 +11,7 @@
       <div class="ui-stepper-item--marker-icon">
         <UiIcon
           v-if="icon"
-          :icon="icon"
+          :icon
         />
         <div
           v-else

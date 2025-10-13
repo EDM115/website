@@ -126,7 +126,7 @@ const socialLinks = [
 ]
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .socialsIcon {
   margin: 4px;
   transition: all 0.2s ease-in-out;

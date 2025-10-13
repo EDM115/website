@@ -31,7 +31,7 @@
       />
       <span
         v-if="enabled"
-        :class="[ 'holo-overlay', { 'alt-rendering': altRendering } ]"
+        :class="['holo-overlay', { 'alt-rendering': altRendering }]"
         aria-hidden="true"
       />
     </div>

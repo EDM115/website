@@ -4,7 +4,7 @@
       <slot name="prepend">
         <UiIcon
           v-if="icon"
-          :icon="icon"
+          :icon
         />
       </slot>
     </div>

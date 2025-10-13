@@ -143,7 +143,7 @@ const resumeLink = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .mt-4 {
   margin-top: 16px;
 }

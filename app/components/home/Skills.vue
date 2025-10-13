@@ -122,7 +122,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .progress-container {
   position: relative;
   display: inline-block;

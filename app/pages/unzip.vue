@@ -89,7 +89,7 @@
                 </NuxtLink>
               </h2>
             </template>
-            <UiOdometer :stats="stats" />
+            <UiOdometer :stats />
           </UiCard>
 
           <UiCard
