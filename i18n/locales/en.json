@@ -1,6 +1,6 @@
 {
   "blog": {
-    "back": "Back to blog list",
+    "back": "Back to the blog posts list",
     "description": "Some random blog posts that I write when I have time",
     "head": "Blog - EDM115",
     "title": "Blog"
@@ -8,28 +8,22 @@
   "cookies": {
     "accept": "Accept",
     "reject": "Reject",
-    "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Do you accept this ?"
+    "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Are you okay with this ?"
   },
   "home": {
     "about": "About",
-    "about1": "I'm a French developer who like to play with different programming languages",
-    "about10": "Email",
-    "about11": "Birthday : 18th June",
-    "about12": "Phone",
-    "about13": "Degree : Computer Science BUT (Bachelor of Technology), Baccalureate+3",
-    "about2": "Managing both dev & relationship, I'm passionnated and involved into everything I try out",
-    "about3": "Web dev • Python enthusiast • Java dev",
-    "about4": "I mostly made things in Vue, Python and Java",
-    "about5": "You can check all my projects on my GitHub",
-    "about6": "Name : Lussandre Lederrey",
-    "about7": "Age : {age} years old",
-    "about8": "City : Rouen, France",
-    "about9": "Website",
+    "about-age": "{age} years old",
+    "about-birthday": "18th June",
+    "about-diploma": "Computer Science BUT (Bachelor of Technology), Baccalureate+3",
+    "about-fav": "My favorite technologies at the moment are Vue, TS and Python",
+    "about-github": "You can check all my projects on my ",
+    "about-recap": "Fullstack dev • Python enthusiast • Fast learner",
+    "about-tagline-1": "I'm a versatile junior French developer who like to tackle various programming languages and love open source",
+    "about-tagline-2": "Currently searching for a job, I'm passionate and involved in everything I try out",
     "alternativeAnimation": "Alternative effect rendering",
     "blog": "Blog",
     "disableAnimation": "Polychrome effect",
-    "downloadPdf": "PDF",
-    "downloadResume": "Download my Resume",
+    "downloadResume": "Download my resume",
     "home": "Home",
     "oss": "Open Source contributions",
     "projects": "Projects",

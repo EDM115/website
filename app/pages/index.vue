@@ -95,23 +95,60 @@
               </h2>
             </template>
             <p>
-              {{ t('home.about1') }}<br>
-              {{ t('home.about2') }}<br><br>
-              {{ t('home.about3') }}<br>
-              {{ t('home.about4') }}<br>
-              {{ t('home.about5') }}<br>
-              {{ t('home.about6') }}<br>
-              {{ t('home.about7', { age }) }}<br>
-              {{ t('home.about8') }}<br>
-              {{ t('home.about9') }} :
+              {{ t('home.about-tagline-1') }}<br>
+              {{ t('home.about-tagline-2') }}<br><br>
+
+              {{ t('home.about-recap') }}<br>
+              {{ t('home.about-fav') }}<br>
+              {{ t('home.about-github') }}
               <NuxtLink
-                to="https://edm115.dev"
+                to="https://github.com/EDM115"
                 target="_blank"
+                external
+                aria-label="EDM115's website"
+              >
+                GitHub
+              </NuxtLink><br><br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiAccountTieOutline"
+              />
+              <span style="font-weight: 600;">Lussandre Lederrey</span><br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiCakeVariantOutline"
+              />
+              {{ t('home.about-birthday') }}<br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiHourglass"
+              />
+              {{ t('home.about-age', { age }) }}<br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiMapMarkerOutline"
+              />
+              Rouen, France<br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiWeb"
+              />
+              <NuxtLink
+                to="/"
                 aria-label="EDM115's website"
               >
                 edm115.dev
               </NuxtLink><br>
-              {{ t('home.about10') }} :
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiEmailOutline"
+              />
               <NuxtLink
                 to="mailto:dev@edm115.dev"
                 target="_blank"
@@ -120,8 +157,11 @@
               >
                 dev@edm115.dev
               </NuxtLink><br>
-              {{ t('home.about11') }}<br>
-              {{ t('home.about12') }} :
+
+              <UiIcon
+                class="about-icons"
+                :icon="mdiPhoneOutline"
+              />
               <NuxtLink
                 to="tel:+33667980504"
                 target="_blank"
@@ -130,7 +170,12 @@
               >
                 +33 6 67 98 05 04
               </NuxtLink><br>
-              {{ t('home.about13') }}<br>
+
+              <UiIcon
+                class="about-icons"
+                :icon="diplomaOutline"
+              />
+              {{ t('home.about-diploma') }}<br>
             </p>
           </UiCard>
 
@@ -235,9 +280,17 @@
 </template>
 
 <script setup lang="ts">
+import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
+import mdiCakeVariantOutline from "~icons/mdi/cakeVariantOutline"
+import diplomaOutline from "~icons/mdi/diplomaOutline"
+import mdiEmailOutline from "~icons/mdi/emailOutline"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
+import mdiHourglass from "~icons/mdi/hourglass"
 import mdiInformationOutline from "~icons/mdi/informationOutline"
+import mdiMapMarkerOutline from "~icons/mdi/mapMarkerOutline"
+import mdiPhoneOutline from "~icons/mdi/phoneOutline"
 import mdiText from "~icons/mdi/text"
+import mdiWeb from "~icons/mdi/web"
 
 const { t } = useI18n()
 
@@ -290,5 +343,13 @@ watch(enableAnimation, (val) => {
 .hero-image {
   display: block;
   border-radius: inherit;
+}
+
+.about-icons {
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  margin-right: 0.15rem;
+  transform: translateY(-0.12rem);
 }
 </style>

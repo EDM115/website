@@ -79,11 +79,6 @@ const props = defineProps<{
   icon?: Component;
 
   /**
-   * Optional value identifier for the step
-   */
-  value?: string | number;
-
-  /**
    * Foreground color applied to the item content and borders
    */
   color?: string;

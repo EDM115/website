@@ -8,10 +8,9 @@
         :subtitle="t('home.resume2')"
         title="EDM115"
         :icon="mdiAccountTieOutline"
-        value="1"
       >
         <UiList>
-          <UiListItem>
+          <UiListItem no-hover>
             <template #title>
               {{ t("home.resume3") }}
             </template>
@@ -39,10 +38,9 @@
         :subtitle="t('home.resume5')"
         :title="t('home.resume6')"
         :icon="mdiBriefcaseOutline"
-        value="2"
       >
         <UiList>
-          <UiListItem>
+          <UiListItem no-hover>
             <template #title>
               2025
             </template>
@@ -60,10 +58,9 @@
         :subtitle="t('home.resume5')"
         :title="t('home.resume8')"
         :icon="mdiBriefcaseOutline"
-        value="3"
       >
         <UiList>
-          <UiListItem>
+          <UiListItem no-hover>
             <template #title>
               2024
             </template>
@@ -81,10 +78,9 @@
         :subtitle="t('home.resume10')"
         :title="t('home.resume11')"
         :icon="mdiSchoolOutline"
-        value="4"
       >
         <UiList>
-          <UiListItem>
+          <UiListItem no-hover>
             <template #title>
               2022 - 2025
             </template>
@@ -102,10 +98,9 @@
         :subtitle="t('home.resume10')"
         :title="t('home.resume13')"
         :icon="mdiSchoolOutline"
-        value="5"
       >
         <UiList>
-          <UiListItem>
+          <UiListItem no-hover>
             <template #title>
               2019 - 2022
             </template>
@@ -119,13 +114,11 @@
         </UiList>
       </UiStepperVerticalItem>
     </UiStepperVertical>
-    <h3 class="mt-4 mb-2">
-      {{ t("home.downloadResume") }}
-    </h3>
     <UiButton
+      class="mt-4"
       color="secondary"
       :prepend-icon="mdiFileDownload"
-      :text="t('home.downloadPdf')"
+      :text="t('home.downloadResume')"
       :link="resumeLink"
       aria="Download PDF resume"
     />

@@ -719,5 +719,5 @@ But we still had to do a quick change. You see, every button press worked, excep
 
 ## The end
 It was really fun to make the code and write this blog post, but seriously frustrating that there is no standard API to do it in a non convoluted way, 17 years after the release of Android !  
-I hope that this helped you to implement such a basic feature in your app (although working with accessibility services is a pain in the rear end), and don't hesitate to [follow me on random places](https://edm115.dev/#social) (feel free to start a convo).  
+I hope that this helped you to implement such a basic feature in your app (although working with accessibility services is a pain in the rear end), and don't hesitate to [follow me on random places](/#social) (feel free to start a convo).  
 This blog will contain random writeups like this one (technical) and more random standard things too, thoughts, ...

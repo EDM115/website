@@ -322,7 +322,6 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: var(--gone);
 }
 
 .error,

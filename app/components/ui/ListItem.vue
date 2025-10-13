@@ -1,5 +1,5 @@
 <template>
-  <li :class="`ui-list-item ${active ? 'is-active' : ''}`">
+  <li :class="['ui-list-item', { 'is-active': active, 'no-hover': noHover }]">
     <div class="ui-list-item--title">
       <slot name="title" />
     </div>
@@ -16,6 +16,11 @@ defineProps<{
    * Marks the list item as active (highlighted)
    */
   active?: boolean;
+
+  /**
+   * Disables hover effect
+   */
+  noHover?: boolean;
 }>()
 </script>
 
@@ -32,6 +37,13 @@ defineProps<{
   &.is-active {
     background: color-mix(in srgb, var(--primary) 30%, transparent);
     color: var(--text);
+  }
+
+  &.no-hover {
+    &:hover {
+      background: none;
+      cursor: default;
+    }
   }
 
   &--title {

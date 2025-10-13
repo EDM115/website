@@ -22,7 +22,6 @@
             style="padding: 8px; --pc-duration: 3s; --pc-ease: cubic-bezier(.42,0,.58,1);"
             :model-value="skill.displayedValue"
             :size="100"
-            :width="10"
           >
             <div class="percentage">
               {{ skill.displayedValue }} %

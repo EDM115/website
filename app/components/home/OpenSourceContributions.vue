@@ -31,7 +31,6 @@
             color="#eae7de"
             :subtitle="getContribName(contrib.state, contrib.type)"
             :title="contrib.name"
-            :value="contrib.id"
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
@@ -59,7 +58,6 @@
             color="#eae7de"
             :subtitle="getContribName(contrib.state, contrib.type)"
             :title="contrib.name"
-            :value="contrib.id"
             :class="getContribColor(contrib.state, contrib.type)[0]"
           >
             {{ contrib.description }}<br>
