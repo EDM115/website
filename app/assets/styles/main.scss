@@ -483,6 +483,20 @@ li {
   word-break: break-all;
 }
 
+*:not(pre) > code.hljs span {
+  color: inherit !important;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+a > code.hljs {
+  color: var(--primary) !important;
+
+  &:hover {
+    color: var(--secondary) !important;
+  }
+}
+
 a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) > code.hljs {
   text-decoration: underline;
   text-decoration-color: var(--primary);
