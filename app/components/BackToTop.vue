@@ -3,9 +3,8 @@
     v-show="showGoToTop"
     fab
     color="primary"
-    class="go-to-top"
     :icon="mdiArrowUp"
-    :variant
+    :variant="variant"
     aria="Go to top"
     @click="scrollToTop"
   />
@@ -19,11 +18,11 @@ import { useCustomTheme } from "~/composables/useCustomTheme"
 const { isDark } = useCustomTheme()
 const router = useRouter()
 
-let mounted = false
+let mounted = ref(false)
 const showGoToTop = ref(false)
 
 const variant = computed(() => {
-  if (!mounted) {
+  if (!mounted.value) {
     return "tonal"
   }
 
@@ -46,16 +45,12 @@ function handleScroll() {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
-  mounted = true
+  handleScroll()
+  mounted.value = true
 })
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll)
+  mounted.value = false
 })
 </script>
-
-<style>
-.go-to-top {
-  transition: all 0.5s ease-in-out;
-}
-</style>

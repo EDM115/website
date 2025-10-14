@@ -62,7 +62,7 @@ onMounted(() => {
 })
 </script>
 
-<style>
+<style lang="scss">
 .page-enter-active,
 .page-leave-active {
   transition: all 0.2s ease-in-out;

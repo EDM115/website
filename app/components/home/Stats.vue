@@ -5,7 +5,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-let projectsNumber = 57
+let projectsNumber = ref(57)
 const usersNumber = 46568
 const projectsLoc = {
   // active
@@ -67,7 +67,7 @@ const projectsLoc = {
 
 const stats = computed(() => [
   {
-    id: 0, name: t("stats.projects"), value: projectsNumber,
+    id: 0, name: t("stats.projects"), value: projectsNumber.value,
   },
   {
     id: 1, name: t("stats.users"), value: usersNumber,
@@ -87,7 +87,7 @@ async function fetchProjectsNumber() {
       "X-GitHub-Api-Version": "2022-11-28",
     } })
 
-    projectsNumber = public_repos
+    projectsNumber.value = public_repos
   } catch (error) {
     console.error("Failed to fetch projects number :", error)
   }
