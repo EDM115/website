@@ -178,6 +178,9 @@ At this point I was convinced that it wasn't feasible. *If* it wasn't for [Andri
 This guy had a brilliant idea : Android phones have accessibility services, which allows to emulate clicks on the screen. Why not using them to click on the keypad buttons directly !  
 However, his solution had some flaws, notably the fact that we needed the screen coordinates of the buttons, and our app needed to work on all kind of Android devices (including tablets), which made this impossible. But hey, that's nothing that code couldn't solve... \:)
 
+> [!NOTE]  
+> **Update :** After the publication of this blog post, Andriy shared more details about the backstory of his implementation in a [LinkedIn post](https://www.linkedin.com/posts/andriiantonov_edm115-french-devstudentgamermusic-producer-activity-7288106936519049216-7V5w/?utm_source=edm115.dev).
+
 ## Time to lock in
 Here's the very first implementation that I made :
 ```kotlin
