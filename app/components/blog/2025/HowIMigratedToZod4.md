@@ -128,7 +128,7 @@ To use Zod v4, all you have to do is to use the latest version, and change your 
 - import { z } from "zod"
 + import { z } from "zod/v4"
 ```
-This will yield all deprecation warnings and errors so fix them first \:)  
+This will yield all deprecation warnings and errors so fix them first :)  
 > [!NOTE]  
 > Although it is in a subpath, it isn't possible to keep 2 versions of Zod on the same codebase.
   

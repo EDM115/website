@@ -44,7 +44,7 @@ const props = defineProps<{
   alignTabs?: "left" | "center" | "right";
 }>()
 
-const emit = defineEmits<(e: "update:modelValue", value: string | number) => void>()
+const emit = defineEmits<(e: "update:modelValue", value: string | number)=> void>()
 
 const alignClass = computed(() => {
   switch (props.alignTabs) {

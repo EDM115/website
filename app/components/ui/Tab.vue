@@ -25,7 +25,7 @@ const props = defineProps<{
   currentValue?: string | number | null;
 }>()
 
-const emit = defineEmits<(e: "select", value: string | number) => void>()
+const emit = defineEmits<(e: "select", value: string | number)=> void>()
 
 const isActive = computed(() => props.currentValue === props.value)
 

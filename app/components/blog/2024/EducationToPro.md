@@ -11,10 +11,10 @@ meta:
 # How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
 
 ### Quick backstory
-My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine \:)
+My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine :)
 
 ## Prerequisites
-The PC has to have an admin session. If you don't, try to find how to make yourself admin \:)
+The PC has to have an admin session. If you don't, try to find how to make yourself admin :)
 
 ## Step 1 : The migration
 01. Create a new local account and make it admin. Go on Settings => Accounts => Other users and add one. Make sure it's a local account, decline as much as possible any Microsoft related info.

@@ -162,7 +162,7 @@ export default defineNuxtConfig({
             hljs,
             inline: true,
           })
-          md.use(emoji)
+          md.use(emoji, { shortcuts: {} })
           md.use(mditAnchor, {
             slugify: (s) => slugify(demojifyToGithub(s)),
             permalink: mditAnchor.permalink.headerLink(),

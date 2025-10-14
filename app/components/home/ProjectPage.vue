@@ -125,7 +125,7 @@ const md = new MarkdownIt({
     hljs,
     inline: true,
   })
-  .use(emoji)
+  .use(emoji, { shortcuts: {} })
   .use(mditAnchor, {
     slugify: (s) => slugify(demojifyToGithub(s)),
     permalink: mditAnchor.permalink.headerLink(),
