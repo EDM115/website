@@ -56,6 +56,7 @@ function handleClick() {
 
   & > :deep(.ui-btn--inside-text) {
     background-color: transparent;
+    color: var(--text);
   }
 }
 </style>

@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repo
+      - name: "Check out repo"
         uses: actions/checkout@v5
 
-      - name: Refresh contributions JSON
+      - name: "Refresh contributions JSON"
         uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -71,7 +71,7 @@ jobs:
 
             fs.writeFileSync(path, JSON.stringify(contribs, null, 2) + "\n\n")
 
-      - name: Commit and push if changed
+      - name: "Commit and push if changed"
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

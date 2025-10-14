@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: wow-actions/contributors-list@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          svgPath: CONTRIBUTORS.svg
-          sort: true
-          round: true
-          truncate: 0
           affiliation: "all"
-          includeBots: true
           commitMessage: "chore(contributors) [skip ci]"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          includeBots: true
+          round: true
+          sort: true
+          svgPath: CONTRIBUTORS.svg
+          truncate: 0

@@ -40,7 +40,7 @@ pnpm start:ssg
 ---
 
 ## NGINX setup (on my VPS)
-*(supposing that the repo is at `/home/edm115/website` and that it is built)*  
+*(assuming that the repo is at `/home/edm115/website` and that it is built)*  
 ```bash
 sudo find /home/edm115/website/dist -type d -exec chmod 755 {} \;
 sudo find /home/edm115/website/dist -type f -exec chmod 644 {} \;
@@ -92,10 +92,6 @@ server {
 
         if ($host ~* ^senescalade\.) {
             return 301 https://github.com/EDM115-org/Senescalade;
-        }
-        
-        if ($host ~* ^next\.) {
-            return 301 https://edm115.netlify.app$request_uri;
         }
 
         # Also pass URL params
