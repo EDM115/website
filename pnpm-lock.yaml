@@ -39,8 +39,8 @@ importers:
         specifier: ~1.11.0
         version: 1.11.0(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)
       '@nuxt/scripts':
-        specifier: ~0.12.2
-        version: 0.12.2(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.19(vue@3.5.22(typescript@5.9.3)))(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
+        specifier: ~0.13.0
+        version: 0.13.0(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.19(vue@3.5.22(typescript@5.9.3)))(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
       '@nuxtjs/color-mode':
         specifier: ~3.5.2
         version: 3.5.2(magicast@0.3.5)
@@ -909,8 +909,8 @@ packages:
     resolution: {integrity: sha512-ZLkIfleKHQF0PqTDEwuVVnnE/hyMdfY4m2zX8vRC0XMSbFS1I0MFcKkzWnJaMC13NYmGPnT3sX0o3lznweKHJQ==, tarball: https://registry.npmjs.org/@nuxt/schema/-/schema-4.1.3.tgz}
     engines: {node: ^14.18.0 || >=16.10.0}
 
-  '@nuxt/scripts@0.12.2':
-    resolution: {integrity: sha512-aE2tM5SB76vv3nNO7ZMXfN7lIWUCkIBQxfZ6QQfKP2GHs9JiZ4xO56Ix881X5xhO7kxGLKibyMyQE7TJ4hdu1g==, tarball: https://registry.npmjs.org/@nuxt/scripts/-/scripts-0.12.2.tgz}
+  '@nuxt/scripts@0.13.0':
+    resolution: {integrity: sha512-445eLduI97E+nMUzlTBdUbWwwW5qDE9/IcT5X9sDTc9b/x4u50t5brzh5Ntzl69TZMUo6heWxsX73x+6rSJLjg==, tarball: https://registry.npmjs.org/@nuxt/scripts/-/scripts-0.13.0.tgz}
     peerDependencies:
       '@googlemaps/markerclusterer': ^2.6.2
       '@paypal/paypal-js': ^8.1.2
@@ -920,6 +920,8 @@ packages:
       '@types/youtube': ^0.1.0
       '@unhead/vue': ^2.0.3
     peerDependenciesMeta:
+      '@googlemaps/markerclusterer':
+        optional: true
       '@paypal/paypal-js':
         optional: true
       '@stripe/stripe-js':
@@ -6044,6 +6046,7 @@ snapshots:
       '@types/supercluster': 7.1.3
       fast-equals: 5.3.2
       supercluster: 8.0.1
+    optional: true
 
   '@humanfs/core@0.19.1': {}
 
@@ -6639,9 +6642,8 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.1
 
-  '@nuxt/scripts@0.12.2(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.19(vue@3.5.22(typescript@5.9.3)))(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))':
+  '@nuxt/scripts@0.13.0(@googlemaps/markerclusterer@2.6.2)(@unhead/vue@2.0.19(vue@3.5.22(typescript@5.9.3)))(db0@0.3.4)(ioredis@5.8.1)(magicast@0.3.5)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))':
     dependencies:
-      '@googlemaps/markerclusterer': 2.6.2
       '@nuxt/kit': 4.1.3(magicast@0.3.5)
       '@unhead/vue': 2.0.19(vue@3.5.22(typescript@5.9.3))
       '@vueuse/core': 13.9.0(vue@3.5.22(typescript@5.9.3))
@@ -6659,6 +6661,8 @@ snapshots:
       unplugin: 2.3.10
       unstorage: 1.17.1(db0@0.3.4)(ioredis@5.8.1)
       valibot: 1.1.0(typescript@5.9.3)
+    optionalDependencies:
+      '@googlemaps/markerclusterer': 2.6.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -7509,7 +7513,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/geojson@7946.0.16': {}
+  '@types/geojson@7946.0.16':
+    optional: true
 
   '@types/json-schema@7.0.15': {}
 
@@ -7547,6 +7552,7 @@ snapshots:
   '@types/supercluster@7.1.3':
     dependencies:
       '@types/geojson': 7946.0.16
+    optional: true
 
   '@types/web-bluetooth@0.0.21': {}
 
@@ -8882,7 +8888,8 @@ snapshots:
 
   fast-deep-equal@3.1.3: {}
 
-  fast-equals@5.3.2: {}
+  fast-equals@5.3.2:
+    optional: true
 
   fast-fifo@1.3.2: {}
 
@@ -9364,7 +9371,8 @@ snapshots:
       espree: 9.6.1
       semver: 7.7.3
 
-  kdbush@4.0.2: {}
+  kdbush@4.0.2:
+    optional: true
 
   keyv@4.5.4:
     dependencies:
@@ -11115,6 +11123,7 @@ snapshots:
   supercluster@8.0.1:
     dependencies:
       kdbush: 4.0.2
+    optional: true
 
   superjson@2.2.2:
     dependencies:
