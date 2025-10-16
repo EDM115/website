@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@mdit/plugin-alert':
         specifier: ~0.22.2
-        version: 0.22.2(markdown-it@14.1.0)
+        version: 0.22.3(markdown-it@14.1.0)
       '@mdit/plugin-align':
         specifier: ~0.22.1
         version: 0.22.1(markdown-it@14.1.0)
@@ -110,7 +110,7 @@ importers:
     devDependencies:
       '@iconify/json':
         specifier: latest
-        version: 2.2.395
+        version: 2.2.396
       '@stylistic/eslint-plugin':
         specifier: ~5.4.0
         version: 5.4.0(eslint@9.37.0(jiti@2.6.1))
@@ -590,8 +590,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==, tarball: https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.4.3.tgz}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.395':
-    resolution: {integrity: sha512-XSYOnlGqiZhJkFFBUiVK4C5VIiv4rxyKtCmkQ9nS4zfMpS4xT0BF9+qWUKOHYgeCzCLghyWfrm6Eti3Sv5kfqQ==, tarball: https://registry.npmjs.org/@iconify/json/-/json-2.2.395.tgz}
+  '@iconify/json@2.2.396':
+    resolution: {integrity: sha512-tijg77JFuYIt32S9N8p7La8C0zp9zKZsX6UP8ip5GVB1F6Mp3pZA5Vc5eAquTY50NoDJX58U6z4Qn3d6Wyossg==, tarball: https://registry.npmjs.org/@iconify/json/-/json-2.2.396.tgz}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==, tarball: https://registry.npmjs.org/@iconify/types/-/types-2.0.0.tgz}
@@ -736,8 +736,8 @@ packages:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-alert@0.22.2':
-    resolution: {integrity: sha512-n2oVSeg3yeZBCjqfAqbnJxeu4PGq+CXwUWsiwrrARj39z23QZ62FbgL5WGNyP/WFnDAeHMedLDYtipC9OgIOgA==, tarball: https://registry.npmjs.org/@mdit/plugin-alert/-/plugin-alert-0.22.2.tgz}
+  '@mdit/plugin-alert@0.22.3':
+    resolution: {integrity: sha512-9g99rjLCFd8upA/DXbhGmEM7GMFocy6SRk4OekxuAy9t1aDOE/r5IJgUbBIvc9kMkg39ug0yXtMkKwAt2zp5Hg==, tarball: https://registry.npmjs.org/@mdit/plugin-alert/-/plugin-alert-0.22.3.tgz}
     peerDependencies:
       markdown-it: ^14.1.0
     peerDependenciesMeta:
@@ -6056,7 +6056,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify/json@2.2.395':
+  '@iconify/json@2.2.396':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
@@ -6233,7 +6233,7 @@ snapshots:
     optionalDependencies:
       markdown-it: 14.1.0
 
-  '@mdit/plugin-alert@0.22.2(markdown-it@14.1.0)':
+  '@mdit/plugin-alert@0.22.3(markdown-it@14.1.0)':
     dependencies:
       '@types/markdown-it': 14.1.2
     optionalDependencies:
