@@ -33,7 +33,7 @@
   "explorer.fileNesting.patterns": {
     "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",
     "nuxt.config.ts": "tsconfig.*",
-    "package.json": "pnpm*",
+    "package.json": ".node-version, pnpm*",
     "README.md": "LICENSE, .gitignore, .deepsource.toml, CONTRIBUTORS.svg"
   },
   "files.eol": "\n",
