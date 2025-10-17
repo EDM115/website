@@ -18,7 +18,7 @@ jobs:
       - name: "Install pnpm"
         uses: pnpm/action-setup@v4
 
-      - name: "Bump Node.js to v24"
+      - name: "Bump Node.js to v25"
         uses: actions/setup-node@v6
         with:
           cache: "pnpm"
@@ -37,7 +37,7 @@ jobs:
       - name: "Build for GitHub Pages"
         run: pnpm nuxt generate --preset github_pages
 
-      - name: Upload artifact
+      - name: "Upload artifact"
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./.output/public
@@ -52,6 +52,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: "Deploy to GitHub Pages"
         id: deployment
         uses: actions/deploy-pages@v4

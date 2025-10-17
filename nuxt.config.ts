@@ -132,7 +132,7 @@ export default defineNuxtConfig({
     typedPages: true,
     viewTransition: true,
   },
-  compatibilityDate: "2025-09-15",
+  compatibilityDate: "2025-10-15",
   nitro: {
     compressPublicAssets: {
       brotli: true,

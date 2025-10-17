@@ -6,7 +6,8 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-# overrides:
+overrides:
+  sharp: "0.34.4"
 #   vite: "npm:rolldown-vite@latest"
 
 publicHoistPattern:

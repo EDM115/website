@@ -41,11 +41,11 @@
   },
   {
     "id": 22,
-    "name": "DishpitDev/Slopify",
+    "name": "SimuCorps/Slopify",
     "description": "feat: added anti-inspect",
     "type": "pr",
     "state": "merged",
-    "link": "https://github.com/DishpitDev/Slopify/pull/408"
+    "link": "https://github.com/SimuCorps/Slopify/pull/408"
   },
   {
     "id": 21,
@@ -617,11 +617,11 @@
   },
   {
     "id": 19,
-    "name": "leonardssh/vscord",
+    "name": "narcisbugeag/vscord",
     "description": "PSA : How to make sure the extension works (VS Code's SCM issue)",
     "type": "issue",
     "state": "open",
-    "link": "https://github.com/leonardssh/vscord/issues/343"
+    "link": "https://github.com/narcisbugeag/vscord/issues/343"
   },
   {
     "id": 18,

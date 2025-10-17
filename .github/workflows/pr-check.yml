@@ -24,7 +24,7 @@ jobs:
       - name: "Install pnpm"
         uses: pnpm/action-setup@v4
       
-      - name: "Bump Node.js to v24"
+      - name: "Bump Node.js to v25"
         uses: actions/setup-node@v6
         with:
           check-latest: true
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nuxt-output
-          path: ./.output
+          path: ./.output/*
         
       - name: "Analyze check"
         run: pnpm analyze
