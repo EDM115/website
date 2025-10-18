@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowArbitraryExtensions": true,
-    "checkJs": true,
+    "checkJs": false,
     "disableSizeLimit": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

@@ -42,6 +42,16 @@
 </template>
 
 <script setup lang="ts">
+import {
+  loadAltPolychromeWasm,
+  loadStandardPolychromeWasm,
+  type PolychromeWasmInstance,
+} from "./polychrome/wasmLoader"
+import {
+  renderPolychromeAlt,
+  renderPolychromeCaustics,
+} from "./polychrome/softwareRenderer"
+
 const props = defineProps<{
   modelValue?: boolean;
   maxDpr?: number;
@@ -344,6 +354,87 @@ function startCaustics() {
     const quality = computeQuality()
     const interval = 1000 / quality.fps
 
+    let fallbackImageData: ImageData | null = null
+    let fallbackBuffer: Uint8ClampedArray | null = null
+
+    let wasmFallbackPromise: Promise<PolychromeWasmInstance | null> | null = null
+    let wasmFallbackInstance: PolychromeWasmInstance | null = null
+    let wasmPointer = 0
+    let wasmCapacity = 0
+    let wasmBytes = 0
+    let wasmBufferView: Uint8ClampedArray | null = null
+    let wasmImageData: ImageData | null = null
+    let wasmAllowed = true
+
+    const requestWasm = () => {
+      if (wasmFallbackPromise || !wasmAllowed) {
+        return
+      }
+
+      const loader = altRendering.value
+        ? loadAltPolychromeWasm
+        : loadStandardPolychromeWasm
+
+      wasmFallbackPromise = loader()
+        .then((instance) => {
+          if (!instance) {
+            wasmAllowed = false
+
+            return null
+          }
+
+          wasmFallbackInstance = instance
+          wasmPointer = instance.getBufferPointer()
+          wasmCapacity = instance.getBufferCapacity()
+
+          return instance
+        })
+        .catch(() => {
+          wasmAllowed = false
+
+          return null
+        })
+    }
+
+    const tryPrepareWasm = () => {
+      if (!wasmAllowed || !wasmFallbackInstance) {
+        return false
+      }
+
+      const required = cvs.width * cvs.height * 4
+
+      if (required <= 0 || required > wasmCapacity) {
+        return false
+      }
+
+      const memoryBuffer = wasmFallbackInstance.memory.buffer as ArrayBuffer
+
+      if (!wasmBufferView || wasmBytes !== required) {
+        const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required) as Uint8ClampedArray<ArrayBuffer>
+
+        wasmBufferView = bufferView
+        wasmImageData = new ImageData(bufferView, cvs.width, cvs.height)
+        wasmBytes = required
+      } else if (!wasmImageData || wasmImageData.width !== cvs.width || wasmImageData.height !== cvs.height) {
+        const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required) as Uint8ClampedArray<ArrayBuffer>
+
+        wasmBufferView = bufferView
+        wasmImageData = new ImageData(bufferView, cvs.width, cvs.height)
+        wasmBytes = required
+      }
+
+      return Boolean(wasmImageData)
+    }
+
+    const ensureSoftwareBuffer = () => {
+      if (!fallbackImageData || fallbackImageData.width !== cvs.width || fallbackImageData.height !== cvs.height) {
+        fallbackImageData = ctx.createImageData(cvs.width, cvs.height)
+        fallbackBuffer = fallbackImageData.data
+      }
+    }
+
+    requestWasm()
+
     const draw = (now: number) => {
       if (!enabled.value) {
         if (raf) {
@@ -367,90 +458,40 @@ function startCaustics() {
       time += 0.03
       const width = cvs.width
       const height = cvs.height
-      const img = ctx.createImageData(width, height)
-      const data = img.data
-      const invW = 1 / width
-      const invH = 1 / height
-      let pointer = 0
-      // Worley (cellular) noise field for organic cell-like caustics
-      // World scale : how many cells across
-      const SCALE = 8.5
+      let drewFrame = false
 
-      // small utility: fractional part
-      function fract(v: number) {
-        return v - Math.floor(v)
-      }
+      if (wasmAllowed && wasmFallbackInstance && tryPrepareWasm() && wasmImageData) {
+        const wasmTime = altRendering.value
+          ? (now / 1000)
+          : time
+        const bytes = wasmFallbackInstance.render(width, height, wasmTime, cssIntensity, quality.quality)
 
-      // hash to 0..1
-      function hash1(i: number, j: number) {
-        return fract(Math.sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
-      }
-
-      // two randoms 0..1 per cell
-      function rand2(i: number, j: number) {
-        const fractA = fract(Math.sin((i * 269.5) + (j * 183.3)) * 43758.5453123)
-        const fractB = fract(Math.sin((i * 113.5) + (j * 271.9)) * 43758.5453123)
-
-        return [ fractA, fractB ] as const
-      }
-
-      for (let y = 0; y < height; y++) {
-        const py = (y + 0.5) * invH * SCALE
-
-        for (let x = 0; x < width; x++) {
-          const px = (x + 0.5) * invW * SCALE
-          const ix = Math.floor(px)
-          const iy = Math.floor(py)
-          const fx = px - ix
-          const fy = py - iy
-          // track nearest and second-nearest distances (squared)
-          let f1 = 1e9, f2 = 1e9
-
-          for (let oy = -1; oy <= 1; oy++) {
-            for (let ox = -1; ox <= 1; ox++) {
-              const cx = ix + ox
-              const cy = iy + oy
-              const [ rx, ry ] = rand2(cx, cy)
-              // subtle per-cell motion
-              const ph = hash1(cx, cy) * Math.PI * 2
-              const offx = Math.sin((time * 1.2) + ph) * 0.28
-              const offy = Math.cos((time * 1.35) + ph) * 0.28
-              const sx = (ox + rx + offx) - fx
-              const sy = (oy + ry + offy) - fy
-              const d2 = (sx * sx) + (sy * sy)
-
-              if (d2 < f1) {
-                f2 = f1
-                f1 = d2
-              } else if (d2 < f2) {
-                f2 = d2
-              }
-            }
-          }
-
-          // Use Euclidean distances for smoother, rounder cells
-          const d1 = Math.sqrt(f1)
-          const d2s = Math.sqrt(f2)
-          const diff = d2s - d1
-          // Smooth, rounded edges via Gaussian shaping around a center
-          const center = 0.09
-          const sigma = 0.045
-          let edge = Math.exp(-(((diff - center) * (diff - center)) / (2 * sigma * sigma)))
-
-          // gentle softening
-          edge = Math.pow(edge, 0.85)
-          // final intensity, modulated by approach intensity for subtlety
-          const alphaMask = Math.max(0.0, Math.min(1.0, edge * (0.5 + (cssIntensity * 0.7))))
-
-          data[pointer++] = 235
-          data[pointer++] = 245
-          data[pointer++] = 255
-          data[pointer++] = Math.floor(alphaMask * 255)
+        if (bytes > 0) {
+          ctx.putImageData(wasmImageData, 0, 0)
+          drewFrame = true
+        } else if (bytes < 0) {
+          wasmAllowed = false
+          wasmFallbackInstance = null
+          wasmFallbackPromise = null
+          wasmBufferView = null
+          wasmImageData = null
         }
       }
 
-      ctx.clearRect(0, 0, width, height)
-      ctx.putImageData(img, 0, 0)
+      if (!drewFrame) {
+        ensureSoftwareBuffer()
+
+        if (fallbackBuffer && fallbackImageData) {
+          if (altRendering.value) {
+            renderPolychromeAlt(fallbackBuffer, width, height, now / 1000, cssIntensity, quality.quality)
+          } else {
+            renderPolychromeCaustics(fallbackBuffer, width, height, time, cssIntensity, quality.quality)
+          }
+
+          ctx.putImageData(fallbackImageData, 0, 0)
+        }
+      }
+
       raf = requestAnimationFrame(draw)
       fallbackRaf = raf
     }

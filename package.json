@@ -49,6 +49,7 @@
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
     "@typescript-eslint/parser": "~8.46.1",
+    "assemblyscript": "~0.28.9",
     "edm115-lint": "~0.1.3",
     "eslint": "~9.38.0",
     "eslint-plugin-vue": "~10.5.1",
@@ -77,15 +78,15 @@
     "url": "git+https://github.com/EDM115/website.git"
   },
   "scripts": {
-    "analyze": "nuxt analyze",
-    "build": "nuxt build",
+    "analyze": "pnpm wasm && nuxt analyze",
+    "build": "pnpm wasm && nuxt build",
 
     "cleanup": "nuxt cleanup",
 
     "dev": "nuxt dev --no-clear --no-fork",
     "dev:expose": "nuxt dev --no-clear --no-fork --host",
 
-    "generate": "nuxt generate",
+    "generate": "pnpm wasm && nuxt generate",
 
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
@@ -102,8 +103,10 @@
     "start:ssr": "node .output/server/index.mjs",
     "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
 
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+
+    "wasm": "asc assembly/polychrome-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_effect.wasm && asc assembly/polychrome-alt-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_alt_effect.wasm"
   },
   "type": "module",
-  "version": "2.3.12"
+  "version": "2.4.0"
 }
