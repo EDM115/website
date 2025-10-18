@@ -1,5 +1,5 @@
 <template>
-  <div :class="`ui-banner ${color ? `ui-banner--${color}` : ''}`">
+  <div :class="['ui-banner', color && `ui-banner--${color}`]">
     <div class="ui-banner--prepend">
       <slot name="prepend">
         <UiIcon

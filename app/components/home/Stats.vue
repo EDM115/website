@@ -5,8 +5,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-let projectsNumber = ref(57)
-const usersNumber = 46568
+let projectsNumber = ref(61)
+const usersNumber = 50640
 const projectsLoc = {
   // active
   "ban-all-except-admins": 441,
@@ -15,19 +15,20 @@ const projectsLoc = {
   "bulk-youtube-download": 293,
   "dotfiles": 35267,
   "EDM115": 192,
-  "website": 20250,
   "EDM115.github.io": 90,
-  "EDM115-discord-bot": 1198,
+  "EDM115-discord-bot": 1046,
+  "edm115-lint": 390,
   "EDM115-ohmyposh-theme": 671,
   "Grundy2": 6477,
   "hugo": 890,
   "jean-marie-bot": 1984,
   "js-imports-sort": 3549,
   "learning-stack": 18412,
-  "llm-benchmark-demo": 11040,
+  "light-odometer": 2651,
+  "llm-benchmark-demo": 12483,
   "Markdown_Syntax_FR": 674,
-  "monorepo-hash": 4202,
-  "obsidian": 18466,
+  "monorepo-hash": 4560,
+  "obsidian": 19813,
   "palex": 5552,
   "random-algorithm": 370491 - 370118,
   "school-codes": 3379,
@@ -37,10 +38,12 @@ const projectsLoc = {
   "telegram-backup-dump": 512,
   "The-Very-Restrictive-License": 311,
   "unrar-alpine": 1699,
-  "unzip-bot": 7447,
+  "unzip-bot": 7161,
   "useful-stuff": 794,
   "VGM-KHI-download": 310,
   "web-logs": 303,
+  "website": 21395,
+  "website-export-action": 1063,
 
   "school-codes-v2": 885105,
   "IUT": 396155,

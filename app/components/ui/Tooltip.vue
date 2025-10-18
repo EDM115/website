@@ -6,8 +6,7 @@
     />
     <span
       v-show="open"
-      class="ui-tooltip"
-      :class="`ui-tooltip--${location}`"
+      :class="['ui-tooltip', `ui-tooltip--${location}`]"
     >{{ text }}</span>
   </span>
 </template>

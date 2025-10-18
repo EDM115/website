@@ -1,5 +1,5 @@
 <template>
-  <div :class="`ui-alert ${type ? `ui-alert--${type}` : ''}`">
+  <div :class="['ui-alert', type && `ui-alert--${type}`]">
     <slot />
   </div>
 </template>

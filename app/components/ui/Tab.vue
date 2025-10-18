@@ -1,6 +1,6 @@
 <template>
   <UiButton
-    :class="['ui-tab', { 'ui-tab--active': isActive }]"
+    :class="['ui-tab', isActive && 'ui-tab--active']"
     :text
     @click="handleClick"
   />

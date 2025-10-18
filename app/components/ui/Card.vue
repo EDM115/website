@@ -6,7 +6,7 @@
     <div class="ui-card--title">
       <slot name="title" />
     </div>
-    <div :class="['ui-card--content', small ? 'ui-card--content--small' : '']">
+    <div :class="['ui-card--content', small && 'ui-card--content--small']">
       <slot />
     </div>
     <div

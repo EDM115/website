@@ -4,8 +4,7 @@
     :style="styleVars"
   >
     <div
-      class="ui-tabs--headers"
-      :class="alignClass"
+      :class="['ui-tabs--headers', `ui-tabs--headers--align-${props.alignTabs ?? 'center'}`]"
     >
       <slot
         name="tabs"
@@ -26,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import { colorVars } from "./colors"
+
 const props = defineProps<{
 
   /**
@@ -36,7 +37,7 @@ const props = defineProps<{
   /**
    * Optional color for the active tab
    */
-  color?: string;
+  color?: keyof typeof colorVars;
 
   /**
    * Alignment for the tab headers
@@ -46,39 +47,8 @@ const props = defineProps<{
 
 const emit = defineEmits<(e: "update:modelValue", value: string | number)=> void>()
 
-const alignClass = computed(() => {
-  switch (props.alignTabs) {
-    case "left":
-      return "align-left"
-    case "right":
-      return "align-right"
-    default:
-      return "align-center"
-  }
-})
-
-const accent = computed(() => {
-  if (!props.color) {
-    return "var(--primary)"
-  }
-
-  if (props.color.startsWith("var(")) {
-    return props.color
-  }
-
-  if (props.color.startsWith("--")) {
-    return `var(${props.color})`
-  }
-
-  if (props.color.startsWith("#") || props.color.startsWith("rgb") || props.color.startsWith("hsl")) {
-    return props.color
-  }
-
-  return `var(--${props.color})`
-})
-
 const styleVars = computed(() => ({
-  "--ui-tabs-accent": accent.value,
+  "--ui-tabs-accent": `var(--${props.color})`,
 }))
 
 function selectTab(value: string | number) {
@@ -99,11 +69,11 @@ function selectTab(value: string | number) {
     flex-wrap: wrap;
     justify-content: flex-start;
 
-    &.align-center {
+    &--align-center {
       justify-content: center;
     }
 
-    &.align-right {
+    &--align-right {
       justify-content: flex-end;
     }
   }

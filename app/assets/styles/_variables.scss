@@ -1,7 +1,3 @@
-@use "sass:color";
-@use "sass:math";
-@use "sass:map";
-
 $colors: (
   accent: #ff79c6,
   bg: #00040e,
@@ -80,77 +76,6 @@ $colors: (
   );
 }
 
-// Contrast helpers (WCAG 2.1)
-@function _lin($x) {
-  @return if($x <= 0.03928, math.div($x, 12.92), math.pow(math.div($x + 0.055, 1.055), 2.4));
-}
-
-@function _rel-lum($c) {
-  $r: math.div(color.channel($c, "red", $space: rgb), 255);
-  $g: math.div(color.channel($c, "green", $space: rgb), 255);
-  $b: math.div(color.channel($c, "blue", $space: rgb), 255);
-
-  $r: _lin($r);
-  $g: _lin($g);
-  $b: _lin($b);
-
-  @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
-}
-
-@function _contrast($a, $b) {
-  $l1: _rel-lum($a);
-  $l2: _rel-lum($b);
-
-  @if $l1 < $l2 { $t: $l1; $l1: $l2; $l2: $t; }
-
-  @return math.div($l1 + 0.05, $l2 + 0.05);
-}
-
-// Punchy but legible inks for light backgrounds:
-// - Start with a saturation boost
-// - Iteratively darken a bit and add more saturation until contrast is met
-@function vivid-ink-on-light(
-  $color,
-  $bg,
-  $min: 4.5,             // target contrast (AA normal text)
-  $max-steps: 18,
-  $sat-boost: 16%,       // initial saturation bump
-  $lightness-step: 6%,   // per-iteration darken
-  $sat-step: 6%,         // per-iteration extra saturation
-  $min-lightness: 28%    // do not go too close to black
-) {
-  $try: color.scale($color, $saturation: $sat-boost);
-  $i: 0;
-
-  @if _contrast($try, $bg) >= $min {
-    @return $try;
-  }
-
-  @while _contrast($try, $bg) < $min and $i < $max-steps {
-    $try: color.scale($try, $lightness: -$lightness-step, $saturation: $sat-step);
-    $i: $i + 1;
-
-    @if color.channel($try, "lightness", $space: hsl) <= $min-lightness {
-      @return $try;
-    }
-  }
-
-  @return $try;
-}
-
-// Target light surface used in light mode
-$light-surface: #f8f8f2;
-
-$light-ink-variants: (
-  accent:    vivid-ink-on-light(map.get($colors, accent),    $light-surface),
-  primary:   vivid-ink-on-light(map.get($colors, primary),   $light-surface),
-  secondary: vivid-ink-on-light(map.get($colors, secondary), $light-surface),
-  success:   vivid-ink-on-light(map.get($colors, success),   $light-surface),
-  info:      vivid-ink-on-light(map.get($colors, info),      $light-surface),
-  warning:   vivid-ink-on-light(map.get($colors, warning),   $light-surface),
-  error:     vivid-ink-on-light(map.get($colors, error),     $light-surface),
-);
-
 .light-mode {
   --bg: #eae7de;
   --bg-light: #f8f8f2;
@@ -169,14 +94,6 @@ $light-ink-variants: (
   --info: #18c4eb;
   --warning: #cede1c;
   --error: #f52828;
-
-  /* --accent: #{map.get($light-ink-variants, accent)};
-  --primary: #{map.get($light-ink-variants, primary)};
-  --secondary: #{map.get($light-ink-variants, secondary)};
-  --success: #{map.get($light-ink-variants, success)};
-  --info: #{map.get($light-ink-variants, info)};
-  --warning: #{map.get($light-ink-variants, warning)};
-  --error: #{map.get($light-ink-variants, error)}; */
 
   --glass-bg: rgb(255 255 255 / 65%);
   --glass-bg-strong: rgb(255 255 255 / 85%);

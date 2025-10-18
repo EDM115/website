@@ -3,8 +3,8 @@
     class="ui-checkbox"
     :class="[
       toggle ? 'ui-checkbox--toggle' : 'ui-checkbox--default',
-      color ? `ui-checkbox--${color}` : '',
-      disabled ? 'ui-checkbox--disabled' : '',
+      color && `ui-checkbox--${color}`,
+      disabled && 'ui-checkbox--disabled',
     ]"
   >
     <input

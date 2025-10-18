@@ -1,8 +1,11 @@
 <template>
   <div
     ref="root"
-    class="holo-card glass"
-    :class="{ 'is-disabled': !enabled }"
+    :class="[
+      'holo-card',
+      'glass',
+      !enabled && 'is-disabled'
+    ]"
     @pointerenter="onEnter"
     @pointerleave="onLeave"
     @pointermove.passive="onPointerMove"
@@ -31,7 +34,7 @@
       />
       <span
         v-if="enabled"
-        :class="['holo-overlay', { 'alt-rendering': altRendering }]"
+        :class="['holo-overlay', altRendering && 'alt-rendering']"
         aria-hidden="true"
       />
     </div>

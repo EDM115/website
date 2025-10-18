@@ -207,6 +207,16 @@ main {
   color: transparent;
 }
 
+*::selection {
+  background: var(--primary) !important;
+  color: var(--text) !important;
+}
+
+:root.dark-mode *::selection {
+  background: var(--primary) !important;
+  color: var(--bg) !important;
+}
+
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;

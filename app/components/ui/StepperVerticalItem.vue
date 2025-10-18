@@ -1,7 +1,9 @@
 <template>
   <div
-    class="ui-stepper-item"
-    :class="[{ 'is-open': isOpen, 'is-clickable': true }]"
+    :class="[
+      'ui-stepper-item',
+      isOpen && 'ui-stepper-item--open',
+    ]"
     :style="rootStyle"
   >
     <div
@@ -122,11 +124,11 @@ function toggle() {
   padding: .5rem .75rem .75rem .75rem;
   transition: background-color .2s ease, box-shadow .2s ease;
 
-  &.is-clickable:hover {
+  &:hover {
     background: color-mix(in srgb, var(--surface) 88%, transparent);
   }
 
-  &.is-open {
+  &--open {
     background: color-mix(in srgb, var(--surface) 92%, transparent);
   }
 

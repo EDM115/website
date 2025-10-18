@@ -1,5 +1,11 @@
 <template>
-  <li :class="['ui-list-item', { 'is-active': active, 'no-hover': noHover }]">
+  <li
+    :class="[
+      'ui-list-item',
+      active && 'ui-list-item--active',
+      noHover && 'ui-list-item--no-hover',
+    ]"
+  >
     <div class="ui-list-item--title">
       <slot name="title" />
     </div>
@@ -34,12 +40,12 @@ defineProps<{
     background: color-mix(in srgb, var(--text) 10%, transparent);
   }
 
-  &.is-active {
+  &--active {
     background: color-mix(in srgb, var(--primary) 30%, transparent);
     color: var(--text);
   }
 
-  &.no-hover {
+  &--no-hover {
     &:hover {
       background: none;
       cursor: default;
