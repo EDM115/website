@@ -42,7 +42,7 @@
   "description": "EDM115's website",
   "devDependencies": {
     "@iconify/json": "latest",
-    "@stylistic/eslint-plugin": "~5.4.0",
+    "@stylistic/eslint-plugin": "~5.5.0",
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-attrs": "^4.1.3",
     "@types/markdown-it-emoji": "^3.0.1",
