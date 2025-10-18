@@ -56,7 +56,6 @@ export function render(width: i32, height: i32, time: f32, intensity: f32, quali
   let pointer = 0
 
   const scale = 8.5 * quality
-  const t = time
 
   for (let y = 0; y < height; y++) {
     const py = (f32(y) + 0.5) * invH * scale
@@ -78,8 +77,8 @@ export function render(width: i32, height: i32, time: f32, intensity: f32, quali
           const rx = rand2x(cx, cy)
           const ry = rand2y(cx, cy)
           const phase = hash1(cx, cy) * Mathf.PI * 2.0
-          const offx = Mathf.sin((t * 1.2) + phase) * 0.28
-          const offy = Mathf.cos((t * 1.35) + phase) * 0.28
+          const offx = Mathf.sin((time * 1.2) + phase) * 0.28
+          const offy = Mathf.cos((time * 1.35) + phase) * 0.28
           const sx = (f32(ox) + rx + offx) - fx
           const sy = (f32(oy) + ry + offy) - fy
           const d2 = (sx * sx) + (sy * sy)

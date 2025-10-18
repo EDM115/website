@@ -108,7 +108,7 @@ export function renderPolychromeAlt(
   const scale = quality * 250
   const holoX = clamp(intensity)
   const holoY = clamp(intensity)
-  const t = (holoY * 7.221) + timeSeconds
+  const time = (holoY * 7.221) + timeSeconds
   let pointer = 0
 
   for (let y = 0; y < height; y++) {
@@ -116,7 +116,7 @@ export function renderPolychromeAlt(
 
     for (let x = 0; x < width; x++) {
       const px = (x + 0.5) * invW
-      const field = holographicField(px, py, t, grid, scale)
+      const field = holographicField(px, py, time, grid, scale)
       const res = 0.5 + (0.5 * Math.cos((holoX * 2.612) + ((field - 0.5) * Math.PI)))
       const center = 0.92
       const sigma = 0.07
