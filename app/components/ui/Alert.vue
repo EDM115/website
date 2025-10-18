@@ -1,6 +1,7 @@
 <template>
   <div :class="['ui-alert', type && `ui-alert--${type}`]">
-    <slot />
+    <span v-if="text">{{ text }}</span>
+    <slot v-else />
   </div>
 </template>
 

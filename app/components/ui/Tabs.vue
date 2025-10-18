@@ -4,7 +4,7 @@
     :style="styleVars"
   >
     <div
-      :class="['ui-tabs--headers', `ui-tabs--headers--align-${props.alignTabs ?? 'center'}`]"
+      :class="['ui-tabs--headers', `ui-tabs--headers--align-${alignTabs ?? 'center'}`]"
     >
       <slot
         name="tabs"
