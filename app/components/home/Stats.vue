@@ -5,7 +5,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-let projectsNumber = ref(61)
+const projectsNumber = ref(61)
 const usersNumber = 50640
 const projectsLoc = {
   // active

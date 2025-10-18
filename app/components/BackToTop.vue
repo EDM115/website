@@ -18,7 +18,7 @@ import { useCustomTheme } from "~/composables/useCustomTheme"
 const { isDark } = useCustomTheme()
 const router = useRouter()
 
-let mounted = ref(false)
+const mounted = ref(false)
 const showGoToTop = ref(false)
 
 const variant = computed(() => {
