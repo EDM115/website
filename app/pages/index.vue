@@ -150,12 +150,12 @@
                 :icon="mdiEmailOutline"
               />
               <NuxtLink
-                to="mailto:dev@edm115.dev"
+                to="mailto:contact@edm115.dev"
                 target="_blank"
                 external
                 aria-label="EDM115's email"
               >
-                dev@edm115.dev
+                contact@edm115.dev
               </NuxtLink><br>
 
               <UiIcon
