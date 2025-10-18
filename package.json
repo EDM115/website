@@ -83,8 +83,8 @@
 
     "cleanup": "nuxt cleanup",
 
-    "dev": "nuxt dev --no-clear --no-fork",
-    "dev:expose": "nuxt dev --no-clear --no-fork --host",
+    "dev": "pnpm wasm && nuxt dev --no-clear --no-fork",
+    "dev:expose": "pnpm wasm && nuxt dev --no-clear --no-fork --host",
 
     "generate": "pnpm wasm && nuxt generate",
 
