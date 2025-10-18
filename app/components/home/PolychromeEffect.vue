@@ -91,6 +91,13 @@ let lowMemory = false
 let startQueued = false
 let started = false
 
+interface QualityProfile {
+  enable: boolean;
+  quality: number;
+  fps: number;
+  dpr: number;
+}
+
 // worker
 let usingOffscreen = false
 let viewportTicking = false
@@ -181,7 +188,9 @@ function recalcPointerAndRect(doResize: boolean) {
   }
 
   if (doResize) {
-    resizeCanvas()
+    const quality = refreshQuality()
+
+    resizeCanvas(undefined, quality)
   } else {
     lastRect = el.getBoundingClientRect()
   }
@@ -201,23 +210,28 @@ function recalcPointerAndRect(doResize: boolean) {
   }
 }
 
-function computeQuality() {
+function computeQuality(): QualityProfile {
   // conservative quality selection
   type NetInfo = {
     saveData?: boolean;
     downlink?: number;
   }
 
-  const navConn = navigator as unknown as Navigator & {
-    connection?: NetInfo;
-    hardwareConcurrency?: number;
-  }
-  const hasSaveData = navConn.connection?.saveData === true
-  const downlink = navConn.connection?.downlink ?? 10
+  const globalNavigator = typeof navigator === "undefined"
+    ? null
+    : navigator as Navigator & {
+      connection?: NetInfo;
+      hardwareConcurrency?: number;
+    }
+  const connection = globalNavigator?.connection
+  const hasSaveData = connection?.saveData === true
+  const downlink = connection?.downlink ?? 10
 
   saveData = hasSaveData
-  prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false
-  effectiveCores = navConn.hardwareConcurrency ?? 4
+  prefersReducedMotion = typeof window !== "undefined"
+    ? window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false
+    : false
+  effectiveCores = globalNavigator?.hardwareConcurrency ?? 4
   // very low memory heuristic (Chrome only has experimental API, so guess via cores)
   lowMemory = effectiveCores <= 2
 
@@ -256,7 +270,15 @@ function computeQuality() {
   }
 }
 
-function resizeCanvas(rect?: DOMRect) {
+let cachedQuality: QualityProfile = computeQuality()
+
+function refreshQuality(): QualityProfile {
+  cachedQuality = computeQuality()
+
+  return cachedQuality
+}
+
+function resizeCanvas(rect?: DOMRect, qualityOverride?: QualityProfile) {
   if (isMobile.value) {
     return
   }
@@ -269,7 +291,7 @@ function resizeCanvas(rect?: DOMRect) {
   }
 
   lastRect = rect ?? el.getBoundingClientRect()
-  const quality = computeQuality()
+  const quality = qualityOverride ?? cachedQuality
   const dpr = quality.dpr
   // Render at a moderate internal resolution for performance
   const targetW = Math.max(96, Math.floor(lastRect.width * dpr * 0.7))
@@ -301,6 +323,8 @@ function startCaustics() {
     return
   }
 
+  const qualityProfile = refreshQuality()
+
   // attempt OffscreenCanvas worker
   try {
     const offscreen = (cvs as HTMLCanvasElement & { transferControlToOffscreen?: ()=> OffscreenCanvas }).transferControlToOffscreen?.()
@@ -310,9 +334,8 @@ function startCaustics() {
       worker = altRendering.value
         ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { type: "module" })
         : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
-      const quality = computeQuality()
       const rect = lastRect ?? el.getBoundingClientRect()
-      const dpr = quality.dpr
+      const dpr = qualityProfile.dpr
       const width = Math.max(96, Math.floor(rect.width * dpr * 0.7))
       const height = Math.max(96, Math.floor(rect.height * dpr * 0.7))
 
@@ -321,8 +344,8 @@ function startCaustics() {
         canvas: offscreen,
         width,
         height,
-        fps: quality.fps,
-        quality: quality.quality,
+        fps: qualityProfile.fps,
+        quality: qualityProfile.quality,
       }, [offscreen])
       worker.postMessage({
         type: "setIntensity",
@@ -330,7 +353,11 @@ function startCaustics() {
       }, [])
 
       if (!onWindowResize) {
-        onWindowResize = () => resizeCanvas()
+        onWindowResize = () => {
+          const refreshed = refreshQuality()
+
+          resizeCanvas(undefined, refreshed)
+        }
         window.addEventListener("resize", onWindowResize)
       }
     } else {
@@ -351,8 +378,7 @@ function startCaustics() {
     let raf: number | null = null
     let last = 0
     let time = 0
-    const quality = computeQuality()
-    const interval = 1000 / quality.fps
+    const interval = 1000 / qualityProfile.fps
 
     let fallbackImageData: ImageData | null = null
     let fallbackBuffer: Uint8ClampedArray | null = null
@@ -365,6 +391,7 @@ function startCaustics() {
     let wasmBufferView: Uint8ClampedArray | null = null
     let wasmImageData: ImageData | null = null
     let wasmAllowed = true
+    let wasmRenderedOnce = false
 
     const requestWasm = () => {
       if (wasmFallbackPromise || !wasmAllowed) {
@@ -379,6 +406,7 @@ function startCaustics() {
         .then((instance) => {
           if (!instance) {
             wasmAllowed = false
+            wasmRenderedOnce = false
 
             return null
           }
@@ -391,6 +419,7 @@ function startCaustics() {
         })
         .catch(() => {
           wasmAllowed = false
+          wasmRenderedOnce = false
 
           return null
         })
@@ -464,28 +493,39 @@ function startCaustics() {
         const wasmTime = altRendering.value
           ? (now / 1000)
           : time
-        const bytes = wasmFallbackInstance.render(width, height, wasmTime, cssIntensity, quality.quality)
+        const bytes = wasmFallbackInstance.render(width, height, wasmTime, cssIntensity, qualityProfile.quality)
 
         if (bytes > 0) {
           ctx.putImageData(wasmImageData, 0, 0)
           drewFrame = true
+          wasmRenderedOnce = true
         } else if (bytes < 0) {
           wasmAllowed = false
           wasmFallbackInstance = null
           wasmFallbackPromise = null
           wasmBufferView = null
           wasmImageData = null
+          wasmRenderedOnce = false
         }
       }
 
       if (!drewFrame) {
+        const shouldRenderFallback = !wasmAllowed || !wasmRenderedOnce
+
+        if (!shouldRenderFallback) {
+          raf = requestAnimationFrame(draw)
+          fallbackRaf = raf
+
+          return
+        }
+
         ensureSoftwareBuffer()
 
         if (fallbackBuffer && fallbackImageData) {
           if (altRendering.value) {
-            renderPolychromeAlt(fallbackBuffer, width, height, now / 1000, cssIntensity, quality.quality)
+            renderPolychromeAlt(fallbackBuffer, width, height, now / 1000, cssIntensity, qualityProfile.quality)
           } else {
-            renderPolychromeCaustics(fallbackBuffer, width, height, time, cssIntensity, quality.quality)
+            renderPolychromeCaustics(fallbackBuffer, width, height, time, cssIntensity, qualityProfile.quality)
           }
 
           ctx.putImageData(fallbackImageData, 0, 0)
@@ -496,12 +536,17 @@ function startCaustics() {
       fallbackRaf = raf
     }
 
-    resizeCanvas()
+    resizeCanvas(undefined, qualityProfile)
     raf = requestAnimationFrame(draw)
     fallbackRaf = raf
 
     if (!onWindowResize) {
-      onWindowResize = () => resizeCanvas()
+      onWindowResize = () => {
+        const refreshed = refreshQuality()
+
+        wasmRenderedOnce = false
+        resizeCanvas(undefined, refreshed)
+      }
       window.addEventListener("resize", onWindowResize)
     }
   }
@@ -811,7 +856,7 @@ onMounted(() => {
   })
 
   // compute initial enable/quality
-  const quality = computeQuality()
+  const quality = refreshQuality()
 
   if (!quality.enable) {
     enabled.value = false
@@ -835,7 +880,11 @@ onMounted(() => {
   }
 
   // cache rect with ResizeObserver
-  resizeObs = new ResizeObserver(() => resizeCanvas())
+  resizeObs = new ResizeObserver(() => {
+    const refreshed = refreshQuality()
+
+    resizeCanvas(undefined, refreshed)
+  })
 
   if (root.value) {
     resizeObs.observe(root.value)

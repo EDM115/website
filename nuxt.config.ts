@@ -69,7 +69,10 @@ export default defineNuxtConfig({
     head: {
       title: "EDM115 - French dev/gamer/music producer",
       meta: [
-        { name: "darkreader-lock" },
+        {
+          name: "darkreader-lock",
+          content: "darkreader-lock",
+        },
         {
           name: "description", content: "Find all infos about EDM115, his projects, blog posts, ...",
         },

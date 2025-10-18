@@ -108,5 +108,5 @@
     "wasm": "asc assembly/polychrome-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_effect.wasm && asc assembly/polychrome-alt-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_alt_effect.wasm"
   },
   "type": "module",
-  "version": "2.4.0"
+  "version": "2.4.1"
 }

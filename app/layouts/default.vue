@@ -26,9 +26,13 @@ const {
 useHead({
   title: t("main.head"),
   meta: [
-    { name: "darkreader-lock" },
     {
-      name: "description", content: t("main.description"),
+      name: "darkreader-lock",
+      content: "darkreader-lock",
+    },
+    {
+      name: "description",
+      content: t("main.description"),
     },
   ],
   link: [
