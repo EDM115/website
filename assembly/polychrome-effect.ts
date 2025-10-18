@@ -1,3 +1,5 @@
+/* oxlint-disable typescript-eslint/no-unnecessary-type-assertion */
+
 // 4 MiB buffer for RGBA pixels
 const BUFFER_CAPACITY: i32 = 4 * 1024 * 1024
 const outputBuffer = new StaticArray<u8>(BUFFER_CAPACITY)
