@@ -110,16 +110,16 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
       return false
     }
 
-    const memoryBuffer = wasmInstance.memory.buffer as ArrayBuffer
+    const memoryBuffer = wasmInstance.memory.buffer
 
     if (!wasmBuffer || wasmBytes !== required) {
-      const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required) as Uint8ClampedArray<ArrayBuffer>
+      const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required)
 
       wasmBuffer = bufferView
       wasmImage = new ImageData(bufferView, width, height)
       wasmBytes = required
     } else if (!wasmImage || wasmImage.width !== width || wasmImage.height !== height) {
-      const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required) as Uint8ClampedArray<ArrayBuffer>
+      const bufferView = new Uint8ClampedArray(memoryBuffer, wasmPointer, required)
 
       wasmBuffer = bufferView
       wasmImage = new ImageData(bufferView, width, height)
