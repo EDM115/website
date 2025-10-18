@@ -74,7 +74,8 @@ export default defineNuxtConfig({
           content: "darkreader-lock",
         },
         {
-          name: "description", content: "Find all infos about EDM115, his projects, blog posts, ...",
+          name: "description",
+          content: "Find all infos about EDM115, his projects, blog posts, ...",
         },
       ],
       htmlAttrs: { lang: "en" },
