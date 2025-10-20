@@ -31,6 +31,7 @@ import mdiReddit from "~icons/mdi/reddit"
 import mdiSoundcloud from "~icons/mdi/soundcloud"
 import mdiSpotify from "~icons/mdi/spotify"
 import mdiStackOverflow from "~icons/mdi/stackOverflow"
+import mdiSteam from "~icons/mdi/steam"
 import mdiWhatsapp from "~icons/mdi/whatsapp"
 import mdiYoutube from "~icons/mdi/youtube"
 import pajamasTwitter from "~icons/pajamas/twitter"
@@ -72,6 +73,11 @@ const socialLinks = [
     icon: simpleIconsBuymeacoffee,
     text: "BuyMeACoffee",
     url: "https://www.buymeacoffee.com/edm115",
+  },
+  {
+    icon: mdiSteam,
+    text: "Steam",
+    url: "https://steamcommunity.com/id/EDM115/",
   },
   {
     icon: mdiReddit,
