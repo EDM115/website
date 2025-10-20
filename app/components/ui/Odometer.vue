@@ -78,6 +78,7 @@ function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationO
 
   if (!inside) {
     observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+
     return
   }
 
@@ -86,6 +87,7 @@ function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationO
       while (group.firstChild) {
         inside.insertBefore(group.firstChild, group)
       }
+
       group.remove()
     })
 
@@ -98,6 +100,7 @@ function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationO
 
   if (digits.length === 0) {
     observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+
     return
   }
 
@@ -124,6 +127,7 @@ function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationO
     }
 
     const wrapper = document.createElement("span")
+
     wrapper.className = "odometer-digit-group"
     const firstDigit = group[0]
 
@@ -262,15 +266,17 @@ onBeforeUnmount(() => {
 
 watch(isMobile, (mobile) => {
   Object.entries(odos)
-    .forEach(([key, odo]) => {
+    .forEach(([ key, odo ]) => {
       if (!odo) {
         return
       }
 
       const el = odo.el
+
       toggleMobileClass(el, mobile)
 
       const observerInstance = digitObservers[Number(key)]
+
       applyDigitGrouping(el, observerInstance)
     })
 })

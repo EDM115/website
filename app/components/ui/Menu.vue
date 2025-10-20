@@ -12,7 +12,7 @@
     </div>
     <div
       v-show="open"
-      class="ui-menu--content"
+      :class="['ui-menu--content', frosted && 'ui-menu--content--frosted']"
     >
       <slot />
     </div>
@@ -27,6 +27,11 @@ defineProps<{
    * Use this to avoid closing the menu when clicking on the activator
    */
   clickToClose?: boolean;
+
+  /**
+   * Apply a frosted glass effect to the menu background
+   */
+  frosted?: boolean;
 }>()
 </script>
 
@@ -44,6 +49,14 @@ defineProps<{
     border-radius: .5rem;
     box-shadow: var(--shadow-md);
     padding: .25rem;
+
+    &--frosted {
+      background: var(--glass-bg);
+      backdrop-filter: var(--backdrop-filter);
+      border: var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      color: var(--text);
+    }
   }
 }
 </style>

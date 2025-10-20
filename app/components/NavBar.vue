@@ -4,26 +4,49 @@
     invisible
     hit-through
   >
-    <template
-      v-if="route.path !== '/'"
-      #prepend
-    >
+    <template #prepend>
       <UiButton
+        v-if="route.path !== '/'"
         :icon="mdiHomeOutline"
         variant="frosted"
         link="/"
         aria="Home"
       />
       <UiButton
+        v-if="route.path !== '/'"
         :icon="mdiArrowLeft"
         variant="frosted"
         :link="goBack()"
         aria="Back"
       />
+      <UiDivider
+        v-if="route.path !== '/'"
+        vertical
+      />
+      <UiButton
+        expandable
+        :expanded="route.path === '/'"
+        :color="route.path.startsWith('/projects') ? 'primary' : undefined"
+        :icon="mdiCodeBlockTags"
+        :text="t('home.projects')"
+        variant="frosted"
+        link="/projects"
+        aria="Projects"
+      />
+      <UiButton
+        expandable
+        :expanded="route.path === '/'"
+        :color="route.path.startsWith('/blog') ? 'primary' : undefined"
+        :icon="mdiTextBoxEditOutline"
+        :text="t('home.blog')"
+        variant="frosted"
+        link="/blog"
+        aria="Blog"
+      />
     </template>
 
     <template #append>
-      <UiMenu>
+      <UiMenu frosted>
         <template #activator="{ props }">
           <UiButton
             v-bind="props"
@@ -57,14 +80,19 @@
 
 <script setup lang="ts">
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
+import mdiCodeBlockTags from "~icons/mdi/codeBlockTags"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiLanguage from "~icons/mdi/language"
+import mdiTextBoxEditOutline from "~icons/mdi/textBoxEditOutline"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 
 import { useCustomTheme } from "~/composables/useCustomTheme"
 
-const { locale } = useI18n()
+const {
+  locale,
+  t,
+} = useI18n()
 const {
   isDark,
   toggleTheme,

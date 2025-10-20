@@ -10,26 +10,42 @@
   >
     <component
       :is="prependIcon"
-      v-if="!icon && prependIcon"
+      v-if="!hasExpandableIcon && !icon && prependIcon"
       class="ui-btn--icon-prepend"
     />
-    <component
-      :is="icon"
-      v-if="icon"
-      class="ui-btn--icon-only"
-    />
-    <span
-      v-else
-      class="ui-btn--inside-text"
-    >
-      <template v-if="text">
-        {{ text }}
-      </template>
-      <slot v-else />
-    </span>
+    <template v-if="hasExpandableIcon">
+      <span class="ui-btn--expandable-wrapper">
+        <component
+          :is="icon"
+          class="ui-btn--expandable-icon"
+        />
+        <span class="ui-btn--inside-text ui-btn--expandable-text">
+          <template v-if="text">
+            {{ text }}
+          </template>
+          <slot v-else />
+        </span>
+      </span>
+    </template>
+    <template v-else>
+      <component
+        :is="icon"
+        v-if="icon"
+        class="ui-btn--icon-only"
+      />
+      <span
+        v-else
+        class="ui-btn--inside-text"
+      >
+        <template v-if="text">
+          {{ text }}
+        </template>
+        <slot v-else />
+      </span>
+    </template>
     <component
       :is="appendIcon"
-      v-if="!icon && appendIcon"
+      v-if="!hasExpandableIcon && !icon && appendIcon"
       class="ui-btn--icon-append"
     />
   </NuxtLink>
@@ -43,26 +59,42 @@
   >
     <component
       :is="prependIcon"
-      v-if="!icon && prependIcon"
+      v-if="!hasExpandableIcon && !icon && prependIcon"
       class="ui-btn--icon-prepend"
     />
-    <component
-      :is="icon"
-      v-if="icon"
-      class="ui-btn--icon-only"
-    />
-    <span
-      v-else
-      class="ui-btn--inside-text"
-    >
-      <template v-if="text">
-        {{ text }}
-      </template>
-      <slot v-else />
-    </span>
+    <template v-if="hasExpandableIcon">
+      <span class="ui-btn--expandable-wrapper">
+        <component
+          :is="icon"
+          class="ui-btn--expandable-icon"
+        />
+        <span class="ui-btn--inside-text ui-btn--expandable-text">
+          <template v-if="text">
+            {{ text }}
+          </template>
+          <slot v-else />
+        </span>
+      </span>
+    </template>
+    <template v-else>
+      <component
+        :is="icon"
+        v-if="icon"
+        class="ui-btn--icon-only"
+      />
+      <span
+        v-else
+        class="ui-btn--inside-text"
+      >
+        <template v-if="text">
+          {{ text }}
+        </template>
+        <slot v-else />
+      </span>
+    </template>
     <component
       :is="appendIcon"
-      v-if="!icon && appendIcon"
+      v-if="!hasExpandableIcon && !icon && appendIcon"
       class="ui-btn--icon-append"
     />
   </button>
@@ -141,6 +173,17 @@ const props = defineProps<{
    * Aria label for accessibility
    */
   aria?: string;
+
+  /**
+   * Turns the button into an expandable icon button. Requires an `icon`.
+   * The button displays only the icon until hover/focus reveals the text on the right.
+   */
+  expandable?: boolean;
+
+  /**
+   * If the button is in an expanded state (for expandable buttons)
+   */
+  expanded?: boolean;
 }>()
 
 function fabClassBuilder(fab: boolean | string): string {
@@ -153,6 +196,9 @@ function fabClassBuilder(fab: boolean | string): string {
   }
 }
 
+const hasExpandableIcon = computed(() => Boolean(props.expandable && props.icon))
+const isExpanded = computed(() => Boolean(hasExpandableIcon.value && props.expanded))
+
 const classes = computed(() => [
   "ui-btn",
   `ui-btn--${props.size ?? "md"}`,
@@ -160,13 +206,19 @@ const classes = computed(() => [
   props.color
     ? `ui-btn--${props.color}`
     : "",
-  props.icon
+  hasExpandableIcon.value
+    ? "ui-btn--expandable"
+    : "",
+  isExpanded.value
+    ? "ui-btn--expandable--expanded"
+    : "",
+  props.icon && !hasExpandableIcon.value
     ? "ui-btn--icon-only"
     : "",
-  props.prependIcon
+  props.prependIcon && !hasExpandableIcon.value
     ? "ui-btn--icon-prepend"
     : "",
-  props.appendIcon
+  props.appendIcon && !hasExpandableIcon.value
     ? "ui-btn--icon-append"
     : "",
   props.fab
@@ -514,6 +566,64 @@ const linkExternal = computed(() => !isLocal.value || isDocs.value)
     align-items: center;
     background-color: inherit;
     color: inherit;
+  }
+
+  &--expandable {
+    border-radius: 50%;
+    padding: 0.2em 0;
+    height: 2em;
+    font-size: 1.5em;
+    min-width: 2em;
+    overflow: hidden;
+    gap: 0;
+    justify-content: center;
+
+    .ui-btn--expandable-wrapper {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      padding-inline: calc(var(--ui-btn-height) / 6);
+      transition: padding-inline 0.25s, color 0.25s ease-in-out;
+    }
+
+    .ui-btn--expandable-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .ui-btn--expandable-text {
+      flex: 0 1 auto;
+      font-size: medium;
+      overflow: hidden;
+      max-width: 0;
+      opacity: 0;
+      margin-left: 0;
+      transition: max-width 0.3s ease, opacity 0.2s ease, margin-left 0.2s ease-in-out;
+      white-space: nowrap;
+    }
+
+    &:hover,
+    &:focus-within,
+    &.ui-btn--expandable--expanded {
+      border-radius: 999px;
+
+      .ui-btn--expandable-text {
+        max-width: 16rem;
+        opacity: 1;
+        margin-left: calc(var(--ui-btn-height) / 6);
+      }
+
+      .ui-btn--expandable-wrapper {
+        padding-inline: calc(var(--ui-btn-height) / 4);
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      color: var(--primary);
+    }
   }
 }
 

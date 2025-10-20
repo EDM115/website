@@ -50,33 +50,6 @@
             EDM115
           </h1>
 
-          <div style="gap:.75rem; display: flex; flex-wrap:wrap; margin-top:1rem; justify-content: center;">
-            <UiButton
-              color="primary"
-              :prepend-icon="mdiHomeOutline"
-              :text="t('home.home')"
-              link="/"
-              variant="elevated"
-              aria="Home"
-            />
-            <UiButton
-              color="primary"
-              :prepend-icon="mdiInformationOutline"
-              :text="t('home.projects')"
-              link="/projects"
-              variant="elevated"
-              aria="Projects"
-            />
-            <UiButton
-              color="primary"
-              :prepend-icon="mdiText"
-              :text="t('home.blog')"
-              link="/blog"
-              variant="elevated"
-              aria="Blog"
-            />
-          </div>
-
           <UiCard
             id="about"
             class="glass hero-about"
@@ -286,10 +259,8 @@ import diplomaOutline from "~icons/mdi/diplomaOutline"
 import mdiEmailOutline from "~icons/mdi/emailOutline"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
 import mdiHourglass from "~icons/mdi/hourglass"
-import mdiInformationOutline from "~icons/mdi/informationOutline"
 import mdiMapMarkerOutline from "~icons/mdi/mapMarkerOutline"
 import mdiPhoneOutline from "~icons/mdi/phoneOutline"
-import mdiText from "~icons/mdi/text"
 import mdiWeb from "~icons/mdi/web"
 
 const { t } = useI18n()
