@@ -7,6 +7,7 @@
     :class="classes"
     :aria-disabled="disabled ? 'true' : undefined"
     :aria-label="aria"
+    @click="unFocus"
   >
     <component
       :is="prependIcon"
@@ -56,6 +57,7 @@
     :disabled
     :aria-label="aria"
     type="button"
+    @click="unFocus"
   >
     <component
       :is="prependIcon"
@@ -102,6 +104,7 @@
 
 <script setup lang="ts">
 import type { Component } from "vue"
+
 import { colorVars } from "./colors"
 
 const props = defineProps<{
@@ -251,6 +254,14 @@ const linkTarget = computed(() => ((isLocal.value && !isDocs.value)
   ? "_self"
   : "_blank"))
 const linkExternal = computed(() => !isLocal.value || isDocs.value)
+
+function unFocus() {
+  const activeElement = document.activeElement as HTMLElement | null
+
+  if (activeElement) {
+    activeElement.blur()
+  }
+}
 </script>
 
 <style scoped lang="scss">

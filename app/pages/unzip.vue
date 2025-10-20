@@ -160,7 +160,7 @@ const stats = computed(() => [
   {
     id: 0,
     name: t("unzip.stats.users"),
-    value: 48628,
+    value: 50640,
     icon: mdiUsersOutline,
   },
   {

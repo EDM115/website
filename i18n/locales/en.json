@@ -44,7 +44,8 @@
     "resume9": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
     "skills": "Skills",
     "social": "Social links",
-    "stats": "Stats"
+    "stats": "Stats",
+    "unzip": "unzip-bot"
   },
   "main": {
     "description": "Find all infos about EDM115, his projects, blog posts, ...",

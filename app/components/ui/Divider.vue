@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
 
   /**
    * Makes the divider vertical

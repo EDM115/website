@@ -44,7 +44,8 @@
     "resume9": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ...",
     "skills": "Compétences",
     "social": "Liens sociaux",
-    "stats": "Stats"
+    "stats": "Stats",
+    "unzip": "unzip-bot"
   },
   "main": {
     "description": "Trouvez toutes les infos sur EDM115, ses projets, articles de blog, ...",

@@ -47,6 +47,17 @@
         link="/blog"
         aria="Blog"
       />
+      <UiButton
+        expandable
+        :expanded="route.path === '/'"
+        :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
+        hover-color="primary"
+        :icon="flowbiteFileZipOutline"
+        :text="t('home.unzip')"
+        variant="frosted"
+        link="/unzip"
+        aria="unzip-bot"
+      />
     </template>
 
     <template #append>
@@ -85,6 +96,7 @@
 </template>
 
 <script setup lang="ts">
+import flowbiteFileZipOutline from "~icons/flowbite/fileZipOutline"
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import mdiCodeBlockTags from "~icons/mdi/codeBlockTags"
 import mdiHomeOutline from "~icons/mdi/homeOutline"
