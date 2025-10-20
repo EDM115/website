@@ -27,7 +27,7 @@
       />
       <UiButton
         expandable
-        :expanded="route.path === '/'"
+        :expanded="route.path === '/' && !isMobile"
         :color="route.path.startsWith('/projects') ? 'primary' : undefined"
         hover-color="primary"
         :icon="mdiCodeBlockTags"
@@ -38,7 +38,7 @@
       />
       <UiButton
         expandable
-        :expanded="route.path === '/'"
+        :expanded="route.path === '/' && !isMobile"
         :color="route.path.startsWith('/blog') ? 'primary' : undefined"
         hover-color="primary"
         :icon="mdiTextBoxEditOutline"
@@ -49,7 +49,7 @@
       />
       <UiButton
         expandable
-        :expanded="route.path === '/'"
+        :expanded="route.path === '/' && !isMobile"
         :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
         hover-color="primary"
         :icon="flowbiteFileZipOutline"
@@ -115,6 +115,7 @@ const {
   isDark,
   toggleTheme,
 } = useCustomTheme()
+const { isMobile } = useDevice()
 const route = useRoute()
 
 const availableLocales = [ "en", "fr" ] as const
