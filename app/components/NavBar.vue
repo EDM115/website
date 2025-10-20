@@ -8,6 +8,7 @@
       <UiButton
         v-if="route.path !== '/'"
         :icon="mdiHomeOutline"
+        hover-color="primary"
         variant="frosted"
         link="/"
         aria="Home"
@@ -15,6 +16,7 @@
       <UiButton
         v-if="route.path !== '/'"
         :icon="mdiArrowLeft"
+        hover-color="primary"
         variant="frosted"
         :link="goBack()"
         aria="Back"
@@ -27,6 +29,7 @@
         expandable
         :expanded="route.path === '/'"
         :color="route.path.startsWith('/projects') ? 'primary' : undefined"
+        hover-color="primary"
         :icon="mdiCodeBlockTags"
         :text="t('home.projects')"
         variant="frosted"
@@ -37,6 +40,7 @@
         expandable
         :expanded="route.path === '/'"
         :color="route.path.startsWith('/blog') ? 'primary' : undefined"
+        hover-color="primary"
         :icon="mdiTextBoxEditOutline"
         :text="t('home.blog')"
         variant="frosted"
@@ -52,6 +56,7 @@
             v-bind="props"
             :icon="mdiLanguage"
             color="text"
+            hover-color="primary"
             variant="frosted"
             aria="Language switcher"
           />
@@ -70,6 +75,7 @@
       <UiButton
         :icon="iconTheme"
         color="text"
+        hover-color="primary"
         variant="frosted"
         aria="Theme switcher"
         @click="switchTheme"

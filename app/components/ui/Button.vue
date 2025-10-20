@@ -131,6 +131,12 @@ const props = defineProps<{
   color?: keyof typeof colorVars;
 
   /**
+   * The hover color of the button  
+   * If not provided, defaults to the same as `color`
+   */
+  hoverColor?: keyof typeof colorVars;
+
+  /**
    * The variant of the button  
    * - `elevated` : Fully color the button, with a nice box shadow  
    * - `outlined` : Adds a colored inner border with no background  
@@ -175,8 +181,8 @@ const props = defineProps<{
   aria?: string;
 
   /**
-   * Turns the button into an expandable icon button. Requires an `icon`.
-   * The button displays only the icon until hover/focus reveals the text on the right.
+   * Turns the button into an expandable icon button. Requires an `icon`  
+   * The button displays only the icon until hover/focus reveals the text on the right
    */
   expandable?: boolean;
 
@@ -205,6 +211,15 @@ const classes = computed(() => [
   `ui-btn--${props.variant ?? "elevated"}`,
   props.color
     ? `ui-btn--${props.color}`
+    : "",
+  props.hoverColor
+  && props.hoverColor !== props.color
+  && (
+    props.variant === "tonal"
+    || props.variant === "flat"
+    || props.variant === "frosted"
+  )
+    ? `ui-btn--hover--${props.hoverColor}`
     : "",
   hasExpandableIcon.value
     ? "ui-btn--expandable"
@@ -250,6 +265,7 @@ const linkExternal = computed(() => !isLocal.value || isDocs.value)
   transition: all .2s;
   background-color: var(--surface);
   color: var(--text);
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
   &--sm {
     padding: 0 0.75rem;
@@ -389,40 +405,9 @@ const linkExternal = computed(() => !isLocal.value || isDocs.value)
       background-color: rgb(from var(--text) r g b / 20%);
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       color: var(--surface);
-
-      &.ui-btn--primary {
-        color: var(--primary);
-      }
-
-      &.ui-btn--secondary {
-        color: var(--secondary);
-      }
-
-      &.ui-btn--accent {
-        color: var(--accent);
-      }
-
-      &.ui-btn--error {
-        color: var(--error);
-      }
-
-      &.ui-btn--info {
-        color: var(--info);
-      }
-
-      &.ui-btn--success {
-        color: var(--success);
-      }
-
-      &.ui-btn--warning {
-        color: var(--warning);
-      }
-
-      &.ui-btn--text {
-        color: var(--text);
-      }
     }
 
     & .ui-btn--inside-text {
@@ -503,6 +488,48 @@ const linkExternal = computed(() => !isLocal.value || isDocs.value)
     }
 
     &.ui-btn--text {
+      color: var(--text);
+    }
+  }
+
+  &--hover {
+    &--primary:hover,
+    &--primary:focus-within {
+      color: var(--primary);
+    }
+
+    &--secondary:hover,
+    &--secondary:focus-within {
+      color: var(--secondary);
+    }
+
+    &--accent:hover,
+    &--accent:focus-within {
+      color: var(--accent);
+    }
+
+    &--error:hover,
+    &--error:focus-within {
+      color: var(--error);
+    }
+
+    &--info:hover,
+    &--info:focus-within {
+      color: var(--info);
+    }
+
+    &--success:hover,
+    &--success:focus-within {
+      color: var(--success);
+    }
+
+    &--warning:hover,
+    &--warning:focus-within {
+      color: var(--warning);
+    }
+
+    &--text:hover,
+    &--text:focus-within {
       color: var(--text);
     }
   }
@@ -618,11 +645,6 @@ const linkExternal = computed(() => !isLocal.value || isDocs.value)
       .ui-btn--expandable-wrapper {
         padding-inline: calc(var(--ui-btn-height) / 4);
       }
-    }
-
-    &:hover,
-    &:focus-within {
-      color: var(--primary);
     }
   }
 }
