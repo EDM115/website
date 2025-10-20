@@ -175,8 +175,8 @@ importers:
         specifier: ~5.9.3
         version: 5.9.3
       unplugin-icons:
-        specifier: ~22.4.2
-        version: 22.4.2(@vue/compiler-sfc@3.5.22)
+        specifier: ~22.5.0
+        version: 22.5.0(@vue/compiler-sfc@3.5.22)
       unplugin-vue-components:
         specifier: ~29.1.0
         version: 29.1.0(@babel/parser@7.28.4)(@nuxt/kit@4.1.3(magicast@0.3.5))(vue@3.5.22(typescript@5.9.3))
@@ -5221,8 +5221,8 @@ packages:
     resolution: {integrity: sha512-71pdLm4aiNT4y0NUaz86joG7YhtfubtfNvlWyOe5vtVjS6vG9YMRfCzEwMM27pZP67XlqWJkACXz/f1nSofxbg==, tarball: https://registry.npmjs.org/unplugin-ast/-/unplugin-ast-0.15.3.tgz}
     engines: {node: '>=20.19.0'}
 
-  unplugin-icons@22.4.2:
-    resolution: {integrity: sha512-Yv15405unO67Chme0Slk0JRA/H2AiAZLK5t7ebt8/ZpTDlBfM4d4En2qD3MX2rzOSkIteQ0syIm3q8MSofeoBA==, tarball: https://registry.npmjs.org/unplugin-icons/-/unplugin-icons-22.4.2.tgz}
+  unplugin-icons@22.5.0:
+    resolution: {integrity: sha512-MBlMtT5RuMYZy4TZgqUL2OTtOdTUVsS1Mhj6G1pEzMlFJlEnq6mhUfoIt45gBWxHcsOdXJDWLg3pRZ+YmvAVWQ==, tarball: https://registry.npmjs.org/unplugin-icons/-/unplugin-icons-22.5.0.tgz}
     peerDependencies:
       '@svgr/core': '>=7.0.0'
       '@svgx/core': ^1.0.1
@@ -11263,7 +11263,7 @@ snapshots:
       magic-string-ast: 1.0.3
       unplugin: 2.3.10
 
-  unplugin-icons@22.4.2(@vue/compiler-sfc@3.5.22):
+  unplugin-icons@22.5.0(@vue/compiler-sfc@3.5.22):
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@iconify/utils': 3.0.2
