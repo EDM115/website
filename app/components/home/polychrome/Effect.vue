@@ -43,14 +43,14 @@
 
 <script setup lang="ts">
 import {
-  loadAltPolychromeWasm,
-  loadStandardPolychromeWasm,
-  type PolychromeWasmInstance,
-} from "./polychrome/wasmLoader"
-import {
   renderPolychromeAlt,
   renderPolychromeCaustics,
-} from "./polychrome/softwareRenderer"
+} from "./softwareRenderer"
+import {
+  loadPolychromeAltWasm,
+  loadPolychromeWasm,
+  type PolychromeWasmInstance,
+} from "./wasmLoader"
 
 const props = defineProps<{
   modelValue?: boolean;
@@ -332,8 +332,8 @@ function startCaustics() {
     if (offscreen) {
       usingOffscreen = true
       worker = altRendering.value
-        ? new Worker(new URL("./PolychromeAltEffect.worker.ts", import.meta.url), { type: "module" })
-        : new Worker(new URL("./PolychromeEffect.worker.ts", import.meta.url), { type: "module" })
+        ? new Worker(new URL("./effect_alt.worker.ts", import.meta.url), { type: "module" })
+        : new Worker(new URL("./effect.worker.ts", import.meta.url), { type: "module" })
       const rect = lastRect ?? el.getBoundingClientRect()
       const dpr = qualityProfile.dpr
       const width = Math.max(96, Math.floor(rect.width * dpr * 0.7))
@@ -399,8 +399,8 @@ function startCaustics() {
       }
 
       const loader = altRendering.value
-        ? loadAltPolychromeWasm
-        : loadStandardPolychromeWasm
+        ? loadPolychromeAltWasm
+        : loadPolychromeWasm
 
       wasmFallbackPromise = loader()
         .then((instance) => {

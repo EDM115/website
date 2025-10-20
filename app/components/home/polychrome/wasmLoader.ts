@@ -95,9 +95,9 @@ function validateExports(exports: WebAssembly.Exports): PolychromeWasmInstance |
 let standardPromise: Promise<PolychromeWasmInstance | null> | null = null
 let altPromise: Promise<PolychromeWasmInstance | null> | null = null
 
-export function loadStandardPolychromeWasm(): Promise<PolychromeWasmInstance | null> {
+export function loadPolychromeWasm(): Promise<PolychromeWasmInstance | null> {
   if (!standardPromise) {
-    const url = new URL("./polychrome_effect.wasm", import.meta.url)
+    const url = new URL("./effect.wasm", import.meta.url)
 
     standardPromise = instantiate(url)
   }
@@ -105,9 +105,9 @@ export function loadStandardPolychromeWasm(): Promise<PolychromeWasmInstance | n
   return standardPromise
 }
 
-export function loadAltPolychromeWasm(): Promise<PolychromeWasmInstance | null> {
+export function loadPolychromeAltWasm(): Promise<PolychromeWasmInstance | null> {
   if (!altPromise) {
-    const url = new URL("./polychrome_alt_effect.wasm", import.meta.url)
+    const url = new URL("./effect_alt.wasm", import.meta.url)
 
     altPromise = instantiate(url)
   }

@@ -62,8 +62,8 @@
     "sass-embedded": "~1.93.2",
     "sass-loader": "~16.0.5",
     "typescript": "~5.9.3",
-    "unplugin-icons": "~22.4.2",
-    "unplugin-vue-components": "~29.1.0",
+    "unplugin-icons": "~22.5.0",
+    "unplugin-vue-components": "~30.0.0",
     "unplugin-vue-markdown": "~29.2.0",
     "vue-eslint-parser": "~10.2.0",
     "vue-tsc": "~3.1.1"
@@ -83,8 +83,8 @@
 
     "cleanup": "nuxt cleanup",
 
-    "dev": "pnpm wasm && nuxt dev --no-clear --no-fork",
-    "dev:expose": "pnpm wasm && nuxt dev --no-clear --no-fork --host",
+    "dev": "nuxt dev --no-clear --no-fork",
+    "dev:expose": "nuxt dev --no-clear --no-fork --host",
 
     "generate": "pnpm wasm && nuxt generate",
 
@@ -105,8 +105,8 @@
 
     "typecheck": "nuxt typecheck",
 
-    "wasm": "asc assembly/polychrome-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_effect.wasm && asc assembly/polychrome-alt-effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/polychrome_alt_effect.wasm"
+    "wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm"
   },
   "type": "module",
-  "version": "2.4.1"
+  "version": "2.4.2"
 }

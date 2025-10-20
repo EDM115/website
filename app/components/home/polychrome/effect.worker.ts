@@ -1,13 +1,13 @@
-import { setupPolychromeWorker } from "./polychrome/workerShared"
-import { loadStandardPolychromeWasm } from "./polychrome/wasmLoader"
-import { renderPolychromeCaustics } from "./polychrome/softwareRenderer"
+import { renderPolychromeCaustics } from "./softwareRenderer"
+import { loadPolychromeWasm } from "./wasmLoader"
+import { setupPolychromeWorker } from "./workerShared"
 
 interface WorkerState {
   phase: number;
 }
 
 setupPolychromeWorker<WorkerState>({
-  loadWasm: loadStandardPolychromeWasm,
+  loadWasm: loadPolychromeWasm,
   fallbackRenderer: renderPolychromeCaustics,
   computeFrameTime: (_now, state) => {
     state.phase += 0.03

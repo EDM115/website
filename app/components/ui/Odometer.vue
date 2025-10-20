@@ -42,6 +42,8 @@ const props = defineProps<{ stats: {
   icon?: FunctionalComponent<SVGAttributes>;
 }[]; }>()
 
+const { isMobile } = useDevice()
+
 function formatZeros(value: number | Ref<number>): string {
   const num = unref(value) ?? 0
   const len = num.toString().length
@@ -57,6 +59,99 @@ let digitObservers: Record<number, MutationObserver> = {}
 let unsubscribers: Array<()=> void> = []
 const pending = new Map<number, number>()
 const revealed = new Set<number>()
+
+const MUTATION_OBSERVER_CONFIG: MutationObserverInit = {
+  childList: true,
+  subtree: true,
+  characterData: true,
+}
+
+function toggleMobileClass(el: HTMLElement | null | undefined, mobile: boolean) {
+  el?.classList.toggle("odometer-mobile", mobile)
+}
+
+function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationObserver) {
+  toggleMobileClass(container, isMobile.value)
+  observerInstance?.disconnect()
+
+  const inside = container.querySelector<HTMLElement>(".odometer-inside")
+
+  if (!inside) {
+    observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+    return
+  }
+
+  inside.querySelectorAll<HTMLElement>(".odometer-digit-group")
+    .forEach((group) => {
+      while (group.firstChild) {
+        inside.insertBefore(group.firstChild, group)
+      }
+      group.remove()
+    })
+
+  const digits = Array.from(inside.querySelectorAll<HTMLElement>(".odometer-digit"))
+    .filter((digit) => {
+      const val = digit.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
+
+      return val.trim() !== ""
+    })
+
+  if (digits.length === 0) {
+    observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+    return
+  }
+
+  digits.forEach((digit) => {
+    digit.classList.remove("group-left", "group-right", "both-groups")
+  })
+
+  const groups: HTMLElement[][] = []
+  const remainder = digits.length % 3
+  let index = 0
+
+  if (remainder > 0) {
+    groups.push(digits.slice(0, remainder))
+    index = remainder
+  }
+
+  for (; index < digits.length; index += 3) {
+    groups.push(digits.slice(index, index + 3))
+  }
+
+  groups.forEach((group) => {
+    if (group.length === 0) {
+      return
+    }
+
+    const wrapper = document.createElement("span")
+    wrapper.className = "odometer-digit-group"
+    const firstDigit = group[0]
+
+    if (!firstDigit) {
+      return
+    }
+
+    inside.insertBefore(wrapper, firstDigit)
+
+    group.forEach((digit, idx) => {
+      wrapper.appendChild(digit)
+
+      if (group.length === 1) {
+        digit.classList.add("both-groups")
+      } else {
+        if (idx === 0) {
+          digit.classList.add("group-left")
+        }
+
+        if (idx === group.length - 1) {
+          digit.classList.add("group-right")
+        }
+      }
+    })
+  })
+
+  observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+}
 
 function attachEvents(odo: LightOdometer, id: number) {
   const onDone = (_e: Event) => {
@@ -125,9 +220,10 @@ onMounted(() => {
 
   scope.querySelectorAll(".mockup-odometer")
     .forEach((el) => {
-      const id = Number((el as HTMLElement).id.split("-")[1])
+      const containerEl = el as HTMLElement
+      const id = Number(containerEl.id.split("-")[1])
       const odo = new LightOdometer({
-        el: el as HTMLElement,
+        el: containerEl,
         id,
         value: 0,
         animation: "slide",
@@ -138,52 +234,15 @@ onMounted(() => {
 
       attachEvents(odo, id)
 
-      el.classList.remove("mockup-odometer")
+      containerEl.classList.remove("mockup-odometer")
       odos[id] = odo
-      observer?.observe(el)
+      observer?.observe(containerEl)
+      toggleMobileClass(containerEl, isMobile.value)
 
-      function applyDigitGrouping(container: HTMLElement) {
-        const allDigits = Array.from(container.querySelectorAll<HTMLElement>(".odometer-digit"))
-        const visibleDigits = allDigits.filter((d) => {
-          const val = d.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
+      const mo = new MutationObserver((_records, observerInstance) => applyDigitGrouping(containerEl, observerInstance))
 
-          return val.trim() !== ""
-        })
-
-        allDigits.forEach((d) => {
-          d.classList.remove("group-left", "group-right", "both-groups")
-        })
-
-        let i = visibleDigits.length
-        const groups: HTMLElement[][] = []
-
-        while (i > 0) {
-          const start = Math.max(0, i - 3)
-
-          groups.unshift(visibleDigits.slice(start, i))
-          i -= 3
-        }
-
-        groups.forEach((group) => {
-          if (group.length === 1) {
-            group[0]?.classList.add("both-groups")
-          } else {
-            group[0]?.classList.add("group-left")
-            group[group.length - 1]?.classList.add("group-right")
-          }
-        })
-      }
-
-      applyDigitGrouping(el as HTMLElement)
-
-      const mo = new MutationObserver(() => applyDigitGrouping(el as HTMLElement))
-
-      mo.observe(el as HTMLElement, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-      })
       digitObservers[id] = mo
+      applyDigitGrouping(containerEl, mo)
     })
 
   odometersReady = true
@@ -199,6 +258,21 @@ onBeforeUnmount(() => {
   odos = {}
   unsubscribers.forEach((u) => u())
   unsubscribers = []
+})
+
+watch(isMobile, (mobile) => {
+  Object.entries(odos)
+    .forEach(([key, odo]) => {
+      if (!odo) {
+        return
+      }
+
+      const el = odo.el
+      toggleMobileClass(el, mobile)
+
+      const observerInstance = digitObservers[Number(key)]
+      applyDigitGrouping(el, observerInstance)
+    })
 })
 
 watch(
@@ -282,6 +356,11 @@ $padding: .15em;
   line-height: 1.2;
 
   color: var(--primary);
+
+  .odometer-digit-group {
+    display: inline-flex;
+    white-space: nowrap;
+  }
 
   .odometer-digit {
     display: inline-block;
@@ -370,6 +449,23 @@ $padding: .15em;
     &.odometer-animating .odometer-ribbon-inner {
       transition: transform var(--odometer-duration, 2000ms);
       transform: translateY(0);
+    }
+  }
+
+  &.odometer-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em;
+    justify-content: center;
+    padding: 0.2em 0.4em;
+    white-space: normal;
+
+    .odometer-digit-group {
+      flex: 0 0 auto;
+    }
+
+    .odometer-digit {
+      margin: 0px 1px;
     }
   }
 }

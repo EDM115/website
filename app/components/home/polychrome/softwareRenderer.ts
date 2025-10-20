@@ -10,7 +10,7 @@ function fract(value: number) {
   return value - floor(value)
 }
 
-function hash1(i: number, j: number) {
+function hash(i: number, j: number) {
   return fract(sin(((i * 127.1) + (j * 311.7)) + 134.1) * 43758.5453123)
 }
 
@@ -58,7 +58,7 @@ export function renderPolychromeCaustics(
           const cy = iy + oy
           const rx = rand2x(cx, cy)
           const ry = rand2y(cx, cy)
-          const phase = hash1(cx, cy) * Math.PI * 2
+          const phase = hash(cx, cy) * Math.PI * 2
           const offx = sin((time * 1.2) + phase) * 0.28
           const offy = cos((time * 1.35) + phase) * 0.28
           const sx = (ox + rx + offx) - fx
