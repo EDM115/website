@@ -151,6 +151,9 @@ export default defineNuxtConfig({
       cssMinify: "lightningcss",
     },
     clearScreen: false,
+    css: {
+      preprocessorMaxWorkers: true,
+    },
     plugins: [
       Icons({ compiler: "vue3" }),
       Markdown({

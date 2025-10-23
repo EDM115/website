@@ -78,7 +78,7 @@
                 to="https://github.com/EDM115"
                 target="_blank"
                 external
-                aria-label="EDM115's website"
+                aria-label="EDM115's GitHub"
               >
                 GitHub
               </NuxtLink><br><br>
