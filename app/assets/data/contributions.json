@@ -1,5 +1,13 @@
 [
   {
+    "id": 28,
+    "name": "oxc-project/oxc",
+    "description": "feat(vscode): properly get Node.js when it isn't by default on the PATH",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/oxc-project/oxc/pull/14920"
+  },
+  {
     "id": 27,
     "name": "dracula/fl-studio-21",
     "description": "feat: more accurate/subtle theme and rename",
