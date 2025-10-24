@@ -44,7 +44,7 @@ jobs:
         run: pnpm wasm && pnpm nuxt generate --preset static
 
       - name: "Upload artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: static-site
           path: ./.output/public
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Download the artifact"
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: static-site
           path: static-site
