@@ -53,6 +53,7 @@
     "**/*.svg": true,
     "pnpm-lock.yaml": true
   },
+  "typescript.tsdk": "node_modules\\typescript\\lib",
   "vue.autoInsert.dotValue": true,
   "vue.editor.focusMode": true,
   "vue.inlayHints.destructuredProps": true,

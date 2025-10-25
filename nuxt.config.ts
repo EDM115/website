@@ -114,7 +114,10 @@ export default defineNuxtConfig({
     server: true,
   },
   devServer: { port: 8888 },
-  future: { typescriptBundlerResolution: true },
+  future: {
+    compatibilityVersion: 5,
+    typescriptBundlerResolution: true,
+  },
   experimental: {
     asyncContext: true,
     browserDevtoolsTiming: true,
@@ -129,12 +132,15 @@ export default defineNuxtConfig({
       },
     } },
     entryImportMap: true,
+    extractAsyncDataHandlers: true,
     inlineRouteRules: true,
     normalizeComponentNames: true,
     parseErrorData: true,
     sharedPrerenderData: true,
     typedPages: true,
+    typescriptPlugin: true,
     viewTransition: true,
+    viteEnvironmentApi: true,
   },
   compatibilityDate: "2025-10-15",
   nitro: {
