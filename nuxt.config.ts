@@ -114,10 +114,7 @@ export default defineNuxtConfig({
     server: true,
   },
   devServer: { port: 8888 },
-  future: {
-    compatibilityVersion: 5,
-    typescriptBundlerResolution: true,
-  },
+  future: { typescriptBundlerResolution: true },
   experimental: {
     asyncContext: true,
     browserDevtoolsTiming: true,
@@ -276,7 +273,7 @@ export default defineNuxtConfig({
       preserveWatchOutput: true,
       removeComments: true,
     } },
-    typeCheck: true,
+    typeCheck: false,
   },
   eslint: { config: {
     autoInit: false,

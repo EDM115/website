@@ -7,11 +7,11 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
-  sharp: "0.34.4"
-#   vite: "npm:rolldown-vite@latest"
+  sharp: 0.34.4
+#  vite: npm:rolldown-vite@7.1.20
 
 publicHoistPattern:
-  - "nuxt-schema-org"
+  - nuxt-schema-org
 
 resolutionMode: highest
 

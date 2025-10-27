@@ -151,9 +151,9 @@ import octiconStar from "~icons/octicon/star-16"
 
 const { t } = useI18n()
 
-const stars = ref(112)
-const forks = ref(155)
-const days = ref(1190)
+const stars = ref(117)
+const forks = ref(159)
+const days = ref(1255)
 const loc = ref(7237)
 
 const stats = computed(() => [
@@ -190,19 +190,19 @@ const stats = computed(() => [
   {
     id: 5,
     name: t("unzip.stats.files"),
-    value: 424529,
+    value: 451097,
     icon: materialSymbolsScanOutline,
   },
   {
     id: 6,
     name: t("unzip.stats.links"),
-    value: 57475,
+    value: 58223,
     icon: mdiLinkVariant,
   },
   {
     id: 7,
     name: t("unzip.stats.data"),
-    value: 1494212,
+    value: 1700583,
     icon: biHdd,
   },
 ])
