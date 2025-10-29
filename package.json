@@ -12,7 +12,7 @@
     "@mdit/plugin-spoiler": "~0.22.2",
     "@mdit/plugin-tab": "~0.22.3",
     "@mdit/plugin-tasklist": "~0.22.2",
-    "@nuxt/eslint": "~1.9.0",
+    "@nuxt/eslint": "~1.10.0",
     "@nuxt/fonts": "~0.11.4",
     "@nuxt/image": "~1.11.0",
     "@nuxt/scripts": "~0.13.0",
