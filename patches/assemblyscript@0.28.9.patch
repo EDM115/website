@@ -1,0 +1,12 @@
+diff --git a/std/assembly.json b/std/assembly.json
+index 10a3e067dc00578cd844f676d2e22776a55f79b0..189ed19dc7dc7d79c8092ced31f724bccf65a634 100644
+--- a/std/assembly.json
++++ b/std/assembly.json
+@@ -7,7 +7,6 @@
+     "allowJs": false,
+     "typeRoots": [ "types" ],
+     "types": [ "assembly" ],
+-    "baseUrl": ".",
+     "paths": {
+       "*": [
+         "./assembly/*"

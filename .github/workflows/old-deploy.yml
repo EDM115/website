@@ -18,12 +18,12 @@ jobs:
       - name: "Install pnpm"
         uses: pnpm/action-setup@v4
 
-      - name: "Bump Node.js to v25"
+      - name: "Bump Node.js to v24"
         uses: actions/setup-node@v6
         with:
           cache: "pnpm"
           check-latest: true
-          node-version: latest
+          node-version: lts/Krypton
 
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile

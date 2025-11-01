@@ -7,8 +7,16 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
+  "@vue/devtools-api": ^8.0.3
+  "@vue/devtools-core": ^8.0.3
+  "@vue/devtools-kit": ^8.0.3
+  "@vue/devtools-shared": ^8.0.3
+  magicast: ^0.5.1
   sharp: 0.34.4
 #  vite: npm:rolldown-vite@7.1.20
+
+patchedDependencies:
+  assemblyscript@0.28.9: patches/assemblyscript@0.28.9.patch
 
 publicHoistPattern:
   - nuxt-schema-org
