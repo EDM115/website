@@ -1,5 +1,13 @@
 [
   {
+    "id": 29,
+    "name": "AssemblyScript/assemblyscript",
+    "description": "chore: remove baseUrl from std/assembly.json",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/AssemblyScript/assemblyscript/pull/2958"
+  },
+  {
     "id": 28,
     "name": "oxc-project/oxc",
     "description": "fix(vscode): properly retrieve Node.js when it isn't by default on the PATH",
@@ -222,6 +230,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 70,
+    "name": "unplugin/unplugin-vue-markdown",
+    "description": "[Feature request] Add the ability to choose another renderer",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/unplugin/unplugin-vue-markdown/issues/67"
   },
   {
     "id": 69,
