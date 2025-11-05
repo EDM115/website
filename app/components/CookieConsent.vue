@@ -32,6 +32,7 @@
 
 <script setup lang="ts">
 import mdiCookieAlertOutline from "~icons/mdi/cookie-alert-outline"
+
 import { vOnClickOutside } from "@vueuse/components"
 
 const { t } = useI18n()

@@ -1,7 +1,7 @@
 <template>
   <UiContainer style="align-items: center; display: flex; flex-direction: column;">
     <div
-      v-if="loading"
+      v-if="pending"
       class="loading"
     >
       <UiProgressCircular
@@ -17,267 +17,232 @@
     >
       <UiAlert
         type="error"
-        :text="error"
+        :text="error.message"
       />
     </div>
 
-    <template v-else-if="renderedContent">
-      <Suspense>
-        <template #fallback>
-          <div class="loading">
-            <UiProgressCircular
-              indeterminate
-              color="primary"
-            />
-            <span style="margin-left: 8px;">Rendering README...</span>
-          </div>
-        </template>
-        <template #default>
-          <!-- eslint-disable vue/no-v-html -->
-          <div
-            class="markdown-body"
-            v-html="renderedContent"
-          />
-          <!-- eslint-enable vue/no-v-html -->
-        </template>
-      </Suspense>
-    </template>
-
+    <!-- eslint-disable vue/no-v-html -->
     <div
       v-else
-      class="no-content"
-    >
-      <UiAlert
-        type="info"
-        text="No README found for this repository."
-      />
-    </div>
+      class="markdown-body"
+      v-html="renderedContent || ''"
+    />
+    <!-- eslint-enable vue/no-v-html -->
   </UiContainer>
 </template>
 
 <script setup lang="ts">
-import mdiLinkVariant from "~icons/mdi/linkVariant?raw"
-
-import slugify from "@sindresorhus/slugify"
-import emojiRegex from "emoji-regex-xs"
-import hljs from "highlight.js"
-import mditAnchor from "markdown-it-anchor"
-import mditAttrs from "markdown-it-attrs"
-import mditHljs from "markdown-it-highlightjs"
-import mditLinkAttributes from "markdown-it-link-attributes"
-
-import { cleanMarkdown } from "~/composables/useCleanMarkdown"
-import { useCopyCode } from "~/composables/useCopyCode"
-import { useCopySlug } from "~/composables/useCopySlug"
-
-import { full as emoji } from "markdown-it-emoji"
-import { alert } from "@mdit/plugin-alert"
-import { imgLazyload } from "@mdit/plugin-img-lazyload"
-import { imgSize } from "@mdit/plugin-img-size"
-import { spoiler } from "@mdit/plugin-spoiler"
-import { tab } from "@mdit/plugin-tab"
-import { tasklist } from "@mdit/plugin-tasklist"
-import { emojiToName } from "gemoji"
-import {
-  createMarkdownExit,
-  type Token,
-} from "markdown-exit"
-
-interface Props {
+const props = defineProps<{
   name: string;
   branch?: string;
-}
-
-const props = defineProps<Props>()
+}>()
 
 const { t } = useI18n()
 
-const loading = ref(false)
-const error = ref<string | null>(null)
-const markdownContent = ref<string>("")
+const key = computed(() => `readme-html:${props.name}:${props.branch ?? "master"}`)
 
-const erx = emojiRegex()
+const {
+  data: renderedContent,
+  pending,
+  error,
+} = await useAsyncData(
+  key,
+  async () => {
+    const branches = [ props.branch, "master", "main" ].filter(Boolean) as string[]
+    let branchUsed = ""
+    let raw = ""
 
-function demojifyToGithub(s: string) {
-  return s.replace(erx, (m) => {
-    const name = emojiToName[m]
+    for (const b of branches) {
+      try {
+        // oxlint-disable-next-line no-await-in-loop Need to try branches sequentially
+        raw = await $fetch<string>(
+          `https://raw.githubusercontent.com/${props.name}/${b}/README.md`,
+          {
+            retry: 1,
+            headers: {
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+            },
+          },
+        )
+        branchUsed = b
 
-    if (!name) {
-      return " "
+        break
+      } catch {
+        // Ignore: continue trying other branches
+        // skipcq: JS-0098
+        void 0
+      }
     }
 
-    return ` ${name.replace(/_/g, " ")} `
-  })
-}
-
-function getTokensText(tokens: Token[]) {
-  return tokens
-    .filter((token) => ![ "html_inline", "image" ].includes(token.type))
-    .map((t) => t.content)
-    .join("")
-}
-
-const md = createMarkdownExit({
-  breaks: true,
-  html: true,
-  linkify: true,
-  typographer: true,
-})
-  .use(mditHljs, {
-    hljs,
-    inline: true,
-  })
-  .use(emoji, { shortcuts: {} })
-  .use(mditAnchor, {
-    slugify: (s) => slugify(demojifyToGithub(s)),
-    permalink: mditAnchor.permalink.headerLink(),
-    permalinkClass: "header-link",
-    getTokensText,
-  })
-  .use(mditAttrs)
-  .use(mditLinkAttributes, {
-    attrs: {
-      target: "_blank",
-      rel: "noopener noreferrer",
-    },
-    matcher(href: string, _config: unknown) {
-      return !href.startsWith("#")
-    },
-  })
-  .use(alert, { deep: true })
-  .use(imgLazyload)
-  .use(imgSize)
-  .use(spoiler)
-  .use(tab, { name: "tabs" })
-  .use(tasklist)
-
-md.core.ruler.push("heading_copy_icon", (state) => {
-  const { tokens } = state
-
-  for (let i = 0; i < tokens.length; i++) {
-    if (tokens[i]?.type === "heading_open" && i + 1 < tokens.length) {
-      const inline = tokens[i + 1]
-      const id = tokens[i]?.attrGet("id") || ""
-
-      const html = `
-        <span
-          class="header-copy-icon"
-          role="button"
-          data-slug="${id}"
-        >
-          ${mdiLinkVariant.replace(/<svg\b[^>]*>/i, "<svg>")}
-        </span>
-      `.trim()
-
-      const newToken = new state.Token("html_inline", "", 0)
-
-      newToken.content = html
-      inline?.children?.unshift(newToken)
+    if (!raw) {
+      throw createError({
+        statusCode: 404,
+        message: `No README for ${props.name}`,
+      })
     }
-  }
-})
 
-md.renderer.rules.fence = (tokens, idx) => {
-  const token = tokens[idx]
+    if (import.meta.server) {
+      const [
+        { default: mdiLinkVariant },
+        { default: slugify },
+        { default: emojiRegex },
+        { default: hljs },
+        { default: mditAnchor },
+        { default: mditAttrs },
+        { default: mditHljs },
+        { default: mditLinkAttributes },
+        { full: emoji },
+        { alert },
+        { imgLazyload },
+        { imgSize },
+        { spoiler },
+        { tab },
+        { tasklist },
+        { emojiToName },
+        { createMarkdownExit },
+      ] = await Promise.all([
+        import("~icons/mdi/linkVariant?raw"),
+        import("@sindresorhus/slugify"),
+        import("emoji-regex-xs"),
+        import("highlight.js"),
+        import("markdown-it-anchor"),
+        import("markdown-it-attrs"),
+        import("markdown-it-highlightjs"),
+        import("markdown-it-link-attributes"),
+        import("markdown-it-emoji"),
+        import("@mdit/plugin-alert"),
+        import("@mdit/plugin-img-lazyload"),
+        import("@mdit/plugin-img-size"),
+        import("@mdit/plugin-spoiler"),
+        import("@mdit/plugin-tab"),
+        import("@mdit/plugin-tasklist"),
+        import("gemoji"),
+        import("markdown-exit"),
+      ])
 
-  if (!token) {
+      const { cleanMarkdown } = await import("~/composables/useCleanMarkdown")
+
+      type Token = import("markdown-exit").Token
+
+      const erx = emojiRegex()
+
+      function demojifyToGithub(s: string) {
+        return s.replace(erx, (m) => {
+          const name = emojiToName[m]
+
+          if (!name) {
+            return " "
+          }
+
+          return ` ${name.replace(/_/g, " ")} `
+        })
+      }
+
+      function getTokensText(tokens: Token[]) {
+        return tokens
+          .filter((token) => ![ "html_inline", "image" ].includes(token.type))
+          .map((t) => t.content)
+          .join("")
+      }
+
+      const md = createMarkdownExit({
+        breaks: true,
+        html: true,
+        linkify: true,
+        typographer: true,
+      })
+        .use(mditHljs, {
+          hljs,
+          inline: true,
+        })
+        .use(emoji, { shortcuts: {} })
+        .use(mditAnchor, {
+          slugify: (s) => slugify(demojifyToGithub(s)),
+          permalink: mditAnchor.permalink.headerLink(),
+          permalinkClass: "header-link",
+          getTokensText,
+        })
+        .use(mditAttrs)
+        .use(mditLinkAttributes, {
+          attrs: {
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          matcher(href: string, _config: unknown) {
+            return !href.startsWith("#")
+          },
+        })
+        .use(alert, { deep: true })
+        .use(imgLazyload)
+        .use(imgSize)
+        .use(spoiler)
+        .use(tab, { name: "tabs" })
+        .use(tasklist)
+
+      md.core.ruler.push("heading_copy_icon", (state) => {
+        const { tokens } = state
+
+        for (let i = 0; i < tokens.length; i++) {
+          if (tokens[i]?.type === "heading_open" && i + 1 < tokens.length) {
+            const inline = tokens[i + 1]
+            const id = tokens[i]?.attrGet("id") || ""
+
+            const html = `
+              <span
+                class="header-copy-icon"
+                role="button"
+                data-slug="${id}"
+              >
+                ${mdiLinkVariant.replace(/<svg\b[^>]*>/i, "<svg>")}
+              </span>
+            `.trim()
+
+            const newToken = new state.Token("html_inline", "", 0)
+
+            newToken.content = html
+            inline?.children?.unshift(newToken)
+          }
+        }
+      })
+
+      md.renderer.rules.fence = (tokens, idx) => {
+        const token = tokens[idx]
+
+        if (!token) {
+          return ""
+        }
+
+        const langName = token.info.trim()
+        const isSupported = hljs.getLanguage(langName)
+
+        const highlightedCode = isSupported
+          ? hljs.highlight(token.content, { language: langName }).value
+          : hljs.highlightAuto(token.content).value
+
+        return `
+          <div class='code-block'>
+            <div class='code-block-header'>
+              <span class='code-block-lang'>${langName || "plaintext"}</span>
+              <button class='copy-code-button' type='button'>
+                Copy
+              </button>
+            </div>
+            <pre><code class='hljs ${langName}'>${highlightedCode}</code></pre>
+          </div>
+        `
+      }
+
+      const src = cleanMarkdown(raw ?? "", props.name, branchUsed)
+
+      const rendered = await md.renderAsync(src)
+
+      return rendered
+    }
+
     return ""
-  }
-
-  const langName = token.info.trim()
-  const isSupported = hljs.getLanguage(langName)
-
-  const highlightedCode = isSupported
-    ? hljs.highlight(token.content, { language: langName }).value
-    : hljs.highlightAuto(token.content).value
-
-  return `
-    <div class='code-block'>
-      <div class='code-block-header'>
-        <span class='code-block-lang'>${langName || "plaintext"}</span>
-        <button class='copy-code-button' type='button'>
-          Copy
-        </button>
-      </div>
-      <pre><code class='hljs ${langName}'>${highlightedCode}</code></pre>
-    </div>
-  `
-}
-
-const renderedContent = computedAsync(async () => {
-  if (!markdownContent.value) {
-    return ""
-  }
-
-  const rendered = await md.renderAsync(markdownContent.value)
-
-  return rendered
-})
-
-async function fetchReadme() {
-  if (!props.name) {
-    return
-  }
-
-  loading.value = true
-  error.value = null
-  markdownContent.value = ""
-  let branch = props.branch || "master"
-
-  try {
-    const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, { retry: 1 })
-
-    markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
-    loading.value = false
-  } catch (fetchError) {
-    branch = "main"
-
-    try {
-      const { data } = await useFetch<string>(`https://raw.githubusercontent.com/${props.name}/${branch}/README.md`, { retry: 1 })
-
-      markdownContent.value = cleanMarkdown(data.value ?? "", props.name, branch)
-      loading.value = false
-    } catch (secondError) {
-      branch = ""
-      console.error("Failed to fetch README :", secondError)
-      error.value = `Failed to fetch README for ${props.name}. Repository may not exist or README.md may not be available.`
-      loading.value = false
-    }
-  }
-}
-
-async function getRepoDetails() {
-  if (!props.name) {
-    return null
-  }
-
-  try {
-    const { data } = await useFetch<{
-      full_name: string;
-      description?: string;
-    }>(`https://api.github.com/repos/${props.name}`, { headers: {
-      "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    } })
-
-    if (!data.value) {
-      throw new Error("Repository not found")
-    }
-
-    if (!data.value.full_name) {
-      throw new Error("Repository not found")
-    }
-
-    return {
-      name: data.value.full_name,
-      description: data.value.description || "",
-    }
-  } catch (error) {
-    console.error("Failed to fetch repository details :", error)
-
-    return null
-  }
-}
+  },
+)
 
 const head = useHead({
   title: `EDM115 - ${t("projects.project")} ${props.name}`,
@@ -289,7 +254,29 @@ const head = useHead({
   ],
 })
 
-await fetchReadme()
+async function getRepoDetails() {
+  try {
+    const { data } = await useFetch<{
+      full_name: string;
+      description?: string;
+    }>(`https://api.github.com/repos/${props.name}`, { headers: {
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    } })
+
+    if (!data.value || !data.value.full_name) {
+      throw new Error("Repository not found")
+    }
+
+    return {
+      name: data.value.full_name,
+      description: data.value.description || "",
+    }
+  } catch (error) {
+    return null
+  }
+}
+
 const repoDetails = await getRepoDetails()
 
 if (repoDetails) {
@@ -312,8 +299,6 @@ if (repoDetails) {
   })
 }
 
-watch(() => props.name, fetchReadme, { immediate: true })
-
 onMounted(() => {
   useCopySlug()
   useCopyCode()
@@ -328,8 +313,7 @@ onMounted(() => {
   padding: 2rem;
 }
 
-.error,
-.no-content {
+.error {
   margin: 1rem 0;
 }
 </style>

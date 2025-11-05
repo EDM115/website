@@ -51,6 +51,7 @@
   "oxc.unusedDisableDirectives": "warn",
   "search.exclude": {
     "**/*.svg": true,
+    "patches/**": true,
     "pnpm-lock.yaml": true
   },
   "typescript.tsdk": "node_modules\\typescript\\lib",
