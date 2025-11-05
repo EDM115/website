@@ -7,11 +7,10 @@
             :draggable="false"
             preload
             class="hero-image glass"
-            height="350"
-            width="350"
-            alt="EDM115 Logo"
+            sizes="350px sm:250px lg:350px"
+            alt="unzip-bot logo"
             src="/img/projects/unzip-bot.webp"
-            :placeholder="[200, 200, 50, 5]"
+            :placeholder="[150, 150, 50, 5]"
           />
         </div>
 

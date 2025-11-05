@@ -125,6 +125,7 @@ const iconTheme = computed(() => (isDark.value
 
 function switchLocale(newLocale: "en" | "fr") {
   locale.value = newLocale
+  localStorage.setItem("i18n", newLocale)
 }
 
 function switchTheme() {

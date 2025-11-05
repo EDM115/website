@@ -71,14 +71,17 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "darkreader-lock",
-          content: "darkreader-lock",
+          content: "true",
         },
         {
           name: "description",
           content: "Find all infos about EDM115, his projects, blog posts, ...",
         },
       ],
-      htmlAttrs: { lang: "en" },
+      htmlAttrs: {
+        lang: "en",
+        translate: "no",
+      },
       link: [
         {
           rel: "icon", type: "image/webp", href: "/img/profile-img.webp",

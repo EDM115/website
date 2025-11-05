@@ -171,8 +171,6 @@ main {
 .hero-image {
   border-radius: 24px;
   max-width: 100%;
-  height: auto;
-  width: 350px;
 }
 
 .hero-right {
@@ -189,10 +187,6 @@ main {
   .hero-grid {
     grid-template-columns: 1fr;
     padding-inline: 1rem;
-  }
-
-  .hero-image {
-    width: 200px;
   }
 
   .hero-left {

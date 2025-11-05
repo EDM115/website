@@ -12,11 +12,10 @@
               :draggable="false"
               preload
               class="hero-image"
-              height="350"
-              width="350"
-              alt="EDM115 Logo"
+              sizes="350px sm:250px lg:350px"
+              alt="EDM115 logo"
               src="/img/profile-img.webp"
-              :placeholder="[200, 200, 50, 5]"
+              :placeholder="[150, 150, 50, 5]"
             />
           </HomePolychromeEffect>
           <UiCheckbox

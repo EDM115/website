@@ -13,7 +13,7 @@
           height="200"
           :alt="alt || ''"
           :src="image"
-          placeholder
+          :placeholder="[150, 150, 50, 5]"
           loading="lazy"
         />
       </NuxtLink>
@@ -24,7 +24,7 @@
         height="200"
         :alt="alt || ''"
         :src="image"
-        :placeholder="[100, 100, 50, 5]"
+        :placeholder="[150, 150, 50, 5]"
         loading="lazy"
       />
 

@@ -28,7 +28,7 @@ useHead({
   meta: [
     {
       name: "darkreader-lock",
-      content: "darkreader-lock",
+      content: "true",
     },
     {
       name: "description",
@@ -40,7 +40,10 @@ useHead({
       rel: "icon", type: "image/webp", href: "/img/profile-img.webp",
     },
   ],
-  htmlAttrs: { lang: i18nHead.value.htmlAttrs.lang ?? "en" },
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang ?? "en",
+    translate: "no",
+  },
 })
 
 useSeoMeta({
