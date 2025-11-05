@@ -15,7 +15,21 @@ overrides:
 #  vite: npm:rolldown-vite@7.1.20
 
 patchedDependencies:
+  "@mdit/plugin-alert": patches/@mdit__plugin-alert.patch
+  "@mdit/plugin-align": patches/@mdit__plugin-align.patch
+  "@mdit/plugin-img-lazyload": patches/@mdit__plugin-img-lazyload.patch
+  "@mdit/plugin-img-size": patches/@mdit__plugin-img-size.patch
+  "@mdit/plugin-spoiler": patches/@mdit__plugin-spoiler.patch
+  "@mdit/plugin-tab": patches/@mdit__plugin-tab.patch
+  "@mdit/plugin-tasklist": patches/@mdit__plugin-tasklist.patch
+  "@types/markdown-it-attrs": patches/@types__markdown-it-attrs.patch
+  "@types/markdown-it-emoji": patches/@types__markdown-it-emoji.patch
+  "@types/markdown-it-link-attributes": patches/@types__markdown-it-link-attributes.patch
   assemblyscript@0.28.9: patches/assemblyscript@0.28.9.patch
+  markdown-exit: patches/markdown-exit.patch
+  markdown-it-anchor: patches/markdown-it-anchor.patch
+  markdown-it-highlightjs: patches/markdown-it-highlightjs.patch
+  unplugin-vue-markdown: patches/unplugin-vue-markdown.patch
 
 publicHoistPattern:
   - nuxt-schema-org

@@ -1,0 +1,10 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index 57615acd320240846d1f75fd4a8cca19c650d1db..3babb32e2068c8b406b67865b4deca1c1e17d456 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginWithOptions } from 'markdown-it';
++import type { PluginWithOptions } from 'markdown-exit';
+ 
+ interface MarkdownItTaskListOptions {
+     /**

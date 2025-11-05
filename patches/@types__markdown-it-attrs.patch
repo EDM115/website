@@ -1,0 +1,11 @@
+diff --git a/index.d.ts b/index.d.ts
+index 41d4a858c6ece5a61a2088733cf8b333b45603d8..90309514d1460937ba7fe254383908571a85f8d5 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,3 +1,3 @@
+-import MarkdownIt = require("markdown-it");
+-declare function attrs(md: MarkdownIt): void;
+-export = attrs;
++import type { MarkdownExit } from 'markdown-exit';
++declare function attrs(md: MarkdownExit): void;
++export default attrs;

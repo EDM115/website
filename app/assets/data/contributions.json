@@ -236,7 +236,7 @@
     "name": "unplugin/unplugin-vue-markdown",
     "description": "[Feature request] Add the ability to choose another renderer",
     "type": "issue",
-    "state": "closed",
+    "state": "open",
     "link": "https://github.com/unplugin/unplugin-vue-markdown/issues/67"
   },
   {

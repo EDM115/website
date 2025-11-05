@@ -61,8 +61,6 @@ import mdiLinkVariant from "~icons/mdi/linkVariant?raw"
 import slugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
-import MarkdownIt from "markdown-it"
-import type Token from "markdown-it/lib/token.mjs"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
@@ -80,6 +78,10 @@ import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
 import { emojiToName } from "gemoji"
+import {
+  createMarkdownExit,
+  type Token,
+} from "markdown-exit"
 
 interface Props {
   name: string;
@@ -115,7 +117,7 @@ function getTokensText(tokens: Token[]) {
     .join("")
 }
 
-const md = new MarkdownIt({
+const md = createMarkdownExit({
   breaks: true,
   html: true,
   linkify: true,
@@ -202,12 +204,14 @@ md.renderer.rules.fence = (tokens, idx) => {
   `
 }
 
-const renderedContent = computed(() => {
+const renderedContent = computedAsync(async () => {
   if (!markdownContent.value) {
     return ""
   }
 
-  return md.render(markdownContent.value)
+  const rendered = await md.renderAsync(markdownContent.value)
+
+  return rendered
 })
 
 async function fetchReadme() {

@@ -1,0 +1,24 @@
+diff --git a/types/index.d.ts b/types/index.d.ts
+index 40c25c0be1add8b0fc2c51489c25a423dbc49d2c..b3b9a2a837a8dfdf69666d1e6999cb7a0976fe79 100644
+--- a/types/index.d.ts
++++ b/types/index.d.ts
+@@ -1,6 +1,8 @@
+-import MarkdownIt from 'markdown-it';
+-import { default as MarkdownItToken } from 'markdown-it/lib/token.mjs';
+-import { default as MarkdownItState} from 'markdown-it/lib/rules_core/state_core.mjs';
++import type {
++  MarkdownExit,
++  Token as MarkdownItToken,
++  StateCore as MarkdownItState,
++} from 'markdown-exit';
+ 
+ declare namespace anchor {
+   export type Token = MarkdownItToken
+@@ -69,6 +71,6 @@ declare namespace anchor {
+   };
+ }
+ 
+-declare function anchor(md: MarkdownIt, opts?: anchor.AnchorOptions): void;
++declare function anchor(md: MarkdownExit, opts?: anchor.AnchorOptions): void;
+ 
+ export default anchor;

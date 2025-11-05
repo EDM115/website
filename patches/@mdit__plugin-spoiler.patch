@@ -1,0 +1,10 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index f173c15b6cf981d54774989686e40c6844bddb2f..7d5a196ae4c841221f0bff5047bb27815998e777 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginWithOptions } from 'markdown-it';
++import type { PluginWithOptions } from 'markdown-exit';
+ 
+ interface MarkdownItSpoilerOptions {
+     /**

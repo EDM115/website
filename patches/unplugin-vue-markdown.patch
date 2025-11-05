@@ -1,0 +1,544 @@
+diff --git a/dist/chunk-NXK6DY4R.cjs b/dist/chunk-EUR7OXS4.cjs
+similarity index 85%
+rename from dist/chunk-NXK6DY4R.cjs
+rename to dist/chunk-EUR7OXS4.cjs
+index 056a012f7bfc984025158ae3899ab81caed03eef..f692b637a3c81eb2bfd99a00a7962db8ff80b33e 100644
+--- a/dist/chunk-NXK6DY4R.cjs
++++ b/dist/chunk-EUR7OXS4.cjs
+@@ -5,7 +5,7 @@
+   throw Error('Dynamic require of "' + x + '" is not supported');
+ });
+ 
+-// node_modules/.pnpm/tsup@8.5.0_jiti@2.6.0_postcss@8.5.6_tsx@4.20.5_typescript@5.9.2_yaml@2.8.1/node_modules/tsup/assets/cjs_shims.js
++// node_modules/.pnpm/tsup@8.5.0_jiti@2.6.1_postc_cecdf6882aa0c80d86757830727ca57d/node_modules/tsup/assets/cjs_shims.js
+ var getImportMetaUrl = () => typeof document === "undefined" ? new URL(`file:${__filename}`).href : document.currentScript && document.currentScript.src || new URL("main.js", document.baseURI).href;
+ var importMetaUrl = /* @__PURE__ */ getImportMetaUrl();
+ 
+diff --git a/dist/chunk-WO5APWOV.js b/dist/chunk-ND2EHUGL.js
+similarity index 98%
+rename from dist/chunk-WO5APWOV.js
+rename to dist/chunk-ND2EHUGL.js
+index f7294cab21fdb8b5d79e0cb5667821bb4991b88d..d1921e56774fcd7f2ae510a6d1b9c06aacb67829 100644
+--- a/dist/chunk-WO5APWOV.js
++++ b/dist/chunk-ND2EHUGL.js
+@@ -9,7 +9,7 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
+ import { createUnplugin } from "unplugin";
+ import { createFilter } from "unplugin-utils";
+ 
+-// node_modules/.pnpm/@antfu+utils@9.2.1/node_modules/@antfu/utils/dist/index.mjs
++// node_modules/.pnpm/@antfu+utils@9.3.0/node_modules/@antfu/utils/dist/index.mjs
+ function toArray(array) {
+   array = array ?? [];
+   return Array.isArray(array) ? array : [array];
+@@ -117,8 +117,8 @@ function extractCustomBlock(html, options) {
+ function createMarkdown(options) {
+   const isVue2 = options.vueVersion.startsWith("2.");
+   const setupPromise = (async () => {
+-    const { default: MarkdownIt } = await import("markdown-it-async");
+-    const md = MarkdownIt({
++    const { MarkdownExit } = await import("markdown-exit");
++    const md = new MarkdownExit({
+       html: true,
+       linkify: true,
+       typographer: true,
+diff --git a/dist/chunk-VOERILOI.cjs b/dist/chunk-SXE2PKWQ.cjs
+similarity index 96%
+rename from dist/chunk-VOERILOI.cjs
+rename to dist/chunk-SXE2PKWQ.cjs
+index b2c5ddaecc2c3e60c1f0874fa5a0b6ae457b0110..ea03bb8cbed5dd75e3b3b465fb1176381ea10d35 100644
+--- a/dist/chunk-VOERILOI.cjs
++++ b/dist/chunk-SXE2PKWQ.cjs
+@@ -1,13 +1,13 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } } async function _asyncNullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return await rhsFn(); } } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }
+ 
+ 
+-var _chunkNXK6DY4Rcjs = require('./chunk-NXK6DY4R.cjs');
++var _chunkEUR7OXS4cjs = require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/index.ts
+ var _unplugin = require('unplugin');
+ var _unpluginutils = require('unplugin-utils');
+ 
+-// node_modules/.pnpm/@antfu+utils@9.2.1/node_modules/@antfu/utils/dist/index.mjs
++// node_modules/.pnpm/@antfu+utils@9.3.0/node_modules/@antfu/utils/dist/index.mjs
+ function toArray(array) {
+   array = _nullishCoalesce(array, () => ( []));
+   return Array.isArray(array) ? array : [array];
+@@ -115,8 +115,8 @@ function extractCustomBlock(html, options) {
+ function createMarkdown(options) {
+   const isVue2 = options.vueVersion.startsWith("2.");
+   const setupPromise = (async () => {
+-    const { default: MarkdownIt } = await Promise.resolve().then(() => _interopRequireWildcard(require("markdown-it-async")));
+-    const md = MarkdownIt({
++    const { MarkdownExit } = await Promise.resolve().then(() => _interopRequireWildcard(require("markdown-exit")));
++    const md = new MarkdownExit({
+       html: true,
+       linkify: true,
+       typographer: true,
+@@ -259,7 +259,7 @@ function createMarkdown(options) {
+ 
+ // src/core/utils.ts
+ var _module = require('module');
+-var _require = typeof _chunkNXK6DY4Rcjs.__require === "undefined" ? _module.createRequire.call(void 0, _chunkNXK6DY4Rcjs.importMetaUrl) : _chunkNXK6DY4Rcjs.__require;
++var _require = typeof _chunkEUR7OXS4cjs.__require === "undefined" ? _module.createRequire.call(void 0, _chunkEUR7OXS4cjs.importMetaUrl) : _chunkEUR7OXS4cjs.__require;
+ function getVueVersion(defaultVersion = "3.2.0") {
+   try {
+     let v = _require("vue");
+diff --git a/dist/esbuild.cjs b/dist/esbuild.cjs
+index 6fcba204864f5763e55dd2f109c5786c4122bc57..b27a7a0d9212034f6e6a06d81619057f0bb795e8 100644
+--- a/dist/esbuild.cjs
++++ b/dist/esbuild.cjs
+@@ -1,11 +1,11 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/esbuild.ts
+ var _unplugin = require('unplugin');
+-var esbuild_default = _unplugin.createEsbuildPlugin.call(void 0, _chunkVOERILOIcjs.unpluginFactory);
++var esbuild_default = _unplugin.createEsbuildPlugin.call(void 0, _chunkSXE2PKWQcjs.unpluginFactory);
+ 
+ 
+ module.exports = esbuild_default;
+diff --git a/dist/esbuild.d.cts b/dist/esbuild.d.cts
+index d4fa823bb6a996d3375402b0f9cd400c73932357..ddef3401422e132d4840b912272665ac9a679441 100644
+--- a/dist/esbuild.d.cts
++++ b/dist/esbuild.d.cts
+@@ -3,7 +3,7 @@ import { Options } from './types.cjs';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => esbuild.Plugin;
+diff --git a/dist/esbuild.d.ts b/dist/esbuild.d.ts
+index db749d53aaf6118d0c4f0401aecb89bd52351371..a6c062f02a0b7d9e313c5e0074edce3a347b93a2 100644
+--- a/dist/esbuild.d.ts
++++ b/dist/esbuild.d.ts
+@@ -3,7 +3,7 @@ import { Options } from './types.js';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => esbuild.Plugin;
+diff --git a/dist/esbuild.js b/dist/esbuild.js
+index 924040f32d3b7bf82e330c699498a2c3f259e8df..48138d2b195929b832bf965fe99f7bea373b506c 100644
+--- a/dist/esbuild.js
++++ b/dist/esbuild.js
+@@ -1,6 +1,6 @@
+ import {
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ 
+ // src/esbuild.ts
+ import { createEsbuildPlugin } from "unplugin";
+diff --git a/dist/index.cjs b/dist/index.cjs
+index 84af74d05ea38fd5d30944a6c19d6904920a4aa9..f89f9ad60e44549a4eac5cec54d9b44ac24aca9b 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -1,10 +1,10 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ 
+ 
+-module.exports = _chunkVOERILOIcjs.index_default; exports.unpluginFactory = _chunkVOERILOIcjs.unpluginFactory;
++module.exports = _chunkSXE2PKWQcjs.index_default; exports.unpluginFactory = _chunkSXE2PKWQcjs.unpluginFactory;
+ exports.default = module.exports;
+\ No newline at end of file
+diff --git a/dist/index.d.cts b/dist/index.d.cts
+index f12717ad78de89a6e07d244232281d161c3e9345..0e60b8949211a778d1fc5ab1221ce01f815ad284 100644
+--- a/dist/index.d.cts
++++ b/dist/index.d.cts
+@@ -4,7 +4,7 @@ import { Options } from './types.cjs';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const unpluginFactory: UnpluginFactory<Options>;
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index d523acc02726b88f96cf309b002e39678e3ba14b..64f88222cdbc95198fc88939611960835b78135d 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -4,7 +4,7 @@ import { Options } from './types.js';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const unpluginFactory: UnpluginFactory<Options>;
+diff --git a/dist/index.js b/dist/index.js
+index 6ccbd77a11b6389bf142da5fab16726f0a4ebd8b..40b9663635f31967607462a597d4f0bdaffd8a0e 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1,7 +1,7 @@
+ import {
+   index_default,
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ export {
+   index_default as default,
+   unpluginFactory
+diff --git a/dist/rollup.cjs b/dist/rollup.cjs
+index 610b8dd29c27a337dae4299ad907fc785fecd8ec..963dc1ae1969e4cf12b56487eef50d29ac97c846 100644
+--- a/dist/rollup.cjs
++++ b/dist/rollup.cjs
+@@ -1,11 +1,11 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/rollup.ts
+ var _unplugin = require('unplugin');
+-var rollup_default = _unplugin.createRollupPlugin.call(void 0, _chunkVOERILOIcjs.unpluginFactory);
++var rollup_default = _unplugin.createRollupPlugin.call(void 0, _chunkSXE2PKWQcjs.unpluginFactory);
+ 
+ 
+ module.exports = rollup_default;
+diff --git a/dist/rollup.d.cts b/dist/rollup.d.cts
+index f9c19e708a9fdfe36c11b44d0f67ace992e1fa47..6e02f05ad6b48d39d5f63a3931e1e3abf1e3c83f 100644
+--- a/dist/rollup.d.cts
++++ b/dist/rollup.d.cts
+@@ -3,7 +3,7 @@ import { Options } from './types.cjs';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => rollup.Plugin<any> | rollup.Plugin<any>[];
+diff --git a/dist/rollup.d.ts b/dist/rollup.d.ts
+index 1fedc15baed0acaa6af5cd78adea851aa271152c..058a9064d1b6e11d5d89ff31c02e2438c323c3fe 100644
+--- a/dist/rollup.d.ts
++++ b/dist/rollup.d.ts
+@@ -3,7 +3,7 @@ import { Options } from './types.js';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => rollup.Plugin<any> | rollup.Plugin<any>[];
+diff --git a/dist/rollup.js b/dist/rollup.js
+index 1a6157ae19d603d37cfd88f734bd7f8de509d449..0ba7cd2d5bb4a678d01be9ab48cbf2df24ebf38b 100644
+--- a/dist/rollup.js
++++ b/dist/rollup.js
+@@ -1,6 +1,6 @@
+ import {
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ 
+ // src/rollup.ts
+ import { createRollupPlugin } from "unplugin";
+diff --git a/dist/rspack.cjs b/dist/rspack.cjs
+index 123c9c0e48ff94861e617740e209f78c173c17fc..f01dce0f9c5541fe3446fa3ed80961b1fbada852 100644
+--- a/dist/rspack.cjs
++++ b/dist/rspack.cjs
+@@ -1,11 +1,11 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/rspack.ts
+ var _unplugin = require('unplugin');
+-var rspack_default = _unplugin.createRspackPlugin.call(void 0, _chunkVOERILOIcjs.unpluginFactory);
++var rspack_default = _unplugin.createRspackPlugin.call(void 0, _chunkSXE2PKWQcjs.unpluginFactory);
+ 
+ 
+ module.exports = rspack_default;
+diff --git a/dist/rspack.d.cts b/dist/rspack.d.cts
+index 9fdcd4014414b9d9d849642191378a1894216cf0..efa73c6abf2c1da71e47ac5c518539481dd6f4c1 100644
+--- a/dist/rspack.d.cts
++++ b/dist/rspack.d.cts
+@@ -2,7 +2,7 @@ import { Options } from './types.cjs';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => RspackPluginInstance;
+diff --git a/dist/rspack.d.ts b/dist/rspack.d.ts
+index 3b425523cd4f00f8fde5be73ae74c3d74ab30065..0b6df8cfdd9be624c559c4e9d6516c842a270577 100644
+--- a/dist/rspack.d.ts
++++ b/dist/rspack.d.ts
+@@ -2,7 +2,7 @@ import { Options } from './types.js';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => RspackPluginInstance;
+diff --git a/dist/rspack.js b/dist/rspack.js
+index ac997177f5d6e5ee793a3aa31571515bd42b809d..3cff113f7cda7c7515b957a79ae8d20ca84d831c 100644
+--- a/dist/rspack.js
++++ b/dist/rspack.js
+@@ -1,6 +1,6 @@
+ import {
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ 
+ // src/rspack.ts
+ import { createRspackPlugin } from "unplugin";
+diff --git a/dist/types.cjs b/dist/types.cjs
+index aa1fc50ef82bb2cc57ee5295fef48fa6dbb4ada1..ac6406278ca0d9eeccbc72f687f21e7dd28567f4 100644
+--- a/dist/types.cjs
++++ b/dist/types.cjs
+@@ -1,2 +1,2 @@
+-"use strict";require('./chunk-NXK6DY4R.cjs');
++"use strict";require('./chunk-EUR7OXS4.cjs');
+ exports.default = module.exports;
+\ No newline at end of file
+diff --git a/dist/types.d.cts b/dist/types.d.cts
+index 861fa1fd00403c2a972cef3053c3faacfc331154..f3a4f422d78a397161657c3da7f67dbda3f05c2d 100644
+--- a/dist/types.d.cts
++++ b/dist/types.d.cts
+@@ -1,7 +1,7 @@
+ import { ComponentPluginOptions } from '@mdit-vue/plugin-component';
+ import { FrontmatterPluginOptions } from '@mdit-vue/plugin-frontmatter';
+ import { MarkdownItEnv } from '@mdit-vue/types';
+-import { MarkdownItAsyncOptions, PluginSimple, PluginWithOptions, MarkdownItAsync } from 'markdown-it-async';
++import { MarkdownExitOptions, PluginSimple, PluginWithOptions, MarkdownExit } from 'markdown-exit';
+ import { FilterPattern } from 'unplugin-utils';
+ 
+ declare function preprocessHead<T extends Frontmatter>(frontmatter: T, options: ResolvedOptions): any;
+@@ -128,7 +128,7 @@ interface Options {
+     /**
+      * Options passed to Markdown It
+      */
+-    markdownItOptions?: MarkdownItAsyncOptions;
++    markdownItOptions?: MarkdownExitOptions;
+     /**
+      * Plugins for Markdown It
+      */
+@@ -137,7 +137,7 @@ interface Options {
+      * A function providing the Markdown It instance gets the ability to apply custom
+      * settings/plugins
+      */
+-    markdownItSetup?: (MarkdownIt: MarkdownItAsync) => void | Promise<void>;
++    markdownItSetup?: (MarkdownIt: MarkdownExit) => void | Promise<void>;
+     /**
+      * Wrap the rendered html in a div
+      *
+diff --git a/dist/types.d.ts b/dist/types.d.ts
+index 861fa1fd00403c2a972cef3053c3faacfc331154..f3a4f422d78a397161657c3da7f67dbda3f05c2d 100644
+--- a/dist/types.d.ts
++++ b/dist/types.d.ts
+@@ -1,7 +1,7 @@
+ import { ComponentPluginOptions } from '@mdit-vue/plugin-component';
+ import { FrontmatterPluginOptions } from '@mdit-vue/plugin-frontmatter';
+ import { MarkdownItEnv } from '@mdit-vue/types';
+-import { MarkdownItAsyncOptions, PluginSimple, PluginWithOptions, MarkdownItAsync } from 'markdown-it-async';
++import { MarkdownExitOptions, PluginSimple, PluginWithOptions, MarkdownExit } from 'markdown-exit';
+ import { FilterPattern } from 'unplugin-utils';
+ 
+ declare function preprocessHead<T extends Frontmatter>(frontmatter: T, options: ResolvedOptions): any;
+@@ -128,7 +128,7 @@ interface Options {
+     /**
+      * Options passed to Markdown It
+      */
+-    markdownItOptions?: MarkdownItAsyncOptions;
++    markdownItOptions?: MarkdownExitOptions;
+     /**
+      * Plugins for Markdown It
+      */
+@@ -137,7 +137,7 @@ interface Options {
+      * A function providing the Markdown It instance gets the ability to apply custom
+      * settings/plugins
+      */
+-    markdownItSetup?: (MarkdownIt: MarkdownItAsync) => void | Promise<void>;
++    markdownItSetup?: (MarkdownIt: MarkdownExit) => void | Promise<void>;
+     /**
+      * Wrap the rendered html in a div
+      *
+diff --git a/dist/vite.cjs b/dist/vite.cjs
+index 4b21f01c18b41146865c4a23a3610cd53b04388a..ea4897f64f7e831ca2c135a2945b9e90f4a9acfd 100644
+--- a/dist/vite.cjs
++++ b/dist/vite.cjs
+@@ -1,11 +1,11 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/vite.ts
+ var _unplugin = require('unplugin');
+-var vite_default = _unplugin.createVitePlugin.call(void 0, _chunkVOERILOIcjs.unpluginFactory);
++var vite_default = _unplugin.createVitePlugin.call(void 0, _chunkSXE2PKWQcjs.unpluginFactory);
+ 
+ 
+ module.exports = vite_default;
+diff --git a/dist/vite.d.cts b/dist/vite.d.cts
+index f8cab507ea0bf1a85cf47dbe22f4ca14c537fe7e..05dd019e3e61b55d0c6db5309d0d4abd8417f84b 100644
+--- a/dist/vite.d.cts
++++ b/dist/vite.d.cts
+@@ -3,7 +3,7 @@ import { Options } from './types.cjs';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => vite.Plugin<any> | vite.Plugin<any>[];
+diff --git a/dist/vite.d.ts b/dist/vite.d.ts
+index 8b43f4d0d907097876fb480e9403ee03f03c3160..07750830221361001d4997a739fea96952d896a9 100644
+--- a/dist/vite.d.ts
++++ b/dist/vite.d.ts
+@@ -3,7 +3,7 @@ import { Options } from './types.js';
+ import '@mdit-vue/plugin-component';
+ import '@mdit-vue/plugin-frontmatter';
+ import '@mdit-vue/types';
+-import 'markdown-it-async';
++import 'markdown-exit';
+ import 'unplugin-utils';
+ 
+ declare const _default: (options: Options) => vite.Plugin<any> | vite.Plugin<any>[];
+diff --git a/dist/vite.js b/dist/vite.js
+index 446f494ef030544c651f0236d0d2e5d275957d83..8141957a807a87a54ca39fc87f6cf0bf0a3b3526 100644
+--- a/dist/vite.js
++++ b/dist/vite.js
+@@ -1,6 +1,6 @@
+ import {
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ 
+ // src/vite.ts
+ import { createVitePlugin } from "unplugin";
+diff --git a/dist/webpack.cjs b/dist/webpack.cjs
+index 18e0b30b6ba34bf07e16035c63359c86168b6236..316a496b9059ff0fa4dfaf8448f61844e4a24889 100644
+--- a/dist/webpack.cjs
++++ b/dist/webpack.cjs
+@@ -1,11 +1,11 @@
+ "use strict";Object.defineProperty(exports, "__esModule", {value: true});
+ 
+-var _chunkVOERILOIcjs = require('./chunk-VOERILOI.cjs');
+-require('./chunk-NXK6DY4R.cjs');
++var _chunkSXE2PKWQcjs = require('./chunk-SXE2PKWQ.cjs');
++require('./chunk-EUR7OXS4.cjs');
+ 
+ // src/webpack.ts
+ var _unplugin = require('unplugin');
+-var webpack_default = _unplugin.createWebpackPlugin.call(void 0, _chunkVOERILOIcjs.unpluginFactory);
++var webpack_default = _unplugin.createWebpackPlugin.call(void 0, _chunkSXE2PKWQcjs.unpluginFactory);
+ 
+ 
+ module.exports = webpack_default;
+diff --git a/dist/webpack.js b/dist/webpack.js
+index a8d69e90ff77609f15d19651b01b3ac1ab21cdf9..aaf73c857295e308d2daf8fe844398ea0d4c299b 100644
+--- a/dist/webpack.js
++++ b/dist/webpack.js
+@@ -1,6 +1,6 @@
+ import {
+   unpluginFactory
+-} from "./chunk-WO5APWOV.js";
++} from "./chunk-ND2EHUGL.js";
+ 
+ // src/webpack.ts
+ import { createWebpackPlugin } from "unplugin";
+diff --git a/patches/@mdit-vue__plugin-component.patch b/patches/@mdit-vue__plugin-component.patch
+new file mode 100644
+index 0000000000000000000000000000000000000000..c699ae049867bffc94b4a7dbd266a7e0fb5d09b2
+--- /dev/null
++++ b/patches/@mdit-vue__plugin-component.patch
+@@ -0,0 +1,12 @@
++diff --git a/dist/index.d.ts b/dist/index.d.ts
++index 73ecab9cf10137858fa3b65248cfbd13c9bdae47..a7b88e46001276b3e0de8a48981ad62cdb7c5519 100644
++--- a/dist/index.d.ts
+++++ b/dist/index.d.ts
++@@ -1,6 +1,4 @@
++-import { PluginWithOptions } from "markdown-it";
++-import { RuleBlock } from "markdown-it/lib/parser_block.mjs";
++-import { RuleInline } from "markdown-it/lib/parser_inline.mjs";
+++import type { PluginWithOptions, RuleBlock, RuleInline } from "markdown-exit";
++ 
++ //#region src/types.d.ts
++ /**
+diff --git a/patches/@mdit-vue__plugin-frontmatter.patch b/patches/@mdit-vue__plugin-frontmatter.patch
+new file mode 100644
+index 0000000000000000000000000000000000000000..b8245f0033a3ca86e28e4beb54d160c858e0a3a8
+--- /dev/null
++++ b/patches/@mdit-vue__plugin-frontmatter.patch
+@@ -0,0 +1,11 @@
++diff --git a/dist/index.d.ts b/dist/index.d.ts
++index cafddf90830012e4a66a542b6af30c653790a8ad..c10b8e90460ada824e4caf216eebb63aee76b0bf 100644
++--- a/dist/index.d.ts
+++++ b/dist/index.d.ts
++@@ -1,5 +1,5 @@
++ import grayMatter from "gray-matter";
++-import { PluginWithOptions } from "markdown-it";
+++import type { PluginWithOptions } from "markdown-exit";
++ 
++ //#region src/types.d.ts
++ type GrayMatterOptions = grayMatter.GrayMatterOption<string, GrayMatterOptions>;
+diff --git a/src/core/markdown.ts b/src/core/markdown.ts
+index 95b0837c9f5e33f0aa4426d9fbcc07950f095096..1fb972ecb3f066f19939afd0c9edba5aafb3b850 100644
+--- a/src/core/markdown.ts
++++ b/src/core/markdown.ts
+@@ -64,9 +64,9 @@ export function createMarkdown(options: ResolvedOptions) {
+   const isVue2 = options.vueVersion.startsWith('2.')
+ 
+   const setupPromise = (async () => {
+-    const { default: MarkdownIt } = await import('markdown-it-async')
++    const { MarkdownExit } = await import('markdown-exit')
+ 
+-    const md = MarkdownIt({
++    const md = new MarkdownExit({
+       html: true,
+       linkify: true,
+       typographer: true,
+diff --git a/src/types.ts b/src/types.ts
+index 664e75afc3c1d36971bf8c03f2b5f62a778d82b4..2b7cc772eaf8787bead8db2c6af54f6c05710ea8 100644
+--- a/src/types.ts
++++ b/src/types.ts
+@@ -2,11 +2,11 @@ import type { ComponentPluginOptions } from '@mdit-vue/plugin-component'
+ import type { FrontmatterPluginOptions } from '@mdit-vue/plugin-frontmatter'
+ import type { MarkdownItEnv } from '@mdit-vue/types'
+ import type {
+-  MarkdownItAsync,
+-  MarkdownItAsyncOptions,
++  MarkdownExit as MarkdownItAsync,
++  MarkdownExitOptions as MarkdownItAsyncOptions,
+   PluginSimple as MarkdownItPluginSimple,
+   PluginWithOptions as MarkdownItPluginWithOptions,
+-} from 'markdown-it-async'
++} from 'markdown-exit'
+ import type { FilterPattern } from 'unplugin-utils'
+ import type { preprocessHead } from './core/head'
+ 

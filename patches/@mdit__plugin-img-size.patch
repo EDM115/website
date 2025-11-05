@@ -1,0 +1,11 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index 0eeaf3f86c1b26a62d4f8bb15d450f1911505fb9..1d4280e9bda920d1014b97f99987170a4d401ea0 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,5 +1,4 @@
+-import { PluginSimple } from 'markdown-it';
+-import { RuleInline } from 'markdown-it/lib/parser_inline.mjs';
++import type { PluginSimple, RuleInline } from 'markdown-exit';
+ 
+ /**
+  * Fork and edited from https://github.com/tatsy/markdown-it-imsize/blob/master/lib/index.js

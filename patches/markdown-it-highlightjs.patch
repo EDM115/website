@@ -1,0 +1,156 @@
+diff --git a/dist/core.js b/dist/core.js
+index f76b95e48007d07b2a9f5e27f168145216a96eb8..0d84d422d6de887409e78169e60c0cb81e9558ab 100644
+--- a/dist/core.js
++++ b/dist/core.js
+@@ -60,8 +60,9 @@ function highlightAuto(md, hljs, ignoreIllegals, code, lang) {
+   }
+ }
+ function wrapCodeRenderer(renderer) {
+-  return function wrappedRenderer(...args) {
+-    return renderer(...args).replace(/<code class="/g, '<code class="hljs ').replace(/<code>/g, '<code class="hljs">');
++  return async function wrappedRenderer(...args) {
++    const html = await renderer(...args);
++    return html.replace(/<code class="/g, '<code class="hljs ').replace(/<code>/g, '<code class="hljs">');
+   };
+ }
+ function inlineCodeLanguageRule(state) {
+@@ -94,13 +95,13 @@ function inlineCodeLanguageRule(state) {
+     }
+   }
+ }
+-function inlineCodeRenderer(tokens, idx, options, env, slf) {
++function inlineCodeRenderer(tokens, idx, options, env = {}, slf) {
+   var _a, _b;
+   const token = tokens[idx];
+   if (options.highlight == null) {
+     throw new Error("`options.highlight` was null, this is not supposed to happen");
+   }
+-  const highlighted = options.highlight(token.content, (_b = (_a = token.meta) == null ? void 0 : _a.highlightLanguage) != null ? _b : "", "");
++  const highlighted = options.highlight(token.content, (_b = (_a = token.meta) == null ? void 0 : _a.highlightLanguage) != null ? _b : "", "", env);
+   return `<code${slf.renderAttrs(token)}>${highlighted}</code>`;
+ }
+ function core(md, opts) {
+diff --git a/src/core.ts b/src/core.ts
+index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174a63d3b9d 100644
+--- a/src/core.ts
++++ b/src/core.ts
+@@ -1,7 +1,12 @@
+-import MarkdownIt from 'markdown-it'
+-import Renderer from 'markdown-it/lib/renderer'
+-import StateCore from 'markdown-it/lib/rules_core/state_core'
+-import Token from 'markdown-it/lib/token'
++import type {
++  MarkdownExit,
++  MarkdownExitEnv,
++  MarkdownExitOptions,
++  Renderer,
++  RenderRule,
++  StateCore,
++  Token,
++} from 'markdown-exit'
+ import { HLJSApi, LanguageFn } from 'highlight.js'
+ 
+ export interface HighlightOptions {
+@@ -47,7 +52,7 @@ function registerLangs (hljs: HLJSApi, register: { [lang: string]: LanguageFn })
+ }
+ 
+ // Highlight with given language.
+-function highlight (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean, code: string, lang: string): string {
++function highlight (md: MarkdownExit, hljs: HLJSApi, ignoreIllegals: boolean, code: string, lang: string): string {
+   try {
+     return hljs.highlight(code, { language: lang !== '' ? lang : 'plaintext', ignoreIllegals }).value
+   } catch (e) {
+@@ -56,7 +61,7 @@ function highlight (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean, code
+ }
+ 
+ // Highlight with given language or automatically.
+-function highlightAuto (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean, code: string, lang: string): string {
++function highlightAuto (md: MarkdownExit, hljs: HLJSApi, ignoreIllegals: boolean, code: string, lang: string): string {
+   if (lang !== '') {
+     return highlight(md, hljs, ignoreIllegals, code, lang)
+   }
+@@ -68,9 +73,10 @@ function highlightAuto (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean,
+   }
+ }
+ // Wrap a render function to add `hljs` class to code blocks.
+-function wrapCodeRenderer (renderer: Renderer.RenderRule): Renderer.RenderRule {
+-  return function wrappedRenderer (...args) {
+-    return renderer(...args)
++function wrapCodeRenderer (renderer: RenderRule): RenderRule {
++  return async function wrappedRenderer (...args) {
++    const html = await renderer(...args)
++    return html
+       .replace(/<code class="/g, '<code class="hljs ')
+       .replace(/<code>/g, '<code class="hljs">')
+   }
+@@ -118,7 +124,7 @@ function inlineCodeLanguageRule (state: StateCore): void {
+   }
+ }
+ 
+-function inlineCodeRenderer (tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, slf: Renderer): string {
++function inlineCodeRenderer (tokens: Token[], idx: number, options: MarkdownExitOptions, env: MarkdownExitEnv = {}, slf: Renderer): string {
+   const token = tokens[idx]
+ 
+   // Make TypeScript happy...
+@@ -126,12 +132,12 @@ function inlineCodeRenderer (tokens: Token[], idx: number, options: MarkdownIt.O
+     throw new Error('`options.highlight` was null, this is not supposed to happen')
+   }
+ 
+-  const highlighted = options.highlight(token.content, token.meta?.highlightLanguage ?? '', '')
++  const highlighted = options.highlight(token.content, token.meta?.highlightLanguage ?? '', '', env)
+ 
+   return `<code${slf.renderAttrs(token)}>${highlighted}</code>`
+ }
+ 
+-export default function core (md: MarkdownIt, opts?: HighlightOptions): void {
++export default function core (md: MarkdownExit, opts?: HighlightOptions): void {
+   const optsWithDefaults = { ...core.defaults, ...opts }
+ 
+   if (optsWithDefaults.hljs == null) {
+diff --git a/src/index.ts b/src/index.ts
+index 32f83bb95e1e5e089bc13f299934d70fbf93832f..886e1cf79bfd3152db23ae6d1c7118ac6cc010c9 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -1,8 +1,8 @@
+-import MarkdownIt from 'markdown-it'
++import type { MarkdownExit } from 'markdown-exit'
+ import hljs from 'highlight.js'
+ import core, { HighlightOptions } from './core.js'
+ 
+-export default function highlightjs (md: MarkdownIt, opts?: HighlightOptions): void {
++export default function highlightjs (md: MarkdownExit, opts?: HighlightOptions): void {
+   opts = { ...highlightjs.defaults, ...opts }
+ 
+   if (opts.hljs == null) {
+diff --git a/types/core.d.ts b/types/core.d.ts
+index 75b07064c3de0277e338bd66b2c9c7b0fdbe59a7..2afde6d96d933b24b15e3f269ff88d3ea1a16598 100644
+--- a/types/core.d.ts
++++ b/types/core.d.ts
+@@ -1,4 +1,4 @@
+-import MarkdownIt from 'markdown-it';
++import type { MarkdownExit } from 'markdown-exit';
+ import { HLJSApi, LanguageFn } from 'highlight.js';
+ export interface HighlightOptions {
+     /**
+@@ -29,7 +29,7 @@ export interface HighlightOptions {
+      */
+     ignoreIllegals?: boolean;
+ }
+-declare function core(md: MarkdownIt, opts?: HighlightOptions): void;
++declare function core(md: MarkdownExit, opts?: HighlightOptions): void;
+ declare namespace core {
+     var defaults: {
+         auto: boolean;
+diff --git a/types/index.d.ts b/types/index.d.ts
+index 2c8367e72033cb840111cf303b928b73168d2d77..133316c4d35b1e0ea1fbb61dac73fc1017b0e043 100644
+--- a/types/index.d.ts
++++ b/types/index.d.ts
+@@ -1,6 +1,6 @@
+-import MarkdownIt from 'markdown-it';
++import type { MarkdownExit } from 'markdown-exit';
+ import { HighlightOptions } from './core.js';
+-declare function highlightjs(md: MarkdownIt, opts?: HighlightOptions): void;
++declare function highlightjs(md: MarkdownExit, opts?: HighlightOptions): void;
+ declare namespace highlightjs {
+     var defaults: {
+         auto: boolean;

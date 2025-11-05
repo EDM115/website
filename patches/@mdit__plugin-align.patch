@@ -1,0 +1,10 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index df2522746cce92574ecc20fb103acc3f0aa37d79..0394284b8f0511a7e685e085e0edd0122ddbc781 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginSimple } from 'markdown-it';
++import type { PluginSimple } from 'markdown-exit';
+ 
+ declare const align: PluginSimple;
+ 

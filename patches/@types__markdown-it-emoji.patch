@@ -1,0 +1,13 @@
+diff --git a/lib/bare.d.mts b/lib/bare.d.mts
+index 646847113bfa9bd210ce5dcbb3d558f0f83e2934..d0e6863eb6b65a25f746a820557909027de10baa 100644
+--- a/lib/bare.d.mts
++++ b/lib/bare.d.mts
+@@ -1,6 +1,6 @@
+-import MarkdownIt from "markdown-it";
++import type { MarkdownExit } from "markdown-exit";
+ 
+-export default function emoji_plugin(md: MarkdownIt, options?: Partial<Options>): void;
++export default function emoji_plugin(md: MarkdownExit, options?: Partial<Options>): void;
+ 
+ /**
+  * @see https://github.com/markdown-it/markdown-it-emoji#init

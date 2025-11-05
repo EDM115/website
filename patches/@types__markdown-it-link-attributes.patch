@@ -1,0 +1,19 @@
+diff --git a/index.d.ts b/index.d.ts
+index 4ce01a0297c3916bacb0ab296671a594d7cbee36..e788c99a2e4ba53a0441976dd2d7b4fbcda4c915 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginWithOptions, Renderer } from "markdown-it";
++import type { PluginWithOptions, RenderRule } from "markdown-exit";
+ 
+ declare namespace markdownItLinkAttributes {
+     interface Config {
+@@ -14,7 +14,7 @@ declare const markdownItLinkAttributes:
+         markdownItLinkAttributes.Config | markdownItLinkAttributes.Config[]
+     >
+     & {
+-        readonly defaultRender: Renderer.RenderRule;
++        readonly defaultRender: RenderRule;
+     };
+ 
+ export = markdownItLinkAttributes;

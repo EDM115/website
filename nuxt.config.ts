@@ -1,7 +1,6 @@
 import slugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
-import type Token from "markdown-it/lib/token.mjs"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
@@ -21,6 +20,8 @@ import { tasklist } from "@mdit/plugin-tasklist"
 import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
 import { definePerson } from "nuxt-schema-org/schema"
+
+import type { Token } from "markdown-exit"
 
 const localMdi = await lookupCollection("mdi")
 const mdiLinkVariant = `<svg>${localMdi.icons["link-variant"]?.body || ""}</svg>`
