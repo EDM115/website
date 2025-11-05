@@ -49,8 +49,8 @@ importers:
         specifier: ~0.11.4
         version: 0.11.4(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)(vite@7.1.12(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))
       '@nuxt/image':
-        specifier: ~1.11.0
-        version: 1.11.0(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)
+        specifier: ~2.0.0
+        version: 2.0.0(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)
       '@nuxt/scripts':
         specifier: ~0.13.0
         version: 0.13.0(@unhead/vue@2.0.19(vue@3.5.22(typescript@5.9.3)))(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
@@ -582,9 +582,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==, tarball: https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.4.1.tgz}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fastify/accept-negotiator@1.1.0':
-    resolution: {integrity: sha512-OIHZrb2ImZ7XG85HXOONLcJWGosv7sIvM2ifAPQVhg9Lv7qdmMBNVaai4QTdyuaqbKM5eO6sLSQOYI7wEQeCJQ==, tarball: https://registry.npmjs.org/@fastify/accept-negotiator/-/accept-negotiator-1.1.0.tgz}
-    engines: {node: '>=14'}
+  '@fastify/accept-negotiator@2.0.1':
+    resolution: {integrity: sha512-/c/TW2bO/v9JeEgoD/g1G5GxGeCF1Hafdf79WPmUlgYiBXummY0oX3VVq4yFkKKVBKDNlaDUYoab7g38RpPqCQ==, tarball: https://registry.npmjs.org/@fastify/accept-negotiator/-/accept-negotiator-2.0.1.tgz}
 
   '@fingerprintjs/botd@1.9.1':
     resolution: {integrity: sha512-7kv3Yolsx9E56i+L1hCEcupH5yqcI5cmVktxy6B0K7rimaH5qDXwsiA5FL+fkxeUny7XQKn7p13HvK7ofDZB3g==, tarball: https://registry.npmjs.org/@fingerprintjs/botd/-/botd-1.9.1.tgz}
@@ -1039,8 +1038,8 @@ packages:
   '@nuxt/fonts@0.11.4':
     resolution: {integrity: sha512-GbLavsC+9FejVwY+KU4/wonJsKhcwOZx/eo4EuV57C4osnF/AtEmev8xqI0DNlebMEhEGZbu1MGwDDDYbeR7Bw==, tarball: https://registry.npmjs.org/@nuxt/fonts/-/fonts-0.11.4.tgz}
 
-  '@nuxt/image@1.11.0':
-    resolution: {integrity: sha512-4kzhvb2tJfxMsa/JZeYn1sMiGbx2J/S6BQrQSdXNsHgSvywGVkFhTiQGjoP6O49EsXyAouJrer47hMeBcTcfXQ==, tarball: https://registry.npmjs.org/@nuxt/image/-/image-1.11.0.tgz}
+  '@nuxt/image@2.0.0':
+    resolution: {integrity: sha512-otHi6gAoYXKLrp8m27ZjX1PjxOPaltQ4OiUs/BhkW995mF/vXf8SWQTw68fww+Uric0v+XgoVrP9icDi+yT6zw==, tarball: https://registry.npmjs.org/@nuxt/image/-/image-2.0.0.tgz}
     engines: {node: '>=18.20.6'}
 
   '@nuxt/kit@3.20.0':
@@ -3434,8 +3433,8 @@ packages:
     resolution: {integrity: sha512-C6uC+kleiIMmjViJINWk80sOQw5lEzse1ZmvD+S/s8p8CWapftSaC+kocGTx6xrbrJ4WmYQGC08ffHLr6ToR6Q==, tarball: https://registry.npmjs.org/ioredis/-/ioredis-5.8.2.tgz}
     engines: {node: '>=12.22.0'}
 
-  ipx@2.1.1:
-    resolution: {integrity: sha512-XuM9FEGOT+/45mfAWZ5ykwkZ/oE7vWpd1iWjRffMWlwAYIRzb/xD6wZhQ4BzmPMX6Ov5dqK0wUyD0OEN9oWT6g==, tarball: https://registry.npmjs.org/ipx/-/ipx-2.1.1.tgz}
+  ipx@3.1.1:
+    resolution: {integrity: sha512-7Xnt54Dco7uYkfdAw0r2vCly3z0rSaVhEXMzPvl3FndsTVm5p26j+PO+gyinkYmcsEUvX2Rh7OGK7KzYWRu6BA==, tarball: https://registry.npmjs.org/ipx/-/ipx-3.1.1.tgz}
     hasBin: true
 
   iron-webcrypto@1.2.1:
@@ -4991,11 +4990,6 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  svgo@3.3.2:
-    resolution: {integrity: sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==, tarball: https://registry.npmjs.org/svgo/-/svgo-3.3.2.tgz}
-    engines: {node: '>=14.0.0'}
-    hasBin: true
-
   svgo@4.0.0:
     resolution: {integrity: sha512-VvrHQ+9uniE+Mvx3+C9IEe/lWasXCU0nXMY2kZeLrHNICuRiC8uMPyM14UEaMOFA5mhyQqEkB02VoQ16n3DLaw==, tarball: https://registry.npmjs.org/svgo/-/svgo-4.0.0.tgz}
     engines: {node: '>=16'}
@@ -5967,7 +5961,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@fastify/accept-negotiator@1.1.0':
+  '@fastify/accept-negotiator@2.0.1':
     optional: true
 
   '@fingerprintjs/botd@1.9.1':
@@ -6561,9 +6555,9 @@ snapshots:
       - uploadthing
       - vite
 
-  '@nuxt/image@1.11.0(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)':
+  '@nuxt/image@2.0.0(db0@0.3.4)(ioredis@5.8.2)(magicast@0.5.1)':
     dependencies:
-      '@nuxt/kit': 3.20.0(magicast@0.5.1)
+      '@nuxt/kit': 4.2.0(magicast@0.5.1)
       consola: 3.4.2
       defu: 6.1.4
       h3: 1.15.4
@@ -6574,7 +6568,7 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.1
     optionalDependencies:
-      ipx: 2.1.1(db0@0.3.4)(ioredis@5.8.2)
+      ipx: 3.1.1(db0@0.3.4)(ioredis@5.8.2)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -9140,9 +9134,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ipx@2.1.1(db0@0.3.4)(ioredis@5.8.2):
+  ipx@3.1.1(db0@0.3.4)(ioredis@5.8.2):
     dependencies:
-      '@fastify/accept-negotiator': 1.1.0
+      '@fastify/accept-negotiator': 2.0.1
       citty: 0.1.6
       consola: 3.4.2
       defu: 6.1.4
@@ -9152,9 +9146,9 @@ snapshots:
       image-meta: 0.2.2
       listhen: 1.9.0
       ofetch: 1.5.1
-      pathe: 1.1.2
+      pathe: 2.0.3
       sharp: 0.34.4
-      svgo: 3.3.2
+      svgo: 4.0.0
       ufo: 1.6.1
       unstorage: 1.17.2(db0@0.3.4)(ioredis@5.8.2)
       xss: 1.0.15
@@ -10993,17 +10987,6 @@ snapshots:
       css-tree: 2.3.1
       csso: 5.0.5
       picocolors: 1.1.1
-
-  svgo@3.3.2:
-    dependencies:
-      '@trysound/sax': 0.2.0
-      commander: 7.2.0
-      css-select: 5.2.2
-      css-tree: 2.3.1
-      css-what: 6.2.2
-      csso: 5.0.5
-      picocolors: 1.1.1
-    optional: true
 
   svgo@4.0.0:
     dependencies:
