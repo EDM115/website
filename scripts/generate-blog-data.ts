@@ -41,7 +41,7 @@ function extractFrontmatter(content: string) {
     const trimmed = line.trim()
     
     // Skip empty lines
-    if (!trimmed) continue
+    if (!trimmed) {continue}
     
     // Check for array item start
     if (trimmed.startsWith("- ")) {

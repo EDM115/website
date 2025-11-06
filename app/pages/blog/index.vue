@@ -5,7 +5,10 @@
     <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
     <!-- Search Bar -->
-    <div class="search-container" :class="{ 'has-filters': hasActiveFilters }">
+    <div
+      class="search-container"
+      :class="{ 'has-filters': hasActiveFilters }"
+    >
       <input
         v-model="searchQuery"
         type="text"
@@ -23,27 +26,53 @@
     </div>
 
     <!-- Loading State -->
-    <div v-if="loading" class="loading">
+    <div
+      v-if="loading"
+      class="loading"
+    >
       Loading...
     </div>
 
     <!-- Error State -->
-    <div v-else-if="error" class="error">
+    <div
+      v-else-if="error"
+      class="error"
+    >
       {{ error }}
     </div>
 
     <!-- Blog Posts List -->
-    <div v-else-if="posts.length" class="blog-list">
+    <div
+      v-else-if="posts.length"
+      class="blog-list"
+    >
       <article
         v-for="post in posts"
         :key="post.id"
         class="blog-post"
       >
-        <NuxtLink :to="post.link" class="post-link">
-          <h3 class="post-title" v-html="highlightText(post.title, searchQuery)"></h3>
-          <p v-if="post.date" class="post-date">{{ formatDate(post.date) }}</p>
-          <p class="post-excerpt" v-html="highlightText(post.excerpt, searchQuery)"></p>
-          <div v-if="post.tags && post.tags.length" class="post-tags">
+        <NuxtLink
+          :to="post.link"
+          class="post-link"
+        >
+          <h3
+            class="post-title"
+            v-html="highlightText(post.title, searchQuery)"
+          />
+          <p
+            v-if="post.date"
+            class="post-date"
+          >
+            {{ formatDate(post.date) }}
+          </p>
+          <p
+            class="post-excerpt"
+            v-html="highlightText(post.excerpt, searchQuery)"
+          />
+          <div
+            v-if="post.tags && post.tags.length"
+            class="post-tags"
+          >
             <span
               v-for="tag in post.tags"
               :key="tag"
@@ -55,12 +84,18 @@
     </div>
 
     <!-- No Results -->
-    <div v-else class="no-results">
+    <div
+      v-else
+      class="no-results"
+    >
       {{ t("blog.no_results") }}
     </div>
 
     <!-- Pagination -->
-    <div v-if="pagination.totalPages > 1" class="pagination">
+    <div
+      v-if="pagination.totalPages > 1"
+      class="pagination"
+    >
       <button
         :disabled="pagination.page === 1"
         class="pagination-btn"
@@ -119,12 +154,12 @@ onMounted(async () => {
   
   // Apply filters from URL
   const urlFilters: any = {}
-  if (route.query.search) urlFilters.search = route.query.search as string
-  if (route.query.tag) urlFilters.tag = route.query.tag as string
-  if (route.query.lang) urlFilters.lang = route.query.lang as string
-  if (route.query.before) urlFilters.before = route.query.before as string
-  if (route.query.after) urlFilters.after = route.query.after as string
-  if (route.query.at) urlFilters.at = route.query.at as string
+  if (route.query.search) {urlFilters.search = route.query.search as string}
+  if (route.query.tag) {urlFilters.tag = route.query.tag as string}
+  if (route.query.lang) {urlFilters.lang = route.query.lang as string}
+  if (route.query.before) {urlFilters.before = route.query.before as string}
+  if (route.query.after) {urlFilters.after = route.query.after as string}
+  if (route.query.at) {urlFilters.at = route.query.at as string}
   
   if (Object.keys(urlFilters).length > 0) {
     setFilters(urlFilters)
@@ -150,8 +185,8 @@ const debouncedSearch = () => {
 // Update URL without reload
 const updateURL = () => {
   const query: Record<string, string> = {}
-  if (pagination.value.page > 1) query.page = pagination.value.page.toString()
-  if (searchQuery.value) query.search = searchQuery.value
+  if (pagination.value.page > 1) {query.page = pagination.value.page.toString()}
+  if (searchQuery.value) {query.search = searchQuery.value}
 
   router.push({ query })
 }
@@ -172,7 +207,7 @@ const handleClearFilters = () => {
 
 // Highlight search terms in text
 const highlightText = (text: string, searchTerm: string) => {
-  if (!searchTerm || !text) return text
+  if (!searchTerm || !text) {return text}
   
   const exactSearch = searchTerm.startsWith("\"") && searchTerm.endsWith("\"")
   const term = exactSearch ? searchTerm.slice(1, -1) : searchTerm
@@ -195,7 +230,7 @@ const highlightText = (text: string, searchTerm: string) => {
 
 // Format date
 const formatDate = (dateStr: string) => {
-  if (!dateStr) return ""
+  if (!dateStr) {return ""}
   const date = new Date(dateStr)
   return date.toLocaleDateString("en-US", {
     year: "numeric",

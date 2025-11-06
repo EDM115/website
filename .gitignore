@@ -8,3 +8,4 @@ dist
 logs
 node_modules
 .eslintcache
+public/api
