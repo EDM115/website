@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises"
+import { readdir, readFile, writeFile, mkdir } from "node:fs/promises"
 import { join } from "node:path"
 
 export interface BlogPostMeta {
@@ -31,21 +31,67 @@ function extractFrontmatter(content: string) {
   const lines = frontmatterText.split("\n")
   
   let currentKey = ""
-  let currentValue: any = null
+  let currentArray: any[] = []
   let inArray = false
+  let inArrayItem = false
+  let currentItem: any = {}
   
-  for (const line of lines) {
-    if (line.trim().startsWith("- ")) {
-      // Array item
-      if (inArray && currentValue && Array.isArray(currentValue)) {
-        const itemMatch = line.match(/^\s*-\s*name:\s*(.*)/)
-        if (itemMatch) {
-          const item: Record<string, string> = { name: itemMatch[1]?.trim() || "" }
-          currentValue.push(item)
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i] || ""
+    const trimmed = line.trim()
+    
+    // Skip empty lines
+    if (!trimmed) continue
+    
+    // Check for array item start
+    if (trimmed.startsWith("- ")) {
+      if (inArray) {
+        // Save previous item if exists
+        if (Object.keys(currentItem).length > 0) {
+          currentArray.push({ ...currentItem })
+          currentItem = {}
+        }
+        
+        // Check if it's a simple array item or object item
+        const itemContent = trimmed.slice(2).trim()
+        if (itemContent.includes(":")) {
+          // Object item
+          const colonIndex = itemContent.indexOf(":")
+          const key = itemContent.slice(0, colonIndex).trim()
+          const value = itemContent.slice(colonIndex + 1).trim()
+          currentItem[key] = value
+          inArrayItem = true
+        }
+        else {
+          // Simple array item
+          currentArray.push(itemContent)
         }
       }
     }
-    else if (line.includes(":")) {
+    // Check for nested property in array item
+    else if (inArrayItem && line.startsWith("    ")) {
+      const propLine = trimmed
+      if (propLine.includes(":")) {
+        const colonIndex = propLine.indexOf(":")
+        const key = propLine.slice(0, colonIndex).trim()
+        const value = propLine.slice(colonIndex + 1).trim()
+        currentItem[key] = value
+      }
+    }
+    // Check for new top-level key
+    else if (!line.startsWith(" ") && line.includes(":")) {
+      // Save previous array if exists
+      if (inArray && currentKey) {
+        if (Object.keys(currentItem).length > 0) {
+          currentArray.push({ ...currentItem })
+          currentItem = {}
+        }
+        frontmatter[currentKey] = currentArray
+        currentArray = []
+        inArray = false
+        inArrayItem = false
+      }
+      
       const colonIndex = line.indexOf(":")
       const key = line.slice(0, colonIndex).trim()
       const value = line.slice(colonIndex + 1).trim()
@@ -53,25 +99,21 @@ function extractFrontmatter(content: string) {
       if (value === "") {
         // Start of array or object
         currentKey = key
-        currentValue = []
-        frontmatter[key] = currentValue
+        currentArray = []
         inArray = true
       }
       else {
         frontmatter[key] = value
-        inArray = false
       }
     }
-    else if (inArray && line.trim().startsWith("content:")) {
-      // Meta content
-      const value = line.split("content:")[1]?.trim() || ""
-      if (currentValue && Array.isArray(currentValue) && currentValue.length > 0) {
-        const lastItem = currentValue[currentValue.length - 1]
-        if (lastItem) {
-          lastItem.content = value
-        }
-      }
+  }
+  
+  // Save last array if exists
+  if (inArray && currentKey) {
+    if (Object.keys(currentItem).length > 0) {
+      currentArray.push({ ...currentItem })
     }
+    frontmatter[currentKey] = currentArray
   }
   
   return { frontmatter, content: remainingContent }
@@ -187,19 +229,49 @@ async function scanDirectory(baseDir: string, subDir = "", isTelegram = false): 
   return posts
 }
 
-export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
+async function generateBlogData() {
+  console.log("Generating blog metadata...")
+  
   const blogDir = join(process.cwd(), "app", "components", "blog")
+  const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
+  const outputDir = join(process.cwd(), "public", "api")
+  
+  // Create output directory
+  await mkdir(outputDir, { recursive: true })
   
   // Get regular blog posts (exclude telegram folder)
-  const blogPosts = await scanDirectory(blogDir, "", false)
-  const regularPosts = blogPosts.filter(post => !post.path.includes("telegram"))
+  const allBlogPosts = await scanDirectory(blogDir, "", false)
+  const blogPosts = allBlogPosts.filter(post => !post.path.includes("telegram"))
   
-  return regularPosts
+  // Get telegram posts
+  const telegramPosts = await scanDirectory(telegramDir, "", true)
+  
+  // Sort posts by date (antichronological)
+  blogPosts.sort((a, b) => {
+    const dateA = a.date || ""
+    const dateB = b.date || ""
+    return dateB.localeCompare(dateA)
+  })
+  
+  telegramPosts.sort((a, b) => {
+    const dateA = a.date || ""
+    const dateB = b.date || ""
+    return dateB.localeCompare(dateA)
+  })
+  
+  // Write to JSON files
+  await writeFile(
+    join(outputDir, "blog-posts.json"),
+    JSON.stringify(blogPosts, null, 2),
+  )
+  
+  await writeFile(
+    join(outputDir, "telegram-posts.json"),
+    JSON.stringify(telegramPosts, null, 2),
+  )
+  
+  console.log(`✓ Generated ${blogPosts.length} blog posts metadata`)
+  console.log(`✓ Generated ${telegramPosts.length} telegram posts metadata`)
 }
 
-export async function getAllTelegramPosts(): Promise<BlogPostMeta[]> {
-  const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
-  
-  const posts = await scanDirectory(telegramDir, "", true)
-  return posts
-}
+generateBlogData().catch(console.error)

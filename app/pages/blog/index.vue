@@ -5,7 +5,7 @@
     <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
     <!-- Search Bar -->
-    <div class="search-container">
+    <div class="search-container" :class="{ 'has-filters': hasActiveFilters }">
       <input
         v-model="searchQuery"
         type="text"
@@ -15,29 +15,34 @@
       >
       <button
         v-if="hasActiveFilters"
-        class="clear-search"
-        @click="clearFilters"
+        class="clear-search sticky-clear"
+        @click="handleClearFilters"
       >
         {{ t("blog.clear_search") }}
       </button>
     </div>
 
     <!-- Loading State -->
-    <div v-if="pending" class="loading">
+    <div v-if="loading" class="loading">
       Loading...
     </div>
 
+    <!-- Error State -->
+    <div v-else-if="error" class="error">
+      {{ error }}
+    </div>
+
     <!-- Blog Posts List -->
-    <div v-else-if="data?.posts.length" class="blog-list">
+    <div v-else-if="posts.length" class="blog-list">
       <article
-        v-for="post in data.posts"
+        v-for="post in posts"
         :key="post.id"
         class="blog-post"
       >
         <NuxtLink :to="post.link" class="post-link">
-          <h3 class="post-title">{{ post.title }}</h3>
+          <h3 class="post-title" v-html="highlightText(post.title, searchQuery)"></h3>
           <p v-if="post.date" class="post-date">{{ formatDate(post.date) }}</p>
-          <p class="post-excerpt">{{ post.excerpt }}</p>
+          <p class="post-excerpt" v-html="highlightText(post.excerpt, searchQuery)"></p>
           <div v-if="post.tags && post.tags.length" class="post-tags">
             <span
               v-for="tag in post.tags"
@@ -55,21 +60,21 @@
     </div>
 
     <!-- Pagination -->
-    <div v-if="data && data.pagination.totalPages > 1" class="pagination">
+    <div v-if="pagination.totalPages > 1" class="pagination">
       <button
-        :disabled="currentPage === 1"
+        :disabled="pagination.page === 1"
         class="pagination-btn"
-        @click="goToPage(currentPage - 1)"
+        @click="goToPage(pagination.page - 1)"
       >
         Previous
       </button>
       <span class="pagination-info">
-        Page {{ currentPage }} of {{ data.pagination.totalPages }}
+        Page {{ pagination.page }} of {{ pagination.totalPages }}
       </span>
       <button
-        :disabled="currentPage === data.pagination.totalPages"
+        :disabled="pagination.page === pagination.totalPages"
         class="pagination-btn"
-        @click="goToPage(currentPage + 1)"
+        @click="goToPage(pagination.page + 1)"
       >
         Next
       </button>
@@ -92,36 +97,42 @@ useHead({
   ],
 })
 
-// Reactive state from URL params
-const currentPage = ref(Number.parseInt(route.query.page as string) || 1)
+// Use the blog posts composable
+const {
+  posts,
+  loading,
+  error,
+  pagination,
+  hasActiveFilters,
+  loadPosts,
+  setFilters,
+  clearFilters,
+  setPage,
+} = useBlogPosts(false)
+
+// Local search query for reactive input
 const searchQuery = ref((route.query.search as string) || "")
-const tagFilter = ref((route.query.tag as string) || "")
-const langFilter = ref((route.query.lang as string) || "")
-const beforeFilter = ref((route.query.before as string) || "")
-const afterFilter = ref((route.query.after as string) || "")
-const atFilter = ref((route.query.at as string) || "")
 
-// Computed query params
-const queryParams = computed(() => ({
-  page: currentPage.value,
-  perPage: 10,
-  search: searchQuery.value,
-  tag: tagFilter.value,
-  lang: langFilter.value,
-  before: beforeFilter.value,
-  after: afterFilter.value,
-  at: atFilter.value,
-}))
-
-// Fetch blog posts
-const { data, pending, refresh } = await useFetch("/api/blog/posts", {
-  query: queryParams,
-  watch: [queryParams],
-})
-
-// Check if any filters are active
-const hasActiveFilters = computed(() => {
-  return !!(searchQuery.value || tagFilter.value || langFilter.value || beforeFilter.value || afterFilter.value || atFilter.value)
+// Initialize from URL params
+onMounted(async () => {
+  await loadPosts()
+  
+  // Apply filters from URL
+  const urlFilters: any = {}
+  if (route.query.search) urlFilters.search = route.query.search as string
+  if (route.query.tag) urlFilters.tag = route.query.tag as string
+  if (route.query.lang) urlFilters.lang = route.query.lang as string
+  if (route.query.before) urlFilters.before = route.query.before as string
+  if (route.query.after) urlFilters.after = route.query.after as string
+  if (route.query.at) urlFilters.at = route.query.at as string
+  
+  if (Object.keys(urlFilters).length > 0) {
+    setFilters(urlFilters)
+  }
+  
+  if (route.query.page) {
+    setPage(Number.parseInt(route.query.page as string) || 1)
+  }
 })
 
 // Debounce search
@@ -131,7 +142,7 @@ const debouncedSearch = () => {
     clearTimeout(searchTimeout)
   }
   searchTimeout = setTimeout(() => {
-    currentPage.value = 1
+    setFilters({ search: searchQuery.value })
     updateURL()
   }, 300)
 }
@@ -139,34 +150,47 @@ const debouncedSearch = () => {
 // Update URL without reload
 const updateURL = () => {
   const query: Record<string, string> = {}
-  if (currentPage.value > 1) query.page = currentPage.value.toString()
+  if (pagination.value.page > 1) query.page = pagination.value.page.toString()
   if (searchQuery.value) query.search = searchQuery.value
-  if (tagFilter.value) query.tag = tagFilter.value
-  if (langFilter.value) query.lang = langFilter.value
-  if (beforeFilter.value) query.before = beforeFilter.value
-  if (afterFilter.value) query.after = afterFilter.value
-  if (atFilter.value) query.at = atFilter.value
 
   router.push({ query })
 }
 
 // Navigate to page
 const goToPage = (page: number) => {
-  currentPage.value = page
+  setPage(page)
   updateURL()
   window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 // Clear all filters
-const clearFilters = () => {
+const handleClearFilters = () => {
   searchQuery.value = ""
-  tagFilter.value = ""
-  langFilter.value = ""
-  beforeFilter.value = ""
-  afterFilter.value = ""
-  atFilter.value = ""
-  currentPage.value = 1
-  updateURL()
+  clearFilters()
+  router.push({ query: {} })
+}
+
+// Highlight search terms in text
+const highlightText = (text: string, searchTerm: string) => {
+  if (!searchTerm || !text) return text
+  
+  const exactSearch = searchTerm.startsWith("\"") && searchTerm.endsWith("\"")
+  const term = exactSearch ? searchTerm.slice(1, -1) : searchTerm
+  
+  if (exactSearch) {
+    // Exact match highlighting
+    const regex = new RegExp(`(${term})`, "gi")
+    return text.replace(regex, "<mark>$1</mark>")
+  }
+  
+  // Fuzzy search highlighting - highlight individual words
+  const words = term.split(/\s+/).filter(w => w.length > 2)
+  let highlighted = text
+  for (const word of words) {
+    const regex = new RegExp(`(${word})`, "gi")
+    highlighted = highlighted.replace(regex, "<mark>$1</mark>")
+  }
+  return highlighted
 }
 
 // Format date
@@ -187,6 +211,17 @@ const formatDate = (dateStr: string) => {
   gap: 1rem;
   margin-bottom: 2rem;
   align-items: center;
+  position: relative;
+}
+
+.search-container.has-filters {
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
+  background: var(--color-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-input {
@@ -221,10 +256,15 @@ const formatDate = (dateStr: string) => {
 }
 
 .loading,
-.no-results {
+.no-results,
+.error {
   text-align: center;
   padding: 2rem;
   color: var(--color-text-secondary);
+}
+
+.error {
+  color: var(--color-error);
 }
 
 .blog-list {
@@ -318,5 +358,12 @@ const formatDate = (dateStr: string) => {
 .pagination-info {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
+}
+
+mark {
+  background-color: yellow;
+  color: black;
+  padding: 0 0.25rem;
+  border-radius: 0.125rem;
 }
 </style>
