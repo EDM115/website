@@ -1,8 +1,11 @@
 {
   "blog": {
     "back": "Back to the blog posts list",
+    "clear_search": "Clear filters",
     "description": "Some random blog posts that I write when I have time",
     "head": "Blog - EDM115",
+    "no_results": "No blog posts found matching your search.",
+    "search_placeholder": "Search blog posts...",
     "title": "Blog"
   },
   "cookies": {
@@ -119,5 +122,13 @@
       "users": "Users"
     },
     "telegram": "{'@'}unzip_edm115bot"
+  },
+  "telegram": {
+    "clear_search": "Clear filters",
+    "description": "Telegram posts from my channel",
+    "head": "Telegram Posts - EDM115",
+    "no_results": "No telegram posts found matching your search.",
+    "search_placeholder": "Search telegram posts...",
+    "title": "Telegram Posts"
   }
 }

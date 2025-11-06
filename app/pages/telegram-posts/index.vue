@@ -1,6 +1,6 @@
 <template>
   <UiContainer>
-    <h1>{{ t("blog.title") }}</h1><br>
+    <h1>{{ t("telegram.title") }}</h1><br>
 
     <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
@@ -9,7 +9,7 @@
       <input
         v-model="searchQuery"
         type="text"
-        :placeholder="t('blog.search_placeholder')"
+        :placeholder="t('telegram.search_placeholder')"
         class="search-input"
         @input="debouncedSearch"
       >
@@ -18,7 +18,7 @@
         class="clear-search"
         @click="clearFilters"
       >
-        {{ t("blog.clear_search") }}
+        {{ t("telegram.clear_search") }}
       </button>
     </div>
 
@@ -27,7 +27,7 @@
       Loading...
     </div>
 
-    <!-- Blog Posts List -->
+    <!-- Telegram Posts List -->
     <div v-else-if="data?.posts.length" class="blog-list">
       <article
         v-for="post in data.posts"
@@ -51,7 +51,7 @@
 
     <!-- No Results -->
     <div v-else class="no-results">
-      {{ t("blog.no_results") }}
+      {{ t("telegram.no_results") }}
     </div>
 
     <!-- Pagination -->
@@ -83,11 +83,11 @@ const route = useRoute()
 const router = useRouter()
 
 useHead({
-  title: t("blog.head"),
+  title: t("telegram.head"),
   meta: [
     {
       name: "og:title",
-      content: t("blog.head"),
+      content: t("telegram.head"),
     },
   ],
 })
@@ -113,8 +113,8 @@ const queryParams = computed(() => ({
   at: atFilter.value,
 }))
 
-// Fetch blog posts
-const { data, pending, refresh } = await useFetch("/api/blog/posts", {
+// Fetch telegram posts
+const { data, pending, refresh } = await useFetch("/api/telegram/posts", {
   query: queryParams,
   watch: [queryParams],
 })
