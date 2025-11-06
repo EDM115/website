@@ -16,26 +16,40 @@ export interface BlogPostMeta {
   isTelegram: boolean
 }
 
+interface FrontmatterMeta {
+  name: string
+  content: string
+}
+
+interface Frontmatter {
+  title?: string
+  meta?: FrontmatterMeta[]
+  tags?: string[]
+  lang?: string
+}
+
 function extractFrontmatter(content: string) {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---/
   const match = content.match(frontmatterRegex)
   
   if (!match) {
-    return { frontmatter: {}, content }
+    return { frontmatter: {} as Frontmatter, content }
   }
   
   const frontmatterText = match[1] || ""
   const remainingContent = content.slice(match[0].length)
   
-  const frontmatter: Record<string, any> = {}
+  const frontmatter: Record<string, any> = {} // Using Record<string, any> to allow dynamic YAML keys
   const lines = frontmatterText.split("\n")
   
   let currentKey = ""
   let currentArray: any[] = []
   let inArray = false
   let inArrayItem = false
-  let currentItem: any = {}
+  let currentItem: Record<string, string> = {}
   
+  // Note: Using custom parser to avoid additional dependencies. 
+  // For production, consider using a library like 'gray-matter' or 'front-matter'
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i] || ""
     const trimmed = line.trim()
@@ -116,7 +130,7 @@ function extractFrontmatter(content: string) {
     frontmatter[currentKey] = currentArray
   }
   
-  return { frontmatter, content: remainingContent }
+  return { frontmatter: frontmatter as Frontmatter, content: remainingContent }
 }
 
 function extractTitle(content: string): string {
