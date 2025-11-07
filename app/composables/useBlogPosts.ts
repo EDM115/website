@@ -1,12 +1,8 @@
 export interface BlogPostMeta {
   id: string
   title: string
-  description: string
-  summary?: string
-  date?: string
-  publishedTime?: string
-  tags?: string[]
-  lang?: string
+  date: string
+  tags: string[]
   path: string
   link: string
   excerpt: string
@@ -16,7 +12,6 @@ export interface BlogPostMeta {
 export interface BlogFilters {
   search?: string
   tag?: string
-  lang?: string
   before?: string
   after?: string
   at?: string
@@ -54,13 +49,7 @@ export function useBlogPosts(isTelegram = false) {
     
     try {
       const endpoint = isTelegram ? "/data/telegram-posts.json" : "/data/blog-posts.json"
-      const response = await fetch(endpoint)
-      
-      if (!response.ok) {
-        throw new Error(`Failed to load posts: ${response.statusText}`)
-      }
-      
-      allPosts.value = await response.json()
+      allPosts.value = await $fetch<BlogPostMeta[]>(endpoint)
       applyFilters()
     }
     catch (e) {
@@ -86,8 +75,6 @@ export function useBlogPosts(isTelegram = false) {
         const searchableText = [
           post.title,
           post.excerpt,
-          post.description,
-          post.summary,
         ].join(" ").toLowerCase()
         
         if (exactSearch) {
@@ -103,11 +90,6 @@ export function useBlogPosts(isTelegram = false) {
     // Tag filter
     if (filters.value.tag) {
       posts = posts.filter(post => post.tags?.includes(filters.value.tag!))
-    }
-    
-    // Language filter
-    if (filters.value.lang) {
-      posts = posts.filter(post => post.lang === filters.value.lang)
     }
     
     // Date filters
@@ -161,7 +143,6 @@ export function useBlogPosts(isTelegram = false) {
     return !!(
       filters.value.search ||
       filters.value.tag ||
-      filters.value.lang ||
       filters.value.before ||
       filters.value.after ||
       filters.value.at

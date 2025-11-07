@@ -4,12 +4,8 @@ import { join } from "node:path"
 export interface BlogPostMeta {
   id: string
   title: string
-  description: string
-  summary?: string
-  date?: string
-  publishedTime?: string
-  tags?: string[]
-  lang?: string
+  date: string
+  tags: string[]
   path: string
   link: string
   excerpt: string
@@ -24,8 +20,7 @@ interface FrontmatterMeta {
 interface Frontmatter {
   title?: string
   meta?: FrontmatterMeta[]
-  tags?: string[]
-  lang?: string
+  tags?: string
 }
 
 function extractFrontmatter(content: string) {
@@ -138,11 +133,12 @@ function extractTitle(content: string): string {
   return h1Match?.[1] || "Untitled"
 }
 
-function extractExcerpt(content: string, maxLength = 200): string {
+function extractExcerpt(content: string, maxLength = 200, isTelegram = false): string {
   // Remove markdown formatting
   let text = content
     .replace(/^---[\s\S]*?---/, "") // Remove frontmatter
     .replace(/^#+\s+/gm, "") // Remove headers
+    .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
     .replace(/\*\*(.+?)\*\*/g, "$1") // Remove bold
     .replace(/\*(.+?)\*/g, "$1") // Remove italic
     .replace(/\[(.+?)\]\(.+?\)/g, "$1") // Remove links
@@ -160,55 +156,95 @@ function extractExcerpt(content: string, maxLength = 200): string {
   return firstParagraph.slice(0, maxLength) + "..."
 }
 
+function parsePublishedTime(publishedTime: string): { date: string, link: string } {
+  // Parse ISO 8601 date format: 2024-08-20T12:00:00Z
+  const match = publishedTime.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  if (match) {
+    const [, year, month, day] = match
+    return {
+      date: `${year}-${month}-${day}`,
+      link: `/${year}/${month}/${day}`,
+    }
+  }
+  return { date: "", link: "" }
+}
+
+function normalizePath(path: string): string {
+  // Convert Windows backslashes to forward slashes
+  return path.replace(/\\/g, "/")
+}
+
 async function parseBlogPost(filePath: string, relativePath: string, isTelegram: boolean): Promise<BlogPostMeta> {
   const content = await readFile(filePath, "utf-8")
   const { frontmatter, content: markdownContent } = extractFrontmatter(content)
   
-  const title = frontmatter.title || extractTitle(markdownContent)
-  const summary = frontmatter.meta?.find((m: any) => m.name === "summary")?.content || ""
-  const description = frontmatter.meta?.find((m: any) => m.name === "description")?.content || ""
-  const date = frontmatter.meta?.find((m: any) => m.name === "date")?.content || 
-               frontmatter.meta?.find((m: any) => m.name === "article:published_time")?.content || ""
+  // Normalize path for cross-platform compatibility
+  const normalizedRelativePath = normalizePath(relativePath)
   
-  // Extract date from filename if not in frontmatter
-  let postDate = date
-  if (!postDate) {
-    const filenameDateMatch = relativePath.match(/(\d{4})\/(\d{2})\/(\d{2})/)
-    if (filenameDateMatch) {
-      postDate = `${filenameDateMatch[1]}-${filenameDateMatch[2]}-${filenameDateMatch[3]}`
+  // Extract metadata
+  const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
+  const publishedTime = frontmatter.meta?.find((m: any) => m.name === "article:published_time")?.content || ""
+  const summary = frontmatter.meta?.find((m: any) => m.name === "summary")?.content || ""
+  
+  // Extract tags from frontmatter meta or tags field
+  let tags: string[] = []
+  if (frontmatter.tags) {
+    // Handle tags as string (comma-separated) or array
+    if (typeof frontmatter.tags === "string") {
+      tags = frontmatter.tags.split(",").map(t => t.trim()).filter(Boolean)
     }
-    else {
-      const telegramDateMatch = relativePath.match(/(\d{2})-(\d{2})/)
-      if (telegramDateMatch) {
-        const yearMatch = relativePath.match(/(\d{4})/)
-        if (yearMatch) {
-          postDate = `${yearMatch[1]}-${telegramDateMatch[1]}-${telegramDateMatch[2]}`
-        }
-      }
+    else if (Array.isArray(frontmatter.tags)) {
+      tags = frontmatter.tags
     }
   }
+  // Also check meta for tags field
+  const metaTags = frontmatter.meta?.find((m: any) => m.name === "tags")?.content
+  if (metaTags && typeof metaTags === "string") {
+    const additionalTags = metaTags.split(",").map(t => t.trim()).filter(Boolean)
+    tags = [...new Set([...tags, ...additionalTags])]
+  }
   
-  const excerpt = summary || description || extractExcerpt(markdownContent)
+  // Parse date and link from published time
+  const { date: parsedDate, link: dateLink } = publishedTime ? parsePublishedTime(publishedTime) : { date: "", link: "" }
   
-  // Generate link from relative path
+  // Generate proper link
   let link = ""
   if (isTelegram) {
-    link = `/blog/telegram/${relativePath.replace(/\.md$/, "")}`
+    // Telegram: /blog/telegram/YYYY/MM-DD-slug
+    if (parsedDate) {
+      const [year, month, day] = parsedDate.split("-")
+      const filename = normalizedRelativePath.split("/").pop()?.replace(/\.md$/, "") || ""
+      link = `/blog/telegram/${year}/${filename}`
+    }
+    else {
+      link = `/blog/telegram/${normalizedRelativePath.replace(/\.md$/, "")}`
+    }
   }
   else {
-    link = `/blog/${relativePath.replace(/\.md$/, "")}`
+    // Blog: /blog/YYYY/MM/DD/slug
+    if (parsedDate) {
+      const filename = normalizedRelativePath.split("/").pop()?.replace(/\.md$/, "") || ""
+      const slug = filename.replace(/([A-Z])/g, "-$1").toLowerCase().replace(/^-/, "")
+      link = `/blog${dateLink}/${slug}`
+    }
+    else {
+      link = `/blog/${normalizedRelativePath.replace(/\.md$/, "")}`
+    }
   }
   
+  // Use the description from meta as the title if available (as per user's request)
+  const description = frontmatter.meta?.find((m: any) => m.name === "description")?.content
+  const title = description || titleFromFrontmatter.replace(/ - EDM115 blog$/i, "").replace(/^EDM115 Telegram blog$/i, "Telegram Post")
+  
+  // Use summary for excerpt
+  const excerpt = summary || extractExcerpt(markdownContent, 200, isTelegram)
+  
   return {
-    id: relativePath.replace(/\.md$/, "").replace(/\//g, "-"),
-    title: title.replace(/ - EDM115 blog$/i, "").replace(/^EDM115 Telegram blog$/i, "Telegram Post"),
-    description,
-    summary,
-    date: postDate,
-    publishedTime: date,
-    tags: frontmatter.tags || [],
-    lang: frontmatter.lang || "en",
-    path: relativePath,
+    id: normalizedRelativePath.replace(/\.md$/, "").replace(/\//g, "-"),
+    title,
+    date: parsedDate,
+    tags,
+    path: normalizedRelativePath,
     link,
     excerpt,
     isTelegram,

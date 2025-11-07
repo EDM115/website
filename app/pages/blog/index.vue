@@ -5,25 +5,22 @@
     <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
     <!-- Search Bar -->
-    <div
-      class="search-container"
-      :class="{ 'has-filters': hasActiveFilters }"
-    >
-      <input
-        v-model="searchQuery"
-        type="text"
-        :placeholder="t('blog.search_placeholder')"
-        class="search-input"
-        @input="debouncedSearch"
-      >
-      <button
-        v-if="hasActiveFilters"
-        class="clear-search sticky-clear"
-        @click="handleClearFilters"
-      >
-        {{ t("blog.clear_search") }}
-      </button>
-    </div>
+    <UiSearchBar
+      v-model="searchQuery"
+      :placeholder="t('blog.search_placeholder')"
+      :has-filters="hasActiveFilters"
+      :is-sticky="hasActiveFilters"
+      :has-clear-button="hasActiveFilters"
+      :clear-text="t('blog.clear_search')"
+      :before="beforeFilter"
+      :after="afterFilter"
+      :at="atFilter"
+      @update:before="updateFilter('before', $event)"
+      @update:after="updateFilter('after', $event)"
+      @update:at="updateFilter('at', $event)"
+      @update:model-value="debouncedSearch"
+      @clear="handleClearFilters"
+    />
 
     <!-- Loading State -->
     <div
@@ -145,18 +142,20 @@ const {
   setPage,
 } = useBlogPosts(false)
 
-// Local search query for reactive input
+// Local search query and filter states for reactive input
 const searchQuery = ref((route.query.search as string) || "")
+const beforeFilter = ref((route.query.before as string) || undefined)
+const afterFilter = ref((route.query.after as string) || undefined)
+const atFilter = ref((route.query.at as string) || undefined)
 
 // Initialize from URL params
 onMounted(async () => {
   await loadPosts()
   
   // Apply filters from URL
-  const urlFilters: any = {}
+  const urlFilters: Record<string, string> = {}
   if (route.query.search) {urlFilters.search = route.query.search as string}
   if (route.query.tag) {urlFilters.tag = route.query.tag as string}
-  if (route.query.lang) {urlFilters.lang = route.query.lang as string}
   if (route.query.before) {urlFilters.before = route.query.before as string}
   if (route.query.after) {urlFilters.after = route.query.after as string}
   if (route.query.at) {urlFilters.at = route.query.at as string}
@@ -169,6 +168,16 @@ onMounted(async () => {
     setPage(Number.parseInt(route.query.page as string) || 1)
   }
 })
+
+// Update filter values
+const updateFilter = (filterName: string, value: string) => {
+  if (filterName === "before") {beforeFilter.value = value || undefined}
+  else if (filterName === "after") {afterFilter.value = value || undefined}
+  else if (filterName === "at") {atFilter.value = value || undefined}
+  
+  setFilters({ [filterName]: value })
+  updateURL()
+}
 
 // Debounce search
 let searchTimeout: NodeJS.Timeout | null = null
@@ -201,6 +210,9 @@ const goToPage = (page: number) => {
 // Clear all filters
 const handleClearFilters = () => {
   searchQuery.value = ""
+  beforeFilter.value = undefined
+  afterFilter.value = undefined
+  atFilter.value = undefined
   clearFilters()
   router.push({ query: {} })
 }
@@ -241,82 +253,35 @@ const formatDate = (dateStr: string) => {
 </script>
 
 <style scoped lang="scss">
-.search-container {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  align-items: center;
-  position: relative;
-}
-
-.search-container.has-filters {
-  position: sticky;
-  top: 1rem;
-  z-index: 100;
-  background: var(--color-background);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.search-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background: var(--color-background);
-  color: var(--color-text);
-
-  &:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
-}
-
-.clear-search {
-  padding: 0.75rem 1.5rem;
-  background: var(--color-error);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.9;
-  }
-}
-
 .loading,
 .no-results,
 .error {
   text-align: center;
   padding: 2rem;
-  color: var(--color-text-secondary);
+  color: var(--text-muted);
 }
 
 .error {
-  color: var(--color-error);
+  color: var(--error);
 }
 
 .blog-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .blog-post {
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 0.75rem;
   padding: 1.5rem;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 
   &:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 20%, transparent);
+    transform: translateY(-2px);
   }
 }
 
@@ -330,34 +295,40 @@ const formatDate = (dateStr: string) => {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--text);
 }
 
 .post-date {
   margin: 0 0 1rem 0;
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--text-muted);
 }
 
 .post-excerpt {
   margin: 0 0 1rem 0;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--text);
 }
 
 .post-tags {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  margin-top: 0.75rem;
 }
 
 .tag {
   padding: 0.25rem 0.75rem;
-  background: var(--color-primary-light);
-  color: var(--color-primary);
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
   border-radius: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover {
+    background: color-mix(in srgb, var(--primary) 25%, transparent);
+  }
 }
 
 .pagination {
@@ -371,17 +342,22 @@ const formatDate = (dateStr: string) => {
 
 .pagination-btn {
   padding: 0.5rem 1rem;
-  background: var(--color-primary);
+  background: var(--primary);
   color: white;
   border: none;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 
   &:hover:not(:disabled) {
     opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
   }
 
   &:disabled {
@@ -392,13 +368,13 @@ const formatDate = (dateStr: string) => {
 
 .pagination-info {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--text-muted);
 }
 
 mark {
-  background-color: yellow;
-  color: black;
+  background-color: var(--warning);
+  color: var(--text-dark);
   padding: 0 0.25rem;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
 }
 </style>
