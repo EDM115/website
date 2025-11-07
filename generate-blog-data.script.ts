@@ -5,132 +5,13 @@ import {
 } from "node:fs/promises"
 import { join } from "node:path"
 
+import grayMatter from "gray-matter"
+
 import type {
   BlogPostMeta,
   Frontmatter,
   TelegramFileInfo,
-} from "~/types"
-
-function extractFrontmatter(content: string) {
-  const frontmatterRegex = /^---\n([\s\S]*?)\n---/
-  const match = content.match(frontmatterRegex)
-
-  if (!match) {
-    return {
-      frontmatter: {} as Frontmatter, content,
-    }
-  }
-
-  const frontmatterText = match[1] || ""
-  const remainingContent = content.slice(match[0].length)
-
-  const frontmatter: Record<string, any> = {}
-  // Using Record<string, any> to allow dynamic YAML keys
-  const lines = frontmatterText.split("\n")
-
-  let currentKey = ""
-  let currentArray: any[] = []
-  let inArray = false
-  let inArrayItem = false
-  let currentItem: Record<string, string> = {}
-
-  // Note: Using custom parser to avoid additional dependencies. 
-  // For production, consider using a library like 'gray-matter' or 'front-matter'
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i] || ""
-    const trimmed = line.trim()
-
-    // Skip empty lines
-    if (!trimmed) {
-      continue
-    }
-
-    // Check for array item start
-    if (trimmed.startsWith("- ")) {
-      if (inArray) {
-        // Save previous item if exists
-        if (Object.keys(currentItem).length > 0) {
-          currentArray.push({ ...currentItem })
-          currentItem = {}
-        }
-
-        // Check if it's a simple array item or object item
-        const itemContent = trimmed.slice(2)
-          .trim()
-
-        if (itemContent.includes(":")) {
-          // Object item
-          const colonIndex = itemContent.indexOf(":")
-          const key = itemContent.slice(0, colonIndex)
-            .trim()
-          const value = itemContent.slice(colonIndex + 1)
-            .trim()
-
-          currentItem[key] = value
-          inArrayItem = true
-        } else {
-          // Simple array item
-          currentArray.push(itemContent)
-        }
-      }
-    } else if (inArrayItem && line.startsWith("    ")) {
-      // Check for nested property in array item
-      const propLine = trimmed
-
-      if (propLine.includes(":")) {
-        const colonIndex = propLine.indexOf(":")
-        const key = propLine.slice(0, colonIndex)
-          .trim()
-        const value = propLine.slice(colonIndex + 1)
-          .trim()
-
-        currentItem[key] = value
-      }
-    } else if (!line.startsWith(" ") && line.includes(":")) {
-      // Check for new top-level key
-      // Save previous array if exists
-      if (inArray && currentKey) {
-        if (Object.keys(currentItem).length > 0) {
-          currentArray.push({ ...currentItem })
-          currentItem = {}
-        }
-
-        frontmatter[currentKey] = currentArray
-        currentArray = []
-        inArray = false
-        inArrayItem = false
-      }
-
-      const colonIndex = line.indexOf(":")
-      const key = line.slice(0, colonIndex)
-        .trim()
-      const value = line.slice(colonIndex + 1)
-        .trim()
-
-      if (value === "") {
-        // Start of array or object
-        currentKey = key
-        currentArray = []
-        inArray = true
-      } else {
-        frontmatter[key] = value
-      }
-    }
-  }
-
-  // Save last array if exists
-  if (inArray && currentKey) {
-    if (Object.keys(currentItem).length > 0) {
-      currentArray.push({ ...currentItem })
-    }
-
-    frontmatter[currentKey] = currentArray
-  }
-
-  return {
-    frontmatter: frontmatter as Frontmatter, content: remainingContent,
-  }
-}
+} from "./app/types"
 
 function extractTitle(content: string): string {
   const h1Match = content.match(/^#\s+(.+)$/m)
@@ -138,11 +19,9 @@ function extractTitle(content: string): string {
   return h1Match?.[1] || "Untitled"
 }
 
-function extractExcerpt(content: string, maxLength = 200, isTelegram = false): string {
+function extractExcerpt(content: string, maxLength = 200): string {
   // Remove markdown formatting
   let text = content
-    // Remove frontmatter
-    .replace(/^---[\s\S]*?---/, "")
     // Remove headers
     .replace(/^#+\s+/gm, "")
     // Remove images
@@ -163,33 +42,58 @@ function extractExcerpt(content: string, maxLength = 200, isTelegram = false): s
 
   // Get first paragraph or first N characters
   const firstParagraph = text.split("\n\n")[0] || ""
+  let firstNCharacters = text.slice(0, maxLength)
+
+  if (firstNCharacters.length < text.length) {
+    firstNCharacters += "..."
+  }
+
+  if (firstNCharacters.length <= maxLength) {
+    return firstNCharacters
+  }
 
   if (firstParagraph.length <= maxLength) {
     return firstParagraph
   }
 
-  return firstParagraph.slice(0, maxLength) + "..."
+  return firstParagraph.length >= firstNCharacters.length
+    ? firstParagraph + "..."
+    : firstNCharacters
 }
 
-function parsePublishedTime(publishedTime: string): {
+function parsePublishedTime(publishedTime: unknown): {
   date: string; link: string;
 } {
-  // Parse ISO 8601 date format : 2024-08-20T12:00:00Z
-  const match = publishedTime.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  let asISO = ""
 
-  if (match) {
-    const [ , year, month, day ] = match
-
+  if (typeof publishedTime === "string") {
+    asISO = publishedTime
+  } else if (publishedTime instanceof Date) {
+    asISO = publishedTime.toISOString()
+  } else if (typeof publishedTime === "number") {
+    asISO = new Date(publishedTime)
+      .toISOString()
+  } else {
     return {
-      date: `${year}-${month}-${day}`,
-      link: `/${year}/${month}/${day}`,
+      date: "", link: "",
     }
   }
 
+  const m = asISO.match(/^(\d{4})-(\d{2})-(\d{2})/)
+
+  if (!m) {
+    return {
+      date: "", link: "",
+    }
+  }
+
+  const [ , year, month, day ] = m
+
   return {
-    date: "", link: "",
+    date: `${year}-${month}-${day}`, link: `/${year}/${month}/${day}`,
   }
 }
+
 
 function normalizePath(path: string): string {
   return path.replace(/\\/g, "/")
@@ -222,9 +126,9 @@ function parseTelegramFilePath(relativePath: string): TelegramFileInfo | null {
 
 async function parseBlogPost(filePath: string, relativePath: string, isTelegram: boolean): Promise<BlogPostMeta> {
   const content = await readFile(filePath, "utf-8")
-  const {
-    frontmatter, content: markdownContent,
-  } = extractFrontmatter(content)
+  const frontMatterParsed = grayMatter(content)
+  const frontmatter = frontMatterParsed.data as Frontmatter
+  const markdownContent = frontMatterParsed.content
 
   // Normalize path for cross-platform compatibility
   const normalizedRelativePath = normalizePath(relativePath)
@@ -234,7 +138,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
 
   // Extract metadata
   const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
-  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content || ""
+  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content
   const summary = frontmatter.meta?.find((metaItem) => metaItem.name === "summary")?.content || ""
 
   // Extract tags from frontmatter meta or tags field
@@ -315,7 +219,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   const title = description || titleFromFrontmatter.replace(/ - EDM115 blog$/i, "")
     .replace(/^EDM115 Telegram blog$/i, "Telegram Post")
 
-  const excerpt = summary || extractExcerpt(markdownContent, 200, isTelegram)
+  const excerpt = summary || extractExcerpt(markdownContent, 200)
 
   return {
     id: normalizedRelativePath.replace(/\.md$/, "")
@@ -330,32 +234,39 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   }
 }
 
-async function scanDirectory(baseDir: string, subDir = "", isTelegram = false): Promise<BlogPostMeta[]> {
-  const posts: BlogPostMeta[] = []
+async function scanDirectory(
+  baseDir: string,
+  subDir = "",
+  isTelegram = false,
+): Promise<BlogPostMeta[]> {
   const currentDir = join(baseDir, subDir)
 
   try {
     const entries = await readdir(currentDir, { withFileTypes: true })
 
-    for (const entry of entries) {
+    const results = await Promise.all(entries.map(async (entry) => {
       const entryPath = join(subDir, entry.name)
 
       if (entry.isDirectory()) {
-        const subPosts = await scanDirectory(baseDir, entryPath, isTelegram)
+        return await scanDirectory(baseDir, entryPath, isTelegram)
+      }
 
-        posts.push(...subPosts)
-      } else if (entry.isFile() && entry.name.endsWith(".md")) {
+      if (entry.isFile() && entry.name.endsWith(".md")) {
         const fullPath = join(currentDir, entry.name)
         const post = await parseBlogPost(fullPath, entryPath, isTelegram)
 
-        posts.push(post)
+        return [post]
       }
-    }
+
+      return []
+    }))
+
+    return results.flat()
   } catch (error) {
     console.error(`❌ Error scanning directory ${currentDir} :`, error)
-  }
 
-  return posts
+    return []
+  }
 }
 
 async function generateBlogData() {
