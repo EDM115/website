@@ -265,7 +265,6 @@ export default defineNuxtConfig({
   typescript: {
     tsConfig: { compilerOptions: {
       allowArbitraryExtensions: true,
-      checkJs: false,
       disableSizeLimit: true,
       emitDecoratorMetadata: true,
       experimentalDecorators: true,

@@ -34,9 +34,9 @@
     "markdown-it-emoji": "~3.0.0",
     "markdown-it-highlightjs": "~4.2.0",
     "markdown-it-link-attributes": "~4.0.1",
-    "nuxt": "~4.2.0",
+    "nuxt": "~4.2.1",
     "nuxt-svgo": "~4.2.6",
-    "vue": "~3.5.22",
+    "vue": "~3.5.24",
     "vue-i18n": "~11.1.12"
   },
   "description": "EDM115's website",
@@ -57,10 +57,9 @@
     "lightningcss": "~1.30.2",
     "npm-run-all2": "~8.0.4",
     "oxlint": "~1.26.0",
-    "oxlint-tsgolint": "~0.5.0",
+    "oxlint-tsgolint": "~0.5.1",
     "sass-embedded": "~1.93.3",
     "sass-loader": "~16.0.6",
-    "tsx": "4.20.6",
     "typescript": "~5.9.3",
     "unplugin-icons": "~22.5.0",
     "unplugin-vue-components": "~30.0.0",
@@ -78,25 +77,31 @@
     "url": "git+https://github.com/EDM115/website.git"
   },
   "scripts": {
-    "analyze": "pnpm wasm && nuxt analyze",
+    "wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm",
+    "prebuild": "pnpm wasm && node --experimental-strip-types generate-blog-data.script.ts",
+    "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
-    "prebuild": "pnpm wasm && tsx scripts/generate-blog-data.ts",
+    "generate": "pnpm prebuild && nuxt generate",
+
     "cleanup": "nuxt cleanup",
+
     "dev": "nuxt dev --no-clear --no-fork",
     "dev:expose": "nuxt dev --no-clear --no-fork --host",
-    "generate": "pnpm prebuild && nuxt generate",
+
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
     "lint:fix:eslint": "eslint --concurrency=auto --fix .",
     "lint:oxlint": "oxlint --type-aware .",
     "lint:fix:oxlint": "oxlint --fix --type-aware .",
+
     "format": "eslint -c eslint.stylistic.config.ts --concurrency=auto --fix .",
+
     "preview": "nuxt preview --port 8000",
     "start:ssr": "node .output/server/index.mjs",
     "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
-    "typecheck": "nuxt typecheck",
-    "wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm"
+
+    "typecheck": "nuxt typecheck"
   },
   "type": "module",
   "version": "2.6.1"
