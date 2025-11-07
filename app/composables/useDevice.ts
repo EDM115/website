@@ -1,4 +1,4 @@
-export type ScreenSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
+import type { ScreenSize } from "~/types"
 
 /**
  * Device/computed screen state.

@@ -3,6 +3,8 @@
 </template>
 
 <script setup lang="ts">
+import type { MarkdownModule } from "~/types"
+
 definePageMeta({
   key: (currentRoute) => currentRoute.fullPath,
 })
@@ -74,8 +76,6 @@ const blogPath = resolveBlogComponentPath(pathSegments)
 if (!blogPath) {
   throwNotFound()
 } else {
-  type MarkdownModule = { "default": Component }
-
   const components = import.meta.glob<MarkdownModule>([ "~/components/blog/**/*.md", "!~/components/blog/telegram/**/*.md" ])
 
   const componentPath = Object.keys(components)

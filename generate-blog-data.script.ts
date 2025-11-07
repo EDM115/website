@@ -1,32 +1,15 @@
 import {
-  mkdir,
   readdir,
   readFile,
   writeFile,
 } from "node:fs/promises"
 import { join } from "node:path"
 
-export interface BlogPostMeta {
-  id: string;
-  title: string;
-  date: string;
-  tags: string[];
-  path: string;
-  link: string;
-  excerpt: string;
-  isTelegram: boolean;
-}
-
-interface FrontmatterMeta {
-  name: string;
-  content: string;
-}
-
-interface Frontmatter {
-  title?: string;
-  meta?: FrontmatterMeta[];
-  tags?: string;
-}
+import type {
+  BlogPostMeta,
+  Frontmatter,
+  TelegramFileInfo,
+} from "~/types"
 
 function extractFrontmatter(content: string) {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---/
@@ -212,13 +195,6 @@ function normalizePath(path: string): string {
   return path.replace(/\\/g, "/")
 }
 
-interface TelegramFileInfo {
-  year: string;
-  month: string;
-  day: string;
-  slug: string;
-}
-
 function parseTelegramFilePath(relativePath: string): TelegramFileInfo | null {
   const normalized = normalizePath(relativePath)
     .replace(/\.md$/, "")
@@ -387,9 +363,7 @@ async function generateBlogData() {
 
   const blogDir = join(process.cwd(), "app", "components", "blog")
   const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
-  const outputDir = join(process.cwd(), "public", "data")
-
-  await mkdir(outputDir, { recursive: true })
+  const outputDir = join(process.cwd(), "app", "assets", "data")
 
   // Get regular blog posts (exclude telegram folder)
   const allBlogPosts = await scanDirectory(blogDir, "", false)

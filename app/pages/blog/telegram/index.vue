@@ -135,6 +135,7 @@ const {
   pagination,
   hasActiveFilters,
   loadPosts,
+  postsJSONPath,
   setFilters,
   clearFilters,
   setPage,

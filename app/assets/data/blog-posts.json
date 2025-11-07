@@ -1,0 +1,42 @@
+[
+  {
+    "id": "2025-05-30-how-i-migrated-to-zod-4",
+    "title": "How I migrated the company monorepo to Zod v4 during my internship",
+    "date": "2025-05-30",
+    "tags": [],
+    "path": "2025/05-30-how-i-migrated-to-zod-4.md",
+    "link": "/blog/2025/05/30/how-i-migrated-to-zod-4",
+    "excerpt": "This article details my experience migrating a company monorepo to Zod v4 during my internship. It covers the challenges faced, the solutions implemented, and practical tips for developers looking to upgrade their Zod usage.",
+    "isTelegram": false
+  },
+  {
+    "id": "2025-01-22-how-to-send-dtmf-on-android",
+    "title": "How to (actually) send DTMF on Android without being the default call app",
+    "date": "2025-01-22",
+    "tags": [],
+    "path": "2025/01-22-how-to-send-dtmf-on-android.md",
+    "link": "/blog/2025/01/22/how-to-send-dtmf-on-android",
+    "excerpt": "This post shows how I implemented a reliable workaround to send DTMF during active cellular calls, using an AccessibilityService to detect the in-call UI, open the dialpad and simulate digit taps. I explain failed approaches, key pitfalls, and a robust final implementation so you can reproduce it in Kotlin (or Java), handy for assistive-tech projects that need remote control of phone calls.",
+    "isTelegram": false
+  },
+  {
+    "id": "2024-08-20-education-to-pro",
+    "title": "How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)",
+    "date": "2024-08-20",
+    "tags": [],
+    "path": "2024/08-20-education-to-pro.md",
+    "link": "/blog/2024/08/20/education-to-pro",
+    "excerpt": "A hands-on, personal walkthrough of how I transformed a school-managed Windows Education laptop into a regular, privately controlled Windows machine, covering the migration of files, account changes and cleanup. Packed with practical tips, warnings and troubleshooting notes, it's useful if you kept a school device and want to reclaim it.",
+    "isTelegram": false
+  },
+  {
+    "id": "2022-05-15-google-ending-shared-drives",
+    "title": "Google ending Edu shared drives, everything you need to know",
+    "date": "2022-05-15",
+    "tags": [],
+    "path": "2022/05-15-google-ending-shared-drives.md",
+    "link": "/blog/2022/05/15/google-ending-shared-drives",
+    "excerpt": "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. If you rely on Edu Shared Drives, expect many drives and links to disappear as administrators will face pooled quotas and tighter controls.",
+    "isTelegram": false
+  }
+]

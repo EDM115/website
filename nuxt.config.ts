@@ -19,6 +19,11 @@ import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
 import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
+import {
+  fileURLToPath,
+  resolve,
+} from "node:url"
+import { readFile } from "node:fs/promises"
 import { definePerson } from "nuxt-schema-org/schema"
 
 import type { Token } from "markdown-exit"
@@ -151,6 +156,10 @@ export default defineNuxtConfig({
     },
     esbuild: { options: { target: "esnext" } },
     minify: true,
+    prerender: {
+      crawlLinks: true,
+      failOnError: true,
+    },
   },
   vite: {
     build: { cssMinify: "lightningcss" },
@@ -274,6 +283,40 @@ export default defineNuxtConfig({
       removeComments: true,
     } },
     typeCheck: false,
+  },
+  hooks: {
+    async "prerender:routes"({ routes }) {
+      const root = fileURLToPath(new URL(".", import.meta.url))
+      const files = [
+        resolve(root, "app/assets/data/blog-posts.json"),
+        resolve(root, "app/assets/data/telegram-posts.json"),
+      ]
+      const reads = await Promise.allSettled(files.map((p) => readFile(p, "utf8")))
+
+      for (const [ idx, res ] of reads.entries()) {
+        if (res.status !== "fulfilled") {
+          console.warn("[prerender] skipped", files[idx], res.reason)
+
+          continue
+        }
+
+        let items: Array<{ link?: string }> = []
+
+        try {
+          items = JSON.parse(res.value)
+        } catch (e) {
+          console.warn("[prerender] bad JSON", files[idx], e)
+
+          continue
+        }
+
+        for (const { link } of items) {
+          if (link) {
+            routes.add(link)
+          }
+        }
+      }
+    },
   },
   eslint: { config: {
     autoInit: false,

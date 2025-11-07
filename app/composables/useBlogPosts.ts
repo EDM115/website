@@ -1,28 +1,11 @@
-export interface BlogPostMeta {
-  id: string;
-  title: string;
-  date: string;
-  tags: string[];
-  path: string;
-  link: string;
-  excerpt: string;
-  isTelegram: boolean;
-}
+import type {
+  BlogPostMeta,
+  BlogFilters,
+  PaginationInfo,
+} from "~/types"
 
-export interface BlogFilters {
-  search?: string;
-  tag?: string;
-  before?: string;
-  after?: string;
-  at?: string;
-}
-
-export interface PaginationInfo {
-  page: number;
-  perPage: number;
-  total: number;
-  totalPages: number;
-}
+import blogPosts from "~/assets/data/blog-posts.json"
+import telegramPosts from "~/assets/data/telegram-posts.json"
 
 export function useBlogPosts(isTelegram = false) {
   const allPosts = ref<BlogPostMeta[]>([])
@@ -34,6 +17,10 @@ export function useBlogPosts(isTelegram = false) {
   const filters = ref<BlogFilters>({})
   const currentPage = ref(1)
   const perPage = ref(10)
+
+  const postsJSONPath = isTelegram
+    ? "~/assets/data/telegram-posts.json"
+    : "~/assets/data/blog-posts.json"
 
   const pagination = computed<PaginationInfo>(() => ({
     page: currentPage.value,
@@ -47,11 +34,9 @@ export function useBlogPosts(isTelegram = false) {
     error.value = null
 
     try {
-      const endpoint = isTelegram
-        ? "/data/telegram-posts.json"
-        : "/data/blog-posts.json"
-
-      allPosts.value = await $fetch<BlogPostMeta[]>(endpoint)
+      allPosts.value = isTelegram
+        ? telegramPosts
+        : blogPosts
       applyFilters()
     } catch (e) {
       error.value = e instanceof Error
@@ -161,6 +146,7 @@ export function useBlogPosts(isTelegram = false) {
     pagination,
     hasActiveFilters,
     loadPosts,
+    postsJSONPath,
     setFilters,
     clearFilters,
     setPage,

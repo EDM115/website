@@ -2,11 +2,9 @@ import { renderPolychromeCaustics } from "./softwareRenderer"
 import { loadPolychromeWasm } from "./wasmLoader"
 import { setupPolychromeWorker } from "./workerShared"
 
-interface WorkerState {
+setupPolychromeWorker<{
   phase: number;
-}
-
-setupPolychromeWorker<WorkerState>({
+}>({
   loadWasm: loadPolychromeWasm,
   fallbackRenderer: renderPolychromeCaustics,
   computeFrameTime: (_now, state) => {
