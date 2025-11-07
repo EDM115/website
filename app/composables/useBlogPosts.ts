@@ -53,7 +53,7 @@ export function useBlogPosts(isTelegram = false) {
     error.value = null
     
     try {
-      const endpoint = isTelegram ? "/api/telegram-posts.json" : "/api/blog-posts.json"
+      const endpoint = isTelegram ? "/data/telegram-posts.json" : "/data/blog-posts.json"
       const response = await fetch(endpoint)
       
       if (!response.ok) {

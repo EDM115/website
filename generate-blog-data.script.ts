@@ -193,7 +193,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   // Generate link from relative path
   let link = ""
   if (isTelegram) {
-    link = `/telegram-posts/${relativePath.replace(/\.md$/, "")}`
+    link = `/blog/telegram/${relativePath.replace(/\.md$/, "")}`
   }
   else {
     link = `/blog/${relativePath.replace(/\.md$/, "")}`
@@ -248,7 +248,7 @@ async function generateBlogData() {
   
   const blogDir = join(process.cwd(), "app", "components", "blog")
   const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
-  const outputDir = join(process.cwd(), "public", "api")
+  const outputDir = join(process.cwd(), "public", "data")
   
   // Create output directory
   await mkdir(outputDir, { recursive: true })
