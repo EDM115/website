@@ -280,6 +280,12 @@ export default defineNuxtConfig({
     standalone: false,
   } },
   fonts: {
+    defaults: {
+      preload: true,
+      subsets: ["latin"],
+      weights: ["300 700"],
+    },
+    devtools: false,
     processCSSVariables: true,
     provider: "google",
   },
