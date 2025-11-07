@@ -501,6 +501,10 @@ function unFocus() {
     &.ui-btn--text {
       color: var(--text);
     }
+
+    & .ui-btn--inside-text {
+      background-color: transparent;
+    }
   }
 
   &--hover {

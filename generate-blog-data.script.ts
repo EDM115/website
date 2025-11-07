@@ -61,8 +61,9 @@ function extractExcerpt(content: string, maxLength = 200): string {
     : firstNCharacters
 }
 
-function parsePublishedTime(publishedTime: unknown): {
-  date: string; link: string;
+function parsePublishedTime(publishedTime: string | Date | number | undefined): {
+  date: string;
+  link: string;
 } {
   let asISO = ""
 
@@ -79,18 +80,19 @@ function parsePublishedTime(publishedTime: unknown): {
     }
   }
 
-  const m = asISO.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  const match = asISO.match(/^(\d{4})-(\d{2})-(\d{2})/)
 
-  if (!m) {
+  if (!match) {
     return {
       date: "", link: "",
     }
   }
 
-  const [ , year, month, day ] = m
+  const [ , year, month, day ] = match
 
   return {
-    date: `${year}-${month}-${day}`, link: `/${year}/${month}/${day}`,
+    date: `${year}-${month}-${day}`,
+    link: `/${year}/${month}/${day}`,
   }
 }
 
@@ -138,7 +140,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
 
   // Extract metadata
   const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
-  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content
+  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content as string | Date | number | undefined
   const summary = frontmatter.meta?.find((metaItem) => metaItem.name === "summary")?.content || ""
 
   // Extract tags from frontmatter meta or tags field
@@ -217,7 +219,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   // Use the description from meta as the title if available
   const description = frontmatter.meta?.find((metaItem) => metaItem.name === "description")?.content
   const title = description || titleFromFrontmatter.replace(/ - EDM115 blog$/i, "")
-    .replace(/^EDM115 Telegram blog$/i, "Telegram Post")
+    .replace(/^EDM115 Telegram blog$/i, "Telegram post")
 
   const excerpt = summary || extractExcerpt(markdownContent, 200)
 

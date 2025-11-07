@@ -3,7 +3,6 @@ lockfileIncludeTarballUrl: true
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - esbuild
-  - rollup
   - sharp
   - unrs-resolver
 

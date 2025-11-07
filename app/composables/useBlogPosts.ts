@@ -77,8 +77,18 @@ export function useBlogPosts(isTelegram = false) {
       })
     }
 
-    if (filters.value.tag) {
-      posts = posts.filter((post) => post.tags?.includes(filters.value.tag!))
+    if (filters.value.tags?.length) {
+      const searchTags = filters.value.tags.map((tag) => tag.toLowerCase())
+
+      posts = posts.filter((post) => {
+        if (!post.tags?.length) {
+          return false
+        }
+
+        const postTags = new Set(post.tags.map((tag) => tag.toLowerCase()))
+
+        return searchTags.some((tag) => postTags.has(tag))
+      })
     }
 
     if (filters.value.at) {
@@ -104,11 +114,77 @@ export function useBlogPosts(isTelegram = false) {
     paginatedPosts.value = filteredPosts.value.slice(start, end)
   }
 
-  function setFilters(newFilters: Partial<BlogFilters>) {
-    filters.value = {
-      ...filters.value, ...newFilters,
+  function setFilters(newFilters: Partial<BlogFilters> & { tag?: string | string[] }) {
+    let nextFilters: BlogFilters = { ...filters.value }
+    let searchWasUpdated = false
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "search")) {
+      const searchInput = (newFilters.search ?? "").toString()
+      const parsed = parseBlogSearch(searchInput)
+
+      nextFilters = {
+        search: parsed.term,
+        tags: parsed.filters.tags.length > 0
+          ? parsed.filters.tags
+          : undefined,
+        before: parsed.filters.before,
+        after: parsed.filters.after,
+        at: parsed.filters.at,
+      }
+      searchWasUpdated = true
     }
-    // Reset to first page when filters change
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "tags") && !searchWasUpdated) {
+      const normalizedTags = normalizeTagsInput(newFilters.tags)
+
+      nextFilters.tags = normalizedTags.length > 0
+        ? normalizedTags
+        : undefined
+    }
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "tag") && !searchWasUpdated) {
+      const normalizedTags = normalizeTagsInput(newFilters.tag)
+
+      nextFilters.tags = normalizedTags.length > 0
+        ? normalizedTags
+        : undefined
+    }
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "before") && !searchWasUpdated) {
+      nextFilters.before = newFilters.before || undefined
+    }
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "after") && !searchWasUpdated) {
+      nextFilters.after = newFilters.after || undefined
+    }
+
+    if (Object.prototype.hasOwnProperty.call(newFilters, "at") && !searchWasUpdated) {
+      nextFilters.at = newFilters.at || undefined
+    }
+
+    if (searchWasUpdated) {
+      const manualTags = normalizeTagsInput(newFilters.tag)
+      const overrideTags = normalizeTagsInput(newFilters.tags)
+      const mergedTags = mergeTags(nextFilters.tags, manualTags, overrideTags)
+
+      nextFilters.tags = mergedTags.length > 0
+        ? mergedTags
+        : undefined
+
+      if (Object.prototype.hasOwnProperty.call(newFilters, "before") && newFilters.before) {
+        nextFilters.before = newFilters.before
+      }
+
+      if (Object.prototype.hasOwnProperty.call(newFilters, "after") && newFilters.after) {
+        nextFilters.after = newFilters.after
+      }
+
+      if (Object.prototype.hasOwnProperty.call(newFilters, "at") && newFilters.at) {
+        nextFilters.at = newFilters.at
+      }
+    }
+
+    filters.value = nextFilters
     currentPage.value = 1
     applyFilters()
   }
@@ -129,7 +205,7 @@ export function useBlogPosts(isTelegram = false) {
   const hasActiveFilters = computed(() => {
     return !!(
       filters.value.search
-      || filters.value.tag
+      || filters.value.tags?.length
       || filters.value.before
       || filters.value.after
       || filters.value.at
@@ -151,4 +227,33 @@ export function useBlogPosts(isTelegram = false) {
     clearFilters,
     setPage,
   }
+}
+
+function normalizeTagsInput(input: string | string[] | undefined): string[] {
+  if (!input) {
+    return []
+  }
+
+  const values = Array.isArray(input)
+    ? input
+    : input.split(",")
+
+  return values.map((tag) => tag.trim().toLowerCase())
+    .filter((tag) => tag.length > 0)
+}
+
+function mergeTags(...tagGroups: Array<string[] | undefined>): string[] {
+  const merged = new Set<string>()
+
+  for (const group of tagGroups) {
+    if (!group?.length) {
+      continue
+    }
+
+    for (const tag of group) {
+      merged.add(tag)
+    }
+  }
+
+  return [...merged]
 }

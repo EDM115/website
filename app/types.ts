@@ -86,7 +86,7 @@ interface BlogPostMeta {
 
 interface BlogFilters {
   search?: string;
-  tag?: string;
+  tags?: string[];
   before?: string;
   after?: string;
   at?: string;

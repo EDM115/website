@@ -11,12 +11,6 @@
       :is-sticky="hasActiveFilters"
       :has-clear-button="hasActiveFilters"
       :clear-text="t('telegram.clear_search')"
-      :before="beforeFilter"
-      :after="afterFilter"
-      :at="atFilter"
-      @update:before="updateFilter('before', $event)"
-      @update:after="updateFilter('after', $event)"
-      @update:at="updateFilter('at', $event)"
       @update:model-value="debouncedSearch"
       @clear="handleClearFilters"
     />
@@ -135,63 +129,25 @@ const {
   pagination,
   hasActiveFilters,
   loadPosts,
-  postsJSONPath,
   setFilters,
   clearFilters,
   setPage,
 } = useBlogPosts(true)
 
-const searchQuery = ref((route.query.search as string) || "")
-const beforeFilter = ref((route.query.before as string) || undefined)
-const afterFilter = ref((route.query.after as string) || undefined)
-const atFilter = ref((route.query.at as string) || undefined)
+const initialSearch = computed(() => buildSearchInputFromQuery(route.query as Record<string, string>))
+const searchQuery = ref(initialSearch.value)
 
 onMounted(async () => {
   await loadPosts()
 
-  const urlFilters: Record<string, string> = {}
-
-  if (route.query.search) {
-    urlFilters.search = route.query.search as string
-  }
-
-  if (route.query.tag) {
-    urlFilters.tag = route.query.tag as string
-  }
-
-  if (route.query.before) {
-    urlFilters.before = route.query.before as string
-  }
-
-  if (route.query.after) {
-    urlFilters.after = route.query.after as string
-  }
-
-  if (route.query.at) {
-    urlFilters.at = route.query.at as string
-  }
-
-  if (Object.keys(urlFilters).length > 0) {
-    setFilters(urlFilters)
+  if (searchQuery.value) {
+    setFilters({ search: searchQuery.value })
   }
 
   if (route.query.page) {
     setPage(Number.parseInt(route.query.page as string) || 1)
   }
 })
-
-function updateFilter(filterName: string, value: string) {
-  if (filterName === "before") {
-    beforeFilter.value = value || undefined
-  } else if (filterName === "after") {
-    afterFilter.value = value || undefined
-  } else if (filterName === "at") {
-    atFilter.value = value || undefined
-  }
-
-  setFilters({ [filterName]: value })
-  updateURL()
-}
 
 let searchTimeout: NodeJS.Timeout | null = null
 
@@ -203,7 +159,7 @@ function debouncedSearch() {
   searchTimeout = setTimeout(() => {
     setFilters({ search: searchQuery.value })
     updateURL()
-  }, 300)
+  }, 200)
 }
 
 function updateURL() {
@@ -230,9 +186,6 @@ function goToPage(page: number) {
 
 function handleClearFilters() {
   searchQuery.value = ""
-  beforeFilter.value = undefined
-  afterFilter.value = undefined
-  atFilter.value = undefined
   clearFilters()
   router.push({ query: {} })
 }
@@ -242,10 +195,18 @@ function highlightText(text: string, searchTerm: string) {
     return text
   }
 
-  const exactSearch = searchTerm.startsWith("\"") && searchTerm.endsWith("\"")
+  const parsed = parseBlogSearch(searchTerm)
+  const sanitizedTerm = parsed.term
+  const trimmedTerm = sanitizedTerm.trim()
+
+  if (!trimmedTerm) {
+    return text
+  }
+
+  const exactSearch = trimmedTerm.startsWith("\"") && trimmedTerm.endsWith("\"") && trimmedTerm.length > 1
   const term = exactSearch
-    ? searchTerm.slice(1, -1)
-    : searchTerm
+    ? trimmedTerm.slice(1, -1)
+    : trimmedTerm
 
   if (exactSearch) {
     const regex = new RegExp(`(${term})`, "gi")
@@ -254,7 +215,9 @@ function highlightText(text: string, searchTerm: string) {
   }
 
   // Fuzzy search highlighting, highlight individual words
-  const words = term.split(/\s+/)
+  const tokens = term.match(/"[^"]+"|\S+/g) ?? []
+  const words = tokens
+    .map((token) => token.replaceAll("\"", ""))
     .filter((w) => w.length > 2)
   let highlighted = text
 

@@ -20,33 +20,6 @@
       >
     </div>
 
-    <div
-      v-if="showDateFilters"
-      class="date-filters"
-    >
-      <UiTextField
-        v-if="before !== undefined"
-        :model-value="before"
-        type="date"
-        label="Before"
-        @update:model-value="$emit('update:before', $event)"
-      />
-      <UiTextField
-        v-if="after !== undefined"
-        :model-value="after"
-        type="date"
-        label="After"
-        @update:model-value="$emit('update:after', $event)"
-      />
-      <UiTextField
-        v-if="at !== undefined"
-        :model-value="at"
-        type="date"
-        label="At"
-        @update:model-value="$emit('update:at', $event)"
-      />
-    </div>
-
     <button
       v-if="hasClearButton"
       class="clear-btn"
@@ -69,33 +42,20 @@ interface Props {
   isSticky?: boolean;
   hasClearButton?: boolean;
   clearText?: string;
-  before?: string;
-  after?: string;
-  at?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   placeholder: "Search...",
   hasFilters: false,
   isSticky: false,
   hasClearButton: false,
   clearText: "Clear filters",
-  before: undefined,
-  after: undefined,
-  at: undefined,
 })
 
 const emit = defineEmits<{
   "update:modelValue": [value: string];
-  "update:before": [value: string];
-  "update:after": [value: string];
-  "update:at": [value: string];
   "clear": [];
 }>()
-
-const showDateFilters = computed(() => {
-  return props.before !== undefined || props.after !== undefined || props.at !== undefined
-})
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
@@ -164,12 +124,6 @@ const handleInput = (event: Event) => {
   &::placeholder {
     color: var(--text-muted);
   }
-}
-
-.date-filters {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .clear-btn {
