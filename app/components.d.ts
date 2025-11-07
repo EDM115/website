@@ -190,12 +190,14 @@ declare module 'vue' {
     UiOdometer: typeof import('./components/ui/Odometer.vue')['default']
     UiProgressCircular: typeof import('./components/ui/ProgressCircular.vue')['default']
     UiRow: typeof import('./components/ui/Row.vue')['default']
+    UiSearchBar: typeof import('./components/ui/SearchBar.vue')['default']
     UiShowcase: typeof import('./components/ui/Showcase.vue')['default']
     UiStepperVertical: typeof import('./components/ui/StepperVertical.vue')['default']
     UiStepperVerticalItem: typeof import('./components/ui/StepperVerticalItem.vue')['default']
     UiTab: typeof import('./components/ui/Tab.vue')['default']
     UiTabPanel: typeof import('./components/ui/TabPanel.vue')['default']
     UiTabs: typeof import('./components/ui/Tabs.vue')['default']
+    UiTextField: typeof import('./components/ui/TextField.vue')['default']
     UiTooltip: typeof import('./components/ui/Tooltip.vue')['default']
   }
 }
