@@ -1,6 +1,8 @@
 ---
 title: How I migrated to Zod 4 - EDM115 blog
 meta:
+  - name: article:published_time
+    content: 2025-05-30T12:00:00Z
   - name: description
     content: How I migrated the company monorepo to Zod v4 during my internship
   - name: summary

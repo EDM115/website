@@ -1,6 +1,8 @@
 ---
 title: Education to Pro - EDM115 blog
 meta:
+  - name: article:published_time
+    content: 2024-08-20T12:00:00Z
   - name: description
     content: How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
   - name: summary

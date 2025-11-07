@@ -1,6 +1,8 @@
 ---
 title: How to send DTMF on Android - EDM115 blog
 meta:
+  - name: article:published_time
+    content: 2025-01-22T12:00:00Z
   - name: description
     content: How to (actually) send DTMF on Android without being the default call app
   - name: summary
