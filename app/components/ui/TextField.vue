@@ -24,12 +24,12 @@
 
 <script setup lang="ts">
 interface Props {
-  modelValue?: string | number
-  type?: string
-  label?: string
-  placeholder?: string
-  disabled?: boolean
-  readonly?: boolean
+  modelValue?: string | number;
+  type?: string;
+  label?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  readonly?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -41,15 +41,18 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  "update:modelValue": [value: string]
-  "focus": [event: FocusEvent]
-  "blur": [event: FocusEvent]
+  "update:modelValue": [value: string];
+  "focus": [event: FocusEvent];
+  "blur": [event: FocusEvent];
 }>()
 
-const id = computed(() => `text-field-${Math.random().toString(36).slice(2, 9)}`)
+const id = computed(() => `text-field-${Math.random()
+  .toString(36)
+  .slice(2, 9)}`)
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
+
   emit("update:modelValue", target.value)
 }
 </script>

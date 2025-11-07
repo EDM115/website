@@ -151,19 +151,34 @@ const atFilter = ref((route.query.at as string) || undefined)
 // Initialize from URL params
 onMounted(async () => {
   await loadPosts()
-  
+
   // Apply filters from URL
   const urlFilters: Record<string, string> = {}
-  if (route.query.search) {urlFilters.search = route.query.search as string}
-  if (route.query.tag) {urlFilters.tag = route.query.tag as string}
-  if (route.query.before) {urlFilters.before = route.query.before as string}
-  if (route.query.after) {urlFilters.after = route.query.after as string}
-  if (route.query.at) {urlFilters.at = route.query.at as string}
-  
+
+  if (route.query.search) {
+    urlFilters.search = route.query.search as string
+  }
+
+  if (route.query.tag) {
+    urlFilters.tag = route.query.tag as string
+  }
+
+  if (route.query.before) {
+    urlFilters.before = route.query.before as string
+  }
+
+  if (route.query.after) {
+    urlFilters.after = route.query.after as string
+  }
+
+  if (route.query.at) {
+    urlFilters.at = route.query.at as string
+  }
+
   if (Object.keys(urlFilters).length > 0) {
     setFilters(urlFilters)
   }
-  
+
   if (route.query.page) {
     setPage(Number.parseInt(route.query.page as string) || 1)
   }
@@ -171,10 +186,14 @@ onMounted(async () => {
 
 // Update filter values
 const updateFilter = (filterName: string, value: string) => {
-  if (filterName === "before") {beforeFilter.value = value || undefined}
-  else if (filterName === "after") {afterFilter.value = value || undefined}
-  else if (filterName === "at") {atFilter.value = value || undefined}
-  
+  if (filterName === "before") {
+    beforeFilter.value = value || undefined
+  } else if (filterName === "after") {
+    afterFilter.value = value || undefined
+  } else if (filterName === "at") {
+    atFilter.value = value || undefined
+  }
+
   setFilters({ [filterName]: value })
   updateURL()
 }
@@ -185,6 +204,7 @@ const debouncedSearch = () => {
   if (searchTimeout) {
     clearTimeout(searchTimeout)
   }
+
   searchTimeout = setTimeout(() => {
     setFilters({ search: searchQuery.value })
     updateURL()
@@ -194,8 +214,14 @@ const debouncedSearch = () => {
 // Update URL without reload
 const updateURL = () => {
   const query: Record<string, string> = {}
-  if (pagination.value.page > 1) {query.page = pagination.value.page.toString()}
-  if (searchQuery.value) {query.search = searchQuery.value}
+
+  if (pagination.value.page > 1) {
+    query.page = pagination.value.page.toString()
+  }
+
+  if (searchQuery.value) {
+    query.search = searchQuery.value
+  }
 
   router.push({ query })
 }
@@ -204,7 +230,9 @@ const updateURL = () => {
 const goToPage = (page: number) => {
   setPage(page)
   updateURL()
-  window.scrollTo({ top: 0, behavior: "smooth" })
+  window.scrollTo({
+    top: 0, behavior: "smooth",
+  })
 }
 
 // Clear all filters
@@ -219,31 +247,44 @@ const handleClearFilters = () => {
 
 // Highlight search terms in text
 const highlightText = (text: string, searchTerm: string) => {
-  if (!searchTerm || !text) {return text}
-  
+  if (!searchTerm || !text) {
+    return text
+  }
+
   const exactSearch = searchTerm.startsWith("\"") && searchTerm.endsWith("\"")
-  const term = exactSearch ? searchTerm.slice(1, -1) : searchTerm
-  
+  const term = exactSearch
+    ? searchTerm.slice(1, -1)
+    : searchTerm
+
   if (exactSearch) {
     // Exact match highlighting
     const regex = new RegExp(`(${term})`, "gi")
+
     return text.replace(regex, "<mark>$1</mark>")
   }
-  
+
   // Fuzzy search highlighting - highlight individual words
-  const words = term.split(/\s+/).filter(w => w.length > 2)
+  const words = term.split(/\s+/)
+    .filter((w) => w.length > 2)
   let highlighted = text
+
   for (const word of words) {
     const regex = new RegExp(`(${word})`, "gi")
+
     highlighted = highlighted.replace(regex, "<mark>$1</mark>")
   }
+
   return highlighted
 }
 
 // Format date
 const formatDate = (dateStr: string) => {
-  if (!dateStr) {return ""}
+  if (!dateStr) {
+    return ""
+  }
+
   const date = new Date(dateStr)
+
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

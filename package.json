@@ -60,6 +60,7 @@
     "oxlint-tsgolint": "~0.5.1",
     "sass-embedded": "~1.93.3",
     "sass-loader": "~16.0.6",
+    "tsx": "4.20.6",
     "typescript": "~5.9.3",
     "unplugin-icons": "~22.5.0",
     "unplugin-vue-components": "~30.0.0",
@@ -78,29 +79,23 @@
   },
   "scripts": {
     "wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm",
-    "prebuild": "pnpm wasm && node --experimental-strip-types generate-blog-data.script.ts",
+    "prebuild": "pnpm wasm && tsx generate-blog-data.script.ts",
     "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
     "generate": "pnpm prebuild && nuxt generate",
-
     "cleanup": "nuxt cleanup",
-
     "dev": "nuxt dev --no-clear --no-fork",
     "dev:expose": "nuxt dev --no-clear --no-fork --host",
-
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
     "lint:fix:eslint": "eslint --concurrency=auto --fix .",
     "lint:oxlint": "oxlint --type-aware .",
     "lint:fix:oxlint": "oxlint --fix --type-aware .",
-
     "format": "eslint -c eslint.stylistic.config.ts --concurrency=auto --fix .",
-
     "preview": "nuxt preview --port 8000",
     "start:ssr": "node .output/server/index.mjs",
     "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
-
     "typecheck": "nuxt typecheck"
   },
   "type": "module",

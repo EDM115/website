@@ -58,15 +58,15 @@
 
 <script setup lang="ts">
 interface Props {
-  modelValue: string
-  placeholder?: string
-  hasFilters?: boolean
-  isSticky?: boolean
-  hasClearButton?: boolean
-  clearText?: string
-  before?: string
-  after?: string
-  at?: string
+  modelValue: string;
+  placeholder?: string;
+  hasFilters?: boolean;
+  isSticky?: boolean;
+  hasClearButton?: boolean;
+  clearText?: string;
+  before?: string;
+  after?: string;
+  at?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -78,11 +78,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  "update:modelValue": [value: string]
-  "update:before": [value: string]
-  "update:after": [value: string]
-  "update:at": [value: string]
-  "clear": []
+  "update:modelValue": [value: string];
+  "update:before": [value: string];
+  "update:after": [value: string];
+  "update:at": [value: string];
+  "clear": [];
 }>()
 
 const showDateFilters = computed(() => {
@@ -91,6 +91,7 @@ const showDateFilters = computed(() => {
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
+
   emit("update:modelValue", target.value)
 }
 </script>
