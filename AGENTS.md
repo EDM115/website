@@ -64,7 +64,8 @@ You don't need to worry about the other commands
 - This website have dark and light mode.
 
 ## General rules
-- Write all code in TypeScript. No JavaScript allowed. Styles should be written in SCSS, using its features when possible (ex nesting).
+- Write all code in TypeScript. No JavaScript allowed. You can use top-level await. Styles should be written in SCSS, using its features when possible (ex nesting).
+- Use function declarations instead of arrow functions unless absolutely necessary.
 - Vue files should be SFC's, with first the `<template>`, then `<script setup lang="ts">` (composition API) and finally `<style scoped lang="scss">` (can rarely be not scoped).
 - If you need a component for the UI, list existing ones in `app/components/ui/` first. If you need to edit one, keep the style consistent and document props if you add some. If you need a new one, create it in `app/components/ui/` and make it generic enough to be reused later. Components should be named using PascalCase. Do not use HTML tags as-is outside of UI components (ex `<input>`). If an UI component doesn't fit an usage you need (ex `<img>` or `<a>`), a Nuxt component probably already fills this role (ex `<NuxtImg>` or `<NuxtLink>`), check the codebase for existing usage.
 - Do not use `any` or disable typechecking. There is always a better way to type things, even if it's by using `unknown` and type narrowing as a last resort.
@@ -80,7 +81,7 @@ You don't need to worry about the other commands
 To test your changes, the easiest way is to run a typecheck first (`pnpm typecheck`). This will catch most errors.  
 Then you can lint the code to catch more advanced errors (`pnpm lint`).  
 Finally, you can generate the static website (`pnpm generate`) and check for any failures. If it completes without errors, you can consider the tests to be successful.  
-Note : if you're waiting for Shell output and nothing comes at all after 45 seconds, skip the tests altogether and tell me to run them separately. Don't waste time on this.
+Note : if you're waiting for Shell output and nothing comes at all after 45 seconds, skip the tests altogether and tell me to run them separately. Don't waste time on this. If you get denied executing commands 3 times in a row, stop trying and tell me to run them separately as well.
 
 ## What to do before finishing ?
 - Run a typecheck (`pnpm typecheck`). Fix all errors reported

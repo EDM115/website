@@ -4,7 +4,11 @@
 
     <UiDivider style="margin-top: 16px; margin-bottom: 32px;" />
 
-    <!-- Search Bar -->
+    <UiButton
+      link="/blog/telegram"
+      text="Telegram blog posts"
+    />
+
     <UiSearchBar
       v-model="searchQuery"
       :placeholder="t('blog.search_placeholder')"
@@ -22,7 +26,6 @@
       @clear="handleClearFilters"
     />
 
-    <!-- Loading State -->
     <div
       v-if="loading"
       class="loading"
@@ -30,7 +33,6 @@
       Loading...
     </div>
 
-    <!-- Error State -->
     <div
       v-else-if="error"
       class="error"
@@ -38,7 +40,6 @@
       {{ error }}
     </div>
 
-    <!-- Blog Posts List -->
     <div
       v-else-if="posts.length"
       class="blog-list"
@@ -52,20 +53,24 @@
           :to="post.link"
           class="post-link"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <h3
             class="post-title"
             v-html="highlightText(post.title, searchQuery)"
           />
+          <!-- eslint-enable vue/no-v-html -->
           <p
             v-if="post.date"
             class="post-date"
           >
             {{ formatDate(post.date) }}
           </p>
+          <!-- eslint-disable vue/no-v-html -->
           <p
             class="post-excerpt"
             v-html="highlightText(post.excerpt, searchQuery)"
           />
+          <!-- eslint-enable vue/no-v-html -->
           <div
             v-if="post.tags && post.tags.length"
             class="post-tags"
@@ -80,7 +85,6 @@
       </article>
     </div>
 
-    <!-- No Results -->
     <div
       v-else
       class="no-results"
@@ -88,7 +92,6 @@
       {{ t("blog.no_results") }}
     </div>
 
-    <!-- Pagination -->
     <div
       v-if="pagination.totalPages > 1"
       class="pagination"
@@ -115,9 +118,10 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+
+const { t } = useI18n()
 
 useHead({
   title: t("blog.head"),
@@ -129,7 +133,6 @@ useHead({
   ],
 })
 
-// Use the blog posts composable
 const {
   posts,
   loading,
@@ -142,17 +145,14 @@ const {
   setPage,
 } = useBlogPosts(false)
 
-// Local search query and filter states for reactive input
 const searchQuery = ref((route.query.search as string) || "")
 const beforeFilter = ref((route.query.before as string) || undefined)
 const afterFilter = ref((route.query.after as string) || undefined)
 const atFilter = ref((route.query.at as string) || undefined)
 
-// Initialize from URL params
 onMounted(async () => {
   await loadPosts()
 
-  // Apply filters from URL
   const urlFilters: Record<string, string> = {}
 
   if (route.query.search) {
@@ -184,8 +184,7 @@ onMounted(async () => {
   }
 })
 
-// Update filter values
-const updateFilter = (filterName: string, value: string) => {
+function updateFilter(filterName: string, value: string) {
   if (filterName === "before") {
     beforeFilter.value = value || undefined
   } else if (filterName === "after") {
@@ -198,9 +197,9 @@ const updateFilter = (filterName: string, value: string) => {
   updateURL()
 }
 
-// Debounce search
 let searchTimeout: NodeJS.Timeout | null = null
-const debouncedSearch = () => {
+
+function debouncedSearch() {
   if (searchTimeout) {
     clearTimeout(searchTimeout)
   }
@@ -211,8 +210,7 @@ const debouncedSearch = () => {
   }, 300)
 }
 
-// Update URL without reload
-const updateURL = () => {
+function updateURL() {
   const query: Record<string, string> = {}
 
   if (pagination.value.page > 1) {
@@ -226,8 +224,7 @@ const updateURL = () => {
   router.push({ query })
 }
 
-// Navigate to page
-const goToPage = (page: number) => {
+function goToPage(page: number) {
   setPage(page)
   updateURL()
   window.scrollTo({
@@ -235,8 +232,7 @@ const goToPage = (page: number) => {
   })
 }
 
-// Clear all filters
-const handleClearFilters = () => {
+function handleClearFilters() {
   searchQuery.value = ""
   beforeFilter.value = undefined
   afterFilter.value = undefined
@@ -245,8 +241,7 @@ const handleClearFilters = () => {
   router.push({ query: {} })
 }
 
-// Highlight search terms in text
-const highlightText = (text: string, searchTerm: string) => {
+function highlightText(text: string, searchTerm: string) {
   if (!searchTerm || !text) {
     return text
   }
@@ -257,7 +252,6 @@ const highlightText = (text: string, searchTerm: string) => {
     : searchTerm
 
   if (exactSearch) {
-    // Exact match highlighting
     const regex = new RegExp(`(${term})`, "gi")
 
     return text.replace(regex, "<mark>$1</mark>")
@@ -277,8 +271,7 @@ const highlightText = (text: string, searchTerm: string) => {
   return highlighted
 }
 
-// Format date
-const formatDate = (dateStr: string) => {
+function formatDate(dateStr: string) {
   if (!dateStr) {
     return ""
   }

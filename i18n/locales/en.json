@@ -1,10 +1,10 @@
 {
   "blog": {
     "back": "Back to the blog posts list",
-    "clear_search": "Clear filters",
+    "clear_search": "Clear",
     "description": "Some random blog posts that I write when I have time",
     "head": "Blog - EDM115",
-    "no_results": "No blog posts found matching your search.",
+    "no_results": "No blog posts found matching your search",
     "search_placeholder": "Search blog posts...",
     "title": "Blog"
   },
@@ -98,6 +98,14 @@
     "title": "Stats",
     "users": "Users of my services (has yet to be refreshed through an API)"
   },
+  "telegram": {
+    "clear_search": "Clear",
+    "description": "Telegram posts from my channel ({'@'}EDM115bots)",
+    "head": "Telegram posts - EDM115",
+    "no_results": "No telegram posts found matching your search",
+    "search_placeholder": "Search telegram posts...",
+    "title": "Telegram posts"
+  },
   "unzip": {
     "about": "About",
     "about1": "Written in Python, using libraries like pyrofork and storing data in MongoDB Atlas, this bot aims to provide a seamless experience for getting files from archives on Telegram.",
@@ -122,13 +130,5 @@
       "users": "Users"
     },
     "telegram": "{'@'}unzip_edm115bot"
-  },
-  "telegram": {
-    "clear_search": "Clear filters",
-    "description": "Telegram posts from my channel",
-    "head": "Telegram Posts - EDM115",
-    "no_results": "No telegram posts found matching your search.",
-    "search_placeholder": "Search telegram posts...",
-    "title": "Telegram Posts"
   }
 }

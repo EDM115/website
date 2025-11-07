@@ -1,11 +1,11 @@
 {
   "blog": {
     "back": "Retour à la liste des posts de blog",
-    "clear_search": "Effacer les filtres",
+    "clear_search": "Effacer",
     "description": "Quelques articles de blog random que j'écris quand j'ai du temps",
     "head": "Blog - EDM115",
-    "no_results": "Aucun article de blog ne correspond à votre recherche.",
-    "search_placeholder": "Rechercher dans les articles...",
+    "no_results": "Aucun article de blog ne correspond à votre recherche",
+    "search_placeholder": "Rechercher dans les blogs...",
     "title": "Blog"
   },
   "cookies": {
@@ -98,6 +98,14 @@
     "title": "Stats",
     "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
   },
+  "telegram": {
+    "clear_search": "Effacer",
+    "description": "Posts Telegram de mon canal ({'@'}EDM115bots)",
+    "head": "Posts Telegram - EDM115",
+    "no_results": "Aucun post Telegram ne correspond à votre recherche",
+    "search_placeholder": "Rechercher dans les posts Telegram...",
+    "title": "Posts Telegram"
+  },
   "unzip": {
     "about": "À propos",
     "about1": "Écrit en Python, utilisant des bibliothèques comme pyrofork et stockant les données dans MongoDB Atlas, ce bot vise à offrir une expérience transparente pour obtenir des fichiers à partir d'archives sur Telegram.",
@@ -122,13 +130,5 @@
       "users": "Utilisateurs"
     },
     "telegram": "{'@'}unzip_edm115bot"
-  },
-  "telegram": {
-    "clear_search": "Effacer les filtres",
-    "description": "Posts Telegram de mon canal",
-    "head": "Posts Telegram - EDM115",
-    "no_results": "Aucun post Telegram ne correspond à votre recherche.",
-    "search_placeholder": "Rechercher dans les posts Telegram...",
-    "title": "Posts Telegram"
   }
 }

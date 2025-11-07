@@ -1,23 +1,25 @@
 <template>
   <div
-    class="ui-search-bar"
-    :class="{ 'has-filters': hasFilters, 'is-sticky': isSticky }"
+    :class="[
+      'ui-search-bar',
+      hasFilters && 'ui-search-bar--has-filters',
+      isSticky && 'ui-search-bar--is-sticky',
+    ]"
   >
     <div class="search-input-wrapper">
       <UiIcon
-        name="mdi:magnify"
         class="search-icon"
+        :icon="mdiMagnify"
       />
       <input
         :value="modelValue"
         type="text"
-        :placeholder="placeholder"
+        :placeholder
         class="search-input"
         @input="handleInput"
       >
     </div>
 
-    <!-- Date filter inputs (shown when date filter is being used) -->
     <div
       v-if="showDateFilters"
       class="date-filters"
@@ -50,13 +52,16 @@
       class="clear-btn"
       @click="$emit('clear')"
     >
-      <UiIcon name="mdi:close" />
+      <UiIcon :icon="mdiCloseCircleOutline" />
       {{ clearText }}
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import mdiCloseCircleOutline from "~icons/mdi/closeCircleOutline"
+import mdiMagnify from "~icons/mdi/magnify"
+
 interface Props {
   modelValue: string;
   placeholder?: string;
@@ -75,6 +80,9 @@ const props = withDefaults(defineProps<Props>(), {
   isSticky: false,
   hasClearButton: false,
   clearText: "Clear filters",
+  before: undefined,
+  after: undefined,
+  at: undefined,
 })
 
 const emit = defineEmits<{
@@ -106,14 +114,14 @@ const handleInput = (event: Event) => {
   border-radius: 0.75rem;
   transition: all 0.3s ease;
 
-  &.has-filters {
+  &--has-filters {
     background: var(--glass-bg);
     border: var(--glass-border);
     box-shadow: var(--glass-shadow);
     backdrop-filter: var(--backdrop-filter);
   }
 
-  &.is-sticky {
+  &--is-sticky {
     position: sticky;
     top: 1rem;
     z-index: 100;

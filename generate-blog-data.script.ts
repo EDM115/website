@@ -1,5 +1,8 @@
 import {
-  readdir, readFile, writeFile, mkdir,
+  mkdir,
+  readdir,
+  readFile,
+  writeFile,
 } from "node:fs/promises"
 import { join } from "node:path"
 
@@ -87,9 +90,8 @@ function extractFrontmatter(content: string) {
           currentArray.push(itemContent)
         }
       }
-    }
-    // Check for nested property in array item
-    else if (inArrayItem && line.startsWith("    ")) {
+    } else if (inArrayItem && line.startsWith("    ")) {
+      // Check for nested property in array item
       const propLine = trimmed
 
       if (propLine.includes(":")) {
@@ -101,9 +103,8 @@ function extractFrontmatter(content: string) {
 
         currentItem[key] = value
       }
-    }
-    // Check for new top-level key
-    else if (!line.startsWith(" ") && line.includes(":")) {
+    } else if (!line.startsWith(" ") && line.includes(":")) {
+      // Check for new top-level key
       // Save previous array if exists
       if (inArray && currentKey) {
         if (Object.keys(currentItem).length > 0) {
@@ -157,15 +158,24 @@ function extractTitle(content: string): string {
 function extractExcerpt(content: string, maxLength = 200, isTelegram = false): string {
   // Remove markdown formatting
   let text = content
-    .replace(/^---[\s\S]*?---/, "") // Remove frontmatter
-    .replace(/^#+\s+/gm, "") // Remove headers
-    .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
-    .replace(/\*\*(.+?)\*\*/g, "$1") // Remove bold
-    .replace(/\*(.+?)\*/g, "$1") // Remove italic
-    .replace(/\[(.+?)\]\(.+?\)/g, "$1") // Remove links
-    .replace(/```[\s\S]*?```/g, "") // Remove code blocks
-    .replace(/`(.+?)`/g, "$1") // Remove inline code
-    .replace(/:\w+:/g, "") // Remove emoji codes
+    // Remove frontmatter
+    .replace(/^---[\s\S]*?---/, "")
+    // Remove headers
+    .replace(/^#+\s+/gm, "")
+    // Remove images
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    // Remove bold
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    // Remove italic
+    .replace(/\*(.+?)\*/g, "$1")
+    // Remove links
+    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+    // Remove code blocks
+    .replace(/```[\s\S]*?```/g, "")
+    // Remove inline code
+    .replace(/`(.+?)`/g, "$1")
+    // Remove emoji codes
+    .replace(/:\w+:/g, "")
     .trim()
 
   // Get first paragraph or first N characters
@@ -181,7 +191,7 @@ function extractExcerpt(content: string, maxLength = 200, isTelegram = false): s
 function parsePublishedTime(publishedTime: string): {
   date: string; link: string;
 } {
-  // Parse ISO 8601 date format: 2024-08-20T12:00:00Z
+  // Parse ISO 8601 date format : 2024-08-20T12:00:00Z
   const match = publishedTime.match(/^(\d{4})-(\d{2})-(\d{2})/)
 
   if (match) {
@@ -199,8 +209,39 @@ function parsePublishedTime(publishedTime: string): {
 }
 
 function normalizePath(path: string): string {
-  // Convert Windows backslashes to forward slashes
   return path.replace(/\\/g, "/")
+}
+
+interface TelegramFileInfo {
+  year: string;
+  month: string;
+  day: string;
+  slug: string;
+}
+
+function parseTelegramFilePath(relativePath: string): TelegramFileInfo | null {
+  const normalized = normalizePath(relativePath)
+    .replace(/\.md$/, "")
+  const [ year, fileName ] = normalized.split("/", 2)
+
+  if (!year || !fileName) {
+    return null
+  }
+
+  const match = fileName.match(/^(\d{2})-(\d{2})-(.+)$/)
+
+  if (!match) {
+    return null
+  }
+
+  const [ , month, day, slug ] = match
+
+  return {
+    year,
+    month,
+    day,
+    slug,
+  }
 }
 
 async function parseBlogPost(filePath: string, relativePath: string, isTelegram: boolean): Promise<BlogPostMeta> {
@@ -211,11 +252,14 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
 
   // Normalize path for cross-platform compatibility
   const normalizedRelativePath = normalizePath(relativePath)
+  const telegramFileInfo = isTelegram
+    ? parseTelegramFilePath(normalizedRelativePath)
+    : null
 
   // Extract metadata
   const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
-  const publishedTime = frontmatter.meta?.find((m: any) => m.name === "article:published_time")?.content || ""
-  const summary = frontmatter.meta?.find((m: any) => m.name === "summary")?.content || ""
+  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content || ""
+  const summary = frontmatter.meta?.find((metaItem) => metaItem.name === "summary")?.content || ""
 
   // Extract tags from frontmatter meta or tags field
   let tags: string[] = []
@@ -232,7 +276,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   }
 
   // Also check meta for tags field
-  const metaTags = frontmatter.meta?.find((m: any) => m.name === "tags")?.content
+  const metaTags = frontmatter.meta?.find((metaItem) => metaItem.name === "tags")?.content
 
   if (metaTags && typeof metaTags === "string") {
     const additionalTags = metaTags.split(",")
@@ -251,30 +295,43 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
         date: "", link: "",
       }
 
-  // Generate proper link
+  let resolvedDate = parsedDate
+
+  if (!resolvedDate && telegramFileInfo) {
+    resolvedDate = `${telegramFileInfo.year}-${telegramFileInfo.month}-${telegramFileInfo.day}`
+  }
+
   let link = ""
 
   if (isTelegram) {
-    // Telegram: /blog/telegram/YYYY/MM-DD-slug
-    if (parsedDate) {
-      const [ year, month, day ] = parsedDate.split("-")
+    if (telegramFileInfo) {
+      link = `/blog/telegram/${telegramFileInfo.year}/${telegramFileInfo.month}/${telegramFileInfo.day}/${telegramFileInfo.slug}`
+    } else if (resolvedDate) {
+      const [ year, month, day ] = resolvedDate.split("-")
       const filename = normalizedRelativePath.split("/")
         .pop()
         ?.replace(/\.md$/, "") || ""
+      const slug = filename.replace(/^(\d{2})-(\d{2})-/, "") || filename
 
-      link = `/blog/telegram/${year}/${filename}`
+      link = `/blog/telegram/${year}/${month}/${day}/${slug}`
     } else {
-      link = `/blog/telegram/${normalizedRelativePath.replace(/\.md$/, "")}`
+      const fallback = normalizedRelativePath.replace(/\.md$/, "")
+
+      link = `/blog/telegram/${fallback}`
     }
   } else {
-    // Blog: /blog/YYYY/MM/DD/slug
     if (parsedDate) {
       const filename = normalizedRelativePath.split("/")
         .pop()
         ?.replace(/\.md$/, "") || ""
-      const slug = filename.replace(/([A-Z])/g, "-$1")
+      const slug = filename.replace(/edm115/gi, "EDM115")
+        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
+        .replace(/([a-z\d])([A-Z])/g, "$1-$2")
+        .replace(/([A-Za-z])(\d+)/g, "$1-$2")
+        .replace(/EDM-115/g, "EDM115")
         .toLowerCase()
-        .replace(/^-/, "")
+        .replace(/\/-/, "/")
+        .replace(/\s+/g, "-")
 
       link = `/blog${dateLink}/${slug}`
     } else {
@@ -282,19 +339,18 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
     }
   }
 
-  // Use the description from meta as the title if available (as per user's request)
-  const description = frontmatter.meta?.find((m: any) => m.name === "description")?.content
+  // Use the description from meta as the title if available
+  const description = frontmatter.meta?.find((metaItem) => metaItem.name === "description")?.content
   const title = description || titleFromFrontmatter.replace(/ - EDM115 blog$/i, "")
     .replace(/^EDM115 Telegram blog$/i, "Telegram Post")
 
-  // Use summary for excerpt
   const excerpt = summary || extractExcerpt(markdownContent, 200, isTelegram)
 
   return {
     id: normalizedRelativePath.replace(/\.md$/, "")
       .replace(/\//g, "-"),
     title,
-    date: parsedDate,
+    date: resolvedDate,
     tags,
     path: normalizedRelativePath,
     link,
@@ -325,20 +381,19 @@ async function scanDirectory(baseDir: string, subDir = "", isTelegram = false): 
       }
     }
   } catch (error) {
-    console.error(`Error scanning directory ${currentDir}:`, error)
+    console.error(`❌ Error scanning directory ${currentDir} :`, error)
   }
 
   return posts
 }
 
 async function generateBlogData() {
-  console.log("Generating blog metadata...")
+  console.log("🔄️ Generating blog metadata...\n")
 
   const blogDir = join(process.cwd(), "app", "components", "blog")
   const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
   const outputDir = join(process.cwd(), "public", "data")
 
-  // Create output directory
   await mkdir(outputDir, { recursive: true })
 
   // Get regular blog posts (exclude telegram folder)
@@ -363,7 +418,6 @@ async function generateBlogData() {
     return dateB.localeCompare(dateA)
   })
 
-  // Write to JSON files
   await writeFile(
     join(outputDir, "blog-posts.json"),
     JSON.stringify(blogPosts, null, 2),
@@ -374,9 +428,12 @@ async function generateBlogData() {
     JSON.stringify(telegramPosts, null, 2),
   )
 
-  console.log(`✓ Generated ${blogPosts.length} blog posts metadata`)
-  console.log(`✓ Generated ${telegramPosts.length} telegram posts metadata`)
+  console.log(`✅ Generated ${blogPosts.length} blog posts metadata`)
+  console.log(`✅ Generated ${telegramPosts.length} telegram posts metadata\n`)
 }
 
-generateBlogData()
-  .catch(console.error)
+try {
+  await generateBlogData()
+} catch (e) {
+  console.error("❌ Error generating blog data :", e)
+}

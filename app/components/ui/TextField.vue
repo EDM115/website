@@ -8,12 +8,12 @@
       {{ label }}
     </label>
     <input
-      :id="id"
-      :type="type"
+      :id
+      :type
       :value="modelValue"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :readonly="readonly"
+      :placeholder
+      :disabled
+      :readonly
       class="text-field-input"
       @input="handleInput"
       @focus="$emit('focus', $event)"
@@ -32,8 +32,9 @@ interface Props {
   readonly?: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   type: "text",
+  label: "",
   modelValue: "",
   placeholder: "",
   disabled: false,
@@ -46,9 +47,7 @@ const emit = defineEmits<{
   "blur": [event: FocusEvent];
 }>()
 
-const id = computed(() => `text-field-${Math.random()
-  .toString(36)
-  .slice(2, 9)}`)
+const id = useId()
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
