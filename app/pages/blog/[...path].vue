@@ -16,9 +16,9 @@ const pathSegments = Array.isArray(rawPath)
   ? rawPath
   : [rawPath]
 
-function normalizeTelegramGlobKey(path: string): string {
+function normalizeBlogGlobKey(path: string): string {
   const normalizedPath = path.replace(/\\/g, "/")
-  const marker = "components/blog/telegram/"
+  const marker = "components/blog/"
   const markerIndex = normalizedPath.lastIndexOf(marker)
   const trimmed = markerIndex === -1
     ? normalizedPath
@@ -27,7 +27,7 @@ function normalizeTelegramGlobKey(path: string): string {
   return trimmed.replace(/\.md$/, "")
 }
 
-function resolveTelegramComponentPath(segments: (string | undefined)[]): string | null {
+function resolveBlogComponentPath(segments: (string | undefined)[]): string | null {
   if (!segments.length) {
     return null
   }
@@ -66,20 +66,20 @@ function resolveTelegramComponentPath(segments: (string | undefined)[]): string 
 }
 
 function throwNotFound() {
-  router.replace("/blog/telegram")
+  router.replace("/blog")
 }
 
-const telegramPath = resolveTelegramComponentPath(pathSegments)
+const blogPath = resolveBlogComponentPath(pathSegments)
 
-if (!telegramPath) {
+if (!blogPath) {
   throwNotFound()
 } else {
   type MarkdownModule = { "default": Component }
 
-  const components = import.meta.glob<MarkdownModule>("~/components/blog/telegram/**/*.md")
+  const components = import.meta.glob<MarkdownModule>([ "~/components/blog/**/*.md", "!~/components/blog/telegram/**/*.md" ])
 
   const componentPath = Object.keys(components)
-    .find((path) => normalizeTelegramGlobKey(path) === telegramPath)
+    .find((path) => normalizeBlogGlobKey(path) === blogPath)
 
   if (!componentPath) {
     throwNotFound()

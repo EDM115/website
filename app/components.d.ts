@@ -12,10 +12,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BackToTop: typeof import('./components/BackToTop.vue')['default']
-    Blog2022GoogleEndingSharedDrives: typeof import('./components/blog/2022/GoogleEndingSharedDrives.md')['default']
-    Blog2024EducationToPro: typeof import('./components/blog/2024/EducationToPro.md')['default']
-    Blog2025HowIMigratedToZod4: typeof import('./components/blog/2025/HowIMigratedToZod4.md')['default']
-    Blog2025HowToSendDTMFOnAndroid: typeof import('./components/blog/2025/HowToSendDTMFOnAndroid.md')['default']
+    Blog20220515GoogleEndingSharedDrives: typeof import('./components/blog/2022/05-15-google-ending-shared-drives.md')['default']
+    Blog20240820EducationToPro: typeof import('./components/blog/2024/08-20-education-to-pro.md')['default']
+    Blog20250122HowToSendDtmfOnAndroid: typeof import('./components/blog/2025/01-22-how-to-send-dtmf-on-android.md')['default']
+    Blog20250530HowIMigratedToZod4: typeof import('./components/blog/2025/05-30-how-i-migrated-to-zod-4.md')['default']
     BlogTelegram20210613Storytime: typeof import('./components/blog/telegram/2021/06-13-storytime.md')['default']
     BlogTelegram20210614Changelog: typeof import('./components/blog/telegram/2021/06-14-changelog.md')['default']
     BlogTelegram20210614Storytime: typeof import('./components/blog/telegram/2021/06-14-storytime.md')['default']

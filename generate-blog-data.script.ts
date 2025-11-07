@@ -324,14 +324,9 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
       const filename = normalizedRelativePath.split("/")
         .pop()
         ?.replace(/\.md$/, "") || ""
-      const slug = filename.replace(/edm115/gi, "EDM115")
-        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
-        .replace(/([a-z\d])([A-Z])/g, "$1-$2")
-        .replace(/([A-Za-z])(\d+)/g, "$1-$2")
-        .replace(/EDM-115/g, "EDM115")
-        .toLowerCase()
-        .replace(/\/-/, "/")
-        .replace(/\s+/g, "-")
+      const slug = filename.split("-")
+        .splice(2)
+        .join("-")
 
       link = `/blog${dateLink}/${slug}`
     } else {
