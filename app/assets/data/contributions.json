@@ -12,7 +12,7 @@
     "name": "oxc-project/oxc",
     "description": "fix(vscode): properly retrieve Node.js when it isn't by default on the PATH",
     "type": "pr",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/oxc-project/oxc/pull/14920"
   },
   {
@@ -300,7 +300,7 @@
     "name": "oxc-project/oxc",
     "description": "linter: type-aware checking won't work in the VS Code extension when Node is dynamically added to the path",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/oxc-project/oxc/issues/13497"
   },
   {
