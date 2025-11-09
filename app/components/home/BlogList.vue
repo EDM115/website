@@ -315,20 +315,20 @@ onMounted(async () => {
 }
 
 .post-title {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text);
 }
 
 .post-date {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 0.875rem;
   color: var(--text-muted);
 }
 
 .post-excerpt {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   line-height: 1.6;
   color: var(--text);
 }
