@@ -110,8 +110,10 @@ function normalizeDate(value: string, mode: DateMode): string | undefined {
     return undefined
   }
 
-  if (day !== undefined && (day < 1 || day > daysInMonth(year, month!))) {
-    return undefined
+  if (day !== undefined && month !== undefined) {
+    if (day < 1 || day > daysInMonth(year, month)) {
+      return undefined
+    }
   }
 
   if (mode === "before") {

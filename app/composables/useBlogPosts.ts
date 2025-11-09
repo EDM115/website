@@ -40,7 +40,7 @@ export function useBlogPosts(isTelegram = false) {
       return null
     }
 
-    const year = Number.parseInt(match[1]!, 10)
+    const year = Number.parseInt(match?.[1] ?? "0", 10)
 
     if (Number.isNaN(year)) {
       return null
@@ -156,7 +156,7 @@ export function useBlogPosts(isTelegram = false) {
     }
 
     if (filters.value.at) {
-      posts = posts.filter((post) => post.date?.startsWith(filters.value.at!))
+      posts = posts.filter((post) => post.date?.startsWith(filters.value.at ?? ""))
     }
 
     if (beforeTimestamp !== null || afterTimestamp !== null) {
