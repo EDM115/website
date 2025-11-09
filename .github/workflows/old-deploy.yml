@@ -41,7 +41,7 @@ jobs:
           rm -f public/docs/Resume_*.pdf
 
       - name: "Build for edm115.eu.org"
-        run: pnpm wasm && pnpm nuxt generate --preset static
+        run: pnpm prebuild && pnpm nuxt generate --preset static
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v5
