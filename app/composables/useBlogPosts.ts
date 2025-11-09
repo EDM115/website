@@ -306,7 +306,7 @@ export function useBlogPosts(isTelegram = false) {
   }
 
   const hasActiveFilters = computed(() => {
-    return !!(
+    return Boolean(
       filters.value.search
       || filters.value.tags?.length
       || filters.value.before
