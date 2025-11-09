@@ -49,8 +49,13 @@ import {
 import {
   loadPolychromeAltWasm,
   loadPolychromeWasm,
-  type PolychromeWasmInstance,
 } from "./wasmLoader"
+
+import type {
+  NetInfo,
+  PolychromeWasmInstance,
+  QualityProfile,
+} from "~/types"
 
 const props = defineProps<{
   modelValue?: boolean;
@@ -90,13 +95,6 @@ let effectiveCores = 4
 let lowMemory = false
 let startQueued = false
 let started = false
-
-interface QualityProfile {
-  enable: boolean;
-  quality: number;
-  fps: number;
-  dpr: number;
-}
 
 // worker
 let usingOffscreen = false
@@ -212,11 +210,6 @@ function recalcPointerAndRect(doResize: boolean) {
 
 function computeQuality(): QualityProfile {
   // conservative quality selection
-  type NetInfo = {
-    saveData?: boolean;
-    downlink?: number;
-  }
-
   const globalNavigator = typeof navigator === "undefined"
     ? null
     : navigator as Navigator & {

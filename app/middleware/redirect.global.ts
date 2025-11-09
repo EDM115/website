@@ -20,8 +20,11 @@ export default defineNuxtRouteMiddleware((to, _from) => {
 
   const router = useRouter()
   const publicPaths: string[] = []
-  const routeExists = router.getRoutes()
+  const dynamicMatchExists = to.matched.length > 0
+  const staticMatchExists = router.getRoutes()
     .some((route) => route.path === to.path)
+  const routeExists = dynamicMatchExists
+    || staticMatchExists
     || publicPaths.includes(to.path)
 
   if (!routeExists) {

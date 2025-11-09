@@ -32,9 +32,9 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",
-    "nuxt.config.ts": "tsconfig.*",
+    "nuxt.config.ts": "tsconfig.*, *.script.ts",
     "package.json": ".node-version, pnpm*",
-    "README.md": "LICENSE, .gitignore, .deepsource.toml, CONTRIBUTORS.svg"
+    "README.md": "LICENSE, .gitignore, AGENTS.md, .deepsource.toml, CONTRIBUTORS.svg"
   },
   "files.eol": "\n",
   "files.insertFinalNewline": true,
@@ -54,6 +54,7 @@
     "patches/**": true,
     "pnpm-lock.yaml": true
   },
+  "scss.showErrors": true,
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "vue.autoInsert.dotValue": true,
   "vue.editor.focusMode": true,

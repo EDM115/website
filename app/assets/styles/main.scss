@@ -266,6 +266,16 @@ summary h6 {
   display: inline;
 }
 
+mark {
+  background: var(--primary);
+  color: var(--text);
+}
+
+:root.dark-mode mark {
+  background: var(--primary);
+  color: var(--bg);
+}
+
 p,
 li {
   text-wrap: pretty;

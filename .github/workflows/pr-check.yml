@@ -47,6 +47,3 @@ jobs:
         with:
           name: nuxt-output
           path: ./.output/public
-        
-      - name: "Analyze check"
-        run: pnpm analyze

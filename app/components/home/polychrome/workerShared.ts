@@ -1,53 +1,9 @@
-import type { PolychromeWasmInstance } from "./wasmLoader"
-
-export interface PolychromeWorkerInitMessage {
-  type: "init";
-  canvas: OffscreenCanvas;
-  width: number;
-  height: number;
-  fps: number;
-  quality: number;
-}
-
-export interface PolychromeWorkerResizeMessage {
-  type: "resize";
-  width: number;
-  height: number;
-}
-
-export interface PolychromeWorkerSetIntensityMessage {
-  type: "setIntensity";
-  intensity: number;
-}
-
-export interface PolychromeWorkerControlMessage {
-  type: "start" | "stop";
-}
-
-export type PolychromeWorkerMessage
-  = | PolychromeWorkerInitMessage
-    | PolychromeWorkerResizeMessage
-    | PolychromeWorkerSetIntensityMessage
-    | PolychromeWorkerControlMessage
-
-export interface PolychromeWorkerConfig<State> {
-  loadWasm: ()=> Promise<PolychromeWasmInstance | null>;
-  fallbackRenderer: (
-    buffer: Uint8ClampedArray,
-    width: number,
-    height: number,
-    time: number,
-    intensity: number,
-    quality: number,
-  )=> void;
-  computeFrameTime: (now: number, state: State)=> number;
-  createState: ()=> State;
-}
-
-interface FallbackBuffers {
-  image: ImageData;
-  buffer: Uint8ClampedArray;
-}
+import type {
+  PolychromeWasmInstance,
+  PolychromeWorkerMessage,
+  PolychromeWorkerConfig,
+  FallbackBuffers,
+} from "~/types"
 
 export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<State>) {
   let ctx: OffscreenCanvasRenderingContext2D | null = null

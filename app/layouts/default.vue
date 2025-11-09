@@ -4,7 +4,7 @@
     <NuxtRouteAnnouncer />
     <NavBar />
     <main>
-      <div :class="route.path.split('/').length < 3 ? 'centered-stack-home' : 'centered-stack-blog'">
+      <div :class="className">
         <slot />
       </div>
     </main>
@@ -22,6 +22,17 @@ const {
   t,
   setLocale,
 } = useI18n()
+
+const className = computed(() => {
+  const path = route.path
+  const limit = path.startsWith("/blog/telegram")
+    ? 7
+    : 6
+
+  return path.split("/").length >= limit
+    ? "centered-stack-blog"
+    : "centered-stack-home"
+})
 
 useHead({
   title: t("main.head"),

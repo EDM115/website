@@ -169,7 +169,7 @@ function goBack() {
 
   let end = -1
 
-  if (path.startsWith("/blog/")) {
+  if (path.startsWith("/blog/") && !path.endsWith("/telegram")) {
     end = -4
   }
 

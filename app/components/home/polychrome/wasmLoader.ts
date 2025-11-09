@@ -1,9 +1,4 @@
-export interface PolychromeWasmInstance {
-  memory: WebAssembly.Memory;
-  render(width: number, height: number, time: number, intensity: number, quality: number): number;
-  getBufferPointer(): number;
-  getBufferCapacity(): number;
-}
+import type { PolychromeWasmInstance } from "~/types"
 
 async function instantiate(url: URL): Promise<PolychromeWasmInstance | null> {
   if (typeof WebAssembly === "undefined") {

@@ -1,7 +1,5 @@
 {
   "recommendations": [
-    "Vue.volar",
-    "Zignd.html-css-class-completion",
     "dbaeumer.vscode-eslint",
     "edwinhuish.better-comments-next",
     "formulahendry.auto-rename-tag",
@@ -13,6 +11,7 @@
     "pflannery.vscode-versionlens",
     "pranaygp.vscode-css-peek",
     "wix.vscode-import-cost",
-    "yoavbls.pretty-ts-errors"
+    "yoavbls.pretty-ts-errors",
+    "Vue.volar"
   ]
 }
