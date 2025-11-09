@@ -217,6 +217,7 @@ export function useBlogPosts(isTelegram = false) {
     return [...merged]
   }
 
+  // skipcq: JS-R1005
   function setFilters(newFilters: Partial<BlogFilters> & { tag?: string | string[] }) {
     let nextFilters: BlogFilters = { ...filters.value }
     let searchWasUpdated = false
