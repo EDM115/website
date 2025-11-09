@@ -577,7 +577,6 @@ function unFocus() {
   &--disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    pointer-events: none;
   }
 
   &--inside-text {

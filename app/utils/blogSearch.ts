@@ -61,8 +61,8 @@ function normalizeTagValue(value: string): string[] {
   }
 
   return trimmed.split(",")
-    .map((tag) => tag.trim()
-      .toLowerCase())
+    .map((tag) => stripWrappingQuotes(tag.trim()))
+    .map((tag) => tag.toLowerCase())
     .filter((tag) => tag.length > 0)
 }
 

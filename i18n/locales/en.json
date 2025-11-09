@@ -5,6 +5,7 @@
     "description": "Some random blog posts that I write when I have time",
     "head": "Blog - EDM115",
     "loading": "Loading...",
+    "tag_filter": "Filter blog posts by the tag {tag}",
     "nav": {
       "previous": "Previous",
       "next": "Next",

@@ -64,6 +64,12 @@
               v-for="tag in post.tags"
               :key="tag"
               class="tag"
+              role="button"
+              tabindex="0"
+              :aria-label="t('blog.tag_filter', { tag })"
+              @click.stop.prevent="handleTagClick(tag)"
+              @keydown.enter.stop.prevent="handleTagClick(tag)"
+              @keydown.space.stop.prevent="handleTagClick(tag)"
             >{{ tag }}</span>
           </div>
         </NuxtLink>
@@ -81,28 +87,33 @@
       v-if="pagination.totalPages > 1"
       class="pagination"
     >
-      <button
+      <UiButton
+        color="primary"
         :disabled="pagination.page === 1"
-        class="pagination-btn"
+        :prepend-icon="mdiChevronLeft"
         @click="goToPage(pagination.page - 1)"
       >
         {{ t("blog.nav.previous") }}
-      </button>
+      </UiButton>
       <span class="pagination-info">
         {{ t("blog.nav.range", { page: pagination.page, totalPages: pagination.totalPages }) }}
       </span>
-      <button
+      <UiButton
         :disabled="pagination.page === pagination.totalPages"
-        class="pagination-btn"
+        color="primary"
+        :append-icon="mdiChevronRight"
         @click="goToPage(pagination.page + 1)"
       >
         {{ t("blog.nav.next") }}
-      </button>
+      </UiButton>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import mdiChevronLeft from "~icons/mdi/chevron-left"
+import mdiChevronRight from "~icons/mdi/chevron-right"
+
 const props = defineProps<{
   isTelegram: boolean;
 }>()
@@ -169,6 +180,29 @@ function handleClearFilters() {
   searchQuery.value = ""
   clearFilters()
   router.push({ query: {} })
+}
+
+function handleTagClick(tag: string) {
+  const token = formatTagToken(tag)
+
+  searchQuery.value = `tag:${token}`
+  setFilters({ search: searchQuery.value })
+  updateURL()
+}
+
+function formatTagToken(tag: string) {
+  const trimmed = tag.trim()
+
+  if (!trimmed) {
+    return ""
+  }
+
+  const needsQuotes = (/\s|,/).test(trimmed)
+  const escaped = trimmed.replaceAll("\"", "\\\"")
+
+  return needsQuotes
+    ? `"${escaped}"`
+    : escaped
 }
 
 function highlightText(text: string, searchTerm: string) {
@@ -308,15 +342,21 @@ onMounted(async () => {
 
 .tag {
   padding: 0.25rem 0.75rem;
-  background: color-mix(in srgb, var(--primary) 15%, transparent);
-  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+  color: var(--text);
   border-radius: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
   transition: background 0.2s;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 75%, transparent);
+  }
 
   &:hover {
-    background: color-mix(in srgb, var(--primary) 25%, transparent);
+    background: color-mix(in srgb, var(--primary) 55%, transparent);
   }
 }
 
@@ -327,32 +367,6 @@ onMounted(async () => {
   gap: 1rem;
   margin-top: 2rem;
   padding: 1rem;
-}
-
-.pagination-btn {
-  padding: 0.5rem 1rem;
-  background: var(--primary);
-  color: var(--bg);
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s;
-
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
 }
 
 .pagination-info {

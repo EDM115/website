@@ -5,6 +5,7 @@
     "description": "Quelques articles de blog random que j'écris quand j'ai du temps",
     "head": "Blog - EDM115",
     "loading": "Chargement...",
+    "tag_filter": "Filtrer les articles par le tag {tag}",
     "no_results": "Aucun article de blog ne correspond à votre recherche",
     "nav": {
       "previous": "Précédent",

@@ -1,6 +1,6 @@
 <template>
   <div class="ui-showcase">
-    <div class="ui-showcase--main">
+    <article class="ui-showcase--main">
       <NuxtLink
         v-if="link && image"
         class="ui-showcase--image-link"
@@ -48,7 +48,7 @@
           <slot name="description" />
         </div>
       </div>
-    </div>
+    </article>
 
     <div
       v-if="actions"
