@@ -57,7 +57,7 @@ function extractExcerpt(content: string, maxLength = 200): string {
   }
 
   return firstParagraph.length >= firstNCharacters.length
-    ? firstParagraph + "..."
+    ? `${firstParagraph}...`
     : firstNCharacters
 }
 
@@ -302,12 +302,12 @@ async function generateBlogData() {
 
   await writeFile(
     join(outputDir, "blog-posts.json"),
-    JSON.stringify(blogPosts, null, 2) + "\n",
+    `${JSON.stringify(blogPosts, null, 2)}\n`,
   )
 
   await writeFile(
     join(outputDir, "telegram-posts.json"),
-    JSON.stringify(telegramPosts, null, 2) + "\n",
+    `${JSON.stringify(telegramPosts, null, 2)}\n`,
   )
 
   console.log(`✅ Generated ${blogPosts.length} blog posts metadata`)
