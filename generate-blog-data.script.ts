@@ -21,7 +21,7 @@ function extractTitle(content: string): string {
 
 function extractExcerpt(content: string, maxLength = 200): string {
   // Remove markdown formatting
-  let text = content
+  const text = content
     // Remove headers
     .replace(/^#+\s+/gm, "")
     // Remove images
