@@ -17,10 +17,7 @@ export function useBlogPosts(isTelegram = false) {
   const filters = ref<BlogFilters>({})
   const currentPage = ref(1)
   const perPage = ref(10)
-
-  const postsJSONPath = isTelegram
-    ? "~/assets/data/telegram-posts.json"
-    : "~/assets/data/blog-posts.json"
+  const toComparableTimestampCache = new Map<string, number>()
 
   const pagination = computed<PaginationInfo>(() => ({
     page: currentPage.value,
@@ -29,29 +26,97 @@ export function useBlogPosts(isTelegram = false) {
     totalPages: Math.ceil(filteredPosts.value.length / perPage.value),
   }))
 
-  async function loadPosts() {
-    loading.value = true
-    error.value = null
+  function getDaysInMonth(year: number, month: number): number {
+    return new Date(Date.UTC(year, month, 0))
+      .getUTCDate()
+  }
 
-    try {
-      allPosts.value = isTelegram
-        ? telegramPosts
-        : blogPosts
-      applyFilters()
-    } catch (e) {
-      error.value = e instanceof Error
-        ? e.message
-        : "Failed to load posts"
-      console.error("Error loading posts :", e)
-    } finally {
-      loading.value = false
+  function parseDateSegments(dateInput: string): {
+    year: number; month: number; day: number;
+  } | null {
+    const match = dateInput.match(/^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/)
+
+    if (!match) {
+      return null
     }
+
+    const year = Number.parseInt(match[1]!, 10)
+
+    if (Number.isNaN(year)) {
+      return null
+    }
+
+    const month = match[2] !== undefined
+      ? Number.parseInt(match[2], 10)
+      : 1
+    const day = match[3] !== undefined
+      ? Number.parseInt(match[3], 10)
+      : 1
+
+    if (Number.isNaN(month) || month < 1 || month > 12) {
+      return null
+    }
+
+    const maxDay = getDaysInMonth(year, month)
+
+    if (Number.isNaN(day) || day < 1 || day > maxDay) {
+      return null
+    }
+
+    return {
+      year,
+      month,
+      day,
+    }
+  }
+
+  function toComparableTimestamp(dateInput: string): number | null {
+    const key = dateInput.trim()
+
+    if (!key) {
+      return null
+    }
+
+    const cached = toComparableTimestampCache.get(key)
+
+    if (cached !== undefined) {
+      return Number.isNaN(cached)
+        ? null
+        : cached
+    }
+
+    const segments = parseDateSegments(key)
+
+    if (!segments) {
+      toComparableTimestampCache.set(key, Number.NaN)
+
+      return null
+    }
+
+    const timestamp = Date.UTC(segments.year, segments.month - 1, segments.day)
+
+    toComparableTimestampCache.set(key, timestamp)
+
+    return timestamp
+  }
+
+  function applyPagination() {
+    const start = (currentPage.value - 1) * perPage.value
+    const end = start + perPage.value
+
+    paginatedPosts.value = filteredPosts.value.slice(start, end)
   }
 
   function applyFilters() {
     let posts = [...allPosts.value]
+    const beforeTimestamp = filters.value.before
+      ? toComparableTimestamp(filters.value.before)
+      : null
+    const afterTimestamp = filters.value.after
+      ? toComparableTimestamp(filters.value.after)
+      : null
 
-    if (filters.value.search) {
+    if (filters.value.search && filters.value.search.length >= 3) {
       const searchLower = filters.value.search.toLowerCase()
       const exactSearch = searchLower.startsWith("\"") && searchLower.endsWith("\"")
       const searchTerm = exactSearch
@@ -69,9 +134,8 @@ export function useBlogPosts(isTelegram = false) {
           return searchableText.includes(searchTerm)
         }
 
-        // Fuzzy search : split into words and check each (omit words < 3 chars)
+        // Fuzzy search : split into words and check each
         const words = searchTerm.split(/\s+/)
-          .filter((w) => w.length > 2)
 
         return words.some((word) => searchableText.includes(word))
       })
@@ -95,23 +159,62 @@ export function useBlogPosts(isTelegram = false) {
       posts = posts.filter((post) => post.date?.startsWith(filters.value.at!))
     }
 
-    if (filters.value.before) {
-      posts = posts.filter((post) => post.date && post.date < filters.value.before!)
-    }
+    if (beforeTimestamp !== null || afterTimestamp !== null) {
+      posts = posts.filter((post) => {
+        if (!post.date) {
+          return false
+        }
 
-    if (filters.value.after) {
-      posts = posts.filter((post) => post.date && post.date > filters.value.after!)
+        const postTimestamp = toComparableTimestamp(post.date)
+
+        if (postTimestamp === null) {
+          return false
+        }
+
+        if (beforeTimestamp !== null && postTimestamp >= beforeTimestamp) {
+          return false
+        }
+
+        if (afterTimestamp !== null && postTimestamp <= afterTimestamp) {
+          return false
+        }
+
+        return true
+      })
     }
 
     filteredPosts.value = posts
     applyPagination()
   }
 
-  function applyPagination() {
-    const start = (currentPage.value - 1) * perPage.value
-    const end = start + perPage.value
+  function normalizeTagsInput(input: string | string[] | undefined): string[] {
+    if (!input) {
+      return []
+    }
 
-    paginatedPosts.value = filteredPosts.value.slice(start, end)
+    const values = Array.isArray(input)
+      ? input
+      : input.split(",")
+
+    return values.map((tag) => tag.trim()
+      .toLowerCase())
+      .filter((tag) => tag.length > 0)
+  }
+
+  function mergeTags(...tagGroups: Array<string[] | undefined>): string[] {
+    const merged = new Set<string>()
+
+    for (const group of tagGroups) {
+      if (!group?.length) {
+        continue
+      }
+
+      for (const tag of group) {
+        merged.add(tag)
+      }
+    }
+
+    return [...merged]
   }
 
   function setFilters(newFilters: Partial<BlogFilters> & { tag?: string | string[] }) {
@@ -212,6 +315,25 @@ export function useBlogPosts(isTelegram = false) {
     )
   })
 
+  async function loadPosts() {
+    loading.value = true
+    error.value = null
+
+    try {
+      allPosts.value = isTelegram
+        ? telegramPosts
+        : blogPosts
+      applyFilters()
+    } catch (e) {
+      error.value = e instanceof Error
+        ? e.message
+        : "Failed to load posts"
+      console.error("Error loading posts :", e)
+    } finally {
+      loading.value = false
+    }
+  }
+
   return {
     posts: paginatedPosts,
     allPosts,
@@ -222,38 +344,8 @@ export function useBlogPosts(isTelegram = false) {
     pagination,
     hasActiveFilters,
     loadPosts,
-    postsJSONPath,
     setFilters,
     clearFilters,
     setPage,
   }
-}
-
-function normalizeTagsInput(input: string | string[] | undefined): string[] {
-  if (!input) {
-    return []
-  }
-
-  const values = Array.isArray(input)
-    ? input
-    : input.split(",")
-
-  return values.map((tag) => tag.trim().toLowerCase())
-    .filter((tag) => tag.length > 0)
-}
-
-function mergeTags(...tagGroups: Array<string[] | undefined>): string[] {
-  const merged = new Set<string>()
-
-  for (const group of tagGroups) {
-    if (!group?.length) {
-      continue
-    }
-
-    for (const tag of group) {
-      merged.add(tag)
-    }
-  }
-
-  return [...merged]
 }

@@ -49,7 +49,7 @@ const emit = defineEmits<{
 
 const id = useId()
 
-const handleInput = (event: Event) => {
+function handleInput(event: Event) {
   const target = event.target as HTMLInputElement
 
   emit("update:modelValue", target.value)
@@ -91,6 +91,10 @@ const handleInput = (event: Event) => {
 
   &::placeholder {
     color: var(--text-muted);
+  }
+
+  &::-webkit-search-cancel-button {
+    appearance: none;
   }
 }
 </style>

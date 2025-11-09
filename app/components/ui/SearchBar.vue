@@ -11,13 +11,13 @@
         class="search-icon"
         :icon="mdiMagnify"
       />
-      <input
-        :value="modelValue"
-        type="text"
+      <UiTextField
+        class="search-text-field"
+        type="search"
+        :model-value
         :placeholder
-        class="search-input"
-        @input="handleInput"
-      >
+        @update:model-value="handleInput"
+      />
     </div>
 
     <button
@@ -57,10 +57,8 @@ const emit = defineEmits<{
   "clear": [];
 }>()
 
-const handleInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-
-  emit("update:modelValue", target.value)
+function handleInput(value: string) {
+  emit("update:modelValue", value)
 }
 </script>
 
@@ -92,6 +90,14 @@ const handleInput = (event: Event) => {
   position: relative;
   flex: 1;
   min-width: 250px;
+
+  :deep(.search-text-field) {
+    width: 100%;
+  }
+
+  :deep(.search-text-field .text-field-input) {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+  }
 }
 
 .search-icon {
@@ -103,27 +109,6 @@ const handleInput = (event: Event) => {
   height: 1.25rem;
   color: var(--text-muted);
   pointer-events: none;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background: var(--bg);
-  color: var(--text);
-  transition: border-color 0.2s, box-shadow 0.2s;
-
-  &:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
-  }
-
-  &::placeholder {
-    color: var(--text-muted);
-  }
 }
 
 .clear-btn {

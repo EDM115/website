@@ -118,6 +118,13 @@ interface TelegramFileInfo {
 }
 
 type MarkdownModule = { "default": Component }
+
+interface ParsedBlogSearch {
+  term: string;
+  filters: Omit<BlogFilters, "search"> & { tags: string[] };
+}
+
+type DateMode = "before" | "after" | "at"
 // #endregion blog posts
 
 export type {
@@ -139,4 +146,6 @@ export type {
   Frontmatter,
   TelegramFileInfo,
   MarkdownModule,
+  ParsedBlogSearch,
+  DateMode,
 }

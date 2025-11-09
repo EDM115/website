@@ -166,6 +166,8 @@ declare module 'vue' {
     BlogTelegram20220930GoogleOob: typeof import('./components/blog/telegram/2022/09-30-google-oob.md')['default']
     BlogTelegram20220930UnavailableBots: typeof import('./components/blog/telegram/2022/09-30-unavailable-bots.md')['default']
     CookieConsent: typeof import('./components/CookieConsent.vue')['default']
+    HomeBlogList: typeof import('./components/home/BlogList.vue')['default']
+    HomeBlogPost: typeof import('./components/home/BlogPost.vue')['default']
     HomeOpenSourceContributions: typeof import('./components/home/OpenSourceContributions.vue')['default']
     HomePolychromeEffect: typeof import('./components/home/polychrome/Effect.vue')['default']
     HomeProjectPage: typeof import('./components/home/ProjectPage.vue')['default']

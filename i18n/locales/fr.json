@@ -4,9 +4,22 @@
     "clear_search": "Effacer",
     "description": "Quelques articles de blog random que j'écris quand j'ai du temps",
     "head": "Blog - EDM115",
+    "loading": "Chargement...",
     "no_results": "Aucun article de blog ne correspond à votre recherche",
+    "nav": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "range": "Page {page} sur {totalPages}"
+    },
     "search_placeholder": "Rechercher dans les blogs...",
-    "telegram": "Posts du canal Telegram",
+    "telegram": {
+      "description": "Posts Telegram de mon canal ({'@'}EDM115bots)",
+      "head": "Posts Telegram - EDM115",
+      "no_results": "Aucun post Telegram ne correspond à votre recherche",
+      "search_placeholder": "Rechercher dans les posts Telegram...",
+      "title": "Posts Telegram"
+    },
+    "telegram_button": "Posts du canal Telegram",
     "title": "Blog"
   },
   "cookies": {
@@ -98,14 +111,6 @@
     "projects": "Projets réalisés (publics)",
     "title": "Stats",
     "users": "Utilisateurs de mes services (doit encore être actualisé via une API)"
-  },
-  "telegram": {
-    "clear_search": "Effacer",
-    "description": "Posts Telegram de mon canal ({'@'}EDM115bots)",
-    "head": "Posts Telegram - EDM115",
-    "no_results": "Aucun post Telegram ne correspond à votre recherche",
-    "search_placeholder": "Rechercher dans les posts Telegram...",
-    "title": "Posts Telegram"
   },
   "unzip": {
     "about": "À propos",
