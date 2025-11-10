@@ -42,27 +42,27 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time prev
 
 ## Contributing
 Start :
-```bash
+```zsh
 git clone https://github.com/EDM115/website.git && cd website
 pnpm i --frozen-lockfile
-pnpm wasm
+pnpm prebuild
 pnpm dev
 ```
 
 Before commits :
-```bash
+```zsh
 pnpm format
 pnpm lint:fix
 ```
 
 Test builds :
-```bash
+```zsh
 pnpm build
 pnpm start:ssr
 ```
 
 Test the actual rendered builds :
-```bash
+```zsh
 pnpm generate
 pnpm start:ssg
 ```
@@ -78,20 +78,59 @@ pnpm start:ssg
 ---
 
 ### NGINX setup (on my VPS)
-*(assuming that the repo is at `/home/edm115/website` and that it is built)*  
-```bash
-sudo find /home/edm115/website/dist -type d -exec chmod 755 {} \;
-sudo find /home/edm115/website/dist -type f -exec chmod 644 {} \;
-sudo chmod -R 755 /home/edm115/website/dist
-sudo chmod -R 755 /home/edm115/website
+Install NGINX outside of the distro packages (to have the latest version). Ubuntu example : https://nginx.org/en/linux_packages.html#Ubuntu  
+Install the needed dynamic module :
+```zsh
+sudo apt install nginx-module-njs
+```
+Then start it :
+```zsh
+sudo systemctl start nginx
+sudo systemctl enable --now nginx
+```
+In `/etc/nginx/nginx.conf` :
+```nginx
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /run/nginx.pid;
+
+load_module modules/ngx_http_js_module.so;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    include /etc/nginx/sites-available/*;
+}
 ```
 In `/etc/nginx/sites-available/default` :
 ```nginx
+js_import blog from /etc/nginx/js/blog.js;
+js_set $blog_search_redirect blog.blog_redirect;
+
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    # Only if you have a certificate
-    # Don't forget to also run sudo chmod -R 755 /home/edm115/.secure
     ssl_certificate /home/edm115/.secure/cloudflare-origin-server.pem;
     ssl_certificate_key /home/edm115/.secure/cloudflare-origin-server.key;
 
@@ -101,13 +140,27 @@ server {
     include /etc/nginx/mime.types;
     default_type application/octet-stream;
 
+    location ~ '^/blog(?:/telegram)?/\d{4}(?:/\d{2}(?:/\d{2})?)?/?$' {
+        add_header X-Redirect $blog_search_redirect always;
+        if ($blog_search_redirect = "") { return 500; }
+        return 301 $scheme://$host$blog_search_redirect;
+    }
+
     location / {
-        # Redirects to handle the hosted bots
-        # Hackish way to get the subdomains working with one IP
+#        if ($host ~* ^foudre-vps\.) {
+#            proxy_pass http://127.0.0.1:8989;
+#            break;
+#        }
+
         if ($host ~* ^jm-vps\.) {
             proxy_pass http://127.0.0.1:9898;
             break;
         }
+
+#       if ($host ~* ^cursedchess-vps\.) {
+#            proxy_pass http://127.0.0.1:6969;
+#            break;
+#        }
 
         if ($host ~* ^dicewizard-vps\.) {
             proxy_pass http://127.0.0.1:8686;
@@ -126,13 +179,13 @@ server {
 
         if ($host ~* ^maps\.) {
             proxy_pass http://127.0.0.1:27400;
+            break;
         }
 
         if ($host ~* ^senescalade\.) {
             return 301 https://github.com/EDM115-org/Senescalade;
         }
 
-        # Also pass URL params
         if ($host ~* ^next\.) {
             return 301 https://edm115.netlify.app$request_uri;
         }
@@ -142,4 +195,55 @@ server {
         try_files $uri $uri/index.html /index.html;
     }
 }
+```
+In `/etc/nginx/js/blog.js` :
+```javascript
+function pad2(n) { return (n < 10 ? '0' : '') + n; }
+
+function blog_redirect(r) {
+  const uri = (r.uri || '').replace(/\/+$/, ''); // strip trailing slash
+  const m = uri.match(/^\/blog(\/telegram)?\/(\d{4})(?:\/(\d{2})(?:\/(\d{2}))?)?$/);
+  if (!m) {
+    r.warn(`blog_redirect: no match for ${uri}`);
+    return '/blog'; // safe default to avoid empty Location on 3xx
+  }
+
+  const sub = m[1] || '';          // '' or '/telegram'
+  const y   = parseInt(m[2], 10);
+  const mmS = m[3];                // 'MM' or undefined
+  const ddS = m[4];                // 'DD' or undefined
+  const base = `/blog${sub}`;
+
+  if (ddS) {
+    // /YYYY/MM/DD  -> ?search=at:YYYY-MM-DD
+    return `${base}?search=at:${m[2]}-${mmS}-${ddS}`;
+  }
+
+  if (mmS) {
+    // /YYYY/MM     -> ?search=before:YYYY-(MM+1)+after:YYYY-(MM-1)  (with year rollovers)
+    const mm = parseInt(mmS, 10);
+
+    const next = mm === 12 ? { y: y + 1, m: 1  } : { y, m: mm + 1 };
+    const prev = mm === 1  ? { y: y - 1, m: 12 } : { y, m: mm - 1 };
+
+    return `${base}?search=before:${next.y}-${pad2(next.m)}+after:${prev.y}-${pad2(prev.m)}`;
+  }
+
+  // /YYYY         -> ?search=before:(YYYY+1)+after:(YYYY-1)
+  return `${base}?search=before:${y + 1}+after:${y - 1}`;
+}
+
+export default { blog_redirect };
+```
+Finally, set the correct permissions *(assuming that the repo is at `/home/edm115/website` and that it is built)* :
+```zsh
+sudo find /home/edm115/website/dist -type d -exec chmod 755 {} \;
+sudo find /home/edm115/website/dist -type f -exec chmod 644 {} \;
+sudo chmod -R 755 /home/edm115/website/dist
+sudo chmod -R 755 /home/edm115/website
+```
+Test and restart :
+```zsh
+sudo nginx -t
+sudo systemctl restart nginx
 ```

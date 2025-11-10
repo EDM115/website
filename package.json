@@ -71,7 +71,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.21.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -84,25 +84,19 @@
     "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
     "generate": "pnpm prebuild && nuxt generate",
-
     "cleanup": "nuxt cleanup",
-
     "dev": "nuxt dev --no-clear --no-fork",
     "dev:expose": "nuxt dev --no-clear --no-fork --host",
-
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
     "lint:fix:eslint": "eslint --concurrency=auto --fix .",
     "lint:oxlint": "oxlint --type-aware .",
     "lint:fix:oxlint": "oxlint --fix --type-aware .",
-
     "format": "eslint -c eslint.stylistic.config.ts --concurrency=auto --fix .",
-
     "preview": "nuxt preview --port 8000",
     "start:ssr": "node .output/server/index.mjs",
     "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
-
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
