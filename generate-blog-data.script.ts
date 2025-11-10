@@ -10,7 +10,7 @@ import grayMatter from "gray-matter"
 import type {
   BlogPostMeta,
   Frontmatter,
-  TelegramFileInfo,
+  FileInfo,
 } from "./app/types"
 
 function extractTitle(content: string): string {
@@ -101,7 +101,7 @@ function normalizePath(path: string): string {
   return path.replace(/\\/g, "/")
 }
 
-function parseTelegramFilePath(relativePath: string): TelegramFileInfo | null {
+function parseFilePath(relativePath: string): FileInfo | null {
   const normalized = normalizePath(relativePath)
     .replace(/\.md$/, "")
   const [ year, fileName ] = normalized.split("/", 2)
@@ -131,12 +131,8 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   const frontMatterParsed = grayMatter(content)
   const frontmatter = frontMatterParsed.data as Frontmatter
   const markdownContent = frontMatterParsed.content
-
-  // Normalize path for cross-platform compatibility
   const normalizedRelativePath = normalizePath(relativePath)
-  const telegramFileInfo = isTelegram
-    ? parseTelegramFilePath(normalizedRelativePath)
-    : null
+  const fileInfo = parseFilePath(normalizedRelativePath)
 
   // Extract metadata
   const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
@@ -179,15 +175,15 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
 
   let resolvedDate = parsedDate
 
-  if (!resolvedDate && telegramFileInfo) {
-    resolvedDate = `${telegramFileInfo.year}-${telegramFileInfo.month}-${telegramFileInfo.day}`
+  if (!resolvedDate && fileInfo) {
+    resolvedDate = `${fileInfo.year}-${fileInfo.month}-${fileInfo.day}`
   }
 
   let link = ""
 
   if (isTelegram) {
-    if (telegramFileInfo) {
-      link = `/blog/telegram/${telegramFileInfo.year}/${telegramFileInfo.month}/${telegramFileInfo.day}/${telegramFileInfo.slug}`
+    if (fileInfo) {
+      link = `/blog/telegram/${fileInfo.year}/${fileInfo.month}/${fileInfo.day}/${fileInfo.slug}`
     } else if (resolvedDate) {
       const [ year, month, day ] = resolvedDate.split("-")
       const filename = normalizedRelativePath.split("/")
@@ -202,7 +198,9 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
       link = `/blog/telegram/${fallback}`
     }
   } else {
-    if (parsedDate) {
+    if (fileInfo) {
+      link = `/blog/${fileInfo.year}/${fileInfo.month}/${fileInfo.day}/${fileInfo.slug}`
+    } else if (parsedDate) {
       const filename = normalizedRelativePath.split("/")
         .pop()
         ?.replace(/\.md$/, "") || ""
@@ -232,7 +230,6 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
     path: normalizedRelativePath,
     link,
     excerpt,
-    isTelegram,
   }
 }
 

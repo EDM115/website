@@ -6,7 +6,9 @@ meta:
   - name: description
     content: How to (actually) send DTMF on Android without being the default call app
   - name: summary
-    content: This post shows how I implemented a reliable workaround to send DTMF during active cellular calls, using an AccessibilityService to detect the in-call UI, open the dialpad and simulate digit taps. I explain failed approaches, key pitfalls, and a robust final implementation so you can reproduce it in Kotlin (or Java), handy for assistive-tech projects that need remote control of phone calls.
+    content: Discover why sending DTMF tones on Android isn't as straightforward as it seems, and follow me on an adventure to the final workaround I made while developing an app for disabled users as a school project.
+  - name: tags
+    content: tutorial, android, accessibility, kotlin, java, phone
 ---
 
 # How to (actually) send DTMF on Android without being the default call app

@@ -81,7 +81,6 @@ interface BlogPostMeta {
   path: string;
   link: string;
   excerpt: string;
-  isTelegram: boolean;
 }
 
 interface BlogFilters {
@@ -110,7 +109,7 @@ interface Frontmatter {
   tags?: string;
 }
 
-interface TelegramFileInfo {
+interface FileInfo {
   year: string;
   month: string;
   day: string;
@@ -144,7 +143,7 @@ export type {
   PaginationInfo,
   FrontmatterMeta,
   Frontmatter,
-  TelegramFileInfo,
+  FileInfo,
   MarkdownModule,
   ParsedBlogSearch,
   DateMode,

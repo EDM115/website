@@ -3,40 +3,56 @@
     "id": "2025-05-30-how-i-migrated-to-zod-4",
     "title": "How I migrated the company monorepo to Zod v4 during my internship",
     "date": "2025-05-30",
-    "tags": [],
+    "tags": [
+      "tutorial",
+      "typescript",
+      "zod",
+      "migration"
+    ],
     "path": "2025/05-30-how-i-migrated-to-zod-4.md",
     "link": "/blog/2025/05/30/how-i-migrated-to-zod-4",
-    "excerpt": "This article details my experience migrating a company monorepo to Zod v4 during my internship. It covers the challenges faced, the solutions implemented, and practical tips for developers looking to upgrade their Zod usage.",
-    "isTelegram": false
+    "excerpt": "Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples."
   },
   {
     "id": "2025-01-22-how-to-send-dtmf-on-android",
     "title": "How to (actually) send DTMF on Android without being the default call app",
     "date": "2025-01-22",
-    "tags": [],
+    "tags": [
+      "tutorial",
+      "android",
+      "accessibility",
+      "kotlin",
+      "java",
+      "phone"
+    ],
     "path": "2025/01-22-how-to-send-dtmf-on-android.md",
     "link": "/blog/2025/01/22/how-to-send-dtmf-on-android",
-    "excerpt": "This post shows how I implemented a reliable workaround to send DTMF during active cellular calls, using an AccessibilityService to detect the in-call UI, open the dialpad and simulate digit taps. I explain failed approaches, key pitfalls, and a robust final implementation so you can reproduce it in Kotlin (or Java), handy for assistive-tech projects that need remote control of phone calls.",
-    "isTelegram": false
+    "excerpt": "Discover why sending DTMF tones on Android isn't as straightforward as it seems, and follow me on an adventure to the final workaround I made while developing an app for disabled users as a school project."
   },
   {
     "id": "2024-08-20-education-to-pro",
     "title": "How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)",
     "date": "2024-08-20",
-    "tags": [],
+    "tags": [
+      "tutorial",
+      "windows",
+      "education"
+    ],
     "path": "2024/08-20-education-to-pro.md",
     "link": "/blog/2024/08/20/education-to-pro",
-    "excerpt": "A hands-on, personal walkthrough of how I transformed a school-managed Windows Education laptop into a regular, privately controlled Windows machine, covering the migration of files, account changes and cleanup. Packed with practical tips, warnings and troubleshooting notes, it's useful if you kept a school device and want to reclaim it.",
-    "isTelegram": false
+    "excerpt": "A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts, and final touches to ensure full functionality."
   },
   {
     "id": "2022-05-15-google-ending-shared-drives",
     "title": "Google ending Edu shared drives, everything you need to know",
     "date": "2022-05-15",
-    "tags": [],
+    "tags": [
+      "google",
+      "cloud",
+      "storage"
+    ],
     "path": "2022/05-15-google-ending-shared-drives.md",
     "link": "/blog/2022/05/15/google-ending-shared-drives",
-    "excerpt": "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. If you rely on Edu Shared Drives, expect many drives and links to disappear as administrators will face pooled quotas and tighter controls.",
-    "isTelegram": false
+    "excerpt": "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users, and alternative cloud storage solutions."
   }
 ]

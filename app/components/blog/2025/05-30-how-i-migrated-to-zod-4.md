@@ -6,7 +6,9 @@ meta:
   - name: description
     content: How I migrated the company monorepo to Zod v4 during my internship
   - name: summary
-    content: This article details my experience migrating a company monorepo to Zod v4 during my internship. It covers the challenges faced, the solutions implemented, and practical tips for developers looking to upgrade their Zod usage.
+    content: Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples.
+  - name: tags
+    content: tutorial, typescript, zod, migration
 ---
 
 # How I migrated the company monorepo to Zod v4 during my internship

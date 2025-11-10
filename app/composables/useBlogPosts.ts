@@ -307,13 +307,11 @@ export function useBlogPosts(isTelegram = false) {
   }
 
   const hasActiveFilters = computed(() => {
-    return Boolean(
-      filters.value.search
+    return Boolean(filters.value.search
       || filters.value.tags?.length
       || filters.value.before
       || filters.value.after
-      || filters.value.at
-    )
+      || filters.value.at)
   })
 
   async function loadPosts() {
