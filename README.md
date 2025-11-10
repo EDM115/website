@@ -131,6 +131,8 @@ js_set $blog_search_redirect blog.blog_redirect;
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
+    # Only if you have a certificate
+    # Don't forget to also run sudo chmod -R 755 /home/edm115/.secure
     ssl_certificate /home/edm115/.secure/cloudflare-origin-server.pem;
     ssl_certificate_key /home/edm115/.secure/cloudflare-origin-server.key;
 
@@ -147,6 +149,8 @@ server {
     }
 
     location / {
+        # Redirects to handle the hosted bots
+        # Hackish way to get the subdomains working with one IP
 #        if ($host ~* ^foudre-vps\.) {
 #            proxy_pass http://127.0.0.1:8989;
 #            break;
@@ -186,6 +190,7 @@ server {
             return 301 https://github.com/EDM115-org/Senescalade;
         }
 
+        # Also pass URL params
         if ($host ~* ^next\.) {
             return 301 https://edm115.netlify.app$request_uri;
         }

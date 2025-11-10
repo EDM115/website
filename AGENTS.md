@@ -75,7 +75,6 @@ You don't need to worry about the other commands
 - Do not manually import Vue/Nuxt/VueUse components/composables/directives/functions. Nuxt auto imports them. Components naming follows the folder structure, so `app/components/ui/Button.vue` is auto-imported as `UiButton`.
 - Always prefer using VueUse utilities over raw HTML/JavaScript when possible. They are already typed and tested, and will save you time.
 - Always take performance into account. The website should be as fast as possible, so avoid heavy computations on the main thread, large dependencies, unnecessary re-renders, ... Offload to workers when you have to make heavy tasks, process in parallel with async, and check the oxlint outputs since they might report performance issues. Optimization is key.
-- Do not remove the empty lines in `package.json`, they serve to separate scripts for better readability.
 
 ## Testing
 To test your changes, the easiest way is to run a typecheck first (`pnpm typecheck`). This will catch most errors.  
