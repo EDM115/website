@@ -17,7 +17,7 @@
       <span
         v-show="open"
         ref="tooltipRef"
-        :class="'ui-tooltip'"
+        class="ui-tooltip"
         role="tooltip"
         :style="style"
       >{{ text }}</span>
