@@ -96,13 +96,13 @@ function getTooltipRect() {
   const prev = { visibility: el.style.visibility }
 
   el.style.visibility = "hidden"
-  const r = el.getBoundingClientRect()
+  const boundingRect = el.getBoundingClientRect()
 
   el.style.visibility = prev.visibility
 
   return {
-    width: r.width,
-    height: r.height,
+    width: boundingRect.width,
+    height: boundingRect.height,
   }
 }
 
