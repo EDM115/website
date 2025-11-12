@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-07-11T18:24:20Z
+  - name: id
+    content: 23
 ---
 
 #storytime First, I wanna thanks everyone for using my bot :pray:  

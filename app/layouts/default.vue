@@ -25,9 +25,11 @@ const {
 
 const className = computed(() => {
   const path = route.path
-  const limit = path.startsWith("/blog/telegram")
-    ? 7
-    : 6
+  const limit = path.startsWith("/projects")
+    ? 3
+    : path.startsWith("/blog/telegram")
+      ? 7
+      : 6
 
   return path.split("/").length >= limit
     ? "centered-stack-blog"

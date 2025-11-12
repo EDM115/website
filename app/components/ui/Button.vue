@@ -663,7 +663,7 @@ function unFocus() {
   }
 }
 
-.light-mode .ui-btn:not(.ui-btn--frosted):not(.ui-btn--flat) {
+.light .ui-btn:not(.ui-btn--frosted):not(.ui-btn--flat) {
   color: var(--dark-mode-text);
 }
 </style>

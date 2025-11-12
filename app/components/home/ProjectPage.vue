@@ -92,6 +92,7 @@ const {
         { default: mditAttrs },
         { default: mditHljs },
         { default: mditLinkAttributes },
+        { default: brOnEmptyLines },
         { full: emoji },
         { alert },
         { imgLazyload },
@@ -110,6 +111,7 @@ const {
         import("markdown-it-attrs"),
         import("markdown-it-highlightjs"),
         import("markdown-it-link-attributes"),
+        import("~/utils/mdBreaks"),
         import("markdown-it-emoji"),
         import("@mdit/plugin-alert"),
         import("@mdit/plugin-img-lazyload"),
@@ -179,6 +181,7 @@ const {
         .use(spoiler)
         .use(tab, { name: "tabs" })
         .use(tasklist)
+        .use(brOnEmptyLines)
 
       md.core.ruler.push("heading_copy_icon", (state) => {
         const { tokens } = state

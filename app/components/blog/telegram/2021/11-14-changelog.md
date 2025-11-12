@@ -3,11 +3,13 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-11-14T16:56:57Z
+  - name: id
+    content: 39
 ---
 
 #changelog : new in 2.6  
-Minor changes :  
-  
+Minor changes :
+
 • Updated bio :smiling_face_with_three_hearts:  
 • Added all usable commands in the `/` menu ~~(I forgor while creating :skull:)~~  
 Just type / and you'll see them  

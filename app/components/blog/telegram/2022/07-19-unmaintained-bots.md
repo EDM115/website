@@ -3,9 +3,11 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-07-19T13:48:52Z
+  - name: id
+    content: 103
 ---
 
-From **today**
+From **today**  
 bots will become `unmaintained`
 
 They will still work (normally), but don't expect from me to fix bugs/add things

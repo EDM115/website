@@ -3,11 +3,13 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-05-02T19:10:00Z
+  - name: id
+    content: 66
 ---
 
 **MAJOR UPDATE :partying_face:**  
-**Version 3.3.5 [stable]**  
-  
+**Version 3.3.5 [stable]**
+
 *Changes :*  
 • Merged [beta](https://github.com/EDM115/unzip-bot/tree/beta) branch  
 • Added a script to deploy to Heroku when needed ([refer to this](https://status.heroku.com/incidents/2413))  
@@ -22,6 +24,6 @@ meta:
 • Added `/help` and `/about` commands for every user  
 • Updaded `/stats` command for owner with uptame, total download and upload of the day  
 • Added `/me`, `/addthumb` and `/delthumb` commands for everyone (don't work for now)  
-• Added `/user`, `/db`, `/dbdive`, `/redbutton`, `/restart` and `/cleanall` commands for owner (don't work for now)  
-  
+• Added `/user`, `/db`, `/dbdive`, `/redbutton`, `/restart` and `/cleanall` commands for owner (don't work for now)
+
 **Continue to use me, and report errors at [@EDM115](https://t.me/EDM115) to make this bot better** :pleading_face:

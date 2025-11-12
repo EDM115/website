@@ -1,3 +1,4 @@
+import brOnEmptyLines from "./app/utils/mdBreaks"
 import slugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
@@ -205,6 +206,7 @@ export default defineNuxtConfig({
           md.use(spoiler)
           md.use(tab, { name: "tabs" })
           md.use(tasklist)
+          md.use(brOnEmptyLines)
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state
 

@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-25T00:01:00Z
+  - name: id
+    content: 45
 ---
 
 ![yt-bot-auto-delete](/img/blog/2021/12-25-yt-bot-auto-delete.webp)  

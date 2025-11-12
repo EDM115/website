@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-06-10T17:14:04Z
+  - name: id
+    content: 76
 ---
 
 GitHub starts to roll out Achievements

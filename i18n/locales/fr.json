@@ -5,14 +5,15 @@
     "description": "Quelques articles de blog random que j'écris quand j'ai du temps",
     "head": "Blog - EDM115",
     "loading": "Chargement...",
-    "tag_filter": "Filtrer les articles par le tag {tag}",
-    "no_results": "Aucun article de blog ne correspond à votre recherche",
     "nav": {
-      "previous": "Précédent",
       "next": "Suivant",
+      "previous": "Précédent",
       "range": "Page {page} sur {totalPages}"
     },
+    "no_results": "Aucun article de blog ne correspond à votre recherche",
+    "search_help": "Tapez simplement ce que vous cherchez\nVous pouvez mettre du texte entre guillemets pour rechercher une correspondance exacte (\"recherche\")\nVous pouvez rechercher avant ou après une date (before:YYYY-MM-DD, after:YYYY-MM) pour filtrer par date\nIl est aussi possible de rechercher une date spécifique (at:YYYY)\nVous pouvez filtrer par tags en utilisant tag:nom\nPour rechercher plusieurs tags (inclusifs), faites soit tag:nom1,nom2 ou tag:nom1 tag:nom2\nSi un tag contient des espaces, utilisez des guillemets autour",
     "search_placeholder": "Rechercher dans les blogs...",
+    "tag_filter": "Filtrer les articles par le tag {tag}",
     "telegram": {
       "description": "Posts Telegram de mon canal ({'@'}EDM115bots)",
       "head": "Posts Telegram - EDM115",

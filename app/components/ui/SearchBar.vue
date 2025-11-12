@@ -20,19 +20,35 @@
       />
     </div>
 
-    <button
+    <UiButton
       v-if="hasClearButton"
-      class="clear-btn"
+      color="error"
+      class="search-btn search-btn--clear"
+      :prepend-icon="mdiCloseCircleOutline"
+      :text="clearText"
       @click="$emit('clear')"
+    />
+    <UiTooltip
+      :activate-on-click="true"
+      location="bottom"
+      :text="helpText"
     >
-      <UiIcon :icon="mdiCloseCircleOutline" />
-      {{ clearText }}
-    </button>
+      <template #activator="{ props }">
+        <UiButton
+          v-if="showHelp"
+          v-bind="props"
+          color="secondary"
+          class="search-btn search-btn--help"
+          :icon="mdiHelpCircleOutline"
+        />
+      </template>
+    </UiTooltip>
   </div>
 </template>
 
 <script setup lang="ts">
 import mdiCloseCircleOutline from "~icons/mdi/closeCircleOutline"
+import mdiHelpCircleOutline from "~icons/mdi/helpCircleOutline"
 import mdiMagnify from "~icons/mdi/magnify"
 
 interface Props {
@@ -42,14 +58,14 @@ interface Props {
   isSticky?: boolean;
   hasClearButton?: boolean;
   clearText?: string;
+  showHelp?: boolean;
+  helpText?: string;
 }
 
 withDefaults(defineProps<Props>(), {
-  placeholder: "Search...",
-  hasFilters: false,
-  isSticky: false,
-  hasClearButton: false,
-  clearText: "Clear filters",
+  placeholder: "",
+  clearText: "",
+  helpText: "",
 })
 
 const emit = defineEmits<{
@@ -66,7 +82,7 @@ function handleInput(value: string) {
 .ui-search-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: flex-end;
   padding: 1rem;
   border-radius: 0.75rem;
@@ -89,7 +105,6 @@ function handleInput(value: string) {
 .search-input-wrapper {
   position: relative;
   flex: 1;
-  min-width: 250px;
 
   :deep(.search-text-field) {
     width: 100%;
@@ -111,19 +126,9 @@ function handleInput(value: string) {
   pointer-events: none;
 }
 
-.clear-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--error);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
+.search-btn {
   transition: opacity 0.2s, transform 0.2s;
+  border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
 
   &:hover {
     opacity: 0.9;
@@ -132,6 +137,17 @@ function handleInput(value: string) {
 
   &:active {
     transform: translateY(0);
+  }
+
+  &--clear {
+    margin-left: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    height: auto;
+
+    :deep(.ui-btn--inside-text) {
+      font-weight: 600;
+    }
   }
 }
 </style>

@@ -6,6 +6,8 @@
       :has-filters="hasActiveFilters"
       :is-sticky="hasActiveFilters"
       :has-clear-button="hasActiveFilters"
+      :show-help="true"
+      :help-text="t('blog.search_help')"
       :clear-text="t('blog.clear_search')"
       @update:model-value="debouncedSearch"
       @clear="handleClearFilters"

@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-06-28T11:42:16Z
+  - name: id
+    content: 21
 ---
 
 #changelog : new in 2.0  

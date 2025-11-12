@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-12-21T14:23:00Z
+  - name: id
+    content: 43
 ---
 
 ![yt-bot-emojis](/img/blog/2021/12-21-yt-bot-emojis.webp)  

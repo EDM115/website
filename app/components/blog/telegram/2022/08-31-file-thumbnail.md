@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-08-31T16:06:46Z
+  - name: id
+    content: 153
 ---
 
 [26/09] ~~THAT BOT DOWN UNTIL FURTHER NOTICE~~

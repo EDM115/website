@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-06-14T05:03:10Z
+  - name: id
+    content: 9
 ---
 
 #storytime Hmmm… I see a behavior of the bot that isn't coded for it… because of bad use…  

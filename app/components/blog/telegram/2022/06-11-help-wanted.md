@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-06-11T12:15:57Z
+  - name: id
+    content: 77
 ---
 
 oh and if anyone can help me with the `help wanted` issues… it would be super nice 🥺

@@ -14,7 +14,7 @@ export function useCustomTheme() {
     return theme.value === "dark"
   })
 
-  function changeTheme(themeName: "dark" | "light" | "system") {
+  function changeTheme(themeName: "dark" | "light") {
     theme.preference = themeName
   }
 

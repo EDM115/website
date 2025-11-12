@@ -37,7 +37,6 @@ withDefaults(defineProps<Props>(), {
   label: "",
   modelValue: "",
   placeholder: "",
-  disabled: false,
   readonly: false,
 })
 

@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-08-26T22:33:51Z
+  - name: id
+    content: 142
 ---
 
 ### HONESTLY
@@ -13,4 +15,5 @@ meta:
 - Maybe me, not sure 🤔 | 9 votes
 - I would like to, but I'm broke 🙂 | 11 votes
 - Not me 😒 | 5 votes
+
 29 votes

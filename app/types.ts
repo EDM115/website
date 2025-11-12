@@ -99,14 +99,20 @@ interface PaginationInfo {
 }
 
 interface FrontmatterMeta {
-  name: string;
-  content: string;
+  "article:published_time": Date;
+  "description": string;
+  "summary": string;
+  "tags": string;
+  "id": number;
 }
 
+type MetaEntry = { [K in keyof FrontmatterMeta]: {
+  name: K; content: FrontmatterMeta[K];
+} }[keyof FrontmatterMeta]
+
 interface Frontmatter {
-  title?: string;
-  meta?: FrontmatterMeta[];
-  tags?: string;
+  title: string;
+  meta: MetaEntry[];
 }
 
 interface FileInfo {

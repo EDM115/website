@@ -16,7 +16,7 @@
     "@nuxt/fonts": "~0.12.1",
     "@nuxt/image": "~2.0.0",
     "@nuxt/scripts": "~0.13.0",
-    "@nuxtjs/color-mode": "~3.5.2",
+    "@nuxtjs/color-mode": "~4.0.0",
     "@nuxtjs/i18n": "~10.2.0",
     "@nuxtjs/seo": "~3.2.2",
     "@sindresorhus/slugify": "~3.0.0",
@@ -100,5 +100,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.7.0"
+  "version": "2.7.1"
 }

@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-06-29T14:49:00Z
+  - name: id
+    content: 87
 ---
 
 ### How did you discovered me ?
@@ -14,4 +16,5 @@ meta:
 - From my channel (@EDM115bots) | 3 votes
 - Google search | 11 votes
 - Other | 18 votes
+
 185 votes

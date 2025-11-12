@@ -13,15 +13,11 @@ import type {
   FileInfo,
 } from "./app/types"
 
-function extractTitle(content: string): string {
-  const h1Match = content.match(/^#\s+(.+)$/m)
-
-  return h1Match?.[1] || "Untitled"
-}
-
 function extractExcerpt(content: string, maxLength = 200): string {
   // Remove markdown formatting
   const text = content
+    // Remove backslash on escaped markdown characters
+    .replace(/\\([\\`*_{}[\]()#+\-.!])/g, "$1")
     // Remove headers
     .replace(/^#+\s+/gm, "")
     // Remove images
@@ -30,6 +26,8 @@ function extractExcerpt(content: string, maxLength = 200): string {
     .replace(/\*\*(.+?)\*\*/g, "$1")
     // Remove italic
     .replace(/\*(.+?)\*/g, "$1")
+    // Remove strikethrough
+    .replace(/~~(.+?)~~/g, "$1")
     // Remove links
     .replace(/\[(.+?)\]\(.+?\)/g, "$1")
     // Remove code blocks
@@ -38,49 +36,34 @@ function extractExcerpt(content: string, maxLength = 200): string {
     .replace(/`(.+?)`/g, "$1")
     // Remove emoji codes
     .replace(/:\w+:/g, "")
+    // Remove html tags
+    .replace(/<\/?[^>]+(>|$)/g, "")
+    // Replace multiple newlines with a single newline
+    .replace(/\n{2,}/g, "\n")
+    // Replace newlines with spaces
+    .replace(/\n/g, " ")
+    // Replace multiple spaces with a single space
+    .replace(/ {2,}/g, " ")
+    // Trim whitespace
     .trim()
 
-  // Get first paragraph or first N characters
-  const firstParagraph = text.split("\n\n")[0] || ""
-  let firstNCharacters = text.slice(0, maxLength)
-
-  if (firstNCharacters.length < text.length) {
-    firstNCharacters += "..."
-  }
-
-  if (firstNCharacters.length <= maxLength) {
-    return firstNCharacters
-  }
-
-  if (firstParagraph.length <= maxLength) {
-    return firstParagraph
-  }
-
-  return firstParagraph.length >= firstNCharacters.length
-    ? `${firstParagraph}...`
-    : firstNCharacters
+  return text.length > maxLength
+    ? `${text.slice(0, maxLength)}...`
+    : text
 }
 
-function parsePublishedTime(publishedTime: string | Date | number | undefined): {
+function parsePublishedTime(publishedTime: Date | undefined): {
   date: string;
   link: string;
 } {
-  let asISO = ""
-
-  if (typeof publishedTime === "string") {
-    asISO = publishedTime
-  } else if (publishedTime instanceof Date) {
-    asISO = publishedTime.toISOString()
-  } else if (typeof publishedTime === "number") {
-    asISO = new Date(publishedTime)
-      .toISOString()
-  } else {
+  if (!(publishedTime instanceof Date)) {
     return {
       date: "", link: "",
     }
   }
 
-  const match = asISO.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  const match = publishedTime.toISOString()
+    .match(/^(\d{4})-(\d{2})-(\d{2})/)
 
   if (!match) {
     return {
@@ -129,34 +112,22 @@ function parseFilePath(relativePath: string): FileInfo | null {
 async function parseBlogPost(filePath: string, relativePath: string, isTelegram: boolean): Promise<BlogPostMeta> {
   const content = await readFile(filePath, "utf-8")
   const frontMatterParsed = grayMatter(content)
+  // oxlint-disable-next-line no-unsafe-type-assertion
   const frontmatter = frontMatterParsed.data as Frontmatter
   const markdownContent = frontMatterParsed.content
   const normalizedRelativePath = normalizePath(relativePath)
   const fileInfo = parseFilePath(normalizedRelativePath)
 
   // Extract metadata
-  const titleFromFrontmatter = frontmatter.title || extractTitle(markdownContent)
-  const publishedTime = frontmatter.meta?.find((metaItem) => metaItem.name === "article:published_time")?.content as string | Date | number | undefined
-  const summary = frontmatter.meta?.find((metaItem) => metaItem.name === "summary")?.content || ""
+  const publishedTime = frontmatter.meta.find((metaItem) => metaItem.name === "article:published_time")?.content
+  const summary = frontmatter.meta.find((metaItem) => metaItem.name === "summary")?.content || ""
 
-  // Extract tags from frontmatter meta or tags field
+  // Extract tags from frontmatter meta
   let tags: string[] = []
 
-  if (frontmatter.tags) {
-    // Handle tags as string (comma-separated) or array
-    if (typeof frontmatter.tags === "string") {
-      tags = frontmatter.tags.split(",")
-        .map((t) => t.trim())
-        .filter(Boolean)
-    } else if (Array.isArray(frontmatter.tags)) {
-      tags = frontmatter.tags
-    }
-  }
+  const metaTags = frontmatter.meta.find((metaItem) => metaItem.name === "tags")?.content
 
-  // Also check meta for tags field
-  const metaTags = frontmatter.meta?.find((metaItem) => metaItem.name === "tags")?.content
-
-  if (metaTags && typeof metaTags === "string") {
+  if (metaTags) {
     const additionalTags = metaTags.split(",")
       .map((t) => t.trim())
       .filter(Boolean)
@@ -167,11 +138,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   // Parse date and link from published time
   const {
     date: parsedDate, link: dateLink,
-  } = publishedTime
-    ? parsePublishedTime(publishedTime)
-    : {
-        date: "", link: "",
-      }
+  } = parsePublishedTime(publishedTime)
 
   let resolvedDate = parsedDate
 
@@ -215,9 +182,9 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
   }
 
   // Use the description from meta as the title if available
-  const description = frontmatter.meta?.find((metaItem) => metaItem.name === "description")?.content
-  const title = description || titleFromFrontmatter.replace(/ - EDM115 blog$/i, "")
-    .replace(/^EDM115 Telegram blog$/i, "Telegram post")
+  const title = isTelegram
+    ? `#${frontmatter.meta.find((metaItem) => metaItem.name === "id")?.content}`
+    : frontmatter.meta.find((metaItem) => metaItem.name === "description")?.content || frontmatter.title
 
   const excerpt = summary || extractExcerpt(markdownContent, 200)
 

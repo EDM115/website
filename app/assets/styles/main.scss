@@ -55,13 +55,13 @@ main {
 }
 
 :root.theme-transition::view-transition-old(root),
-:root.theme-transition.dark-mode::view-transition-old(root) {
+:root.theme-transition.dark::view-transition-old(root) {
   animation: none;
   animation-fill-mode: both;
   transform-origin: top right;
   z-index: -1;
 }
-:root.theme-transition.dark-mode::view-transition-new(root) {
+:root.theme-transition.dark::view-transition-new(root) {
   animation: scale 0.8s;
   animation-fill-mode: both;
 }
@@ -206,7 +206,7 @@ main {
   color: var(--text) !important;
 }
 
-:root.dark-mode *::selection {
+:root.dark *::selection {
   background: var(--primary) !important;
   color: var(--bg) !important;
 }
@@ -271,7 +271,7 @@ mark {
   color: var(--text);
 }
 
-:root.dark-mode mark {
+:root.dark mark {
   background: var(--primary);
   color: var(--bg);
 }

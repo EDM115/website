@@ -3,14 +3,16 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2022-01-20T19:44:00Z
+  - name: id
+    content: 51
 ---
 
-:man_technologist: **Currently working on an update of my best bot** :man_technologist:  
-  
-[@ytvideodownloaderbyedm115_bot](https://t.me/ytvideodownloaderbyedm115_bot) will be updated to a 3.0 version soon… (it can take up to 5 months so… don't expect it for now :sweat_smile:)  
-  
-<u>Changes (what's planned) :</u>  
-  
+:man_technologist: **Currently working on an update of my best bot** :man_technologist:
+
+[@ytvideodownloaderbyedm115_bot](https://t.me/ytvideodownloaderbyedm115_bot) will be updated to a 3.0 version soon… (it can take up to 5 months so… don't expect it for now :sweat_smile:)
+
+<ins>Changes (what's planned) :</ins>
+
 :white_check_mark: Revamped interface  
 :white_check_mark: More user-friendly, emoji's  
 :white_check_mark: Less buttons (as example, `m4a` format has never been used)  
@@ -30,11 +32,11 @@ meta:
 :white_check_mark: Automatic ban for flooders  
 :white_check_mark: No premium plans  
 :white_check_mark: Open-source code  
-:white_check_mark: Old code of the bot will be moved to another @  
-  
-<u>What will maybe come with the new version :</u>  
-  
+:white_check_mark: Old code of the bot will be moved to another @
+
+<ins>What will maybe come with the new version :</ins>
+
 :grey_question: Adding Dailymotion, Vimeo, etc… support  
-:grey_question: Improving speed (×2)  
-  
+:grey_question: Improving speed (×2)
+
 **Follow to keep you up to date…** :nerd_face:

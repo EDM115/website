@@ -3,6 +3,8 @@ title: EDM115 Telegram blog
 meta:
   - name: article:published_time
     content: 2021-06-13T15:17:43Z
+  - name: id
+    content: 6
 ---
 
 #storytime Inutile backstory :  
