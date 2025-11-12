@@ -31,10 +31,10 @@ jobs:
       - name: "Prepare the project for edm115.eu.org"
         run: |
           sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
+          sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           sed -i 's|client: true|client: false|g' nuxt.config.ts
           sed -i 's|server: true|server: false|g' nuxt.config.ts
           sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
-          sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           # Avoid bundling the resume files since they balloon the size by x8
           sed -i 's|/docs|https://edm115/docs|g' app/components/home/Resume.vue
           rm -f public/docs/CV_*.pdf
@@ -42,6 +42,9 @@ jobs:
 
       - name: "Build for edm115.eu.org"
         run: pnpm prebuild && pnpm nuxt generate --preset static
+
+      - name: "Cleanup build"
+        run: find ./.output/public -type f \( -name "*.gz" -o -name "*.br" \) -delete
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v5
