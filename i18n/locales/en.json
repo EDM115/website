@@ -11,7 +11,7 @@
       "range": "Page {page} of {totalPages}"
     },
     "no_results": "No blog posts found matching your search",
-    "search_help": "Just type what you're looking for\nYou can quote text to search for an exact match (\"search\")\nYou can search before or after a date (before:YYYY-MM-DD, after:YYYY-MM)\nIt is also possible to search for a specific date (at:YYYY)\nYou can filter by tags using tag:name\nTo search for multiple tags (inclusive), either do tag:name1,name2 or tag:name1 tag:name2\nIf a tag has spaces, use quotes around it",
+    "search_help": "Just type what you're looking for, 3 characters minimum\nYou can quote text to search for an exact match (\"search\")\nYou can search before or after a date (before:YYYY-MM-DD, after:YYYY-MM)\nIt is also possible to search for a specific date (at:YYYY)\nYou can filter by tags using tag:name\nTo search for multiple tags (inclusive), either do tag:name1,name2 or tag:name1 tag:name2\nIf a tag has spaces, use quotes around it",
     "search_placeholder": "Search blog posts...",
     "tag_filter": "Filter blog posts by the tag {tag}",
     "telegram": {
