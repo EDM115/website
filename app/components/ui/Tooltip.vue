@@ -194,7 +194,7 @@ function updatePosition() {
   }
 
   // 3) shift only on the cross-axis to keep it next to the activator
-  let {
+  const {
     x, y,
   } = clampAxisFor(location.value, candidate.x, candidate.y, candidate.tw, candidate.th)
 
