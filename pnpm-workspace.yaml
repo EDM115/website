@@ -6,14 +6,6 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-overrides:
-  "@vue/devtools-api": ^8.0.3
-  "@vue/devtools-core": ^8.0.3
-  "@vue/devtools-kit": ^8.0.3
-  "@vue/devtools-shared": ^8.0.3
-  magicast: ^0.5.1
-#  vite: npm:rolldown-vite@7.1.20
-
 patchedDependencies:
   "@mdit/plugin-alert@0.22.3": patches/@mdit__plugin-alert@0.22.3.patch
   "@mdit/plugin-align@0.22.2": patches/@mdit__plugin-align@0.22.2.patch
@@ -30,9 +22,6 @@ patchedDependencies:
   markdown-it-anchor@9.2.0: patches/markdown-it-anchor@9.2.0.patch
   markdown-it-highlightjs@4.2.0: patches/markdown-it-highlightjs@4.2.0.patch
   unplugin-vue-markdown@29.2.0: patches/unplugin-vue-markdown@29.2.0.patch
-
-publicHoistPattern:
-  - nuxt-schema-org
 
 resolutionMode: highest
 

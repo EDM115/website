@@ -57,6 +57,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/eslint",
     "@nuxt/fonts",
+    "@nuxt/hints",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
@@ -68,8 +69,8 @@ export default defineNuxtConfig({
   ],
   ssr: true,
   devtools: {
-    enabled: false,
-    timeline: { enabled: false },
+    enabled: true,
+    timeline: { enabled: true },
   },
   app: {
     baseURL: "/",
@@ -330,7 +331,7 @@ export default defineNuxtConfig({
       subsets: ["latin"],
       weights: ["300 700"],
     },
-    devtools: false,
+    devtools: true,
     processCSSVariables: true,
     provider: "google",
   },
