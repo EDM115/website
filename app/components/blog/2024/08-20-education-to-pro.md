@@ -6,7 +6,7 @@ meta:
   - name: description
     content: How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
   - name: summary
-    content: A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts, and final touches to ensure full functionality.
+    content: A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality.
   - name: tags
     content: tutorial, windows, education
 ---

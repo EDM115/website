@@ -40,7 +40,7 @@
     ],
     "path": "2024/08-20-education-to-pro.md",
     "link": "/blog/2024/08/20/education-to-pro",
-    "excerpt": "A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts, and final touches to ensure full functionality."
+    "excerpt": "A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality."
   },
   {
     "id": "2022-05-15-google-ending-shared-drives",
@@ -53,6 +53,6 @@
     ],
     "path": "2022/05-15-google-ending-shared-drives.md",
     "link": "/blog/2022/05/15/google-ending-shared-drives",
-    "excerpt": "Google is ending its Education Shared Drives unlimited-storage offering as part of a broader storage-policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users, and alternative cloud storage solutions."
+    "excerpt": "Google is ending its Education Shared Drives unlimited storage offering as part of a broader storage policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users and alternative cloud storage solutions."
   }
 ]

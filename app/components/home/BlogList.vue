@@ -333,6 +333,7 @@ onMounted(async () => {
   margin: 0 0 1rem;
   line-height: 1.6;
   color: var(--text);
+  text-wrap: balance;
 }
 
 .post-tags {
