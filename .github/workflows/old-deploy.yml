@@ -37,8 +37,11 @@ jobs:
           sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
           # Avoid bundling the resume files since they balloon the size by x8
           sed -i 's|/docs|https://edm115/docs|g' app/components/home/Resume.vue
+          # Also redirect blog files
+          find app/components/blog -type f -print0 | xargs -0 sed -i 's!\](/docs!\](https://edm115/docs!g'
           rm -f public/docs/CV_*.pdf
           rm -f public/docs/Resume_*.pdf
+          rm -fr public/docs/blog
 
       - name: "Build for edm115.eu.org"
         run: pnpm prebuild && pnpm nuxt generate --preset static
