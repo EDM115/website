@@ -8,11 +8,11 @@ meta:
 ---
 
 back to school  
-with my scholarship, I will be able to buy a computer (finally 😭) and pay myself things like bills (as I'm 18 y/o)  
+with my scholarship, I will be able to buy a computer (finally :sob:) and pay myself things like bills (as I'm 18 y/o)  
 however, this money is for my studies and the times I'll see my gf. not for fun or bots
 will see how I can manage this
 
-Btw, I'm opening donations 🥳  
+Btw, I'm opening donations :partying_face:  
 regarding to [this](https://t.me/EDM115bots/142), some people are ready to do it  
 so lemme give you some ways to donate :
 

@@ -18,7 +18,7 @@ I'm also thinking about self-hosting the bots, but the workload may not be compa
 
 It's a R.I.P for the moment, and maybe it will be a oof later
 
-(btw everyone's talking about it 🙂👇  
+(btw everyone's talking about it :slightly_smiling_face::point_down:  
 https://t.me/OpenFilesX/175  
 https://t.me/c/1708866746/677  
 https://t.me/GautamS_Mirror/345  
@@ -39,4 +39,4 @@ https://t.me/BotsByBk/28
 https://t.me/StarkBots/228  
 https://t.me/ReyBots_support/444  
 https://t.me/FlixBots/8  
-…sed 🥲)
+…sed :smiling_face_with_tear:)

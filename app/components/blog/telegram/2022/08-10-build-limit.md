@@ -9,4 +9,4 @@ meta:
 
 ![build-limit](/img/blog/2022/08-10-build-limit.webp)  
 ![build-limit-2](/img/blog/2022/08-10-build-limit-2.webp)  
-didn't knew a limit exists… 😐
+didn't knew a limit exists… :neutral_face:

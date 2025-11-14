@@ -28,6 +28,8 @@ function extractExcerpt(content: string, maxLength = 200): string {
     .replace(/\*(.+?)\*/g, "$1")
     // Remove strikethrough
     .replace(/~~(.+?)~~/g, "$1")
+    // Remove spoilers (and their content)
+    .replace(/!!(.+?)!!/g, "")
     // Remove links
     .replace(/\[(.+?)\]\(.+?\)/g, "$1")
     // Remove code blocks
@@ -109,7 +111,11 @@ function parseFilePath(relativePath: string): FileInfo | null {
   }
 }
 
-async function parseBlogPost(filePath: string, relativePath: string, isTelegram: boolean): Promise<BlogPostMeta> {
+async function parseBlogPost(
+  filePath: string,
+    relativePath: string,
+    isTelegram: boolean
+): Promise<{ post: BlogPostMeta; publishedTime: Date }> {
   const content = await readFile(filePath, "utf-8")
   const frontMatterParsed = grayMatter(content)
   // oxlint-disable-next-line no-unsafe-type-assertion
@@ -188,7 +194,7 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
 
   const excerpt = summary || extractExcerpt(markdownContent, 200)
 
-  return {
+  const post = {
     id: normalizedRelativePath.replace(/\.md$/, "")
       .replace(/\//g, "-"),
     title,
@@ -198,13 +204,15 @@ async function parseBlogPost(filePath: string, relativePath: string, isTelegram:
     link,
     excerpt,
   }
+
+  return { post, publishedTime: publishedTime instanceof Date ? publishedTime : new Date(0) }
 }
 
-async function scanDirectory(
+async function scanDirectoryWithTime(
   baseDir: string,
   subDir = "",
   isTelegram = false,
-): Promise<BlogPostMeta[]> {
+): Promise<{ post: BlogPostMeta; publishedTime: Date }[]> {
   const currentDir = join(baseDir, subDir)
 
   try {
@@ -214,7 +222,7 @@ async function scanDirectory(
       const entryPath = join(subDir, entry.name)
 
       if (entry.isDirectory()) {
-        return await scanDirectory(baseDir, entryPath, isTelegram)
+        return await scanDirectoryWithTime(baseDir, entryPath, isTelegram)
       }
 
       if (entry.isFile() && entry.name.endsWith(".md")) {
@@ -235,6 +243,21 @@ async function scanDirectory(
   }
 }
 
+async function scanDirectory(
+  baseDir: string,
+  subDir = "",
+  isTelegram = false,
+): Promise<BlogPostMeta[]> {
+  const postsWithTime = await scanDirectoryWithTime(baseDir, subDir, isTelegram)
+
+  // Sort antichronologically by publish time
+  postsWithTime.sort(
+    (a, b) => b.publishedTime.getTime() - a.publishedTime.getTime(),
+  )
+
+  return postsWithTime.map(({ post }) => post)
+}
+
 async function generateBlogData() {
   console.log("🔄️ Generating blog metadata...\n")
 
@@ -248,21 +271,6 @@ async function generateBlogData() {
 
   // Get telegram posts
   const telegramPosts = await scanDirectory(telegramDir, "", true)
-
-  // Sort posts by date (antichronological)
-  blogPosts.sort((a, b) => {
-    const dateA = a.date || ""
-    const dateB = b.date || ""
-
-    return dateB.localeCompare(dateA)
-  })
-
-  telegramPosts.sort((a, b) => {
-    const dateA = a.date || ""
-    const dateB = b.date || ""
-
-    return dateB.localeCompare(dateA)
-  })
 
   await writeFile(
     join(outputDir, "blog-posts.json"),

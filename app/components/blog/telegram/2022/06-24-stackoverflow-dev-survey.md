@@ -7,6 +7,6 @@ meta:
     content: 84
 ---
 
-StackOverflow’s 2022 Developer Survey results are here 🥳
+StackOverflow’s 2022 Developer Survey results are here :partying_face:
 
 https://survey.stackoverflow.co/2022

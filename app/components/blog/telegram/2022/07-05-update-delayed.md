@@ -8,4 +8,4 @@ meta:
 ---
 
 Reward delayed by 1 week due to personal problems  
-sorry 👉👈
+sorry :point_right::point_left:

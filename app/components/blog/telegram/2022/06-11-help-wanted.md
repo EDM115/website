@@ -7,6 +7,6 @@ meta:
     content: 77
 ---
 
-oh and if anyone can help me with the `help wanted` issues… it would be super nice 🥺
+oh and if anyone can help me with the `help wanted` issues… it would be super nice :pleading_face:
 
 https://github.com/EDM115/unzip-bot/issues

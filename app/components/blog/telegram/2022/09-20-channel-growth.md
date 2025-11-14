@@ -8,5 +8,5 @@ meta:
 ---
 
 ![channel-growth](/img/blog/2022/09-20-channel-growth.webp)  
-stonks 📈  
+stonks :chart_with_upwards_trend:  
 *(channel insights)*

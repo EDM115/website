@@ -8,4 +8,4 @@ meta:
 ---
 
 ![wrong-way](/img/blog/2022/08-29-wrong-way.webp)  
-Wrong way boy 🛑♿ (very rigid AI)
+Wrong way boy :stop_sign::wheelchair: (very rigid AI)

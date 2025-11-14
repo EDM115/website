@@ -12,7 +12,7 @@ meta:
 Visible changes on user side :  
 • /me works  
 • Error messages directly sent in logs  
-• Typed wrong `/command` ? **Edit** your message, bot will handle it as a new one ☺️  
+• Typed wrong `/command` ? **Edit** your message, bot will handle it as a new one :relaxed:  
 • Added logging (finally)  
 • A lof of commands can now be **done everywhere**  
 • Now handles **REPLY_MARKUP_TOO_LONG** error  
@@ -41,4 +41,4 @@ Visible changes on user side :
 • Empty keyboard buttons are side to side  
 
 **Track all changes from v3 in the [changelog](https://github.com/EDM115/unzip-bot/tree/beta/changelog.md)**  
-Follow @EDM115bots for more 🥰
+Follow @EDM115bots for more :smiling_face_with_three_hearts:

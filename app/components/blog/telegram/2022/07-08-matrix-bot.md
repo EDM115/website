@@ -8,7 +8,7 @@ meta:
 ---
 
 ![matrix-bot](/img/blog/2022/07-08-matrix-bot.webp)  
-wait what 😳  
+wait what :flushed:  
 the bot just added itself to the database
 
 Welcome to the Matrix, Neo…

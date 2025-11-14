@@ -9,7 +9,7 @@ meta:
 
 ### How did you discovered me ?
 
-- By Telegram search 🔍 | 90 votes
+- By Telegram search :mag: | 90 votes
 - Repo on GitHub | 28 votes
 - Recommended by a friend | 13 votes
 - You know the owner (@EDM115) | 22 votes

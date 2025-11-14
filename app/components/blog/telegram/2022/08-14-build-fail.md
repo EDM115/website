@@ -9,7 +9,7 @@ meta:
 
 https://nekobin.com/xikizanexi
 
-In short, Heroku just failed to build Arch Linux 😂
+In short, Heroku just failed to build Arch Linux :joy:
 
 How ?  
 Process goes to sleep during deployment… so it never ended
@@ -17,4 +17,4 @@ Process goes to sleep during deployment… so it never ended
 It was a manual deployment from Heroku dashboard, linked to GitHub repo
 
 Then ?  
-Deploying showed errors, and app got unlinked from repo 🙂
+Deploying showed errors, and app got unlinked from repo :slightly_smiling_face:

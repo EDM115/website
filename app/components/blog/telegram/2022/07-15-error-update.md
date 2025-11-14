@@ -15,4 +15,4 @@ but when it fails to edit, and sends several messages [like here](/img/blog/2022
 
 Will try to apply a hotfix for tonight/tomorrow
 
-Sorry for the inconveniences 🥺
+Sorry for the inconveniences :pleading_face:

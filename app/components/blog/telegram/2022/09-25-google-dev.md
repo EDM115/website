@@ -10,4 +10,4 @@ meta:
 Successfully created Google Developer Profile  
 it is 25+5$ wasted ?  
 for now, probably  
-but I will use it later, currently I need to learn more Java then Kotlin 👨‍💻
+but I will use it later, currently I need to learn more Java then Kotlin :man_technologist:

@@ -8,10 +8,10 @@ meta:
 ---
 
 Release of v4 will be delayed by a bit  
-Too much new features to add 🥵
+Too much new features to add :hot_face:
 
 • Bug fixing  
 • File splitting  
 • Cancel task  
 • Thumbnail support  
-And much more 😘
+And much more :kissing_heart:

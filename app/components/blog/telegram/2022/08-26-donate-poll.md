@@ -11,9 +11,9 @@ meta:
 ### Who would donate to keep the bots alive (100% of the funds would go only for servers and keeping bots alive, extra money given back)
 ### btw no ideas of the potential costs, just asking for now
 
-- Me 🥺 obviously | 4 votes
-- Maybe me, not sure 🤔 | 9 votes
-- I would like to, but I'm broke 🙂 | 11 votes
-- Not me 😒 | 5 votes
+- Me :pleading_face: obviously | 4 votes
+- Maybe me, not sure :thinking: | 9 votes
+- I would like to, but I'm broke :slightly_smiling_face: | 11 votes
+- Not me :unamused: | 5 votes
 
 29 votes

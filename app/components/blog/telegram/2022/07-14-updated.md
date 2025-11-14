@@ -8,4 +8,4 @@ meta:
 ---
 
 ![updated](/img/blog/2022/07-14-updated.webp)  
-lmao, check the `updated` times 🙈
+lmao, check the `updated` times :see_no_evil:

@@ -22,7 +22,7 @@ INFO - unzipper - MainThread - ['/app/Downloaded/splitted/854158484/.zip00', '/a
 ERROR - unzipper - MainThread - [Errno 2] No such file or directory: '/app/Downloaded/854158484/extracted'
 ```
 
-Still working on the file split... 💪
+Still working on the file split... :muscle:
 
-*edit : will open the feature on 800 users 🤓*  
+*edit : will open the feature on 800 users :nerd_face:*  
 *not 100% ready yet*

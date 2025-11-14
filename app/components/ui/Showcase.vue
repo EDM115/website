@@ -104,7 +104,7 @@ defineProps<{
     align-items: center;
     gap: .75rem;
 
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       flex-direction: column;
     }
   }
@@ -128,7 +128,7 @@ defineProps<{
     flex-direction: column;
     min-width: 0;
 
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       align-items: center;
     }
   }

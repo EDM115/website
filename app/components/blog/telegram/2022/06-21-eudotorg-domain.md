@@ -18,7 +18,7 @@ Requested `eu.org` domain
 ↳ `CNAME` records are not allowed at the zone apex (`RFC 1034`), so `CNAME` flattening is applied by `CloudFlare`. They change the `CNAME` into an `A` and `AAAA` record (by retrieving IPv4 and IPv6 adresses). Problem : they can't be retrieved  
 ↳ `CNAME` record existing but invalid, so not allowed by `000webhost`
 
-↳ And now I'm stuck 💀 Dunno what to do. Either changing the `NS` temporarily ? Using `CNAME` or even `Page Rules` to host everything into `workers.dev` or even `pages.dev` ? Having my own `Apache` server hosted somewhere ?  
-I desperately need help, if anyone can help me, pls PM at @EDM115 🛐🥺❤️
+↳ And now I'm stuck :skull: Dunno what to do. Either changing the `NS` temporarily ? Using `CNAME` or even `Page Rules` to host everything into `workers.dev` or even `pages.dev` ? Having my own `Apache` server hosted somewhere ?  
+I desperately need help, if anyone can help me, pls PM at @EDM115 :place_of_worship::pleading_face::heart:
 
 *edit :* now working perfectly, will provide help to anyone needing

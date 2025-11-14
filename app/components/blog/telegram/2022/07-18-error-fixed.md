@@ -7,6 +7,6 @@ meta:
     content: 101
 ---
 
-`ENTITY_BOUNDS_INVALID` error is fixed ✅
+`ENTITY_BOUNDS_INVALID` error is fixed :white_check_mark:
 
 You can use the bot normally now

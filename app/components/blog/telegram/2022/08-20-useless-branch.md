@@ -8,4 +8,4 @@ meta:
 ---
 
 ![useless-branch](/img/blog/2022/08-20-useless-branch.webp)  
-😂
+:joy:

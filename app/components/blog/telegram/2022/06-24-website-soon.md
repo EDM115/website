@@ -8,6 +8,6 @@ meta:
 ---
 
 ![website-soon](/img/blog/2022/06-24-website-soon.webp)  
-Website coming soon 😃
+Website coming soon :smiley:
 
-Why searching for an FTP client on Android when you have Cx File Explorer… 😏
+Why searching for an FTP client on Android when you have Cx File Explorer… :smirk:

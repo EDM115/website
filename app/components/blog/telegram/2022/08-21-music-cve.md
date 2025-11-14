@@ -7,7 +7,7 @@ meta:
     content: 134
 ---
 
-[Music Video is now a declared security vulnerability 😂 (you guys go too far)](https://www.bleepingcomputer.com/news/security/janet-jacksons-music-video-is-now-a-vulnerability-for-crashing-hard-disks/)
+[Music Video is now a declared security vulnerability :joy: (you guys go too far)](https://www.bleepingcomputer.com/news/security/janet-jacksons-music-video-is-now-a-vulnerability-for-crashing-hard-disks/)
 
 [The original blog post](https://devblogs.microsoft.com/oldnewthing/20220816-00/?p=106994)
 

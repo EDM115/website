@@ -8,4 +8,4 @@ meta:
 ---
 
 ![1k views](/img/blog/2022/08-23-1k-views.webp)  
-1k 🥳
+1k :partying_face:

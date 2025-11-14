@@ -10,4 +10,4 @@ meta:
 ![website-traffic](/img/blog/2022/08-15-website-traffic.webp)  
 ![website-traffic-2](/img/blog/2022/08-15-website-traffic-2.webp)  
 I wonder from where this traffic come from…  
-who the hell would visit my website ? 😂😅
+who the hell would visit my website ? :joy::sweat_smile:

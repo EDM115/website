@@ -1,12 +1,975 @@
 [
   {
-    "id": "2022-09-30-google-oob",
-    "title": "#190",
-    "date": "2022-09-30",
+    "id": "2022-12-31-ir-blaster",
+    "title": "#330",
+    "date": "2022-12-31",
     "tags": [],
-    "path": "2022/09-30-google-oob.md",
-    "link": "/blog/telegram/2022/09/30/google-oob",
-    "excerpt": "I guess they just read their mails and thought about the OOB ending in 3 days 😂 https://t.me/botxupdates/444 https://t.me/od_bots/135 https://t.me/aryan_bots/124"
+    "path": "2022/12-31-ir-blaster.md",
+    "link": "/blog/telegram/2022/12/31/ir-blaster",
+    "excerpt": "IR Blaster so now I can turn off the video projector at school anyway happy new year everyone"
+  },
+  {
+    "id": "2022-12-30-new-reactions",
+    "title": "#329",
+    "date": "2022-12-30",
+    "tags": [],
+    "path": "2022/12-30-new-reactions.md",
+    "link": "/blog/telegram/2022/12/30/new-reactions",
+    "excerpt": "New reactions :"
+  },
+  {
+    "id": "2022-12-30-donations",
+    "title": "#328",
+    "date": "2022-12-30",
+    "tags": [],
+    "path": "2022/12-30-donations.md",
+    "link": "/blog/telegram/2022/12/30/donations",
+    "excerpt": "And if you wonder, i actually received from donations so some users told me \"why don't you enable paid ads ? or a paid version ?\" I say no and no, and I'll explain why : I won't make paid ads, because..."
+  },
+  {
+    "id": "2022-12-30-new-phone",
+    "title": "#327",
+    "date": "2022-12-30",
+    "tags": [],
+    "path": "2022/12-30-new-phone.md",
+    "link": "/blog/telegram/2022/12/30/new-phone",
+    "excerpt": "Also I bought a new phone (Xiaomi Redmi 10C) to replace the one my gf gave me last summer Will set it up tomorrow Edit : have been set up, case and tempered glass are done, i still have to transfer al..."
+  },
+  {
+    "id": "2022-12-30-holidays-over",
+    "title": "#326",
+    "date": "2022-12-30",
+    "tags": [],
+    "path": "2022/12-30-holidays-over.md",
+    "link": "/blog/telegram/2022/12/30/holidays-over",
+    "excerpt": "So guys, little news point My holidays with my gf are over, and so I feel very sad like, she miss me so much already but holidays not 100% over, I still have some days, where I'll work (a lot) : homew..."
+  },
+  {
+    "id": "2022-12-28-santa-reaction",
+    "title": "#325",
+    "date": "2022-12-28",
+    "tags": [],
+    "path": "2022/12-28-santa-reaction.md",
+    "link": "/blog/telegram/2022/12/28/santa-reaction",
+    "excerpt": "New Telegram Reaction available : (Santa Claus) will we get the / reaction for New Year ?"
+  },
+  {
+    "id": "2022-12-27-spotx-translation",
+    "title": "#324",
+    "date": "2022-12-27",
+    "tags": [],
+    "path": "2022/12-27-spotx-translation.md",
+    "link": "/blog/telegram/2022/12/27/spotx-translation",
+    "excerpt": "yay, I participated to it"
+  },
+  {
+    "id": "2022-12-27-bot-restart",
+    "title": "#323",
+    "date": "2022-12-27",
+    "tags": [],
+    "path": "2022/12-27-bot-restart.md",
+    "link": "/blog/telegram/2022/12/27/bot-restart",
+    "excerpt": "bot restarted downtime : 2h sorry for that"
+  },
+  {
+    "id": "2022-12-26-ban-wave",
+    "title": "#322",
+    "date": "2022-12-26",
+    "tags": [],
+    "path": "2022/12-26-ban-wave.md",
+    "link": "/blog/telegram/2022/12/26/ban-wave",
+    "excerpt": "for everyone bypassing the rules prepare yourself to be banned when I'll come back… i have already 10 bans to come…"
+  },
+  {
+    "id": "2022-12-20-oppenheimer",
+    "title": "#321",
+    "date": "2022-12-20",
+    "tags": [],
+    "path": "2022/12-20-oppenheimer.md",
+    "link": "/blog/telegram/2022/12/20/oppenheimer",
+    "excerpt": "https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+  },
+  {
+    "id": "2022-12-19-reactions",
+    "title": "#320",
+    "date": "2022-12-19",
+    "tags": [],
+    "path": "2022/12-19-reactions.md",
+    "link": "/blog/telegram/2022/12/19/reactions",
+    "excerpt": "All reactions enabled since the beginning so yes you can react why I let you do this (unlike most of the channels) ? because you're free to express your opinion, as well as in comments, and it will al..."
+  },
+  {
+    "id": "2022-12-19-100-stars",
+    "title": "#318",
+    "date": "2022-12-19",
+    "tags": [],
+    "path": "2022/12-19-100-stars.md",
+    "link": "/blog/telegram/2022/12/19/100-stars",
+    "excerpt": "yay 100"
+  },
+  {
+    "id": "2022-12-18-bot-usage-poll",
+    "title": "#316",
+    "date": "2022-12-18",
+    "tags": [],
+    "path": "2022/12-18-bot-usage-poll.md",
+    "link": "/blog/telegram/2022/12/18/bot-usage-poll",
+    "excerpt": "We have 1.5k users. But what type of content do you unzip the most ? (check as many as applies) - Music/Production/… | 71 votes - Movies/Series/Videos/… | 93 votes - Art/Books/… | 49 votes - NSFW (wha..."
+  },
+  {
+    "id": "2022-12-18-sncf-shortlinks",
+    "title": "#315",
+    "date": "2022-12-18",
+    "tags": [],
+    "path": "2022/12-18-sncf-shortlinks.md",
+    "link": "/blog/telegram/2022/12/18/sncf-shortlinks",
+    "excerpt": "SNCF (french railway company) being very clever by getting an always free .cf (Central African Republic) domain name for their short links (like sn.cf/engagements) in addition of their TLD .sncf"
+  },
+  {
+    "id": "2022-12-18-report-command",
+    "title": "#314",
+    "date": "2022-12-18",
+    "tags": [],
+    "path": "2022/12-18-report-command.md",
+    "link": "/blog/telegram/2022/12/18/report-command",
+    "excerpt": "new command added : /report use it to report any bug or ask for anything (I made it to reduce the huge amount of PM i receive every day )"
+  },
+  {
+    "id": "2022-12-18-spechide-star",
+    "title": "#313",
+    "date": "2022-12-18",
+    "tags": [],
+    "path": "2022/12-18-spechide-star.md",
+    "link": "/blog/telegram/2022/12/18/spechide-star",
+    "excerpt": "oh tf"
+  },
+  {
+    "id": "2022-12-18-emily-star",
+    "title": "#312",
+    "date": "2022-12-18",
+    "tags": [],
+    "path": "2022/12-18-emily-star.md",
+    "link": "/blog/telegram/2022/12/18/emily-star",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-12-17-bot-milestone",
+    "title": "#311",
+    "date": "2022-12-17",
+    "tags": [],
+    "path": "2022/12-17-bot-milestone.md",
+    "link": "/blog/telegram/2022/12/17/bot-milestone",
+    "excerpt": "1,5k bot users and nearly 200 subscribers on the channel i will spend time with my gf but few things will come soon to the bot including errors explanation and help system also you can use it as an un..."
+  },
+  {
+    "id": "2022-12-15-tgx-animated-pfp",
+    "title": "#310",
+    "date": "2022-12-15",
+    "tags": [],
+    "path": "2022/12-15-tgx-animated-pfp.md",
+    "link": "/blog/telegram/2022/12/15/tgx-animated-pfp",
+    "excerpt": "latest TgX update also brought animated Profile pics (but it have crash problems) fixed"
+  },
+  {
+    "id": "2022-12-14-tgx-topics",
+    "title": "#309",
+    "date": "2022-12-14",
+    "tags": [],
+    "path": "2022/12-14-tgx-topics.md",
+    "link": "/blog/telegram/2022/12/14/tgx-topics",
+    "excerpt": "oh and update on TgX we still can't navigate inside the different chats of Topics, but at least we can see that it's a topic, with this squared icon"
+  },
+  {
+    "id": "2022-12-14-gh-app-achievements",
+    "title": "#308",
+    "date": "2022-12-14",
+    "tags": [],
+    "path": "2022/12-14-gh-app-achievements.md",
+    "link": "/blog/telegram/2022/12/14/gh-app-achievements",
+    "excerpt": "finally and it's well implemented in the app however, that pixelated effect on the Achievements texts… dunno if it's intentional or a bug"
+  },
+  {
+    "id": "2022-12-12-website-stats",
+    "title": "#307",
+    "date": "2022-12-12",
+    "tags": [],
+    "path": "2022/12-12-website-stats.md",
+    "link": "/blog/telegram/2022/12/12/website-stats",
+    "excerpt": "19 286 unique visitors"
+  },
+  {
+    "id": "2022-12-12-error-rate",
+    "title": "#306",
+    "date": "2022-12-12",
+    "tags": [],
+    "path": "2022/12-12-error-rate.md",
+    "link": "/blog/telegram/2022/12/12/error-rate",
+    "excerpt": "people sending {corrupted/splitted/with password on wrong mode/wrong password} files are the reason of that 50% error rate"
+  },
+  {
+    "id": "2022-12-12-discord-copypasta",
+    "title": "#305",
+    "date": "2022-12-12",
+    "tags": [],
+    "path": "2022/12-12-discord-copypasta.md",
+    "link": "/blog/telegram/2022/12/12/discord-copypasta",
+    "excerpt": "https://amp.knowyourmeme.com/memes/discord-user-is-a-suspected-terrorist-copypasta ⓘ User is suspected to be a part of an online terrorist organization. Please report any suspicious activity to Discor..."
+  },
+  {
+    "id": "2022-12-11-copilot-renewed",
+    "title": "#304",
+    "date": "2022-12-11",
+    "tags": [],
+    "path": "2022/12-11-copilot-renewed.md",
+    "link": "/blog/telegram/2022/12/11/copilot-renewed",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-12-11-nfs",
+    "title": "#303",
+    "date": "2022-12-11",
+    "tags": [],
+    "path": "2022/12-11-nfs.md",
+    "link": "/blog/telegram/2022/12/11/nfs",
+    "excerpt": "so on Black Friday, i bought officially NFS Payback and Heat so here are my thoughts after few play hours on each of them : • Payback seems to have a better story. Something more written, more \"realis..."
+  },
+  {
+    "id": "2022-12-11-1k-files",
+    "title": "#302",
+    "date": "2022-12-11",
+    "tags": [],
+    "path": "2022/12-11-1k-files.md",
+    "link": "/blog/telegram/2022/12/11/1k-files",
+    "excerpt": "you guys are sending +1k files to the bot every day damn"
+  },
+  {
+    "id": "2022-12-10-france-foot-durov",
+    "title": "#301",
+    "date": "2022-12-10",
+    "tags": [],
+    "path": "2022/12-10-france-foot-durov.md",
+    "link": "/blog/telegram/2022/12/10/france-foot-durov",
+    "excerpt": "So Durov supports France lmao, didn't thought that (i say this because I'm french) anyway, I don't like football"
+  },
+  {
+    "id": "2022-12-08-christmas-holidays",
+    "title": "#300",
+    "date": "2022-12-08",
+    "tags": [],
+    "path": "2022/12-08-christmas-holidays.md",
+    "link": "/blog/telegram/2022/12/08/christmas-holidays",
+    "excerpt": "same thing i will be with her again 20 → 29 December so it will be another period of inactivity, with same conditions (no updates, bots running, answers delayed) merry Christmas to everyone"
+  },
+  {
+    "id": "2022-12-06-telegram-reactions",
+    "title": "#299",
+    "date": "2022-12-06",
+    "tags": [],
+    "path": "2022/12-06-telegram-reactions.md",
+    "link": "/blog/telegram/2022/12/06/telegram-reactions",
+    "excerpt": "here are the new Telegram's reactions : (literally no one's talking about it lol)"
+  },
+  {
+    "id": "2022-12-06-math",
+    "title": "#298",
+    "date": "2022-12-06",
+    "tags": [],
+    "path": "2022/12-06-math.md",
+    "link": "/blog/telegram/2022/12/06/math",
+    "excerpt": "important math exam tomorrow wish me good luck"
+  },
+  {
+    "id": "2022-12-04-stuck",
+    "title": "#297",
+    "date": "2022-12-04",
+    "tags": [],
+    "path": "2022/12-04-stuck.md",
+    "link": "/blog/telegram/2022/12/04/stuck",
+    "excerpt": "i++; vs i+=1 teams be like"
+  },
+  {
+    "id": "2022-12-03-dev-domain",
+    "title": "#296",
+    "date": "2022-12-03",
+    "tags": [],
+    "path": "2022/12-03-dev-domain.md",
+    "link": "/blog/telegram/2022/12/03/dev-domain",
+    "excerpt": "bought edm115.dev for legacy purposes (not functional yet) subdomains gestion will be easier, and GitHub/Microsoft verification will be possible 1 €/month, that's cheap"
+  },
+  {
+    "id": "2022-12-03-still-online",
+    "title": "#295",
+    "date": "2022-12-03",
+    "tags": [],
+    "path": "2022/12-03-still-online.md",
+    "link": "/blog/telegram/2022/12/03/still-online",
+    "excerpt": "just noticed that it's one of the last unzip bots that stayed online…"
+  },
+  {
+    "id": "2022-12-02-bot-back",
+    "title": "#294",
+    "date": "2022-12-02",
+    "tags": [],
+    "path": "2022/12-02-bot-back.md",
+    "link": "/blog/telegram/2022/12/02/bot-back",
+    "excerpt": "The bot is back online, as promised"
+  },
+  {
+    "id": "2022-11-30-mcdo-order",
+    "title": "#293",
+    "date": "2022-11-30",
+    "tags": [],
+    "path": "2022/11-30-mcdo-order.md",
+    "link": "/blog/telegram/2022/11/30/mcdo-order",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-11-28-memory-crash",
+    "title": "#292",
+    "date": "2022-11-28",
+    "tags": [],
+    "path": "2022/11-28-memory-crash.md",
+    "link": "/blog/telegram/2022/11/28/memory-crash",
+    "excerpt": "memory problems apps keeps crashing (i will make a resume soon) so running the diags"
+  },
+  {
+    "id": "2022-11-28-actions-importer",
+    "title": "#290",
+    "date": "2022-11-28",
+    "tags": [],
+    "path": "2022/11-28-actions-importer.md",
+    "link": "/blog/telegram/2022/11/28/actions-importer",
+    "excerpt": "Welcome to GitHub’s closed beta stuff"
+  },
+  {
+    "id": "2022-11-27-bot-down",
+    "title": "#289",
+    "date": "2022-11-27",
+    "tags": [],
+    "path": "2022/11-27-bot-down.md",
+    "link": "/blog/telegram/2022/11/27/bot-down",
+    "excerpt": "the bot will stop working in 4 hours ! currently down then it will be back online in 3 days thanks for your patience"
+  },
+  {
+    "id": "2022-11-22-bot-changes",
+    "title": "#288",
+    "date": "2022-11-22",
+    "tags": [],
+    "path": "2022/11-22-bot-changes.md",
+    "link": "/blog/telegram/2022/11/22/bot-changes",
+    "excerpt": "HUGE CHANGES • READ CAREFULLY Everything have to come to an end they say… Don't take your dreams for the reality, they say… On 25th August 2022, Heroku announced the end of their free plans and so, th..."
+  },
+  {
+    "id": "2022-11-21-whatsapp-copy",
+    "title": "#287",
+    "date": "2022-11-21",
+    "tags": [],
+    "path": "2022/11-21-whatsapp-copy.md",
+    "link": "/blog/telegram/2022/11/21/whatsapp-copy",
+    "excerpt": "Copying TG, part 2"
+  },
+  {
+    "id": "2022-11-19-1k-users",
+    "title": "#286",
+    "date": "2022-11-19",
+    "tags": [],
+    "path": "2022/11-19-1k-users.md",
+    "link": "/blog/telegram/2022/11/19/1k-users",
+    "excerpt": "Current bot stats Users : ↳ Users in database : 1001 ↳ Total banned users : 10 Disk usage : ↳ Total Disk Space : 492.15 GiB ↳ Used : 124.78 GiB - 26.7% ↳ Free : 342.36 GiB Network usage : ↳ Uploaded :..."
+  },
+  {
+    "id": "2022-11-19-microsoft",
+    "title": "#285",
+    "date": "2022-11-19",
+    "tags": [],
+    "path": "2022/11-19-microsoft.md",
+    "link": "/blog/telegram/2022/11/19/microsoft",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-11-18-whatsapp-poll",
+    "title": "#282",
+    "date": "2022-11-18",
+    "tags": [],
+    "path": "2022/11-18-whatsapp-poll.md",
+    "link": "/blog/telegram/2022/11/18/whatsapp-poll",
+    "excerpt": "WhatsApp keeps copying Telegram their \"new\" thing : polls they are like the ones of telegram but 1) Anonymous mode doesn't exist 2) You have a screen of results 3) Same limit of 10 options 4) No \"corr..."
+  },
+  {
+    "id": "2022-11-17-contribution",
+    "title": "#281",
+    "date": "2022-11-17",
+    "tags": [],
+    "path": "2022/11-17-contribution.md",
+    "link": "/blog/telegram/2022/11/17/contribution",
+    "excerpt": "https://t.me/drtorrentxupdates/220 yes, I contributed to it"
+  },
+  {
+    "id": "2022-11-17-translucent-spoiler",
+    "title": "#280",
+    "date": "2022-11-17",
+    "tags": [],
+    "path": "2022/11-17-translucent-spoiler.md",
+    "link": "/blog/telegram/2022/11/17/translucent-spoiler",
+    "excerpt": "when the spoiler is actually not really opaque (zoom)"
+  },
+  {
+    "id": "2022-11-16-disk-shortage",
+    "title": "#279",
+    "date": "2022-11-16",
+    "tags": [],
+    "path": "2022/11-16-disk-shortage.md",
+    "link": "/blog/telegram/2022/11/16/disk-shortage",
+    "excerpt": "today was a hard day for the bot while (usually) it restarts only twice a day (5h and 21h UTC+1 Paris), today it restarted more than 30 times the load was so high that it threw an awesome error : runn..."
+  },
+  {
+    "id": "2022-11-16-chrome-ad",
+    "title": "#278",
+    "date": "2022-11-16",
+    "tags": [],
+    "path": "2022/11-16-chrome-ad.md",
+    "link": "/blog/telegram/2022/11/16/chrome-ad",
+    "excerpt": "Chrome mobile - v107.0.5303.105 Google literally tries everything to make more money through ads (yk what it did with Manifest V3) but when it's not its own advertising management, then they got the r..."
+  },
+  {
+    "id": "2022-11-16-office-mobile-deprecations",
+    "title": "#277",
+    "date": "2022-11-16",
+    "tags": [],
+    "path": "2022/11-16-office-mobile-deprecations.md",
+    "link": "/blog/telegram/2022/11/16/office-mobile-deprecations",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-11-15-twitter-downvote",
+    "title": "#276",
+    "date": "2022-11-15",
+    "tags": [],
+    "path": "2022/11-15-twitter-downvote.md",
+    "link": "/blog/telegram/2022/11/15/twitter-downvote",
+    "excerpt": "Probably Elon who liked too much Reddit (or StackOverflow )"
+  },
+  {
+    "id": "2022-11-14-repo-vizualiser",
+    "title": "#275",
+    "date": "2022-11-14",
+    "tags": [],
+    "path": "2022/11-14-repo-vizualiser.md",
+    "link": "/blog/telegram/2022/11/14/repo-vizualiser",
+    "excerpt": "https://github.com/githubocto/repo-visualizer Demo : https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=EDM115%2Funzip-bot"
+  },
+  {
+    "id": "2022-11-13-medicat-design",
+    "title": "#274",
+    "date": "2022-11-13",
+    "tags": [],
+    "path": "2022/11-13-medicat-design.md",
+    "link": "/blog/telegram/2022/11/13/medicat-design",
+    "excerpt": "https://cdn.mon5termatt.club/files/medicattest/index.html New design for medicatusb.com let's goooo"
+  },
+  {
+    "id": "2022-11-11-website-stats",
+    "title": "#272",
+    "date": "2022-11-11",
+    "tags": [],
+    "path": "2022/11-11-website-stats.md",
+    "link": "/blog/telegram/2022/11/11/website-stats",
+    "excerpt": "damn that's 13 810 unique visitors"
+  },
+  {
+    "id": "2022-11-10-github-codespaces",
+    "title": "#270",
+    "date": "2022-11-10",
+    "tags": [],
+    "path": "2022/11-10-github-codespaces.md",
+    "link": "/blog/telegram/2022/11/10/github-codespaces",
+    "excerpt": "Codespaces, finally"
+  },
+  {
+    "id": "2022-11-09-tgx-channel-comments",
+    "title": "#268",
+    "date": "2022-11-09",
+    "tags": [],
+    "path": "2022/11-09-tgx-channel-comments.md",
+    "link": "/blog/telegram/2022/11/09/tgx-channel-comments",
+    "excerpt": "yeeee, finally TgX"
+  },
+  {
+    "id": "2022-11-08-850-users",
+    "title": "#266",
+    "date": "2022-11-08",
+    "tags": [],
+    "path": "2022/11-08-850-users.md",
+    "link": "/blog/telegram/2022/11/08/850-users",
+    "excerpt": "The bot is back online sorry for the inconveniences btw thx for 850 users"
+  },
+  {
+    "id": "2022-11-07-heroku-security-breach",
+    "title": "#265",
+    "date": "2022-11-07",
+    "tags": [],
+    "path": "2022/11-07-heroku-security-breach.md",
+    "link": "/blog/telegram/2022/11/07/heroku-security-breach",
+    "excerpt": "Gmail_-_ACTION_REQUIRED_-_Heroku_Security_notification.pdf yay, Heroku got yet another security breach"
+  },
+  {
+    "id": "2022-11-07-firstname",
+    "title": "#264",
+    "date": "2022-11-07",
+    "tags": [],
+    "path": "2022/11-07-firstname.md",
+    "link": "/blog/telegram/2022/11/07/firstname",
+    "excerpt": "when they forgot to replace the variable with the value in database"
+  },
+  {
+    "id": "2022-11-06-approved-pr",
+    "title": "#263",
+    "date": "2022-11-06",
+    "tags": [],
+    "path": "2022/11-06-approved-pr.md",
+    "link": "/blog/telegram/2022/11/06/approved-pr",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-11-06-topics",
+    "title": "#262",
+    "date": "2022-11-06",
+    "tags": [],
+    "path": "2022/11-06-topics.md",
+    "link": "/blog/telegram/2022/11/06/topics",
+    "excerpt": "chats that have topics enabled appears squared, without topics it's still rounded useful to easily locate them on the chats list"
+  },
+  {
+    "id": "2022-11-06-30-forks",
+    "title": "#261",
+    "date": "2022-11-06",
+    "tags": [],
+    "path": "2022/11-06-30-forks.md",
+    "link": "/blog/telegram/2022/11/06/30-forks",
+    "excerpt": "30 forks"
+  },
+  {
+    "id": "2022-11-05-telegram-reactions",
+    "title": "#260",
+    "date": "2022-11-05",
+    "tags": [],
+    "path": "2022/11-05-telegram-reactions.md",
+    "link": "/blog/telegram/2022/11/05/telegram-reactions",
+    "excerpt": "New Telegram's reactions : And they already are available in TgX without updates"
+  },
+  {
+    "id": "2022-11-02-whatsapp-status",
+    "title": "#259",
+    "date": "2022-11-02",
+    "tags": [],
+    "path": "2022/11-02-whatsapp-status.md",
+    "link": "/blog/telegram/2022/11/02/whatsapp-status",
+    "excerpt": "yeah, here's why you can't block status updates it's not a real number"
+  },
+  {
+    "id": "2022-11-02-finished-grundy",
+    "title": "#258",
+    "date": "2022-11-02",
+    "tags": [],
+    "path": "2022/11-02-finished-grundy.md",
+    "link": "/blog/telegram/2022/11/02/finished-grundy",
+    "excerpt": "it's over the 2 programs work if anyone want the codes, tell me (it's in french but you can translate that easily, there's like 3 sentences )"
+  },
+  {
+    "id": "2022-11-01-grundy-ai",
+    "title": "#257",
+    "date": "2022-11-01",
+    "tags": [],
+    "path": "2022/11-01-grundy-ai.md",
+    "link": "/blog/telegram/2022/11/01/grundy-ai",
+    "excerpt": "IA is done it wins 80% of the time and I have few improvements to make it the winner everytime the strategy isn't based on a mathematical formula (because I'm too stupid ) it select the heap with the ..."
+  },
+  {
+    "id": "2022-10-31-quine",
+    "title": "#255",
+    "date": "2022-10-31",
+    "tags": [],
+    "path": "2022/10-31-quine.md",
+    "link": "/blog/telegram/2022/10/31/quine",
+    "excerpt": "qui.ne/EDM115 interesting concept"
+  },
+  {
+    "id": "2022-10-31-ipfs",
+    "title": "#253",
+    "date": "2022-10-31",
+    "tags": [],
+    "path": "2022/10-31-ipfs.md",
+    "link": "/blog/telegram/2022/10/31/ipfs",
+    "excerpt": "https://thenewstack.io/devs-its-time-to-consider-ipfs-as-an-alternative-to-http/"
+  },
+  {
+    "id": "2022-10-30-perfect-commit",
+    "title": "#251",
+    "date": "2022-10-30",
+    "tags": [],
+    "path": "2022/10-30-perfect-commit.md",
+    "link": "/blog/telegram/2022/10/30/perfect-commit",
+    "excerpt": "https://simonwillison.net/2022/Oct/29/the-perfect-commit/ i mean i totally agree, he's right but who will seriously take the time to do it with all his commits ? I'm seriously the kind of people able ..."
+  },
+  {
+    "id": "2022-10-28-grundy",
+    "title": "#249",
+    "date": "2022-10-28",
+    "tags": [],
+    "path": "2022/10-28-grundy.md",
+    "link": "/blog/telegram/2022/10/28/grundy",
+    "excerpt": "School assignment : Make a Grundy game in Java 1v1 & 1 vs IA fckin hard edit : 1v1 done. Now let's build an AI for this problem with no proven mathematical solution ever found"
+  },
+  {
+    "id": "2022-10-28-turbopack",
+    "title": "#247",
+    "date": "2022-10-28",
+    "tags": [],
+    "path": "2022/10-28-turbopack.md",
+    "link": "/blog/telegram/2022/10/28/turbopack",
+    "excerpt": "https://devclass.com/2022/10/25/webpack-founder-debuts-rust-based-turbopack-that-is-700x-faster/ sheesh time"
+  },
+  {
+    "id": "2022-10-28-ie11-deprecated",
+    "title": "#244",
+    "date": "2022-10-28",
+    "tags": [],
+    "path": "2022/10-28-ie11-deprecated.md",
+    "link": "/blog/telegram/2022/10/28/ie11-deprecated",
+    "excerpt": "finally > As previously announced, the Internet Explorer 11 (IE11) desktop app has been retired as of June 15, 2022. IE11 retirement is occurring through two phases: > • A redirection phase, currently..."
+  },
+  {
+    "id": "2022-10-26-tgx-reactions",
+    "title": "#243",
+    "date": "2022-10-26",
+    "tags": [],
+    "path": "2022/10-26-tgx-reactions.md",
+    "link": "/blog/telegram/2022/10/26/tgx-reactions",
+    "excerpt": "Telegram X got lately support for all reactions even without Premium Download latest beta to enjoy this"
+  },
+  {
+    "id": "2022-10-26-spotify-fan-study",
+    "title": "#242",
+    "date": "2022-10-26",
+    "tags": [],
+    "path": "2022/10-26-spotify-fan-study.md",
+    "link": "/blog/telegram/2022/10/26/spotify-fan-study",
+    "excerpt": "Spotify Fan Study - 2022"
+  },
+  {
+    "id": "2022-10-25-peer-id-bug",
+    "title": "#240",
+    "date": "2022-10-25",
+    "tags": [],
+    "path": "2022/10-25-peer-id-bug.md",
+    "link": "/blog/telegram/2022/10/25/peer-id-bug",
+    "excerpt": "TELEGRAM NEWS Since few days, a weird behavior of the Telegram API have been reported (I also personally noticed it) Requesting to get infos through user ID may fail with some profiles However, doing ..."
+  },
+  {
+    "id": "2022-10-23-api-break",
+    "title": "#239",
+    "date": "2022-10-23",
+    "tags": [],
+    "path": "2022/10-23-api-break.md",
+    "link": "/blog/telegram/2022/10/23/api-break",
+    "excerpt": "API is breaking everything I love my life"
+  },
+  {
+    "id": "2022-10-23-updated-website",
+    "title": "#237",
+    "date": "2022-10-23",
+    "tags": [],
+    "path": "2022/10-23-updated-website.md",
+    "link": "/blog/telegram/2022/10/23/updated-website",
+    "excerpt": "https://edm115.eu.org/ My website have been updated Give me your thoughts and your feedback"
+  },
+  {
+    "id": "2022-10-22-banned-users-2",
+    "title": "#236",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-banned-users-2.md",
+    "link": "/blog/telegram/2022/10/22/banned-users-2",
+    "excerpt": "those 2 users literally abused of that they used my services to satisfy their fantasies and their monster impulses I'd love to send them to police if I could. btw we can't Report a telegram profile sa..."
+  },
+  {
+    "id": "2022-10-22-self-ads",
+    "title": "#235",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-self-ads.md",
+    "link": "/blog/telegram/2022/10/22/self-ads",
+    "excerpt": "lmao did they seriously made all this sponsored posts thing just for making their in-app communication ? their official channels weren't enough ?"
+  },
+  {
+    "id": "2022-10-22-mayoreo",
+    "title": "#234",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-mayoreo.md",
+    "link": "/blog/telegram/2022/10/22/mayoreo",
+    "excerpt": "yummy… pic taken by a Canadian friend really anything can exist there"
+  },
+  {
+    "id": "2022-10-22-banned-users",
+    "title": "#233",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-banned-users.md",
+    "link": "/blog/telegram/2022/10/22/banned-users",
+    "excerpt": "2 users banned today because they broke that rule in addition to the fact that it's illegal, these people have no soul, they are inhuman to like this kind of horrible stuff I will be merciless against..."
+  },
+  {
+    "id": "2022-10-22-buggy-strikethrough",
+    "title": "#232",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-buggy-strikethrough.md",
+    "link": "/blog/telegram/2022/10/22/buggy-strikethrough",
+    "excerpt": "strikethrough text : buggy version"
+  },
+  {
+    "id": "2022-10-22-futuristic-css",
+    "title": "#230",
+    "date": "2022-10-22",
+    "tags": [],
+    "path": "2022/10-22-futuristic-css.md",
+    "link": "/blog/telegram/2022/10/22/futuristic-css",
+    "excerpt": "https://www.smashingmagazine.com/2022/10/futuristic-css/"
+  },
+  {
+    "id": "2022-10-21-telegram-ton-ads",
+    "title": "#227",
+    "date": "2022-10-21",
+    "tags": [],
+    "path": "2022/10-21-telegram-ton-ads.md",
+    "link": "/blog/telegram/2022/10/21/telegram-ton-ads",
+    "excerpt": "NEWS Look at the sponsored post Telegram stopped every sponsored post, every ad is not available (for a short period of time) all of them have been replaced with this self-promotion of their shitty us..."
+  },
+  {
+    "id": "2022-10-20-disk-update",
+    "title": "#226",
+    "date": "2022-10-20",
+    "tags": [],
+    "path": "2022/10-20-disk-update.md",
+    "link": "/blog/telegram/2022/10/20/disk-update",
+    "excerpt": "custom Steam instances of FH5 & FH4 were clashing so uninstalled them will do a cleaning then installing FH one by one. installing the next only when I have finished the current one so will install FH..."
+  },
+  {
+    "id": "2022-10-20-uptime",
+    "title": "#224",
+    "date": "2022-10-20",
+    "tags": [],
+    "path": "2022/10-20-uptime.md",
+    "link": "/blog/telegram/2022/10/20/uptime",
+    "excerpt": "Uptime done https://up.edm115.eu.org/ API is next on the list"
+  },
+  {
+    "id": "2022-10-19-bot-facts",
+    "title": "#222",
+    "date": "2022-10-19",
+    "tags": [],
+    "path": "2022/10-19-bot-facts.md",
+    "link": "/blog/telegram/2022/10/19/bot-facts",
+    "excerpt": "Time for some facts : • We have crushed 650 users • We have processed +6k archives so far, for an amount of 9,5 Tb • Every hour, we process 3~5 more Gigabytes of data • 38% of the archives contains a ..."
+  },
+  {
+    "id": "2022-10-19-disk-repair",
+    "title": "#221",
+    "date": "2022-10-19",
+    "tags": [],
+    "path": "2022/10-19-disk-repair.md",
+    "link": "/blog/telegram/2022/10/19/disk-repair",
+    "excerpt": "repairing the disk as it may be broken (Forza crashing… or maybe it's because of those incompatible custom Steam instances)"
+  },
+  {
+    "id": "2022-10-18-644-users",
+    "title": "#220",
+    "date": "2022-10-18",
+    "tags": [],
+    "path": "2022/10-18-644-users.md",
+    "link": "/blog/telegram/2022/10/18/644-users",
+    "excerpt": "Btw thx for 644 users"
+  },
+  {
+    "id": "2022-10-18-stable-version",
+    "title": "#219",
+    "date": "2022-10-18",
+    "tags": [],
+    "path": "2022/10-18-stable-version.md",
+    "link": "/blog/telegram/2022/10/18/stable-version",
+    "excerpt": "Version 5.1.2 is officially stable and working Deployed everywhere See all changes here : https://github.com/EDM115/unzip-bot/releases/tag/5.0"
+  },
+  {
+    "id": "2022-10-18-beta-merged-notification",
+    "title": "#218",
+    "date": "2022-10-18",
+    "tags": [],
+    "path": "2022/10-18-beta-merged-notification.md",
+    "link": "/blog/telegram/2022/10/18/beta-merged-notification",
+    "excerpt": ": EDM115 synchronized 521 commits into unzip-bot at #32 Title: (v4) v5 FileChanged: 30 with +2480 -648 #pull_request"
+  },
+  {
+    "id": "2022-10-18-beta-merged",
+    "title": "#217",
+    "date": "2022-10-18",
+    "tags": [],
+    "path": "2022/10-18-beta-merged.md",
+    "link": "/blog/telegram/2022/10/18/beta-merged",
+    "excerpt": "After that much work... Pull request finally merged Will continue to work on v5 on next week"
+  },
+  {
+    "id": "2022-10-17-video-logs",
+    "title": "#216",
+    "date": "2022-10-17",
+    "tags": [],
+    "path": "2022/10-17-video-logs.md",
+    "link": "/blog/telegram/2022/10/17/video-logs",
+    "excerpt": "txt file is… a video impressive"
+  },
+  {
+    "id": "2022-10-17-unlocked-or-not",
+    "title": "#215",
+    "date": "2022-10-17",
+    "tags": [],
+    "path": "2022/10-17-unlocked-or-not.md",
+    "link": "/blog/telegram/2022/10/17/unlocked-or-not",
+    "excerpt": "unlocked and registered pls unlock ©@withloveash"
+  },
+  {
+    "id": "2022-10-16-github-sponsors",
+    "title": "#212",
+    "date": "2022-10-16",
+    "tags": [],
+    "path": "2022/10-16-github-sponsors.md",
+    "link": "/blog/telegram/2022/10/16/github-sponsors",
+    "excerpt": "interesting..."
+  },
+  {
+    "id": "2022-10-15-hyperactive-whatsapp",
+    "title": "#211",
+    "date": "2022-10-15",
+    "tags": [],
+    "path": "2022/10-15-hyperactive-whatsapp.md",
+    "link": "/blog/telegram/2022/10/15/hyperactive-whatsapp",
+    "excerpt": "when your group chats are hyperactive (took 2h to delete 1 chat)"
+  },
+  {
+    "id": "2022-10-12-doom-notepad",
+    "title": "#208",
+    "date": "2022-10-12",
+    "tags": [],
+    "path": "2022/10-12-doom-notepad.md",
+    "link": "/blog/telegram/2022/10/12/doom-notepad",
+    "excerpt": "DOOM have been ported everywhere… even on the Windows Notepad https://twitter.com/SamNChiet/status/1579140903150964736 https://www.youtube.com/watch?v=a3VoEyaqMoc even DOOM’s creator liked it : https:..."
+  },
+  {
+    "id": "2022-10-11-unclear-answer",
+    "title": "#207",
+    "date": "2022-10-11",
+    "tags": [],
+    "path": "2022/10-11-unclear-answer.md",
+    "link": "/blog/telegram/2022/10/11/unclear-answer",
+    "excerpt": "tell me a clear answer without telling me a clear answer source"
+  },
+  {
+    "id": "2022-10-10-negative-github",
+    "title": "#205",
+    "date": "2022-10-10",
+    "tags": [],
+    "path": "2022/10-10-negative-github.md",
+    "link": "/blog/telegram/2022/10/10/negative-github",
+    "excerpt": "GitHub times on fire"
+  },
+  {
+    "id": "2022-10-10-new-version",
+    "title": "#204",
+    "date": "2022-10-10",
+    "tags": [],
+    "path": "2022/10-10-new-version.md",
+    "link": "/blog/telegram/2022/10/10/new-version",
+    "excerpt": "no problems so far for 5.1.2 will push it on day version bugs so far : • thumbnail is too… permanent not removed from db while processing a /delthumb • problem on renaming non-archive files • still th..."
+  },
+  {
+    "id": "2022-10-07-googleception",
+    "title": "#201",
+    "date": "2022-10-07",
+    "tags": [],
+    "path": "2022/10-07-googleception.md",
+    "link": "/blog/telegram/2022/10/07/googleception",
+    "excerpt": "accounts.google.com/signin/toomanysessions"
+  },
+  {
+    "id": "2022-10-06-thumbnail-support",
+    "title": "#200",
+    "date": "2022-10-06",
+    "tags": [],
+    "path": "2022/10-06-thumbnail-support.md",
+    "link": "/blog/telegram/2022/10/06/thumbnail-support",
+    "excerpt": "Latest beta commits have been pushed to the night beta version of the bot (read the description of the bot to know more about this) Running the v5.1.2 This one have permanent thumbnail support and ren..."
+  },
+  {
+    "id": "2022-10-04-fh5-music",
+    "title": "#198",
+    "date": "2022-10-04",
+    "tags": [],
+    "path": "2022/10-04-fh5-music.md",
+    "link": "/blog/telegram/2022/10/04/fh5-music",
+    "excerpt": "Color House and Melodic Dubstep in FH5 That was unexpected but it fits so well"
+  },
+  {
+    "id": "2022-10-04-1k-clones",
+    "title": "#197",
+    "date": "2022-10-04",
+    "tags": [],
+    "path": "2022/10-04-1k-clones.md",
+    "link": "/blog/telegram/2022/10/04/1k-clones",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-10-03-new-heroku-plans",
+    "title": "#196",
+    "date": "2022-10-03",
+    "tags": [],
+    "path": "2022/10-03-new-heroku-plans.md",
+    "link": "/blog/telegram/2022/10/03/new-heroku-plans",
+    "excerpt": "so here are new Heroku plans… https://blog.heroku.com/new-low-cost-plans https://blog.heroku.com/github-student-developer-program"
+  },
+  {
+    "id": "2022-10-02-wifi-dilemma",
+    "title": "#195",
+    "date": "2022-10-02",
+    "tags": [],
+    "path": "2022/10-02-wifi-dilemma.md",
+    "link": "/blog/telegram/2022/10/02/wifi-dilemma",
+    "excerpt": "hmm, which one to choose…"
+  },
+  {
+    "id": "2022-10-02-5k-commits",
+    "title": "#194",
+    "date": "2022-10-02",
+    "tags": [],
+    "path": "2022/10-02-5k-commits.md",
+    "link": "/blog/telegram/2022/10/02/5k-commits",
+    "excerpt": ""
+  },
+  {
+    "id": "2022-10-01-matrix",
+    "title": "#193",
+    "date": "2022-10-01",
+    "tags": [],
+    "path": "2022/10-01-matrix.md",
+    "link": "/blog/telegram/2022/10/01/matrix",
+    "excerpt": "https://github.com/Rezmason/matrix"
+  },
+  {
+    "id": "2022-10-01-cloudflare-turnstile",
+    "title": "#192",
+    "date": "2022-10-01",
+    "tags": [],
+    "path": "2022/10-01-cloudflare-turnstile.md",
+    "link": "/blog/telegram/2022/10/01/cloudflare-turnstile",
+    "excerpt": "Cloudflare : • Google’s ReCaptcha isn't respectful of users privacy • hCaptcha is a good alternative but still requires interaction. we need something which works seamlessly • creates their own captch..."
   },
   {
     "id": "2022-09-30-unavailable-bots",
@@ -16,6 +979,15 @@
     "path": "2022/09-30-unavailable-bots.md",
     "link": "/blog/telegram/2022/09/30/unavailable-bots",
     "excerpt": "uh-oh"
+  },
+  {
+    "id": "2022-09-30-google-oob",
+    "title": "#190",
+    "date": "2022-09-30",
+    "tags": [],
+    "path": "2022/09-30-google-oob.md",
+    "link": "/blog/telegram/2022/09/30/google-oob",
+    "excerpt": "I guess they just read their mails and thought about the OOB ending in 3 days https://t.me/botxupdates/444 https://t.me/od_bots/135 https://t.me/aryan_bots/124"
   },
   {
     "id": "2022-09-29-lockbit-builder",
@@ -33,7 +1005,7 @@
     "tags": [],
     "path": "2022/09-27-win11.md",
     "link": "/blog/telegram/2022/09/27/win11",
-    "excerpt": "Windows 11 Vibes 😂"
+    "excerpt": "Windows 11 Vibes"
   },
   {
     "id": "2022-09-26-file-split",
@@ -42,7 +1014,7 @@
     "tags": [],
     "path": "2022/09-26-file-split.md",
     "link": "/blog/telegram/2022/09/26/file-split",
-    "excerpt": "Still working on the file split... 💪 edit : will open the feature on 800 users 🤓 not 100% ready yet"
+    "excerpt": "Still working on the file split... edit : will open the feature on 800 users not 100% ready yet"
   },
   {
     "id": "2022-09-25-google-dev",
@@ -51,7 +1023,7 @@
     "tags": [],
     "path": "2022/09-25-google-dev.md",
     "link": "/blog/telegram/2022/09/25/google-dev",
-    "excerpt": "Successfully created Google Developer Profile it is 25+5$ wasted ? for now, probably but I will use it later, currently I need to learn more Java then Kotlin 👨‍💻"
+    "excerpt": "Successfully created Google Developer Profile it is 25+5$ wasted ? for now, probably but I will use it later, currently I need to learn more Java then Kotlin"
   },
   {
     "id": "2022-09-24-laptop-issues",
@@ -63,13 +1035,13 @@
     "excerpt": "HAVE BEEN UPDATED for everyone (like me) who also lost the dual/triple/whatever-boot, I described in details how to bring it back"
   },
   {
-    "id": "2022-09-23-kernel-panic",
-    "title": "#178",
+    "id": "2022-09-23-laptop-issues-3",
+    "title": "#182",
     "date": "2022-09-23",
     "tags": [],
-    "path": "2022/09-23-kernel-panic.md",
-    "link": "/blog/telegram/2022/09/23/kernel-panic",
-    "excerpt": ""
+    "path": "2022/09-23-laptop-issues-3.md",
+    "link": "/blog/telegram/2022/09/23/laptop-issues-3",
+    "excerpt": "Just posted how to solve it Share around you ! https://www.reddit.com/r/Windows11/comments/xm595n/windows_11_build_22h2_and_disabled_peripherals/"
   },
   {
     "id": "2022-09-23-laptop-issues-2",
@@ -81,15 +1053,6 @@
     "excerpt": "Windows 11 Build 22H2 was the problem if you have a Lenovo laptop, do not install it"
   },
   {
-    "id": "2022-09-23-laptop-issues-3",
-    "title": "#182",
-    "date": "2022-09-23",
-    "tags": [],
-    "path": "2022/09-23-laptop-issues-3.md",
-    "link": "/blog/telegram/2022/09/23/laptop-issues-3",
-    "excerpt": "Just posted how to solve it Share around you ! https://www.reddit.com/r/Windows11/comments/xm595n/windows_11_build_22h2_and_disabled_peripherals/"
-  },
-  {
     "id": "2022-09-23-laptop-issues",
     "title": "#180",
     "date": "2022-09-23",
@@ -97,6 +1060,15 @@
     "path": "2022/09-23-laptop-issues.md",
     "link": "/blog/telegram/2022/09/23/laptop-issues",
     "excerpt": "Problems, part 69 : Touchpad started to stop working. Pretty bad, but I managed to enable it again (after 30min, I reinstalled an old driver from the computer. This seems to be the actual solution fro..."
+  },
+  {
+    "id": "2022-09-23-kernel-panic",
+    "title": "#178",
+    "date": "2022-09-23",
+    "tags": [],
+    "path": "2022/09-23-kernel-panic.md",
+    "link": "/blog/telegram/2022/09/23/kernel-panic",
+    "excerpt": ""
   },
   {
     "id": "2022-09-21-gh-app-actions",
@@ -114,7 +1086,7 @@
     "tags": [],
     "path": "2022/09-20-channel-growth.md",
     "link": "/blog/telegram/2022/09/20/channel-growth",
-    "excerpt": "stonks 📈 (channel insights)"
+    "excerpt": "stonks (channel insights)"
   },
   {
     "id": "2022-09-19-400-users",
@@ -123,7 +1095,7 @@
     "tags": [],
     "path": "2022/09-19-400-users.md",
     "link": "/blog/telegram/2022/09/19/400-users",
-    "excerpt": "400 users 🥳"
+    "excerpt": "400 users"
   },
   {
     "id": "2022-09-18-tdl",
@@ -168,7 +1140,7 @@
     "tags": [],
     "path": "2022/09-12-todo-pc.md",
     "link": "/blog/telegram/2022/09/12/todo-pc",
-    "excerpt": "To-Do list : what's installed on my PC [✅] Backup the full disk + OS [✅] Downgrade from win11 to win10 [✅] Go through installation [✅] Link my Microsoft accounts [✅] Remove Bloatwares (MacAfee, …) [✅]..."
+    "excerpt": "To-Do list : what's installed on my PC [] Backup the full disk + OS [] Downgrade from win11 to win10 [] Go through installation [] Link my Microsoft accounts [] Remove Bloatwares (MacAfee, …) [] Dual ..."
   },
   {
     "id": "2022-09-10-lenovo-laptop",
@@ -177,7 +1149,7 @@
     "tags": [],
     "path": "2022/09-10-lenovo-laptop.md",
     "link": "/blog/telegram/2022/09/10/lenovo-laptop",
-    "excerpt": "yo guys I'm planning to buy a Lenovo IdeaPad 3 15ALC6 in 2 days (I'm hurried 😅) do you have any experience with this computer, or with Lenovo laptops in general ? are they good ? edit : bought. will ..."
+    "excerpt": "yo guys I'm planning to buy a Lenovo IdeaPad 3 15ALC6 in 2 days (I'm hurried ) do you have any experience with this computer, or with Lenovo laptops in general ? are they good ? edit : bought. will te..."
   },
   {
     "id": "2022-09-07-new-users",
@@ -195,7 +1167,7 @@
     "tags": [],
     "path": "2022/09-05-gh-sponsor.md",
     "link": "/blog/telegram/2022/09/05/gh-sponsor",
-    "excerpt": "You can now sponsor me on GitHub 🥳 Here are the tiers, at cheap prices 🫶 More tiers will come soon (with ability to access preview/private repositories… 🫢) All infos here : https://github.com/spons..."
+    "excerpt": "You can now sponsor me on GitHub Here are the tiers, at cheap prices More tiers will come soon (with ability to access preview/private repositories… ) All infos here : https://github.com/sponsors/EDM1..."
   },
   {
     "id": "2022-09-03-100-close",
@@ -204,7 +1176,7 @@
     "tags": [],
     "path": "2022/09-03-100-close.md",
     "link": "/blog/telegram/2022/09/03/100-close",
-    "excerpt": "We're close to 100 subs 🥳 Let's make a gift when we reach it !!lmao, what did you thought ? it's not Santa Claus’s support desk here 😶‍🌫!!"
+    "excerpt": "We're close to 100 subs Let's make a gift when we reach it"
   },
   {
     "id": "2022-09-02-upload-bug",
@@ -213,7 +1185,7 @@
     "tags": [],
     "path": "2022/09-02-upload-bug.md",
     "link": "/blog/telegram/2022/09/02/upload-bug",
-    "excerpt": "Heyo here is a little tutorial to fix an error on the bot Maybe you already noticed it, but sometimes, clicking \"Upload All 📤\" doesn't upload everything in such case, wait 2min. if nothing else have ..."
+    "excerpt": "Heyo here is a little tutorial to fix an error on the bot Maybe you already noticed it, but sometimes, clicking \"Upload All \" doesn't upload everything in such case, wait 2min. if nothing else have be..."
   },
   {
     "id": "2022-09-01-donations",
@@ -222,7 +1194,7 @@
     "tags": [],
     "path": "2022/09-01-donations.md",
     "link": "/blog/telegram/2022/09/01/donations",
-    "excerpt": "back to school with my scholarship, I will be able to buy a computer (finally 😭) and pay myself things like bills (as I'm 18 y/o) however, this money is for my studies and the times I'll see my gf. n..."
+    "excerpt": "back to school with my scholarship, I will be able to buy a computer (finally ) and pay myself things like bills (as I'm 18 y/o) however, this money is for my studies and the times I'll see my gf. not..."
   },
   {
     "id": "2022-09-01-tidal-issue",
@@ -231,7 +1203,7 @@
     "tags": [],
     "path": "2022/09-01-tidal-issue.md",
     "link": "/blog/telegram/2022/09/01/tidal-issue",
-    "excerpt": "lmao, best update ever \"you paid ? well, you can't connect, so start a free plan first 🤓\""
+    "excerpt": "lmao, best update ever \"you paid ? well, you can't connect, so start a free plan first \""
   },
   {
     "id": "2022-08-31-edgerunners-trailer",
@@ -261,15 +1233,6 @@
     "excerpt": "1 month left before knowing how the situation will evolve for us #student"
   },
   {
-    "id": "2022-08-30-meta-jio",
-    "title": "#149",
-    "date": "2022-08-30",
-    "tags": [],
-    "path": "2022/08-30-meta-jio.md",
-    "link": "/blog/telegram/2022/08/30/meta-jio",
-    "excerpt": "WhatsApp • Meta be like : Doing everything, owning everyone https://www.theverge.com/2022/8/29/23326687/whatsapp-jiomart-india-super-app-grocery-shopping https://about.fb.com/news/2022/08/shop-on-what..."
-  },
-  {
     "id": "2022-08-30-paypal",
     "title": "#150",
     "date": "2022-08-30",
@@ -277,6 +1240,15 @@
     "path": "2022/08-30-paypal.md",
     "link": "/blog/telegram/2022/08/30/paypal",
     "excerpt": "mindset of the day : doing nothing • earning something"
+  },
+  {
+    "id": "2022-08-30-meta-jio",
+    "title": "#149",
+    "date": "2022-08-30",
+    "tags": [],
+    "path": "2022/08-30-meta-jio.md",
+    "link": "/blog/telegram/2022/08/30/meta-jio",
+    "excerpt": "WhatsApp • Meta be like : Doing everything, owning everyone https://www.theverge.com/2022/8/29/23326687/whatsapp-jiomart-india-super-app-grocery-shopping https://about.fb.com/news/2022/08/shop-on-what..."
   },
   {
     "id": "2022-08-29-no-jeffrey",
@@ -288,6 +1260,15 @@
     "excerpt": ""
   },
   {
+    "id": "2022-08-29-s+-rank",
+    "title": "#147",
+    "date": "2022-08-29",
+    "tags": [],
+    "path": "2022/08-29-s+-rank.md",
+    "link": "/blog/telegram/2022/08/29/s+-rank",
+    "excerpt": "Waiting for S+ rank"
+  },
+  {
     "id": "2022-08-29-rr3-ai",
     "title": "#145",
     "date": "2022-08-29",
@@ -297,22 +1278,13 @@
     "excerpt": "all AI’s follows a specified path if we're too close to it, they move to left/right for some time, even if this will kill them in turns, the AI will not move, and will possibly take you down lastly (c..."
   },
   {
-    "id": "2022-08-29-s+-rank",
-    "title": "#147",
-    "date": "2022-08-29",
-    "tags": [],
-    "path": "2022/08-29-s+-rank.md",
-    "link": "/blog/telegram/2022/08/29/s+-rank",
-    "excerpt": "Waiting for S+ rank 😮‍💨"
-  },
-  {
     "id": "2022-08-29-wrong-way",
     "title": "#143",
     "date": "2022-08-29",
     "tags": [],
     "path": "2022/08-29-wrong-way.md",
     "link": "/blog/telegram/2022/08/29/wrong-way",
-    "excerpt": "Wrong way boy 🛑♿ (very rigid AI)"
+    "excerpt": "Wrong way boy (very rigid AI)"
   },
   {
     "id": "2022-08-26-donate-poll",
@@ -339,7 +1311,7 @@
     "tags": [],
     "path": "2022/08-24-nice.md",
     "link": "/blog/telegram/2022/08/24/nice",
-    "excerpt": "Noice ❤‍🔥"
+    "excerpt": "Noice"
   },
   {
     "id": "2022-08-23-1k-views",
@@ -348,7 +1320,7 @@
     "tags": [],
     "path": "2022/08-23-1k-views.md",
     "link": "/blog/telegram/2022/08/23/1k-views",
-    "excerpt": "1k 🥳"
+    "excerpt": "1k"
   },
   {
     "id": "2022-08-23-nice",
@@ -357,7 +1329,7 @@
     "tags": [],
     "path": "2022/08-23-nice.md",
     "link": "/blog/telegram/2022/08/23/nice",
-    "excerpt": "♋"
+    "excerpt": ""
   },
   {
     "id": "2022-08-21-0b-file",
@@ -366,7 +1338,7 @@
     "tags": [],
     "path": "2022/08-21-0b-file.md",
     "link": "/blog/telegram/2022/08/21/0b-file",
-    "excerpt": "currently facing an error : 2022-08-21 1922,943 - WARNING - unzipper - MainThread - File size equals to 0 B USE UPLOAD ALL METHOD TO AVOID THE BUG !!! Fixed. Enjoy 🫶"
+    "excerpt": "currently facing an error : 2022-08-21 1922,943 - WARNING - unzipper - MainThread - File size equals to 0 B USE UPLOAD ALL METHOD TO AVOID THE BUG !!! Fixed. Enjoy"
   },
   {
     "id": "2022-08-21-200-users",
@@ -375,7 +1347,7 @@
     "tags": [],
     "path": "2022/08-21-200-users.md",
     "link": "/blog/telegram/2022/08/21/200-users",
-    "excerpt": "Thank you everyone for the 200 users on @unzip_edm115bot 🥳❤️ This give me enough motivation to keep that bot updated, among my other projects (and my holidays 🤓) 🤍 As a reward, here is a small upda..."
+    "excerpt": "Thank you everyone for the 200 users on @unzip_edm115bot This give me enough motivation to keep that bot updated, among my other projects (and my holidays ) As a reward, here is a small update : a lit..."
   },
   {
     "id": "2022-08-21-music-cve",
@@ -384,7 +1356,7 @@
     "tags": [],
     "path": "2022/08-21-music-cve.md",
     "link": "/blog/telegram/2022/08/21/music-cve",
-    "excerpt": "Music Video is now a declared security vulnerability 😂 (you guys go too far) The original blog post The vulnerability on MITRE"
+    "excerpt": "Music Video is now a declared security vulnerability (you guys go too far) The original blog post The vulnerability on MITRE"
   },
   {
     "id": "2022-08-20-useless-branch",
@@ -393,16 +1365,7 @@
     "tags": [],
     "path": "2022/08-20-useless-branch.md",
     "link": "/blog/telegram/2022/08/20/useless-branch",
-    "excerpt": "😂"
-  },
-  {
-    "id": "2022-08-19-deleted-channels-2",
-    "title": "#129",
-    "date": "2022-08-19",
-    "tags": [],
-    "path": "2022/08-19-deleted-channels-2.md",
-    "link": "/blog/telegram/2022/08/19/deleted-channels-2",
-    "excerpt": "telegram either show that the username is invalid, or the channel is private"
+    "excerpt": ""
   },
   {
     "id": "2022-08-19-deleted-channels-3",
@@ -412,6 +1375,15 @@
     "path": "2022/08-19-deleted-channels-3.md",
     "link": "/blog/telegram/2022/08/19/deleted-channels-3",
     "excerpt": "sources : @SpEcHlDe • @GabChannel • @tginfoen"
+  },
+  {
+    "id": "2022-08-19-deleted-channels-2",
+    "title": "#129",
+    "date": "2022-08-19",
+    "tags": [],
+    "path": "2022/08-19-deleted-channels-2.md",
+    "link": "/blog/telegram/2022/08/19/deleted-channels-2",
+    "excerpt": "telegram either show that the username is invalid, or the channel is private"
   },
   {
     "id": "2022-08-19-deleted-channels",
@@ -429,16 +1401,7 @@
     "tags": [],
     "path": "2022/08-18-vscode-server.md",
     "link": "/blog/telegram/2022/08/18/vscode-server",
-    "excerpt": "Microsoft be like : giving you stuff you didn't even requested and you won't use 👌"
-  },
-  {
-    "id": "2022-08-16-heroku-psutil",
-    "title": "#124",
-    "date": "2022-08-16",
-    "tags": [],
-    "path": "2022/08-16-heroku-psutil.md",
-    "link": "/blog/telegram/2022/08/16/heroku-psutil",
-    "excerpt": "more and more space is \"freed\", while more and more stuff is downloaded Good job Heroku, you proved that we can't use reasonably psutil 🥲"
+    "excerpt": "Microsoft be like : giving you stuff you didn't even requested and you won't use"
   },
   {
     "id": "2022-08-16-v5-tease",
@@ -447,25 +1410,16 @@
     "tags": [],
     "path": "2022/08-16-v5-tease.md",
     "link": "/blog/telegram/2022/08/16/v5-tease",
-    "excerpt": "New features from v5 on 200 users… 👀"
+    "excerpt": "New features from v5 on 200 users…"
   },
   {
-    "id": "2022-08-15-alpha-test",
-    "title": "#119",
-    "date": "2022-08-15",
+    "id": "2022-08-16-heroku-psutil",
+    "title": "#124",
+    "date": "2022-08-16",
     "tags": [],
-    "path": "2022/08-15-alpha-test.md",
-    "link": "/blog/telegram/2022/08/15/alpha-test",
-    "excerpt": "You can test the super extra alpha buggy version here @unzipbetatestbot Broken 98% of the time, but the new commits will be deployed there before bringing them on the night beta version 😌"
-  },
-  {
-    "id": "2022-08-15-thumbnail-management",
-    "title": "#121",
-    "date": "2022-08-15",
-    "tags": [],
-    "path": "2022/08-15-thumbnail-management.md",
-    "link": "/blog/telegram/2022/08/15/thumbnail-management",
-    "excerpt": "thumbnail management is better 👍 last thing to do is saving it on DB + redownload after each restart"
+    "path": "2022/08-16-heroku-psutil.md",
+    "link": "/blog/telegram/2022/08/16/heroku-psutil",
+    "excerpt": "more and more space is \"freed\", while more and more stuff is downloaded Good job Heroku, you proved that we can't use reasonably psutil"
   },
   {
     "id": "2022-08-15-website-traffic",
@@ -474,7 +1428,25 @@
     "tags": [],
     "path": "2022/08-15-website-traffic.md",
     "link": "/blog/telegram/2022/08/15/website-traffic",
-    "excerpt": "I wonder from where this traffic come from… who the hell would visit my website ? 😂😅"
+    "excerpt": "I wonder from where this traffic come from… who the hell would visit my website ?"
+  },
+  {
+    "id": "2022-08-15-thumbnail-management",
+    "title": "#121",
+    "date": "2022-08-15",
+    "tags": [],
+    "path": "2022/08-15-thumbnail-management.md",
+    "link": "/blog/telegram/2022/08/15/thumbnail-management",
+    "excerpt": "thumbnail management is better last thing to do is saving it on DB + redownload after each restart"
+  },
+  {
+    "id": "2022-08-15-alpha-test",
+    "title": "#119",
+    "date": "2022-08-15",
+    "tags": [],
+    "path": "2022/08-15-alpha-test.md",
+    "link": "/blog/telegram/2022/08/15/alpha-test",
+    "excerpt": "You can test the super extra alpha buggy version here @unzipbetatestbot Broken 98% of the time, but the new commits will be deployed there before bringing them on the night beta version"
   },
   {
     "id": "2022-08-14-build-fail",
@@ -483,7 +1455,7 @@
     "tags": [],
     "path": "2022/08-14-build-fail.md",
     "link": "/blog/telegram/2022/08/14/build-fail",
-    "excerpt": "https://nekobin.com/xikizanexi In short, Heroku just failed to build Arch Linux 😂 How ? Process goes to sleep during deployment… so it never ended It was a manual deployment from Heroku dashboard, li..."
+    "excerpt": "https://nekobin.com/xikizanexi In short, Heroku just failed to build Arch Linux How ? Process goes to sleep during deployment… so it never ended It was a manual deployment from Heroku dashboard, linke..."
   },
   {
     "id": "2022-08-10-build-limit",
@@ -492,7 +1464,7 @@
     "tags": [],
     "path": "2022/08-10-build-limit.md",
     "link": "/blog/telegram/2022/08/10/build-limit",
-    "excerpt": "didn't knew a limit exists… 😐"
+    "excerpt": "didn't knew a limit exists…"
   },
   {
     "id": "2022-08-10-v5-list",
@@ -501,7 +1473,7 @@
     "tags": [],
     "path": "2022/08-10-v5-list.md",
     "link": "/blog/telegram/2022/08/10/v5-list",
-    "excerpt": "Always a lot of work to do... 🥱 Check what we've done on #38"
+    "excerpt": "Always a lot of work to do... Check what we've done on #38"
   },
   {
     "id": "2022-08-08-again",
@@ -510,7 +1482,7 @@
     "tags": [],
     "path": "2022/08-08-again.md",
     "link": "/blog/telegram/2022/08/08/again",
-    "excerpt": "Here we go again 😃"
+    "excerpt": "Here we go again"
   },
   {
     "id": "2022-08-08-genesis",
@@ -531,15 +1503,6 @@
     "excerpt": "This have been manually done Next update will make it automated however, I need to know how to handle gracefully the SIGTERM signal from Heroku"
   },
   {
-    "id": "2022-08-04-back",
-    "title": "#108",
-    "date": "2022-08-04",
-    "tags": [],
-    "path": "2022/08-04-back.md",
-    "link": "/blog/telegram/2022/08/04/back",
-    "excerpt": "I'm back… kind of Real comeback will happen for 8th August 😗✌️"
-  },
-  {
     "id": "2022-08-04-no-support",
     "title": "#109",
     "date": "2022-08-04",
@@ -547,6 +1510,15 @@
     "path": "2022/08-04-no-support.md",
     "link": "/blog/telegram/2022/08/04/no-support",
     "excerpt": "https://github.com/moyix/fauxpilot#support-and-warranty however, cool project"
+  },
+  {
+    "id": "2022-08-04-back",
+    "title": "#108",
+    "date": "2022-08-04",
+    "tags": [],
+    "path": "2022/08-04-back.md",
+    "link": "/blog/telegram/2022/08/04/back",
+    "excerpt": "I'm back… kind of Real comeback will happen for 8th August"
   },
   {
     "id": "2022-07-26-unverified-commits",
@@ -567,6 +1539,15 @@
     "excerpt": "https://decrypt.co/105775/inside-crypto-bot-ghost-towns-telegram lmao"
   },
   {
+    "id": "2022-07-19-unmaintained-bots",
+    "title": "#103",
+    "date": "2022-07-19",
+    "tags": [],
+    "path": "2022/07-19-unmaintained-bots.md",
+    "link": "/blog/telegram/2022/07/19/unmaintained-bots",
+    "excerpt": "From today bots will become unmaintained They will still work (normally), but don't expect from me to fix bugs/add things I'm with my gf for 2 weeks, and I seriously wanna enjoy being with her You can..."
+  },
+  {
     "id": "2022-07-19-speed",
     "title": "#102",
     "date": "2022-07-19",
@@ -576,22 +1557,13 @@
     "excerpt": "Trying to download… Please wait [⬢⬢⬢⬢⬢⬢⬢⬢⬢⬢⬢⬡⬡⬡⬡⬡⬡⬡⬡⬡] Processing… : 55.07% 905.0 MiB of 1.6 GiB Speed : 11.25 MiB/s ETA : 2m, 26s Powered by @EDM115bots Very probably the fastest speed we ever got"
   },
   {
-    "id": "2022-07-19-unmaintained-bots",
-    "title": "#103",
-    "date": "2022-07-19",
-    "tags": [],
-    "path": "2022/07-19-unmaintained-bots.md",
-    "link": "/blog/telegram/2022/07/19/unmaintained-bots",
-    "excerpt": "From today bots will become unmaintained They will still work (normally), but don't expect from me to fix bugs/add things I'm with my gf for 2 weeks, and I seriously wanna enjoy being with her 🥹 You ..."
-  },
-  {
     "id": "2022-07-18-error-fixed",
     "title": "#101",
     "date": "2022-07-18",
     "tags": [],
     "path": "2022/07-18-error-fixed.md",
     "link": "/blog/telegram/2022/07/18/error-fixed",
-    "excerpt": "ENTITY_BOUNDS_INVALID error is fixed ✅ You can use the bot normally now"
+    "excerpt": "ENTITY_BOUNDS_INVALID error is fixed You can use the bot normally now"
   },
   {
     "id": "2022-07-15-error-update-2",
@@ -627,7 +1599,7 @@
     "tags": [],
     "path": "2022/07-14-updated.md",
     "link": "/blog/telegram/2022/07/14/updated",
-    "excerpt": "lmao, check the updated times 🙈"
+    "excerpt": "lmao, check the updated times"
   },
   {
     "id": "2022-07-13-150-users",
@@ -636,7 +1608,7 @@
     "tags": [],
     "path": "2022/07-13-150-users.md",
     "link": "/blog/telegram/2022/07/13/150-users",
-    "excerpt": "💫 Current bot stats 💫 [BETA] 👥 Users : ↳ Users in database : 151 ↳ Total banned users : 0 💾 Disk usage : ↳ Total Disk Space : 500.42 GiB ↳ Used : 102.81 GiB - 21.6% ↳ Free : 372.17 GiB 🌐 Network ..."
+    "excerpt": "Current bot stats [BETA] Users : ↳ Users in database : 151 ↳ Total banned users : 0 Disk usage : ↳ Total Disk Space : 500.42 GiB ↳ Used : 102.81 GiB - 21.6% ↳ Free : 372.17 GiB Network usage : ↳ Uploa..."
   },
   {
     "id": "2022-07-10-benchmark",
@@ -645,7 +1617,7 @@
     "tags": [],
     "path": "2022/07-10-benchmark.md",
     "link": "/blog/telegram/2022/07/10/benchmark",
-    "excerpt": "it's benchmark time ☺️ Input : ≈ 600 Mb archive Output : 3 547 files extracted and sent in 35 min so it's an average of 101 files per minute, exactly 1,69 files per second we can call it speed 👀"
+    "excerpt": "it's benchmark time Input : ≈ 600 Mb archive Output : 3 547 files extracted and sent in 35 min so it's an average of 101 files per minute, exactly 1,69 files per second we can call it speed"
   },
   {
     "id": "2022-07-10-beta-v5",
@@ -654,16 +1626,7 @@
     "tags": [],
     "path": "2022/07-10-beta-v5.md",
     "link": "/blog/telegram/2022/07/10/beta-v5",
-    "excerpt": "my beta version will be updated on the next week with some improvements those changes may be pushed to stable into a theoric v5 on the ongoing month stay tuned ☺️"
-  },
-  {
-    "id": "2022-07-08-4dot5-update",
-    "title": "#91",
-    "date": "2022-07-08",
-    "tags": [],
-    "path": "2022/07-08-4dot5-update.md",
-    "link": "/blog/telegram/2022/07/08/4dot5-update",
-    "excerpt": "BIG Update announcement : v4.5.0 Visible changes on user side : • /me works • Error messages directly sent in logs • Typed wrong /command ? Edit your message, bot will handle it as a new one ☺️ • Adde..."
+    "excerpt": "my beta version will be updated on the next week with some improvements those changes may be pushed to stable into a theoric v5 on the ongoing month stay tuned"
   },
   {
     "id": "2022-07-08-matrix-bot",
@@ -672,7 +1635,16 @@
     "tags": [],
     "path": "2022/07-08-matrix-bot.md",
     "link": "/blog/telegram/2022/07/08/matrix-bot",
-    "excerpt": "wait what 😳 the bot just added itself to the database Welcome to the Matrix, Neo…"
+    "excerpt": "wait what the bot just added itself to the database Welcome to the Matrix, Neo…"
+  },
+  {
+    "id": "2022-07-08-4dot5-update",
+    "title": "#91",
+    "date": "2022-07-08",
+    "tags": [],
+    "path": "2022/07-08-4dot5-update.md",
+    "link": "/blog/telegram/2022/07/08/4dot5-update",
+    "excerpt": "BIG Update announcement : v4.5.0 Visible changes on user side : • /me works • Error messages directly sent in logs • Typed wrong /command ? Edit your message, bot will handle it as a new one • Added l..."
   },
   {
     "id": "2022-07-05-update-delayed",
@@ -681,7 +1653,7 @@
     "tags": [],
     "path": "2022/07-05-update-delayed.md",
     "link": "/blog/telegram/2022/07/05/update-delayed",
-    "excerpt": "Reward delayed by 1 week due to personal problems sorry 👉👈"
+    "excerpt": "Reward delayed by 1 week due to personal problems sorry"
   },
   {
     "id": "2022-06-29-discovery-poll",
@@ -690,16 +1662,7 @@
     "tags": [],
     "path": "2022/06-29-discovery-poll.md",
     "link": "/blog/telegram/2022/06/29/discovery-poll",
-    "excerpt": "How did you discovered me ? - By Telegram search 🔍 | 90 votes - Repo on GitHub | 28 votes - Recommended by a friend | 13 votes - You know the owner (@EDM115) | 22 votes - From my channel (@EDM115bots..."
-  },
-  {
-    "id": "2022-06-25-100-users",
-    "title": "#85",
-    "date": "2022-06-25",
-    "tags": [],
-    "path": "2022/06-25-100-users.md",
-    "link": "/blog/telegram/2022/06/25/100-users",
-    "excerpt": "We crushed 100 users 🥳🥹 Thank you everyone for staying & using me ! As a reward, !!a preview of the v4 will come in the next week(s)!! 👀 Keep using me, share this bot with your friends, and follow ..."
+    "excerpt": "How did you discovered me ? - By Telegram search | 90 votes - Repo on GitHub | 28 votes - Recommended by a friend | 13 votes - You know the owner (@EDM115) | 22 votes - From my channel (@EDM115bots) |..."
   },
   {
     "id": "2022-06-25-new-group",
@@ -711,13 +1674,22 @@
     "excerpt": "From now, discussion group moved to @EDM115_chat The previous linked chat will stay without support, only for ytdl purposes"
   },
   {
+    "id": "2022-06-25-100-users",
+    "title": "#85",
+    "date": "2022-06-25",
+    "tags": [],
+    "path": "2022/06-25-100-users.md",
+    "link": "/blog/telegram/2022/06/25/100-users",
+    "excerpt": "We crushed 100 users Thank you everyone for staying & using me ! As a reward, Keep using me, share this bot with your friends, and follow @EDM115bots for keeping supporting"
+  },
+  {
     "id": "2022-06-24-stackoverflow-dev-survey",
     "title": "#84",
     "date": "2022-06-24",
     "tags": [],
     "path": "2022/06-24-stackoverflow-dev-survey.md",
     "link": "/blog/telegram/2022/06/24/stackoverflow-dev-survey",
-    "excerpt": "StackOverflow’s 2022 Developer Survey results are here 🥳 https://survey.stackoverflow.co/2022"
+    "excerpt": "StackOverflow’s 2022 Developer Survey results are here https://survey.stackoverflow.co/2022"
   },
   {
     "id": "2022-06-24-website-soon",
@@ -726,7 +1698,7 @@
     "tags": [],
     "path": "2022/06-24-website-soon.md",
     "link": "/blog/telegram/2022/06/24/website-soon",
-    "excerpt": "Website coming soon 😃 Why searching for an FTP client on Android when you have Cx File Explorer… 😏"
+    "excerpt": "Website coming soon Why searching for an FTP client on Android when you have Cx File Explorer…"
   },
   {
     "id": "2022-06-22-service-notifications",
@@ -735,7 +1707,7 @@
     "tags": [],
     "path": "2022/06-22-service-notifications.md",
     "link": "/blog/telegram/2022/06/22/service-notifications",
-    "excerpt": "Telegram service notifications is an user belongs to DC1 have a phone number and is seen a \"long time ago\" 😳"
+    "excerpt": "Telegram service notifications is an user belongs to DC1 have a phone number and is seen a \"long time ago\""
   },
   {
     "id": "2022-06-21-eudotorg-domain",
@@ -771,7 +1743,7 @@
     "tags": [],
     "path": "2022/06-16-unzipbot-v4.md",
     "link": "/blog/telegram/2022/06/16/unzipbot-v4",
-    "excerpt": "Release of v4 will be delayed by a bit Too much new features to add 🥵 • Bug fixing • File splitting • Cancel task • Thumbnail support And much more 😘"
+    "excerpt": "Release of v4 will be delayed by a bit Too much new features to add • Bug fixing • File splitting • Cancel task • Thumbnail support And much more"
   },
   {
     "id": "2022-06-11-help-wanted",
@@ -780,7 +1752,7 @@
     "tags": [],
     "path": "2022/06-11-help-wanted.md",
     "link": "/blog/telegram/2022/06/11/help-wanted",
-    "excerpt": "oh and if anyone can help me with the help wanted issues… it would be super nice 🥺 https://github.com/EDM115/unzip-bot/issues"
+    "excerpt": "oh and if anyone can help me with the help wanted issues… it would be super nice https://github.com/EDM115/unzip-bot/issues"
   },
   {
     "id": "2022-06-10-github-achievements",
@@ -792,15 +1764,6 @@
     "excerpt": "GitHub starts to roll out Achievements https://github.blog/2022-06-09-introducing-achievements-recognizing-the-many-stages-of-a-developers-coding-journey/"
   },
   {
-    "id": "2022-06-08-bot-down",
-    "title": "#74",
-    "date": "2022-06-08",
-    "tags": [],
-    "path": "2022/06-08-bot-down.md",
-    "link": "/blog/telegram/2022/06/08/bot-down",
-    "excerpt": "Sorry for this inactivity Due to : Unknown reason Offline time : 15h → 17h25 UTC + 1 If the bot become inactive again, ping me here @EDM115"
-  },
-  {
     "id": "2022-06-08-tgx-file-size",
     "title": "#75",
     "date": "2022-06-08",
@@ -808,6 +1771,15 @@
     "path": "2022/06-08-tgx-file-size.md",
     "link": "/blog/telegram/2022/06/08/tgx-file-size",
     "excerpt": "Telegram X shows buggy file size…"
+  },
+  {
+    "id": "2022-06-08-bot-down",
+    "title": "#74",
+    "date": "2022-06-08",
+    "tags": [],
+    "path": "2022/06-08-bot-down.md",
+    "link": "/blog/telegram/2022/06/08/bot-down",
+    "excerpt": "Sorry for this inactivity Due to : Unknown reason Offline time : 15h → 17h25 UTC + 1 If the bot become inactive again, ping me here @EDM115"
   },
   {
     "id": "2022-05-23-markup-too-long",
@@ -882,15 +1854,6 @@
     "excerpt": "I'm sad now It does actually follow that rules"
   },
   {
-    "id": "2022-04-21-bots-status",
-    "title": "#61",
-    "date": "2022-04-21",
-    "tags": [],
-    "path": "2022/04-21-bots-status.md",
-    "link": "/blog/telegram/2022/04/21/bots-status",
-    "excerpt": "@EDM115 bots status Turned off as of 11th February 2024 Heyo everyone Here is the list of my bots, and if they are running or no : @unzip_edm115bot • Up & online Last check : 2341 • 10 February 2024 [..."
-  },
-  {
     "id": "2022-04-21-unzip-bot-announcement",
     "title": "#63",
     "date": "2022-04-21",
@@ -898,6 +1861,15 @@
     "path": "2022/04-21-unzip-bot-announcement.md",
     "link": "/blog/telegram/2022/04/21/unzip-bot-announcement",
     "excerpt": "NEW BOT ALERT I proudly present you @unzip_edm115bot This bot is able to extract the files from any archive you send/forward to him ! He also supports extracting from an URL hosted archive and passwor..."
+  },
+  {
+    "id": "2022-04-21-bots-status",
+    "title": "#61",
+    "date": "2022-04-21",
+    "tags": [],
+    "path": "2022/04-21-bots-status.md",
+    "link": "/blog/telegram/2022/04/21/bots-status",
+    "excerpt": "@EDM115 bots status Turned off as of 11th February 2024 Heyo everyone Here is the list of my bots, and if they are running or no : @unzip_edm115bot • Up & online Last check : 2341 • 10 February 2024 [..."
   },
   {
     "id": "2022-04-17-changelog",
@@ -1026,15 +1998,6 @@
     "excerpt": "So, this is an example of sponsored messages (no)"
   },
   {
-    "id": "2021-12-21-log4j-vulnerability",
-    "title": "#42",
-    "date": "2021-12-21",
-    "tags": [],
-    "path": "2021/12-21-log4j-vulnerability.md",
-    "link": "/blog/telegram/2021/12/21/log4j-vulnerability",
-    "excerpt": "Okay, so y'all have probably heard about this 10/10 critical security breach Here some sources about it : • Run a vulnerable log4j instance (at your own risks !) • Cloudflare blog article for a better..."
-  },
-  {
     "id": "2021-12-21-yt-bot-emojis",
     "title": "#43",
     "date": "2021-12-21",
@@ -1042,6 +2005,15 @@
     "path": "2021/12-21-yt-bot-emojis.md",
     "link": "/blog/telegram/2021/12/21/yt-bot-emojis",
     "excerpt": "Just testing random things… While waiting for the 3.0 version"
+  },
+  {
+    "id": "2021-12-21-log4j-vulnerability",
+    "title": "#42",
+    "date": "2021-12-21",
+    "tags": [],
+    "path": "2021/12-21-log4j-vulnerability.md",
+    "link": "/blog/telegram/2021/12/21/log4j-vulnerability",
+    "excerpt": "Okay, so y'all have probably heard about this 10/10 critical security breach Here some sources about it : • Run a vulnerable log4j instance (at your own risks !) • Cloudflare blog article for a better..."
   },
   {
     "id": "2021-12-18-yt-bot-issues",
@@ -1116,15 +2088,6 @@
     "excerpt": "EVERYONE MUST READ #storytime yep So, WHY the bot was acting weirdly those days ? Lemme explain you. Some dumbass stupid users think that they can \"kill\" the bot (or our servers) by sending a loooot o..."
   },
   {
-    "id": "2021-09-14-storytime-2",
-    "title": "#32",
-    "date": "2021-09-14",
-    "tags": [],
-    "path": "2021/09-14-storytime-2.md",
-    "link": "/blog/telegram/2021/09/14/storytime-2",
-    "excerpt": "#storytime IF YOU SEND A LINK NOW, THE FILE WILL BE SENT WITH A GAP OF 3 HOURS WAIT UNTIL I FIXED THIS"
-  },
-  {
     "id": "2021-09-14-storytime-3",
     "title": "#33",
     "date": "2021-09-14",
@@ -1132,6 +2095,15 @@
     "path": "2021/09-14-storytime-3.md",
     "link": "/blog/telegram/2021/09/14/storytime-3",
     "excerpt": "#storytime Server time were set to wrong timezone This explain the gap between download and upload Sorry, that's fixed now"
+  },
+  {
+    "id": "2021-09-14-storytime-2",
+    "title": "#32",
+    "date": "2021-09-14",
+    "tags": [],
+    "path": "2021/09-14-storytime-2.md",
+    "link": "/blog/telegram/2021/09/14/storytime-2",
+    "excerpt": "#storytime IF YOU SEND A LINK NOW, THE FILE WILL BE SENT WITH A GAP OF 3 HOURS WAIT UNTIL I FIXED THIS"
   },
   {
     "id": "2021-09-14-storytime",
@@ -1251,15 +2223,6 @@
     "excerpt": "#changelog : new in 1.1.1 Nothing much, the bot has just came back to a normal speed Problem come from users who try to download +500 Mb videos in DM, and the bot is actually uploading it. It takes a ..."
   },
   {
-    "id": "2021-06-21-changelog",
-    "title": "#15",
-    "date": "2021-06-21",
-    "tags": [],
-    "path": "2021/06-21-changelog.md",
-    "link": "/blog/telegram/2021/06/21/changelog",
-    "excerpt": "#changelog : new in 1.1 Added the ability to request/download multiple videos at the same time But since the bot need to handle upload AND download, it will be slower… I'll see if I'm able to fix this"
-  },
-  {
     "id": "2021-06-21-storytime-2",
     "title": "#16",
     "date": "2021-06-21",
@@ -1267,6 +2230,15 @@
     "path": "2021/06-21-storytime-2.md",
     "link": "/blog/telegram/2021/06/21/storytime-2",
     "excerpt": "#storytime everyone ! The bot is extremely slow right now because of CDN overcharge. Idk if it's an important provider of the web who is down now, but it may cause lag So ask to download, then go do s..."
+  },
+  {
+    "id": "2021-06-21-changelog",
+    "title": "#15",
+    "date": "2021-06-21",
+    "tags": [],
+    "path": "2021/06-21-changelog.md",
+    "link": "/blog/telegram/2021/06/21/changelog",
+    "excerpt": "#changelog : new in 1.1 Added the ability to request/download multiple videos at the same time But since the bot need to handle upload AND download, it will be slower… I'll see if I'm able to fix this"
   },
   {
     "id": "2021-06-21-storytime",
@@ -1287,6 +2259,15 @@
     "excerpt": "#changelog : new in 1.0 We're finally on a stable version of the bot Anyway, downloads and uploads are 20% faster thanks to code optimisation I'll do less updates from now, until I have new ideas or f..."
   },
   {
+    "id": "2021-06-15-storytime",
+    "title": "#12",
+    "date": "2021-06-15",
+    "tags": [],
+    "path": "2021/06-15-storytime.md",
+    "link": "/blog/telegram/2021/06/15/storytime",
+    "excerpt": "#storytime Okay so currently 2 downloads can't be done at the same time, will fix it by adding more RAM and a 2nd server"
+  },
+  {
     "id": "2021-06-15-changelog-2",
     "title": "#11",
     "date": "2021-06-15",
@@ -1305,13 +2286,13 @@
     "excerpt": "#changelog : new in 0.9 Last round until moving out from beta Bot is still more stable, also I noticed that when I tried to upload 8K HDR video, the problem didn't came from bot or YouTube CDN but fro..."
   },
   {
-    "id": "2021-06-15-storytime",
-    "title": "#12",
-    "date": "2021-06-15",
+    "id": "2021-06-14-storytime",
+    "title": "#9",
+    "date": "2021-06-14",
     "tags": [],
-    "path": "2021/06-15-storytime.md",
-    "link": "/blog/telegram/2021/06/15/storytime",
-    "excerpt": "#storytime Okay so currently 2 downloads can't be done at the same time, will fix it by adding more RAM and a 2nd server"
+    "path": "2021/06-14-storytime.md",
+    "link": "/blog/telegram/2021/06/14/storytime",
+    "excerpt": "#storytime Hmmm… I see a behavior of the bot that isn't coded for it… because of bad use… Too many failed uploads happens for files the bot is able to upload… When you choose format and quality, BE SU..."
   },
   {
     "id": "2021-06-14-changelog",
@@ -1321,15 +2302,6 @@
     "path": "2021/06-14-changelog.md",
     "link": "/blog/telegram/2021/06/14/changelog",
     "excerpt": "#changelog : new in 0.8 Added the ability to search video in inline mode Type \"@vid\" and then type keywords, like if you research on YouTube. Dive into results and click on the video you want to downl..."
-  },
-  {
-    "id": "2021-06-14-storytime",
-    "title": "#9",
-    "date": "2021-06-14",
-    "tags": [],
-    "path": "2021/06-14-storytime.md",
-    "link": "/blog/telegram/2021/06/14/storytime",
-    "excerpt": "#storytime Hmmm… I see a behavior of the bot that isn't coded for it… because of bad use… Too many failed uploads happens for files the bot is able to upload… When you choose format and quality, BE SU..."
   },
   {
     "id": "2021-06-13-storytime",

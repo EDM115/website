@@ -8,4 +8,4 @@ meta:
 ---
 
 ![v5-tease](/img/blog/2022/08-16-v5-tease.webp)  
-New features from v5 on 200 users… 👀
+New features from v5 on 200 users… :eyes:

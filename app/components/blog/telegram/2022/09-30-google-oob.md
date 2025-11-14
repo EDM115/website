@@ -7,7 +7,7 @@ meta:
     content: 190
 ---
 
-I guess they just read their mails and thought about the [OOB ending in 3 days](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html?m=1#disallowed-oob) 😂
+I guess they just read their mails and thought about the [OOB ending in 3 days](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html?m=1#disallowed-oob) :joy:
 
 https://t.me/botxupdates/444  
 https://t.me/od_bots/135  

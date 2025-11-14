@@ -12,4 +12,4 @@ Telegram service notifications
 is an user  
 belongs to DC1  
 have a phone number  
-and is seen a "long time ago" 😳
+and is seen a "long time ago" :flushed:

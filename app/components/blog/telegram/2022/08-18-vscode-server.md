@@ -10,4 +10,4 @@ meta:
 ![vscode-server](/img/blog/2022/08-18-vscode-server.webp)  
 Microsoft be like :  
 giving you stuff you didn't even requested and you won't use  
-👌
+:ok_hand:

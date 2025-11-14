@@ -17,4 +17,4 @@ it raises that exceptions that doesn't even exist on PyroGram Docs
 
 will investigate on this, but until I tell you "it's okay", don't send files here as it will not work
 
-Thanks for your understanding 🥺
+Thanks for your understanding :pleading_face:
