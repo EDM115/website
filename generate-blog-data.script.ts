@@ -113,9 +113,11 @@ function parseFilePath(relativePath: string): FileInfo | null {
 
 async function parseBlogPost(
   filePath: string,
-    relativePath: string,
-    isTelegram: boolean
-): Promise<{ post: BlogPostMeta; publishedTime: Date }> {
+  relativePath: string,
+  isTelegram: boolean,
+): Promise<{
+  post: BlogPostMeta; publishedTime: Date;
+}> {
   const content = await readFile(filePath, "utf-8")
   const frontMatterParsed = grayMatter(content)
   // oxlint-disable-next-line no-unsafe-type-assertion
@@ -205,14 +207,21 @@ async function parseBlogPost(
     excerpt,
   }
 
-  return { post, publishedTime: publishedTime instanceof Date ? publishedTime : new Date(0) }
+  return {
+    post,
+    publishedTime: publishedTime instanceof Date
+      ? publishedTime
+      : new Date(0),
+  }
 }
 
 async function scanDirectoryWithTime(
   baseDir: string,
   subDir = "",
   isTelegram = false,
-): Promise<{ post: BlogPostMeta; publishedTime: Date }[]> {
+): Promise<{
+  post: BlogPostMeta; publishedTime: Date;
+}[]> {
   const currentDir = join(baseDir, subDir)
 
   try {
@@ -251,9 +260,7 @@ async function scanDirectory(
   const postsWithTime = await scanDirectoryWithTime(baseDir, subDir, isTelegram)
 
   // Sort antichronologically by publish time
-  postsWithTime.sort(
-    (a, b) => b.publishedTime.getTime() - a.publishedTime.getTime(),
-  )
+  postsWithTime.sort((a, b) => b.publishedTime.getTime() - a.publishedTime.getTime())
 
   return postsWithTime.map(({ post }) => post)
 }
