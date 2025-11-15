@@ -229,12 +229,12 @@ main {
   color: transparent;
 }
 
-*:not(::deep(.hljs))::selection {
+*:not(:deep(.hljs))::selection {
   background: var(--primary);
   color: var(--text);
 }
 
-:root.dark *:not(::deep(.hljs))::selection {
+:root.dark *:not(:deep(.hljs))::selection {
   background: var(--primary);
   color: var(--bg);
 }
