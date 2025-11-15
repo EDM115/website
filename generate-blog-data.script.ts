@@ -31,7 +31,7 @@ function extractExcerpt(content: string, maxLength = 200): string {
     // Remove ins
     .replace(/\+\+(.+?)\+\+/g, "$1")
     // Remove mark
-    .replace(/==(.+?)==/g, "$1")
+    .replace(/[=]{2}(.+?)[=]{2}/g, "$1")
     // Remove spoilers (and their content)
     .replace(/!!(.+?)!!/g, "")
     // Remove links

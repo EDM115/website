@@ -137,6 +137,7 @@ const {
 
       const erx = emojiRegex()
 
+      // skipcq: JS-0016
       function demojifyToGithub(s: string) {
         return s.replace(erx, (m) => {
           const name = emojiToName[m]
@@ -149,6 +150,7 @@ const {
         })
       }
 
+      // skipcq: JS-0016
       function getTokensText(tokens: Token[]) {
         return tokens
           .filter((token) => ![ "html_inline", "image" ].includes(token.type))
