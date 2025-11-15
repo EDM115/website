@@ -77,7 +77,7 @@ meta:
 [:x:] kali-everything  
 [:x:] …
 
-<ins>Legend :</ins>  
+++Legend :++  
 :x: Planned  
 :yellow_circle: On-going  
 :white_check_mark: Done

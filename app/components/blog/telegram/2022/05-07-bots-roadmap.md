@@ -7,7 +7,7 @@ meta:
     content: 67
 ---
 
-<ins>REGARDING TO MY BOTS (huge changes) :pleading_face::broken_heart:</ins>
+++REGARDING TO MY BOTS (huge changes) :pleading_face::broken_heart:++
 
 Let me give you the roadmap :
 

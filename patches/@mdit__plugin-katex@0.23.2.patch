@@ -1,0 +1,36 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index 40e2676dd646c74a8d7ad1e7c55cd54a1d82aee7..07755d2ad87af19a2176ec8fd0cf7bf5befb7bd2 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,16 +1,16 @@
+-import { MarkdownItTexOptions } from '@mdit/plugin-tex';
+-import { Token, KatexOptions } from 'katex';
+-import MarkdownIt from 'markdown-it';
++import type { MarkdownItTexOptions } from '@mdit/plugin-tex';
++import type { Token, KatexOptions } from 'katex';
++import type { MarkdownExit, MarkdownExitEnv } from "markdown-exit";
+ 
+-type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | undefined | void;
++type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | undefined | void;
+ type TeXTransformer = (content: string, displayMode: boolean) => string;
+-interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
++interface MarkdownItKatexOptions<MarkdownExitEnv = {}> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
+     /**
+      * Error logger
+      *
+      * 错误日志记录器
+      */
+-    logger?: KatexLogger<MarkdownItEnv>;
++    logger?: KatexLogger<MarkdownExitEnv>;
+     /**
+      * transformer on output content
+      *
+@@ -20,7 +20,7 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
+ }
+ 
+ declare const loadMhchem: () => Promise<void>;
+-declare const katex: <MarkdownItEnv = unknown>(md: MarkdownIt, options?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
++declare const katex: <MarkdownExitEnv = {}>(md: MarkdownExit, options?: MarkdownItKatexOptions<MarkdownExitEnv>) => void;
+ 
+ export { katex, loadMhchem };
+ export type { KatexLogger, MarkdownItKatexOptions, TeXTransformer };

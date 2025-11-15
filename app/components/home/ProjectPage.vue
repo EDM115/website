@@ -95,8 +95,12 @@ const {
         { default: brOnEmptyLines },
         { full: emoji },
         { alert },
+        { footnote },
         { imgLazyload },
         { imgSize },
+        { ins },
+        { katex },
+        { mark },
         { spoiler },
         { tab },
         { tasklist },
@@ -114,8 +118,12 @@ const {
         import("~/utils/mdBreaks"),
         import("markdown-it-emoji"),
         import("@mdit/plugin-alert"),
+        import("@mdit/plugin-footnote"),
         import("@mdit/plugin-img-lazyload"),
         import("@mdit/plugin-img-size"),
+        import("@mdit/plugin-ins"),
+        import("@mdit/plugin-katex"),
+        import("@mdit/plugin-mark"),
         import("@mdit/plugin-spoiler"),
         import("@mdit/plugin-tab"),
         import("@mdit/plugin-tasklist"),
@@ -176,11 +184,15 @@ const {
           },
         })
         .use(alert, { deep: true })
+        .use(footnote)
         .use(imgLazyload)
         .use(imgSize)
+        .use(ins)
+        .use(katex, { delimiters: "all" })
+        .use(mark)
         .use(spoiler)
         .use(tab, { name: "tabs" })
-        .use(tasklist)
+        .use(tasklist, { disabled: false })
         .use(brOnEmptyLines)
 
       md.core.ruler.push("heading_copy_icon", (state) => {
@@ -309,6 +321,8 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+@import url("https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css");
+
 .loading {
   display: flex;
   align-items: center;

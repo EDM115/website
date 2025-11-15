@@ -28,6 +28,10 @@ function extractExcerpt(content: string, maxLength = 200): string {
     .replace(/\*(.+?)\*/g, "$1")
     // Remove strikethrough
     .replace(/~~(.+?)~~/g, "$1")
+    // Remove ins
+    .replace(/\+\+(.+?)\+\+/g, "$1")
+    // Remove mark
+    .replace(/==(.+?)==/g, "$1")
     // Remove spoilers (and their content)
     .replace(/!!(.+?)!!/g, "")
     // Remove links

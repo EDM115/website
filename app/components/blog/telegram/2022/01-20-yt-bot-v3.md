@@ -11,7 +11,7 @@ meta:
 
 [@ytvideodownloaderbyedm115_bot](https://t.me/ytvideodownloaderbyedm115_bot) will be updated to a 3.0 version soon… (it can take up to 5 months so… don't expect it for now :sweat_smile:)
 
-<ins>Changes (what's planned) :</ins>
+++Changes (what's planned) :++
 
 :white_check_mark: Revamped interface  
 :white_check_mark: More user-friendly, emoji's  
@@ -34,7 +34,7 @@ meta:
 :white_check_mark: Open-source code  
 :white_check_mark: Old code of the bot will be moved to another @
 
-<ins>What will maybe come with the new version :</ins>
+++What will maybe come with the new version :++
 
 :grey_question: Adding Dailymotion, Vimeo, etc… support  
 :grey_question: Improving speed (×2)

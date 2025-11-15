@@ -8,6 +8,34 @@
   }
 }
 
+@mixin nested-ol($level: 1) {
+  > li {
+    @if $level == 1 {
+      margin-left: 0rem;
+    } @else {
+      margin-left: 1rem;
+    }
+
+    > ol {
+      @if $level < 6 {
+        @include nested-ol($level + 1);
+      }
+    }
+  }
+}
+
+@mixin nested-ul($level: 1) {
+  > li {
+    margin-left: 1rem;
+
+    > ul {
+      @if $level < 6 {
+        @include nested-ul($level + 1);
+      }
+    }
+  }
+}
+
 body,
 html {
   margin: 0;
@@ -201,14 +229,14 @@ main {
   color: transparent;
 }
 
-*::selection {
-  background: var(--primary) !important;
-  color: var(--text) !important;
+*:not(:deep(.hljs))::selection {
+  background: var(--primary);
+  color: var(--text);
 }
 
-:root.dark *::selection {
-  background: var(--primary) !important;
-  color: var(--bg) !important;
+:root.dark *:not(:deep(.hljs))::selection {
+  background: var(--primary);
+  color: var(--bg);
 }
 
 *::-webkit-scrollbar {
@@ -386,26 +414,16 @@ li {
 }
 
 .markdown-body ul {
-  list-style-position: inside;
-  padding-bottom: 1rem;
-}
-
-.markdown-body .markdown-alert > ul {
-  margin-left: 1.5rem;
+  list-style-position: outside;
+  padding-bottom: 0.5rem;
+  @include nested-ul();
 }
 
 .markdown-body ol {
   list-style: none;
   counter-reset: item;
-  padding-bottom: 1rem;
-}
-
-.markdown-body .markdown-alert > ol {
-  margin-left: 1.5rem;
-}
-
-.markdown-body ol:has(+ .code-block) {
-  padding-bottom: 0rem;
+  padding-bottom: 0.5rem;
+  @include nested-ol();
 }
 
 .markdown-body ol[start] {
@@ -419,8 +437,16 @@ li {
   margin-right: 0.5rem;
 }
 
-.markdown-body ul > li > ul > li {
-  margin-left: 1.5rem;
+.markdown-body li > ul,
+.markdown-body li > ol,
+.markdown-body ul:has(+ ul),
+.markdown-body ul:has(+ ol),
+.markdown-body ol:has(+ ul),
+.markdown-body ol:has(+ ol),
+.markdown-body .markdown-alert ul,
+.markdown-body .markdown-alert ol,
+.markdown-body ol:has(+ .code-block) {
+  padding-bottom: 0;
 }
 
 .markdown-body table {
@@ -450,6 +476,37 @@ li {
 
 .markdown-body blockquote > p {
   color: var(--text-muted);
+}
+
+.markdown-body .task-list-item {
+  pointer-events: none;
+}
+
+.markdown-body .footnote-item p {
+  display: inline-block;
+}
+
+.markdown-body .footnote-item p {
+  display: inline-block;
+}
+
+.markdown-body pre:has(> code.hljs) {
+  margin: 0.5rem 0;
+}
+
+.markdown-body pre > code.hljs {
+  border-radius: 20px;
+}
+
+.markdown-body .code-block pre:has(> code.hljs) {
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.markdown-body .code-block pre > code.hljs {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .code-block {
@@ -500,6 +557,11 @@ li {
 .code-block pre > code {
   margin: 0;
   border-radius: 0px 0px 20px 20px;
+}
+
+kbd {
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
 }
 
 *:not(pre) > code.hljs {

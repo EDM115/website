@@ -9,9 +9,9 @@ meta:
 
 *Insights for [@unzip_edm115bot](https://t.me/unzip_edm115bot) :*
 
-On the last week, we gained over **100** <ins>users</ins> (`+31%`)  
-The amount of <ins>processed files</ins> seriously grew up, over `340%` growth in 1 week  
-≈ **45** <ins>GiB</ins> are processed every day, which is an increase of `410%`
+On the last week, we gained over **100** ++users++ (`+31%`)  
+The amount of ++processed files++ seriously grew up, over `340%` growth in 1 week  
+≈ **45** ++GiB++ are processed every day, which is an increase of `410%`
 
 !!keep abusing the bot while you can :smiling_face_with_three_hearts:!!
 

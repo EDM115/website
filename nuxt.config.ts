@@ -13,8 +13,12 @@ import Markdown from "unplugin-vue-markdown/vite"
 
 import { lookupCollection } from "@iconify/json"
 import { alert } from "@mdit/plugin-alert"
+import { footnote } from "@mdit/plugin-footnote"
 import { imgLazyload } from "@mdit/plugin-img-lazyload"
 import { imgSize } from "@mdit/plugin-img-size"
+import { ins } from "@mdit/plugin-ins"
+import { katex } from "@mdit/plugin-katex"
+import { mark } from "@mdit/plugin-mark"
 import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
@@ -202,11 +206,15 @@ export default defineNuxtConfig({
             },
           })
           md.use(alert, { deep: true })
+          md.use(footnote)
           md.use(imgLazyload)
           md.use(imgSize)
+          md.use(ins)
+          md.use(katex, { delimiters: "all" })
+          md.use(mark)
           md.use(spoiler)
           md.use(tab, { name: "tabs" })
-          md.use(tasklist)
+          md.use(tasklist, { disabled: false })
           md.use(brOnEmptyLines)
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state

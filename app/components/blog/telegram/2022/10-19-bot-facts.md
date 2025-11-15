@@ -7,7 +7,7 @@ meta:
     content: 222
 ---
 
-<ins>Time for some facts :</ins>
+++Time for some facts :++
 
 • We have crushed **650** users  
 • We have processed **+6k** archives so far, for an amount of **9,5 Tb**  
@@ -16,7 +16,7 @@ meta:
 • Rename/change file thumbnail feature have been used less than **100** times  
 • **23%** of the archives we process come from links. In case bot gets stuck on downloading, [@transload](https://t.me/transload) it first (https://eu-amsterdam.rapidleech.gq is a good one)
 
-<ins>Now, let's do a little FAQ :</ins>
+++Now, let's do a little FAQ :++
 
 *• Why I can't send multiple archives at the same time ?*  
 Because that's a current limitation. Working to remove it but it will need a lot of code changes  
@@ -27,7 +27,7 @@ I work hard on that but don't remind it to me (excepting if you wanna make me cr
 *• Will the bot continue to work after 28th November ?*  
 Maybe, maybe not. It will depend of what I can do and how much I have to spend on it (refer to [this](https://t.me/EDM115bots/156) if you can donate :pleading_face:)
 
-<ins>Finally, just some basic rules :</ins>
+++Finally, just some basic rules :++
 
 • STOP sending twice the *exact same* archive in a row. It won't do anything, excepting giving you an error. Next person doing that will earn a warn :angry:  
 *• Is there any content forbidden with this bot ?* (question been asked by several users)  

@@ -12,10 +12,10 @@ meta:
 It's actually possible to resolve… TLD as websites  
 Examples : http://pn • http://ai
 
-<ins>Source :</ins>  
+++Source :++  
 • https://jameswillia.ms/posts/shortest-urls.html  
-<ins>Problems :</ins>  
+++Problems :++  
 • https://www.icann.org/en/announcements/details/new-gtld-dotless-domain-names-prohibited-30-8-2013-en  
 • https://www.iab.org/documents/correspondence-reports-documents/2013-2/  iab-statement-dotless-domains-considered-harmful/  
-<ins>In a nutshell :</ins>  
+++In a nutshell :++  
 • https://www.bleepingcomputer.com/news/technology/dotless-domains-home-to-the-internet-s-shortest-urls/

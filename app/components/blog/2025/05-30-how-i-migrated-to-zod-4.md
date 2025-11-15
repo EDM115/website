@@ -19,6 +19,7 @@ I don't mind doing this, and as I'm very methodic with the upgrades (always chec
 Anyway, the monorepo I'm talking about uses Zod in 2 main ways :
 - types definition
 - schema validation
+
 For the first one, they simply define types in a shared `types` package, and these types can later be reused in the backends, frontend and more. For example :
 ```typescript
 const deviceDetails = z.object({
@@ -59,7 +60,8 @@ The second way basically references the Zod object (`deviceDetails`) as a way to
 
 ## Part 0 : The upgrades
 The release of Zod v4 came weeks after I already did a massive pass of upgrades so I didn't had much else to look out for (and I regularly kept dependencies up to date each week).  
-Upon reading the release notes and migration guide, I instantly saw that Zod now supports generating [JSON Schemas](https://zod.dev/json-schema) ! This is a great news, because it allows us to drop the unmaintained [`fastify-zod`](https://github.com/elierotenberg/fastify-zod) library (and we would finally drop the override on `fastify` :sweat_smile:).  
+Upon reading the release notes and migration guide, I instantly saw that Zod now supports generating [JSON Schemas](https://zod.dev/json-schema) ! This is a great news, because it allows us to drop the unmaintained [`fastify-zod`](https://github.com/elierotenberg/fastify-zod) library (and we would finally drop the override on `fastify` :sweat_smile:).
+
 Here's how API validation worked before :
 1. Define your schema
   ```typescript
@@ -132,16 +134,17 @@ To use Zod v4, all you have to do is to use the latest version, and change your 
 - import { z } from "zod"
 + import { z } from "zod/v4"
 ```
-This will yield all deprecation warnings and errors so fix them first :)  
+This will yield all deprecation warnings and errors so fix them first :)
 > [!NOTE]  
 > Although it is in a subpath, it isn't possible to keep 2 versions of Zod on the same codebase.
-  
+
 Now that we're done with this, it's time to use the new JSON Schema converter !
 
 ## Part 2 : Building the schemas
 Surprisingly, the amount of code to change for it to work isn't that big.  
 But first off, we have to talk about another new feature of Zod v4 : [Metadata and registries](https://zod.dev/metadata).  
-When Fastify wants to validate a schema, it needs a way to identify it. It is done through the `$id` property in the schema itself. To add this information, adding metadata seems the best way to go about it.  
+When Fastify wants to validate a schema, it needs a way to identify it. It is done through the `$id` property in the schema itself. To add this information, adding metadata seems the best way to go about it.
+
 Here's how you do it :
 ```typescript
 // packages/types/src/thing.ts
@@ -166,10 +169,10 @@ You cannot have 2 schemas with the same `$id`, even if they're in different file
 > You can do it like this, I just didn't bothered :
 > ```typescript
 > const backendRegistry = z.registry<{ $id: string }>()
-> 
+>
 > backendRegistry.add(somethingSchema, { $id: "something" })
 > ```
-  
+
 > [!CAUTION]  
 > Also, here's a fun thing (is it a bug ?) : **A schema with metadata can't contain another schema with metadata**.  
 > Or, Zod won't complain, but Fastify will when registering them, as it will deeply check the schemas, and will try to register the inner schema after it already has been declared.  
@@ -180,13 +183,13 @@ You cannot have 2 schemas with the same `$id`, even if they're in different file
 >   other_value: z.string().optional(),
 > })
 > const somethingSchema = somethingSchemaNoMeta.meta({ $id: "something" })
-> 
+>
 > const nestedSchema = z.object({
 >   id: z.number(),
 >   something: somethingSchemaNoMeta,
 > })
 > ```
-  
+
 Once your schemas are ready to be used, you have to, well, use them.
 
 ## Part 3 : Using the schemas
@@ -263,7 +266,7 @@ As I was doing this migration, several things happened in Zod issues (when you h
   Here's how to fix it :
   ```typescript
   import { core, toJSONSchema, type ZodType } from "zod/v4"
-  
+
   export function zodSchemasToJSONSchema(schemas: ZodType[]) {
     const jsonSchemas = schemas.map((schema) => {
       return toJSONSchema(schema, {
@@ -281,7 +284,7 @@ As I was doing this migration, several things happened in Zod issues (when you h
         unrepresentable: "any",
       })
     })
-    
+
     return jsonSchemas
   }
   ```
@@ -317,7 +320,7 @@ As I was doing this migration, several things happened in Zod issues (when you h
       .optional(),
     reducedHours: z.array(z.tuple([z.string(), z.string()])).optional(),
   })
-  
+
   const extendedObject = baseObject
     .extend({
       siteId: z.string(),

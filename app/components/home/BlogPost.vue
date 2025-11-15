@@ -249,3 +249,7 @@ async function initialize() {
 await initialize()
 
 </script>
+
+<style scoped lang="scss">
+@import url("https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css");
+</style>

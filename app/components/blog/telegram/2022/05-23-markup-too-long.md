@@ -7,7 +7,7 @@ meta:
     content: 73
 ---
 
-<ins>Very little message :</ins>
+++Very little message :++
 
 If you face `400 REPLY_MARKUP_TOO_LONG (caused by "messages.SendMessage")` error  
 Use the **Beta** version that runs at night (22h-06h UTC+1)  
