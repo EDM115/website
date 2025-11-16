@@ -90,8 +90,9 @@
     "build": "pnpm prebuild && nuxt build",
     "generate": "pnpm prebuild && nuxt generate",
     "cleanup": "nuxt cleanup",
-    "dev": "nuxt dev --no-clear --no-fork",
-    "dev:expose": "nuxt dev --no-clear --no-fork --host",
+    "dev": "nuxt dev --no-clear",
+    "dev:expose:local": "nuxt dev --no-clear --public",
+    "dev:expose:global": "nuxt dev --no-clear --tunnel",
     "lint": "run-p lint:oxlint lint:eslint",
     "lint:fix": "run-s lint:fix:oxlint lint:fix:eslint",
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
@@ -105,5 +106,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.7.3"
+  "version": "2.8.0"
 }

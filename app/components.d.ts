@@ -288,6 +288,7 @@ declare module 'vue' {
     UiAppBar: typeof import('./components/ui/AppBar.vue')['default']
     UiBanner: typeof import('./components/ui/Banner.vue')['default']
     UiButton: typeof import('./components/ui/Button.vue')['default']
+    UiButtonGroup: typeof import('./components/ui/ButtonGroup.vue')['default']
     UiCard: typeof import('./components/ui/Card.vue')['default']
     UiCheckbox: typeof import('./components/ui/Checkbox.vue')['default']
     UiCol: typeof import('./components/ui/Col.vue')['default']
