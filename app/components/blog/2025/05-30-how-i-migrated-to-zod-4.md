@@ -125,6 +125,7 @@ Here's how API validation worked before :
     })
   }
   ```
+
 It works, but we can do better.
 
 ## Part 1 : A new package

@@ -390,9 +390,11 @@ li {
 .markdown-body img {
   max-width: 100%;
   height: auto;
+  max-height: 50svw;
 
   @media (max-width: 600px) {
     max-width: 90svw;
+    max-height: 80svw;
   }
 }
 
@@ -447,6 +449,10 @@ li {
 .markdown-body .markdown-alert ol,
 .markdown-body ol:has(+ .code-block) {
   padding-bottom: 0;
+}
+
+.markdown-body ol + .code-block {
+  margin-left: 1rem;
 }
 
 .markdown-body table {

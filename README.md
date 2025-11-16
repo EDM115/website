@@ -69,6 +69,16 @@ pnpm start:ssg
 
 ---
 
+<details>
+<summary>Considered additions</summary>
+
+- Mermaid support in markdown-it
+- Better GFM support (=> https://github.com/npm/marky-markdown#dependencies & https://github.github.com/gfm/ + https://mdxjs.com/guides/gfm/)
+
+</details>
+
+---
+
 ### Status
 + **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
 + **[Latest commit preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status)
