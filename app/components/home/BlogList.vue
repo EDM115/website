@@ -275,6 +275,13 @@ onMounted(async () => {
     setPage(Number.parseInt(route.query.page as string) || 1)
   }
 })
+
+onBeforeUnmount(() => {
+  if (searchTimeout) {
+    clearTimeout(searchTimeout)
+    searchTimeout = null
+  }
+})
 </script>
 
 <style scoped lang="scss">

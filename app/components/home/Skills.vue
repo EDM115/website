@@ -120,6 +120,11 @@ onMounted(() => {
     }
   }
 })
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  observer = null
+})
 </script>
 
 <style scoped lang="scss">

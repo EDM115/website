@@ -703,6 +703,13 @@ function onDocumentPointerMove(e: PointerEvent) {
   }
 }
 
+// listen for global toggle
+function onPolychromeToggle(e: Event) {
+  const val = Boolean((e as CustomEvent<boolean>).detail)
+
+  handleEnableChange(val)
+}
+
 function onEnter() {
   isHovering = true
   root.value?.classList.add("is-hover")
@@ -841,12 +848,7 @@ function handleEnableChange(v: boolean) {
 }
 
 onMounted(() => {
-  // listen for global toggle
-  window.addEventListener("polychrome-toggle", (e: Event) => {
-    const val = Boolean((e as CustomEvent<boolean>).detail)
-
-    handleEnableChange(val)
-  })
+  window.addEventListener("polychrome-toggle", onPolychromeToggle as EventListener)
 
   // compute initial enable/quality
   const quality = refreshQuality()
@@ -981,6 +983,7 @@ onBeforeUnmount(() => {
   }
 
   window.removeEventListener("pointermove", onDocumentPointerMove as EventListener)
+  window.removeEventListener("polychrome-toggle", onPolychromeToggle as EventListener)
 })
 </script>
 
