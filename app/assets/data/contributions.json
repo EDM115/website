@@ -4,7 +4,7 @@
     "name": "AssemblyScript/assemblyscript",
     "description": "chore: remove baseUrl from std/assembly.json",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/AssemblyScript/assemblyscript/pull/2958"
   },
   {
