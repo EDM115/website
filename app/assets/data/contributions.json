@@ -1,5 +1,13 @@
 [
   {
+    "id": 30,
+    "name": "Balatro-Multiplayer/BalatroMultiplayer",
+    "description": "fix: rework the French localization",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/Balatro-Multiplayer/BalatroMultiplayer/pull/319"
+  },
+  {
     "id": 29,
     "name": "AssemblyScript/assemblyscript",
     "description": "chore: remove baseUrl from std/assembly.json",
@@ -230,6 +238,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 71,
+    "name": "KieranP/Github-Releases-Feed",
+    "description": "[BUG] Since maybe more than a week, some descriptions don't show up and \"You're All Caught Up\" duplicates",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/KieranP/Github-Releases-Feed/issues/20"
   },
   {
     "id": 70,
