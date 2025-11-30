@@ -65,9 +65,7 @@ const {
   aria,
 } = toRefs(props)
 
-const emit = defineEmits<{
-  (e: "update:modelValue" | "change", value: UiButtonGroupValue): void;
-}>()
+const emit = defineEmits<(e: "update:modelValue" | "change", value: UiButtonGroupValue) => void>()
 
 const optionCount = computed(() => options.value.length)
 const hasOptions = computed(() => optionCount.value > 0)
