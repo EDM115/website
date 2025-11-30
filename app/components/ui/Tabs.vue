@@ -45,7 +45,7 @@ const props = defineProps<{
   alignTabs?: "left" | "center" | "right";
 }>()
 
-const emit = defineEmits<(e: "update:modelValue", value: string | number)=> void>()
+const emit = defineEmits<(e: "update:modelValue", value: string | number) => void>()
 
 const styleVars = computed(() => ({
   "--ui-tabs-accent": `var(--${props.color})`,

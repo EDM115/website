@@ -56,7 +56,7 @@ let observer: IntersectionObserver | null = null
 let odometersReady = false
 let odos: Record<number, LightOdometer> = {}
 let digitObservers: Record<number, MutationObserver> = {}
-let unsubscribers: Array<()=> void> = []
+let unsubscribers: Array<() => void> = []
 const pending = new Map<number, number>()
 const revealed = new Set<number>()
 

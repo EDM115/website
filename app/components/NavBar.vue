@@ -19,8 +19,8 @@
           :icon="mdiArrowLeft"
           hover-color="primary"
           variant="frosted"
-          :link="goBack()"
           aria="Back"
+          @click="goBack"
         />
         <UiDivider
           v-if="showSecondaryButtons"
@@ -113,7 +113,7 @@
   <Teleport to="body">
     <Transition name="navbar-mobile-fade">
       <section
-        v-if="isMobile && isMobileMenuOpen"
+        v-show="isMobile && isMobileMenuOpen"
         class="navbar-mobile-panel"
         aria-label="Main menu"
       >
@@ -135,10 +135,9 @@
             :prepend-icon="mdiArrowLeft"
             hover-color="primary"
             variant="frosted"
-            :link="goBack()"
             :text="t('home.back')"
             aria="Back"
-            @click="toggleMobileMenu"
+            @click="() => {toggleMobileMenu(); goBack()}"
           />
           <UiDivider v-if="showSecondaryButtons" />
           <UiButton
@@ -223,6 +222,7 @@ const {
 } = useCustomTheme()
 const { isMobile } = useDevice()
 const route = useRoute()
+const router = useRouter()
 
 const availableLocales = [ "en", "fr" ] as const
 const iconTheme = computed(() => (isDark.value
@@ -241,8 +241,8 @@ const languageOptions = computed(() => availableLocales.map((code) => ({
   label: getFlagEmoji(code),
   value: code,
   aria: code === "fr"
-        ? "Français"
-        : "English",
+    ? "Français"
+    : "English",
 })))
 
 const themeOptions = computed(() => {
@@ -354,11 +354,11 @@ function goBack() {
     end = -4
   }
 
-  return path
+  router.push(path
     .split("/")
     .slice(0, end)
     .join("/")
-    || "/"
+    || "/")
 }
 
 function toggleMobileMenu() {
@@ -411,7 +411,7 @@ function toggleMobileMenu() {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   &--group {
     height: 3rem;
     width: 100%;

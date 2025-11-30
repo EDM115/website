@@ -1,11 +1,12 @@
 import brOnEmptyLines from "./app/utils/mdBreaks"
-import slugify from "@sindresorhus/slugify"
+import ogSlugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
 import mditAnchor from "markdown-it-anchor"
 import mditAttrs from "markdown-it-attrs"
 import mditHljs from "markdown-it-highlightjs"
 import mditLinkAttributes from "markdown-it-link-attributes"
+import markdownItTocDoneRight from "markdown-it-toc-done-right"
 import IconsResolver from "unplugin-icons/resolver"
 import Icons from "unplugin-icons/vite"
 import Components from "unplugin-vue-components/vite"
@@ -22,6 +23,7 @@ import { mark } from "@mdit/plugin-mark"
 import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
+import { definePerson } from "@unhead/schema-org"
 import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
 import {
@@ -29,7 +31,6 @@ import {
   resolve,
 } from "node:url"
 import { readFile } from "node:fs/promises"
-import { definePerson } from "nuxt-schema-org/schema"
 
 import type { Token } from "markdown-exit"
 
@@ -48,6 +49,10 @@ function demojifyToGithub(s: string) {
 
     return ` ${name.replace(/_/g, " ")} `
   })
+}
+
+function slugify(s: string) {
+  return ogSlugify(demojifyToGithub(s))
 }
 
 function getTokensText(tokens: Token[]) {
@@ -190,16 +195,16 @@ export default defineNuxtConfig({
           })
           md.use(emoji, { shortcuts: {} })
           md.use(mditAnchor, {
-            slugify: (s) => slugify(demojifyToGithub(s)),
+            getTokensText,
             permalink: mditAnchor.permalink.headerLink(),
             permalinkClass: "header-link",
-            getTokensText,
+            slugify,
           })
           md.use(mditAttrs)
           md.use(mditLinkAttributes, {
             attrs: {
-              target: "_blank",
               rel: "noopener noreferrer",
+              target: "_blank",
             },
             matcher(href: string, _config: unknown) {
               return !href.startsWith("#")
@@ -214,6 +219,11 @@ export default defineNuxtConfig({
           md.use(mark)
           md.use(spoiler)
           md.use(tab, { name: "tabs" })
+          md.use(markdownItTocDoneRight, {
+            level: 2,
+            listType: "ul",
+            slugify,
+          })
           md.use(tasklist, { disabled: false })
           md.use(brOnEmptyLines)
           md.core.ruler.push("heading_copy_icon", (state) => {

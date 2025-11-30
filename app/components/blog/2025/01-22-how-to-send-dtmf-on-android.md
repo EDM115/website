@@ -11,6 +11,8 @@ meta:
     content: tutorial, android, accessibility, kotlin, java, phone
 ---
 
+[[toc]]
+
 # How to (actually) send DTMF on Android without being the default call app
 
 ### What ?

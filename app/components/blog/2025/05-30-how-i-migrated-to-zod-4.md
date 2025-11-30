@@ -11,6 +11,8 @@ meta:
     content: tutorial, typescript, zod, migration
 ---
 
+[[toc]]
+
 # How I migrated the company monorepo to Zod v4 during my internship
 We all know Zod, an awesome library to validate data by type-checking, pattern-matching and more.  
 And recently the long-awaited version 4 has been released, and as the repo I worked on during my internship used it, I thought I'll take care to do this migration before the end of my internship, and learn Zod in the process !  

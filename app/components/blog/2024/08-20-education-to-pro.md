@@ -11,6 +11,8 @@ meta:
     content: tutorial, windows, education
 ---
 
+[[toc]]
+
 # How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
 
 ### Quick backstory

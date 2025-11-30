@@ -26,7 +26,11 @@ patchedDependencies:
   markdown-exit@1.0.0-beta.6: patches/markdown-exit@1.0.0-beta.6.patch
   markdown-it-anchor@9.2.0: patches/markdown-it-anchor@9.2.0.patch
   markdown-it-highlightjs@4.2.0: patches/markdown-it-highlightjs@4.2.0.patch
+  markdown-it-toc-done-right@4.2.0: patches/markdown-it-toc-done-right@4.2.0.patch
   unplugin-vue-markdown@29.2.0: patches/unplugin-vue-markdown@29.2.0.patch
+
+publicHoistPattern:
+  - '@unhead/schema-org'
 
 resolutionMode: highest
 

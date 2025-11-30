@@ -44,7 +44,7 @@ type PolychromeWorkerMessage
     | PolychromeWorkerControlMessage
 
 interface PolychromeWorkerConfig<State> {
-  loadWasm: ()=> Promise<PolychromeWasmInstance | null>;
+  loadWasm: () => Promise<PolychromeWasmInstance | null>;
   fallbackRenderer: (
     buffer: Uint8ClampedArray,
     width: number,
@@ -52,9 +52,9 @@ interface PolychromeWorkerConfig<State> {
     time: number,
     intensity: number,
     quality: number,
-  )=> void;
-  computeFrameTime: (now: number, state: State)=> number;
-  createState: ()=> State;
+  ) => void;
+  computeFrameTime: (now: number, state: State) => number;
+  createState: () => State;
 }
 
 interface FallbackBuffers {

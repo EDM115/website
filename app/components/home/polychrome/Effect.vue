@@ -64,7 +64,7 @@ const props = defineProps<{
   alt?: boolean;
 }>()
 
-const emit = defineEmits<(e: "update:modelValue", v: boolean)=> void>()
+const emit = defineEmits<(e: "update:modelValue", v: boolean) => void>()
 
 const root = useTemplateRef("root")
 const inner = useTemplateRef("inner")
@@ -103,8 +103,8 @@ let lastClientX: number | null = null
 let lastClientY: number | null = null
 let worker: Worker | null = null
 let lastRect: DOMRect | null = null
-let onWindowResize: (()=> void) | null = null
-let onWindowScroll: (()=> void) | null = null
+let onWindowResize: (() => void) | null = null
+let onWindowScroll: (() => void) | null = null
 // track fallback rAF so we can cancel/restart cleanly when toggling
 let fallbackRaf: number | null = null
 
@@ -320,7 +320,7 @@ function startCaustics() {
 
   // attempt OffscreenCanvas worker
   try {
-    const offscreen = (cvs as HTMLCanvasElement & { transferControlToOffscreen?: ()=> OffscreenCanvas }).transferControlToOffscreen?.()
+    const offscreen = (cvs as HTMLCanvasElement & { transferControlToOffscreen?: () => OffscreenCanvas }).transferControlToOffscreen?.()
 
     if (offscreen) {
       usingOffscreen = true
@@ -762,7 +762,7 @@ function queueStart() {
 
   // Defer: after Nuxt ready -> requestIdle -> next frame
   onNuxtReady(() => {
-    const win = window as Window & { requestIdleCallback?: (cb: IdleRequestCallback)=> number }
+    const win = window as Window & { requestIdleCallback?: (cb: IdleRequestCallback) => number }
 
     if (typeof win.requestIdleCallback === "function") {
       win.requestIdleCallback(() => {
