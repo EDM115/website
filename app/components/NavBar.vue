@@ -345,7 +345,9 @@ function goBack() {
   const path = route.path
 
   if (path === "/") {
-    return "/"
+    router.replace("/")
+    
+    return
   }
 
   let end = -1
