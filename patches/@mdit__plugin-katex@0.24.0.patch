@@ -1,5 +1,5 @@
 diff --git a/lib/index.d.ts b/lib/index.d.ts
-index 40e2676dd646c74a8d7ad1e7c55cd54a1d82aee7..07755d2ad87af19a2176ec8fd0cf7bf5befb7bd2 100644
+index 0deb60c2143fba5ab971d10e91c03e609c7dcab0..ecd3e131cf9c77f5e933e7ad437fbd07f3839dca 100644
 --- a/lib/index.d.ts
 +++ b/lib/index.d.ts
 @@ -1,16 +1,16 @@
@@ -10,8 +10,8 @@ index 40e2676dd646c74a8d7ad1e7c55cd54a1d82aee7..07755d2ad87af19a2176ec8fd0cf7bf5
 +import type { Token, KatexOptions } from 'katex';
 +import type { MarkdownExit, MarkdownExitEnv } from "markdown-exit";
  
--type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | undefined | void;
-+type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | undefined | void;
+-type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | void;
++type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | void;
  type TeXTransformer = (content: string, displayMode: boolean) => string;
 -interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
 +interface MarkdownItKatexOptions<MarkdownExitEnv = {}> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
@@ -25,12 +25,12 @@ index 40e2676dd646c74a8d7ad1e7c55cd54a1d82aee7..07755d2ad87af19a2176ec8fd0cf7bf5
      /**
       * transformer on output content
       *
-@@ -20,7 +20,7 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
+@@ -19,7 +19,7 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
+     transformer?: TeXTransformer;
  }
  
- declare const loadMhchem: () => Promise<void>;
 -declare const katex: <MarkdownItEnv = unknown>(md: MarkdownIt, options?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
 +declare const katex: <MarkdownExitEnv = {}>(md: MarkdownExit, options?: MarkdownItKatexOptions<MarkdownExitEnv>) => void;
  
- export { katex, loadMhchem };
+ export { katex };
  export type { KatexLogger, MarkdownItKatexOptions, TeXTransformer };

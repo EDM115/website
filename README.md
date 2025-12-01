@@ -22,7 +22,7 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time prev
 - Automatic light/dark mode + switch animation
 - Automatic EN/FR language detection
 - Fully responsive design
-- The blog posts written in Markdown, with custom theme, syntax highlighting, multiple plugins (headings anchor links, image lazyload, ...). My posts of my Telegram channel have also been ported here
+- The blog posts written in Markdown, with custom theme, syntax highlighting, multiple plugins (headings anchor links, image lazyload, table of contents, ...). Posts from my Telegram channel have also been ported here
 - Homemade blog posts fuzzy search with tags and date filtering
 - The projects page actually fetches the repo README at build time and pre-renders it with the above pipeline + some cleanup of GitHub-first Markdown quirks
 - The "polychrome" effect on my logo (Balatro inspired) uses multiple layers (glow, color overlay and caustic waves) with usage of Web Workers and WASM for better performance. Check the code to find how to enable the alternative rendering :wink:
