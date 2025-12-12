@@ -43,7 +43,7 @@ jobs:
         run: pnpm generate  # Builds Client and Server SSR + Generates SSG
 
       - name: "Upload artifact"
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: nuxt-output
           path: ./.output/public
