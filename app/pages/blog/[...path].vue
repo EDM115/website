@@ -43,12 +43,11 @@ function moveTocOutsideMarkdownBody() {
   }
 
   if (isMobile.value) {
-    const navbarPanel = document.querySelector<HTMLElement>(
-      "section.navbar-mobile-panel"
-    )
+    const navbarPanel = document.querySelector<HTMLElement>("section.navbar-mobile-panel")
 
     if (navbarPanel) {
       const hr = document.createElement("hr")
+
       hr.className = "ui-divider"
       hr.style.border = "none"
       hr.style.borderTop = "1px solid color-mix(in srgb, var(--text) 20%, transparent)"
@@ -63,9 +62,9 @@ function moveTocOutsideMarkdownBody() {
     body.removeChild(first)
   } else {
     const container = document.createElement("div")
-  
+
     container.className = "md-container"
-  
+
     parent.insertBefore(container, body)
     container.appendChild(first)
     container.appendChild(body)
@@ -95,18 +94,15 @@ function deleteMdContainer() {
   grandParent.removeChild(parent)
 
   if (isMobile.value) {
-    const navbarPanel = document.querySelector<HTMLElement>(
-      "section.navbar-mobile-panel"
-    )
+    const navbarPanel = document.querySelector<HTMLElement>("section.navbar-mobile-panel")
 
     if (navbarPanel) {
-      const toc = navbarPanel.querySelector<HTMLElement>(
-        "nav.table-of-contents"
-      )
+      const toc = navbarPanel.querySelector<HTMLElement>("nav.table-of-contents")
 
       if (toc) {
         navbarPanel.removeChild(toc)
         const lastElement = navbarPanel.lastElementChild
+
         if (lastElement && lastElement.tagName.toLowerCase() === "hr") {
           navbarPanel.removeChild(lastElement)
         }
@@ -116,9 +112,7 @@ function deleteMdContainer() {
 }
 
 function collectHeadings() {
-  headings = Array.from(document.querySelectorAll<HTMLElement>(
-    ".markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6"
-  ))
+  headings = Array.from(document.querySelectorAll<HTMLElement>(".markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6"))
 }
 
 function clearActiveTocItems() {
@@ -138,9 +132,7 @@ function setActiveTocItem(id?: string): boolean {
     return false
   }
 
-  const link = document.querySelector<HTMLAnchorElement>(
-    `.table-of-contents a[href="#${CSS.escape(finalId)}"]`
-  )
+  const link = document.querySelector<HTMLAnchorElement>(`.table-of-contents a[href="#${CSS.escape(finalId)}"]`)
 
   if (!link) {
     return false

@@ -984,6 +984,11 @@ onBeforeUnmount(() => {
 
   window.removeEventListener("pointermove", onDocumentPointerMove as EventListener)
   window.removeEventListener("polychrome-toggle", onPolychromeToggle as EventListener)
+
+  if (fallbackRaf) {
+    cancelAnimationFrame(fallbackRaf)
+    fallbackRaf = null
+  }
 })
 </script>
 

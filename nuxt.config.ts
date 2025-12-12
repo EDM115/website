@@ -137,7 +137,6 @@ export default defineNuxtConfig({
   future: { typescriptBundlerResolution: true },
   experimental: {
     asyncContext: true,
-    browserDevtoolsTiming: true,
     buildCache: true,
     clientFallback: true,
     clientNodeCompat: true,
@@ -159,7 +158,7 @@ export default defineNuxtConfig({
     viewTransition: true,
     viteEnvironmentApi: true,
   },
-  compatibilityDate: "2025-10-15",
+  compatibilityDate: "2025-11-15",
   nitro: {
     compressPublicAssets: {
       brotli: true,

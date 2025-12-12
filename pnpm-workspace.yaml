@@ -13,7 +13,7 @@ patchedDependencies:
   '@mdit/plugin-img-lazyload@0.22.1': patches/@mdit__plugin-img-lazyload@0.22.1.patch
   '@mdit/plugin-img-size@0.22.4': patches/@mdit__plugin-img-size@0.22.4.patch
   '@mdit/plugin-ins@0.22.1': patches/@mdit__plugin-ins@0.22.1.patch
-  '@mdit/plugin-katex@0.24.0': patches/@mdit__plugin-katex@0.24.0.patch
+  '@mdit/plugin-katex@0.24.1': patches/@mdit__plugin-katex@0.24.1.patch
   '@mdit/plugin-mark@0.22.1': patches/@mdit__plugin-mark@0.22.1.patch
   '@mdit/plugin-spoiler@0.22.2': patches/@mdit__plugin-spoiler@0.22.2.patch
   '@mdit/plugin-tab@0.23.0': patches/@mdit__plugin-tab@0.23.0.patch

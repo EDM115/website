@@ -346,7 +346,7 @@ function goBack() {
 
   if (path === "/") {
     router.replace("/")
-    
+
     return
   }
 

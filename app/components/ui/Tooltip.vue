@@ -62,7 +62,16 @@ const location = computed(() => props.location ?? "top")
 const wrapperRef = useTemplateRef("wrapperRef")
 const tooltipRef = useTemplateRef("tooltipRef")
 
-const triggerBB = useElementBounding(wrapperRef)
+const {
+  top: triggerTop,
+  bottom: triggerBottom,
+  left: triggerLeft,
+  right: triggerRight,
+  width: triggerWidth,
+  height: triggerHeight,
+  x: triggerX,
+  y: triggerY,
+} = useElementBounding(wrapperRef)
 const {
   width: vw,
   height: vh,
@@ -115,23 +124,23 @@ function tryPlacement(place: "top" | "bottom" | "left" | "right") {
   let x = 0, y = 0
 
   if (place === "top") {
-    x = triggerBB.left.value + ((triggerBB.width.value - tw) / 2)
-    y = triggerBB.top.value - GAP.value - th
+    x = triggerLeft.value + ((triggerWidth.value - tw) / 2)
+    y = triggerTop.value - GAP.value - th
   }
 
   if (place === "bottom") {
-    x = triggerBB.left.value + ((triggerBB.width.value - tw) / 2)
-    y = triggerBB.bottom.value + GAP.value
+    x = triggerLeft.value + ((triggerWidth.value - tw) / 2)
+    y = triggerBottom.value + GAP.value
   }
 
   if (place === "left") {
-    x = triggerBB.left.value - GAP.value - tw
-    y = triggerBB.top.value + ((triggerBB.height.value - th) / 2)
+    x = triggerLeft.value - GAP.value - tw
+    y = triggerTop.value + ((triggerHeight.value - th) / 2)
   }
 
   if (place === "right") {
-    x = triggerBB.right.value + GAP.value
-    y = triggerBB.top.value + ((triggerBB.height.value - th) / 2)
+    x = triggerRight.value + GAP.value
+    y = triggerTop.value + ((triggerHeight.value - th) / 2)
   }
 
   return {
@@ -222,10 +231,10 @@ watch(
     () => open.value,
     vw,
     vh,
-    () => triggerBB.x.value,
-    () => triggerBB.y.value,
-    () => triggerBB.width.value,
-    () => triggerBB.height.value,
+    () => triggerX.value,
+    () => triggerY.value,
+    () => triggerWidth.value,
+    () => triggerHeight.value,
   ],
   () => {
     if (open.value) {
@@ -234,7 +243,7 @@ watch(
   },
 )
 
-useResizeObserver(tooltipRef, () => {
+const { stop: stopResizeObserver } = useResizeObserver(tooltipRef, () => {
   if (open.value) {
     updatePosition()
   }
@@ -245,6 +254,11 @@ useEventListener(window, "scroll", () => {
     updatePosition()
   }
 }, { passive: true })
+
+onBeforeUnmount(() => {
+  open.value = false
+  stopResizeObserver()
+})
 </script>
 
 <style scoped lang="scss">

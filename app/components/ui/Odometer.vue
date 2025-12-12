@@ -340,6 +340,10 @@ $padding: .15em;
   margin: 0px 1px;
 
   font-family: "Fira Code", monospace;
+  font-feature-settings: "liga" 1, "calt" 1, "case" 0, "ccmp" 0, "cpsp" 0,
+    "cv01" 0, "cv05" 0, "cv08" 0, "cv10" 0, "cv25" 1, "cv26" 1, "cv28" 1,
+    "cv32" 1, "dlig" 0, "frac" 0, "ss01" 0, "ss02" 0, "ss03" 1, "ss05" 1,
+    "ss06" 1, "ss07" 1, "ss08" 1, "ss09" 1, "zero" 0;
   font-size: 3em;
   font-weight: 600;
   line-height: 1.2;
@@ -357,6 +361,10 @@ $padding: .15em;
   border-radius: 0.5em;
 
   font-family: "Fira Code", monospace;
+  font-feature-settings: "liga" 1, "calt" 1, "case" 0, "ccmp" 0, "cpsp" 0,
+    "cv01" 0, "cv05" 0, "cv08" 0, "cv10" 0, "cv25" 1, "cv26" 1, "cv28" 1,
+    "cv32" 1, "dlig" 0, "frac" 0, "ss01" 0, "ss02" 0, "ss03" 1, "ss05" 1,
+    "ss06" 1, "ss07" 1, "ss08" 1, "ss09" 1, "zero" 0;
   font-size: 3em;
   font-weight: 600;
   line-height: 1.2;

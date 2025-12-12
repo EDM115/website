@@ -39,7 +39,10 @@
 body,
 html {
   margin: 0;
-  font-family: "Twemoji Country Flags", "Nunito", "Inter", sans-serif;
+  font-family: "Twemoji Country Flags", "Inter", sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
+    "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
+    "ss02" 1, "ss07" 1, "ss08" 1, "tnum" 0, "zero" 1;
   background-color: var(--bg);
   color: var(--text);
   min-height: 100%;
@@ -259,10 +262,15 @@ main {
 }
 
 code,
+code > span,
 kbd,
 pre,
 samp {
   font-family: "Fira Code", monospace !important;
+  font-feature-settings: "liga" 1, "calt" 1, "case" 0, "ccmp" 0, "cpsp" 0,
+    "cv01" 0, "cv05" 0, "cv08" 0, "cv10" 0, "cv11" 0, "cv25" 1, "cv26" 1,
+    "cv28" 1, "cv32" 1, "dlig" 0, "frac" 0, "ss01" 0, "ss02" 0, "ss03" 1,
+    "ss05" 1, "ss06" 1, "ss07" 1, "ss08" 1, "ss09" 1, "zero" 0;
 }
 
 a {
@@ -281,6 +289,9 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Twemoji Country Flags", "Nunito", sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "frac" 0,
+    "ss01" 0, "ss02" 0;
   text-wrap: balance;
 }
 
@@ -708,12 +719,12 @@ h6 a:hover > code.hljs {
   text-underline-offset: 0.1rem;
 }
 
-.force-nuxt-fonts-nunito {
-  font-family: "Nunito";
-}
-
 .force-nuxt-fonts-inter {
   font-family: "Inter";
+}
+
+.force-nuxt-fonts-nunito {
+  font-family: "Nunito";
 }
 
 @media (max-width: 960px) {
