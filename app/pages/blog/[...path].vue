@@ -9,6 +9,9 @@ let scrollRaf = false
 let scrollSpyEnabled = false
 let userIntentListenersAttached = false
 
+const activeHeadingId = ref<string | null>(null)
+
+const route = useRoute()
 const router = useRouter()
 const { isMobile } = useDevice()
 
@@ -124,9 +127,7 @@ function clearActiveTocItems() {
 function setActiveTocItem(id?: string): boolean {
   clearActiveTocItems()
 
-  const finalId
-    = id ?? decodeURIComponent(window.location.hash || "")
-      .replace("#", "")
+  const finalId = id ?? activeHeadingId.value ?? ""
 
   if (!finalId) {
     return false
@@ -168,32 +169,15 @@ function updateActiveFromScroll() {
     }
   }
 
-  if (!current || !current.id) {
+  if (!current?.id) {
     clearActiveTocItems()
-    history.replaceState(
-      history.state,
-      "",
-      window.location.pathname + window.location.search,
-    )
+    activeHeadingId.value = null
 
     return
   }
 
-  const inToc = setActiveTocItem(current.id)
-
-  if (inToc) {
-    history.replaceState(
-      history.state,
-      "",
-      `#${encodeURIComponent(current.id)}`,
-    )
-  } else {
-    history.replaceState(
-      history.state,
-      "",
-      window.location.pathname + window.location.search,
-    )
-  }
+  activeHeadingId.value = current.id
+  setActiveTocItem(current.id)
 }
 
 function onScroll() {
@@ -319,10 +303,12 @@ onMounted(async () => {
   domToc?.addEventListener("click", onTocClick)
 })
 
-onUpdated(async () => {
+watch(() => route.path, async () => {
   await nextTick()
+  moveTocOutsideMarkdownBody()
   collectHeadings()
-  setActiveTocItem()
+  activeHeadingId.value = null
+  clearActiveTocItems()
 })
 
 onBeforeUnmount(() => {
@@ -335,4 +321,3 @@ onBeforeUnmount(() => {
   domToc?.removeEventListener("click", onTocClick)
 })
 </script>
-
