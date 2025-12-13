@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: "Checkout"
         uses: actions/checkout@v6
@@ -23,7 +23,7 @@ jobs:
         with:
           cache: "pnpm"
           check-latest: true
-          node-version: lts/Krypton
+          node-version: lts/krypton
 
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile

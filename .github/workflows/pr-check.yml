@@ -12,7 +12,7 @@ on:
 jobs:
   pr-check:
     name: "PR Check"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 10
 
     steps:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           check-latest: true
-          node-version: lts/Krypton
+          node-version: lts/krypton
 
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile
@@ -43,7 +43,7 @@ jobs:
         run: pnpm generate  # Builds Client and Server SSR + Generates SSG
 
       - name: "Upload artifact"
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: nuxt-output
           path: ./.output/public
