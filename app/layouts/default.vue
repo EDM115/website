@@ -77,7 +77,7 @@ onMounted(() => {
   setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
   polyfillCountryFlagEmojis(
     "Twemoji Country Flags",
-    "/docs/TwemojiCountryFlags.woff2",
+    "/fonts/TwemojiCountryFlags.woff2",
   )
 })
 </script>

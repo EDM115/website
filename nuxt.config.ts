@@ -343,14 +343,52 @@ export default defineNuxtConfig({
     standalone: false,
   } },
   fonts: {
-    defaults: {
-      preload: true,
-      subsets: ["latin"],
-      weights: ["300 700"],
-    },
     devtools: true,
+    families: [
+      {
+        name: "Inter",
+        src: "/fonts/Inter/InterVariable.woff2",
+        weight: "100 900",
+        style: "normal",
+        preload: true,
+      },
+      {
+        name: "Inter",
+        src: "/fonts/Inter/InterVariable-Italic.woff2",
+        weight: "100 900",
+        style: "italic",
+        preload: true,
+      },
+      {
+        name: "Fira Code",
+        src: "/fonts/Fira_Code/FiraCode-VF.woff2",
+        weight: "300 700",
+        style: "normal",
+        preload: true,
+      },
+      {
+        name: "Nunito",
+        src: "/fonts/Nunito/Nunito-VariableFont_wght.ttf",
+        weight: "200 1000",
+        style: "normal",
+        preload: true,
+      },
+      {
+        name: "Nunito",
+        src: "/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf",
+        weight: "200 1000",
+        style: "italic",
+        preload: true,
+      },
+      {
+        name: "Twemoji Country Flags",
+        src: "/fonts/TwemojiCountryFlags.woff2",
+        weight: "400",
+        style: "normal",
+        preload: true,
+      },
+    ],
     processCSSVariables: true,
-    provider: "google",
   },
   i18n: {
     baseUrl: "https://edm115.dev",
