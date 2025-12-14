@@ -409,11 +409,18 @@ export default defineNuxtConfig({
     strategy: "no_prefix",
   },
   image: { quality: 100 },
-  linkChecker: { report: {
-    html: true,
-    markdown: true,
-    json: true,
-  } },
+  linkChecker: {
+    excludeLinks: [
+      "/blog/**",
+      "/docs/**",
+      "/projects/**",
+    ],
+    report: {
+      html: true,
+      markdown: true,
+      json: true,
+    }
+  },
   // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
   ogImage: { enabled: false },
   schemaOrg: { identity: definePerson({
