@@ -75,27 +75,6 @@ function moveTocOutsideMarkdownBody() {
 }
 
 function deleteMdContainer() {
-  const body = document.querySelector<HTMLDivElement>("div.markdown-body")
-
-  if (!body) {
-    return
-  }
-
-  const parent = body.parentElement
-
-  if (!parent || !parent.classList.contains("md-container")) {
-    return
-  }
-
-  const grandParent = parent.parentElement
-
-  if (!grandParent) {
-    return
-  }
-
-  grandParent.insertBefore(body, parent)
-  grandParent.removeChild(parent)
-
   if (isMobile.value) {
     const navbarPanel = document.querySelector<HTMLElement>("section.navbar-mobile-panel")
 
@@ -108,6 +87,21 @@ function deleteMdContainer() {
 
         if (lastElement && lastElement.tagName.toLowerCase() === "hr") {
           navbarPanel.removeChild(lastElement)
+        }
+      }
+    }
+  } else {
+    const body = document.querySelector<HTMLDivElement>("div.markdown-body")
+
+    if (body) {
+      const parent = body.parentElement
+  
+      if (parent && parent.classList.contains("md-container")) {
+        const grandParent = parent.parentElement
+    
+        if (grandParent) {
+          grandParent.insertBefore(body, parent)
+          grandParent.removeChild(parent)
         }
       }
     }
