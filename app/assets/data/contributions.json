@@ -240,6 +240,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 72,
+    "name": "microsoft/vscode",
+    "description": "Show Changes buttons on the Source Control view disappeared",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/microsoft/vscode/issues/283760"
+  },
+  {
     "id": 71,
     "name": "KieranP/Github-Releases-Feed",
     "description": "[BUG] Since maybe more than a week, some descriptions don't show up and \"You're All Caught Up\" duplicates",
