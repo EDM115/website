@@ -20,15 +20,26 @@
 <script setup lang="ts">
 import icBaselineTelegram from "~icons/ic/baseline-telegram"
 
+const route = useRoute()
 const { t } = useI18n()
 
 useHead({
   title: t("blog.head"),
   meta: [
     {
-      name: "og:title",
-      content: t("blog.head"),
+      name: "description", content: t("blog.description"),
     },
   ],
+})
+
+useSeoMeta({
+  ogTitle: t("blog.head"),
+  ogDescription: t("blog.description"),
+})
+
+defineOgImageComponent("OgImage", {
+  title: t("blog.head"),
+  description: t("blog.description"),
+  path: route.path,
 })
 </script>

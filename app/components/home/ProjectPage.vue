@@ -32,13 +32,19 @@
 </template>
 
 <script setup lang="ts">
+import type { ImageTuple } from "~/types"
+
 const props = defineProps<{
   name: string;
+  image: ImageTuple;
   branch?: string;
 }>()
 
+const route = useRoute()
 const { t } = useI18n()
 
+const title = ref(`EDM115 - ${t("projects.project")} ${props.name}`)
+const description = ref("")
 const key = computed(() => `readme-html:${props.name}:${props.branch ?? "master"}`)
 
 const {
@@ -263,12 +269,18 @@ const {
 
 const head = useHead({
   title: `EDM115 - ${t("projects.project")} ${props.name}`,
-  meta: [
-    {
-      name: "og:title",
-      content: `EDM115 - ${t("projects.project")} ${props.name}`,
-    },
-  ],
+})
+
+useSeoMeta({
+  ogTitle: () => title.value,
+  ogDescription: () => description.value,
+})
+
+defineOgImageComponent("OgImage", {
+  title: () => title.value,
+  description: () => description.value,
+  path: route.path,
+  image: () => props.image,
 })
 
 async function getRepoDetails() {
@@ -304,16 +316,11 @@ if (repoDetails) {
         name: "description",
         content: repoDetails.description || `No description available for ${repoDetails.name}`,
       },
-      {
-        name: "og:title",
-        content: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
-      },
-      {
-        name: "og:description",
-        content: repoDetails.description || `No description available for ${repoDetails.name}`,
-      },
     ],
   })
+
+  title.value = `EDM115 - ${t("projects.project")} ${repoDetails.name}`
+  description.value = repoDetails.description || `No description available for ${repoDetails.name}`
 }
 
 onMounted(() => {

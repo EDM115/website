@@ -70,6 +70,8 @@ type NetInfo = {
 
 // #region composables
 type ScreenSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
+
+type ImageTuple = readonly [src: string, width: string, height: string]
 // #endregion composables
 
 // #region blog posts
@@ -144,6 +146,7 @@ export type {
   FallbackBuffers,
   NetInfo,
   ScreenSize,
+  ImageTuple,
   BlogPostMeta,
   BlogFilters,
   PaginationInfo,

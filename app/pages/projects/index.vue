@@ -28,16 +28,27 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const { t } = useI18n()
 
 useHead({
   title: t("projects.head"),
   meta: [
     {
-      name: "og:title",
-      content: t("projects.head"),
+      name: "description", content: t("projects.description"),
     },
   ],
+})
+
+useSeoMeta({
+  ogTitle: t("projects.head"),
+  ogDescription: t("projects.description"),
+})
+
+defineOgImageComponent("OgImage", {
+  title: t("projects.head"),
+  description: t("projects.description"),
+  path: route.path,
 })
 
 const projects = [

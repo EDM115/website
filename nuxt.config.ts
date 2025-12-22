@@ -126,6 +126,7 @@ export default defineNuxtConfig({
   },
   colorMode: {
     fallback: "dark",
+    preference: "system",
     storage: "localStorage",
     storageKey: "theme",
   },
@@ -419,10 +420,17 @@ export default defineNuxtConfig({
       html: true,
       markdown: true,
       json: true,
-    }
+    },
   },
-  // check https://nuxtseo.com/docs/og-image/getting-started/getting-familar-with-nuxt-og-image later
-  ogImage: { enabled: false },
+  ogImage: {
+    componentDirs: ["system"],
+    defaults: {
+      cacheMaxAgeSeconds: 432000,
+      height: 1080,
+      width: 1920,
+    },
+    zeroRuntime: true,
+  },
   schemaOrg: { identity: definePerson({
     name: "EDM115",
     image: "/img/profile-img.webp",

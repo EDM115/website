@@ -9,15 +9,26 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const { t } = useI18n()
 
 useHead({
   title: t("blog.telegram.head"),
   meta: [
     {
-      name: "og:title",
-      content: t("blog.telegram.head"),
+      name: "description", content: t("blog.telegram.description"),
     },
   ],
+})
+
+useSeoMeta({
+  ogTitle: t("blog.telegram.head"),
+  ogDescription: t("blog.telegram.description"),
+})
+
+defineOgImageComponent("OgImage", {
+  title: t("blog.telegram.head"),
+  description: t("blog.telegram.description"),
+  path: route.path,
 })
 </script>

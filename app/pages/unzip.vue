@@ -148,6 +148,7 @@ import mdiUsersOutline from "~icons/mdi/usersOutline"
 import octiconRepoForked from "~icons/octicon/repo-forked-16"
 import octiconStar from "~icons/octicon/star-16"
 
+const route = useRoute()
 const { t } = useI18n()
 
 const stars = ref(117)
@@ -296,11 +297,15 @@ useHead({
 })
 
 useSeoMeta({
-  title: t("unzip.head"),
   ogTitle: t("unzip.head"),
-  description: t("unzip.description"),
   ogDescription: t("unzip.description"),
-  ogImage: "/img/projects/unzip-bot.webp",
+})
+
+defineOgImageComponent("OgImage", {
+  title: t("unzip.head"),
+  description: t("unzip.description"),
+  path: route.path,
+  image: [ "/img/system/projects/unzip-bot.jpg", "500px", "500px" ] as const,
 })
 
 function daysSinceLaunch() {

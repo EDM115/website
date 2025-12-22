@@ -60,14 +60,17 @@ useHead({
 })
 
 useSeoMeta({
-  title: t("main.head"),
   ogTitle: t("main.head"),
-  description: t("main.description"),
   ogDescription: t("main.description"),
-  ogImage: "/img/profile-img.webp",
   ogType: "website",
   ogUrl: "https://edm115.dev",
   ogLocale: "en_US",
+})
+
+defineOgImageComponent("OgImage", {
+  title: t("main.head"),
+  description: t("main.description"),
+  path: route.path,
 })
 
 useCopySlug()

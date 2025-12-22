@@ -381,7 +381,7 @@ function toggleMobileMenu() {
 .navbar-mobile-panel {
   position: fixed;
   inset: 0;
-  z-index: 10;
+  z-index: 101;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

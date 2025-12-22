@@ -3,7 +3,12 @@
 </template>
 
 <script setup lang="ts">
-import type { MarkdownModule } from "~/types"
+import type {
+  BlogPostMeta,
+  MarkdownModule,
+} from "~/types"
+import blogPosts from "~/assets/data/blog-posts.json"
+import telegramPosts from "~/assets/data/telegram-posts.json"
 
 const props = defineProps<{
   isTelegram: boolean;
@@ -248,6 +253,24 @@ async function initialize() {
 
 await initialize()
 
+const blogData = props.isTelegram
+  ? telegramPosts as BlogPostMeta[]
+  : blogPosts as BlogPostMeta[]
+
+const currentPost = blogData.find((post) => post.link === route.path)
+
+useSeoMeta({
+  ogTitle: currentPost?.title,
+  ogDescription: currentPost?.excerpt,
+  ogType: "article",
+  articleTag: currentPost?.tags,
+})
+
+defineOgImageComponent("OgImage", {
+  title: currentPost?.title,
+  description: currentPost?.excerpt,
+  path: route.path,
+})
 </script>
 
 <style scoped lang="scss">

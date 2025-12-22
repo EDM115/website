@@ -95,10 +95,10 @@ function deleteMdContainer() {
 
     if (body) {
       const parent = body.parentElement
-  
+
       if (parent && parent.classList.contains("md-container")) {
         const grandParent = parent.parentElement
-    
+
         if (grandParent) {
           grandParent.insertBefore(body, parent)
           grandParent.removeChild(parent)
