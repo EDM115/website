@@ -33,6 +33,8 @@ jobs:
           # update app.baseURL to "/website/"
           sed -i 's|baseURL: "/",|baseURL: "/website/",|' nuxt.config.ts
           sed -i 's|edm115.dev|edm115.github.io/website|g' nuxt.config.ts
+          sed -i 's|edm115.dev|edm115.github.io/website|g' app/layouts/default.vue
+          sed -i 's|edm115.dev|edm115.github.io/website|g' app/components/system/OgImage.vue
           sed -i 's|client: true|client: false|g' nuxt.config.ts
           sed -i 's|server: true|server: false|g' nuxt.config.ts
           sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts

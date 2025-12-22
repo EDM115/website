@@ -32,6 +32,7 @@ jobs:
         run: |
           sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
+          sed -i 's|edm115.dev|edm115.eu.org|g' app/components/system/OgImage.vue
           sed -i 's|client: true|client: false|g' nuxt.config.ts
           sed -i 's|server: true|server: false|g' nuxt.config.ts
           sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
