@@ -429,7 +429,7 @@ export default defineNuxtConfig({
       height: 1080,
       width: 1920,
     },
-    zeroRuntime: true,
+    enabled: true,
   },
   schemaOrg: { identity: definePerson({
     name: "EDM115",
@@ -444,10 +444,7 @@ export default defineNuxtConfig({
     ],
   }) },
   seo: { automaticDefaults: false },
-  sitemap: {
-    cacheMaxAgeSeconds: 432000,
-    zeroRuntime: true,
-  },
+  sitemap: { cacheMaxAgeSeconds: 432000 },
   svgo: {
     autoImportPath: "./public/img",
     defaultImport: "component",
