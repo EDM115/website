@@ -1,3 +1,5 @@
+import type { Component } from "vue"
+
 // #region polychrome
 interface QualityProfile {
   enable: boolean;
