@@ -13,8 +13,6 @@
 <script setup lang="ts">
 import mdiArrowUp from "~icons/mdi/arrowUp"
 
-import { useCustomTheme } from "~/composables/useCustomTheme"
-
 const { isDark } = useCustomTheme()
 const router = useRouter()
 

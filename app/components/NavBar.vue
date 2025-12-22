@@ -210,8 +210,6 @@ import mdiTextBoxEditOutline from "~icons/mdi/textBoxEditOutline"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
 
-import { useCustomTheme } from "~/composables/useCustomTheme"
-
 const {
   locale,
   t,
@@ -381,7 +379,7 @@ function toggleMobileMenu() {
 .navbar-mobile-panel {
   position: fixed;
   inset: 0;
-  z-index: 101;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

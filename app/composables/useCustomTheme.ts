@@ -1,21 +1,26 @@
 export function useCustomTheme() {
-  const theme = useColorMode()
+  const theme = ref(useColorMode())
 
   const isDark = computed(() => {
-    if (theme.preference === "dark") {
+    if (theme.value.preference === "dark") {
       return true
     }
 
-    if (theme.preference === "light") {
+    if (theme.value.preference === "light") {
       return false
     }
 
+    if (theme.value.unknown) {
+      // SSR or prerender, dark by default
+      return true
+    }
+
     // system
-    return theme.value === "dark"
+    return theme.value.value === "dark"
   })
 
   function changeTheme(themeName: "dark" | "light") {
-    theme.preference = themeName
+    theme.value.preference = themeName
   }
 
   function toggleTheme() {

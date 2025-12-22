@@ -98,7 +98,7 @@ function handleInput(value: string) {
   &--is-sticky {
     position: sticky;
     top: 1rem;
-    z-index: 100;
+    z-index: 10;
   }
 }
 

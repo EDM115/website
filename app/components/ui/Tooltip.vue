@@ -79,7 +79,7 @@ const {
 
 const style = ref<Record<string, string>>({
   position: "fixed",
-  zIndex: "100",
+  zIndex: "20",
 })
 
 function show() {
@@ -219,7 +219,7 @@ function updatePosition() {
     maxWidth: `${availInline}px`,
     maxHeight: `${maxHeight}px`,
     overflow: "auto",
-    zIndex: "100",
+    zIndex: "20",
     overflowWrap: "anywhere",
   }
 }
