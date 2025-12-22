@@ -1,5 +1,19 @@
 [
   {
+    "id": "2025-12-22-the-5-levels-of-optimization",
+    "title": "The 5 \"levels\" of optimization (no it didn't impact my mental health !)",
+    "date": "2025-12-22",
+    "tags": [
+      "typescript",
+      "optimization",
+      "performance",
+      "cli"
+    ],
+    "path": "2025/12-22-the-5-levels-of-optimization.md",
+    "link": "/blog/2025/12/22/the-5-levels-of-optimization",
+    "excerpt": "A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things."
+  },
+  {
     "id": "2025-05-30-how-i-migrated-to-zod-4",
     "title": "How I migrated the company monorepo to Zod v4 during my internship",
     "date": "2025-05-30",
