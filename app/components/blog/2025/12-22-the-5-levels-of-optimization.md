@@ -250,12 +250,12 @@ export async function computePerFileHashes(
 }
 ```
 Here we have the **best** of both worlds : process X files at once, but don't load way too many files from that damn repo into memory !  
-Now where does that magic number `100` come from ? Saying that I pulled it out of my ass wouldn't be *that* far-fetched, but it comes down mostly to tests. Too low and you hurt perf, too high and you blow up memory. It felt like a decent compromise after multiple runs.  
+Now where does that magic number `100` come from ? Saying that I pulled it out of my ass wouldn't be *that* far-fetched, but it comes down mostly to tests. Too low and you hurt perf, too high and you blow up memory. It felt like a decent compromise after multiple test runs.  
 Does pre-normalizing the paths actually help ? *Who knows* :man_shrugging:.  
 Is there a cleaner way to write this ? *Probably* :face_with_peeking_eye:.
 
 ## Level 5 : Proper concurrency (senior dev)
-During runs, the senior dev notices some inconsistencies execution times and decides to take a look at the script. And he has an idea to make the process even faster : a **worker pool**.  
+During runs, the senior dev notices some inconsistencies in execution times and decides to take a look at the script. And he has an idea to make the process even faster : a **worker pool**.  
 Basically, instead of taking 100 files out of the list, processing them all, *then* taking the next 100 files and repeating over and over again, we create 100 queues of files (workers) to be processed with only 1 spot available. Then, each file on the list gets assigned to the first free spot.  
 In other words, instead of "100 at a time, then wait for the slowest one", we keep **100 workers** busy. When one finishes, it grabs the next file :
 ```ts
