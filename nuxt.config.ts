@@ -436,7 +436,10 @@ export default defineNuxtConfig({
     ],
   }) },
   seo: { automaticDefaults: false },
-  sitemap: { cacheMaxAgeSeconds: 432000 },
+  sitemap: {
+    cacheMaxAgeSeconds: 432000,
+    zeroRuntime: true,
+  },
   svgo: {
     autoImportPath: "./public/img",
     defaultImport: "component",
