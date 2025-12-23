@@ -85,7 +85,7 @@ function deleteMdContainer() {
         navbarPanel.removeChild(toc)
         const lastElement = navbarPanel.lastElementChild
 
-        if (lastElement && lastElement.tagName.toLowerCase() === "hr") {
+        if (lastElement?.tagName.toLowerCase() === "hr") {
           navbarPanel.removeChild(lastElement)
         }
       }
@@ -96,7 +96,7 @@ function deleteMdContainer() {
     if (body) {
       const parent = body.parentElement
 
-      if (parent && parent.classList.contains("md-container")) {
+      if (parent?.classList.contains("md-container")) {
         const grandParent = parent.parentElement
 
         if (grandParent) {
