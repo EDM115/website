@@ -29,6 +29,9 @@
     "reject": "Refuser",
     "text": "Nous utilisons Cloudflare Web Analytics pour collecter des données anonymes sur votre utilisation de ce site. Êtes-vous d'accord ?"
   },
+  "error": {
+    "back": "Retour à l'accueil"
+  },
   "home": {
     "about": "À propos",
     "about-age": "{age} ans",
@@ -72,12 +75,7 @@
     "head": "EDM115 - Développeur français/gamer/producteur de musique"
   },
   "navbar": {
-    "close": "Fermer",
-    "indev": {
-      "oldSite": "Visiter l'ancien site",
-      "text": "Ce site est encore en développement intensif et certaines parties ne sont pas encore prêtes.",
-      "title": "En développement"
-    }
+    "close": "Fermer"
   },
   "nuxtSiteConfig": {
     "description": "Trouvez toutes les infos sur EDM115, ses projets, articles de blog, ...",

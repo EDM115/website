@@ -65,8 +65,8 @@
             height: image[2],
             borderRadius: image[1] === image[2] ? '15%' : '5',
             objectFit: 'cover',
-            border: '5px solid #ffb86c',
-            boxShadow: '0 0 50px rgba(255, 184, 108, 0.35)',
+            border: props.glowColor !== false ? `5px solid #${props.glowColor}` : undefined,
+            boxShadow: props.glowColor !== false ? `0 0 50px rgba(${parseInt(props.glowColor.slice(0, 2), 16)}, ${parseInt(props.glowColor.slice(2, 4), 16)}, ${parseInt(props.glowColor.slice(4, 6), 16)}, 0.35)` : undefined,
           }"
         >
       </div>
@@ -113,12 +113,14 @@ const props = withDefaults(defineProps<{
   image?: ImageTuple;
   path?: string;
   domain?: string;
+  glowColor?: string | false;
 }>(), {
   title: undefined,
   description: undefined,
   image: () => [ "/img/system/profile-img.jpg", "500px", "500px" ] as const,
   path: undefined,
   domain: undefined,
+  glowColor: "ffb86c",
 })
 
 const { t } = useI18n()

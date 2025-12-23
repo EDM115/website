@@ -145,7 +145,7 @@ const props = defineProps<{
    * - `outlined` : Adds a colored inner border with no background  
    * - `tonal` : Tints the background with the provided color  
    * - `flat` : Transparent background with no shadow  
-  * - `frosted` : Glassy frosted background with blur
+   * - `frosted` : Glassy frosted background with blur
    * @default "elevated"
    */
   variant?: "elevated" | "outlined" | "tonal" | "flat" | "frosted";

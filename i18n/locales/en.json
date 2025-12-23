@@ -29,6 +29,9 @@
     "reject": "Reject",
     "text": "We use Cloudflare Web Analytics to collect anonymous data about your usage of this website. Are you okay with this ?"
   },
+  "error": {
+    "back": "Go back home"
+  },
   "home": {
     "about": "About",
     "about-age": "{age} years old",
@@ -72,12 +75,7 @@
     "head": "EDM115 - French dev/gamer/music producer"
   },
   "navbar": {
-    "close": "Close",
-    "indev": {
-      "oldSite": "Visit the old website",
-      "text": "This website is still in heavy development and some areas aren't ready yet.",
-      "title": "In development"
-    }
+    "close": "Close"
   },
   "nuxtSiteConfig": {
     "description": "Find all infos about EDM115, his projects, blog posts, ...",

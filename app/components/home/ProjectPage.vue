@@ -46,6 +46,10 @@ const { t } = useI18n()
 const title = ref(`EDM115 - ${t("projects.project")} ${props.name}`)
 const description = ref("")
 const key = computed(() => `readme-html:${props.name}:${props.branch ?? "master"}`)
+const noGlow = computed(() => [
+  "EDM115/better-maps",
+  "EDM115/monorepo-hash",
+].includes(props.name))
 
 const {
   data: renderedContent,
@@ -281,6 +285,9 @@ defineOgImageComponent("OgImage", {
   description: () => description.value,
   path: route.path,
   image: () => props.image,
+  glowColor: noGlow.value
+    ? false
+    : undefined,
 })
 
 async function getRepoDetails() {

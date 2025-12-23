@@ -74,8 +74,8 @@ export default defineNuxtRouteMiddleware((to, _from) => {
       })
     }
 
-    return navigateTo({
+    /* return navigateTo({
       path: "/", hash: to.hash, query: to.query, replace: true,
-    })
+    }) */
   }
 })
