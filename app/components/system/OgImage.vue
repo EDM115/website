@@ -65,8 +65,8 @@
             height: image[2],
             borderRadius: image[1] === image[2] ? '15%' : '5',
             objectFit: 'cover',
-            border: props.glowColor !== false ? `5px solid #${props.glowColor}` : undefined,
-            boxShadow: props.glowColor !== false ? `0 0 50px rgba(${parseInt(props.glowColor.slice(0, 2), 16)}, ${parseInt(props.glowColor.slice(2, 4), 16)}, ${parseInt(props.glowColor.slice(4, 6), 16)}, 0.35)` : undefined,
+            border: glowColor !== false ? `5px solid #${glowColor}` : undefined,
+            boxShadow: glowColor !== false ? `0 0 50px rgba(${parseInt(glowColor.slice(0, 2), 16)}, ${parseInt(glowColor.slice(2, 4), 16)}, ${parseInt(glowColor.slice(4, 6), 16)}, 0.35)` : undefined,
           }"
         >
       </div>
