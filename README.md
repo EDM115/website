@@ -109,7 +109,7 @@ pid        /run/nginx.pid;
 load_module modules/ngx_http_js_module.so;
 
 events {
-    worker_connections  1024;
+    worker_connections  2048;
 }
 
 
@@ -125,8 +125,9 @@ http {
 
     sendfile        on;
     #tcp_nopush     on;
+    tcp_nodelay     on;
 
-    keepalive_timeout  65;
+    keepalive_timeout  30;
 
     gzip  on;
 
@@ -207,7 +208,7 @@ server {
 
         root /home/edm115/website/dist;
         index index.html;
-        try_files $uri $uri/index.html /index.html;
+        try_files $uri $uri/index.html /404.html;
     }
 }
 ```
