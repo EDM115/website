@@ -29,7 +29,6 @@
             display: '-webkit-box',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-            lineClamp: 3,
             textWrap: 'pretty',
           }"
         >
@@ -46,7 +45,6 @@
             display: '-webkit-box',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-            lineClamp: 3,
             textWrap: 'pretty',
           }"
         >
@@ -60,6 +58,8 @@
       >
         <img
           :src="image[0]"
+          :width="image[1]"
+          :height="image[2]"
           :style="{
             width: image[1],
             height: image[2],

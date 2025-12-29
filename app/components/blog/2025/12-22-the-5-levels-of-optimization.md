@@ -4,7 +4,7 @@ meta:
   - name: article:published_time
     content: 2025-12-22T14:00:00Z
   - name: description
-    content: The 5 "levels" of optimization (no it didn't impact my mental health !)
+    content: The 5 "levels" of optimization (no, it didn't drive me insane !)
   - name: summary
     content: A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things.
   - name: tags
@@ -13,7 +13,7 @@ meta:
 
 [[toc]]
 
-# The 5 "levels" of optimization (no it didn't impact my mental health !)
+# The 5 "levels" of optimization (no, it didn't drive me insane !)
 This blog post will detail the 5 ~~stages of grief~~ levels I went through when trying to optimize a function for a CLI tool I built ([`monorepo-hash`](https://github.com/EDM115/monorepo-hash)).
 > [!NOTE]  
 > I'm not claiming these are the 5 sacred commandments of performance engineering, nor am I saying that any of these accurately represent their associated "career level", they're just depicted as quick landmarks.  
