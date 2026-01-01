@@ -32,7 +32,7 @@
     "gemoji": "~8.1.0",
     "highlight.js": "~11.11.1",
     "light-odometer": "~0.1.0",
-    "markdown-exit": "1.0.0-beta.6",
+    "markdown-exit": "1.0.0-beta.7",
     "markdown-it-anchor": "~9.2.0",
     "markdown-it-attrs": "~4.3.1",
     "markdown-it-emoji": "~3.0.0",
@@ -42,7 +42,7 @@
     "nuxt": "~4.2.2",
     "nuxt-svgo": "~4.2.6",
     "vue": "~3.5.26",
-    "vue-i18n": "~11.2.7"
+    "vue-i18n": "~11.2.8"
   },
   "description": "EDM115's website",
   "devDependencies": {
@@ -53,7 +53,7 @@
     "@types/markdown-it-emoji": "^3.0.1",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "latest",
-    "@typescript-eslint/parser": "~8.50.1",
+    "@typescript-eslint/parser": "~8.51.0",
     "assemblyscript": "~0.28.9",
     "edm115-lint": "~0.1.6",
     "eslint": "~9.39.2",
@@ -62,8 +62,8 @@
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
     "lightningcss": "~1.30.2",
-    "oxlint": "~1.35.0",
-    "oxlint-tsgolint": "~0.10.0",
+    "oxlint": "~1.36.0",
+    "oxlint-tsgolint": "~0.10.1",
     "sass-embedded": "~1.97.1",
     "sass-loader": "~16.0.6",
     "typescript": "~5.9.3",
@@ -76,7 +76,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.27.0",
   "private": true,
   "repository": {
     "type": "git",

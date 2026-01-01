@@ -1,5 +1,13 @@
 [
   {
+    "id": 31,
+    "name": "dragonisdev/supabase-modular-auth",
+    "description": "feat: global rework",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/dragonisdev/supabase-modular-auth/pull/1"
+  },
+  {
     "id": 30,
     "name": "Balatro-Multiplayer/BalatroMultiplayer",
     "description": "fix: rework the French localization",
@@ -238,6 +246,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 73,
+    "name": "EDM115/monorepo-hash",
+    "description": "[INFO] 📣 A change in the benchmarks methodology",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/EDM115/monorepo-hash/issues/20"
   },
   {
     "id": 72,
