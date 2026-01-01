@@ -225,8 +225,8 @@ importers:
         specifier: ~10.6.2
         version: 10.6.2(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2(jiti@2.6.1)))(@typescript-eslint/parser@8.51.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.6.1)))
       globals:
-        specifier: ~16.5.0
-        version: 16.5.0
+        specifier: ~17.0.0
+        version: 17.0.0
       gray-matter:
         specifier: ~4.0.3
         version: 4.0.3
@@ -3873,6 +3873,10 @@ packages:
 
   globals@16.5.0:
     resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==, tarball: https://registry.npmjs.org/globals/-/globals-16.5.0.tgz}
+    engines: {node: '>=18'}
+
+  globals@17.0.0:
+    resolution: {integrity: sha512-gv5BeD2EssA793rlFWVPMMCqefTlpusw6/2TbAVMy0FzcG8wKJn4O+NqJ4+XWmmwrayJgw5TzrmWjFgmz1XPqw==, tarball: https://registry.npmjs.org/globals/-/globals-17.0.0.tgz}
     engines: {node: '>=18'}
 
   globby@15.0.0:
@@ -9887,6 +9891,8 @@ snapshots:
   globals@14.0.0: {}
 
   globals@16.5.0: {}
+
+  globals@17.0.0: {}
 
   globby@15.0.0:
     dependencies:
