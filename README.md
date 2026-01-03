@@ -22,18 +22,18 @@ Basically my website, hosted at [edm115.dev](https://edm115.dev), real-time prev
 - Automatic light/dark mode + switch animation
 - Automatic EN/FR language detection
 - Fully responsive design
-- The blog posts written in Markdown, with custom theme, syntax highlighting, multiple plugins (headings anchor links, image lazyload, table of contents, ...). Posts from my Telegram channel have also been ported here
-- Homemade blog posts fuzzy search with tags and date filtering
+- The blog posts written in Markdown, with custom theme, syntax highlighting, multiple plugins (headings anchor links, image lazyload, dynamic table of contents, ...). Posts from my Telegram channel have also been ported here
+- Homemade blog posts fuzzy search with tags and date filtering + fast WASM-based keyword search powered by [docfind](https://github.com/microsoft/docfind)
 - The projects page actually fetches the repo README at build time and pre-renders it with the above pipeline + some cleanup of GitHub-first Markdown quirks
 - The "polychrome" effect on my logo (Balatro inspired) uses multiple layers (glow, color overlay and caustic waves) with usage of Web Workers and WASM for better performance. Check the code to find how to enable the alternative rendering :wink:
-- Nice "liquid-esque" effect on the navbar buttons
+- Nice "liquid-esque" effect on the navbar buttons + stylish mobile menu
 - The odometers have been created using a personal fork of an existing library to make it smaller and faster
 - Every single UI component is custom made. No Vuetify, no Tailwind, no shadcn-vue, ...
 - Everything has been optimized for performance and will continue to be !
 - A job runs every week to update the Open Source contributions list, as well as another one to check the build status on PRs
-- Local font caching with Country Flags polyfill for Windows
+- Local fonts with Country Flags polyfill for Windows and custom ligature sets
 - Image optimization + lazyloading + progressive quality
-- Working Open Graph
+- Working Open Graph with dynamically generated custom images at generation time
 - Privacy-respectful analytics (Cloudflare Web Analytics) + any click outside of the banner is considered as reject \:)
 - 100% Lighthouse score (desktop)
 - Automatic redirection of URLs from the v1 website
@@ -45,6 +45,7 @@ Start :
 ```zsh
 git clone https://github.com/EDM115/website.git && cd website
 pnpm i --frozen-lockfile
+pnpm install-docfind:linux # or windows
 pnpm prebuild
 pnpm dev
 ```
@@ -81,7 +82,7 @@ pnpm start:ssg
 
 ### Status
 + **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
-+ **[Latest commit preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status)
+<!-- + **[Latest commit preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status) -->
 + **[Main website (mirror)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
 + **[Main website (GitHub Pages mirror)](https://edm115.github.io/website/) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/27w6u.svg)](https://up.edm115.dev/)
 

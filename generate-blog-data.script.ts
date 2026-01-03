@@ -2,26 +2,38 @@ import {
   readdir,
   readFile,
   writeFile,
+  mkdir,
 } from "node:fs/promises"
 import { join } from "node:path"
 
 import grayMatter from "gray-matter"
 
+import { nameToEmoji } from "gemoji"
+
 import type {
   BlogPostMeta,
+  DocfindSchema,
   Frontmatter,
   FileInfo,
+  ParsedPost,
 } from "./app/types"
 
-function extractExcerpt(content: string, maxLength = 200): string {
-  // Remove markdown formatting
-  const text = content
+function codeToEmoji(match: string, name: string): string {
+  return nameToEmoji[name] ?? match
+}
+
+function cleanupMarkdown(content: string, singleLine: boolean): string {
+  let text = content
+
+  text = text
     // Remove backslash on escaped markdown characters
     .replace(/\\([\\`*_{}[\]()#+\-.!])/g, "$1")
     // Remove headers
     .replace(/^#+\s+/gm, "")
-    // Remove images
-    .replace(/!\[.*?\]\(.*?\)/g, "")
+    // Remove images and keep alt text if it exists
+    .replace(/!\[([^\]]*)\]\((?:[^)\\]|\\.)*\)/g, (_, alt) => (alt
+      ? `[${alt.trim()}]`
+      : ""))
     // Remove bold
     .replace(/\*\*(.+?)\*\*/g, "$1")
     // Remove italic
@@ -32,26 +44,40 @@ function extractExcerpt(content: string, maxLength = 200): string {
     .replace(/\+\+(.+?)\+\+/g, "$1")
     // Remove mark
     .replace(/[=]{2}(.+?)[=]{2}/g, "$1")
-    // Remove spoilers (and their content)
-    .replace(/!!(.+?)!!/g, "")
+    // Remove spoilers
+    .replace(/!!(.+?)!!/g, "$1")
     // Remove links
     .replace(/\[(.+?)\]\(.+?\)/g, "$1")
     // Remove code blocks
     .replace(/```[\s\S]*?```/g, "")
     // Remove inline code
     .replace(/`(.+?)`/g, "$1")
-    // Remove emoji codes
-    .replace(/:\w+:/g, "")
+    // Replace :emoji_codes: with emoji chars
+    .replace(/:([a-zA-Z0-9_+-]+):/g, codeToEmoji)
     // Remove html tags
     .replace(/<\/?[^>]+(>|$)/g, "")
-    // Replace multiple newlines with a single newline
-    .replace(/\n{2,}/g, "\n")
-    // Replace newlines with spaces
-    .replace(/\n/g, " ")
-    // Replace multiple spaces with a single space
-    .replace(/ {2,}/g, " ")
-    // Trim whitespace
-    .trim()
+    // Remove table of contents markers
+    .replace(/(\n)?\[\[toc\]\](\n)?/gi, "\n")
+    // Remove leading and trailing newlines
+    .replace(/^\n+|\n+$/g, "")
+
+  if (singleLine) {
+    text = text
+      // Replace multiple newlines with a single newline
+      .replace(/\n{2,}/g, "\n")
+      // Replace newlines with spaces
+      .replace(/\n/g, " ")
+      // Replace multiple spaces with a single space
+      .replace(/ {2,}/g, " ")
+      // Trim whitespace
+      .trim()
+  }
+
+  return text
+}
+
+function extractExcerpt(content: string, maxLength = 200): string {
+  const text = cleanupMarkdown(content, true)
 
   return text.length > maxLength
     ? `${text.slice(0, maxLength)}...`
@@ -84,7 +110,6 @@ function parsePublishedTime(publishedTime: Date | undefined): {
     link: `/${year}/${month}/${day}`,
   }
 }
-
 
 function normalizePath(path: string): string {
   return path.replace(/\\/g, "/")
@@ -119,9 +144,7 @@ async function parseBlogPost(
   filePath: string,
   relativePath: string,
   isTelegram: boolean,
-): Promise<{
-  post: BlogPostMeta; publishedTime: Date;
-}> {
+): Promise<ParsedPost> {
   const content = await readFile(filePath, "utf-8")
   const frontMatterParsed = grayMatter(content)
   // oxlint-disable-next-line no-unsafe-type-assertion
@@ -136,7 +159,6 @@ async function parseBlogPost(
 
   // Extract tags from frontmatter meta
   let tags: string[] = []
-
   const metaTags = frontmatter.meta.find((metaItem) => metaItem.name === "tags")?.content
 
   if (metaTags) {
@@ -151,7 +173,6 @@ async function parseBlogPost(
   const {
     date: parsedDate, link: dateLink,
   } = parsePublishedTime(publishedTime)
-
   let resolvedDate = parsedDate
 
   if (!resolvedDate && fileInfo) {
@@ -200,7 +221,7 @@ async function parseBlogPost(
 
   const excerpt = summary || extractExcerpt(markdownContent, 200)
 
-  const post = {
+  const post: BlogPostMeta = {
     id: normalizedRelativePath.replace(/\.md$/, "")
       .replace(/\//g, "-"),
     title,
@@ -213,6 +234,7 @@ async function parseBlogPost(
 
   return {
     post,
+    markdownContent,
     publishedTime: publishedTime instanceof Date
       ? publishedTime
       : new Date(0),
@@ -223,9 +245,7 @@ async function scanDirectoryWithTime(
   baseDir: string,
   subDir = "",
   isTelegram = false,
-): Promise<{
-  post: BlogPostMeta; publishedTime: Date;
-}[]> {
+): Promise<ParsedPost[]> {
   const currentDir = join(baseDir, subDir)
 
   try {
@@ -240,9 +260,9 @@ async function scanDirectoryWithTime(
 
       if (entry.isFile() && entry.name.endsWith(".md")) {
         const fullPath = join(currentDir, entry.name)
-        const post = await parseBlogPost(fullPath, entryPath, isTelegram)
+        const parsed = await parseBlogPost(fullPath, entryPath, isTelegram)
 
-        return [post]
+        return [parsed]
       }
 
       return []
@@ -256,32 +276,36 @@ async function scanDirectoryWithTime(
   }
 }
 
-async function scanDirectory(
+async function scanDirectoryParsed(
   baseDir: string,
   subDir = "",
   isTelegram = false,
-): Promise<BlogPostMeta[]> {
+): Promise<ParsedPost[]> {
   const postsWithTime = await scanDirectoryWithTime(baseDir, subDir, isTelegram)
 
   // Sort antichronologically by publish time
   postsWithTime.sort((a, b) => b.publishedTime.getTime() - a.publishedTime.getTime())
 
-  return postsWithTime.map(({ post }) => post)
+  return postsWithTime
 }
 
-async function generateBlogData() {
+async function generateBlogData(): Promise<{
+  blogParsed: ParsedPost[];
+  telegramParsed: ParsedPost[];
+}> {
   console.log("🔄️ Generating blog metadata...\n")
 
   const blogDir = join(process.cwd(), "app", "components", "blog")
   const telegramDir = join(process.cwd(), "app", "components", "blog", "telegram")
   const outputDir = join(process.cwd(), "app", "assets", "data")
 
-  // Get regular blog posts (exclude telegram folder)
-  const allBlogPosts = await scanDirectory(blogDir, "", false)
-  const blogPosts = allBlogPosts.filter((post) => !post.path.includes("telegram"))
+  // Parse regular and telegram blog posts to reuse them later
+  const allBlogParsed = await scanDirectoryParsed(blogDir, "", false)
+  const blogParsed = allBlogParsed.filter((p) => !p.post.path.includes("telegram"))
+  const telegramParsed = await scanDirectoryParsed(telegramDir, "", true)
 
-  // Get telegram posts
-  const telegramPosts = await scanDirectory(telegramDir, "", true)
+  const blogPosts = blogParsed.map((p) => p.post)
+  const telegramPosts = telegramParsed.map((p) => p.post)
 
   await writeFile(
     join(outputDir, "blog-posts.json"),
@@ -295,10 +319,69 @@ async function generateBlogData() {
 
   console.log(`✅ Generated ${blogPosts.length} blog posts metadata`)
   console.log(`✅ Generated ${telegramPosts.length} telegram posts metadata\n`)
+
+  return {
+    blogParsed,
+    telegramParsed,
+  }
+}
+
+async function generateDocfindData(
+  blogParsed: ParsedPost[],
+  telegramParsed: ParsedPost[],
+): Promise<void> {
+  console.log("🔄️ Generating docfind indexes...\n")
+
+  const docfindDir = join(process.cwd(), "docfind")
+
+  await mkdir(docfindDir, { recursive: true })
+
+  const blogDocfind: DocfindSchema[] = blogParsed.map(({
+    post, markdownContent,
+  }) => ({
+    title: post.title,
+    category: "blog",
+    href: post.link,
+    body: cleanupMarkdown(markdownContent, false),
+    ...(post.tags?.length
+      ? { keywords: post.tags }
+      : {}),
+  }))
+
+  const telegramDocfind: DocfindSchema[] = telegramParsed.map(({
+    post, markdownContent,
+  }) => ({
+    title: post.title,
+    category: "telegram",
+    href: post.link,
+    body: cleanupMarkdown(markdownContent, false),
+    ...(post.tags?.length
+      ? { keywords: post.tags }
+      : {}),
+  }))
+
+  await writeFile(
+    join(docfindDir, "blog.json"),
+    `${JSON.stringify(blogDocfind, null, 2)}\n`,
+  )
+
+  await writeFile(
+    join(docfindDir, "telegram.json"),
+    `${JSON.stringify(telegramDocfind, null, 2)}\n`,
+  )
+
+  console.log(`✅ Generated docfind/blog.json (${blogDocfind.length} docs)`)
+  console.log(`✅ Generated docfind/telegram.json (${telegramDocfind.length} docs)\n`)
 }
 
 try {
-  await generateBlogData()
+  const {
+    blogParsed,
+    telegramParsed,
+  } = await generateBlogData()
+
+  await generateDocfindData(blogParsed, telegramParsed)
 } catch (e) {
   console.error("❌ Error generating blog data :", e)
+  process.exitCode = 1
 }

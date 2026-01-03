@@ -6,7 +6,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "TypeScriptTeam.native-preview"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "TypeScriptTeam.native-preview"
   },
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
@@ -23,11 +23,6 @@
   "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.ignoreUntitled": true,
-  "eslint.options": {
-    "flags": [
-      "unstable_ts_config"
-    ]
-  },
   "eslint.useFlatConfig": true,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
@@ -39,7 +34,6 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "gremlins.showInProblemPane": true,
-  "html-css-class-completion.enableEmmetSupport": true,
   "importCost.fontStyle": "italic",
   "importCost.largePackageDarkColor": "#FF5555",
   "importCost.largePackageLightColor": "#FF5555",
@@ -55,7 +49,6 @@
     "pnpm-lock.yaml": true
   },
   "scss.showErrors": true,
-  "typescript.tsdk": "node_modules\\typescript\\lib",
   "vue.autoInsert.dotValue": true,
   "vue.editor.focusMode": true,
   "vue.inlayHints.destructuredProps": true,

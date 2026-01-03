@@ -14,6 +14,7 @@
     "**/.output/",
     "**/dist/",
     "**/node_modules/",
-    "**/patches/"
+    "**/patches/",
+    "./app/components/home/blog/docfind.js"
   ]
 }

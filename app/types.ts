@@ -133,7 +133,26 @@ interface ParsedBlogSearch {
   filters: Omit<BlogFilters, "search"> & { tags: string[] };
 }
 
+type ParsedPost = {
+  post: BlogPostMeta;
+  markdownContent: string;
+  publishedTime: Date;
+}
+
 type DateMode = "before" | "after" | "at"
+
+interface DocfindSchema {
+  title: string;
+  category: string;
+  href: string;
+  body: string;
+  keywords?: string[];
+}
+
+type DocfindModule = {
+  default: (term: string, limit?: number) => DocfindSchema[] | Promise<DocfindSchema[]>
+  init: () => Promise<void>
+}
 // #endregion blog posts
 
 export type {
@@ -157,5 +176,8 @@ export type {
   FileInfo,
   MarkdownModule,
   ParsedBlogSearch,
+  ParsedPost,
   DateMode,
+  DocfindSchema,
+  DocfindModule,
 }

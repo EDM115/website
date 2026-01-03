@@ -58,7 +58,7 @@
     "edm115-lint": "~0.1.6",
     "eslint": "~9.39.2",
     "eslint-plugin-vue": "~10.6.2",
-    "globals": "~16.5.0",
+    "globals": "~17.0.0",
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
     "lightningcss": "~1.30.2",
@@ -85,7 +85,7 @@
   "scripts": {
     "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
-    "build:blog": "node --experimental-strip-types generate-blog-data.script.ts",
+    "build:blog": "node --experimental-strip-types generate-blog-data.script.ts && docfind docfind/blog.json docfind/blog && docfind docfind/telegram.json docfind/telegram && node --experimental-strip-types post.generate-blog-data.script.ts",
     "build:wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm",
     "cleanup": "nuxt cleanup",
     "dev": "nuxt dev --no-clear",
@@ -93,6 +93,8 @@
     "dev:expose:local": "nuxt dev --no-clear --public",
     "format": "eslint -c eslint.stylistic.config.ts --concurrency=auto --fix .",
     "generate": "pnpm prebuild && nuxt generate",
+    "install-docfind:linux": "curl -fsSL https://microsoft.github.io/docfind/install.sh | sh",
+    "install-docfind:windows": "irm https://microsoft.github.io/docfind/install.ps1 | iex",
     "lint": "pnpm run \"/^lint:eslint|^lint:oxlint/\"",
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
     "lint:fix": "pnpm run \"/^lint:fix:.*/\"",
@@ -106,5 +108,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.10.1"
+  "version": "2.11.0"
 }
