@@ -31,7 +31,7 @@ jobs:
           node-version: lts/krypton
 
       - name: "Install dependencies"
-        run: pnpm i --frozen-lockfile && pnpm install-docfind:linux
+        run: pnpm i --frozen-lockfile && pnpm install-docfind:linux && pnpm prebuild
 
       - name: "Types check"
         run: pnpm typecheck
