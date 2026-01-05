@@ -81,10 +81,10 @@ pnpm start:ssg
 ---
 
 ### Status
-+ **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
-<!-- + **[Latest commit preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status) -->
-+ **[Main website (mirror)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
-+ **[Main website (GitHub Pages mirror)](https://edm115.github.io/website/) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/27w6u.svg)](https://up.edm115.dev/)
+- **[Main website](https://edm115.dev) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/n6oc.svg)](https://up.edm115.dev/)
+- **[Latest commit preview](https://edm115.netlify.app) status :** ![Netlify Status](https://api.netlify.com/api/v1/badges/6ffb8504-c2c9-4482-a56c-0efd83a3a4d6/deploy-status)
+- **[Main website (mirror)](https://edm115.eu.org) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/iker.svg)](https://up.edm115.dev/)
+- **[Main website (GitHub Pages mirror)](https://edm115.github.io/website/) status :** [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/27w6u.svg)](https://up.edm115.dev/)
 
 ---
 
