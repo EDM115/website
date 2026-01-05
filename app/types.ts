@@ -150,8 +150,8 @@ interface DocfindSchema {
 }
 
 type DocfindModule = {
-  default: (term: string, limit?: number) => DocfindSchema[] | Promise<DocfindSchema[]>
-  init: () => Promise<void>
+  "default": (term: string, limit?: number) => DocfindSchema[] | Promise<DocfindSchema[]>;
+  "init": () => Promise<void>;
 }
 // #endregion blog posts
 

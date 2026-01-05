@@ -170,7 +170,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: true,
-      ignore: ["/.netlify/**"],
+      ignore: ["/.netlify"],
     },
   },
   vite: {

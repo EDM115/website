@@ -24,8 +24,11 @@ async function loadDocfindModule(isTelegram: boolean): Promise<DocfindModule | n
     return null
   }
 
-  const key = isTelegram ? "telegram" : "blog"
+  const key = isTelegram
+    ? "telegram"
+    : "blog"
   const cached = docfindCache[key]
+
   if (cached.mod) {
     return cached.mod
   }
@@ -35,21 +38,28 @@ async function loadDocfindModule(isTelegram: boolean): Promise<DocfindModule | n
     : await import("~/components/home/blog/docfind_blog.js")
 
   cached.mod = mod
+
   return cached.mod
 }
 
 async function ensureDocfindInit(isTelegram: boolean): Promise<DocfindModule | null> {
-  const key = isTelegram ? "telegram" : "blog"
+  const key = isTelegram
+    ? "telegram"
+    : "blog"
   const cached = docfindCache[key]
 
   const mod = await loadDocfindModule(isTelegram)
-  if (!mod) {return null}
+
+  if (!mod) {
+    return null
+  }
 
   if (!cached.initPromise) {
     cached.initPromise = mod.init()
   }
 
   await cached.initPromise
+
   return mod
 }
 
@@ -66,9 +76,11 @@ export function useBlogPosts(isTelegram = false) {
   const toComparableTimestampCache = new Map<string, number>()
 
   let postByLink = new Map<string, BlogPostMeta>()
+
   function rebuildPostIndex() {
-    postByLink = new Map(allPosts.value.map((p) => [p.link, p]))
+    postByLink = new Map(allPosts.value.map((p) => [ p.link, p ]))
   }
+
   const docfindHrefOrder = ref<string[] | null>(null)
   const docfindTerm = ref<string>("")
   let docfindRunId = 0
@@ -163,10 +175,12 @@ export function useBlogPosts(isTelegram = false) {
 
   async function refreshDocfindMatches(term: string) {
     const normalized = term.trim()
+
     docfindTerm.value = normalized
 
     if (!import.meta.client || normalized.length < 3) {
       docfindHrefOrder.value = null
+
       return
     }
 
@@ -176,13 +190,16 @@ export function useBlogPosts(isTelegram = false) {
     // If docfind fails to load/init, gracefully fall back to the old search
     if (!mod) {
       docfindHrefOrder.value = null
+
       return
     }
 
     const results = await Promise.resolve(mod.default(normalized))
 
     // avoid out-of-order writes when typing fast
-    if (runId !== docfindRunId) {return}
+    if (runId !== docfindRunId) {
+      return
+    }
 
     docfindHrefOrder.value = results
       .map((r) => r?.href)
@@ -201,16 +218,20 @@ export function useBlogPosts(isTelegram = false) {
     if (filters.value.search && filters.value.search.length >= 3) {
       const searchLower = filters.value.search.toLowerCase()
       // If docfind results correspond to the current term, use them
-      const docfindReadyForThisTerm =
-        docfindHrefOrder.value?.length
-        && docfindTerm.value.trim().toLowerCase() === searchLower.trim()
+      const docfindReadyForThisTerm
+        = docfindHrefOrder.value?.length
+          && docfindTerm.value.trim()
+            .toLowerCase() === searchLower.trim()
 
       if (docfindReadyForThisTerm) {
         const ordered: BlogPostMeta[] = []
 
         for (const href of docfindHrefOrder.value ?? []) {
           const post = postByLink.get(href)
-          if (post) {ordered.push(post)}
+
+          if (post) {
+            ordered.push(post)
+          }
         }
 
         posts = ordered
@@ -219,21 +240,21 @@ export function useBlogPosts(isTelegram = false) {
         const searchTerm = exactSearch
           ? searchLower.slice(1, -1)
           : searchLower
-  
+
         posts = posts.filter((post) => {
           const searchableText = [
             post.title,
             post.excerpt,
           ].join(" ")
             .toLowerCase()
-  
+
           if (exactSearch) {
             return searchableText.includes(searchTerm)
           }
-  
+
           // Fuzzy search : split into words and check each
           const words = searchTerm.split(/\s+/)
-  
+
           return words.some((word) => searchableText.includes(word))
         })
       }
@@ -393,6 +414,7 @@ export function useBlogPosts(isTelegram = false) {
     if (searchWasUpdated) {
       void refreshDocfindMatches(filters.value.search ?? "")
         .finally(() => applyFilters())
+
       return
     }
 
