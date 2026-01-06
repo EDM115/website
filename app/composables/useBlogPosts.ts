@@ -216,12 +216,35 @@ export function useBlogPosts(isTelegram = false) {
       : null
 
     if (filters.value.search && filters.value.search.length >= 3) {
+      const basePosts = posts
       const searchLower = filters.value.search.toLowerCase()
       // If docfind results correspond to the current term, use them
       const docfindReadyForThisTerm
         = docfindHrefOrder.value?.length
           && docfindTerm.value.trim()
             .toLowerCase() === searchLower.trim()
+
+      const exactSearch = searchLower.startsWith("\"") && searchLower.endsWith("\"")
+      const searchTerm = exactSearch
+        ? searchLower.slice(1, -1)
+        : searchLower
+
+      const fallbackMatches = basePosts.filter((post) => {
+        const searchableText = [
+          post.title,
+          post.excerpt,
+        ].join(" ")
+          .toLowerCase()
+
+        if (exactSearch) {
+          return searchableText.includes(searchTerm)
+        }
+
+        // Fuzzy search : split into words and check each
+        const words = searchTerm.split(/\s+/)
+
+        return words.some((word) => searchableText.includes(word))
+      })
 
       if (docfindReadyForThisTerm) {
         const ordered: BlogPostMeta[] = []
@@ -234,29 +257,26 @@ export function useBlogPosts(isTelegram = false) {
           }
         }
 
-        posts = ordered
-      } else {
-        const exactSearch = searchLower.startsWith("\"") && searchLower.endsWith("\"")
-        const searchTerm = exactSearch
-          ? searchLower.slice(1, -1)
-          : searchLower
+        const seen = new Set<string>()
+        const merged: BlogPostMeta[] = []
 
-        posts = posts.filter((post) => {
-          const searchableText = [
-            post.title,
-            post.excerpt,
-          ].join(" ")
-            .toLowerCase()
-
-          if (exactSearch) {
-            return searchableText.includes(searchTerm)
+        for (const p of ordered) {
+          if (!seen.has(p.link)) {
+            seen.add(p.link)
+            merged.push(p)
           }
+        }
 
-          // Fuzzy search : split into words and check each
-          const words = searchTerm.split(/\s+/)
+        for (const p of fallbackMatches) {
+          if (!seen.has(p.link)) {
+            seen.add(p.link)
+            merged.push(p)
+          }
+        }
 
-          return words.some((word) => searchableText.includes(word))
-        })
+        posts = merged
+      } else {
+        posts = fallbackMatches
       }
     }
 
