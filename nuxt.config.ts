@@ -288,7 +288,6 @@ export default defineNuxtConfig({
         include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
         resolvers: [IconsResolver({ prefix: "Icon" })],
         sourcemap: true,
-        version: 3,
       }),
     ],
     vue: { include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ] },
@@ -445,7 +444,10 @@ export default defineNuxtConfig({
     ],
   }) },
   seo: { automaticDefaults: false },
-  sitemap: { cacheMaxAgeSeconds: 432000 },
+  sitemap: {
+    cacheMaxAgeSeconds: 432000,
+    zeroRuntime: true,
+  },
   svgo: {
     autoImportPath: "./public/img",
     defaultImport: "component",
