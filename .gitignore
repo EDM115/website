@@ -1,10 +1,8 @@
 .well-known
 dist
 .output
-.data
 .nuxt
-.nitro
-.cache
-logs
 node_modules
 .eslintcache
+docfind
+pagefind

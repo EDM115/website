@@ -4,7 +4,7 @@ import edm115Lint from "edm115-lint/eslint-stylistic.json"
 import vueParser from "vue-eslint-parser"
 
 export default [
-  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/patches/", "**/*.d.ts", "./app/components/home/blog/docfind*.js" ] },
+  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/patches/", "**/*.d.ts", "./app/components/home/blog/docfind*.js", "./app/components/home/blog/pagefind/" ] },
   {
     files: ["**/*.{js,ts,vue}"],
     linterOptions: { reportUnusedDisableDirectives: false },

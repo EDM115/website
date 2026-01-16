@@ -7,7 +7,10 @@ import {
   rm,
   writeFile,
 } from "node:fs/promises"
-import { join } from "node:path"
+import {
+  dirname,
+  join,
+} from "node:path"
 
 async function ensureDir(dirPath: string) {
   await mkdir(dirPath, { recursive: true })
@@ -38,14 +41,45 @@ async function moveAndPatchJs(
   const patched = js.split("docfind_bg.wasm")
     .join(wasmReplacement)
 
-  await ensureDir(join(destPath, ".."))
+  await ensureDir(dirname(destPath))
   await writeFile(destPath, patched, "utf-8")
   await rm(srcPath, { force: true })
 }
 
 async function moveFile(srcPath: string, destPath: string) {
-  await ensureDir(join(destPath, ".."))
+  await ensureDir(dirname(destPath))
+  await rm(destPath, {
+    recursive: true, force: true,
+  })
   await rename(srcPath, destPath)
+}
+
+function shouldMovePagefindAsset(fileName: string): boolean {
+  if (fileName.endsWith(".css")) {
+    return false
+  }
+
+  if (fileName.endsWith("-ui.js") || fileName.endsWith("-highlight.js")) {
+    return false
+  }
+
+  return true
+}
+
+async function movePagefindBundle(srcDir: string, destDir: string) {
+  if (!await pathExists(srcDir)) {
+    return
+  }
+
+  const entries = await readdir(srcDir)
+
+  await Promise.all(entries.map(async (entry) => {
+    if (!shouldMovePagefindAsset(entry)) {
+      return
+    }
+
+    await moveFile(join(srcDir, entry), join(destDir, entry))
+  }))
 }
 
 async function emptyDirectory(dirPath: string) {
@@ -75,7 +109,12 @@ async function main() {
   const docfindBlogDir = join(docfindDir, "blog")
   const docfindTelegramDir = join(docfindDir, "telegram")
 
+  const pagefindDir = join(cwd, "pagefind")
+  const pagefindBlogDir = join(pagefindDir, "blog")
+  const pagefindTelegramDir = join(pagefindDir, "telegram")
+
   const targetDir = join(cwd, "app", "components", "home", "blog")
+  const pagefindTargetDir = join(targetDir, "pagefind")
 
   await moveAndPatchJs(
     join(docfindBlogDir, "docfind.js"),
@@ -99,14 +138,25 @@ async function main() {
     join(targetDir, "docfind_telegram.wasm"),
   )
 
-  await emptyDirectory(docfindDir)
+  await movePagefindBundle(
+    pagefindBlogDir,
+    join(pagefindTargetDir, "blog"),
+  )
 
-  console.log("\n✅ Moved + patched docfind assets, and cleared docfind/ contents")
+  await movePagefindBundle(
+    pagefindTelegramDir,
+    join(pagefindTargetDir, "telegram"),
+  )
+
+  await emptyDirectory(docfindDir)
+  await emptyDirectory(pagefindDir)
+
+  console.log("\n✅ Moved + patched docfind assets, moved Pagefind bundles, and cleared docfind/pagefind contents")
 }
 
 try {
   await main()
 } catch (e) {
-  console.error("\n❌ docfind mover failed :", e)
+  console.error("\n❌ docfind/pagefind mover failed :", e)
   process.exitCode = 1
 }

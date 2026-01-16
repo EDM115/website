@@ -64,6 +64,7 @@ function getTokensText(tokens: Token[]) {
 
 export default defineNuxtConfig({
   modules: [
+    "@nuxt/a11y",
     "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/hints",

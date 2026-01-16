@@ -5,16 +5,22 @@ import {
   mkdir,
 } from "node:fs/promises"
 import { join } from "node:path"
+import { performance } from "node:perf_hooks"
 
 import grayMatter from "gray-matter"
 
 import { nameToEmoji } from "gemoji"
+import {
+  close as closePagefind,
+  createIndex,
+} from "pagefind"
 import { Temporal } from "temporal-polyfill"
 
 import type {
   BlogPostMeta,
   DocfindSchema,
   Frontmatter,
+  FrontmatterMeta,
   FileInfo,
   ParsedPost,
 } from "./app/types"
@@ -108,6 +114,17 @@ function parsePublishedTime(publishedTime: Date | undefined): {
     date: `${year}-${month}-${day}`,
     link: `/${year}/${month}/${day}`,
   }
+}
+
+function stringifyMetaValue(value: FrontmatterMeta[keyof FrontmatterMeta]): string {
+  if (value instanceof Date) {
+    return Temporal.Instant.from(value.toISOString())
+      .toZonedDateTimeISO("UTC")
+      .toPlainDate()
+      .toString()
+  }
+
+  return value.toString()
 }
 
 function normalizePath(path: string): string {
@@ -220,6 +237,16 @@ async function parseBlogPost(
 
   const excerpt = summary || extractExcerpt(markdownContent, 200)
 
+  const pagefindMeta = frontmatter.meta.reduce<Record<string, string>>((acc, metaItem) => {
+    acc[metaItem.name] = stringifyMetaValue(metaItem.content)
+
+    return acc
+  }, {})
+  const pagefindTags = tags
+    .map((tag) => tag.trim()
+      .toLowerCase())
+    .filter((tag) => tag.length > 0)
+
   const post: BlogPostMeta = {
     id: normalizedRelativePath.replace(/\.md$/, "")
       .replace(/\//g, "-"),
@@ -237,6 +264,8 @@ async function parseBlogPost(
     publishedTime: publishedTime instanceof Date
       ? Temporal.Instant.from(publishedTime.toISOString()).epochMilliseconds
       : 0,
+    pagefindMeta,
+    pagefindTags,
   }
 }
 
@@ -373,6 +402,76 @@ async function generateDocfindData(
   console.log(`✅ Generated docfind/telegram.json (${telegramDocfind.length} docs)\n`)
 }
 
+async function generatePagefindIndex(
+  posts: ParsedPost[],
+  outputPath: string,
+  label: string,
+): Promise<void> {
+  const { index } = await createIndex()
+
+  const records = posts.map((post) => {
+    const content = cleanupMarkdown(post.markdownContent, false)
+    const words = content.match(/\S+/g)?.length ?? 0
+
+    return {
+      post,
+      content,
+      words,
+    }
+  })
+
+  const indexStart = performance.now()
+  const results = await Promise.all(records.map((record) => {
+    return index?.addCustomRecord({
+      url: record.post.post.link,
+      content: record.content,
+      language: "en-us",
+      meta: record.post.pagefindMeta,
+      filters: {
+        tags: record.post.pagefindTags,
+      },
+    })
+  }))
+  const indexDuration = performance.now() - indexStart
+
+  const errors = results.flatMap((result) => result?.errors ?? [])
+
+  if (errors.length > 0) {
+    console.error("❌ Pagefind indexing errors :", errors)
+  }
+
+  const filesResult = await index?.getFiles()
+  const files = filesResult?.files ?? []
+  const bundleSize = files.reduce((sum, file) => sum + file.content.length, 0)
+
+  const writeResult = await index?.writeFiles({ outputPath })
+
+  if (writeResult?.errors?.length) {
+    console.error("❌ Pagefind write errors :", writeResult.errors)
+  }
+
+  console.log(`📊 Pagefind stats (${label}) :`)
+  console.log(`  📖 ${records.length} records`)
+  console.log(`  📦 ${files.length} bundle files (${bundleSize} bytes)`)
+  console.log(`  ⏱️  ${indexDuration.toFixed(2)}ms to index`)
+  console.log("")
+
+  await index?.deleteIndex()
+}
+
+async function generatePagefindData(
+  blogParsed: ParsedPost[],
+  telegramParsed: ParsedPost[],
+): Promise<void> {
+  console.log("🔄️ Generating Pagefind indexes...\n")
+
+  await generatePagefindIndex(blogParsed, join(process.cwd(), "pagefind", "blog"), "blog")
+  await generatePagefindIndex(telegramParsed, join(process.cwd(), "pagefind", "telegram"), "telegram")
+  await closePagefind()
+
+  console.log("✅ Generated Pagefind indexes for blog and telegram\n")
+}
+
 try {
   const {
     blogParsed,
@@ -380,6 +479,7 @@ try {
   } = await generateBlogData()
 
   await generateDocfindData(blogParsed, telegramParsed)
+  await generatePagefindData(blogParsed, telegramParsed)
 } catch (e) {
   console.error("❌ Error generating blog data :", e)
   process.exitCode = 1

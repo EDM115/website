@@ -15,6 +15,7 @@
     "**/dist/",
     "**/node_modules/",
     "**/patches/",
-    "./app/components/home/blog/docfind*.js"
+    "./app/components/home/blog/docfind*.js",
+    "./app/components/home/blog/pagefind/"
   ]
 }

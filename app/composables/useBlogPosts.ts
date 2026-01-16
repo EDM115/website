@@ -3,6 +3,7 @@ import type {
   BlogFilters,
   DocfindModule,
   PaginationInfo,
+  PagefindModule,
 } from "~/types"
 
 import blogPosts from "~/assets/data/blog-posts.json"
@@ -17,6 +18,17 @@ const docfindCache = {
   },
   telegram: {
     mod: null as DocfindModule | null,
+    initPromise: null as Promise<void> | null,
+  },
+}
+
+const pagefindCache = {
+  blog: {
+    mod: null as PagefindModule | null,
+    initPromise: null as Promise<void> | null,
+  },
+  telegram: {
+    mod: null as PagefindModule | null,
     initPromise: null as Promise<void> | null,
   },
 }
@@ -65,6 +77,50 @@ async function ensureDocfindInit(isTelegram: boolean): Promise<DocfindModule | n
   return mod
 }
 
+async function loadPagefindModule(isTelegram: boolean): Promise<PagefindModule | null> {
+  if (!import.meta.client) {
+    return null
+  }
+
+  const key = isTelegram
+    ? "telegram"
+    : "blog"
+  const cached = pagefindCache[key]
+
+  if (cached.mod) {
+    return cached.mod
+  }
+
+  const mod = isTelegram
+    ? await import("~/components/home/blog/pagefind/telegram/pagefind.js")
+    : await import("~/components/home/blog/pagefind/blog/pagefind.js")
+
+  cached.mod = mod
+
+  return cached.mod
+}
+
+async function ensurePagefindInit(isTelegram: boolean): Promise<PagefindModule | null> {
+  const key = isTelegram
+    ? "telegram"
+    : "blog"
+  const cached = pagefindCache[key]
+
+  const mod = await loadPagefindModule(isTelegram)
+
+  if (!mod) {
+    return null
+  }
+
+  if (!cached.initPromise) {
+    cached.initPromise = Promise.resolve(mod.init())
+  }
+
+  await cached.initPromise
+
+  return mod
+}
+
 export function useBlogPosts(isTelegram = false) {
   const allPosts = ref<BlogPostMeta[]>([])
   const filteredPosts = ref<BlogPostMeta[]>([])
@@ -86,6 +142,10 @@ export function useBlogPosts(isTelegram = false) {
   const docfindHrefOrder = ref<string[] | null>(null)
   const docfindTerm = ref<string>("")
   let docfindRunId = 0
+
+  const pagefindHrefOrder = ref<string[] | null>(null)
+  const pagefindTerm = ref<string>("")
+  let pagefindRunId = 0
 
   const pagination = computed<PaginationInfo>(() => ({
     page: currentPage.value,
@@ -219,6 +279,51 @@ export function useBlogPosts(isTelegram = false) {
       .filter((href): href is string => Boolean(href))
   }
 
+  async function refreshPagefindMatches(term: string, tagFilters?: string[]) {
+    const normalized = term.trim()
+
+    pagefindTerm.value = normalized
+
+    if (!import.meta.client || normalized.length < 3) {
+      pagefindHrefOrder.value = null
+
+      return
+    }
+
+    const runId = ++pagefindRunId
+    const mod = await ensurePagefindInit(isTelegram)
+
+    if (!mod) {
+      pagefindHrefOrder.value = null
+
+      return
+    }
+
+    const filters = tagFilters?.length
+      ? { tags: tagFilters }
+      : undefined
+    const results = await mod.search(normalized, filters
+      ? { filters }
+      : undefined)
+
+    if (runId !== pagefindRunId) {
+      return
+    }
+
+    const urls = await Promise.all((results.results ?? []).map(async (result) => {
+      try {
+        const data = await result.data()
+
+        return data.raw_url
+      } catch {
+        return undefined
+      }
+    }))
+
+    pagefindHrefOrder.value = urls
+      .filter((href): href is string => Boolean(href))
+  }
+
   function applyFilters() {
     let posts = [...allPosts.value]
     const beforeTimestamp = filters.value.before
@@ -235,6 +340,11 @@ export function useBlogPosts(isTelegram = false) {
       const docfindReadyForThisTerm
         = docfindHrefOrder.value?.length
           && docfindTerm.value.trim()
+            .toLowerCase() === searchLower.trim()
+      // If pagefind results correspond to the current term, use them
+      const pagefindReadyForThisTerm
+        = pagefindHrefOrder.value?.length
+          && pagefindTerm.value.trim()
             .toLowerCase() === searchLower.trim()
 
       const exactSearch = searchLower.startsWith("\"") && searchLower.endsWith("\"")
@@ -259,26 +369,33 @@ export function useBlogPosts(isTelegram = false) {
         return words.some((word) => searchableText.includes(word))
       })
 
-      if (docfindReadyForThisTerm) {
+      if (docfindReadyForThisTerm || pagefindReadyForThisTerm) {
         const ordered: BlogPostMeta[] = []
-
-        for (const href of docfindHrefOrder.value ?? []) {
-          const post = postByLink.get(href)
-
-          if (post) {
-            ordered.push(post)
-          }
-        }
-
         const seen = new Set<string>()
-        const merged: BlogPostMeta[] = []
 
-        for (const p of ordered) {
-          if (!seen.has(p.link)) {
-            seen.add(p.link)
-            merged.push(p)
+        if (pagefindReadyForThisTerm) {
+          for (const href of pagefindHrefOrder.value ?? []) {
+            const post = postByLink.get(href)
+
+            if (post && !seen.has(post.link)) {
+              seen.add(post.link)
+              ordered.push(post)
+            }
           }
         }
+
+        if (docfindReadyForThisTerm) {
+          for (const href of docfindHrefOrder.value ?? []) {
+            const post = postByLink.get(href)
+
+            if (post && !seen.has(post.link)) {
+              seen.add(post.link)
+              ordered.push(post)
+            }
+          }
+        }
+
+        const merged: BlogPostMeta[] = [...ordered]
 
         for (const p of fallbackMatches) {
           if (!seen.has(p.link)) {
@@ -443,9 +560,12 @@ export function useBlogPosts(isTelegram = false) {
     filters.value = nextFilters
     currentPage.value = 1
 
-    // If the search term changed, refresh docfind results async, then apply filters
+    // If the search term changed, refresh docfind and pagefind results async, then apply filters
     if (searchWasUpdated) {
-      void refreshDocfindMatches(filters.value.search ?? "")
+      void Promise.all([
+        refreshDocfindMatches(filters.value.search ?? ""),
+        refreshPagefindMatches(filters.value.search ?? "", filters.value.tags),
+      ])
         .finally(() => applyFilters())
 
       return
@@ -459,6 +579,8 @@ export function useBlogPosts(isTelegram = false) {
     currentPage.value = 1
     docfindHrefOrder.value = null
     docfindTerm.value = ""
+    pagefindHrefOrder.value = null
+    pagefindTerm.value = ""
     applyFilters()
   }
 
@@ -487,9 +609,10 @@ export function useBlogPosts(isTelegram = false) {
         : blogPosts
       rebuildPostIndex()
 
-      // Warm up docfind in the background
+      // Warm up docfind and pagefind in the background
       if (import.meta.client) {
         void ensureDocfindInit(isTelegram)
+        void ensurePagefindInit(isTelegram)
       }
 
       applyFilters()
