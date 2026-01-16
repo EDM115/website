@@ -45,6 +45,15 @@ jobs:
           rm -f public/docs/Resume_*.pdf
           rm -fr public/docs/blog
 
+      - name: "Restore Nuxt cache"
+        id: nuxt_cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .nuxt
+          key: old-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            old-nuxt-cache-${{ github.ref_name }}-
+
       - name: "Build for edm115.eu.org"
         run: pnpm prebuild && pnpm nuxt generate --preset static
 
@@ -56,6 +65,13 @@ jobs:
         with:
           name: static-site
           path: ./.output/public
+
+      - name: "Save Nuxt cache"
+        if: always() && steps.nuxt_cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .nuxt
+          key: old-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
 
   deploy:
     needs: build
