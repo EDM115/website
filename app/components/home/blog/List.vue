@@ -116,6 +116,8 @@
 import mdiChevronLeft from "~icons/mdi/chevron-left"
 import mdiChevronRight from "~icons/mdi/chevron-right"
 
+import { Temporal } from "temporal-polyfill"
+
 const props = defineProps<{
   isTelegram: boolean;
 }>()
@@ -252,16 +254,20 @@ function formatDate(dateStr: string) {
     return ""
   }
 
-  const date = new Date(dateStr)
+  try {
+    const date = Temporal.PlainDate.from(dateStr)
 
-  return date.toLocaleDateString(locale.value === "fr"
-    ? "fr-FR"
-    : "en-US", {
-    day: "2-digit",
-    weekday: "long",
-    month: "long",
-    year: "numeric",
-  })
+    return date.toLocaleString(locale.value === "fr"
+      ? "fr-FR"
+      : "en-US", {
+      day: "2-digit",
+      weekday: "long",
+      month: "long",
+      year: "numeric",
+    })
+  } catch {
+    return dateStr
+  }
 }
 
 onMounted(async () => {

@@ -136,7 +136,7 @@ interface ParsedBlogSearch {
 type ParsedPost = {
   post: BlogPostMeta;
   markdownContent: string;
-  publishedTime: Date;
+  publishedTime: number;
 }
 
 type DateMode = "before" | "after" | "at"

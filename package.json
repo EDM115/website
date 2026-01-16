@@ -41,6 +41,7 @@
     "markdown-it-toc-done-right": "~4.2.0",
     "nuxt": "~4.2.2",
     "nuxt-svgo": "~4.2.6",
+    "temporal-polyfill": "~0.3.0",
     "vue": "~3.5.26",
     "vue-i18n": "~11.2.8"
   },
@@ -57,7 +58,7 @@
     "assemblyscript": "~0.28.9",
     "edm115-lint": "~0.1.6",
     "eslint": "~9.39.2",
-    "eslint-plugin-vue": "~10.6.2",
+    "eslint-plugin-vue": "~10.7.0",
     "globals": "~17.0.0",
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
@@ -108,5 +109,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.11.1"
+  "version": "2.11.2"
 }

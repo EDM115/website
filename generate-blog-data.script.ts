@@ -9,6 +9,7 @@ import { join } from "node:path"
 import grayMatter from "gray-matter"
 
 import { nameToEmoji } from "gemoji"
+import { Temporal } from "temporal-polyfill"
 
 import type {
   BlogPostMeta,
@@ -94,16 +95,14 @@ function parsePublishedTime(publishedTime: Date | undefined): {
     }
   }
 
-  const match = publishedTime.toISOString()
-    .match(/^(\d{4})-(\d{2})-(\d{2})/)
-
-  if (!match) {
-    return {
-      date: "", link: "",
-    }
-  }
-
-  const [ , year, month, day ] = match
+  const instant = Temporal.Instant.from(publishedTime.toISOString())
+  const date = instant.toZonedDateTimeISO("UTC")
+    .toPlainDate()
+  const year = date.year.toString()
+  const month = date.month.toString()
+    .padStart(2, "0")
+  const day = date.day.toString()
+    .padStart(2, "0")
 
   return {
     date: `${year}-${month}-${day}`,
@@ -236,8 +235,8 @@ async function parseBlogPost(
     post,
     markdownContent,
     publishedTime: publishedTime instanceof Date
-      ? publishedTime
-      : new Date(0),
+      ? Temporal.Instant.from(publishedTime.toISOString()).epochMilliseconds
+      : 0,
   }
 }
 
@@ -284,7 +283,7 @@ async function scanDirectoryParsed(
   const postsWithTime = await scanDirectoryWithTime(baseDir, subDir, isTelegram)
 
   // Sort antichronologically by publish time
-  postsWithTime.sort((a, b) => b.publishedTime.getTime() - a.publishedTime.getTime())
+  postsWithTime.sort((a, b) => b.publishedTime - a.publishedTime)
 
   return postsWithTime
 }

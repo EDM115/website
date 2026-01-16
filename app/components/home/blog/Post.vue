@@ -10,6 +10,8 @@ import type {
 import blogPosts from "~/assets/data/blog-posts.json"
 import telegramPosts from "~/assets/data/telegram-posts.json"
 
+import { Temporal } from "temporal-polyfill"
+
 const props = defineProps<{
   isTelegram: boolean;
 }>()
@@ -95,11 +97,16 @@ function redirectToSearch(searchQuery: string) {
 function shiftMonth(year: number, month: number, delta: number): {
   year: number; month: number;
 } {
-  const date = new Date(Date.UTC(year, month - 1 + delta, 1))
+  const shifted = Temporal.PlainDate.from({
+    year,
+    month,
+    day: 1,
+  })
+    .add({ months: delta })
 
   return {
-    year: date.getUTCFullYear(),
-    month: date.getUTCMonth() + 1,
+    year: shifted.year,
+    month: shifted.month,
   }
 }
 
@@ -114,8 +121,11 @@ function formatFullDate(parts: {
 }
 
 function getDaysInMonth(year: number, month: number): number {
-  return new Date(Date.UTC(year, month, 0))
-    .getUTCDate()
+  return Temporal.PlainDate.from({
+    year,
+    month,
+    day: 1,
+  }).daysInMonth
 }
 
 function parsePositiveInt(value: string | undefined): number | null {

@@ -4,6 +4,8 @@ import type {
   ParsedBlogSearch,
 } from "~/types"
 
+import { Temporal } from "temporal-polyfill"
+
 function tokenize(query: string): string[] {
   const tokens: string[] = []
   let current = ""
@@ -67,8 +69,11 @@ function normalizeTagValue(value: string): string[] {
 }
 
 function daysInMonth(year: number, month: number): number {
-  return new Date(year, month, 0)
-    .getDate()
+  return Temporal.PlainDate.from({
+    year,
+    month,
+    day: 1,
+  }).daysInMonth
 }
 
 function formatNumber(value: number): string {

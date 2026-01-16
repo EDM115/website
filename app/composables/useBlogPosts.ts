@@ -8,6 +8,8 @@ import type {
 import blogPosts from "~/assets/data/blog-posts.json"
 import telegramPosts from "~/assets/data/telegram-posts.json"
 
+import { Temporal } from "temporal-polyfill"
+
 const docfindCache = {
   blog: {
     mod: null as DocfindModule | null,
@@ -93,8 +95,11 @@ export function useBlogPosts(isTelegram = false) {
   }))
 
   function getDaysInMonth(year: number, month: number): number {
-    return new Date(Date.UTC(year, month, 0))
-      .getUTCDate()
+    return Temporal.PlainDate.from({
+      year,
+      month,
+      day: 1,
+    }).daysInMonth
   }
 
   function parseDateSegments(dateInput: string): {
@@ -159,7 +164,15 @@ export function useBlogPosts(isTelegram = false) {
       return null
     }
 
-    const timestamp = Date.UTC(segments.year, segments.month - 1, segments.day)
+    const timestamp = Temporal.PlainDate.from({
+      year: segments.year,
+      month: segments.month,
+      day: segments.day,
+    })
+      .toZonedDateTime({
+        timeZone: "UTC",
+        plainTime: Temporal.PlainTime.from("00:00"),
+      }).epochMilliseconds
 
     toComparableTimestampCache.set(key, timestamp)
 

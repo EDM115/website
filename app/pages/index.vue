@@ -261,6 +261,8 @@ import mdiMapMarkerOutline from "~icons/mdi/mapMarkerOutline"
 import mdiPhoneOutline from "~icons/mdi/phoneOutline"
 import mdiWeb from "~icons/mdi/web"
 
+import { Temporal } from "temporal-polyfill"
+
 const { t } = useI18n()
 
 const age = ref(21)
@@ -269,11 +271,11 @@ const alternativeRendering = ref(false)
 const enableCounter = ref(0)
 
 function getAge(): number {
-  const birthday = new Date("2004-06-18")
-  const diff = Date.now() - birthday.getTime()
-  const ageDate = new Date(diff)
+  const birthday = Temporal.PlainDate.from("2004-06-18")
+  const today = Temporal.Now.plainDateISO()
+  const duration = today.since(birthday, { largestUnit: "year" })
 
-  return Math.abs(ageDate.getUTCFullYear() - 1970)
+  return Math.max(0, duration.years)
 }
 
 onMounted(() => {

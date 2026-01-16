@@ -148,12 +148,14 @@ import mdiUsersOutline from "~icons/mdi/usersOutline"
 import octiconRepoForked from "~icons/octicon/repo-forked-16"
 import octiconStar from "~icons/octicon/star-16"
 
+import { Temporal } from "temporal-polyfill"
+
 const route = useRoute()
 const { t } = useI18n()
 
-const stars = ref(117)
-const forks = ref(159)
-const days = ref(1255)
+const stars = ref(129)
+const forks = ref(166)
+const days = ref(1335)
 const loc = ref(7237)
 
 const stats = computed(() => [
@@ -309,11 +311,11 @@ defineOgImageComponent("OgImage", {
 })
 
 function daysSinceLaunch() {
-  const launchDate = new Date("2022-05-22")
-  const currentDate = new Date()
-  const diffTime = Math.abs(currentDate.getTime() - launchDate.getTime())
+  const launchDate = Temporal.PlainDate.from("2022-05-22")
+  const currentDate = Temporal.Now.plainDateISO()
+  const duration = currentDate.since(launchDate, { largestUnit: "day" })
 
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  return Math.max(0, duration.days)
 }
 
 async function getRepoDetails() {
