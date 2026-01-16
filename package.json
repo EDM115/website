@@ -57,7 +57,7 @@
     "assemblyscript": "~0.28.9",
     "edm115-lint": "~0.1.6",
     "eslint": "~9.39.2",
-    "eslint-plugin-vue": "~10.6.2",
+    "eslint-plugin-vue": "~10.7.0",
     "globals": "~17.0.0",
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
