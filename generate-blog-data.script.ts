@@ -403,18 +403,28 @@ async function generateDocfindData(
 }
 
 async function generatePagefindIndex(
-  posts: ParsedPost[],
+  blogParsed: ParsedPost[],
+  telegramParsed: ParsedPost[],
   outputPath: string,
-  label: string,
 ): Promise<void> {
   const { index } = await createIndex()
 
-  const records = posts.map((post) => {
-    const content = cleanupMarkdown(post.markdownContent, false)
+  const records = [
+    ...blogParsed.map((post) => ({
+      post,
+      origin: "blog",
+    })),
+    ...telegramParsed.map((post) => ({
+      post,
+      origin: "telegram",
+    })),
+  ].map((record) => {
+    const content = cleanupMarkdown(record.post.markdownContent, false)
     const words = content.match(/\S+/g)?.length ?? 0
 
     return {
-      post,
+      post: record.post,
+      origin: record.origin,
       content,
       words,
     }
@@ -429,6 +439,7 @@ async function generatePagefindIndex(
       meta: record.post.pagefindMeta,
       filters: {
         tags: record.post.pagefindTags,
+        origin: [record.origin],
       },
     })
   }))
@@ -450,7 +461,7 @@ async function generatePagefindIndex(
     console.error("❌ Pagefind write errors :", writeResult.errors)
   }
 
-  console.log(`📊 Pagefind stats (${label}) :`)
+  console.log("📊 Pagefind stats (blog + telegram) :")
   console.log(`  📖 ${records.length} records`)
   console.log(`  📦 ${files.length} bundle files (${bundleSize} bytes)`)
   console.log(`  ⏱️  ${indexDuration.toFixed(2)}ms to index`)
@@ -463,13 +474,16 @@ async function generatePagefindData(
   blogParsed: ParsedPost[],
   telegramParsed: ParsedPost[],
 ): Promise<void> {
-  console.log("🔄️ Generating Pagefind indexes...\n")
+  console.log("🔄️ Generating Pagefind index...\n")
 
-  await generatePagefindIndex(blogParsed, join(process.cwd(), "pagefind", "blog"), "blog")
-  await generatePagefindIndex(telegramParsed, join(process.cwd(), "pagefind", "telegram"), "telegram")
+  await generatePagefindIndex(
+    blogParsed,
+    telegramParsed,
+    join(process.cwd(), "public", "pagefind"),
+  )
   await closePagefind()
 
-  console.log("✅ Generated Pagefind indexes for blog and telegram\n")
+  console.log("✅ Generated Pagefind index for blog + telegram\n")
 }
 
 try {

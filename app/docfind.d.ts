@@ -1,6 +1,6 @@
 import type { DocfindSchema } from "./types"
 
-declare module "~/components/home/blog/docfind_blog.js" {
+declare module "~~/public/docfind/docfind_blog.js" {
   const search: (term: string, limit?: number) => Omit<DocfindSchema, "keywords">[] | Promise<Omit<DocfindSchema, "keywords">[]>
 
   export const init: () => Promise<void>
@@ -8,7 +8,7 @@ declare module "~/components/home/blog/docfind_blog.js" {
   export default search
 }
 
-declare module "~/components/home/blog/docfind_telegram.js" {
+declare module "~~/public/docfind/docfind_telegram.js" {
   const search: (term: string, limit?: number) => Omit<DocfindSchema, "keywords">[] | Promise<Omit<DocfindSchema, "keywords">[]>
 
   export const init: () => Promise<void>

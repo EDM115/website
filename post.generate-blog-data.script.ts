@@ -66,19 +66,29 @@ function shouldMovePagefindAsset(fileName: string): boolean {
   return true
 }
 
-async function movePagefindBundle(srcDir: string, destDir: string) {
-  if (!await pathExists(srcDir)) {
+function shouldDeletePagefindAsset(fileName: string): boolean {
+  return !shouldMovePagefindAsset(fileName)
+}
+
+async function deletePagefindAssets(dirPath: string) {
+  if (!await pathExists(dirPath)) {
     return
   }
 
-  const entries = await readdir(srcDir)
+  const entries = await readdir(dirPath, { withFileTypes: true })
 
   await Promise.all(entries.map(async (entry) => {
-    if (!shouldMovePagefindAsset(entry)) {
+    const entryPath = join(dirPath, entry.name)
+
+    if (entry.isDirectory()) {
+      await deletePagefindAssets(entryPath)
+
       return
     }
 
-    await moveFile(join(srcDir, entry), join(destDir, entry))
+    if (entry.isFile() && shouldDeletePagefindAsset(entry.name)) {
+      await rm(entryPath, { force: true })
+    }
   }))
 }
 
@@ -109,49 +119,37 @@ async function main() {
   const docfindBlogDir = join(docfindDir, "blog")
   const docfindTelegramDir = join(docfindDir, "telegram")
 
-  const pagefindDir = join(cwd, "pagefind")
-  const pagefindBlogDir = join(pagefindDir, "blog")
-  const pagefindTelegramDir = join(pagefindDir, "telegram")
+  const pagefindDir = join(cwd, "public", "pagefind")
 
-  const targetDir = join(cwd, "app", "components", "home", "blog")
-  const pagefindTargetDir = join(targetDir, "pagefind")
+  const docfindTargetDir = join(cwd, "public", "docfind")
 
   await moveAndPatchJs(
     join(docfindBlogDir, "docfind.js"),
-    join(targetDir, "docfind_blog.js"),
+    join(docfindTargetDir, "docfind_blog.js"),
     "docfind_blog.wasm",
   )
 
   await moveAndPatchJs(
     join(docfindTelegramDir, "docfind.js"),
-    join(targetDir, "docfind_telegram.js"),
+    join(docfindTargetDir, "docfind_telegram.js"),
     "docfind_telegram.wasm",
   )
 
   await moveFile(
     join(docfindBlogDir, "docfind_bg.wasm"),
-    join(targetDir, "docfind_blog.wasm"),
+    join(docfindTargetDir, "docfind_blog.wasm"),
   )
 
   await moveFile(
     join(docfindTelegramDir, "docfind_bg.wasm"),
-    join(targetDir, "docfind_telegram.wasm"),
+    join(docfindTargetDir, "docfind_telegram.wasm"),
   )
 
-  await movePagefindBundle(
-    pagefindBlogDir,
-    join(pagefindTargetDir, "blog"),
-  )
-
-  await movePagefindBundle(
-    pagefindTelegramDir,
-    join(pagefindTargetDir, "telegram"),
-  )
+  await deletePagefindAssets(pagefindDir)
 
   await emptyDirectory(docfindDir)
-  await emptyDirectory(pagefindDir)
 
-  console.log("\n✅ Moved + patched docfind assets, moved Pagefind bundles, and cleared docfind/pagefind contents")
+  console.log("\n✅ Moved + patched docfind assets, cleaned Pagefind assets, and cleared docfind contents")
 }
 
 try {

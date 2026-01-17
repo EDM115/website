@@ -65,6 +65,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<(e: "update:modelValue", v: boolean) => void>()
+const { app } = useRuntimeConfig()
 
 const root = useTemplateRef("root")
 const inner = useTemplateRef("inner")
@@ -395,7 +396,7 @@ function startCaustics() {
         ? loadPolychromeAltWasm
         : loadPolychromeWasm
 
-      wasmFallbackPromise = loader()
+      wasmFallbackPromise = loader(app.baseURL)
         .then((instance) => {
           if (!instance) {
             wasmAllowed = false

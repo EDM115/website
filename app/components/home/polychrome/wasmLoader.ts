@@ -1,7 +1,13 @@
 import type { PolychromeWasmInstance } from "~/types"
 
+import { withBase } from "ufo"
+
+function publicAssetURL(path: string, baseURL = import.meta.env.BASE_URL): URL {
+  return withBase(path, baseURL) as unknown as URL
+}
+
 async function instantiate(url: URL): Promise<PolychromeWasmInstance | null> {
-  if (typeof WebAssembly === "undefined") {
+  if (!import.meta.client || typeof WebAssembly === "undefined") {
     return null
   }
 
@@ -90,21 +96,17 @@ function validateExports(exports: WebAssembly.Exports): PolychromeWasmInstance |
 let standardPromise: Promise<PolychromeWasmInstance | null> | null = null
 let altPromise: Promise<PolychromeWasmInstance | null> | null = null
 
-export function loadPolychromeWasm(): Promise<PolychromeWasmInstance | null> {
+export function loadPolychromeWasm(baseURL = import.meta.env.BASE_URL): Promise<PolychromeWasmInstance | null> {
   if (!standardPromise) {
-    const url = new URL("./effect.wasm", import.meta.url)
-
-    standardPromise = instantiate(url)
+    standardPromise = instantiate(publicAssetURL("/polychrome/effect.wasm", baseURL))
   }
 
   return standardPromise
 }
 
-export function loadPolychromeAltWasm(): Promise<PolychromeWasmInstance | null> {
+export function loadPolychromeAltWasm(baseURL = import.meta.env.BASE_URL): Promise<PolychromeWasmInstance | null> {
   if (!altPromise) {
-    const url = new URL("./effect_alt.wasm", import.meta.url)
-
-    altPromise = instantiate(url)
+    altPromise = instantiate(publicAssetURL("/polychrome/effect_alt.wasm", baseURL))
   }
 
   return altPromise

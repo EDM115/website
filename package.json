@@ -42,6 +42,7 @@
     "nuxt": "~4.2.2",
     "nuxt-svgo": "~4.2.6",
     "temporal-polyfill": "~0.3.0",
+    "ufo": "~1.6.3",
     "vue": "~3.5.26",
     "vue-i18n": "~11.2.8"
   },
@@ -89,7 +90,7 @@
     "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
     "build:blog": "node --experimental-strip-types generate-blog-data.script.ts && node -e \"console.log('📝 Generating docfind indexes for blog posts...')\" && docfind docfind/blog.json docfind/blog && node -e \"console.log('');console.log('📝 Generating docfind indexes for telegram posts...')\" && docfind docfind/telegram.json docfind/telegram && node --experimental-strip-types post.generate-blog-data.script.ts",
-    "build:wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o app/components/home/polychrome/effect_alt.wasm",
+    "build:wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o public/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o public/polychrome/effect_alt.wasm",
     "cleanup": "nuxt cleanup",
     "dev": "nuxt dev --no-clear",
     "dev:expose:global": "nuxt dev --no-clear --tunnel",
@@ -111,5 +112,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.12.1"
+  "version": "2.12.2"
 }

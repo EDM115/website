@@ -184,6 +184,9 @@ importers:
       temporal-polyfill:
         specifier: ~0.3.0
         version: 0.3.0
+      ufo:
+        specifier: ~1.6.3
+        version: 1.6.3
       vue:
         specifier: ~3.5.26
         version: 3.5.26(typescript@5.9.3)
@@ -193,7 +196,7 @@ importers:
     devDependencies:
       '@iconify/json':
         specifier: latest
-        version: 2.2.428
+        version: 2.2.429
       '@nuxt/a11y':
         specifier: 1.0.0-alpha.1
         version: 1.0.0-alpha.1(magicast@0.5.1)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2))
@@ -852,8 +855,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==, tarball: https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.4.3.tgz}
     engines: {node: '>=18.18'}
 
-  '@iconify/json@2.2.428':
-    resolution: {integrity: sha512-HPfpZMJAfU3hBRUqD522/Ukf/AKNb7OCEMm6BeuQLF0CHx5TAz9mRuVDBYMg+LZOKye1ocrxBjOgdyCu0GlVbA==, tarball: https://registry.npmjs.org/@iconify/json/-/json-2.2.428.tgz}
+  '@iconify/json@2.2.429':
+    resolution: {integrity: sha512-flKhqq7z2I2iHwJxJuNbD9HpVJhOOj1uLs7iFwMnOES3s2TXgfMHcIASvXRsaxbivX/2j6MfXbDmbU0mpGFdQQ==, tarball: https://registry.npmjs.org/@iconify/json/-/json-2.2.429.tgz}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==, tarball: https://registry.npmjs.org/@iconify/types/-/types-2.0.0.tgz}
@@ -3081,8 +3084,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==, tarball: https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz}
 
-  baseline-browser-mapping@2.9.14:
-    resolution: {integrity: sha512-B0xUquLkiGLgHhpPBqvl7GWegWBUNuujQ6kXd/r1U38ElPT6Ok8KZ8e+FpUGEc2ZoRQUzq/aUnaKFc/svWUGSg==, tarball: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.14.tgz}
+  baseline-browser-mapping@2.9.15:
+    resolution: {integrity: sha512-kX8h7K2srmDyYnXRIppo4AH/wYgzWVCs+eKr3RusRSQ5PvRYoEFmR/I0PbdTjKFAoKqp5+kbxnNTFO9jOfSVJg==, tarball: https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.15.tgz}
     hasBin: true
 
   binaryen@123.0.0-nightly.20250530:
@@ -3253,6 +3256,10 @@ packages:
 
   comment-parser@1.4.1:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==, tarball: https://registry.npmjs.org/comment-parser/-/comment-parser-1.4.1.tgz}
+    engines: {node: '>= 12.0.0'}
+
+  comment-parser@1.4.3:
+    resolution: {integrity: sha512-qvEp8Hk/uxsIbBe2gnu87CrP2wSFLzG0fIgcxF27DiBlD12Nlyydt91T4KQNiRxfebMxU5QEoWQBNiha+A9I3A==, tarball: https://registry.npmjs.org/comment-parser/-/comment-parser-1.4.3.tgz}
     engines: {node: '>= 12.0.0'}
 
   commondir@1.0.1:
@@ -3549,8 +3556,8 @@ packages:
   errx@0.1.0:
     resolution: {integrity: sha512-fZmsRiDNv07K6s2KkKFTiD2aIvECa7++PKyD5NC32tpRw46qZA3sOz+aM+/V9V0GDHxVTKLziveV4JhzBHDp9Q==, tarball: https://registry.npmjs.org/errx/-/errx-0.1.0.tgz}
 
-  es-module-lexer@1.7.0:
-    resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==, tarball: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.7.0.tgz}
+  es-module-lexer@2.0.0:
+    resolution: {integrity: sha512-5POEcUuZybH7IdmGsD8wlf0AI55wMecM9rVBTI/qEAy2c1kTOm3DjFYjrBdI2K3BaJjJYfYFeRtM0t9ssnRuxw==, tarball: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-2.0.0.tgz}
 
   esbuild@0.25.12:
     resolution: {integrity: sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==, tarball: https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz}
@@ -5379,8 +5386,8 @@ packages:
   satori-html@0.3.2:
     resolution: {integrity: sha512-wjTh14iqADFKDK80e51/98MplTGfxz2RmIzh0GqShlf4a67+BooLywF17TvJPD6phO0Hxm7Mf1N5LtRYvdkYRA==, tarball: https://registry.npmjs.org/satori-html/-/satori-html-0.3.2.tgz}
 
-  satori@0.18.3:
-    resolution: {integrity: sha512-T3DzWNmnrfVmk2gCIlAxLRLbGkfp3K7TyRva+Byyojqu83BNvnMeqVeYRdmUw4TKCsyH4RiQ/KuF/I4yEzgR5A==, tarball: https://registry.npmjs.org/satori/-/satori-0.18.3.tgz}
+  satori@0.18.4:
+    resolution: {integrity: sha512-HanEzgXHlX3fzpGgxPoR3qI7FDpc/B+uE/KplzA6BkZGlWMaH98B/1Amq+OBF1pYPlGNzAXPYNHlrEVBvRBnHQ==, tarball: https://registry.npmjs.org/satori/-/satori-0.18.4.tgz}
     engines: {node: '>=16'}
 
   sax@1.4.4:
@@ -5632,8 +5639,8 @@ packages:
   tar-stream@3.1.7:
     resolution: {integrity: sha512-qJj60CXt7IU1Ffyc3NJMjh6EkuCFej46zUqJ4J7pqYlThyd9bO0XBTmcOIhSzZJVWfsLks0+nle/j538YAW9RQ==, tarball: https://registry.npmjs.org/tar-stream/-/tar-stream-3.1.7.tgz}
 
-  tar@7.5.2:
-    resolution: {integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==, tarball: https://registry.npmjs.org/tar/-/tar-7.5.2.tgz}
+  tar@7.5.3:
+    resolution: {integrity: sha512-ENg5JUHUm2rDD7IvKNFGzyElLXNjachNLp6RaGf4+JOgxXHkqA+gq81ZAMCUmtMtqBsoU62lcp6S27g1LCYGGQ==, tarball: https://registry.npmjs.org/tar/-/tar-7.5.3.tgz}
     engines: {node: '>=18'}
 
   temporal-polyfill@0.3.0:
@@ -5941,8 +5948,8 @@ packages:
     peerDependencies:
       vite: ^2.6.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0 || ^7.0.0-0
 
-  vite-node@5.2.0:
-    resolution: {integrity: sha512-7UT39YxUukIA97zWPXUGb0SGSiLexEGlavMwU3HDE6+d/HJhKLjLqu4eX2qv6SQiocdhKLRcusroDwXHQ6CnRQ==, tarball: https://registry.npmjs.org/vite-node/-/vite-node-5.2.0.tgz}
+  vite-node@5.3.0:
+    resolution: {integrity: sha512-8f20COPYJujc3OKPX6OuyBy3ZIv2det4eRRU4GY1y2MjbeGSUmPjedxg1b72KnTagCofwvZ65ThzjxDW2AtQFQ==, tarball: https://registry.npmjs.org/vite-node/-/vite-node-5.3.0.tgz}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -6685,7 +6692,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify/json@2.2.428':
+  '@iconify/json@2.2.429':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
@@ -6927,7 +6934,7 @@ snapshots:
       node-fetch: 2.7.0
       nopt: 8.1.0
       semver: 7.7.3
-      tar: 7.5.2
+      tar: 7.5.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -7583,7 +7590,7 @@ snapshots:
       ufo: 1.6.3
       unenv: 2.0.0-rc.24
       vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2)
-      vite-node: 5.2.0(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2)
+      vite-node: 5.3.0(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2)
       vite-plugin-checker: 0.12.0(eslint@9.39.2(jiti@2.6.1))(optionator@0.9.4)(oxlint@1.39.0(oxlint-tsgolint@0.11.1))(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2))(vue-tsc@3.2.2(typescript@5.9.3))
       vue: 3.5.26(typescript@5.9.3)
       vue-bundle-renderer: 2.2.0
@@ -9047,7 +9054,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  baseline-browser-mapping@2.9.14: {}
+  baseline-browser-mapping@2.9.15: {}
 
   binaryen@123.0.0-nightly.20250530: {}
 
@@ -9078,7 +9085,7 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.14
+      baseline-browser-mapping: 2.9.15
       caniuse-lite: 1.0.30001764
       electron-to-chromium: 1.5.267
       node-releases: 2.0.27
@@ -9211,6 +9218,8 @@ snapshots:
   commander@8.3.0: {}
 
   comment-parser@1.4.1: {}
+
+  comment-parser@1.4.3: {}
 
   commondir@1.0.1: {}
 
@@ -9460,7 +9469,7 @@ snapshots:
 
   errx@0.1.0: {}
 
-  es-module-lexer@1.7.0: {}
+  es-module-lexer@2.0.0: {}
 
   esbuild@0.25.12:
     optionalDependencies:
@@ -9567,7 +9576,7 @@ snapshots:
   eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@typescript-eslint/types': 8.53.0
-      comment-parser: 1.4.1
+      comment-parser: 1.4.3
       debug: 4.4.3
       eslint: 9.39.2(jiti@2.6.1)
       eslint-import-context: 0.1.9(unrs-resolver@1.11.1)
@@ -9605,7 +9614,7 @@ snapshots:
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.6.1))
       '@eslint-community/regexpp': 4.12.2
-      comment-parser: 1.4.1
+      comment-parser: 1.4.3
       eslint: 9.39.2(jiti@2.6.1)
       jsdoc-type-pratt-parser: 4.8.0
       refa: 0.12.1
@@ -10806,7 +10815,7 @@ snapshots:
       pkg-types: 2.3.0
       playwright-core: 1.57.0
       radix3: 1.1.2
-      satori: 0.18.3
+      satori: 0.18.4
       satori-html: 0.3.2
       sirv: 3.0.2
       std-env: 3.10.0
@@ -11779,7 +11788,7 @@ snapshots:
     dependencies:
       ultrahtml: 1.6.0
 
-  satori@0.18.3:
+  satori@0.18.4:
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
       css-background-parser: 0.1.0
@@ -12067,7 +12076,7 @@ snapshots:
       - bare-abort-controller
       - react-native-b4a
 
-  tar@7.5.2:
+  tar@7.5.3:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -12412,10 +12421,10 @@ snapshots:
     dependencies:
       vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2)
 
-  vite-node@5.2.0(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2):
+  vite-node@5.3.0(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2):
     dependencies:
       cac: 6.7.14
-      es-module-lexer: 1.7.0
+      es-module-lexer: 2.0.0
       obug: 2.1.1
       pathe: 2.0.3
       vite: 7.3.1(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.20.6)(yaml@2.8.2)

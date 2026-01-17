@@ -6,3 +6,6 @@ node_modules
 .eslintcache
 docfind
 pagefind
+public/docfind
+public/pagefind
+public/polychrome

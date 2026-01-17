@@ -48,8 +48,8 @@ async function loadDocfindModule(isTelegram: boolean): Promise<DocfindModule | n
   }
 
   const mod = isTelegram
-    ? await import("~/components/home/blog/docfind_telegram.js")
-    : await import("~/components/home/blog/docfind_blog.js")
+    ? await import("~~/public/docfind/docfind_telegram.js")
+    : await import("~~/public/docfind/docfind_blog.js")
 
   cached.mod = mod
 
@@ -91,9 +91,7 @@ async function loadPagefindModule(isTelegram: boolean): Promise<PagefindModule |
     return cached.mod
   }
 
-  const mod = isTelegram
-    ? await import("~/components/home/blog/pagefind/telegram/pagefind.js")
-    : await import("~/components/home/blog/pagefind/blog/pagefind.js")
+  const mod = await import("~~/public/pagefind/pagefind.js")
 
   cached.mod = mod
 
@@ -299,9 +297,15 @@ export function useBlogPosts(isTelegram = false) {
       return
     }
 
-    const filters = tagFilters?.length
-      ? { tags: tagFilters }
-      : undefined
+    const originFilter = isTelegram
+      ? "telegram"
+      : "blog"
+    const filters = {
+      origin: [originFilter],
+      ...(tagFilters?.length
+        ? { tags: tagFilters }
+        : {}),
+    }
     const results = await mod.search(normalized, filters
       ? { filters }
       : undefined)
