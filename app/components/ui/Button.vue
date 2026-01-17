@@ -216,7 +216,6 @@ const classes = computed(() => [
     ? `ui-btn--${props.color}`
     : "",
   props.hoverColor
-  && props.hoverColor !== props.color
   && (
     props.variant === "tonal"
     || props.variant === "flat"

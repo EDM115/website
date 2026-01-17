@@ -3,12 +3,12 @@
     :class="classes"
     :style="maxWidthStyle"
   >
-    <div class="ui-card--title">
+    <h1 class="ui-card--title">
       <slot name="title" />
-    </div>
-    <div :class="['ui-card--content', small && 'ui-card--content--small']">
+    </h1>
+    <p :class="['ui-card--content', small && 'ui-card--content--small']">
       <slot />
-    </div>
+    </p>
     <div
       v-if="actions"
       class="ui-card--actions"

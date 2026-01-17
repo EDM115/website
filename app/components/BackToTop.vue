@@ -3,6 +3,7 @@
     v-show="showGoToTop"
     fab
     color="primary"
+    hover-color="primary"
     :icon="mdiArrowUp"
     :variant="variant"
     aria="Go to top"

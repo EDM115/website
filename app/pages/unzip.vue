@@ -24,7 +24,7 @@
 
           <p
             id="description"
-            style="color:var(--text-dark); max-width:60ch; margin-top: 0;"
+            style="color:var(--text-dark); max-width:60ch; margin-top: 0; align-self: center;"
           >
             {{ t('unzip.description') }}
           </p>

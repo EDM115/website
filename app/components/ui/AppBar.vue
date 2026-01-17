@@ -9,9 +9,9 @@
     <div class="ui-app-bar--prepend">
       <slot name="prepend" />
     </div>
-    <div class="ui-app-bar--title">
+    <h1 class="ui-app-bar--title">
       <slot />
-    </div>
+    </h1>
     <div class="ui-app-bar--append">
       <slot name="append" />
     </div>

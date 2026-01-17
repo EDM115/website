@@ -482,6 +482,10 @@ $padding: .15em;
       margin: 0px 1px;
     }
   }
+
+  .odometer-formatting-mark::selection {
+    background-color: transparent !important;
+  }
 }
 
 .ui-stat-title {

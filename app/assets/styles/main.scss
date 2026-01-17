@@ -231,14 +231,32 @@ main {
   color: transparent;
 }
 
-*:not(:deep(.hljs))::selection {
+:root:not(:where(.hljs, .hljs *, [class^="hljs-"]))::selection {
   background: var(--primary);
   color: var(--text);
 }
 
-:root.dark *:not(:deep(.hljs))::selection {
+:root.dark:not(:where(.hljs, .hljs *, [class^="hljs-"]))::selection {
   background: var(--primary);
   color: var(--bg);
+}
+
+br::selection {
+  background-color: transparent !important;
+}
+
+p::after,
+li::after,
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after,
+li > br::after,
+span:not([class^="hljs-"], [class="ui-tooltip"]):not(:where(span[class^="katex-"] span))::after,
+button::after {
+  content:"\A\A"
 }
 
 *::-webkit-scrollbar {

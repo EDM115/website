@@ -39,6 +39,7 @@ const { t } = useI18n()
 
 const showBanner = ref(true)
 const cloudflareWebAnalyticsToken = "bc6495e08a30452e82f5ff0613cdc85b"
+const cookieConsentTrigger = useScriptTriggerConsent()
 
 function handleAccept(accepted: boolean) {
   if (!import.meta.client) {
@@ -55,14 +56,16 @@ function handleAccept(accepted: boolean) {
   }
 }
 
-useScriptCloudflareWebAnalytics({
-  token: cloudflareWebAnalyticsToken,
-  spa: false,
-  scriptOptions: {
-    bundle: true,
-    trigger: cookieConsentTrigger,
-  },
-})
+if (!import.meta.dev) {
+  useScriptCloudflareWebAnalytics({
+    token: cloudflareWebAnalyticsToken,
+    spa: false,
+    scriptOptions: {
+      bundle: true,
+      trigger: cookieConsentTrigger,
+    },
+  })
+}
 
 onMounted(() => {
   const localStorageCookieConsent = localStorage.getItem("cookie-consent")
