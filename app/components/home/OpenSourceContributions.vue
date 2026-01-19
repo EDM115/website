@@ -25,7 +25,7 @@
           :value="1"
           :current-value="current"
         >
-          <UiStepperVertical>
+          <UiStepperVertical :max-items="10">
             <UiStepperVerticalItem
               v-for="contrib in pullRequests"
               :key="contrib.id"
@@ -53,7 +53,7 @@
           :value="2"
           :current-value="current"
         >
-          <UiStepperVertical>
+          <UiStepperVertical :max-items="10">
             <UiStepperVerticalItem
               v-for="contrib in issues"
               :key="contrib.id"

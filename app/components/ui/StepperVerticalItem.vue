@@ -123,6 +123,7 @@ function toggle() {
   border-radius: .5rem;
   padding: .5rem .75rem .75rem .75rem;
   transition: background-color .2s ease, box-shadow .2s ease;
+  min-height: var(--ui-stepper-item-size, 4.5rem);
 
   &:hover {
     background: color-mix(in srgb, var(--surface) 88%, transparent);

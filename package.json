@@ -43,7 +43,7 @@
     "nuxt-svgo": "~4.2.6",
     "temporal-polyfill": "~0.3.0",
     "ufo": "~1.6.3",
-    "vue": "~3.5.26",
+    "vue": "~3.5.27",
     "vue-i18n": "~11.2.8"
   },
   "description": "EDM115's website",
@@ -65,7 +65,7 @@
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
     "lightningcss": "~1.30.2",
-    "oxlint": "~1.39.0",
+    "oxlint": "~1.40.0",
     "oxlint-tsgolint": "~0.11.1",
     "pagefind": "~1.4.0",
     "sass-embedded": "~1.97.2",
@@ -80,7 +80,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@10.28.0",
+  "packageManager": "pnpm@10.28.1",
   "private": true,
   "repository": {
     "type": "git",
@@ -112,5 +112,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.12.2"
+  "version": "2.12.3"
 }
