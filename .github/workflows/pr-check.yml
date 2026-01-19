@@ -33,6 +33,15 @@ jobs:
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile && pnpm install-docfind:linux && pnpm prebuild
 
+      - name: "Restore Nuxt cache"
+        id: nuxt_cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .nuxt
+          key: pr-check-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            pr-check-nuxt-cache-${{ github.ref_name }}-
+
       - name: "Types check"
         run: pnpm typecheck
 
@@ -47,3 +56,10 @@ jobs:
         with:
           name: nuxt-output
           path: ./.output/public
+
+      - name: "Save Nuxt cache"
+        if: always() && steps.nuxt_cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .nuxt
+          key: pr-check-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
