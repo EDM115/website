@@ -1,5 +1,21 @@
 [
   {
+    "id": 33,
+    "name": "git-ai-project/git-ai",
+    "description": "chore: replace mentions of the old repo path with the new organization",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/git-ai-project/git-ai/pull/413"
+  },
+  {
+    "id": 32,
+    "name": "pnpm/pnpm",
+    "description": "fix(global): preserve build approvals and dlx behavior",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/pnpm/pnpm/pull/10492"
+  },
+  {
     "id": 31,
     "name": "dragonisdev/supabase-modular-auth",
     "description": "feat: global rework",
@@ -246,6 +262,38 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 77,
+    "name": "microsoft/vscode",
+    "description": "[BUG] Replace count in the Search panel is wrong",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/microsoft/vscode/issues/291979"
+  },
+  {
+    "id": 76,
+    "name": "marticliment/UniGetUI",
+    "description": "[BUG] Can't upgrade WinGet packages that provide a CLI alias on v3.3.7",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/marticliment/UniGetUI/issues/4366"
+  },
+  {
+    "id": 75,
+    "name": "npmx-dev/npmx.dev",
+    "description": "[BUG] Code files that only have 1 long line don't allow to scroll horizontally",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/npmx-dev/npmx.dev/issues/168"
+  },
+  {
+    "id": 74,
+    "name": "medyo/hackertab.dev",
+    "description": "[BUG] Ampersand aren't rendered properly (rere of #174)",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/medyo/hackertab.dev/issues/266"
   },
   {
     "id": 73,

@@ -14,7 +14,7 @@ meta:
 [[toc]]
 
 # How I migrated the company monorepo to Zod v4 during my internship
-We all know Zod, an awesome library to validate data by type-checking, pattern-matching and more.  
+We all know [Zod](https://zod.dev/?id=introduction), an awesome library to validate data by type-checking, pattern-matching and more.  
 And recently the long-awaited version 4 has been released, and as the repo I worked on during my internship used it, I thought I'll take care to do this migration before the end of my internship, and learn Zod in the process !  
 You know, I believe that the companies I work at could easily call me **the migrator**, as during my 2 internships, my first task was to migrate all dependencies to their latest versions (often migrating whole frameworks and dealing with lots of deprecations).  
 I don't mind doing this, and as I'm very methodic with the upgrades (always checking the release notes/changelogs/diffs if there's nothing) and I thoughtfully test changes, so everything goes buttery smooth. I also leave notes and easy tips for migration in the other dev's branches.  

@@ -71,6 +71,12 @@ const projects = [
     image: "/img/projects/better-maps.webp",
   },
   {
+    title: "spendly",
+    description: "Simple, powerful, and free budget tracking for everyone with tables, stats and charts. Made for my gf",
+    link: "/projects/spendly",
+    image: "/img/projects/spendly.webp",
+  },
+  {
     title: "unrar-alpine",
     description: "UnRAR, built for Alpine Linux. Automatically built and released at each new version",
     link: "/projects/unrar-alpine",
