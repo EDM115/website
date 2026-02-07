@@ -4,7 +4,7 @@
     "name": "git-ai-project/git-ai",
     "description": "chore: replace mentions of the old repo path with the new organization",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/git-ai-project/git-ai/pull/413"
   },
   {
