@@ -1,5 +1,13 @@
 [
   {
+    "id": 34,
+    "name": "dragonisdev/supabase-modular-auth",
+    "description": "fix: proper login on safari, working google auth, better docs, deployment guide, AI agents guidance, bumped deps, new env vars",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/dragonisdev/supabase-modular-auth/pull/2"
+  },
+  {
     "id": 33,
     "name": "git-ai-project/git-ai",
     "description": "chore: replace mentions of the old repo path with the new organization",
@@ -262,6 +270,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 77,
+    "name": "vercel-labs/skills",
+    "description": "[Bug]: The update command can fail when skills is not installed with npm",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/vercel-labs/skills/issues/362"
   },
   {
     "id": 77,
