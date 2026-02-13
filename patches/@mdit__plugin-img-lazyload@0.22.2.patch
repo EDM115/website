@@ -1,10 +1,10 @@
 diff --git a/lib/index.d.ts b/lib/index.d.ts
-index 04d8a0b89a20544b6ee4b41170aa796b122d97ac..b155419ef4463ae269576463cced11a498700e04 100644
+index 48bab3b88c40311c57f55bdfbaa4f26d6b5419e6..b0678d462da2fd9bc8cb9b89273f8dda258b5cdf 100644
 --- a/lib/index.d.ts
 +++ b/lib/index.d.ts
 @@ -1,4 +1,4 @@
--import { PluginSimple } from 'markdown-it';
+-import { PluginSimple } from "markdown-it";
 +import type { PluginSimple } from 'markdown-exit';
  
+ //#region src/plugin.d.ts
  declare const imgLazyload: PluginSimple;
- 

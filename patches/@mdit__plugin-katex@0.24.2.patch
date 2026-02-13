@@ -1,36 +1,45 @@
 diff --git a/lib/index.d.ts b/lib/index.d.ts
-index 0deb60c2143fba5ab971d10e91c03e609c7dcab0..ecd3e131cf9c77f5e933e7ad437fbd07f3839dca 100644
+index 041e419887ba44df941b872f43bf0c8f980b96da..a2a9be0b20128aaefd91f9034bb1e50b7c9c2a05 100644
 --- a/lib/index.d.ts
 +++ b/lib/index.d.ts
-@@ -1,16 +1,16 @@
--import { MarkdownItTexOptions } from '@mdit/plugin-tex';
--import { Token, KatexOptions } from 'katex';
--import MarkdownIt from 'markdown-it';
+@@ -1,17 +1,17 @@
+-import { MarkdownItTexOptions } from "@mdit/plugin-tex";
+-import { KatexOptions, Token } from "katex";
+-import MarkdownIt from "markdown-it";
 +import type { MarkdownItTexOptions } from '@mdit/plugin-tex';
 +import type { Token, KatexOptions } from 'katex';
 +import type { MarkdownExit, MarkdownExitEnv } from "markdown-exit";
  
+ //#region src/options.d.ts
 -type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | void;
 +type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | void;
  type TeXTransformer = (content: string, displayMode: boolean) => string;
 -interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
 +interface MarkdownItKatexOptions<MarkdownExitEnv = {}> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
-     /**
-      * Error logger
-      *
-      * 错误日志记录器
-      */
--    logger?: KatexLogger<MarkdownItEnv>;
-+    logger?: KatexLogger<MarkdownExitEnv>;
-     /**
-      * transformer on output content
-      *
-@@ -19,7 +19,7 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
-     transformer?: TeXTransformer;
+   /**
+    * Error logger
+    *
+    * 错误日志记录器
+    */
+-  logger?: KatexLogger<MarkdownItEnv>;
++  logger?: KatexLogger<MarkdownExitEnv>;
+   /**
+    * transformer on output content
+    *
+@@ -21,14 +21,14 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
  }
- 
--declare const katex: <MarkdownItEnv = unknown>(md: MarkdownIt, options?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
-+declare const katex: <MarkdownExitEnv = {}>(md: MarkdownExit, options?: MarkdownItKatexOptions<MarkdownExitEnv>) => void;
- 
- export { katex };
- export type { KatexLogger, MarkdownItKatexOptions, TeXTransformer };
+ //#endregion
+ //#region src/plugin.d.ts
+-declare const katex: <MarkdownItEnv = unknown>(md: MarkdownIt, {
++declare const katex: <MarkdownExitEnv = {}>(md: MarkdownExit, {
+   allowInlineWithSpace,
+   delimiters,
+   mathFence,
+   logger,
+   transformer,
+   ...userOptions
+-}?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
++}?: MarkdownItKatexOptions<MarkdownExitEnv>) => void;
+ //#endregion
+ export { KatexLogger, MarkdownItKatexOptions, TeXTransformer, katex };
+ //# sourceMappingURL=index.d.ts.map

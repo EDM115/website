@@ -24,11 +24,11 @@ jobs:
       - name: "Install pnpm"
         uses: pnpm/action-setup@v4
       
-      - name: "Bump Node.js to v24"
+      - name: "Bump Node.js to v25"
         uses: actions/setup-node@v6
         with:
           check-latest: true
-          node-version: lts/krypton
+          node-version: 25
 
       - name: "Install dependencies"
         run: pnpm i --frozen-lockfile && pnpm install-docfind:linux && pnpm prebuild

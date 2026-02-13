@@ -1,0 +1,30 @@
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index 858364b0913aa39757915fb6e5f8d8fa6fa32cc7..ea7bd2d01b09c977b6cf2e71caa3def06e256423 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,6 +1,4 @@
+-import { Options, PluginWithOptions } from "markdown-it";
+-import Renderer, { RenderRule } from "markdown-it/lib/renderer.mjs";
+-import Token from "markdown-it/lib/token.mjs";
++import type { MarkdownExitEnv, MarkdownExitOptions, PluginWithOptions, Renderer, RenderRule, Token } from 'markdown-exit';
+ 
+ //#region src/options.d.ts
+ interface MarkdownItTabData {
+@@ -57,7 +55,7 @@ interface MarkdownItTabOptions {
+   /**
+    * Tabs open render
+    */
+-  openRender?: (info: MarkdownItTabInfo, tokens: Token[], index: number, options: Options, env: any, self: Renderer) => string;
++  openRender?: (info: MarkdownItTabInfo, tokens: Token[], index: number, options: MarkdownExitOptions, env: MarkdownExitEnv, self: Renderer) => string;
+   /**
+    * Tabs close render
+    */
+@@ -65,7 +63,7 @@ interface MarkdownItTabOptions {
+   /**
+    * tab open render
+    */
+-  tabOpenRender?: (data: MarkdownItTabData, tokens: Token[], index: number, options: Options, env: any, self: Renderer) => string;
++  tabOpenRender?: (data: MarkdownItTabData, tokens: Token[], index: number, options: MarkdownExitOptions, env: MarkdownExitEnv, self: Renderer) => string;
+   /**
+    * tab close render
+    */

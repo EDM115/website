@@ -1,8 +1,8 @@
 diff --git a/dist/core.js b/dist/core.js
-index f76b95e48007d07b2a9f5e27f168145216a96eb8..0d84d422d6de887409e78169e60c0cb81e9558ab 100644
+index 09f7ac94f41eb9a5b23c96dfb39be8c2f2666c74..19888acc306c8d670fbb7c0e2417bba481535792 100644
 --- a/dist/core.js
 +++ b/dist/core.js
-@@ -60,8 +60,9 @@ function highlightAuto(md, hljs, ignoreIllegals, code, lang) {
+@@ -65,8 +65,9 @@ function highlightAuto(md, hljs, ignoreIllegals, code, lang) {
    }
  }
  function wrapCodeRenderer(renderer) {
@@ -14,7 +14,7 @@ index f76b95e48007d07b2a9f5e27f168145216a96eb8..0d84d422d6de887409e78169e60c0cb8
    };
  }
  function inlineCodeLanguageRule(state) {
-@@ -94,13 +95,13 @@ function inlineCodeLanguageRule(state) {
+@@ -99,13 +100,13 @@ function inlineCodeLanguageRule(state) {
      }
    }
  }
@@ -31,7 +31,7 @@ index f76b95e48007d07b2a9f5e27f168145216a96eb8..0d84d422d6de887409e78169e60c0cb8
  }
  function core(md, opts) {
 diff --git a/src/core.ts b/src/core.ts
-index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174a63d3b9d 100644
+index ae09f4bad59be726e6921dfe3f0e6c1797a56feb..96493b37ebaf1ff006340329ed609b79ea8d880e 100644
 --- a/src/core.ts
 +++ b/src/core.ts
 @@ -1,7 +1,12 @@
@@ -51,7 +51,7 @@ index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174
  import { HLJSApi, LanguageFn } from 'highlight.js'
  
  export interface HighlightOptions {
-@@ -47,7 +52,7 @@ function registerLangs (hljs: HLJSApi, register: { [lang: string]: LanguageFn })
+@@ -62,7 +67,7 @@ function registerLangAliases (hljs: HLJSApi, register: { [lang: string]: string
  }
  
  // Highlight with given language.
@@ -60,7 +60,7 @@ index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174
    try {
      return hljs.highlight(code, { language: lang !== '' ? lang : 'plaintext', ignoreIllegals }).value
    } catch (e) {
-@@ -56,7 +61,7 @@ function highlight (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean, code
+@@ -71,7 +76,7 @@ function highlight (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean, code
  }
  
  // Highlight with given language or automatically.
@@ -69,7 +69,7 @@ index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174
    if (lang !== '') {
      return highlight(md, hljs, ignoreIllegals, code, lang)
    }
-@@ -68,9 +73,10 @@ function highlightAuto (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean,
+@@ -83,9 +88,10 @@ function highlightAuto (md: MarkdownIt, hljs: HLJSApi, ignoreIllegals: boolean,
    }
  }
  // Wrap a render function to add `hljs` class to code blocks.
@@ -83,7 +83,7 @@ index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174
        .replace(/<code class="/g, '<code class="hljs ')
        .replace(/<code>/g, '<code class="hljs">')
    }
-@@ -118,7 +124,7 @@ function inlineCodeLanguageRule (state: StateCore): void {
+@@ -133,7 +139,7 @@ function inlineCodeLanguageRule (state: StateCore): void {
    }
  }
  
@@ -92,7 +92,7 @@ index 1f074b83237d03719515432fd49c56cdcbce3bca..329602e8c802dbbf2e921476c8508174
    const token = tokens[idx]
  
    // Make TypeScript happy...
-@@ -126,12 +132,12 @@ function inlineCodeRenderer (tokens: Token[], idx: number, options: MarkdownIt.O
+@@ -141,12 +147,12 @@ function inlineCodeRenderer (tokens: Token[], idx: number, options: MarkdownIt.O
      throw new Error('`options.highlight` was null, this is not supposed to happen')
    }
  
@@ -123,7 +123,7 @@ index 32f83bb95e1e5e089bc13f299934d70fbf93832f..886e1cf79bfd3152db23ae6d1c7118ac
  
    if (opts.hljs == null) {
 diff --git a/types/core.d.ts b/types/core.d.ts
-index 75b07064c3de0277e338bd66b2c9c7b0fdbe59a7..2afde6d96d933b24b15e3f269ff88d3ea1a16598 100644
+index bbc0a3c487b7f2698e5db0b33f23d7c671e1aaa8..14369ff4a5f6a6d9039b7a5963297adce397dc3f 100644
 --- a/types/core.d.ts
 +++ b/types/core.d.ts
 @@ -1,4 +1,4 @@
@@ -132,7 +132,7 @@ index 75b07064c3de0277e338bd66b2c9c7b0fdbe59a7..2afde6d96d933b24b15e3f269ff88d3e
  import { HLJSApi, LanguageFn } from 'highlight.js';
  export interface HighlightOptions {
      /**
-@@ -29,7 +29,7 @@ export interface HighlightOptions {
+@@ -36,7 +36,7 @@ export interface HighlightOptions {
       */
      ignoreIllegals?: boolean;
  }
