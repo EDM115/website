@@ -748,7 +748,7 @@
     "name": "narcisbugeag/vscord",
     "description": "PSA : How to make sure the extension works (VS Code's SCM issue)",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/narcisbugeag/vscord/issues/343"
   },
   {
