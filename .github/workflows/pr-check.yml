@@ -37,7 +37,9 @@ jobs:
         id: nuxt_cache
         uses: actions/cache/restore@v5
         with:
-          path: .nuxt
+          path: |
+            .nuxt
+            node_modules/.cache
           key: pr-check-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             pr-check-nuxt-cache-${{ github.ref_name }}-
@@ -61,5 +63,7 @@ jobs:
         if: always() && steps.nuxt_cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
-          path: .nuxt
+          path: |
+            .nuxt
+            node_modules/.cache
           key: pr-check-nuxt-cache-${{ github.ref_name }}-${{ github.sha }}
