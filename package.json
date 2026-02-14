@@ -74,7 +74,7 @@
     "unplugin-icons": "~23.0.1",
     "unplugin-vue-components": "~31.0.0",
     "unplugin-vue-markdown": "~29.2.0",
-    "vue-eslint-parser": "~10.3.0",
+    "vue-eslint-parser": "~10.4.0",
     "vue-tsc": "~3.2.4"
   },
   "homepage": "https://edm115.dev",
