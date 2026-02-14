@@ -3,6 +3,7 @@ import type { PolychromeWasmInstance } from "~/types"
 import { withBase } from "ufo"
 
 function publicAssetURL(path: string, baseURL = import.meta.env.BASE_URL): URL {
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   return withBase(path, baseURL) as unknown as URL
 }
 

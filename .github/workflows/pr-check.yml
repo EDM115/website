@@ -12,7 +12,7 @@ on:
 jobs:
   pr-check:
     name: "PR Check"
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
