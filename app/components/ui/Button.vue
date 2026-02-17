@@ -650,7 +650,7 @@ function unFocus() {
       border-radius: 999px;
 
       .ui-btn--expandable-text {
-        max-width: 16rem;
+        max-width: 24rem;
         opacity: 1;
         margin-left: calc(var(--ui-btn-height) / 6);
       }

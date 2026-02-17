@@ -102,8 +102,13 @@
   },
   "projects": {
     "back": "Retour à la liste des projets",
+    "demo": "Démo",
     "description": "Une liste de tous mes projets intéressants",
+    "gh": "Retrouvez tous mes projets sur mon GitHub",
     "head": "Projets - EDM115",
+    "more-info": "Plus d'infos",
+    "npm": "Voir sur NPM",
+    "pypi": "Voir sur PyPI",
     "project": "Projet",
     "title": "Mes projets"
   },

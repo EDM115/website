@@ -48,14 +48,14 @@
           <slot name="description" />
         </div>
       </div>
-    </article>
 
-    <div
-      v-if="actions"
-      class="ui-showcase--actions"
-    >
-      <slot name="actions" />
-    </div>
+      <div
+        v-if="actions"
+        class="ui-showcase--actions"
+      >
+        <slot name="actions" />
+      </div>
+    </article>
 
     <UiDivider style="margin-top: 16px; margin-bottom: 16px;" />
   </div>
@@ -127,9 +127,11 @@ defineProps<{
     display: flex;
     flex-direction: column;
     min-width: 0;
+    max-width: 50%;
 
     @media (max-width: 720px) {
       align-items: center;
+      max-width: 90%;
     }
   }
 
@@ -157,7 +159,13 @@ defineProps<{
   &--actions {
     margin-left: auto;
     display: flex;
+    flex-direction: column;
     gap: .5rem;
+
+    @media (max-width: 720px) {
+      flex-direction: row;
+      margin-left: unset;
+    }
   }
 }
 </style>

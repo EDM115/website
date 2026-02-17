@@ -5,7 +5,7 @@
       style="min-height: 80vh; justify-content: center;"
     >
       <h1 style="font-size: 4rem;">
-        {{ error.statusCode }}
+        {{ error.status }}
       </h1>
       <UiAlert
         type="error"
@@ -35,8 +35,8 @@ const props = defineProps<{
 }>()
 
 defineOgImageComponent("OgImage", {
-  title: () => props.error.statusCode.toString(),
-  description: () => props.error.statusMessage,
+  title: () => props.error.status?.toString(),
+  description: () => props.error.statusText,
   path: route.path,
   glowColor: "ff5555",
 })

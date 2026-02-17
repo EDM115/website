@@ -71,14 +71,14 @@
     "unzip": "unzip-bot"
   },
   "main": {
-    "description": "Find all infos about EDM115, his projects, blog posts, ...",
+    "description": "Find all infos about EDM115, my projects, blog posts, ...",
     "head": "EDM115 - French dev/gamer/music producer"
   },
   "navbar": {
     "close": "Close"
   },
   "nuxtSiteConfig": {
-    "description": "Find all infos about EDM115, his projects, blog posts, ...",
+    "description": "Find all infos about EDM115, my projects, blog posts, ...",
     "name": "EDM115 - French dev/gamer/music producer"
   },
   "opensource": {
@@ -102,8 +102,13 @@
   },
   "projects": {
     "back": "Back to projects list",
+    "demo": "Demo",
     "description": "A list of all my interesting projects",
+    "gh": "Find all my projects on my GitHub",
     "head": "Projects - EDM115",
+    "more-info": "More info",
+    "npm": "View on NPM",
+    "pypi": "View on PyPI",
     "project": "Project",
     "title": "My projects"
   },

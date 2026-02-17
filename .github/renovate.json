@@ -11,7 +11,7 @@
   "dependencyDashboard": true,
   "dependencyDashboardOSVVulnerabilitySummary": "unresolved",
   "draftPR": true,
-  "enabled": true,
+  "enabled": false,
   "extends": [
     "config:recommended"
   ],

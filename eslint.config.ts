@@ -1,6 +1,5 @@
 import { withNuxt } from "./.nuxt/eslint.config.mjs"
 
-import stylistic from "@stylistic/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 import pluginVue from "eslint-plugin-vue"
 import globals from "globals"
@@ -24,7 +23,6 @@ export default withNuxt(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    plugins: { "@stylistic": stylistic },
     rules: {
       "nuxt/nuxt-config-keys-order": "warn",
       "vue/multi-word-component-names": "off",

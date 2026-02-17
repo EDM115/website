@@ -2,20 +2,11 @@
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "TypeScriptTeam.native-preview"
-  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
   "[typescript]": {
-    "editor.defaultFormatter": "TypeScriptTeam.native-preview"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
@@ -23,7 +14,6 @@
   "editor.tabSize": 2,
   "eslint.format.enable": true,
   "eslint.ignoreUntitled": true,
-  "eslint.useFlatConfig": true,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",

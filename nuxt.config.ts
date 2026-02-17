@@ -1,3 +1,5 @@
+import type { Token } from "markdown-exit"
+
 import brOnEmptyLines from "./app/utils/mdBreaks"
 import ogSlugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
@@ -31,8 +33,6 @@ import {
   resolve,
 } from "node:url"
 import { readFile } from "node:fs/promises"
-
-import type { Token } from "markdown-exit"
 
 const localMdi = await lookupCollection("mdi")
 const mdiLinkVariant = `<svg>${localMdi.icons["link-variant"]?.body || ""}</svg>`
@@ -160,7 +160,7 @@ export default defineNuxtConfig({
     viewTransition: true,
     viteEnvironmentApi: true,
   },
-  compatibilityDate: "2025-11-15",
+  compatibilityDate: "2026-02-01",
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -181,7 +181,9 @@ export default defineNuxtConfig({
       preprocessorMaxWorkers: true,
     },
     plugins: [
+      // @ts-expect-error PNPM + Vite + Rollup issue
       Icons({ compiler: "vue3" }),
+      // @ts-expect-error PNPM + Vite + Rollup issue
       Markdown({
         headEnabled: true,
         markdownItOptions: {
@@ -281,6 +283,7 @@ export default defineNuxtConfig({
           }
         },
       }),
+      // @ts-expect-error PNPM + Vite + Rollup issue
       Components({
         collapseSamePrefixes: true,
         directoryAsNamespace: true,

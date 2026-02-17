@@ -229,6 +229,7 @@ main {
   background: var(--gradient-brand);
   background-clip: text;
   color: transparent;
+  padding-bottom: 0.5rem;
 }
 
 :root:not(:where(.hljs, .hljs *, [class^="hljs-"]))::selection {

@@ -27,7 +27,7 @@ patchedDependencies:
   '@types/markdown-it-emoji@3.0.1': patches/@types__markdown-it-emoji@3.0.1.patch
   '@types/markdown-it-link-attributes@3.0.5': patches/@types__markdown-it-link-attributes@3.0.5.patch
   assemblyscript@0.28.9: patches/assemblyscript@0.28.9.patch
-  markdown-exit@1.0.0-beta.7: patches/markdown-exit@1.0.0-beta.7.patch
+  markdown-exit@1.0.0-beta.8: patches/markdown-exit@1.0.0-beta.8.patch
   markdown-it-anchor@9.2.0: patches/markdown-it-anchor@9.2.0.patch
   markdown-it-highlightjs@4.3.0: patches/markdown-it-highlightjs@4.3.0.patch
   markdown-it-toc-done-right@4.2.0: patches/markdown-it-toc-done-right@4.2.0.patch
