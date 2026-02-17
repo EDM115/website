@@ -65,7 +65,7 @@
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
     "lightningcss": "~1.31.1",
-    "oxlint": "~1.47.0",
+    "oxlint": "~1.48.0",
     "oxlint-tsgolint": "~0.12.2",
     "pagefind": "~1.4.0",
     "sass-embedded": "~1.97.3",
