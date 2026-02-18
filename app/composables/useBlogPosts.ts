@@ -300,14 +300,14 @@ export function useBlogPosts(isTelegram = false) {
     const originFilter = isTelegram
       ? "telegram"
       : "blog"
-    const filters = {
+    const mergedFilters = {
       origin: [originFilter],
       ...(tagFilters?.length
         ? { tags: tagFilters }
         : {}),
     }
-    const results = await mod.search(normalized, filters
-      ? { filters }
+    const results = await mod.search(normalized, mergedFilters
+      ? { filters: mergedFilters }
       : undefined)
 
     if (runId !== pagefindRunId) {

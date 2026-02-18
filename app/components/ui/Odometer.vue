@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import LightOdometer from "light-odometer"
+import { LightOdometer } from "light-odometer"
 
 import {
   type FunctionalComponent,
