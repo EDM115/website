@@ -33,15 +33,18 @@
     "back": "Go back home"
   },
   "home": {
-    "about": "About",
-    "about-age": "{age} years old",
-    "about-birthday": "18th June",
-    "about-diploma": "Computer Science BUT (Bachelor of Technology), Baccalureate+3",
-    "about-fav": "My favorite technologies at the moment are Vue, TS and Python",
-    "about-github": "You can check all my projects on my ",
-    "about-recap": "Fullstack dev • Python enthusiast • Fast learner",
-    "about-tagline-1": "I'm a versatile junior French developer who like to tackle various programming languages and love open source",
-    "about-tagline-2": "Currently searching for a job, I'm passionate and involved in everything I try out",
+    "about": {
+      "age": "{age} years old",
+      "birthday": "18th June",
+      "fav": "My favorite technologies at the moment are Vue, TS and Python",
+      "github": "You can check all my projects on my ",
+      "recap": "Fullstack dev • Python enthusiast • Fast learner",
+      "tagline": {
+        "1": "I'm a versatile junior French developer who like to tackle various programming languages and love open source",
+        "2": "Currently searching for a job, I'm passionate and involved in everything I try out"
+      },
+      "title": "About"
+    },
     "alternativeAnimation": "Alternative effect rendering",
     "back": "Back",
     "blog": "Blog",
@@ -50,21 +53,70 @@
     "home": "Home",
     "oss": "Open Source contributions",
     "projects": "Projects",
-    "resume": "Resume",
-    "resume1": "What is my path ? Discover it there",
-    "resume10": "Education",
-    "resume11": "BUT Computer Science",
-    "resume12": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ...",
-    "resume13": "BAC",
-    "resume14": "I learnt here the basics of programmation with Python and SQL",
-    "resume2": "Summary",
-    "resume3": "I'm a developer searching for a job",
-    "resume4": "Rouen, France",
-    "resume5": "Professional experience",
-    "resume6": "Internship {'@'} Nexelec",
-    "resume7": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ...",
-    "resume8": "Internship {'@'} Koumoul",
-    "resume9": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ...",
+    "resume": {
+      "education": {
+        "high-school": {
+          "date": "2019 - 2022",
+          "description": {
+            "1": "I learnt here the basics of programmation with Python and SQL"
+          },
+          "location": "Lycée Saint-Paul, Vannes, France",
+          "title": "French Baccalureate"
+        },
+        "title": "Education",
+        "university": {
+          "date": "2022 - 2025",
+          "description": {
+            "1": "3 years where I learnt Java, SQL, Bash, economy, gestion, english, communication, ..."
+          },
+          "location": "IUT de Vannes, France",
+          "title": "Computer Science BUT (Bachelor of Technology)"
+        }
+      },
+      "experience": {
+        "internships": {
+          "koumoul": {
+            "date": "January 2024 - March 2024",
+            "description": {
+              "details": [
+                "Redesign of the visualization application and migration to Vue.js 3",
+                "Addition of advanced data visualization features: filters, sorting and dynamic calculations",
+                "Creation and integration of new color palettes in the shared library",
+                "Development of a new pie chart visualization in pure SVG in a few days, optimized and independent from any library",
+                "Modernization of the back-office as a pair: separation of Docker images, dependency migration and UI improvements"
+              ],
+              "summary": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ..."
+            },
+            "location": "Vannes, France",
+            "title": "Internship {'@'} Koumoul"
+          },
+          "nexelec": {
+            "date": "February 2025 - June 2025",
+            "description": {
+              "details": [
+                "Update and cleanup of a TypeScript monorepo (Next.js, Fastify, Prisma, …) and improvement of build times",
+                "Overhaul of code quality : introduction of OxLint, fixed hundreds of warnings and removal of almost all any's",
+                "Improvement of DX & CI : local Actions with act, labels to target jobs, hash tool and Git hooks",
+                "Performance & UX improvement : memoization, dynamic import, CSS purge and fixes of UI inconsistencies",
+                "Design of a complete module for monitoring SIM card usage (PubSub cron, InfluxDB, PostgreSQL, API, charts and filterable tables)",
+                "Improvement of internal documentation"
+              ],
+              "summary": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ..."
+            },
+            "location": "Saint-Avé, France",
+            "title": "Internship {'@'} Nexelec"
+          }
+        },
+        "professional": "Professional experience"
+      },
+      "subtitle": "What is my path ? Discover it there",
+      "summary": {
+        "1": "I'm a developer searching for a job",
+        "location": "Rouen, France",
+        "title": "Summary"
+      },
+      "title": "Resume"
+    },
     "skills": "Skills",
     "social": "Social links",
     "stats": "Stats",
@@ -108,8 +160,8 @@
     "head": "Projects - EDM115",
     "more-info": "More info",
     "npm": "View on NPM",
-    "pypi": "View on PyPI",
     "project": "Project",
+    "pypi": "View on PyPI",
     "title": "My projects"
   },
   "stats": {
@@ -119,10 +171,12 @@
     "users": "Users of my services (has yet to be refreshed through an API)"
   },
   "unzip": {
-    "about": "About",
-    "about1": "Written in Python, using libraries like pyrofork and storing data in MongoDB Atlas, this bot aims to provide a seamless experience for getting files from archives on Telegram.",
-    "about2": "This bot started being online on the 22nd May of 2022.",
-    "about3": "Originally made for Heroku, it is now hosted on Hetzner. And despite costing me every month, it is still free :)",
+    "about": {
+      "1": "Written in Python, using libraries like pyrofork and storing data in MongoDB Atlas, this bot aims to provide a seamless experience for getting files from archives on Telegram.",
+      "2": "This bot started being online on the 22nd May of 2022.",
+      "3": "Originally made for Heroku, it is now hosted on Hetzner. And despite costing me every month, it is still free :)",
+      "title": "About"
+    },
     "description": "This bot will suit all your archive related needs on Telegram ! It can extract archives (even password protected and split ones), download them from direct URL's, change their thumbnail, rename them, and much more !",
     "github": "EDM115/unzip-bot",
     "head": "unzip-bot - EDM115",

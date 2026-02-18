@@ -1,20 +1,20 @@
 <template>
   <div>
     <p class="mb-4">
-      {{ t("home.resume1") }}<br>
+      {{ t("home.resume.subtitle") }}<br>
     </p>
     <UiStepperVertical>
       <UiStepperVerticalItem
-        :subtitle="t('home.resume2')"
+        :subtitle="t('home.resume.summary.title')"
         title="EDM115"
         :icon="mdiAccountTieOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              {{ t("home.resume3") }}
+              {{ t("home.resume.summary.1") }}
             </template>
-            {{ t("home.resume4") }}<br>
+            {{ t("home.resume.summary.location") }}<br>
             <NuxtLink
               to="mailto:contact@edm115.dev"
               target="_blank"
@@ -35,81 +35,105 @@
       </UiStepperVerticalItem>
 
       <UiStepperVerticalItem
-        :subtitle="t('home.resume5')"
-        :title="t('home.resume6')"
+        :subtitle="t('home.resume.experience.professional')"
+        :title="t('home.resume.experience.internships.nexelec.title')"
         :icon="mdiBriefcaseOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              2025
+              {{ t("home.resume.experience.internships.nexelec.date") }}
             </template>
             <template #subtitle>
               <div class="mb-2">
-                Nexelec, Saint-Avé
+                {{ t("home.resume.experience.internships.nexelec.location") }}
               </div>
-            </template><br>
-            {{ t("home.resume7") }}
+            </template>
+            {{ t("home.resume.experience.internships.nexelec.description.summary") }}
+            <ul
+              class="mt-4 ml-4"
+              style="text-align: left; list-style-type: disc;"
+            >
+              <li
+                v-for="(detail, index) in tm('home.resume.experience.internships.nexelec.description.details')"
+                :key="index"
+                style="text-wrap: balance;"
+              >
+                {{ detail }}
+              </li>
+            </ul>
           </UiListItem>
         </UiList>
       </UiStepperVerticalItem>
 
       <UiStepperVerticalItem
-        :subtitle="t('home.resume5')"
-        :title="t('home.resume8')"
+        :subtitle="t('home.resume.experience.professional')"
+        :title="t('home.resume.experience.internships.koumoul.title')"
         :icon="mdiBriefcaseOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              2024
+              {{ t("home.resume.experience.internships.koumoul.date") }}
             </template>
             <template #subtitle>
               <div class="mb-2">
-                Koumoul, Vannes
+                {{ t("home.resume.experience.internships.koumoul.location") }}
               </div>
-            </template><br>
-            {{ t("home.resume9") }}
+            </template>
+            {{ t("home.resume.experience.internships.koumoul.description.summary") }}
+            <ul
+              class="mt-4 ml-4"
+              style="text-align: left; list-style-type: disc;"
+            >
+              <li
+                v-for="(detail, index) in tm('home.resume.experience.internships.koumoul.description.details')"
+                :key="index"
+                style="text-wrap: balance;"
+              >
+                {{ detail }}
+              </li>
+            </ul>
           </UiListItem>
         </UiList>
       </UiStepperVerticalItem>
 
       <UiStepperVerticalItem
-        :subtitle="t('home.resume10')"
-        :title="t('home.resume11')"
+        :subtitle="t('home.resume.education.title')"
+        :title="t('home.resume.education.university.title')"
         :icon="mdiSchoolOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              2022 - 2025
+              {{ t("home.resume.education.university.date") }}
             </template>
             <template #subtitle>
               <div class="mb-2">
-                IUT Vannes
+                {{ t("home.resume.education.university.location") }}
               </div>
-            </template><br>
-            {{ t("home.resume12") }}
+            </template>
+            {{ t("home.resume.education.university.description.1") }}
           </UiListItem>
         </UiList>
       </UiStepperVerticalItem>
 
       <UiStepperVerticalItem
-        :subtitle="t('home.resume10')"
-        :title="t('home.resume13')"
+        :subtitle="t('home.resume.education.title')"
+        :title="t('home.resume.education.high-school.title')"
         :icon="mdiSchoolOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              2019 - 2022
+              {{ t("home.resume.education.high-school.date") }}
             </template>
             <template #subtitle>
               <div class="mb-2">
-                Lycée Saint-Paul, Vannes
+                {{ t("home.resume.education.high-school.location") }}
               </div>
-            </template><br>
-            {{ t("home.resume14") }}
+            </template>
+            {{ t("home.resume.education.high-school.description.1") }}
           </UiListItem>
         </UiList>
       </UiStepperVerticalItem>
@@ -134,6 +158,7 @@ import mdiSchoolOutline from "~icons/mdi/schoolOutline"
 const {
   locale,
   t,
+  tm,
 } = useI18n()
 
 const resumeLink = computed(() => {
@@ -152,11 +177,19 @@ const resumeLink = computed(() => {
   margin-right: 8px;
 }
 
+.ml-4 {
+  margin-left: 16px;
+}
+
 .mb-2 {
   margin-bottom: 8px;
 }
 
 .mb-4 {
   margin-bottom: 16px;
+}
+
+.mt-4 {
+  margin-top: 16px;
 }
 </style>

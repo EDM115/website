@@ -396,6 +396,15 @@ export default defineNuxtConfig({
       },
     ],
     processCSSVariables: true,
+    providers: {
+      adobe: false,
+      bunny: false,
+      fontshare: false,
+      fontsource: false,
+      google: false,
+      googleicons: false,
+      npm: false,
+    },
   },
   i18n: {
     baseUrl: "https://edm115.dev",

@@ -61,14 +61,14 @@
                   class="internal-link"
                   aria-label="About section"
                 >
-                  {{ t('unzip.about') }}
+                  {{ t('unzip.about.title') }}
                 </NuxtLink>
               </h2>
             </template>
             <p>
-              {{ t('unzip.about1') }}<br><br>
-              {{ t('unzip.about2') }}<br>
-              {{ t('unzip.about3') }}<br>
+              {{ t('unzip.about.1') }}<br><br>
+              {{ t('unzip.about.2') }}<br>
+              {{ t('unzip.about.3') }}<br>
             </p>
           </UiCard>
 

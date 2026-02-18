@@ -62,17 +62,17 @@
                   class="internal-link"
                   aria-label="About section"
                 >
-                  {{ t('home.about') }}
+                  {{ t('home.about.title') }}
                 </NuxtLink>
               </h2>
             </template>
             <p>
-              {{ t('home.about-tagline-1') }}<br>
-              {{ t('home.about-tagline-2') }}<br><br>
+              {{ t('home.about.tagline.1') }}<br>
+              {{ t('home.about.tagline.2') }}<br><br>
 
-              {{ t('home.about-recap') }}<br>
-              {{ t('home.about-fav') }}<br>
-              {{ t('home.about-github') }}
+              {{ t('home.about.recap') }}<br>
+              {{ t('home.about.fav') }}<br>
+              {{ t('home.about.github') }}
               <NuxtLink
                 to="https://github.com/EDM115"
                 target="_blank"
@@ -92,19 +92,19 @@
                 class="about-icons"
                 :icon="mdiCakeVariantOutline"
               />
-              {{ t('home.about-birthday') }}<br>
+              {{ t('home.about.birthday') }}<br>
 
               <UiIcon
                 class="about-icons"
                 :icon="mdiHourglass"
               />
-              {{ t('home.about-age', { age }) }}<br>
+              {{ t('home.about.age', { age }) }}<br>
 
               <UiIcon
                 class="about-icons"
                 :icon="mdiMapMarkerOutline"
               />
-              Rouen, France<br>
+              {{ t('home.resume.summary.location') }}<br>
 
               <UiIcon
                 class="about-icons"
@@ -147,7 +147,7 @@
                 class="about-icons"
                 :icon="diplomaOutline"
               />
-              {{ t('home.about-diploma') }}<br>
+              {{ t('home.resume.education.university.title') }}<br>
             </p>
           </UiCard>
 
@@ -201,7 +201,7 @@
                   class="internal-link"
                   aria-label="Resume section"
                 >
-                  {{ t('home.resume') }}
+                  {{ t('home.resume.title') }}
                 </NuxtLink>
               </h2>
             </template>
