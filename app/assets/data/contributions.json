@@ -1,5 +1,21 @@
 [
   {
+    "id": 36,
+    "name": "mdit-plugins/mdit-plugins",
+    "description": "fix(alert): prevent infinite recursion in silent mode when deep parsing alerts",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/mdit-plugins/mdit-plugins/pull/351"
+  },
+  {
+    "id": 35,
+    "name": "vercel-labs/skills",
+    "description": "feat: indicate which skills failed to update, fix #362, code cleanup",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/vercel-labs/skills/pull/387"
+  },
+  {
     "id": 34,
     "name": "dragonisdev/supabase-modular-auth",
     "description": "fix: proper login on safari, working google auth, better docs, deployment guide, AI agents guidance, bumped deps, new env vars",

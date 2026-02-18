@@ -10,7 +10,7 @@ overrides:
 
 patchedDependencies:
   '@mdit/plugin-alert@0.22.4':
-    hash: 7a4042b8920d872c1f86f8931ed9a64fbb07de7db4a59b2e9d054bed51ee4506
+    hash: 27665d96633575f2cfe8e7b95bd2683e74762b85254e11e7632b08f2b7cb5174
     path: patches/@mdit__plugin-alert@0.22.4.patch
   '@mdit/plugin-align@0.23.1':
     hash: 948330b8eb7c0fb6bf88107695a9e4c726a7f5fed94c460fc6c7a82e472e0e12
@@ -79,7 +79,7 @@ importers:
     dependencies:
       '@mdit/plugin-alert':
         specifier: ~0.22.4
-        version: 0.22.4(patch_hash=7a4042b8920d872c1f86f8931ed9a64fbb07de7db4a59b2e9d054bed51ee4506)(markdown-it@14.1.1)
+        version: 0.22.4(patch_hash=27665d96633575f2cfe8e7b95bd2683e74762b85254e11e7632b08f2b7cb5174)(markdown-it@14.1.1)
       '@mdit/plugin-align':
         specifier: ~0.23.1
         version: 0.23.1(patch_hash=948330b8eb7c0fb6bf88107695a9e4c726a7f5fed94c460fc6c7a82e472e0e12)(markdown-it@14.1.1)
@@ -7089,7 +7089,7 @@ snapshots:
     optionalDependencies:
       markdown-it: 14.1.1
 
-  '@mdit/plugin-alert@0.22.4(patch_hash=7a4042b8920d872c1f86f8931ed9a64fbb07de7db4a59b2e9d054bed51ee4506)(markdown-it@14.1.1)':
+  '@mdit/plugin-alert@0.22.4(patch_hash=27665d96633575f2cfe8e7b95bd2683e74762b85254e11e7632b08f2b7cb5174)(markdown-it@14.1.1)':
     dependencies:
       '@types/markdown-it': 14.1.2
     optionalDependencies:

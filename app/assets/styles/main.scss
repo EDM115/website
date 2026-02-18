@@ -506,7 +506,8 @@ li {
   margin: 1.5rem 0;
 }
 
-.markdown-body img {
+.markdown-body img,
+.markdown-body video {
   max-width: 100%;
   height: auto;
   max-height: 50svw;
@@ -515,6 +516,12 @@ li {
     max-width: 90svw;
     max-height: 80svw;
   }
+}
+
+video {
+  font-family: initial;
+  font-feature-settings: normal;
+  color: initial;
 }
 
 .markdown-body details {

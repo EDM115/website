@@ -100,7 +100,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/unzip-bot",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -120,7 +120,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/monorepo-hash",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -140,7 +140,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Spendly",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -155,7 +155,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/better-maps",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -170,7 +170,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/unrar-alpine",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -185,7 +185,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/website",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -200,7 +200,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/EDM115-ohmyposh-theme",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -220,7 +220,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/palex",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -240,7 +240,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/js-imports-sort",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -260,7 +260,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/booleanfix",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -280,7 +280,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/random-algorithm",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -300,7 +300,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/edm115-lint",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -320,7 +320,22 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/light-odometer",
-        icon: mdiGithub,  
+        icon: mdiGithub,
+      },
+    ],
+  },
+  {
+    title: "Senescalade",
+    description: locale.value === "fr"
+      ? "Mon tout premier projet avec Nuxt, fait avec 2 amis comme projet de fin d'année scolaire. Une webapp complète pour gérer les membres d'une association de grimpe avec toutes les fonctionnalités qu'on peut attendre."
+      : "My very first project with Nuxt, made with 2 friends as an end-of-year school project. A complete webapp to manage members of a climbing association with every feature you might expect.",
+    link: "/projects/senescalade",
+    image: "/img/projects/senescalade.webp",
+    actions: [
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115-org/Senescalade",
+        icon: mdiGithub,
       },
     ],
   },
@@ -335,7 +350,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Bulk-YouTube-Download",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -350,7 +365,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/VGM-KHI-download",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -365,7 +380,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/shared-files",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -380,7 +395,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/dotfiles",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -395,7 +410,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/web-logs",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -410,7 +425,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Markdown_Syntax_FR",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -425,7 +440,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/useful-stuff",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },
@@ -440,7 +455,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/The-Very-Restrictive-License",
-        icon: mdiGithub,  
+        icon: mdiGithub,
       },
     ],
   },

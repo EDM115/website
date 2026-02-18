@@ -1,6 +1,7 @@
 import type { Token } from "markdown-exit"
 
 import brOnEmptyLines from "./app/utils/mdBreaks"
+import videoControls from "./app/utils/mdVideoControls"
 import ogSlugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
@@ -230,6 +231,7 @@ export default defineNuxtConfig({
           })
           md.use(tasklist, { disabled: false })
           md.use(brOnEmptyLines)
+          md.use(videoControls)
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state
 

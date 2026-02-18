@@ -100,6 +100,7 @@ const {
         { default: mditHljs },
         { default: mditLinkAttributes },
         { default: brOnEmptyLines },
+        { default: videoControls },
         { full: emoji },
         { alert },
         { footnote },
@@ -123,6 +124,7 @@ const {
         import("markdown-it-highlightjs"),
         import("markdown-it-link-attributes"),
         import("~/utils/mdBreaks"),
+        import("~/utils/mdVideoControls"),
         import("markdown-it-emoji"),
         import("@mdit/plugin-alert"),
         import("@mdit/plugin-footnote"),
@@ -161,7 +163,7 @@ const {
       function getTokensText(tokens: Token[]) {
         return tokens
           .filter((token) => ![ "html_inline", "image" ].includes(token.type))
-          .map((t) => t.content)
+          .map((token) => token.content)
           .join("")
       }
 
@@ -203,6 +205,7 @@ const {
         .use(tab, { name: "tabs" })
         .use(tasklist, { disabled: false })
         .use(brOnEmptyLines)
+        .use(videoControls)
 
       md.core.ruler.push("heading_copy_icon", (state) => {
         const { tokens } = state
@@ -303,7 +306,7 @@ async function getRepoDetails() {
       name: data.value.full_name,
       description: data.value.description || "",
     }
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }
