@@ -17,7 +17,7 @@ const props = defineProps<{
   maxItems?: number;
 }>()
 
-const rootStyle = computed(function () {
+const rootStyle = computed(() => {
   if (!props.maxItems) {
     return undefined
   }
