@@ -1,23 +1,23 @@
-diff --git a/lib/index.d.ts b/lib/index.d.ts
-index 319890c74c4cc5625a47c268544c5f38c8cad68a..55d9760fc9c1dbbb5a4815c51f6ed5cf943344ac 100644
---- a/lib/index.d.ts
-+++ b/lib/index.d.ts
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 732272e5dbe098c3af45de72fbf9f28d5fae38d9..ced22f2105ed57395c4f92e7b76f410aa220ecd6 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
 @@ -1,7 +1,7 @@
 -import { PluginWithOptions } from "markdown-it";
-+import type { PluginWithOptions, MarkdownExitEnv } from 'markdown-exit';
++import type { PluginWithOptions, MarkdownExitEnv } from "markdown-exit";
  
  //#region src/options.d.ts
 -interface MarkdownItTexOptions<MarkdownItEnv = unknown> {
 +interface MarkdownItTexOptions<MarkdownExitEnv = {}> {
    /**
-    * Math delimiter syntax to enable
-    *
+   * Math delimiter syntax to enable
+   *
 @@ -41,7 +41,7 @@ interface MarkdownItTexOptions<MarkdownItEnv = unknown> {
-    * @param env MarkdownIt 环境变量
-    * @returns 渲染结果
-    */
+   * @param env MarkdownIt 环境变量
+   * @returns 渲染结果
+   */
 -  render: (content: string, displayMode: boolean, env: MarkdownItEnv) => string;
 +  render: (content: string, displayMode: boolean, env: MarkdownExitEnv) => string;
    /**
-    * Whether to allow inline math with spaces on ends
-    *
+   * Whether to allow inline math with spaces on ends
+   *

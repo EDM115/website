@@ -1,0 +1,11 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index ded1fa9b44ee446e5d123b126ba6a00314fc0fa0..80b44d516ae3d56ea3e6e54233af95ea3291e1c2 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,5 +1,4 @@
+-import { PluginSimple } from "markdown-it";
+-import Token from "markdown-it/lib/token.mjs";
++import type { PluginSimple, Token } from "markdown-exit";
+ 
+ //#region src/plugin.d.ts
+ declare const footnote: PluginSimple;

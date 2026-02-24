@@ -1,0 +1,11 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 4b5a70966479b04c4be86e169b56a09b7a9f9d87..9a4b06b5092efc6211bdfb5b6277293bc54d62f1 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,5 +1,4 @@
+-import { RenderRule } from "markdown-it/lib/renderer.mjs";
+-import { PluginWithOptions } from "markdown-it";
++import type { PluginWithOptions, RenderRule } from "markdown-exit";
+ 
+ //#region src/options.d.ts
+ interface MarkdownItAlertOptions {

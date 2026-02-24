@@ -1,0 +1,11 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 76e2dedf2ba5d2cc2dc3b3e983781b8ff33303c2..590bfce04a1442a6907dc8ff94f145c917562114 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,5 +1,4 @@
+-import { PluginSimple } from "markdown-it";
+-import { RuleInline } from "markdown-it/lib/parser_inline.mjs";
++import type { PluginSimple, RuleInline } from "markdown-exit";
+ 
+ //#region src/legacy.d.ts
+ /**

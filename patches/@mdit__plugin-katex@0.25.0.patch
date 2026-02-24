@@ -1,31 +1,31 @@
-diff --git a/lib/index.d.ts b/lib/index.d.ts
-index 041e419887ba44df941b872f43bf0c8f980b96da..a2a9be0b20128aaefd91f9034bb1e50b7c9c2a05 100644
---- a/lib/index.d.ts
-+++ b/lib/index.d.ts
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 0052a549b9c2bc04847bbb1137f0619efe006fa2..555c33b518b0601ae4250bbba4a7b8bf2755e21c 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
 @@ -1,17 +1,17 @@
 -import { MarkdownItTexOptions } from "@mdit/plugin-tex";
 -import { KatexOptions, Token } from "katex";
 -import MarkdownIt from "markdown-it";
-+import type { MarkdownItTexOptions } from '@mdit/plugin-tex';
-+import type { Token, KatexOptions } from 'katex';
++import type { MarkdownItTexOptions } from "@mdit/plugin-tex";
++import type { Token, KatexOptions } from "katex";
 +import type { MarkdownExit, MarkdownExitEnv } from "markdown-exit";
  
  //#region src/options.d.ts
--type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | void;
-+type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | void;
+-type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | undefined;
++type KatexLogger<MarkdownExitEnv = {}> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownExitEnv) => "error" | "warn" | "ignore" | boolean | undefined;
  type TeXTransformer = (content: string, displayMode: boolean) => string;
 -interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
 +interface MarkdownItKatexOptions<MarkdownExitEnv = {}> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
    /**
-    * Error logger
-    *
-    * 错误日志记录器
-    */
+   * Error logger
+   *
+   * 错误日志记录器
+   */
 -  logger?: KatexLogger<MarkdownItEnv>;
 +  logger?: KatexLogger<MarkdownExitEnv>;
    /**
-    * transformer on output content
-    *
+   * transformer on output content
+   *
 @@ -21,14 +21,14 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
  }
  //#endregion

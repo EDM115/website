@@ -6,6 +6,6 @@ index 41d4a858c6ece5a61a2088733cf8b333b45603d8..90309514d1460937ba7fe25438390857
 -import MarkdownIt = require("markdown-it");
 -declare function attrs(md: MarkdownIt): void;
 -export = attrs;
-+import type { MarkdownExit } from 'markdown-exit';
++import type { MarkdownExit } from "markdown-exit";
 +declare function attrs(md: MarkdownExit): void;
 +export default attrs;

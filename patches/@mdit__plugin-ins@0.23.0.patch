@@ -1,10 +1,10 @@
-diff --git a/lib/index.d.ts b/lib/index.d.ts
+diff --git a/dist/index.d.ts b/dist/index.d.ts
 index 5d25b42b3154708f12722430b27a504d8263ba89..fbcff0061a9cd13360c8f92033786d1ec45c10e5 100644
---- a/lib/index.d.ts
-+++ b/lib/index.d.ts
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
 @@ -1,4 +1,4 @@
 -import { PluginSimple } from "markdown-it";
-+import type { PluginSimple } from 'markdown-exit';
++import type { PluginSimple } from "markdown-exit";
  
  //#region src/plugin.d.ts
  declare const ins: PluginSimple;

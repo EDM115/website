@@ -8,21 +8,21 @@ onlyBuiltDependencies:
 
 overrides:
   citty: ~0.2.1
-  eslint: ~10.0.0
+  eslint: ~10.0.2
 
 patchedDependencies:
-  '@mdit/plugin-alert@0.22.4': patches/@mdit__plugin-alert@0.22.4.patch
-  '@mdit/plugin-align@0.23.1': patches/@mdit__plugin-align@0.23.1.patch
-  '@mdit/plugin-footnote@0.22.4': patches/@mdit__plugin-footnote@0.22.4.patch
-  '@mdit/plugin-img-lazyload@0.22.2': patches/@mdit__plugin-img-lazyload@0.22.2.patch
-  '@mdit/plugin-img-size@0.22.5': patches/@mdit__plugin-img-size@0.22.5.patch
-  '@mdit/plugin-ins@0.22.2': patches/@mdit__plugin-ins@0.22.2.patch
-  '@mdit/plugin-katex@0.24.2': patches/@mdit__plugin-katex@0.24.2.patch
-  '@mdit/plugin-mark@0.22.2': patches/@mdit__plugin-mark@0.22.2.patch
-  '@mdit/plugin-spoiler@0.22.3': patches/@mdit__plugin-spoiler@0.22.3.patch
-  '@mdit/plugin-tab@0.23.1': patches/@mdit__plugin-tab@0.23.1.patch
-  '@mdit/plugin-tasklist@0.22.3': patches/@mdit__plugin-tasklist@0.22.3.patch
-  '@mdit/plugin-tex@0.23.1': patches/@mdit__plugin-tex@0.23.1.patch
+  '@mdit/plugin-alert@0.23.0': patches/@mdit__plugin-alert@0.23.0.patch
+  '@mdit/plugin-align@0.24.0': patches/@mdit__plugin-align@0.24.0.patch
+  '@mdit/plugin-footnote@0.23.0': patches/@mdit__plugin-footnote@0.23.0.patch
+  '@mdit/plugin-img-lazyload@0.23.0': patches/@mdit__plugin-img-lazyload@0.23.0.patch
+  '@mdit/plugin-img-size@0.23.0': patches/@mdit__plugin-img-size@0.23.0.patch
+  '@mdit/plugin-ins@0.23.0': patches/@mdit__plugin-ins@0.23.0.patch
+  '@mdit/plugin-katex@0.25.0': patches/@mdit__plugin-katex@0.25.0.patch
+  '@mdit/plugin-mark@0.23.0': patches/@mdit__plugin-mark@0.23.0.patch
+  '@mdit/plugin-spoiler@0.23.0': patches/@mdit__plugin-spoiler@0.23.0.patch
+  '@mdit/plugin-tab@0.24.0': patches/@mdit__plugin-tab@0.24.0.patch
+  '@mdit/plugin-tasklist@0.23.0': patches/@mdit__plugin-tasklist@0.23.0.patch
+  '@mdit/plugin-tex@0.24.0': patches/@mdit__plugin-tex@0.24.0.patch
   '@types/markdown-it-attrs@4.1.3': patches/@types__markdown-it-attrs@4.1.3.patch
   '@types/markdown-it-emoji@3.0.1': patches/@types__markdown-it-emoji@3.0.1.patch
   '@types/markdown-it-link-attributes@3.0.5': patches/@types__markdown-it-link-attributes@3.0.5.patch

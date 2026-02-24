@@ -55,7 +55,7 @@
               style="text-align: left; list-style-type: disc;"
             >
               <li
-                v-for="(detail, index) in tm('home.resume.experience.internships.nexelec.description.details')"
+                v-for="(detail, index) in tm('home.resume.experience.internships.nexelec.description.details') as VueMessageType"
                 :key="index"
                 style="text-wrap: balance;"
               >
@@ -87,7 +87,7 @@
               style="text-align: left; list-style-type: disc;"
             >
               <li
-                v-for="(detail, index) in tm('home.resume.experience.internships.koumoul.description.details')"
+                v-for="(detail, index) in tm('home.resume.experience.internships.koumoul.description.details') as VueMessageType"
                 :key="index"
                 style="text-wrap: balance;"
               >
@@ -150,6 +150,8 @@
 </template>
 
 <script setup lang="ts">
+import type { VueMessageType } from "vue-i18n"
+
 import mdiAccountTieOutline from "~icons/mdi/accountTieOutline"
 import mdiBriefcaseOutline from "~icons/mdi/briefcaseOutline"
 import mdiFileDownload from "~icons/mdi/fileDownload"

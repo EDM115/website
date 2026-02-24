@@ -76,7 +76,7 @@ index 098f06a388c73b82dc1247bcdd360bba45b35488..7537832d54d66bcac40343bd99c3e618
 @@ -1,5 +1,5 @@
  declare module 'markdown-it-toc-done-right' {
 -    import MarkdownIt from 'markdown-it/lib'
-+    import type { PluginWithOptions } from 'markdown-exit'
++    import type { PluginWithOptions } from "markdown-exit"
  
      export interface TocOptions {
          placeholder: string

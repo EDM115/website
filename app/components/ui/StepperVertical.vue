@@ -1,7 +1,7 @@
 <template>
   <div
     class="ui-stepper"
-    :class="maxItems && 'ui-stepper--scrollable'"
+    :class="maxItems ? 'ui-stepper--scrollable' : undefined"
     :style="rootStyle"
   >
     <slot />
