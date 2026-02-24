@@ -566,6 +566,7 @@ export function useBlogPosts(isTelegram = false) {
 
     // If the search term changed, refresh docfind and pagefind results async, then apply filters
     if (searchWasUpdated) {
+      // skipcq: JS-0098
       void Promise.all([
         refreshDocfindMatches(filters.value.search ?? ""),
         refreshPagefindMatches(filters.value.search ?? "", filters.value.tags),
@@ -615,7 +616,9 @@ export function useBlogPosts(isTelegram = false) {
 
       // Warm up docfind and pagefind in the background
       if (import.meta.client) {
+        // skipcq: JS-0098
         void ensureDocfindInit(isTelegram)
+        // skipcq: JS-0098
         void ensurePagefindInit(isTelegram)
       }
 
