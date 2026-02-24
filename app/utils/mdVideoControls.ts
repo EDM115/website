@@ -15,35 +15,35 @@ const videoControls: PluginSimple = (md) => {
     const tokens = state.tokens
 
     for (let i = 0; i < tokens.length; i++) {
-      const t = tokens[i]
+      const token = tokens[i]
 
-      if (!t) {
+      if (!token) {
         continue
       }
 
-      if (t.type === "html_inline" || t.type === "html_block") {
-        const original = t.content
+      if (token.type === "html_inline" || token.type === "html_block") {
+        const original = token.content
         const updated = addControlsToVideoTags(original)
 
         if (updated !== original) {
-          t.content = updated
+          token.content = updated
         }
       }
 
-      if (t.type === "inline" && Array.isArray(t.children)) {
-        for (let j = 0; j < t.children.length; j++) {
-          const c = t.children[j]
+      if (token.type === "inline" && Array.isArray(token.children)) {
+        for (let j = 0; j < token.children.length; j++) {
+          const content = token.children[j]
 
-          if (!c) {
+          if (!content) {
             continue
           }
 
-          if (c.type === "html_inline" || c.type === "html_block") {
-            const original = c.content
+          if (content.type === "html_inline" || content.type === "html_block") {
+            const original = content.content
             const updated = addControlsToVideoTags(original)
 
             if (updated !== original) {
-              c.content = updated
+              content.content = updated
             }
           }
         }
