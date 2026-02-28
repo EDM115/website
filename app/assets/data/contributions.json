@@ -300,7 +300,7 @@
     "name": "marticliment/UniGetUI",
     "description": "[BUG] Can't upgrade WinGet packages that provide a CLI alias on v3.3.7",
     "type": "issue",
-    "state": "open",
+    "state": "ignored",
     "link": "https://github.com/marticliment/UniGetUI/issues/4366"
   },
   {
