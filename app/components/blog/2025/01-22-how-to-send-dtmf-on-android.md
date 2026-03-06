@@ -176,8 +176,8 @@ Okay, so I guess it's time for more broad searches, right ?
 - I **know** that we would need to [be the default phone app](https://www.b4x.com/android/forum/threads/send-dtmf-on-active-cellular-phone-call-fixed.76637/) !
 - A lot of [tutorials](https://4x5mg.net/2019/11/17/sending-dtmf-with-your-smartphone/) have suggested to use a separate app to emit the according frequencies (or for us, to embed them in the app).
   
-Hmm... What does AIs have to say about this ?  
-Well all of them had either the brilliant idea to suggest `android.telecom.Call.startDtmfTone()` but **without** telling me that we need to be the default phone app, or they would straight up hallucinate methods. Even o1 had trouble helping me in this task or provide alternate ways to handle it.
+Hmm... What does LLMs have to say about this ?  
+Well all of them had either the brilliant idea to suggest `android.telecom.Call.startDtmfTone()` but **without** telling me that we need to be the default phone app, or they would straight up hallucinate methods. Even GPT o1 (SOTA at the time) had trouble helping me in this task or provide alternate ways to handle it.
 
 ## The revelation
 At this point I was convinced that it wasn't feasible. *If* it wasn't for [Andriy Antonov's solution](https://stackoverflow.com/a/65868662/18644204) !  
@@ -418,8 +418,8 @@ I thought I was clever writing this, but honestly it was still bad : because we 
 Or we open only once per phone call, but if the user closed the keypad by accident, then we couldn't reopen it and any button presses would fail.  
 So it is time for...
 
-## The final solution
-After detailing the goddamn implementation I did and our motive, o1 came in clutch and was finally able to help in this task. Here's the code changes that we did based off some of its recommendations :  
+## The working solution
+After detailing the goddamn implementation I did and our motive, GPT o1 came in clutch and was finally able to help in this task. Here's the code changes that we did based off some of its recommendations :  
 ```xml
 <!-- src/main/res/xml/accessibility_service_config.xml -->
 <?xml version="1.0" encoding="utf-8"?>

@@ -1,0 +1,11 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 00e5d2b6a86aa1ecbb2e7af3f417a545b0026952..c69e8ec371875cc32f1aa89217054b056378da7b 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1120,4 +1120,4 @@ declare function createMarkdownExit(presetName: PresetName, options?: MarkdownEx
+ type MarkdownExitConstructor = InstanceType<typeof MarkdownExit>;
+ declare const MarkdownExitConstructor: (typeof createMarkdownExit & typeof MarkdownExit);
+ //#endregion
+-export { HTMLAttribute, MarkdownExit, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRuleRecord, Renderer, type RuleBlock, type RuleCore, type RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };
+\ No newline at end of file
++export { HTMLAttribute, MarkdownExit, MarkdownExitEnv, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRuleRecord, Renderer, type RuleBlock, type RuleCore, type RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };

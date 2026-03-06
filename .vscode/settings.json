@@ -16,7 +16,7 @@
   "eslint.ignoreUntitled": true,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "eslint.config.ts": ".oxlintrc.json, .eslintcache, eslint.*",
+    "oxlint.config.ts": ".eslintcache, eslint.*",
     "nuxt.config.ts": "tsconfig.*, *.script.ts",
     "package.json": ".node-version, pnpm*",
     "README.md": "LICENSE, .gitignore, AGENTS.md, .deepsource.toml, CONTRIBUTORS.svg"

@@ -187,13 +187,13 @@ export default defineNuxtConfig({
       // @ts-expect-error PNPM + Vite + Rollup issue
       Markdown({
         headEnabled: true,
-        markdownItOptions: {
+        markdownOptions: {
           breaks: true,
           html: true,
           linkify: true,
           typographer: true,
         },
-        markdownItSetup(md) {
+        markdownSetup(md) {
           md.use(mditHljs, {
             hljs,
             inline: true,

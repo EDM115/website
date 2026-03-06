@@ -11,6 +11,23 @@ export default withNuxt(
   {
     files: ["**/*.{js,ts,vue}"],
     linterOptions: { reportUnusedDisableDirectives: false },
+    rules: {
+      "nuxt/nuxt-config-keys-order": "warn",
+      "vue/multi-word-component-names": "off",
+      "vue/no-mutating-props": "off",
+    },
+  },
+  {
+    files: ["**/*.{js,ts}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: { ...globals.browser },
+      parser: tsParser,
+    },
+  },
+  {
+    files: ["**/*.vue"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -22,11 +39,6 @@ export default withNuxt(
         parser: tsParser,
         tsconfigRootDir: import.meta.dirname,
       },
-    },
-    rules: {
-      "nuxt/nuxt-config-keys-order": "warn",
-      "vue/multi-word-component-names": "off",
-      "vue/no-mutating-props": "off",
     },
   },
 )

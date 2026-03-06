@@ -280,6 +280,30 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 80,
+    "name": "obsproject/obs-studio",
+    "description": "[INSTALL] The Windows installer of v32.1.0-rc3 can't run due to a certificate issue",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/obsproject/obs-studio/issues/13195"
+  },
+  {
+    "id": 79,
+    "name": "microsoft/vscode",
+    "description": "[BUG] Copilot creates garbled files whenever it uses the create_file tool",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/microsoft/vscode/issues/299276"
+  },
+  {
+    "id": 78,
+    "name": "vuetifyjs/nuxt-module",
+    "description": "Is Vuetify v4 supported ?",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/vuetifyjs/nuxt-module/issues/352"
+  },
+  {
     "id": 77,
     "name": "vercel-labs/skills",
     "description": "[Bug]: The update command can fail when skills is not installed with npm",
