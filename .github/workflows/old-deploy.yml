@@ -86,7 +86,6 @@ jobs:
         with:
           name: static-site
           path: static-site
-          skip-decompress: true
 
       - name: "Clean remote dir"
         uses: appleboy/ssh-action@v1
