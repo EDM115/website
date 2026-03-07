@@ -3,6 +3,8 @@
 </template>
 
 <script setup lang="ts">
+import { Temporal } from "temporal-polyfill"
+
 let headings: HTMLElement[] = []
 let scrollRaf = false
 
@@ -14,6 +16,77 @@ const activeHeadingId = ref<string | null>(null)
 const route = useRoute()
 const router = useRouter()
 const { isMobile } = useDevice()
+const blogDrt = useState<{
+  publishedTime: string;
+  readingTime: string;
+} | null>("blog-drt", () => null)
+
+function escapeHtml(input: string): string {
+  return input
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("\"", "&quot;")
+    .replaceAll("'", "&#39;")
+}
+
+function formatDate(dateStr: string) {
+  if (!dateStr) {
+    return ""
+  }
+
+  if (dateStr.includes("T")) {
+    dateStr = dateStr.split("T")[0]!
+  }
+
+  try {
+    const date = Temporal.PlainDate.from(dateStr)
+
+    return date.toLocaleString(localStorage.getItem("i18n") === "fr"
+      ? "fr-FR"
+      : "en-US", {
+      day: "2-digit",
+      weekday: "long",
+      month: "long",
+      year: "numeric",
+    })
+  } catch {
+    return dateStr
+  }
+}
+
+function replaceVisibleDrtPlaceholder() {
+  const drt = blogDrt.value
+
+  if (!drt) {
+    return
+  }
+
+  const markdownBody = document.querySelector<HTMLElement>(".markdown-body")
+
+  if (!markdownBody) {
+    return
+  }
+
+  const paragraphCandidates = Array.from(markdownBody.querySelectorAll<HTMLParagraphElement>("p"))
+  const drtParagraph = paragraphCandidates.find((paragraph) => paragraph.textContent?.includes("[[drt]]"))
+
+  if (!drtParagraph) {
+    return
+  }
+
+  const dateEscaped = escapeHtml(formatDate(drt.publishedTime))
+  const readingTimeEscaped = escapeHtml(drt.readingTime)
+  const html = `
+    <span class="md-drt">
+      <time class="md-drt__date">${dateEscaped}</time>
+      <span aria-hidden="true"> · </span>
+      <span class="md-drt__reading-time">${readingTimeEscaped}</span>
+    </span>
+  `.trim()
+
+  drtParagraph.innerHTML = drtParagraph.innerHTML.replace("[[drt]]", html)
+}
 
 function moveTocOutsideMarkdownBody() {
   const body = document.querySelector<HTMLDivElement>("div.markdown-body")
@@ -281,6 +354,7 @@ function onTocClick(e: MouseEvent) {
 
 async function run() {
   await nextTick()
+  replaceVisibleDrtPlaceholder()
   moveTocOutsideMarkdownBody()
   collectHeadings()
   setActiveTocItem()
@@ -299,10 +373,16 @@ onMounted(async () => {
 
 watch(() => route.path, async () => {
   await nextTick()
+  replaceVisibleDrtPlaceholder()
   moveTocOutsideMarkdownBody()
   collectHeadings()
   activeHeadingId.value = null
   clearActiveTocItems()
+})
+
+watch(blogDrt, async () => {
+  await nextTick()
+  replaceVisibleDrtPlaceholder()
 })
 
 onBeforeUnmount(() => {

@@ -258,6 +258,10 @@ async function parseBlogPost(
     excerpt,
   }
 
+  if (!isTelegram) {
+    post.reading_time = frontmatter.meta.find((metaItem) => metaItem.name === "reading_time")?.content || ""
+  }
+
   return {
     post,
     markdownContent,

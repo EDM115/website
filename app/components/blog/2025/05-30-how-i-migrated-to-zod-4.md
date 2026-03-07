@@ -9,11 +9,14 @@ meta:
     content: Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples.
   - name: tags
     content: tutorial, typescript, zod, migration
+  - name: reading_time
+    content: 8min
 ---
 
 [[toc]]
 
 # How I migrated the company monorepo to Zod v4 during my internship
+[[drt]]
 We all know [Zod](https://zod.dev/?id=introduction), an awesome library to validate data by type-checking, pattern-matching and more.  
 And recently the long-awaited version 4 has been released, and as the repo I worked on during my internship used it, I thought I'll take care to do this migration before the end of my internship, and learn Zod in the process !  
 You know, I believe that the companies I work at could easily call me **the migrator**, as during my 2 internships, my first task was to migrate all dependencies to their latest versions (often migrating whole frameworks and dealing with lots of deprecations).  

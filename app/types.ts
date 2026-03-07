@@ -85,6 +85,7 @@ interface BlogPostMeta {
   path: string;
   link: string;
   excerpt: string;
+  reading_time?: string;
 }
 
 interface BlogFilters {
@@ -108,6 +109,7 @@ interface FrontmatterMeta {
   "summary": string;
   "tags": string;
   "id": number;
+  "reading_time": string;
 }
 
 type MetaEntry = { [K in keyof FrontmatterMeta]: {

@@ -19,6 +19,10 @@ const props = defineProps<{
 const route = useRoute()
 const router = useRouter()
 const component = shallowRef<Component | null>(null)
+const blogDrtState = useState<{
+  publishedTime: string;
+  readingTime: string;
+} | null>("blog-drt", () => null)
 
 const rawPath = route.params.path
 const pathSegments = Array.isArray(rawPath)
@@ -76,6 +80,74 @@ function throwNotFound() {
   router.replace(props.isTelegram
     ? "/blog/telegram"
     : "/blog")
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null
+}
+
+function extractMetaString(meta: unknown, key: string): string | null {
+  if (!Array.isArray(meta)) {
+    return null
+  }
+
+  for (const entry of meta) {
+    if (!isRecord(entry)) {
+      continue
+    }
+
+    const name = typeof entry.name === "string"
+      ? entry.name.trim()
+          .toLowerCase()
+      : ""
+
+    if (name !== key.trim()
+      .toLowerCase()) {
+      continue
+    }
+
+    const content = entry.content
+
+    if (typeof content === "string") {
+      return content
+    }
+
+    if (content instanceof Date) {
+      return content.toISOString()
+    }
+
+    if (
+      typeof content === "number"
+      || typeof content === "bigint"
+      || typeof content === "boolean"
+    ) {
+      return String(content)
+    }
+  }
+
+  return null
+}
+
+function extractDrtMeta(loadedModule: unknown): {
+  publishedTime: string;
+  readingTime: string;
+} | null {
+  if (!isRecord(loadedModule)) {
+    return null
+  }
+
+  const meta = loadedModule.meta
+  const publishedTime = extractMetaString(meta, "article:published_time")
+  const readingTime = extractMetaString(meta, "reading_time")
+
+  if (!publishedTime || !readingTime) {
+    return null
+  }
+
+  return {
+    publishedTime,
+    readingTime,
+  }
 }
 
 function redirectToSearch(searchQuery: string) {
@@ -204,6 +276,8 @@ function buildSearchQuery(segments: string[]): string | null {
 }
 
 async function initialize() {
+  blogDrtState.value = null
+
   if (normalizedSegments.length < 4) {
     const searchQuery = buildSearchQuery(normalizedSegments)
 
@@ -257,6 +331,8 @@ async function initialize() {
 
     return
   }
+
+  blogDrtState.value = extractDrtMeta(loadedModule)
 
   component.value = loadedModule.default
 }

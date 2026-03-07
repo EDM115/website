@@ -59,7 +59,7 @@
     "@typescript-eslint/parser": "~8.56.1",
     "assemblyscript": "~0.28.9",
     "edm115-lint": "~0.2.0",
-    "eslint": "~10.0.2",
+    "eslint": "~10.0.3",
     "eslint-plugin-vue": "~10.8.0",
     "globals": "~17.4.0",
     "gray-matter": "~4.0.3",
@@ -68,8 +68,10 @@
     "oxlint": "~1.51.0",
     "oxlint-tsgolint": "~0.16.0",
     "pagefind": "~1.4.0",
+    "reading-time": "~1.5.0",
     "sass-embedded": "~1.97.3",
     "sass-loader": "~16.0.7",
+    "tsx": "~4.21.0",
     "typescript": "~5.9.3",
     "unplugin-icons": "~23.0.1",
     "unplugin-vue-components": "~31.0.0",
@@ -89,9 +91,10 @@
   "scripts": {
     "analyze": "pnpm prebuild && nuxt analyze",
     "build": "pnpm prebuild && nuxt build",
-    "build:blog": "node --experimental-strip-types generate-blog-data.script.ts && node -e \"console.log('📝 Generating docfind indexes for blog posts...')\" && docfind docfind/blog.json docfind/blog && node -e \"console.log('');console.log('📝 Generating docfind indexes for telegram posts...')\" && docfind docfind/telegram.json docfind/telegram && node --experimental-strip-types post.generate-blog-data.script.ts",
+    "build:blog": "tsx generate-blog-data.script.ts && node -e \"console.log('📝 Generating docfind indexes for blog posts...')\" && docfind docfind/blog.json docfind/blog && node -e \"console.log('');console.log('📝 Generating docfind indexes for telegram posts...')\" && docfind docfind/telegram.json docfind/telegram && tsx post.generate-blog-data.script.ts",
     "build:wasm": "asc assembly/polychrome_effect.ts --target release -Ospeed -Osize --converge --noAssert -o public/polychrome/effect.wasm && asc assembly/polychrome_effect_alt.ts --target release -Ospeed -Osize --converge --noAssert -o public/polychrome/effect_alt.wasm",
     "cleanup": "nuxt cleanup",
+    "cli:count-words": "tsx read-time.cli.script.ts",
     "dev": "nuxt dev --no-clear",
     "dev:expose:global": "nuxt dev --no-clear --tunnel",
     "dev:expose:local": "nuxt dev --no-clear --public",
@@ -103,8 +106,8 @@
     "lint:eslint": "eslint --cache --cache-location .eslintcache --concurrency=auto .",
     "lint:fix": "pnpm run \"/^lint:fix:.*/\"",
     "lint:fix:eslint": "eslint --concurrency=auto --fix .",
-    "lint:fix:oxlint": "oxlint --fix --type-aware .",
-    "lint:oxlint": "oxlint --type-aware .",
+    "lint:fix:oxlint": "oxlint --fix .",
+    "lint:oxlint": "oxlint .",
     "prebuild": "pnpm build:wasm && pnpm build:blog",
     "preview": "nuxt preview --port 8000",
     "start:ssg": "pnpm dlx serve .output/public -p 8000 -s",
@@ -112,5 +115,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.13.4"
+  "version": "2.14.0"
 }

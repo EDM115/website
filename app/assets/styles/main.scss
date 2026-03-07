@@ -437,6 +437,12 @@ li {
   }
 }
 
+.md-drt {
+  margin-bottom: 16px;
+  display: inline-block;
+  color: var(--text-muted);
+}
+
 .ui-card.glass,
 .ui-app-bar.navbar-glass {
   border-radius: 16px;

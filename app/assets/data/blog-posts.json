@@ -11,7 +11,8 @@
     ],
     "path": "2025/12-22-the-5-levels-of-optimization.md",
     "link": "/blog/2025/12/22/the-5-levels-of-optimization",
-    "excerpt": "A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things."
+    "excerpt": "A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things.",
+    "reading_time": "10min 19s"
   },
   {
     "id": "2025-05-30-how-i-migrated-to-zod-4",
@@ -25,7 +26,8 @@
     ],
     "path": "2025/05-30-how-i-migrated-to-zod-4.md",
     "link": "/blog/2025/05/30/how-i-migrated-to-zod-4",
-    "excerpt": "Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples."
+    "excerpt": "Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples.",
+    "reading_time": "8min"
   },
   {
     "id": "2025-01-22-how-to-send-dtmf-on-android",
@@ -41,7 +43,8 @@
     ],
     "path": "2025/01-22-how-to-send-dtmf-on-android.md",
     "link": "/blog/2025/01/22/how-to-send-dtmf-on-android",
-    "excerpt": "Discover why sending DTMF tones on Android isn't as straightforward as it seems, and follow me on an adventure to the final workaround I made while developing an app for disabled users as a school project."
+    "excerpt": "Discover why sending DTMF tones on Android isn't as straightforward as it seems, and follow me on an adventure to the final workaround I made while developing an app for disabled users as a school project.",
+    "reading_time": "17min 27s"
   },
   {
     "id": "2024-08-20-education-to-pro",
@@ -54,7 +57,8 @@
     ],
     "path": "2024/08-20-education-to-pro.md",
     "link": "/blog/2024/08/20/education-to-pro",
-    "excerpt": "A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality."
+    "excerpt": "A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality.",
+    "reading_time": "6min 3s"
   },
   {
     "id": "2022-05-15-google-ending-shared-drives",
@@ -67,6 +71,7 @@
     ],
     "path": "2022/05-15-google-ending-shared-drives.md",
     "link": "/blog/2022/05/15/google-ending-shared-drives",
-    "excerpt": "Google is ending its Education Shared Drives unlimited storage offering as part of a broader storage policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users and alternative cloud storage solutions."
+    "excerpt": "Google is ending its Education Shared Drives unlimited storage offering as part of a broader storage policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users and alternative cloud storage solutions.",
+    "reading_time": "5min 30s"
   }
 ]

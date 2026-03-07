@@ -9,11 +9,14 @@ meta:
     content: A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things.
   - name: tags
     content: typescript, optimization, performance, cli
+  - name: reading_time
+    content: 10min 19s
 ---
 
 [[toc]]
 
 # The 5 "levels" of optimization (no, it didn't drive me insane !)
+[[drt]]
 This blog post will detail the 5 ~~stages of grief~~ levels I went through when trying to optimize a function for a CLI tool I built ([`monorepo-hash`](https://github.com/EDM115/monorepo-hash)).
 > [!NOTE]  
 > I'm not claiming these are the 5 sacred commandments of performance engineering, nor am I saying that any of these accurately represent their associated "career level", they're just depicted as quick landmarks.  

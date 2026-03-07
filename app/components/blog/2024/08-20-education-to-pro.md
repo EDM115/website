@@ -9,11 +9,14 @@ meta:
     content: A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality.
   - name: tags
     content: tutorial, windows, education
+  - name: reading_time
+    content: 6min 3s
 ---
 
 [[toc]]
 
 # How I successfully managed to make a Windows Education laptop free from school (so you don't struggle trying to)
+[[drt]]
 
 ### Quick backstory
 My gf have been given a laptop by her school. When she finished her studies, she was able to keep it. But it was still linked to an education account, managed by Intune/Azure ActiveDirectory and it was Windows Education. Here's how i turned it into a normal Windows machine :)
