@@ -19,6 +19,7 @@ import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill"
 const i18nHead = useLocaleHead()
 const route = useRoute()
 const {
+  locale,
   t,
   setLocale,
 } = useI18n()
@@ -77,7 +78,23 @@ useCopySlug()
 useCopyCode()
 
 onMounted(() => {
-  setLocale(localStorage.getItem("i18n") as "en" | "fr" | null ?? "en")
+  const storedLocale = localStorage.getItem("i18n")
+  const normalizedStoredLocale = storedLocale === "en" || storedLocale === "fr"
+    ? storedLocale
+    : null
+
+  if (normalizedStoredLocale) {
+    if (locale.value !== normalizedStoredLocale) {
+      setLocale(normalizedStoredLocale)
+    }
+  } else {
+    const detectedLocale = locale.value === "fr"
+      ? "fr"
+      : "en"
+
+    localStorage.setItem("i18n", detectedLocale)
+  }
+
   polyfillCountryFlagEmojis(
     "Twemoji Country Flags",
     "/fonts/TwemojiCountryFlags.woff2",

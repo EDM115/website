@@ -120,5 +120,5 @@
     "typecheck:experimental:vue-tsgo": "vue-tsgo -b --noEmit"
   },
   "type": "module",
-  "version": "2.15.0"
+  "version": "2.15.1"
 }
