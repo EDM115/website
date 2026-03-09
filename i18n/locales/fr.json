@@ -15,7 +15,7 @@
     "search_placeholder": "Rechercher dans les blogs...",
     "tag_filter": "Filtrer les articles par le tag {tag}",
     "telegram": {
-      "description": "Posts Telegram de mon canal ({'@'}EDM115bots)",
+      "description": "Posts Telegram de mon canal (\\@EDM115bots)",
       "head": "Posts Telegram - EDM115",
       "no_results": "Aucun post Telegram ne correspond à votre recherche",
       "search_placeholder": "Rechercher dans les posts Telegram...",
@@ -88,7 +88,7 @@
               "summary": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ..."
             },
             "location": "Vannes, France",
-            "title": "Stage {'@'} Koumoul"
+            "title": "Stage \\@ Koumoul"
           },
           "nexelec": {
             "date": "Février 2025 - Juin 2025",
@@ -104,7 +104,7 @@
               "summary": "Un stage de 16 semaines où j'ai appris à travailler dans une grande équipe, à utiliser Next.js, Fastify, Terraform, InfluxDB, ..."
             },
             "location": "Saint-Avé, France",
-            "title": "Stage {'@'} Nexelec"
+            "title": "Stage \\@ Nexelec"
           }
         },
         "professional": "Expérience professionnelle"
@@ -195,6 +195,6 @@
       "title": "Statistiques (pas en direct)",
       "users": "Utilisateurs"
     },
-    "telegram": "{'@'}unzip_edm115bot"
+    "telegram": "\\@unzip_edm115bot"
   }
 }

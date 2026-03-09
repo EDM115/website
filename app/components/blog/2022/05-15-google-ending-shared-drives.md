@@ -8,7 +8,7 @@ meta:
   - name: summary
     content: Google is ending its Education Shared Drives unlimited storage offering as part of a broader storage policy change effective July 2022, a decision driven by widespread abuse and rapidly rising storage use. Find out why this happened, its implications for users and alternative cloud storage solutions.
   - name: tags
-    content: google, cloud, storage
+    content: cloud, storage, google
   - name: reading_time
     content: 5min 30s
 ---

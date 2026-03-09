@@ -8,7 +8,7 @@ meta:
   - name: summary
     content: A complete guide on how I transformed a school-managed Windows Education laptop into a regular Windows machine, including migration steps, unlinking from school accounts and final touches to ensure full functionality.
   - name: tags
-    content: tutorial, windows, education
+    content: tutorial, education, windows
   - name: reading_time
     content: 6min 3s
 ---

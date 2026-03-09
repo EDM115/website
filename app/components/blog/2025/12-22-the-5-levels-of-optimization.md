@@ -8,7 +8,7 @@ meta:
   - name: summary
     content: A journey through the 5 stages of optimization I went through while optimizing a CLI tool I made, because apparently I love to over-engineer things.
   - name: tags
-    content: typescript, optimization, performance, cli
+    content: project, optimization, performance, cli, typescript
   - name: reading_time
     content: 10min 19s
 ---

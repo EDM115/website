@@ -8,7 +8,7 @@ meta:
   - name: summary
     content: Discover why sending DTMF tones on Android isn't as straightforward as it seems, and follow me on an adventure to the final workaround I made while developing an app for disabled users as a school project.
   - name: tags
-    content: tutorial, android, accessibility, kotlin, java, phone
+    content: tutorial, android, accessibility, phone, kotlin, java
   - name: reading_time
     content: 17min 27s
 ---

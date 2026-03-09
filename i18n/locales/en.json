@@ -15,7 +15,7 @@
     "search_placeholder": "Search blog posts...",
     "tag_filter": "Filter blog posts by the tag {tag}",
     "telegram": {
-      "description": "Telegram posts from my channel ({'@'}EDM115bots)",
+      "description": "Telegram posts from my channel (\\@EDM115bots)",
       "head": "Telegram posts - EDM115",
       "no_results": "No telegram posts found matching your search",
       "search_placeholder": "Search telegram posts...",
@@ -88,7 +88,7 @@
               "summary": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ..."
             },
             "location": "Vannes, France",
-            "title": "Internship {'@'} Koumoul"
+            "title": "Internship \\@ Koumoul"
           },
           "nexelec": {
             "date": "February 2025 - June 2025",
@@ -104,7 +104,7 @@
               "summary": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ..."
             },
             "location": "Saint-Avé, France",
-            "title": "Internship {'@'} Nexelec"
+            "title": "Internship \\@ Nexelec"
           }
         },
         "professional": "Professional experience"
@@ -195,6 +195,6 @@
       "title": "Stats (not live)",
       "users": "Users"
     },
-    "telegram": "{'@'}unzip_edm115bot"
+    "telegram": "\\@unzip_edm115bot"
   }
 }

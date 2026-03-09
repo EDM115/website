@@ -8,7 +8,7 @@ meta:
   - name: summary
     content: Here's a quick 0 bs guide on the main takeaways from my experience migrating a large monorepo to Zod v4 during my internship, including practical tips and code examples.
   - name: tags
-    content: tutorial, typescript, zod, migration
+    content: tutorial, migration, zod, typescript
   - name: reading_time
     content: 8min
 ---

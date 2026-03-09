@@ -1,13 +1,29 @@
 [
   {
+    "id": "2026-02-15-how-i-made-spendly",
+    "title": "How I made a budget tracker for my gf because she kept complaining about Google Sheets",
+    "date": "2026-02-15",
+    "tags": [
+      "project",
+      "copilot",
+      "devchallenge",
+      "nuxt"
+    ],
+    "path": "2026/02-15-how-i-made-spendly.md",
+    "link": "/blog/2026/02/15/how-i-made-spendly",
+    "excerpt": "A breakdown of how Spendly grew from a spreadsheet replacement into a full web app with charts, exports, and shared budgets, all while using GitHub Copilot CLI to supercharge development and ship features at lightning speed.",
+    "reading_time": "11min 43s"
+  },
+  {
     "id": "2025-12-22-the-5-levels-of-optimization",
     "title": "The 5 \"levels\" of optimization (no, it didn't drive me insane !)",
     "date": "2025-12-22",
     "tags": [
-      "typescript",
+      "project",
       "optimization",
       "performance",
-      "cli"
+      "cli",
+      "typescript"
     ],
     "path": "2025/12-22-the-5-levels-of-optimization.md",
     "link": "/blog/2025/12/22/the-5-levels-of-optimization",
@@ -20,9 +36,9 @@
     "date": "2025-05-30",
     "tags": [
       "tutorial",
-      "typescript",
+      "migration",
       "zod",
-      "migration"
+      "typescript"
     ],
     "path": "2025/05-30-how-i-migrated-to-zod-4.md",
     "link": "/blog/2025/05/30/how-i-migrated-to-zod-4",
@@ -37,9 +53,9 @@
       "tutorial",
       "android",
       "accessibility",
+      "phone",
       "kotlin",
-      "java",
-      "phone"
+      "java"
     ],
     "path": "2025/01-22-how-to-send-dtmf-on-android.md",
     "link": "/blog/2025/01/22/how-to-send-dtmf-on-android",
@@ -52,8 +68,8 @@
     "date": "2024-08-20",
     "tags": [
       "tutorial",
-      "windows",
-      "education"
+      "education",
+      "windows"
     ],
     "path": "2024/08-20-education-to-pro.md",
     "link": "/blog/2024/08/20/education-to-pro",
@@ -65,9 +81,9 @@
     "title": "Google ending Edu shared drives, everything you need to know",
     "date": "2022-05-15",
     "tags": [
-      "google",
       "cloud",
-      "storage"
+      "storage",
+      "google"
     ],
     "path": "2022/05-15-google-ending-shared-drives.md",
     "link": "/blog/2022/05/15/google-ending-shared-drives",
