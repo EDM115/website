@@ -6,7 +6,7 @@
       expandable
       :expanded="isMobile"
       hover-color="primary"
-      :icon="mdiGithub"
+      :icon="simpleGithub"
       :text="t('projects.gh')"
       variant="frosted"
       link="https://github.com/EDM115"
@@ -51,9 +51,9 @@
 </template>
 
 <script setup lang="ts">
+import simpleGithub from "~icons/simple-icons/github"
 import simpleNpm from "~icons/simple-icons/npm"
 import simplePypi from "~icons/simple-icons/pypi"
-import mdiGithub from "~icons/mdi/github"
 import mdiLinkVariant from "~icons/mdi/linkVariant"
 
 const route = useRoute()
@@ -100,7 +100,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/unzip-bot",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -120,7 +120,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/monorepo-hash",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -140,7 +140,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Spendly",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -155,7 +155,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/better-maps",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -170,7 +170,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/unrar-alpine",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -185,7 +185,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/website",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -200,7 +200,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/EDM115-ohmyposh-theme",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -220,7 +220,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/palex",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -240,7 +240,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/js-imports-sort",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -260,7 +260,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/booleanfix",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -280,7 +280,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/random-algorithm",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -300,7 +300,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/edm115-lint",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -320,7 +320,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/light-odometer",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -335,7 +335,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115-org/Senescalade",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -350,7 +350,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Bulk-YouTube-Download",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -365,7 +365,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/VGM-KHI-download",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -380,7 +380,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/shared-files",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -395,7 +395,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/dotfiles",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -410,7 +410,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/web-logs",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -425,7 +425,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/Markdown_Syntax_FR",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -440,7 +440,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/useful-stuff",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },
@@ -455,7 +455,7 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/The-Very-Restrictive-License",
-        icon: mdiGithub,
+        icon: simpleGithub,
       },
     ],
   },

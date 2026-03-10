@@ -5,7 +5,7 @@
     <UiButton
       link="/blog/telegram"
       :text="t('blog.telegram_button')"
-      :prepend-icon="icBaselineTelegram"
+      :prepend-icon="simpleTelegram"
       hover-color="primary"
       style="margin-bottom: 1em;"
       variant="frosted"
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import icBaselineTelegram from "~icons/ic/baseline-telegram"
+import simpleTelegram from "~icons/simple-icons/telegram"
 
 const route = useRoute()
 const { t } = useI18n()

@@ -38,16 +38,6 @@ const rootStyle = computed(() => {
   position: relative;
   padding-left: var(--ui-stepper-axis);
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: var(--ui-stepper-thread-x);
-    top: 1.5rem;
-    bottom: 0;
-    width: 2px;
-    background: var(--surface);
-  }
-
   &--scrollable {
     --ui-stepper-item-size: 5rem;
     max-height: calc(

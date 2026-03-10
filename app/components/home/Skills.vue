@@ -38,14 +38,14 @@
 </template>
 
 <script setup lang="ts">
-import logosDocker from "~icons/logos/docker-icon"
+import logosDocker from "~icons/logos/dockerIcon"
+import logosGit from "~icons/logos/gitIcon"
 import logosJava from "~icons/logos/java"
-import deviconGit from "~icons/devicon/git"
-import deviconReact from "~icons/devicon/react"
-import deviconMysql from "~icons/devicon/mysql"
-import skillTypescript from "~icons/skill-icons/typescript"
-import vscodePython from "~icons/vscode-icons/file-type-python"
-import vscodeVue from "~icons/vscode-icons/file-type-vue"
+import logosMysql from "~icons/logos/mysqlIcon"
+import logosPython from "~icons/logos/python"
+import logosReact from "~icons/logos/react"
+import logosTypescript from "~icons/logos/typescriptIcon"
+import logosVue from "~icons/logos/vue"
 
 import terminal from "~~/public/img/icons/terminal.svg"
 
@@ -53,28 +53,28 @@ let observer: IntersectionObserver | null = null
 
 const skills = ref([
   {
-    id: 0, name: "Python", value: 85, displayedValue: 0, icon: vscodePython,
+    id: 0, name: "Python", value: 85, displayedValue: 0, icon: logosPython,
   },
   {
     id: 1, name: "Java", value: 75, displayedValue: 0, icon: logosJava,
   },
   {
-    id: 2, name: "React", value: 60, displayedValue: 0, icon: deviconReact,
+    id: 2, name: "React", value: 60, displayedValue: 0, icon: logosReact,
   },
   {
-    id: 3, name: "TypeScript", value: 85, displayedValue: 0, icon: skillTypescript,
+    id: 3, name: "TypeScript", value: 85, displayedValue: 0, icon: logosTypescript,
   },
   {
-    id: 4, name: "Vue", value: 85, displayedValue: 0, icon: vscodeVue,
+    id: 4, name: "Vue", value: 85, displayedValue: 0, icon: logosVue,
   },
   {
     id: 5, name: "Docker", value: 70, displayedValue: 0, icon: logosDocker,
   },
   {
-    id: 6, name: "Git", value: 90, displayedValue: 0, icon: deviconGit,
+    id: 6, name: "Git", value: 90, displayedValue: 0, icon: logosGit,
   },
   {
-    id: 7, name: "SQL", value: 70, displayedValue: 0, icon: deviconMysql,
+    id: 7, name: "SQL", value: 70, displayedValue: 0, icon: logosMysql,
   },
   {
     id: 8, name: "Bash", value: 80, displayedValue: 0, icon: markRaw(terminal),

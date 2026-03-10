@@ -40,7 +40,7 @@
               <UiButton
                 color="primary"
                 class="mt-2"
-                :prepend-icon="mdiGithub"
+                :prepend-icon="simpleGithub"
                 :text="t('opensource.link')"
                 :link="contrib.link"
                 aria="GitHub link"
@@ -68,7 +68,7 @@
               <UiButton
                 color="primary"
                 class="mt-2"
-                :prepend-icon="mdiGithub"
+                :prepend-icon="simpleGithub"
                 :text="t('opensource.link')"
                 :link="contrib.link"
                 aria="GitHub link"
@@ -82,13 +82,13 @@
 </template>
 
 <script setup lang="ts">
-import mdiGithub from "~icons/mdi/github"
 import octiconIssueClosed from "~icons/octicon/issue-closed-16"
 import octiconIssueOpened from "~icons/octicon/issue-opened-16"
 import octiconPullRequest from "~icons/octicon/git-pull-request-16"
 import octiconPullRequestClosed from "~icons/octicon/git-pull-request-closed-16"
 import octiconPullRequestMerged from "~icons/octicon/git-merge-16"
-import pajamasIssueClose from "~icons/pajamas/issue-close"
+import pajamasIssueClose from "~icons/pajamas/issueClose"
+import simpleGithub from "~icons/simple-icons/github"
 
 import contributions from "~/assets/data/contributions.json"
 

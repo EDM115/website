@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import mdiCookieAlertOutline from "~icons/mdi/cookie-alert-outline"
+import mdiCookieAlertOutline from "~icons/mdi/cookieAlertOutline"
 
 import { vOnClickOutside } from "@vueuse/components"
 

@@ -53,7 +53,7 @@
           :expanded="route.path === '/' && !isMobile"
           :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
           hover-color="primary"
-          :icon="flowbiteFileZipOutline"
+          :icon="materialSymbolsFolderZipOutline"
           :text="t('home.unzip')"
           variant="frosted"
           link="/unzip"
@@ -166,7 +166,7 @@
             class="navbar-mobile-panel--link"
             :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
             hover-color="primary"
-            :prepend-icon="flowbiteFileZipOutline"
+            :prepend-icon="materialSymbolsFolderZipOutline"
             :text="t('home.unzip')"
             variant="frosted"
             link="/unzip"
@@ -199,7 +199,7 @@
 </template>
 
 <script setup lang="ts">
-import flowbiteFileZipOutline from "~icons/flowbite/fileZipOutline"
+import materialSymbolsFolderZipOutline from "~icons/material-symbols/folderZipOutline"
 import mdiArrowLeft from "~icons/mdi/arrowLeft"
 import mdiClose from "~icons/mdi/close"
 import mdiCodeBlockTags from "~icons/mdi/codeBlockTags"

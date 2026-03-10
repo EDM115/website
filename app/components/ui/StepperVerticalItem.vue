@@ -125,6 +125,30 @@ function toggle() {
   transition: background-color .2s ease, box-shadow .2s ease;
   min-height: var(--ui-stepper-item-size, 4.5rem);
 
+  &:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--ui-stepper-axis) + var(--ui-stepper-thread-x));
+    top: 1.5rem;
+    height: calc(100% + var(--ui-stepper-gap));
+    width: 2px;
+    background: var(--surface);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:last-child::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--ui-stepper-axis) + var(--ui-stepper-thread-x));
+    top: 1.5rem;
+    height: calc(100% - 1.5rem);
+    width: 2px;
+    background: var(--surface);
+    pointer-events: none;
+    z-index: 1;
+  }
+
   &:hover {
     background: color-mix(in srgb, var(--surface) 88%, transparent);
   }

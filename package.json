@@ -41,7 +41,7 @@
     "markdown-it-toc-done-right": "~4.2.0",
     "nuxt": "~4.3.1",
     "nuxt-svgo": "~4.2.6",
-    "temporal-polyfill": "~0.3.0",
+    "temporal-polyfill": "~0.3.1",
     "ufo": "~1.6.3",
     "vue": "~3.5.30",
     "vue-i18n": "~11.3.0"
@@ -59,7 +59,7 @@
     "@types/node": "latest",
     "@typescript/native-preview": "latest",
     "@typescript-eslint/parser": "~8.57.0",
-    "assemblyscript": "~0.28.9",
+    "assemblyscript": "~0.28.10",
     "edm115-lint": "~0.2.0",
     "eslint": "~10.0.3",
     "eslint-plugin-vue": "~10.8.0",
@@ -68,7 +68,7 @@
     "gray-matter": "~4.0.3",
     "jiti": "~2.6.1",
     "lightningcss": "~1.32.0",
-    "oxlint": "~1.51.0",
+    "oxlint": "~1.52.0",
     "oxlint-tsgolint": "~0.16.0",
     "pagefind": "~1.4.0",
     "reading-time": "~1.5.0",
@@ -120,5 +120,5 @@
     "typecheck:experimental:vue-tsgo": "vue-tsgo -b --noEmit"
   },
   "type": "module",
-  "version": "2.15.1"
+  "version": "2.15.2"
 }

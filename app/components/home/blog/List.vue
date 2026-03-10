@@ -113,8 +113,8 @@
 </template>
 
 <script setup lang="ts">
-import mdiChevronLeft from "~icons/mdi/chevron-left"
-import mdiChevronRight from "~icons/mdi/chevron-right"
+import mdiChevronLeft from "~icons/mdi/chevronLeft"
+import mdiChevronRight from "~icons/mdi/chevronRight"
 
 import { Temporal } from "temporal-polyfill"
 

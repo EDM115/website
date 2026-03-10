@@ -19,113 +19,113 @@
 </template>
 
 <script setup lang="ts">
-import hugeIconsSpotify from "~icons/hugeicons/spotify"
-import icBaselineDiscord from "~icons/ic/baseline-discord"
-import icBaselineTelegram from "~icons/ic/baseline-telegram"
-import mdiDocker from "~icons/mdi/docker"
-import mdiGithub from "~icons/mdi/github"
-import mdiInstagram from "~icons/mdi/instagram"
-import mdiLinkedin from "~icons/mdi/linkedin"
-import mdiPaypal from "~icons/mdi/paypal"
-import mdiReddit from "~icons/mdi/reddit"
-import mdiSoundcloud from "~icons/mdi/soundcloud"
-import mdiSpotify from "~icons/mdi/spotify"
-import mdiStackOverflow from "~icons/mdi/stackOverflow"
-import mdiSteam from "~icons/mdi/steam"
-import mdiWhatsapp from "~icons/mdi/whatsapp"
-import mdiYoutube from "~icons/mdi/youtube"
-import pajamasTwitter from "~icons/pajamas/twitter"
-import simpleIconsAppleMusic from "~icons/simple-icons/applemusic"
-import simpleIconsBuymeacoffee from "~icons/simple-icons/buymeacoffee"
+import hugeSpotify from "~icons/hugeicons/spotify"
+import simpleAppleMusic from "~icons/simple-icons/applemusic"
+import simpleBuymeacoffee from "~icons/simple-icons/buymeacoffee"
+import simpleDiscord from "~icons/simple-icons/discord"
+import simpleDocker from "~icons/simple-icons/docker"
+import simpleGithub from "~icons/simple-icons/github"
+import simpleInstagram from "~icons/simple-icons/instagram"
+import simplePaypal from "~icons/simple-icons/paypal"
+import simpleReddit from "~icons/simple-icons/reddit"
+import simpleSoundcloud from "~icons/simple-icons/soundcloud"
+import simpleSpotify from "~icons/simple-icons/spotify"
+import simpleStackOverflow from "~icons/simple-icons/stackoverflow"
+import simpleSteam from "~icons/simple-icons/steam"
+import simpleTelegram from "~icons/simple-icons/telegram"
+import simpleWhatsapp from "~icons/simple-icons/whatsapp"
+import simpleX from "~icons/simple-icons/x"
+import simpleYoutube from "~icons/simple-icons/youtube"
+import uniconsLinkedin from "~icons/uil/linkedin"
 
 const socialLinks = [
   {
-    icon: mdiGithub,
+    icon: simpleGithub,
     text: "GitHub",
     url: "https://github.com/EDM115",
   },
   {
-    icon: icBaselineTelegram,
+    icon: simpleTelegram,
     text: "Telegram",
     url: "https://t.me/EDM115",
   },
   {
-    icon: icBaselineDiscord,
+    icon: simpleDiscord,
     text: "Discord",
     url: "https://discord.com/users/625240117560475658",
   },
   {
-    icon: mdiSpotify,
+    icon: simpleSpotify,
     text: "Spotify",
     url: "https://open.spotify.com/user/6vfix5kti0ri2azoz1map7wg4",
   },
   {
-    icon: mdiLinkedin,
+    icon: uniconsLinkedin,
     text: "LinkedIn",
     url: "https://www.linkedin.com/in/edm115/",
   },
   {
-    icon: mdiPaypal,
+    icon: simplePaypal,
     text: "PayPal",
     url: "https://paypal.me/8EDM115",
   },
   {
-    icon: simpleIconsBuymeacoffee,
+    icon: simpleBuymeacoffee,
     text: "BuyMeACoffee",
     url: "https://www.buymeacoffee.com/edm115",
   },
   {
-    icon: mdiSteam,
+    icon: simpleSteam,
     text: "Steam",
     url: "https://steamcommunity.com/id/EDM115/",
   },
   {
-    icon: mdiReddit,
+    icon: simpleReddit,
     text: "Reddit",
     url: "https://www.reddit.com/user/EDM115",
   },
   {
-    icon: pajamasTwitter,
+    icon: simpleX,
     text: "𝕏",
     url: "https://x.com/_EDM115",
   },
   {
-    icon: mdiInstagram,
+    icon: simpleInstagram,
     text: "Instagram",
     url: "https://instagram.com/_edm1.15",
   },
   {
-    icon: mdiStackOverflow,
+    icon: simpleStackOverflow,
     text: "StackOverflow",
     url: "https://stackoverflow.com/users/18644204",
   },
   {
-    icon: mdiWhatsapp,
+    icon: simpleWhatsapp,
     text: "WhatsApp",
     url: "https://api.whatsapp.com/send?phone=33667980504",
   },
   {
-    icon: mdiDocker,
+    icon: simpleDocker,
     text: "Docker Hub",
     url: "https://hub.docker.com/u/edm115",
   },
   {
-    icon: hugeIconsSpotify,
+    icon: hugeSpotify,
     text: "Spotify artist",
     url: "https://open.spotify.com/artist/5O33If0zoso9G3RkEKrERI",
   },
   {
-    icon: simpleIconsAppleMusic,
+    icon: simpleAppleMusic,
     text: "Apple Music",
     url: "https://music.apple.com/fr/artist/edm115/1716756983",
   },
   {
-    icon: mdiSoundcloud,
+    icon: simpleSoundcloud,
     text: "SoundCloud",
     url: "https://soundcloud.com/EDM115",
   },
   {
-    icon: mdiYoutube,
+    icon: simpleYoutube,
     text: "YouTube",
     url: "https://youtube.com/@_EDM115",
   },

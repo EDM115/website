@@ -32,7 +32,7 @@
           <div style="gap:.75rem; display: flex; flex-wrap:wrap; margin-top:1rem; justify-content: center;">
             <UiButton
               color="primary"
-              :prepend-icon="mdiGithub"
+              :prepend-icon="simpleGithub"
               :text="t('unzip.github')"
               link="https://github.com/EDM115/unzip-bot/tree/v7-rework-part-1"
               variant="elevated"
@@ -40,7 +40,7 @@
             />
             <UiButton
               color="primary"
-              :prepend-icon="icBaselineTelegram"
+              :prepend-icon="simpleTelegram"
               :text="t('unzip.telegram')"
               link="https://t.me/unzip_edm115bot"
               variant="elevated"
@@ -138,15 +138,15 @@
 
 <script setup lang="ts">
 import biHdd from "~icons/bi/hdd"
-import icBaselineTelegram from "~icons/ic/baseline-telegram"
 import materialSymbolsScanOutline from "~icons/material-symbols/scanOutline"
 import mdiCalendarRangeOutline from "~icons/mdi/calendarRangeOutline"
 import mdiCode from "~icons/mdi/code"
-import mdiGithub from "~icons/mdi/github"
 import mdiLinkVariant from "~icons/mdi/linkVariant"
 import mdiUsersOutline from "~icons/mdi/usersOutline"
 import octiconRepoForked from "~icons/octicon/repo-forked-16"
 import octiconStar from "~icons/octicon/star-16"
+import simpleGithub from "~icons/simple-icons/github"
+import simpleTelegram from "~icons/simple-icons/telegram"
 
 import { Temporal } from "temporal-polyfill"
 
