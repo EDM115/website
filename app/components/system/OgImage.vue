@@ -15,7 +15,7 @@
   >
     <div
       class="flex flex-row justify-between items-center w-full"
-      :style="{ flex: '1' }"
+      :style="contentRowStyle"
     >
       <div
         class="flex flex-col justify-center h-full pr-[50px]"
@@ -23,14 +23,7 @@
       >
         <h1
           class="m-0 font-bold leading-tight"
-          :style="{
-            color: '#eae7de',
-            fontSize: '90px',
-            display: '-webkit-box',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            textWrap: 'pretty',
-          }"
+          :style="titleStyle"
         >
           {{ displayTitle }}
         </h1>
@@ -38,15 +31,7 @@
         <p
           v-if="displayDescription"
           class="leading-snug"
-          :style="{
-            color: '#c7c4b6',
-            fontSize: '42px',
-            marginTop: '40px',
-            display: '-webkit-box',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            textWrap: 'pretty',
-          }"
+          :style="descriptionStyle"
         >
           {{ displayDescription }}
         </p>
@@ -127,6 +112,42 @@ const { t } = useI18n()
 
 const displayTitle = computed(() => props.title || t("main.head"))
 const displayDescription = computed(() => props.description || "")
+
+const isDenseTextLayout = computed(() => {
+  const titleLength = displayTitle.value.length
+  const descriptionLength = displayDescription.value.length
+
+  // Weighted score tuned for a 1920x1080 OG canvas.
+  // Description tends to wrap more lines than title at this font ratio.
+  const densityScore = titleLength + (descriptionLength * 0.75)
+
+  return densityScore > 220
+})
+
+const contentRowStyle = computed(() => ({
+  flex: "1",
+  marginTop: isDenseTextLayout.value ? "-24px" : undefined,
+  marginBottom: isDenseTextLayout.value ? "-24px" : undefined,
+}))
+
+const titleStyle = computed(() => ({
+  color: "#eae7de",
+  fontSize: "90px",
+  display: "-webkit-box",
+  overflow: isDenseTextLayout.value ? "visible" : "hidden",
+  textOverflow: isDenseTextLayout.value ? undefined : "ellipsis",
+  textWrap: "pretty",
+}))
+
+const descriptionStyle = computed(() => ({
+  color: "#c7c4b6",
+  fontSize: "42px",
+  marginTop: isDenseTextLayout.value ? "30px" : "40px",
+  display: "-webkit-box",
+  overflow: isDenseTextLayout.value ? "visible" : "hidden",
+  textOverflow: isDenseTextLayout.value ? undefined : "ellipsis",
+  textWrap: "pretty",
+}))
 
 const cleanPath = computed(() => {
   const domain = props.domain || "edm115.dev"
