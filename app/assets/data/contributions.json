@@ -280,6 +280,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 81,
+    "name": "fullcalendar/temporal-polyfill",
+    "description": "Rollup complains since v0.3.1",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/fullcalendar/temporal-polyfill/issues/90"
+  },
+  {
     "id": 80,
     "name": "obsproject/obs-studio",
     "description": "[INSTALL] The Windows installer of v32.1.0-rc3 can't run due to a certificate issue",
