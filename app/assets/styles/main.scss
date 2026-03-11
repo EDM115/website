@@ -513,8 +513,7 @@ li {
 }
 
 .markdown-body img,
-.markdown-body video,
-.markdown-body iframe {
+.markdown-body video {
   max-width: 100%;
   height: auto;
   max-height: 50svw;
@@ -522,6 +521,18 @@ li {
   @media (max-width: 600px) {
     max-width: 90svw;
     max-height: 80svw;
+  }
+}
+
+.markdown-body iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+
+  @media (max-width: 600px) {
+    max-width: 90svw;
   }
 }
 
