@@ -513,7 +513,8 @@ li {
 }
 
 .markdown-body img,
-.markdown-body video {
+.markdown-body video,
+.markdown-body iframe {
   max-width: 100%;
   height: auto;
   max-height: 50svw;
