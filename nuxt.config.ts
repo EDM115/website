@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     "@nuxt/a11y",
     "@nuxt/eslint",
     "@nuxt/fonts",
-    "@nuxt/hints",
+    // "@nuxt/hints",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
@@ -154,6 +154,7 @@ export default defineNuxtConfig({
     extractAsyncDataHandlers: true,
     inlineRouteRules: true,
     normalizeComponentNames: true,
+    normalizePageNames: true,
     parseErrorData: true,
     sharedPrerenderData: true,
     typedPages: true,
@@ -161,13 +162,12 @@ export default defineNuxtConfig({
     viewTransition: true,
     viteEnvironmentApi: true,
   },
-  compatibilityDate: "2026-02-01",
+  compatibilityDate: "2026-03-01",
   nitro: {
     compressPublicAssets: {
       brotli: true,
       gzip: true,
     },
-    esbuild: { options: { target: "esnext" } },
     minify: true,
     prerender: {
       crawlLinks: true,
@@ -181,10 +181,15 @@ export default defineNuxtConfig({
     css: {
       preprocessorMaxWorkers: true,
     },
+    optimizeDeps: {
+      include: [
+        "country-flag-emoji-polyfill",
+        "light-odometer",
+        "temporal-polyfill",
+      ]
+    },
     plugins: [
-      // @ts-expect-error PNPM + Vite + Rollup issue
       Icons({ compiler: "vue3" }),
-      // @ts-expect-error PNPM + Vite + Rollup issue
       Markdown({
         headEnabled: true,
         markdownOptions: {
@@ -285,7 +290,6 @@ export default defineNuxtConfig({
           }
         },
       }),
-      // @ts-expect-error PNPM + Vite + Rollup issue
       Components({
         collapseSamePrefixes: true,
         directoryAsNamespace: true,

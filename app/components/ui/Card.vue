@@ -3,14 +3,17 @@
     :class="classes"
     :style="maxWidthStyle"
   >
-    <h1 class="ui-card--title">
-      <slot name="title" />
-    </h1>
-    <p :class="['ui-card--content', small && 'ui-card--content--small']">
-      <slot />
-    </p>
     <div
-      v-if="actions"
+      v-if="$slots.title"
+      class="ui-card--title"
+    >
+      <slot name="title" />
+    </div>
+    <div :class="['ui-card--content', small && 'ui-card--content--small']">
+      <slot />
+    </div>
+    <div
+      v-if="actions || $slots.actions"
       class="ui-card--actions"
     >
       <slot name="actions" />

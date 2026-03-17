@@ -122,7 +122,7 @@
                   variant="flat"
                 >
                   <template #title>
-                    {{ skill.name }}
+                    <h3>{{ skill.name }}</h3>
                   </template>
 
                   {{ skill.description }}
