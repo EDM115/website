@@ -4,7 +4,7 @@
     "name": "vercel-labs/skills",
     "description": "feat: indicate which skills failed to update, fix #362, code cleanup",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/vercel-labs/skills/pull/387"
   },
   {
@@ -308,7 +308,7 @@
     "name": "vuetifyjs/nuxt-module",
     "description": "Is Vuetify v4 supported ?",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/vuetifyjs/nuxt-module/issues/352"
   },
   {
@@ -316,7 +316,7 @@
     "name": "vercel-labs/skills",
     "description": "[Bug]: The update command can fail when skills is not installed with npm",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/vercel-labs/skills/issues/362"
   },
   {
