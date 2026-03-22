@@ -286,7 +286,7 @@ declare module 'vue' {
     HomeSocialLinks: typeof import('./components/home/SocialLinks.vue')['default']
     HomeStats: typeof import('./components/home/Stats.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']
-    SystemOgImage: typeof import('./components/system/OgImage.vue')['default']
+    'SystemOgImage.takumi': typeof import('./components/system/OgImage.takumi.vue')['default']
     UiAlert: typeof import('./components/ui/Alert.vue')['default']
     UiAppBar: typeof import('./components/ui/AppBar.vue')['default']
     UiBanner: typeof import('./components/ui/Banner.vue')['default']

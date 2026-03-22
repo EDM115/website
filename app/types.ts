@@ -76,6 +76,27 @@ type ScreenSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
 type ImageTuple = readonly [src: string, width: string, height: string]
 // #endregion composables
 
+// #region projects
+type ProjectPageConfig = {
+  repo: string;
+  branch: string;
+  path: string;
+}
+
+type GithubRepoResponse = {
+  full_name?: string;
+  description?: string | null;
+}
+
+type ProjectData = {
+  repo: string;
+  branch: string;
+  path: string;
+  name: string;
+  description: string;
+}
+// #endregion projects
+
 // #region blog posts
 interface BlogPostMeta {
   id: string;
@@ -647,6 +668,9 @@ export type {
   NetInfo,
   ScreenSize,
   ImageTuple,
+  ProjectPageConfig,
+  GithubRepoResponse,
+  ProjectData,
   BlogPostMeta,
   BlogFilters,
   PaginationInfo,

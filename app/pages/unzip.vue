@@ -303,7 +303,7 @@ useSeoMeta({
   ogDescription: t("unzip.description"),
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: t("unzip.head"),
   description: t("unzip.description"),
   path: route.path,
@@ -325,7 +325,7 @@ async function getRepoDetails() {
       forks_count: number;
     }>("https://api.github.com/repos/EDM115/unzip-bot", { headers: {
       "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
+      "X-GitHub-Api-Version": "2026-03-10",
     } })
 
     if (!data) {

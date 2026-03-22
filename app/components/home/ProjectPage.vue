@@ -32,7 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import type { ImageTuple } from "~/types"
+import type {
+  ImageTuple,
+  ProjectData,
+} from "~/types"
+
+import projectsData from "~/assets/data/projects.json"
 
 const props = defineProps<{
   name: string;
@@ -44,8 +49,9 @@ const props = defineProps<{
 const route = useRoute()
 const { t } = useI18n()
 
+const projects = projectsData as ProjectData[]
 const title = ref(`EDM115 - ${t("projects.project")} ${props.name}`)
-const description = ref("")
+const description = ref(projects.find((p) => p.repo === props.name)?.description || "")
 const key = computed(() => `readme-html:${props.name}:${props.branch ?? "master"}`)
 
 const {
@@ -64,13 +70,7 @@ const {
         // oxlint-disable-next-line no-await-in-loop Need to try branches sequentially
         raw = await $fetch<string>(
           `https://raw.githubusercontent.com/${props.name}/${b}/README.md`,
-          {
-            retry: 1,
-            headers: {
-              "Accept": "application/vnd.github+json",
-              "X-GitHub-Api-Version": "2022-11-28",
-            },
-          },
+          { retry: 1 },
         )
         branchUsed = b
 
@@ -89,7 +89,7 @@ const {
       })
     }
 
-    if (import.meta.server) {
+    if (import.meta.server || import.meta.dev) {
       const [
         { default: mdiLinkVariant },
         { default: slugify },
@@ -115,7 +115,9 @@ const {
         { emojiToName },
         { createMarkdownExit },
       ] = await Promise.all([
-        import("~icons/mdi/linkVariant?raw"),
+        import.meta.server
+          ? import("~icons/mdi/linkVariant?raw")
+          : Promise.resolve({ "default": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M10.59 13.41c.41.39.41 1.03 0 1.42c-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0a5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24a2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0a5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24a2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24a.973.973 0 0 1 0-1.42\"/></svg>" }),
         import("@sindresorhus/slugify"),
         import("emoji-regex-xs"),
         import("highlight.js"),
@@ -267,7 +269,7 @@ const {
       return rendered
     }
 
-    return ""
+    return "Client-side rendering is disabled, you should NOT see this."
   },
 )
 
@@ -280,7 +282,7 @@ useSeoMeta({
   ogDescription: () => description.value,
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: () => title.value,
   description: () => description.value,
   path: route.path,
@@ -288,45 +290,32 @@ defineOgImageComponent("OgImage", {
   glowColor: () => props.glowColor,
 })
 
-async function getRepoDetails() {
-  try {
-    const { data } = await useFetch<{
-      full_name: string;
-      description?: string;
-    }>(`https://api.github.com/repos/${props.name}`, { headers: {
-      "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    } })
+function getRepoDetails() {
+  const branch = props.branch ?? "master"
+  const fromData = projects.find((project) => {
+    return project.repo === props.name && project.branch === branch
+  })
 
-    if (!data.value || !data.value.full_name) {
-      throw new Error("Repository not found")
-    }
-
-    return {
-      name: data.value.full_name,
-      description: data.value.description || "",
-    }
-  } catch (_error) {
-    return null
+  return {
+    name: fromData?.name || props.name,
+    description: fromData?.description || "",
   }
 }
 
-const repoDetails = await getRepoDetails()
+const repoDetails = getRepoDetails()
 
-if (repoDetails) {
-  head.patch({
-    title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
-    meta: [
-      {
-        name: "description",
-        content: repoDetails.description || `No description available for ${repoDetails.name}`,
-      },
-    ],
-  })
+head.patch({
+  title: `EDM115 - ${t("projects.project")} ${repoDetails.name}`,
+  meta: [
+    {
+      name: "description",
+      content: repoDetails.description || `No description available for ${repoDetails.name}`,
+    },
+  ],
+})
 
-  title.value = `EDM115 - ${t("projects.project")} ${repoDetails.name}`
-  description.value = repoDetails.description || `No description available for ${repoDetails.name}`
-}
+title.value = `EDM115 - ${t("projects.project")} ${repoDetails.name}`
+description.value = repoDetails.description || `No description available for ${repoDetails.name}`
 
 onMounted(() => {
   useCopySlug()

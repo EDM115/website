@@ -85,9 +85,11 @@ function cleanupMarkdown(content: string, singleLine: boolean): string {
 
 function extractExcerpt(content: string, maxLength = 200): string {
   const text = cleanupMarkdown(content, true)
+  const textChars = Array.from(text)
 
-  return text.length > maxLength
-    ? `${text.slice(0, maxLength)}...`
+  return textChars.length > maxLength
+    ? `${textChars.slice(0, maxLength)
+      .join("")}...`
     : text
 }
 

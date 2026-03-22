@@ -77,7 +77,7 @@ useSeoMeta({
   ogDescription: t("projects.description"),
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: t("projects.head"),
   description: t("projects.description"),
   path: route.path,

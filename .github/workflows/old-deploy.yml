@@ -60,7 +60,10 @@ jobs:
         run: pnpm prebuild && pnpm nuxt generate --preset static
 
       - name: "Cleanup build"
-        run: find ./.output/public -type f \( -name "*.gz" -o -name "*.br" \) -delete
+        run: |
+          rm -f ./.output/_og-static-fonts
+          find ./.output/public/fonts -type f -regextype posix-extended -regex '.*[0-9]{3,}.*' -delete
+          find ./.output/public -type f \( -name "*.gz" -o -name "*.br" \) -delete
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v7

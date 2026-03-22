@@ -34,7 +34,7 @@ const props = defineProps<{
   error: NuxtError;
 }>()
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: () => props.error.status?.toString(),
   description: () => props.error.statusText,
   path: route.path,

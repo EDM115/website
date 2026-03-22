@@ -89,7 +89,7 @@ async function fetchProjectsNumber() {
   try {
     const { public_repos } = await $fetch<{ public_repos: number }>("https://api.github.com/users/EDM115", { headers: {
       "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
+      "X-GitHub-Api-Version": "2026-03-10",
     } })
 
     projectsNumber.value = public_repos

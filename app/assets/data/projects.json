@@ -1,0 +1,156 @@
+[
+  {
+    "repo": "EDM115-Org/Senescalade",
+    "branch": "master",
+    "path": "senescalade",
+    "name": "EDM115-org/Senescalade",
+    "description": "Une application web en Nuxt pour les inscriptions de l'association Senescalade"
+  },
+  {
+    "repo": "EDM115/better-maps",
+    "branch": "master",
+    "path": "better-maps",
+    "name": "EDM115/better-maps",
+    "description": "A quick way to add pin-points to a map, with details, filters and more. Made for my gf"
+  },
+  {
+    "repo": "EDM115/booleanfix",
+    "branch": "master",
+    "path": "booleanfix",
+    "name": "EDM115/booleanfix",
+    "description": "The most useless pip package so far"
+  },
+  {
+    "repo": "EDM115/bulk-youtube-download",
+    "branch": "master",
+    "path": "bulk-youtube-download",
+    "name": "EDM115/bulk-youtube-download",
+    "description": "Download multiple videos at once with one simple script. Works with Youtube and all other sites supported by yt-dlp."
+  },
+  {
+    "repo": "EDM115/dotfiles",
+    "branch": "master",
+    "path": "dotfiles",
+    "name": "EDM115/dotfiles",
+    "description": "My config files"
+  },
+  {
+    "repo": "EDM115/edm115-lint",
+    "branch": "master",
+    "path": "edm115-lint",
+    "name": "EDM115/edm115-lint",
+    "description": "My very own sensible lint and style configs to reuse across my repos"
+  },
+  {
+    "repo": "EDM115/EDM115-ohmyposh-theme",
+    "branch": "master",
+    "path": "edm115-ohmyposh-theme",
+    "name": "EDM115/EDM115-ohmyposh-theme",
+    "description": "My very own Oh My Posh theme"
+  },
+  {
+    "repo": "EDM115/js-imports-sort",
+    "branch": "master",
+    "path": "js-imports-sort",
+    "name": "EDM115/js-imports-sort",
+    "description": "A simple script to sort Javascript imports the way I want"
+  },
+  {
+    "repo": "EDM115/light-odometer",
+    "branch": "master",
+    "path": "light-odometer",
+    "name": "EDM115/light-odometer",
+    "description": "For personal use only. Use mtmarco87/tm-odometer instead"
+  },
+  {
+    "repo": "EDM115/Markdown_Syntax_FR",
+    "branch": "master",
+    "path": "markdown-syntax-fr",
+    "name": "EDM115/Markdown_Syntax_FR",
+    "description": "Help to write in Markdown on Github [French]"
+  },
+  {
+    "repo": "EDM115/monorepo-hash",
+    "branch": "master",
+    "path": "monorepo-hash",
+    "name": "EDM115/monorepo-hash",
+    "description": "A CLI tool to generate hashes for the workspaces of your monorepo"
+  },
+  {
+    "repo": "EDM115/palex",
+    "branch": "master",
+    "path": "palex",
+    "name": "EDM115/palex",
+    "description": "A javascript package to help you create color palettes"
+  },
+  {
+    "repo": "EDM115/random-algorithm",
+    "branch": "master",
+    "path": "random-algorithm",
+    "name": "EDM115/random-algorithm",
+    "description": "A very simple yet original random algo made while overthinking about randomness"
+  },
+  {
+    "repo": "EDM115/shared-files",
+    "branch": "master",
+    "path": "shared-files",
+    "name": "EDM115/shared-files",
+    "description": "A simple way to share files across multiple repos without editing them manually. Write once, push anywhere 😄"
+  },
+  {
+    "repo": "EDM115/spendly",
+    "branch": "master",
+    "path": "spendly",
+    "name": "EDM115/spendly",
+    "description": "Simple, powerful, and free budget tracking for everyone with tables, stats and charts. Made for my gf"
+  },
+  {
+    "repo": "EDM115/The-Very-Restrictive-License",
+    "branch": "master",
+    "path": "the-very-restrictive-license",
+    "name": "EDM115/The-Very-Restrictive-License",
+    "description": "A very restrictive license. Anyway..."
+  },
+  {
+    "repo": "EDM115/unrar-alpine",
+    "branch": "master",
+    "path": "unrar-alpine",
+    "name": "EDM115/unrar-alpine",
+    "description": "UnRAR, built for Alpine Linux. Automatically built and released at each new version"
+  },
+  {
+    "repo": "EDM115/unzip-bot",
+    "branch": "v7-rework-part-1",
+    "path": "unzip-bot",
+    "name": "EDM115/unzip-bot",
+    "description": "A Telegram bot deployable to Heroku/VPS that can extract every archive ! With support for split archives, password protected, download from URL, file rename, thumbnail changer, ..."
+  },
+  {
+    "repo": "EDM115/useful-stuff",
+    "branch": "master",
+    "path": "useful-stuff",
+    "name": "EDM115/useful-stuff",
+    "description": "Random collection of files, by EDM115"
+  },
+  {
+    "repo": "EDM115/VGM-KHI-download",
+    "branch": "master",
+    "path": "vgm-khi-download",
+    "name": "EDM115/VGM-KHI-download",
+    "description": "Automatically download all songs from an album from KH Insider's Video Game Music site with format chooser"
+  },
+  {
+    "repo": "EDM115/web-logs",
+    "branch": "master",
+    "path": "web-logs",
+    "name": "EDM115/web-logs",
+    "description": "A simple webapp to retrieve the logs of apps"
+  },
+  {
+    "repo": "EDM115/website",
+    "branch": "master",
+    "path": "website",
+    "name": "EDM115/website",
+    "description": "Basically my website, made with Nuxt and overengineered"
+  }
+]

@@ -6,12 +6,6 @@ onlyBuiltDependencies:
   - sharp
   - unrs-resolver
 
-overrides:
-  # @nuxt/cli need to update @bomb.sh/tab
-  citty: ~0.2.1
-  # blocked by peer dep in @eslint/config-inspector and dep in eslint-plugin-import-x (@nuxt/eslint-config)
-  eslint: ~10.0.3
-
 patchedDependencies:
   '@mdit/plugin-alert@0.23.1': patches/@mdit__plugin-alert@0.23.1.patch
   '@mdit/plugin-align@0.24.1': patches/@mdit__plugin-align@0.24.1.patch

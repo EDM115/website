@@ -280,6 +280,22 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 83,
+    "name": "nuxt-modules/og-image",
+    "description": "help: Takumi is... too fast !",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/nuxt-modules/og-image/issues/512"
+  },
+  {
+    "id": 82,
+    "name": "nuxt-modules/og-image",
+    "description": "help: issues encountered since the v6 dropped",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/nuxt-modules/og-image/issues/505"
+  },
+  {
     "id": 81,
     "name": "fullcalendar/temporal-polyfill",
     "description": "Rollup complains since v0.3.1",

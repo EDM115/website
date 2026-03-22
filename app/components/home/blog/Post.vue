@@ -352,7 +352,7 @@ useSeoMeta({
   articleTag: currentPost?.tags,
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: currentPost?.title,
   description: currentPost?.excerpt,
   path: route.path,

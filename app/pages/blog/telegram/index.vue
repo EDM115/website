@@ -26,7 +26,7 @@ useSeoMeta({
   ogDescription: t("blog.telegram.description"),
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: t("blog.telegram.head"),
   description: t("blog.telegram.description"),
   path: route.path,

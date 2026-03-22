@@ -68,7 +68,7 @@ useSeoMeta({
   ogLocale: "en_US",
 })
 
-defineOgImageComponent("OgImage", {
+defineOgImage("SystemOgImageTakumi", {
   title: t("main.head"),
   description: t("main.description"),
   path: route.path,

@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     "@nuxt/a11y",
     "@nuxt/eslint",
     "@nuxt/fonts",
-    // "@nuxt/hints",
+    "@nuxt/hints",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
@@ -186,7 +186,27 @@ export default defineNuxtConfig({
         "country-flag-emoji-polyfill",
         "light-odometer",
         "temporal-polyfill",
-      ]
+        "@sindresorhus/slugify",
+        "emoji-regex-xs",
+        "highlight.js",
+        "markdown-it-anchor",
+        "markdown-it-attrs",
+        "markdown-it-highlightjs",
+        "markdown-it-link-attributes",
+        "markdown-it-emoji",
+        "@mdit/plugin-alert",
+        "@mdit/plugin-footnote",
+        "@mdit/plugin-img-lazyload",
+        "@mdit/plugin-img-size",
+        "@mdit/plugin-ins",
+        "@mdit/plugin-katex",
+        "@mdit/plugin-mark",
+        "@mdit/plugin-spoiler",
+        "@mdit/plugin-tab",
+        "@mdit/plugin-tasklist",
+        "gemoji",
+        "markdown-exit",
+      ],
     },
     plugins: [
       Icons({ compiler: "vue3" }),
@@ -359,44 +379,183 @@ export default defineNuxtConfig({
       {
         name: "Inter",
         src: "/fonts/Inter/InterVariable.woff2",
-        weight: "100 900",
+        weights: ["100 900"],
         style: "normal",
         preload: true,
+        global: true,
       },
       {
         name: "Inter",
         src: "/fonts/Inter/InterVariable-Italic.woff2",
-        weight: "100 900",
+        weights: ["100 900"],
         style: "italic",
         preload: true,
+        global: true,
       },
       {
         name: "Fira Code",
         src: "/fonts/Fira_Code/FiraCode-VF.woff2",
-        weight: "300 700",
+        weights: ["300 700"],
         style: "normal",
         preload: true,
+        global: true,
       },
       {
         name: "Nunito",
-        src: "/fonts/Nunito/Nunito-VariableFont_wght.ttf",
-        weight: "200 1000",
+        src: "/fonts/Nunito/Nunito-VariableFont_wght.woff2",
+        weights: ["200 1000"],
         style: "normal",
         preload: true,
+        global: true,
       },
       {
         name: "Nunito",
-        src: "/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf",
-        weight: "200 1000",
+        src: "/fonts/Nunito/Nunito-Italic-VariableFont_wght.woff2",
+        weights: ["200 1000"],
         style: "italic",
         preload: true,
+        global: true,
       },
       {
         name: "Twemoji Country Flags",
         src: "/fonts/TwemojiCountryFlags.woff2",
-        weight: "400",
+        weight: 400,
         style: "normal",
         preload: true,
+      },
+
+      // Required for OG Images resolution
+      // Inter normal
+      {
+        name: "Inter100", src: "/fonts/Inter/Inter-100-normal.woff2", weight: 100, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter200", src: "/fonts/Inter/Inter-200-normal.woff2", weight: 200, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter300", src: "/fonts/Inter/Inter-300-normal.woff2", weight: 300, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter400", src: "/fonts/Inter/Inter-400-normal.woff2", weight: 400, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter500", src: "/fonts/Inter/Inter-500-normal.woff2", weight: 500, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter600", src: "/fonts/Inter/Inter-600-normal.woff2", weight: 600, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter700", src: "/fonts/Inter/Inter-700-normal.woff2", weight: 700, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter800", src: "/fonts/Inter/Inter-800-normal.woff2", weight: 800, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Inter900", src: "/fonts/Inter/Inter-900-normal.woff2", weight: 900, style: "normal", global: true, preload: true,
+      },
+
+      // Inter italic
+      {
+        name: "Inter100Italic", src: "/fonts/Inter/Inter-100-italic.woff2", weight: 100, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter200Italic", src: "/fonts/Inter/Inter-200-italic.woff2", weight: 200, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter300Italic", src: "/fonts/Inter/Inter-300-italic.woff2", weight: 300, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter400Italic", src: "/fonts/Inter/Inter-400-italic.woff2", weight: 400, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter500Italic", src: "/fonts/Inter/Inter-500-italic.woff2", weight: 500, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter600Italic", src: "/fonts/Inter/Inter-600-italic.woff2", weight: 600, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter700Italic", src: "/fonts/Inter/Inter-700-italic.woff2", weight: 700, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter800Italic", src: "/fonts/Inter/Inter-800-italic.woff2", weight: 800, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Inter900Italic", src: "/fonts/Inter/Inter-900-italic.woff2", weight: 900, style: "italic", global: true, preload: true,
+      },
+
+      // Fira Code normal
+      {
+        name: "FiraCode300", src: "/fonts/Fira_Code/FiraCode-300-normal.woff2", weight: 300, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "FiraCode400", src: "/fonts/Fira_Code/FiraCode-400-normal.woff2", weight: 400, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "FiraCode500", src: "/fonts/Fira_Code/FiraCode-500-normal.woff2", weight: 500, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "FiraCode600", src: "/fonts/Fira_Code/FiraCode-600-normal.woff2", weight: 600, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "FiraCode700", src: "/fonts/Fira_Code/FiraCode-700-normal.woff2", weight: 700, style: "normal", global: true, preload: true,
+      },
+
+      // Nunito normal
+      {
+        name: "Nunito200", src: "/fonts/Nunito/Nunito-200-normal.woff2", weight: 200, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito300", src: "/fonts/Nunito/Nunito-300-normal.woff2", weight: 300, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito400", src: "/fonts/Nunito/Nunito-400-normal.woff2", weight: 400, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito500", src: "/fonts/Nunito/Nunito-500-normal.woff2", weight: 500, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito600", src: "/fonts/Nunito/Nunito-600-normal.woff2", weight: 600, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito700", src: "/fonts/Nunito/Nunito-700-normal.woff2", weight: 700, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito800", src: "/fonts/Nunito/Nunito-800-normal.woff2", weight: 800, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito900", src: "/fonts/Nunito/Nunito-900-normal.woff2", weight: 900, style: "normal", global: true, preload: true,
+      },
+      {
+        name: "Nunito1000", src: "/fonts/Nunito/Nunito-1000-normal.woff2", weight: 1000, style: "normal", global: true, preload: true,
+      },
+
+      // Nunito italic
+      {
+        name: "Nunito200Italic", src: "/fonts/Nunito/Nunito-200-italic.woff2", weight: 200, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito300Italic", src: "/fonts/Nunito/Nunito-300-italic.woff2", weight: 300, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito400Italic", src: "/fonts/Nunito/Nunito-400-italic.woff2", weight: 400, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito500Italic", src: "/fonts/Nunito/Nunito-500-italic.woff2", weight: 500, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito600Italic", src: "/fonts/Nunito/Nunito-600-italic.woff2", weight: 600, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito700Italic", src: "/fonts/Nunito/Nunito-700-italic.woff2", weight: 700, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito800Italic", src: "/fonts/Nunito/Nunito-800-italic.woff2", weight: 800, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito900Italic", src: "/fonts/Nunito/Nunito-900-italic.woff2", weight: 900, style: "italic", global: true, preload: true,
+      },
+      {
+        name: "Nunito1000Italic", src: "/fonts/Nunito/Nunito-1000-italic.woff2", weight: 1000, style: "italic", global: true, preload: true,
       },
     ],
     processCSSVariables: true,
@@ -442,6 +601,7 @@ export default defineNuxtConfig({
     },
   },
   ogImage: {
+    buildCache: true,
     componentDirs: ["system"],
     defaults: {
       cacheMaxAgeSeconds: 432000,
@@ -449,6 +609,7 @@ export default defineNuxtConfig({
       width: 1920,
     },
     enabled: true,
+    zeroRuntime: true,
   },
   schemaOrg: { identity: definePerson({
     name: "EDM115",

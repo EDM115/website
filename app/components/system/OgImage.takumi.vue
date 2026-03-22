@@ -1,17 +1,7 @@
 <template>
   <div
     class="w-full h-full flex flex-col relative"
-    :style="{
-      backgroundColor: '#00040e',
-      color: '#eae7de',
-      backgroundImage: `
-        radial-gradient(1600px 900px at 80% -10%, rgba(189, 147, 249, 0.25), transparent),
-        radial-gradient(1400px 700px at -10% 10%, rgba(139, 233, 253, 0.25), transparent),
-        radial-gradient(1400px 900px at 50% 120%, rgba(255, 184, 108, 0.2), transparent)
-      `,
-      backdropFilter: 'blur(40px) saturate(140%)',
-      padding: '50px 80px',
-    }"
+    :style="mainStyle"
   >
     <div
       class="flex flex-row justify-between items-center w-full"
@@ -48,7 +38,7 @@
           :style="{
             width: image[1],
             height: image[2],
-            borderRadius: image[1] === image[2] ? '15%' : '5',
+            borderRadius: image[1] === image[2] ? '15%' : '5px',
             objectFit: 'cover',
             border: glowColor !== false ? `5px solid #${glowColor}` : undefined,
             boxShadow: glowColor !== false ? `0 0 50px rgba(${parseInt(glowColor.slice(0, 2), 16)}, ${parseInt(glowColor.slice(2, 4), 16)}, ${parseInt(glowColor.slice(4, 6), 16)}, 0.35)` : undefined,
@@ -58,12 +48,17 @@
     </div>
 
     <div
-      class="flex flex-row items-center justify-center w-full"
       :style="{
-        borderTop: '1px solid rgba(234, 231, 222, 0.2)',
-        paddingTop: '30px',
+        width: '100%',
+        height: '1px',
+        backgroundColor: 'rgba(234, 231, 222, 0.2)',
         marginTop: '40px',
+        marginBottom: '30px',
       }"
+    />
+
+    <div
+      class="flex flex-row items-center justify-center w-full"
     >
       <div
         class="flex items-center justify-center"
@@ -78,7 +73,7 @@
 
       <span
         class="font-medium"
-        :style="{ color: '#8be9fd', fontSize: '36px' }"
+        :style="{ color: '#8be9fd', fontSize: '36px', fontFamily: 'Inter500' }"
       >
         {{ cleanPath }}
       </span>
@@ -124,29 +119,70 @@ const isDenseTextLayout = computed(() => {
   return densityScore > 220
 })
 
+const mainStyle = computed(() => ({
+  backgroundColor: "#00040e",
+  color: "#eae7de",
+  backgroundImage: `
+    radial-gradient(1600px 900px at 80% -10%, rgba(189, 147, 249, 0.25), transparent),
+    radial-gradient(1400px 700px at -10% 10%, rgba(139, 233, 253, 0.25), transparent),
+    radial-gradient(1400px 900px at 50% 120%, rgba(255, 184, 108, 0.2), transparent)
+  `,
+  backdropFilter: "blur(40px) saturate(140%)",
+  padding: "50px 80px",
+  fontFamily: "Inter400",
+  fontFeatureSettings: `
+    "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
+    "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
+    "ss02" 1, "ss07" 1, "ss08" 1, "tnum" 0, "zero" 1
+  `,
+}))
+
 const contentRowStyle = computed(() => ({
   flex: "1",
-  marginTop: isDenseTextLayout.value ? "-24px" : undefined,
-  marginBottom: isDenseTextLayout.value ? "-24px" : undefined,
+  marginTop: isDenseTextLayout.value
+    ? "-24px"
+    : undefined,
+  marginBottom: isDenseTextLayout.value
+    ? "-24px"
+    : undefined,
 }))
 
 const titleStyle = computed(() => ({
   color: "#eae7de",
   fontSize: "90px",
-  display: "-webkit-box",
-  overflow: isDenseTextLayout.value ? "visible" : "hidden",
-  textOverflow: isDenseTextLayout.value ? undefined : "ellipsis",
+  overflow: isDenseTextLayout.value
+    ? "visible"
+    : "hidden",
+  textOverflow: isDenseTextLayout.value
+    ? undefined
+    : "ellipsis",
   textWrap: "pretty",
+  fontFamily: "Nunito700",
+  fontFeatureSettings: `
+    "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "frac" 0,
+    "ss01" 0, "ss02" 0,
+  `,
 }))
 
 const descriptionStyle = computed(() => ({
   color: "#c7c4b6",
   fontSize: "42px",
-  marginTop: isDenseTextLayout.value ? "30px" : "40px",
-  display: "-webkit-box",
-  overflow: isDenseTextLayout.value ? "visible" : "hidden",
-  textOverflow: isDenseTextLayout.value ? undefined : "ellipsis",
+  marginTop: isDenseTextLayout.value
+    ? "30px"
+    : "40px",
+  overflow: isDenseTextLayout.value
+    ? "visible"
+    : "hidden",
+  textOverflow: isDenseTextLayout.value
+    ? undefined
+    : "ellipsis",
   textWrap: "pretty",
+  fontFamily: "Inter400",
+  fontFeatureSettings: `
+    "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
+    "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
+    "ss02" 1, "ss07" 1, "ss08" 1, "tnum" 0, "zero" 1
+  `,
 }))
 
 const cleanPath = computed(() => {
