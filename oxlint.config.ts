@@ -15,6 +15,7 @@ export default defineConfig({
     "**/node_modules/",
     "**/patches/",
     "**/public/",
+    "**/*.md",
   ],
   "options": {
     typeAware: true,

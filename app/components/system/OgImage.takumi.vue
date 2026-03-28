@@ -118,6 +118,7 @@ const isDenseTextLayout = computed(() => {
 
   return densityScore > 220
 })
+const isTitleLarge = computed(() => displayTitle.value.length > 100)
 
 const mainStyle = computed(() => ({
   backgroundColor: "#00040e",
@@ -129,7 +130,8 @@ const mainStyle = computed(() => ({
   `,
   backdropFilter: "blur(40px) saturate(140%)",
   padding: "50px 80px",
-  fontFamily: "Inter400",
+  fontFamily: "Inter",
+  fontWeight: 400,
   fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
     "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
@@ -149,7 +151,9 @@ const contentRowStyle = computed(() => ({
 
 const titleStyle = computed(() => ({
   color: "#eae7de",
-  fontSize: "90px",
+  fontSize: isTitleLarge.value
+    ? "72px"
+    : "90px",
   overflow: isDenseTextLayout.value
     ? "visible"
     : "hidden",
@@ -157,7 +161,8 @@ const titleStyle = computed(() => ({
     ? undefined
     : "ellipsis",
   textWrap: "pretty",
-  fontFamily: "Nunito700",
+  fontFamily: "Nunito",
+  fontWeight: 700,
   fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "frac" 0,
     "ss01" 0, "ss02" 0,
@@ -177,7 +182,8 @@ const descriptionStyle = computed(() => ({
     ? undefined
     : "ellipsis",
   textWrap: "pretty",
-  fontFamily: "Inter400",
+  fontFamily: "Inter",
+  fontWeight: 400,
   fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
     "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,

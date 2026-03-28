@@ -1,3 +1,5 @@
+dedupePeers: true
+
 lockfileIncludeTarballUrl: true
 
 onlyBuiltDependencies:
@@ -5,6 +7,7 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - unrs-resolver
+  - vue-demi
 
 patchedDependencies:
   '@mdit/plugin-alert@0.23.1': patches/@mdit__plugin-alert@0.23.1.patch
