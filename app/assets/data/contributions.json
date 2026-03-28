@@ -652,7 +652,7 @@
     "name": "hetznercloud/cli",
     "description": "Release hcloud to winget",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/hetznercloud/cli/issues/958"
   },
   {
