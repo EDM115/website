@@ -138,11 +138,11 @@ export function useBlogPosts(isTelegram = false) {
   }
 
   const docfindHrefOrder = ref<string[] | null>(null)
-  const docfindTerm = ref<string>("")
+  const docfindTerm = ref("")
   let docfindRunId = 0
 
   const pagefindHrefOrder = ref<string[] | null>(null)
-  const pagefindTerm = ref<string>("")
+  const pagefindTerm = ref("")
   let pagefindRunId = 0
 
   const pagination = computed<PaginationInfo>(() => ({

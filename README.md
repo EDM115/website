@@ -98,18 +98,18 @@ Prepare for Brotli compression (optional but recommended) :
 ```zsh
 sudo apt install brotli build-essential git ca-certificates wget libpcre2-dev zlib1g-dev libssl-dev
 # Get NGINX's version
-nginx -V  # here 1.28.2, note the flags
+nginx -V  # here 1.28.3, note the flags
 mkdir -p /tmp/nginx-brotli-build
 cd /tmp/nginx-brotli-build
-wget http://nginx.org/download/nginx-1.28.2.tar.gz
-tar xf nginx-1.28.2.tar.gz
+wget http://nginx.org/download/nginx-1.28.3.tar.gz
+tar xf nginx-1.28.3.tar.gz
 git clone https://github.com/google/ngx_brotli.git
 cd ngx_brotli
 git submodule update --init --recursive
 cd ..
 # Run configure with the EXACT flags you had, plus the brotli module on top
 # Check for "adding module in /tmp/nginx-brotli-build/ngx_brotli" & "+ ngx_brotli was configured" in the output. Example :
-cd /tmp/nginx-brotli-build/nginx-1.28.2
+cd /tmp/nginx-brotli-build/nginx-1.28.3
 ./configure \
   --prefix=/etc/nginx \
   --sbin-path=/usr/sbin/nginx \
@@ -151,7 +151,7 @@ cd /tmp/nginx-brotli-build/nginx-1.28.2
   --with-stream_realip_module \
   --with-stream_ssl_module \
   --with-stream_ssl_preread_module \
-  --with-cc-opt='-g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/home/builder/debuild/nginx-1.28.2/debian/debuild-base/nginx-1.28.2=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/home/builder/debuild/nginx-1.28.2/debian/debuild-base/nginx-1.28.2=/usr/src/nginx-1.28.2-1~noble -fPIC' \
+  --with-cc-opt='-g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/home/builder/debuild/nginx-1.28.3/debian/debuild-base/nginx-1.28.3=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/home/builder/debuild/nginx-1.28.3/debian/debuild-base/nginx-1.28.3=/usr/src/nginx-1.28.3-1~noble -fPIC' \
   --with-ld-opt='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie' \
   --add-dynamic-module=/tmp/nginx-brotli-build/ngx_brotli
 make modules

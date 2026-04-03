@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index bfa18cbbcf3bda69b73d707949a2f5ef8b42f4d3..c98ccb3a5c13a268b6bfc8e21bbbce400cebb56f 100644
+index b134d9b357e0e9d639226abeb22a86bbbaf6c0b9..12f456af4d792f3e0725027d2e7c6abf364e4be2 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,6 +1,4 @@
@@ -11,7 +11,7 @@ index bfa18cbbcf3bda69b73d707949a2f5ef8b42f4d3..c98ccb3a5c13a268b6bfc8e21bbbce40
  //#region src/options.d.ts
  interface MarkdownItTabData {
 @@ -47,8 +45,8 @@ interface MarkdownItTabInfo {
-   */
+    */
    data: MarkdownItTabData[];
  }
 -type TabsOpenRender = (info: MarkdownItTabInfo, tokens: Token[], index: number, options: Options, env: any, self: Renderer) => string;
@@ -20,4 +20,4 @@ index bfa18cbbcf3bda69b73d707949a2f5ef8b42f4d3..c98ccb3a5c13a268b6bfc8e21bbbce40
 +type TabOpenRender = (data: MarkdownItTabData, tokens: Token[], index: number, options: MarkdownExitOptions, env: MarkdownExitEnv, self: Renderer) => string;
  interface MarkdownItTabOptions {
    /**
-   * The name of the tab container.
+    * The name of the tab container.

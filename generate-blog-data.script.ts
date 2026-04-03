@@ -438,7 +438,11 @@ async function generatePagefindIndex(
 
   const indexStart = performance.now()
   const results = await Promise.all(records.map((record) => {
-    return index?.addCustomRecord({
+    if (!index) {
+      throw new Error("Pagefind index was not created")
+    }
+
+    return index.addCustomRecord({
       url: record.post.post.link,
       content: record.content,
       language: "en-us",

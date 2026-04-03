@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 0052a549b9c2bc04847bbb1137f0619efe006fa2..555c33b518b0601ae4250bbba4a7b8bf2755e21c 100644
+index 07f25246dd39c88327d74b57733fcef542d65b57..6fa53e8e857a87072c75cf242189d0a5bb5d8e53 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,17 +1,17 @@
@@ -7,7 +7,7 @@ index 0052a549b9c2bc04847bbb1137f0619efe006fa2..555c33b518b0601ae4250bbba4a7b8bf
 -import { KatexOptions, Token } from "katex";
 -import MarkdownIt from "markdown-it";
 +import type { MarkdownItTexOptions } from "@mdit/plugin-tex";
-+import type { Token, KatexOptions } from "katex";
++import type { KatexOptions, Token } from "katex";
 +import type { MarkdownExit, MarkdownExitEnv } from "markdown-exit";
  
  //#region src/options.d.ts
@@ -17,15 +17,15 @@ index 0052a549b9c2bc04847bbb1137f0619efe006fa2..555c33b518b0601ae4250bbba4a7b8bf
 -interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
 +interface MarkdownItKatexOptions<MarkdownExitEnv = {}> extends KatexOptions, Pick<MarkdownItTexOptions, "allowInlineWithSpace" | "delimiters" | "mathFence"> {
    /**
-   * Error logger
-   *
-   * 错误日志记录器
-   */
+    * Error logger
+    *
+    * 错误日志记录器
+    */
 -  logger?: KatexLogger<MarkdownItEnv>;
 +  logger?: KatexLogger<MarkdownExitEnv>;
    /**
-   * transformer on output content
-   *
+    * transformer on output content
+    *
 @@ -21,14 +21,14 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
  }
  //#endregion
