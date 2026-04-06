@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "composite": true,
+    "ignoreDeprecations": "6.0",
+    "tsBuildInfoFile": "../.nuxt/tsconfig.assembly.tsbuildinfo"
+  },
   "extends": "assemblyscript/std/assembly.json",
   "include": [
     "./**/*.ts"

@@ -162,7 +162,7 @@ export default defineNuxtConfig({
     viewTransition: true,
     viteEnvironmentApi: true,
   },
-  compatibilityDate: "2026-03-01",
+  compatibilityDate: "2026-04-01",
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -394,7 +394,7 @@ export default defineNuxtConfig({
       },
       {
         name: "Fira Code",
-        src: "/fonts/Fira_Code/FiraCode-VF.woff2",
+        src: "/fonts/FiraCode-VF.woff2",
         weights: ["300 700"],
         style: "normal",
         preload: true,

@@ -183,7 +183,7 @@ type DocfindModule = {
 // #endregion docfind
 
 // #region pagefind
-// grabbed from https://github.com/Pagefind/pagefind/blob/main/pagefind_web_js/types/index.d.ts & https://github.com/Pagefind/pagefind/blob/main/pagefind_web_js/lib/public_search_api.ts
+// grabbed from https://github.com/Pagefind/pagefind/blob/main/pagefind_web_js/types/index.d.ts & https://github.com/Pagefind/pagefind/blob/main/pagefind_web_js/lib/search_wrapper.ts
 /** Global index options that can be passed to pagefind.options() */
 type PagefindIndexOptions = {
   /** Overrides the URL path that Pagefind uses to load its search bundle */
@@ -242,6 +242,16 @@ type PagefindIndexOptions = {
    * falling back to the main thread if workers are not supported or fail to initialize.
    */
   noWorker?: boolean;
+
+  /**
+   * If set, replaces the default cache-busting timestamp on the metadata request
+   * with a fixed string. Useful for PWAs and offline-capable sites so that
+   * a service worker can cache the request. Change this value each time
+   * you rebuild your site.
+   *
+   * The search index itself is unaffected and can always be cached.
+   */
+  metaCacheTag?: string;
 }
 
 type PagefindRankingWeights = {
@@ -263,7 +273,7 @@ type PagefindRankingWeights = {
   /**
     Controls how quickly a term saturates on the page and reduces impact on the ranking.
     Maximum value is 2.0, where pages will take a long time to saturate, and pages with very high term frequencies will take over.
-    As this number trends to 0, it does not take many terms to saturate and allow other paramaters to influence the ranking.
+    As this number trends to 0, it does not take many terms to saturate and allow other parameters to influence the ranking.
     Minimum value is 0.0, where terms will saturate immediately and results will not distinguish between one term and many.
   */
   termSaturation?: number;
@@ -504,6 +514,9 @@ type PagefindSearchFragment = {
   /** The processed excerpt for this result, with matching terms wrapping in `<mark>` elements */
   excerpt: string;
 
+  /** The processed excerpt for this result, without any `<mark>` elements wrapping matching terms */
+  plain_excerpt: string;
+
   /**
    * What regions of the page matched this search query?
    *
@@ -568,6 +581,9 @@ type PagefindSubResult = {
   /** The processed excerpt for this segment, with matching terms wrapping in `<mark>` elements */
   excerpt: string;
 
+  /** The processed excerpt for this segment, without any `<mark>` elements wrapping matching terms */
+  plain_excerpt: string;
+
   /**
    * Raw data about the anchor element associated with this sub result.
    *
@@ -617,6 +633,47 @@ type PagefindVerboseWordLocation = {
   length_bonus: number;
 }
 
+/**
+ * An independent Pagefind instance returned by createInstance().
+ * Each instance has its own configuration and search state.
+ * All instances share a single web worker and WASM module internally.
+ */
+type PagefindInstance = {
+  /** Update options for this instance */
+  options: (opts: PagefindIndexOptions) => Promise<void>;
+
+  /** Wait for this instance to finish initializing (WASM load, etc.) */
+  init: () => Promise<void>;
+
+  /** Destroy this instance and terminate its worker */
+  destroy: () => Promise<void>;
+
+  /** Merge an additional index into this instance */
+  mergeIndex: (
+    indexPath: string,
+    options: PagefindIndexOptions,
+  ) => Promise<void>;
+
+  /** Search this instance's index */
+  search: (
+    term: string,
+    options?: PagefindSearchOptions,
+  ) => Promise<PagefindIndexesSearchResults>;
+
+  /** Debounced search — returns null if superseded by a newer call */
+  debouncedSearch: (
+    term: string,
+    options?: PagefindSearchOptions,
+    debounceTimeoutMs?: number,
+  ) => Promise<PagefindIndexesSearchResults | null>;
+
+  /** Preload index chunks for a search term without returning results */
+  preload: (term: string, options?: PagefindSearchOptions) => Promise<void>;
+
+  /** Retrieve all available filter values and counts */
+  filters: () => Promise<PagefindFilterCounts>;
+}
+
 /** Raw data about elements with IDs that Pagefind encountered when indexing the page */
 type PagefindSearchAnchor = {
   /** What element type was this anchor? e.g. `h1`, `div` */
@@ -643,15 +700,16 @@ type PagefindSearchAnchor = {
 }
 
 type PagefindModule = {
-  debouncedSearch: (term: string, options?: PagefindSearchOptions, debounceTimeoutMs?: number) => Promise<PagefindIndexesSearchResults | null>;
-  destroy: () => Promise<void>;
-  enterPlaygroundMode: () => Promise<void>;
-  filters: () => Promise<PagefindFilterCounts>;
   init: () => Promise<void>;
-  mergeIndex: (indexPath: string, options?: PagefindIndexOptions) => Promise<void>;
+  waitForInit: () => Promise<void>;
   options: (options: PagefindIndexOptions) => Promise<void>;
-  preload: (term: string, options?: PagefindSearchOptions) => Promise<void>;
+  enterPlaygroundMode: () => Promise<void>;
+  mergeIndex: (indexPath: string, options?: PagefindIndexOptions) => Promise<void>;
   search: (term: string, options?: PagefindSearchOptions) => Promise<PagefindIndexesSearchResults>;
+  debouncedSearch: (term: string, options?: PagefindSearchOptions, debounceTimeoutMs?: number) => Promise<PagefindIndexesSearchResults | null>;
+  preload: (term: string, options?: PagefindSearchOptions) => Promise<void>;
+  filters: () => Promise<PagefindFilterCounts>;
+  destroy: () => Promise<void>;
 }
 // #endregion pagefind
 
@@ -699,6 +757,7 @@ export type {
   PagefindSubResult,
   PagefindWordLocation,
   PagefindVerboseWordLocation,
+  PagefindInstance,
   PagefindSearchAnchor,
   PagefindModule,
 }

@@ -9,7 +9,7 @@ import type {
   GithubRepoResponse,
   ProjectData,
   ProjectPageConfig,
-} from "./app/types"
+} from "./app/types.ts"
 
 function extractProjectConfig(vueSource: string, path: string): ProjectPageConfig | null {
   const componentMatch = vueSource.match(/<HomeProjectPage\b([\s\S]*?)\/>/m)
@@ -34,7 +34,7 @@ function extractProjectConfig(vueSource: string, path: string): ProjectPageConfi
   }
 }
 
-function toGithubHeaders(): HeadersInit {
+function toGithubHeaders(): Record<string, string> {
   return {
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2026-03-10",

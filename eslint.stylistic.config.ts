@@ -5,7 +5,7 @@ import vueParser from "vue-eslint-parser"
 import { eslint as edm115Lint } from "edm115-lint"
 
 export default [
-  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/patches/", "**/public/", "**/*.d.ts", "**/*.md" ] },
+  { ignores: [ "**/.nuxt/", "**/.output/", "**/dist/", "**/node_modules/", "**/patches/", "**/public/", "**/*.md" ] },
   {
     files: ["**/*.{js,ts,vue}"],
     linterOptions: { reportUnusedDisableDirectives: false },

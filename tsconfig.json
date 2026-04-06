@@ -23,6 +23,12 @@
     },
     {
       "path": "./.nuxt/tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.custom.json"
+    },
+    {
+      "path": "./assembly/tsconfig.json"
     }
   ]
 }

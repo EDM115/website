@@ -23,7 +23,7 @@ import type {
   FrontmatterMeta,
   FileInfo,
   ParsedPost,
-} from "./app/types"
+} from "./app/types.ts"
 
 function codeToEmoji(match: string, name: string): string {
   return nameToEmoji[name] ?? match
@@ -65,8 +65,12 @@ function cleanupMarkdown(content: string, singleLine: boolean): string {
     .replace(/<\/?[^>]+(>|$)/g, "")
     // Remove table of contents markers
     .replace(/(\n)?\[\[toc\]\](\n)?/gi, "\n")
+    // Remove date and read time markers
+    .replace(/(\n)?\[\[drt\]\](\n)?/gi, "\n")
     // Remove leading and trailing newlines
     .replace(/^\n+|\n+$/g, "")
+    // Replace two spaces followed by a newline with just the newline
+    .replace(/ {2}\n/g, "\n")
 
   if (singleLine) {
     text = text
@@ -149,6 +153,10 @@ function parseFilePath(relativePath: string): FileInfo | null {
   }
 
   const [ , month, day, slug ] = match
+
+  if (!month || !day || !slug) {
+    return null
+  }
 
   return {
     year,

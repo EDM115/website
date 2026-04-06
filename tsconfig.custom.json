@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "allowArbitraryExtensions": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "composite": true,
+    "declaration": true,
+    "disableSizeLimit": true,
+    "emitDeclarationOnly": true,
+    "emitDecoratorMetadata": true,
+    "erasableSyntaxOnly": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "isolatedDeclarations": true,
+    "isolatedModules": true,
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "webworker"
+    ],
+    "module": "NodeNext",
+    "moduleDetection": "force",
+    "moduleResolution": "NodeNext",
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext",
+    "tsBuildInfoFile": "./.nuxt/tsconfig.custom.tsbuildinfo",
+    "types": [
+      "node"
+    ],
+    "verbatimModuleSyntax": true
+  },
+  "files": [
+    "./app/types.ts",
+    "./generate-blog-data.script.ts",
+    "./generate-projects-data.script.ts",
+    "./post.generate-blog-data.script.ts",
+    "./read-time.cli.script.ts"
+  ],
+  "exclude": [
+    "./.data",
+    "./.output",
+    "./app/**/*",
+    "./dist",
+    "./node_modules/**/*"
+  ]
+}

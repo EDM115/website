@@ -44,7 +44,7 @@
     "temporal-polyfill": "~0.3.2",
     "ufo": "~1.6.3",
     "vue": "~3.5.32",
-    "vue-i18n": "~11.3.0"
+    "vue-i18n": "~11.3.1"
   },
   "description": "EDM115's website",
   "devDependencies": {
@@ -58,10 +58,9 @@
     "@types/markdown-it-link-attributes": "~3.0.5",
     "@types/node": "latest",
     "@typescript-eslint/parser": "~8.58.0",
-    "@typescript/native-preview": "latest",
     "assemblyscript": "~0.28.13",
     "edm115-lint": "~0.2.1",
-    "eslint": "~10.1.0",
+    "eslint": "~10.2.0",
     "eslint-plugin-vue": "~10.8.0",
     "globals": "~17.4.0",
     "gray-matter": "~4.0.3",
@@ -69,7 +68,7 @@
     "lightningcss": "~1.32.0",
     "oxlint": "~1.58.0",
     "oxlint-tsgolint": "~0.19.0",
-    "pagefind": "~1.4.0",
+    "pagefind": "~1.5.0",
     "reading-time": "~1.5.0",
     "sass-embedded": "~1.99.0",
     "sass-loader": "~16.0.7",
@@ -117,5 +116,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.16.1"
+  "version": "2.16.2"
 }
