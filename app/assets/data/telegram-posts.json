@@ -1,5 +1,1058 @@
 [
   {
+    "id": "2023-06-30-not-fixed",
+    "title": "#482",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-not-fixed.md",
+    "link": "/blog/telegram/2023/06/30/not-fixed",
+    "excerpt": "or maybe not so fixed… aaah this is endless 😩"
+  },
+  {
+    "id": "2023-06-30-recursion",
+    "title": "#481",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-recursion.md",
+    "link": "/blog/telegram/2023/06/30/recursion",
+    "excerpt": "a small mistake was left in the code recursive call... lmao 😅 redeploying the bot, it should be okay in 5min 👌 edit done : endless processing should be over and upload as doc may fail sometimes, PM if..."
+  },
+  {
+    "id": "2023-06-30-botted-down",
+    "title": "#480",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-botted-down.md",
+    "link": "/blog/telegram/2023/06/30/botted-down",
+    "excerpt": "edit : we're definitely botted down 😢"
+  },
+  {
+    "id": "2023-06-30-rate-down",
+    "title": "#478",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-rate-down.md",
+    "link": "/blog/telegram/2023/06/30/rate-down",
+    "excerpt": "https://t.me/BotsArchive/2705 the bot went from a 4.4 rate to a 2.8 rate if you have problems with the bot, or wanna express anything, the chat (@EDM115_chat) is open, feel free to tell me what's wron..."
+  },
+  {
+    "id": "2023-06-30-changes",
+    "title": "#477",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-changes.md",
+    "link": "/blog/telegram/2023/06/30/changes",
+    "excerpt": "a lot of changes will come, as I'm actively working on it again :)"
+  },
+  {
+    "id": "2023-06-30-upload-fix",
+    "title": "#476",
+    "date": "2023-06-30",
+    "tags": [],
+    "path": "2023/06-30-upload-fix.md",
+    "link": "/blog/telegram/2023/06/30/upload-fix",
+    "excerpt": "Uploading videos as media is fixed enjoy 🫶"
+  },
+  {
+    "id": "2023-06-26-50-github-followers",
+    "title": "#475",
+    "date": "2023-06-26",
+    "tags": [],
+    "path": "2023/06-26-50-github-followers.md",
+    "link": "/blog/telegram/2023/06/26/50-github-followers",
+    "excerpt": "[50-github-followers] 50 GitHub followers 🥹 holy to celebrate it, I've updated my profile readme and website other changes to come Coming next : Reddit community && Discord server because why not"
+  },
+  {
+    "id": "2023-06-25-yt-premium",
+    "title": "#474",
+    "date": "2023-06-25",
+    "tags": [],
+    "path": "2023/06-25-yt-premium.md",
+    "link": "/blog/telegram/2023/06/25/yt-premium",
+    "excerpt": "[yt-premium] 🇵remium 🇵ay seriously YouTube ? make it bigger next time"
+  },
+  {
+    "id": "2023-06-20-new-github-ui",
+    "title": "#471",
+    "date": "2023-06-20",
+    "tags": [],
+    "path": "2023/06-20-new-github-ui.md",
+    "link": "/blog/telegram/2023/06/20/new-github-ui",
+    "excerpt": "[new-github-ui-1] so what do you guys think about the new GitHub UI ? hit or miss ? [new-github-ui-2] [new-github-ui-3]"
+  },
+  {
+    "id": "2023-06-18-spotify-playlist",
+    "title": "#470",
+    "date": "2023-06-18",
+    "tags": [],
+    "path": "2023/06-18-spotify-playlist.md",
+    "link": "/blog/telegram/2023/06/18/spotify-playlist",
+    "excerpt": "So I made a Spotify playlist i listen to it everyday, and you will find only bangers here (most genres accepted) you think that YOUR song deserves to be here ? pm me @EDM115 and i may add it give it a..."
+  },
+  {
+    "id": "2023-06-18-birthday",
+    "title": "#469",
+    "date": "2023-06-18",
+    "tags": [],
+    "path": "2023/06-18-birthday.md",
+    "link": "/blog/telegram/2023/06/18/birthday",
+    "excerpt": "so according to some sources it's my birthday today 😃"
+  },
+  {
+    "id": "2023-06-15-discord-username",
+    "title": "#468",
+    "date": "2023-06-15",
+    "tags": [],
+    "path": "2023/06-15-discord-username.md",
+    "link": "/blog/telegram/2023/06/15/discord-username",
+    "excerpt": "[discord-username] done 🥰 will create a discord server also… one day"
+  },
+  {
+    "id": "2023-06-14-play-pass",
+    "title": "#467",
+    "date": "2023-06-14",
+    "tags": [],
+    "path": "2023/06-14-play-pass.md",
+    "link": "/blog/telegram/2023/06/14/play-pass",
+    "excerpt": "got google play pass for 3 months free worth it ? definitely"
+  },
+  {
+    "id": "2023-06-13-discord-pomelo",
+    "title": "#463",
+    "date": "2023-06-13",
+    "tags": [],
+    "path": "2023/06-13-discord-pomelo.md",
+    "link": "/blog/telegram/2023/06/13/discord-pomelo",
+    "excerpt": "[discord-pomelo-1] Discord Pomelo flow (username change UI) [discord-pomelo-2] [discord-pomelo-3] [discord-pomelo-4]"
+  },
+  {
+    "id": "2023-06-07-statsfm",
+    "title": "#462",
+    "date": "2023-06-07",
+    "tags": [],
+    "path": "2023/06-07-statsfm.md",
+    "link": "/blog/telegram/2023/06/07/statsfm",
+    "excerpt": "https://stats.fm/edm115 you can add me there as friend too 🥰 I'd like to know what you listen to"
+  },
+  {
+    "id": "2023-06-07-variables",
+    "title": "#461",
+    "date": "2023-06-07",
+    "tags": [],
+    "path": "2023/06-07-variables.md",
+    "link": "/blog/telegram/2023/06/07/variables",
+    "excerpt": "[variables] another one lmao"
+  },
+  {
+    "id": "2023-06-03-discord-clients",
+    "title": "#460",
+    "date": "2023-06-03",
+    "tags": [],
+    "path": "2023/06-03-discord-clients.md",
+    "link": "/blog/telegram/2023/06/03/discord-clients",
+    "excerpt": "[discord-clients] Discord goes wild 😂 • Official Discord, Canary (beta) with the Tabs UI Experiment • Aliucord, with plugins and the old interface (v126) • Vendetta, with plugins and the React Native ..."
+  },
+  {
+    "id": "2023-05-31-motorfest-beta",
+    "title": "#459",
+    "date": "2023-05-31",
+    "tags": [],
+    "path": "2023/05-31-motorfest-beta.md",
+    "link": "/blog/telegram/2023/05/31/motorfest-beta",
+    "excerpt": "[motorfest-beta] another one :)"
+  },
+  {
+    "id": "2023-05-28-copilot-sucks",
+    "title": "#458",
+    "date": "2023-05-28",
+    "tags": [],
+    "path": "2023/05-28-copilot-sucks.md",
+    "link": "/blog/telegram/2023/05/28/copilot-sucks",
+    "excerpt": "it can't get code right, even simple one don't try to ask him the result of a function pretty ironic for Copilot 😂"
+  },
+  {
+    "id": "2023-05-26-copilot-chat-preview",
+    "title": "#457",
+    "date": "2023-05-26",
+    "tags": [],
+    "path": "2023/05-26-copilot-chat-preview.md",
+    "link": "/blog/telegram/2023/05/26/copilot-chat-preview",
+    "excerpt": "[copilot-chat-preview] Just looks like a Copilot × GPT-4 very powerful"
+  },
+  {
+    "id": "2023-05-26-copilot-chat-beta",
+    "title": "#456",
+    "date": "2023-05-26",
+    "tags": [],
+    "path": "2023/05-26-copilot-chat-beta.md",
+    "link": "/blog/telegram/2023/05/26/copilot-chat-beta",
+    "excerpt": "[copilot-chat-beta] finally 🥳🥰"
+  },
+  {
+    "id": "2023-05-25-free-nitro",
+    "title": "#455",
+    "date": "2023-05-25",
+    "tags": [],
+    "path": "2023/05-25-free-nitro.md",
+    "link": "/blog/telegram/2023/05/25/free-nitro",
+    "excerpt": "https://store.epicgames.com/en-US/p/discord--discord-nitro-2023 1 month of free Discord Nitro valid only if you have not had Nitro in the last 12 months a valid credit card is required read the FAQ ca..."
+  },
+  {
+    "id": "2023-05-25-play-games-pc",
+    "title": "#454",
+    "date": "2023-05-25",
+    "tags": [],
+    "path": "2023/05-25-play-games-pc.md",
+    "link": "/blog/telegram/2023/05/25/play-games-pc",
+    "excerpt": "Who needs BlueStacks anyway ? https://play.google.com/googleplaygames?pcampaignid=merch-FCC-gpg-emea-openbeta-launch-phone Edit : it installs a whole Android system 😂 that's why it's 10 Gb"
+  },
+  {
+    "id": "2023-05-24-mc-speedrun",
+    "title": "#453",
+    "date": "2023-05-24",
+    "tags": [],
+    "path": "2023/05-24-mc-speedrun.md",
+    "link": "/blog/telegram/2023/05/24/mc-speedrun",
+    "excerpt": "speedrunners go brrr…"
+  },
+  {
+    "id": "2023-05-22-instagram-channels",
+    "title": "#449",
+    "date": "2023-05-22",
+    "tags": [],
+    "path": "2023/05-22-instagram-channels.md",
+    "link": "/blog/telegram/2023/05/22/instagram-channels",
+    "excerpt": "[instagram-channels-1] After WhatsApp, Instagram become a clone of Telegram 😂 featuring : - channels - reacts (ok that's old) - \"collaborators\" (= admins) [instagram-channels-2] [instagram-channels-3]..."
+  },
+  {
+    "id": "2023-05-22-stackoverflow-survey",
+    "title": "#448",
+    "date": "2023-05-22",
+    "tags": [],
+    "path": "2023/05-22-stackoverflow-survey.md",
+    "link": "/blog/telegram/2023/05/22/stackoverflow-survey",
+    "excerpt": "[stackoverflow-survey] \"pick one\" 💀"
+  },
+  {
+    "id": "2023-05-18-f1-23-beta",
+    "title": "#447",
+    "date": "2023-05-18",
+    "tags": [],
+    "path": "2023/05-18-f1-23-beta.md",
+    "link": "/blog/telegram/2023/05/18/f1-23-beta",
+    "excerpt": "[f1-23-beta] hehe 😏 but, sorry, I signed a NDA can't share anything related to it, including the content of the mail 🥲 As they said : X NO recording X NO streaming X NO discussing Playtest in public X..."
+  },
+  {
+    "id": "2023-05-18-v6-roadmap",
+    "title": "#446",
+    "date": "2023-05-18",
+    "tags": [],
+    "path": "2023/05-18-v6-roadmap.md",
+    "link": "/blog/telegram/2023/05/18/v6-roadmap",
+    "excerpt": "[v6-roadmap] small reminder :) https://github.com/EDM115/unzip-bot/issues/165"
+  },
+  {
+    "id": "2023-05-12-bot-v6",
+    "title": "#445",
+    "date": "2023-05-12",
+    "tags": [],
+    "path": "2023/05-12-bot-v6.md",
+    "link": "/blog/telegram/2023/05/12/bot-v6",
+    "excerpt": "https://t.me/unzip_updates/395 yes, you read right I will work on it again"
+  },
+  {
+    "id": "2023-05-11-botfather-timeout",
+    "title": "#444",
+    "date": "2023-05-11",
+    "tags": [],
+    "path": "2023/05-11-botfather-timeout.md",
+    "link": "/blog/telegram/2023/05/11/botfather-timeout",
+    "excerpt": "[botfather-timeout]"
+  },
+  {
+    "id": "2023-05-10-xbox-controller",
+    "title": "#442",
+    "date": "2023-05-10",
+    "tags": [],
+    "path": "2023/05-10-xbox-controller.md",
+    "link": "/blog/telegram/2023/05/10/xbox-controller",
+    "excerpt": "[xbox-controller-1] delivered in 2 weeks holy f how great it is 🥹 [xbox-controller-2]"
+  },
+  {
+    "id": "2023-05-07-124-tasks",
+    "title": "#441",
+    "date": "2023-05-07",
+    "tags": [],
+    "path": "2023/05-07-124-tasks.md",
+    "link": "/blog/telegram/2023/05/07/124-tasks",
+    "excerpt": "[124-tasks] 124 you are abusers 🥹"
+  },
+  {
+    "id": "2023-05-04-controller-delivery",
+    "title": "#440",
+    "date": "2023-05-04",
+    "tags": [],
+    "path": "2023/05-04-controller-delivery.md",
+    "link": "/blog/telegram/2023/05/04/controller-delivery",
+    "excerpt": "[controller-delivery] seems faster that what they advertise 😳 will be edited Ordered : 28th April Order ready : 3rd March Estimated delivery : 11th March Actual delivery : 10th March morning"
+  },
+  {
+    "id": "2023-05-03-translation-pr",
+    "title": "#439",
+    "date": "2023-05-03",
+    "tags": [],
+    "path": "2023/05-03-translation-pr.md",
+    "link": "/blog/telegram/2023/05/03/translation-pr",
+    "excerpt": "yet another contribution https://github.com/database64128/youtube-dl-wpf/releases/tag/v1.12.0"
+  },
+  {
+    "id": "2023-04-28-controller",
+    "title": "#434",
+    "date": "2023-04-28",
+    "tags": [],
+    "path": "2023/04-28-controller.md",
+    "link": "/blog/telegram/2023/04/28/controller",
+    "excerpt": "[controller-1] Here's the design Preview it live : https://xboxdesignlab.xbox.com/fr-fr/xbox-elite-wireless-controller-series-2?recipeId=LBP28C6A [controller-2] [controller-3] [controller-4] [controll..."
+  },
+  {
+    "id": "2023-04-28-xdl-fixed",
+    "title": "#433",
+    "date": "2023-04-28",
+    "tags": [],
+    "path": "2023/04-28-xdl-fixed.md",
+    "link": "/blog/telegram/2023/04/28/xdl-fixed",
+    "excerpt": "how did i fixed the problem ? after contacting the help desk twice, and trying everything (change name, incognito, other browser, wait 24h, disable adblockers, clear cache and cookies, log out-in, rev..."
+  },
+  {
+    "id": "2023-04-28-xbox-design-lab",
+    "title": "#432",
+    "date": "2023-04-28",
+    "tags": [],
+    "path": "2023/04-28-xbox-design-lab.md",
+    "link": "/blog/telegram/2023/04/28/xbox-design-lab",
+    "excerpt": "[xbox-design-lab] so I will create my very first controller (🥰) but they need to have my last name so I updated my Microsoft profile, but heck it still doesn't work because according to some sources, ..."
+  },
+  {
+    "id": "2023-04-25-mc-server",
+    "title": "#430",
+    "date": "2023-04-25",
+    "tags": [],
+    "path": "2023/04-25-mc-server.md",
+    "link": "/blog/telegram/2023/04/25/mc-server",
+    "excerpt": "Guys, my Minecraft Server is open now 🥳 Java edition only, but you can use TLauncher 😏 Bedrock edition on its way... How to hop in ? 1) Join the dedicated group : @EDM115_minecraft 2) Acknowledge the ..."
+  },
+  {
+    "id": "2023-04-24-tomorrow",
+    "title": "#429",
+    "date": "2023-04-24",
+    "tags": [],
+    "path": "2023/04-24-tomorrow.md",
+    "link": "/blog/telegram/2023/04/24/tomorrow",
+    "excerpt": "tomorrow 🌚"
+  },
+  {
+    "id": "2023-04-24-intel-remote",
+    "title": "#428",
+    "date": "2023-04-24",
+    "tags": [],
+    "path": "2023/04-24-intel-remote.md",
+    "link": "/blog/telegram/2023/04/24/intel-remote",
+    "excerpt": "[intel-remote] Intel powered remote 😳"
+  },
+  {
+    "id": "2023-04-22-mc-ncs",
+    "title": "#427",
+    "date": "2023-04-22",
+    "tags": [],
+    "path": "2023/04-22-mc-ncs.md",
+    "link": "/blog/telegram/2023/04/22/mc-ncs",
+    "excerpt": "[mc-ncs] wtf ? link between Minecraft and NCS please ? 😂"
+  },
+  {
+    "id": "2023-04-21-new-discord-layout",
+    "title": "#420",
+    "date": "2023-04-21",
+    "tags": [],
+    "path": "2023/04-21-new-discord-layout.md",
+    "link": "/blog/telegram/2023/04/21/new-discord-layout",
+    "excerpt": "[new-discord-layout-1] [new-discord-layout-2] New Discord layout 4 main tabs, servers always accessible on bottom, all of them unordered or sorted with the folders you made also the channels view cont..."
+  },
+  {
+    "id": "2023-04-18-mods-list",
+    "title": "#418",
+    "date": "2023-04-18",
+    "tags": [],
+    "path": "2023/04-18-mods-list.md",
+    "link": "/blog/telegram/2023/04/18/mods-list",
+    "excerpt": "Not so Definitive Mods list : - Amplified Nether : New biomes, new terrain and new height to the Nether - Appleskin : Food info, saturation bar, and more ! - Bed Benefits : Sleeping will heal you and ..."
+  },
+  {
+    "id": "2023-04-16-website-stats",
+    "title": "#417",
+    "date": "2023-04-16",
+    "tags": [],
+    "path": "2023/04-16-website-stats.md",
+    "link": "/blog/telegram/2023/04/16/website-stats",
+    "excerpt": "[website-stats] 106 990 unique visitors in March 🫶🥰"
+  },
+  {
+    "id": "2023-04-14-variables",
+    "title": "#416",
+    "date": "2023-04-14",
+    "tags": [],
+    "path": "2023/04-14-variables.md",
+    "link": "/blog/telegram/2023/04/14/variables",
+    "excerpt": "[variables] no efforts on $(variablesReplacment) © me - CROUS is the french thing for managing scholarships for students"
+  },
+  {
+    "id": "2023-04-11-balanced",
+    "title": "#414",
+    "date": "2023-04-11",
+    "tags": [],
+    "path": "2023/04-11-balanced.md",
+    "link": "/blog/telegram/2023/04/11/balanced",
+    "excerpt": "[balanced] perfectly balanced, as everything should be 😇"
+  },
+  {
+    "id": "2023-04-04-minecraft-server",
+    "title": "#413",
+    "date": "2023-04-04",
+    "tags": [],
+    "path": "2023/04-04-minecraft-server.md",
+    "link": "/blog/telegram/2023/04/04/minecraft-server",
+    "excerpt": "In the next months, i will prepare a Minecraft server So you guys can play with me (or without 🥲) just for fun, keepinventory true, some mods obviously, survival, normal anyone interested, react with ..."
+  },
+  {
+    "id": "2023-04-03-best-bot",
+    "title": "#412",
+    "date": "2023-04-03",
+    "tags": [],
+    "path": "2023/04-03-best-bot.md",
+    "link": "/blog/telegram/2023/04/03/best-bot",
+    "excerpt": "[best-bot] 🥰"
+  },
+  {
+    "id": "2023-04-01-fh4-issues",
+    "title": "#411",
+    "date": "2023-04-01",
+    "tags": [],
+    "path": "2023/04-01-fh4-issues.md",
+    "link": "/blog/telegram/2023/04/01/fh4-issues",
+    "excerpt": "\\> bought Forza Horizon 4 on Steam \\> games launches successfully \\> crash after 45mins of playing (just after the 1st mission after season change) \\> then, games crash after loading, when i can contr..."
+  },
+  {
+    "id": "2023-03-30-ongoing-tasks",
+    "title": "#410",
+    "date": "2023-03-30",
+    "tags": [],
+    "path": "2023/03-30-ongoing-tasks.md",
+    "link": "/blog/telegram/2023/03/30/ongoing-tasks",
+    "excerpt": "[ongoing-tasks] … numbers talk for themselves… 🥺"
+  },
+  {
+    "id": "2023-03-28-bot-vote",
+    "title": "#409",
+    "date": "2023-03-28",
+    "tags": [],
+    "path": "2023/03-28-bot-vote.md",
+    "link": "/blog/telegram/2023/03/28/bot-vote",
+    "excerpt": "You can finally give a honest vote to the bot ! https://t.me/BotsArchive/2705 click on the according star ⭐ rating"
+  },
+  {
+    "id": "2023-03-24-llama-leak",
+    "title": "#408",
+    "date": "2023-03-24",
+    "tags": [],
+    "path": "2023/03-24-llama-leak.md",
+    "link": "/blog/telegram/2023/03/24/llama-leak",
+    "excerpt": "LLaMA_[META_Language_Model_Leak].torrent LLaMA [META Language Model Leak] magnet:?xt=urn:btih:b8287ebfa04f879b048d4d4404108cf3e8014352&dn=LLaMA&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce ..."
+  },
+  {
+    "id": "2023-03-22-copilot-for-cli",
+    "title": "#407",
+    "date": "2023-03-22",
+    "tags": [],
+    "path": "2023/03-22-copilot-for-cli.md",
+    "link": "/blog/telegram/2023/03/22/copilot-for-cli",
+    "excerpt": "[copilot-for-cli] https://www.npmjs.com/package/@githubnext/github-copilot-cli"
+  },
+  {
+    "id": "2023-03-21-game-friend",
+    "title": "#406",
+    "date": "2023-03-21",
+    "tags": [],
+    "path": "2023/03-21-game-friend.md",
+    "link": "/blog/telegram/2023/03/21/game-friend",
+    "excerpt": "If you wanna add me as friend to play : • Steam : https://steamcommunity.com/id/EDM115 • Epic Games : https://launcher.store.epicgames.com/u/adaabf6efb5f4ef29ecb9b51ae6fb3a5 • EA : (just search EDM115..."
+  },
+  {
+    "id": "2023-03-18-updated",
+    "title": "#405",
+    "date": "2023-03-18",
+    "tags": [],
+    "path": "2023/03-18-updated.md",
+    "link": "/blog/telegram/2023/03/18/updated",
+    "excerpt": "updated 😍"
+  },
+  {
+    "id": "2023-03-16-website-stats",
+    "title": "#402",
+    "date": "2023-03-16",
+    "tags": [],
+    "path": "2023/03-16-website-stats.md",
+    "link": "/blog/telegram/2023/03/16/website-stats",
+    "excerpt": "[website-stats-1] 68 753 unique visitors 🫶❤️ [website-stats-2]"
+  },
+  {
+    "id": "2023-03-13-new-reactions",
+    "title": "#401",
+    "date": "2023-03-13",
+    "tags": [],
+    "path": "2023/03-13-new-reactions.md",
+    "link": "/blog/telegram/2023/03/13/new-reactions",
+    "excerpt": "[new-reactions] New Reactions : 😎 👾 🤷‍♂️ :person_shrugging: 🤷‍♀️ 😡"
+  },
+  {
+    "id": "2023-03-12-peazip-translation",
+    "title": "#400",
+    "date": "2023-03-12",
+    "tags": [],
+    "path": "2023/03-12-peazip-translation.md",
+    "link": "/blog/telegram/2023/03/12/peazip-translation",
+    "excerpt": "https://github.com/peazip/PeaZip/pull/90 Big contribution 😍"
+  },
+  {
+    "id": "2023-03-11-windows-updates",
+    "title": "#399",
+    "date": "2023-03-11",
+    "tags": [],
+    "path": "2023/03-11-windows-updates.md",
+    "link": "/blog/telegram/2023/03/11/windows-updates",
+    "excerpt": "[windows-updates] what it feels to finally get updates after 6 months... 🥺 I \"repaired\" my messy Windows 11 💻 now let's hope it won't break another time :clown:"
+  },
+  {
+    "id": "2023-03-07-chessdotcom",
+    "title": "#398",
+    "date": "2023-03-07",
+    "tags": [],
+    "path": "2023/03-07-chessdotcom.md",
+    "link": "/blog/telegram/2023/03/07/chessdotcom",
+    "excerpt": "I'm not a good player, but who knows, one day… ♟️ https://friend.chess.com/xGm7J (if link doesn't work, add me directly : https://www.chess.com/member/edm115)"
+  },
+  {
+    "id": "2023-03-06-telegram-premium",
+    "title": "#397",
+    "date": "2023-03-06",
+    "tags": [],
+    "path": "2023/03-06-telegram-premium.md",
+    "link": "/blog/telegram/2023/03/06/telegram-premium",
+    "excerpt": "So yeah, i bought Telegram Premium ⭐ will the bot be able to upload 4 Gb files ⏩ ? idk, maybe… will look into that👀 suggest some good premium emojis packs (cute, programming, Menhera-chan, love, symbo..."
+  },
+  {
+    "id": "2023-03-06-large-repo",
+    "title": "#396",
+    "date": "2023-03-06",
+    "tags": [],
+    "path": "2023/03-06-large-repo.md",
+    "link": "/blog/telegram/2023/03/06/large-repo",
+    "excerpt": "[large-repo] oof... 👩‍💻"
+  },
+  {
+    "id": "2023-03-05-link",
+    "title": "#395",
+    "date": "2023-03-05",
+    "tags": [],
+    "path": "2023/03-05-link.md",
+    "link": "/blog/telegram/2023/03/05/link",
+    "excerpt": "updated link upvote if you can 🫶"
+  },
+  {
+    "id": "2023-03-04-wd-save-content",
+    "title": "#394",
+    "date": "2023-03-04",
+    "tags": [],
+    "path": "2023/03-04-wd-save-content.md",
+    "link": "/blog/telegram/2023/03/04/wd-save-content",
+    "excerpt": "content (fuck Reddit) : Hello, I'm here to ask something very specific. I downloaded a while ago Watch Dogs from FitGirl, and among the different cracks available, I chosen... Reloaded (maybe that was..."
+  },
+  {
+    "id": "2023-03-04-wd-save",
+    "title": "#393",
+    "date": "2023-03-04",
+    "tags": [],
+    "path": "2023/03-04-wd-save.md",
+    "link": "/blog/telegram/2023/03/04/wd-save",
+    "excerpt": "https://www.reddit.com/r/PiratedGames/comments/11iuct5/watch_dogs_1_any_way_to_convert_the_reloaded_save/ asking for help guys... 🥹"
+  },
+  {
+    "id": "2023-02-26-bot-restart",
+    "title": "#392",
+    "date": "2023-02-26",
+    "tags": [],
+    "path": "2023/02-26-bot-restart.md",
+    "link": "/blog/telegram/2023/02/26/bot-restart",
+    "excerpt": "[bot-restart] Now if the bot has restarted during extraction/renaming/thumbnail change/downloading, it will send you this message, so you can send the task again enjoy that new feature 😘"
+  },
+  {
+    "id": "2023-02-25-restart-teaser",
+    "title": "#391",
+    "date": "2023-02-25",
+    "tags": [],
+    "path": "2023/02-25-restart-teaser.md",
+    "link": "/blog/telegram/2023/02/25/restart-teaser",
+    "excerpt": "[restart-teaser] This feature may come soon for you... 🤭 try to guess in which context"
+  },
+  {
+    "id": "2023-02-23-games-bought",
+    "title": "#390",
+    "date": "2023-02-23",
+    "tags": [],
+    "path": "2023/02-23-games-bought.md",
+    "link": "/blog/telegram/2023/02/23/games-bought",
+    "excerpt": "Games bought so far (PC, Steam + Epic Games + EA, ...) updated regularly, sorted by acquisition date, doesn't include free games, all amounts in €uro • Geometry Dash + Mega Hack (1,99 + 4,99) • Need F..."
+  },
+  {
+    "id": "2023-02-23-google-play-india",
+    "title": "#389",
+    "date": "2023-02-23",
+    "tags": [],
+    "path": "2023/02-23-google-play-india.md",
+    "link": "/blog/telegram/2023/02/23/google-play-india",
+    "excerpt": "[google-play-india] TL;DR : Changes to Google Play's billing requirements for developers serving users in India If a user pays through an alternative billing system, the Google Play service fee will b..."
+  },
+  {
+    "id": "2023-02-22-dev-clone",
+    "title": "#388",
+    "date": "2023-02-22",
+    "tags": [],
+    "path": "2023/02-22-dev-clone.md",
+    "link": "/blog/telegram/2023/02/22/dev-clone",
+    "excerpt": "https://edm115.dev is now a fully functional clone of edm115.eu.org 🥰"
+  },
+  {
+    "id": "2023-02-20-reddit-upvote",
+    "title": "#387",
+    "date": "2023-02-20",
+    "tags": [],
+    "path": "2023/02-20-reddit-upvote.md",
+    "link": "/blog/telegram/2023/02/20/reddit-upvote",
+    "excerpt": "https://www.reddit.com/r/chrome/comments/1178izz/chrome_dev_bug_on_hovering_window_buttons/ go upvote… or forget it"
+  },
+  {
+    "id": "2023-02-19-instagram-deleted-accounts",
+    "title": "#386",
+    "date": "2023-02-19",
+    "tags": [],
+    "path": "2023/02-19-instagram-deleted-accounts.md",
+    "link": "/blog/telegram/2023/02/19/instagram-deleted-accounts",
+    "excerpt": "[instagram-deleted-accounts] Do you wonder how Instagram handles Deleted/Disabled accounts (especially its messages) ? Here's my theory : each account have a 17 lowercase characters long ID, and its u..."
+  },
+  {
+    "id": "2023-02-15-stats-refresh",
+    "title": "#385",
+    "date": "2023-02-15",
+    "tags": [],
+    "path": "2023/02-15-stats-refresh.md",
+    "link": "/blog/telegram/2023/02/15/stats-refresh",
+    "excerpt": "the refresh button now works enjoy ☺️"
+  },
+  {
+    "id": "2023-02-15-unzip-website",
+    "title": "#384",
+    "date": "2023-02-15",
+    "tags": [],
+    "path": "2023/02-15-unzip-website.md",
+    "link": "/blog/telegram/2023/02/15/unzip-website",
+    "excerpt": "Tada 🥳 https://edm115.eu.org/unzip/ Note : • Some numbers aren't updated in real time • You will have an explanation of all errors you may encounter 😉"
+  },
+  {
+    "id": "2023-02-14-bot-update",
+    "title": "#382",
+    "date": "2023-02-14",
+    "tags": [],
+    "path": "2023/02-14-bot-update.md",
+    "link": "/blog/telegram/2023/02/14/bot-update",
+    "excerpt": "Yo ! Been a while that I haven't updated the bot, right ? 😏 v5.3.1 : • Utility command for admins : /gitpull (so no need to redeploy everytime. Inspired by @JusidamaBot) • Now, /delthumb works permana..."
+  },
+  {
+    "id": "2023-02-13-fl-ram",
+    "title": "#381",
+    "date": "2023-02-13",
+    "tags": [],
+    "path": "2023/02-13-fl-ram.md",
+    "link": "/blog/telegram/2023/02/13/fl-ram",
+    "excerpt": "[fl-ram] i dare you to do better 🥱"
+  },
+  {
+    "id": "2023-02-12-yt-update",
+    "title": "#380",
+    "date": "2023-02-12",
+    "tags": [],
+    "path": "2023/02-12-yt-update.md",
+    "link": "/blog/telegram/2023/02/12/yt-update",
+    "excerpt": "[yt-update] try to be clear without being clear 🤕"
+  },
+  {
+    "id": "2023-02-09-yt-shutdown-poll",
+    "title": "#378",
+    "date": "2023-02-09",
+    "tags": [],
+    "path": "2023/02-09-yt-shutdown-poll.md",
+    "link": "/blog/telegram/2023/02/09/yt-shutdown-poll",
+    "excerpt": "the YT dl bot is more and more offline should I really shut it down ? - yes 👍 | 15 votes - no 👎 | 16 votes - idc 🤷‍♂️ | 9 votes 40 votes"
+  },
+  {
+    "id": "2023-02-06-zaraz-certification",
+    "title": "#376",
+    "date": "2023-02-06",
+    "tags": [],
+    "path": "2023/02-06-zaraz-certification.md",
+    "link": "/blog/telegram/2023/02/06/zaraz-certification",
+    "excerpt": "Apply to the Zaraz Developers Certification Training Program by Cloudflare here (certification will be delivered at the end) : https://docs.google.com/forms/d/e/1FAIpQLSd8VaQVrviaNV3MKHf9z2SzXWWdj-9Dv..."
+  },
+  {
+    "id": "2023-02-05-unzip-help",
+    "title": "#375",
+    "date": "2023-02-05",
+    "tags": [],
+    "path": "2023/02-05-unzip-help.md",
+    "link": "/blog/telegram/2023/02/05/unzip-help",
+    "excerpt": "[unzip-help] this will be ready before the end of the month ☺️"
+  },
+  {
+    "id": "2023-02-04-partitions",
+    "title": "#372",
+    "date": "2023-02-04",
+    "tags": [],
+    "path": "2023/02-04-partitions.md",
+    "link": "/blog/telegram/2023/02/04/partitions",
+    "excerpt": "Update : resizing partitions Kubuntu : 65 Gb ➡️ 20 Gb Kali : 95 Gb ➡️ 28 Gb Kali SWAP : 4 Gb ➡️ 0 b Windows Disk (not C:, the data holder) : 804 Gb ➡️ 885 Gb Total time spent : 2h10"
+  },
+  {
+    "id": "2023-02-04-hardwell-return",
+    "title": "#371",
+    "date": "2023-02-04",
+    "tags": [],
+    "path": "2023/02-04-hardwell-return.md",
+    "link": "/blog/telegram/2023/02/04/hardwell-return",
+    "excerpt": "https://djhardwell.com/2023 Web design at its finest 😳🥹"
+  },
+  {
+    "id": "2023-02-04-new-reactions",
+    "title": "#370",
+    "date": "2023-02-04",
+    "tags": [],
+    "path": "2023/02-04-new-reactions.md",
+    "link": "/blog/telegram/2023/02/04/new-reactions",
+    "excerpt": "[new-reactions] New Reactions : 💘 🙉 🦄 😘 💊 🙊"
+  },
+  {
+    "id": "2023-02-03-ai-test-kitchen",
+    "title": "#368",
+    "date": "2023-02-03",
+    "tags": [],
+    "path": "2023/02-03-ai-test-kitchen.md",
+    "link": "/blog/telegram/2023/02/03/ai-test-kitchen",
+    "excerpt": "[ai-test-kitchen] App : https://play.google.com/store/apps/details?id=com.google.android.apps.ai.sandbox Learn more and Signup on the waitlist : https://aitestkitchen.withgoogle.com Get the App (usele..."
+  },
+  {
+    "id": "2023-02-02-s+-rank",
+    "title": "#367",
+    "date": "2023-02-02",
+    "tags": [],
+    "path": "2023/02-02-s+-rank.md",
+    "link": "/blog/telegram/2023/02/02/s+-rank",
+    "excerpt": "[s+-rank] S+ rank, finally 🥹"
+  },
+  {
+    "id": "2023-02-01-netflix-password",
+    "title": "#366",
+    "date": "2023-02-01",
+    "tags": [],
+    "path": "2023/02-01-netflix-password.md",
+    "link": "/blog/telegram/2023/02/01/netflix-password",
+    "excerpt": "https://www.gsmarena.com/netflix_finally_reveals_how_it_will_stop_password_sharing-news-57406.php"
+  },
+  {
+    "id": "2023-01-31-stackshare-awards",
+    "title": "#365",
+    "date": "2023-01-31",
+    "tags": [],
+    "path": "2023/01-31-stackshare-awards.md",
+    "link": "/blog/telegram/2023/01/31/stackshare-awards",
+    "excerpt": "[stackshare-awards] https://stackshare.io/posts/top-developer-tools-2022"
+  },
+  {
+    "id": "2023-01-30-bot-stats",
+    "title": "#364",
+    "date": "2023-01-30",
+    "tags": [],
+    "path": "2023/01-30-bot-stats.md",
+    "link": "/blog/telegram/2023/01/30/bot-stats",
+    "excerpt": "30 Days later, here's how it evolved : • ~3,5k users • +31,5k files processed • +6,6k links processed • 110 thumbnails set (you like that functionality ☺️) • I restart the server manually 1~2 times pe..."
+  },
+  {
+    "id": "2023-01-28-better-uptime",
+    "title": "#363",
+    "date": "2023-01-28",
+    "tags": [],
+    "path": "2023/01-28-better-uptime.md",
+    "link": "/blog/telegram/2023/01/28/better-uptime",
+    "excerpt": "[better-uptime] they announced it officially 1 day after me 😂🤌"
+  },
+  {
+    "id": "2023-01-27-github-tasklist",
+    "title": "#362",
+    "date": "2023-01-27",
+    "tags": [],
+    "path": "2023/01-27-github-tasklist.md",
+    "link": "/blog/telegram/2023/01/27/github-tasklist",
+    "excerpt": "[github-tasklist]"
+  },
+  {
+    "id": "2023-01-26-discord-username",
+    "title": "#361",
+    "date": "2023-01-26",
+    "tags": [],
+    "path": "2023/01-26-discord-username.md",
+    "link": "/blog/telegram/2023/01/26/discord-username",
+    "excerpt": "Simplified my Discord username from 𝔼𝔻𝕄 𝟙.𝟙𝟝 🔥#3347 to EDM115#0001 add me if you want 🥺"
+  },
+  {
+    "id": "2023-01-26-status-page",
+    "title": "#360",
+    "date": "2023-01-26",
+    "tags": [],
+    "path": "2023/01-26-status-page.md",
+    "link": "/blog/telegram/2023/01/26/status-page",
+    "excerpt": "Revamped Status Page 👀 • New look • Dark mode • Cards • Accent on statuses"
+  },
+  {
+    "id": "2023-01-24-miui-audio-mixer",
+    "title": "#358",
+    "date": "2023-01-24",
+    "tags": [],
+    "path": "2023/01-24-miui-audio-mixer.md",
+    "link": "/blog/telegram/2023/01/24/miui-audio-mixer",
+    "excerpt": "[miui-audio-mixer] another reason why I like MIUI ? the integrated audio mixer 🥰"
+  },
+  {
+    "id": "2023-01-25-recents-bug",
+    "title": "#359",
+    "date": "2023-01-24",
+    "tags": [],
+    "path": "2023/01-25-recents-bug.md",
+    "link": "/blog/telegram/2023/01/25/recents-bug",
+    "excerpt": "[recents-bug] Recent tasks bug with keyboard (don't even know how it happened 😂)"
+  },
+  {
+    "id": "2023-01-24-github-sponsors-cc",
+    "title": "#357",
+    "date": "2023-01-24",
+    "tags": [],
+    "path": "2023/01-24-github-sponsors-cc.md",
+    "link": "/blog/telegram/2023/01/24/github-sponsors-cc",
+    "excerpt": "[github-sponsors-cc]"
+  },
+  {
+    "id": "2023-01-22-grundy2-done",
+    "title": "#356",
+    "date": "2023-01-22",
+    "tags": [],
+    "path": "2023/01-22-grundy2-done.md",
+    "link": "/blog/telegram/2023/01/22/grundy2-done",
+    "excerpt": "done few hours before deadline will make it public later public"
+  },
+  {
+    "id": "2023-01-21-grundy2",
+    "title": "#355",
+    "date": "2023-01-21",
+    "tags": [],
+    "path": "2023/01-21-grundy2.md",
+    "link": "/blog/telegram/2023/01/21/grundy2",
+    "excerpt": "[grundy2] 0 tests and it's already 1k lines long… ×5 files pure mess, and it barely works the AI plays well but game management is messy"
+  },
+  {
+    "id": "2023-01-18-website-stats",
+    "title": "#353",
+    "date": "2023-01-18",
+    "tags": [],
+    "path": "2023/01-18-website-stats.md",
+    "link": "/blog/telegram/2023/01/18/website-stats",
+    "excerpt": "[website-stats-1] 57 176 unique visitors 🤯 [website-stats-2]"
+  },
+  {
+    "id": "2023-01-15-ping-again",
+    "title": "#352",
+    "date": "2023-01-15",
+    "tags": [],
+    "path": "2023/01-15-ping-again.md",
+    "link": "/blog/telegram/2023/01/15/ping-again",
+    "excerpt": "[ping-again]"
+  },
+  {
+    "id": "2023-01-15-discord-vc-ping",
+    "title": "#351",
+    "date": "2023-01-15",
+    "tags": [],
+    "path": "2023/01-15-discord-vc-ping.md",
+    "link": "/blog/telegram/2023/01/15/discord-vc-ping",
+    "excerpt": "[discord-vc-ping] so you can be pinged on a… Voice channel 😶‍🌫️"
+  },
+  {
+    "id": "2023-01-11-bot-dev",
+    "title": "#350",
+    "date": "2023-01-11",
+    "tags": [],
+    "path": "2023/01-11-bot-dev.md",
+    "link": "/blog/telegram/2023/01/11/bot-dev",
+    "excerpt": "will continue to work on the development from 23rd January exams and assignments are still ongoing 🫡 and regarding to the 👎 reactions above if anyone is angry about anything, feel free to tell me 🙃"
+  },
+  {
+    "id": "2023-01-09-bot-update",
+    "title": "#349",
+    "date": "2023-01-09",
+    "tags": [],
+    "path": "2023/01-09-bot-update.md",
+    "link": "/blog/telegram/2023/01/09/bot-update",
+    "excerpt": "@unzip_edm115bot Update : • Revamped the /delthumb command. Now works like the /addthumb one and allows you to preview your thumbnail before deleting (useful if you lost it) and to cancel the process ..."
+  },
+  {
+    "id": "2023-01-09-copilot-renewed",
+    "title": "#348",
+    "date": "2023-01-09",
+    "tags": [],
+    "path": "2023/01-09-copilot-renewed.md",
+    "link": "/blog/telegram/2023/01/09/copilot-renewed",
+    "excerpt": "[copilot-renewed]"
+  },
+  {
+    "id": "2023-01-08-new-botpic",
+    "title": "#347",
+    "date": "2023-01-08",
+    "tags": [],
+    "path": "2023/01-08-new-botpic.md",
+    "link": "/blog/telegram/2023/01/08/new-botpic",
+    "excerpt": "[new-botpic] New botpic for @unzip_edm115bot Thanks to @GuessWho02 (now @Jamil_Resho) 🥰"
+  },
+  {
+    "id": "2023-01-08-ai-circle",
+    "title": "#346",
+    "date": "2023-01-08",
+    "tags": [],
+    "path": "2023/01-08-ai-circle.md",
+    "link": "/blog/telegram/2023/01/08/ai-circle",
+    "excerpt": "[ai-circle] i cannot… stop thinking about it 🙂 like, it feels so true 🫠"
+  },
+  {
+    "id": "2023-01-07-aggressive-antispam",
+    "title": "#345",
+    "date": "2023-01-07",
+    "tags": [],
+    "path": "2023/01-07-aggressive-antispam.md",
+    "link": "/blog/telegram/2023/01/07/aggressive-antispam",
+    "excerpt": "[aggressive-antispam-1] [aggressive-antispam-2] [aggressive-antispam-3] Telegram Aggressive Anti-Spam will never be compatible with Leech groups 😂 it deletes every link (even from GitHub and YouTube) ..."
+  },
+  {
+    "id": "2023-01-07-video-bug",
+    "title": "#342",
+    "date": "2023-01-07",
+    "tags": [],
+    "path": "2023/01-07-video-bug.md",
+    "link": "/blog/telegram/2023/01/07/video-bug",
+    "excerpt": "So the bot is facing an issue : [BUG] Videos can't be uploaded as media without thumbnail This causes the bot to send endless Processing… ⏳ messages when it needs to send videos as media, and that you..."
+  },
+  {
+    "id": "2023-01-05-errors",
+    "title": "#341",
+    "date": "2023-01-05",
+    "tags": [],
+    "path": "2023/01-05-errors.md",
+    "link": "/blog/telegram/2023/01/05/errors",
+    "excerpt": "https://t.me/unzip_updates/24 if anyone have errors (for this or something else), leave a comment here"
+  },
+  {
+    "id": "2023-01-04-github-roadmap",
+    "title": "#340",
+    "date": "2023-01-04",
+    "tags": [],
+    "path": "2023/01-04-github-roadmap.md",
+    "link": "/blog/telegram/2023/01/04/github-roadmap",
+    "excerpt": "[github-roadmap]"
+  },
+  {
+    "id": "2023-01-03-update-channel",
+    "title": "#339",
+    "date": "2023-01-03",
+    "tags": [],
+    "path": "2023/01-03-update-channel.md",
+    "link": "/blog/telegram/2023/01/03/update-channel",
+    "excerpt": "Opened @unzip_updates ⚡ If you want to see advancement of the development, check that channel"
+  },
+  {
+    "id": "2023-01-02-update",
+    "title": "#338",
+    "date": "2023-01-02",
+    "tags": [],
+    "path": "2023/01-02-update.md",
+    "link": "/blog/telegram/2023/01/02/update",
+    "excerpt": "Major update (happy new year 🫶) : • Videos (and audios, photos) are finally sent as streamable medias, with custom thumbnail support ! • When clicking on a button, your task is instantly processed • S..."
+  },
+  {
+    "id": "2023-01-02-whatsapp-backup",
+    "title": "#337",
+    "date": "2023-01-02",
+    "tags": [],
+    "path": "2023/01-02-whatsapp-backup.md",
+    "link": "/blog/telegram/2023/01/02/whatsapp-backup",
+    "excerpt": "[whatsapp-backup-1] [whatsapp-backup-2] so fortunately I was pretty clever and i copied the old database from 29th December some messages are missing, but at least it recovered most of them 😌 Never tr..."
+  },
+  {
+    "id": "2023-01-02-whatsapp-backup-loss",
+    "title": "#335",
+    "date": "2023-01-02",
+    "tags": [],
+    "path": "2023/01-02-whatsapp-backup-loss.md",
+    "link": "/blog/telegram/2023/01/02/whatsapp-backup-loss",
+    "excerpt": "[whatsapp-backup-loss] when you're a $319.09B company but you fail to handle a backup file in the cloud #SwitchToTelegram"
+  },
+  {
+    "id": "2023-01-01-autoban-poll",
+    "title": "#334",
+    "date": "2023-01-01",
+    "tags": [],
+    "path": "2023/01-01-autoban-poll.md",
+    "link": "/blog/telegram/2023/01/01/autoban-poll",
+    "excerpt": "Thinking of a new feature : should I put on hold the tasks that are detected as going against the rules ? Based on filename analysis only, they will require an admin approval. Also it will introduce a..."
+  },
+  {
+    "id": "2023-01-01-double-ban",
+    "title": "#333",
+    "date": "2023-01-01",
+    "tags": [],
+    "path": "2023/01-01-double-ban.md",
+    "link": "/blog/telegram/2023/01/01/double-ban",
+    "excerpt": "[double-ban] new feature : avoiding to ban an user twice (admin only)"
+  },
+  {
+    "id": "2023-01-01-2022-stats",
+    "title": "#332",
+    "date": "2023-01-01",
+    "tags": [],
+    "path": "2023/01-01-2022-stats.md",
+    "link": "/blog/telegram/2023/01/01/2022-stats",
+    "excerpt": "[2022-stats] 2022 insights : top screen : last week bottom screen : last 6 months thank you for this constant growth prepare yourself to have more stuff/news/memes coming 😏😘"
+  },
+  {
+    "id": "2023-01-01-new-year",
+    "title": "#331",
+    "date": "2023-01-01",
+    "tags": [],
+    "path": "2023/01-01-new-year.md",
+    "link": "/blog/telegram/2023/01/01/new-year",
+    "excerpt": "Happy new year everyone 🎉 May 2023 be an awesome year for you, where you will succeed in all your projects 🥳 Be happy and stay safe 🫶"
+  },
+  {
     "id": "2022-12-31-ir-blaster",
     "title": "#330",
     "date": "2022-12-31",
