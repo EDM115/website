@@ -496,7 +496,7 @@ export function useBlogPosts(isTelegram = false) {
     let searchWasUpdated = false
 
     if (Object.prototype.hasOwnProperty.call(newFilters, "search")) {
-      const searchInput = (newFilters.search ?? "").toString()
+      const searchInput = newFilters.search ?? ""
       const parsed = parseBlogSearch(searchInput)
 
       nextFilters = {

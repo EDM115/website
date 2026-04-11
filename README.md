@@ -463,14 +463,6 @@ server {
 
 #### `/etc/nginx/js/blog.js`
 ```javascript
-function pad2(n) {
-  return (
-    n < 10
-      ? "0"
-      : ""
-    ) + n
-}
-
 function blog_redirect(r) {
   // strip trailing slash
   const uri = (r.uri || "").replace(/\/+$/, "")
@@ -485,7 +477,6 @@ function blog_redirect(r) {
 
   // "" or "/telegram"
   const sub = m[1] || ""
-  const y = parseInt(m[2], 10)
   // "MM" or undefined
   const mmS = m[3]
   // "DD" or undefined
@@ -498,33 +489,12 @@ function blog_redirect(r) {
   }
 
   if (mmS) {
-    // /YYYY/MM -> ?search=before:YYYY-(MM+1)+after:YYYY-(MM-1)  (with year rollovers)
-    const mm = parseInt(mmS, 10)
-
-    const next = mm === 12
-      ? {
-          y: y + 1,
-          m: 1,
-        }
-      : {
-          y,
-          m: mm + 1,
-        }
-    const prev = mm === 1
-      ? {
-          y: y - 1,
-          m: 12,
-        }
-      : {
-          y,
-          m: mm - 1,
-        }
-
-    return `${base}?search=before:${next.y}-${pad2(next.m)}+after:${prev.y}-${pad2(prev.m)}`
+    // /YYYY/MM -> ?search=at:YYYY-MM
+    return `${base}?search=at:${m[2]}-${mmS}`
   }
 
-  // /YYYY -> ?search=before:(YYYY+1)+after:(YYYY-1)
-  return `${base}?search=before:${y + 1}+after:${y - 1}`
+  // /YYYY -> ?search=at:YYYY
+  return `${base}?search=at:${m[2]}`
 }
 
 export default { blog_redirect }

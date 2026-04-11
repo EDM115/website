@@ -45,7 +45,7 @@ export function useDevice() {
     const narrow = width <= 820
 
     screen.value = computeScreen(width)
-    isMobile.value = Boolean(hoverNone || coarse || narrow)
+    isMobile.value = hoverNone || coarse || narrow
   }
 
   onMounted(() => {

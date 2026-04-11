@@ -162,13 +162,13 @@ function normalizeDate(value: string, mode: DateMode): string | undefined {
   return undefined
 }
 
-function getFirstQueryValue(value: string | string[] | null | undefined): string | undefined {
+function getFirstQueryValue(value: string | Array<string | null> | null | undefined): string | undefined {
   if (!value) {
     return undefined
   }
 
   if (Array.isArray(value)) {
-    return value[0] ?? undefined
+    return value.find((entry): entry is string => typeof entry === "string" && entry.length > 0) ?? undefined
   }
 
   return value
@@ -310,7 +310,7 @@ export function stringifyBlogSearch(filters: BlogFilters): string {
     .trim()
 }
 
-export function buildSearchInputFromQuery(query: Record<string, string | string[] | null | undefined>): string {
+export function buildSearchInputFromQuery(query: Record<string, string | Array<string | null> | null | undefined>): string {
   const baseSearch = getFirstQueryValue(query.search) ?? ""
   const parsedBase = parseBlogSearch(baseSearch)
   const extras: string[] = []

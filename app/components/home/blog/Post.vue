@@ -166,22 +166,6 @@ function redirectToSearch(searchQuery: string) {
   })
 }
 
-function shiftMonth(year: number, month: number, delta: number): {
-  year: number; month: number;
-} {
-  const shifted = Temporal.PlainDate.from({
-    year,
-    month,
-    day: 1,
-  })
-    .add({ months: delta })
-
-  return {
-    year: shifted.year,
-    month: shifted.month,
-  }
-}
-
 function formatYearMonth(year: number, month: number): string {
   return `${year}-${pad(month)}`
 }
@@ -237,13 +221,7 @@ function buildSearchQuery(segments: string[]): string | null {
   }
 
   if (segments.length === 1) {
-    const parts: string[] = [`before:${year + 1}`]
-
-    if (year > 1) {
-      parts.push(`after:${year - 1}`)
-    }
-
-    return parts.join(" ")
+    return `at:${year}`
   }
 
   const month = parsePositiveInt(segments[1])
@@ -253,15 +231,7 @@ function buildSearchQuery(segments: string[]): string | null {
   }
 
   if (segments.length === 2) {
-    const nextMonth = shiftMonth(year, month, 1)
-    const previousMonth = shiftMonth(year, month, -1)
-    const parts: string[] = [`before:${formatYearMonth(nextMonth.year, nextMonth.month)}`]
-
-    if (previousMonth.year > 0) {
-      parts.push(`after:${formatYearMonth(previousMonth.year, previousMonth.month)}`)
-    }
-
-    return parts.join(" ")
+    return `at:${formatYearMonth(year, month)}`
   }
 
   const day = parsePositiveInt(segments[2])

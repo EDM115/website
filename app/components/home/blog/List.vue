@@ -142,10 +142,38 @@ const {
   setPage,
 } = useBlogPosts(props.isTelegram)
 
-const initialSearch = computed(() => buildSearchInputFromQuery(route.query as Record<string, string>))
-const searchQuery = ref(initialSearch.value)
+const routeSearchQuery = computed(() => buildSearchInputFromQuery(route.query))
+const searchQuery = ref(routeSearchQuery.value)
+const hasLoadedPosts = ref(false)
 
 let searchTimeout: NodeJS.Timeout | null = null
+
+const routePage = computed(() => {
+  const rawPage = route.query.page
+  const pageValue = Array.isArray(rawPage)
+    ? rawPage[0]
+    : rawPage
+  const parsedPage = Number.parseInt(pageValue ?? "", 10)
+
+  return Number.isNaN(parsedPage) || parsedPage < 1
+    ? 1
+    : parsedPage
+})
+
+function syncStateFromRoute() {
+  if (!hasLoadedPosts.value) {
+    return
+  }
+
+  const nextSearchQuery = routeSearchQuery.value
+
+  if (searchQuery.value !== nextSearchQuery) {
+    searchQuery.value = nextSearchQuery
+  }
+
+  setFilters({ search: nextSearchQuery })
+  setPage(routePage.value)
+}
 
 function updateURL() {
   const query: Record<string, string> = {}
@@ -272,14 +300,12 @@ function formatDate(dateStr: string) {
 
 onMounted(async () => {
   await loadPosts()
+  hasLoadedPosts.value = true
+  syncStateFromRoute()
+})
 
-  if (searchQuery.value) {
-    setFilters({ search: searchQuery.value })
-  }
-
-  if (route.query.page) {
-    setPage(Number.parseInt(route.query.page as string) || 1)
-  }
+watch([ routeSearchQuery, routePage ], () => {
+  syncStateFromRoute()
 })
 
 onBeforeUnmount(() => {
