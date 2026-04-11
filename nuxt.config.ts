@@ -133,8 +133,8 @@ export default defineNuxtConfig({
     storageKey: "theme",
   },
   sourcemap: {
-    client: true,
-    server: true,
+    client: false,
+    server: false,
   },
   devServer: { port: 8888 },
   future: { typescriptBundlerResolution: true },
@@ -317,7 +317,7 @@ export default defineNuxtConfig({
         extensions: [ "vue", "md" ],
         include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ],
         resolvers: [IconsResolver({ prefix: "Icon" })],
-        sourcemap: true,
+        sourcemap: false,
       }),
     ],
     vue: { include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ] },
@@ -465,6 +465,7 @@ export default defineNuxtConfig({
       markdown: true,
       json: true,
     },
+    runOnBuild: false,
   },
   ogImage: {
     buildCache: true,

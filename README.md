@@ -75,6 +75,7 @@ pnpm start:ssg
 
 - Mermaid support in markdown-it
 - Better GFM support (=> https://github.com/npm/marky-markdown#dependencies & https://github.github.com/gfm/ + https://mdxjs.com/guides/gfm/)
+- RSS feed
 
 </details>
 

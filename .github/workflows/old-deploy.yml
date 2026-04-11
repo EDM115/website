@@ -33,17 +33,16 @@ jobs:
           sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/components/system/OgImage.takumi.vue
-          sed -i 's|client: true|client: false|g' nuxt.config.ts
-          sed -i 's|server: true|server: false|g' nuxt.config.ts
-          sed -i 's|sourcemap: true|sourcemap: false|g' nuxt.config.ts
           sed -i '/ogImage/,$ s/enabled: true/enabled: false/' nuxt.config.ts
           # Avoid bundling the resume files since they balloon the size by x8
-          sed -i 's|/docs|https://edm115/docs|g' app/components/home/Resume.vue
+          sed -i 's|/docs|https://edm115.dev/docs|g' app/components/home/Resume.vue
           # Also redirect blog files
           find app/components/blog -type f -print0 | xargs -0 sed -i 's!\](/docs!\](https://edm115.dev/docs!g'
+          find app/components/blog -type f -print0 | xargs -0 sed -i 's!\](/video!\](https://edm115.dev/video!g'
           rm -f public/docs/CV_*.pdf
           rm -f public/docs/Resume_*.pdf
           rm -fr public/docs/blog
+          rm -fr public/docs/video
 
       - name: "Restore Nuxt cache"
         id: nuxt_cache
