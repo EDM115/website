@@ -41,7 +41,7 @@
       "recap": "Dev fullstack • Enthousiaste Python • Apprenant rapide",
       "tagline": {
         "1": "Je suis un développeur français junior polyvalent qui aime explorer différents langages de programmation et adore l'open source",
-        "2": "Actuellement à la recherche d'un emploi, je suis passionné et impliqué dans tout ce que j'entreprends"
+        "2": "Je suis très passionné et impliqué dans tout ce que j'entreprends"
       },
       "title": "À propos"
     },
@@ -107,11 +107,24 @@
             "title": "Stage \\@ Nexelec"
           }
         },
+        "full-time": {
+          "???": {
+            "date": "??? - Maintenant",
+            "description": {
+              "details": [
+                "???"
+              ],
+              "summary": "???"
+            },
+            "location": "???, France",
+            "title": "Développeur informatique \\@ ???"
+          }
+        },
         "professional": "Expérience professionnelle"
       },
       "subtitle": "Quel est mon parcours ? Découvrez-le ici",
       "summary": {
-        "1": "Je suis un développeur à la recherche d'un emploi",
+        "1": "Je suis un développeur polyvalent travaillant sur de nombreuses technologies, projets et domaines différents",
         "location": "Rouen, France",
         "title": "Résumé"
       },

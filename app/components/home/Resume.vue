@@ -36,6 +36,38 @@
 
       <UiStepperVerticalItem
         :subtitle="t('home.resume.experience.professional')"
+        :title="t('home.resume.experience.full-time.???.title')"
+        :icon="mdiBriefcaseOutline"
+      >
+        <UiList>
+          <UiListItem no-hover>
+            <template #title>
+              {{ t("home.resume.experience.full-time.???.date") }}
+            </template>
+            <template #subtitle>
+              <div class="mb-2">
+                {{ t("home.resume.experience.full-time.???.location") }}
+              </div>
+            </template>
+            {{ t("home.resume.experience.full-time.???.description.summary") }}
+            <ul
+              class="mt-4 ml-4"
+              style="text-align: left; list-style-type: disc;"
+            >
+              <li
+                v-for="(detail, index) in tm('home.resume.experience.full-time.???.description.details') as VueMessageType"
+                :key="index"
+                style="text-wrap: balance;"
+              >
+                {{ detail }}
+              </li>
+            </ul>
+          </UiListItem>
+        </UiList>
+      </UiStepperVerticalItem>
+
+      <UiStepperVerticalItem
+        :subtitle="t('home.resume.experience.professional')"
         :title="t('home.resume.experience.internships.nexelec.title')"
         :icon="mdiBriefcaseOutline"
       >

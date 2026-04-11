@@ -41,7 +41,7 @@
       "recap": "Fullstack dev • Python enthusiast • Fast learner",
       "tagline": {
         "1": "I'm a versatile junior French developer who like to tackle various programming languages and love open source",
-        "2": "Currently searching for a job, I'm passionate and involved in everything I try out"
+        "2": "I'm very passionate and involved in everything I try out"
       },
       "title": "About"
     },
@@ -107,11 +107,24 @@
             "title": "Internship \\@ Nexelec"
           }
         },
+        "full-time": {
+          "???": {
+            "date": "??? - Now",
+            "description": {
+              "details": [
+                "???"
+              ],
+              "summary": "???"
+            },
+            "location": "???, France",
+            "title": "Software developer \\@ ???"
+          }
+        },
         "professional": "Professional experience"
       },
       "subtitle": "What is my path ? Discover it there",
       "summary": {
-        "1": "I'm a developer searching for a job",
+        "1": "I'm a versatile developer working on many different technologies, projects and domains",
         "location": "Rouen, France",
         "title": "Summary"
       },
