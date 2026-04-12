@@ -414,8 +414,10 @@ export function useBlogPosts(isTelegram = false) {
       }
     }
 
-    if (filters.value.tags?.length) {
-      const searchTags = filters.value.tags.map((tag) => tag.toLowerCase())
+    if (filters.value.tagGroups?.length || filters.value.tags?.length) {
+      const searchTagGroups = filters.value.tagGroups?.length
+        ? filters.value.tagGroups
+        : toSingletonTagGroups(filters.value.tags ?? [])
 
       posts = posts.filter((post) => {
         if (!post.tags?.length) {
@@ -424,7 +426,7 @@ export function useBlogPosts(isTelegram = false) {
 
         const postTags = new Set(post.tags.map((tag) => tag.toLowerCase()))
 
-        return searchTags.some((tag) => postTags.has(tag))
+        return searchTagGroups.some((tagGroup) => tagGroup.every((tag) => postTags.has(tag)))
       })
     }
 
@@ -474,20 +476,55 @@ export function useBlogPosts(isTelegram = false) {
       .filter((tag) => tag.length > 0)
   }
 
-  function mergeTags(...tagGroups: Array<string[] | undefined>): string[] {
-    const merged = new Set<string>()
+  function normalizeTagGroup(tags: string[]): string[] {
+    return [
+      ...new Set(tags.map((tag) => tag.trim()
+        .toLowerCase())
+        .filter((tag) => tag.length > 0)),
+    ]
+  }
 
-    for (const group of tagGroups) {
-      if (!group?.length) {
+  function toSingletonTagGroups(tags: string[]): string[][] {
+    return tags.map((tag) => [tag])
+  }
+
+  function mergeTagGroups(...groupsList: Array<string[][] | undefined>): string[][] {
+    const merged: string[][] = []
+    const seen = new Set<string>()
+
+    for (const groups of groupsList) {
+      if (!groups?.length) {
         continue
       }
 
-      for (const tag of group) {
-        merged.add(tag)
+      for (const group of groups) {
+        const normalizedGroup = normalizeTagGroup(group)
+
+        if (!normalizedGroup.length) {
+          continue
+        }
+
+        const key = normalizedGroup.toSorted()
+          .join("\u0000")
+
+        if (seen.has(key)) {
+          continue
+        }
+
+        seen.add(key)
+        merged.push(normalizedGroup)
       }
     }
 
-    return [...merged]
+    return merged
+  }
+
+  function flattenTagGroups(tagGroups: string[][] | undefined): string[] {
+    if (!tagGroups?.length) {
+      return []
+    }
+
+    return [...new Set(tagGroups.flat())]
   }
 
   // skipcq: JS-R1005
@@ -504,6 +541,9 @@ export function useBlogPosts(isTelegram = false) {
         tags: parsed.filters.tags.length > 0
           ? parsed.filters.tags
           : undefined,
+        tagGroups: parsed.filters.tagGroups.length > 0
+          ? parsed.filters.tagGroups
+          : undefined,
         before: parsed.filters.before,
         after: parsed.filters.after,
         at: parsed.filters.at,
@@ -517,6 +557,9 @@ export function useBlogPosts(isTelegram = false) {
       nextFilters.tags = normalizedTags.length > 0
         ? normalizedTags
         : undefined
+      nextFilters.tagGroups = normalizedTags.length > 0
+        ? toSingletonTagGroups(normalizedTags)
+        : undefined
     }
 
     if (Object.prototype.hasOwnProperty.call(newFilters, "tag") && !searchWasUpdated) {
@@ -524,6 +567,9 @@ export function useBlogPosts(isTelegram = false) {
 
       nextFilters.tags = normalizedTags.length > 0
         ? normalizedTags
+        : undefined
+      nextFilters.tagGroups = normalizedTags.length > 0
+        ? toSingletonTagGroups(normalizedTags)
         : undefined
     }
 
@@ -542,10 +588,18 @@ export function useBlogPosts(isTelegram = false) {
     if (searchWasUpdated) {
       const manualTags = normalizeTagsInput(newFilters.tag)
       const overrideTags = normalizeTagsInput(newFilters.tags)
-      const mergedTags = mergeTags(nextFilters.tags, manualTags, overrideTags)
+      const mergedTagGroups = mergeTagGroups(
+        nextFilters.tagGroups,
+        toSingletonTagGroups(manualTags),
+        toSingletonTagGroups(overrideTags),
+      )
+      const mergedTags = flattenTagGroups(mergedTagGroups)
 
       nextFilters.tags = mergedTags.length > 0
         ? mergedTags
+        : undefined
+      nextFilters.tagGroups = mergedTagGroups.length > 0
+        ? mergedTagGroups
         : undefined
 
       if (Object.prototype.hasOwnProperty.call(newFilters, "before") && newFilters.before) {
@@ -598,6 +652,7 @@ export function useBlogPosts(isTelegram = false) {
 
   const hasActiveFilters = computed(() => {
     return Boolean(filters.value.search
+      || filters.value.tagGroups?.length
       || filters.value.tags?.length
       || filters.value.before
       || filters.value.after

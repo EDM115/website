@@ -15,7 +15,7 @@ Rules for AI agents working in this repo (personal website).
 - Run commands as `pnpm <command>`
 - If dependencies change:
 	- keep `~` ranges in `package.json`
-	- run `pnpm up -L` to refresh lockfile
+	- run `pnpm up` for upgrades and `pnpm dedupe` to refresh lockfile
 - Do **not** use `pnpm i` / `pnpm add`
 
 ## Main commands
@@ -97,6 +97,7 @@ Ignore other commands unless needed.
 - For complex tasks, create:
 	- `plans/feature-name/implementation.md` with goals, steps, files, deps, gotchas
 	- `plans/feature-name/progress.md` with completed / in progress / next
+- `pnpm typecheck` **will** take a very long time to run, it is normal to see it running for several minutes. Just do something else as we'll warn you when it finishes. IF you want to run another command, open a new terminal
 - ...
 
 ## Repo structure

@@ -112,6 +112,7 @@ interface BlogPostMeta {
 interface BlogFilters {
   search?: string;
   tags?: string[];
+  tagGroups?: string[][];
   before?: string;
   after?: string;
   at?: string;
@@ -153,7 +154,10 @@ type MarkdownModule = { "default": Component }
 
 interface ParsedBlogSearch {
   term: string;
-  filters: Omit<BlogFilters, "search"> & { tags: string[] };
+  filters: Omit<BlogFilters, "search"> & {
+    tags: string[];
+    tagGroups: string[][];
+  };
 }
 
 type ParsedPost = {

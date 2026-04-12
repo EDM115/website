@@ -62,10 +62,42 @@ function normalizeTagValue(value: string): string[] {
     return []
   }
 
-  return trimmed.split(",")
-    .map((tag) => stripWrappingQuotes(tag.trim()))
-    .map((tag) => tag.toLowerCase())
+  return [
+    ...new Set(trimmed.split(",")
+      .map((tag) => stripWrappingQuotes(tag.trim()))
+      .map((tag) => tag.toLowerCase())
+      .filter((tag) => tag.length > 0)),
+  ]
+}
+
+function formatTagToken(tag: string): string {
+  const trimmed = tag.trim()
+
+  if (!trimmed) {
+    return ""
+  }
+
+  const needsQuotes = (/\s|,/).test(trimmed)
+  const escaped = trimmed.replaceAll("\"", "\\\"")
+
+  return needsQuotes
+    ? `"${escaped}"`
+    : escaped
+}
+
+function formatTagGroupToken(tags: string[]): string {
+  return tags.map((tag) => formatTagToken(tag))
     .filter((tag) => tag.length > 0)
+    .join(",")
+}
+
+function flattenTagGroups(tagGroups: string[][]): string[] {
+  return [...new Set(tagGroups.flat())]
+}
+
+function createTagGroupKey(tags: string[]): string {
+  return tags.toSorted()
+    .join("\u0000")
 }
 
 function daysInMonth(year: number, month: number): number {
@@ -174,6 +206,20 @@ function getFirstQueryValue(value: string | Array<string | null> | null | undefi
   return value
 }
 
+function getAllQueryValues(value: string | Array<string | null> | null | undefined): string[] {
+  if (!value) {
+    return []
+  }
+
+  if (Array.isArray(value)) {
+    return value.filter((entry): entry is string => typeof entry === "string" && entry.length > 0)
+  }
+
+  return value.length > 0
+    ? [value]
+    : []
+}
+
 export function parseBlogSearch(rawQuery: string): ParsedBlogSearch {
   const query = (rawQuery ?? "")
     .trim()
@@ -183,6 +229,7 @@ export function parseBlogSearch(rawQuery: string): ParsedBlogSearch {
       term: "",
       filters: {
         tags: [],
+        tagGroups: [],
         before: undefined,
         after: undefined,
         at: undefined,
@@ -192,7 +239,8 @@ export function parseBlogSearch(rawQuery: string): ParsedBlogSearch {
 
   const tokens = tokenize(query)
   const searchTokens: string[] = []
-  const tags = new Set<string>()
+  const tagGroups: string[][] = []
+  const seenTagGroups = new Set<string>()
   let before: string | undefined
   let after: string | undefined
   let at: string | undefined
@@ -219,8 +267,11 @@ export function parseBlogSearch(rawQuery: string): ParsedBlogSearch {
         continue
       }
 
-      for (const tag of normalizedValues) {
-        tags.add(tag)
+      const tagGroupKey = createTagGroupKey(normalizedValues)
+
+      if (!seenTagGroups.has(tagGroupKey)) {
+        seenTagGroups.add(tagGroupKey)
+        tagGroups.push(normalizedValues)
       }
 
       continue
@@ -275,7 +326,8 @@ export function parseBlogSearch(rawQuery: string): ParsedBlogSearch {
     term: searchTokens.join(" ")
       .trim(),
     filters: {
-      tags: [...tags],
+      tags: flattenTagGroups(tagGroups),
+      tagGroups,
       before,
       after,
       at,
@@ -290,8 +342,22 @@ export function stringifyBlogSearch(filters: BlogFilters): string {
     parts.push(filters.search.trim())
   }
 
-  if (filters.tags?.length) {
-    parts.push(`tag:${filters.tags.join(",")}`)
+  if (filters.tagGroups?.length) {
+    for (const tagGroup of filters.tagGroups) {
+      const formattedGroup = formatTagGroupToken(tagGroup)
+
+      if (formattedGroup) {
+        parts.push(`tag:${formattedGroup}`)
+      }
+    }
+  } else if (filters.tags?.length) {
+    for (const tag of filters.tags) {
+      const formattedTag = formatTagToken(tag)
+
+      if (formattedTag) {
+        parts.push(`tag:${formattedTag}`)
+      }
+    }
   }
 
   if (filters.before) {
@@ -314,15 +380,20 @@ export function buildSearchInputFromQuery(query: Record<string, string | Array<s
   const baseSearch = getFirstQueryValue(query.search) ?? ""
   const parsedBase = parseBlogSearch(baseSearch)
   const extras: string[] = []
+  const existingTagGroups = new Set(parsedBase.filters.tagGroups.map((tagGroup) => createTagGroupKey(tagGroup)))
 
-  const tagParam = getFirstQueryValue(query.tag)
+  for (const tagParam of getAllQueryValues(query.tag)) {
+    const routeTagGroup = normalizeTagValue(tagParam)
 
-  if (tagParam) {
-    const routeTags = normalizeTagValue(tagParam)
-    const missingTags = routeTags.filter((tag) => !parsedBase.filters.tags.includes(tag))
+    if (routeTagGroup.length === 0) {
+      continue
+    }
 
-    if (missingTags.length > 0) {
-      extras.push(`tag:${missingTags.join(",")}`)
+    const tagGroupKey = createTagGroupKey(routeTagGroup)
+
+    if (!existingTagGroups.has(tagGroupKey)) {
+      existingTagGroups.add(tagGroupKey)
+      extras.push(`tag:${formatTagGroupToken(routeTagGroup)}`)
     }
   }
 
