@@ -176,11 +176,21 @@ export default defineNuxtConfig({
     },
   },
   vite: {
-    build: { cssMinify: "lightningcss" },
-    clearScreen: false,
-    css: {
-      preprocessorMaxWorkers: true,
+    build: {
+      minify: "oxc",
+      rolldownOptions: {
+        experimental: {
+          lazyBarrel: true,
+          nativeMagicString: true,
+          resolveNewUrlToAsset: true,
+        },
+        output: {
+          comments: false,
+          minify: true,
+        }
+      },
     },
+    clearScreen: false,
     optimizeDeps: {
       include: [
         "country-flag-emoji-polyfill",

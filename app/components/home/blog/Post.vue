@@ -150,19 +150,22 @@ function extractDrtMeta(loadedModule: unknown): {
   }
 }
 
-function redirectToSearch(searchQuery: string) {
+async function redirectToSearch(searchQuery: string) {
   const basePath = props.isTelegram
     ? "/blog/telegram"
     : "/blog"
   const trimmedSearch = searchQuery.trim()
 
-  router.push({
+  await navigateTo({
     path: basePath,
     query: trimmedSearch
       ? {
           search: trimmedSearch,
         }
       : {},
+  }, {
+    redirectCode: 301,
+    replace: true,
   })
 }
 
@@ -245,7 +248,7 @@ function buildSearchQuery(segments: string[]): string | null {
   })}`
 }
 
-async function initialize() {
+async function initialize(): Promise<boolean> {
   blogDrtState.value = null
 
   if (normalizedSegments.length < 4) {
@@ -254,12 +257,12 @@ async function initialize() {
     if (!searchQuery) {
       throwNotFound()
 
-      return
+      return false
     }
 
-    redirectToSearch(searchQuery)
+    await redirectToSearch(searchQuery)
 
-    return
+    return false
   }
 
   const blogPath = resolveBlogComponentPath(normalizedSegments)
@@ -267,7 +270,7 @@ async function initialize() {
   if (!blogPath) {
     throwNotFound()
 
-    return
+    return false
   }
 
   const components = props.isTelegram
@@ -283,7 +286,7 @@ async function initialize() {
   if (!componentPath) {
     throwNotFound()
 
-    return
+    return false
   }
 
   const loader = components[componentPath]
@@ -291,7 +294,7 @@ async function initialize() {
   if (!loader) {
     throwNotFound()
 
-    return
+    return false
   }
 
   const loadedModule = await loader()
@@ -299,34 +302,42 @@ async function initialize() {
   if (!loadedModule?.default) {
     throwNotFound()
 
-    return
+    return false
   }
 
   blogDrtState.value = extractDrtMeta(loadedModule)
 
   component.value = loadedModule.default
+
+  return true
 }
 
-await initialize()
+const shouldApplySeo = await initialize()
 
 const blogData = props.isTelegram
   ? telegramPosts as BlogPostMeta[]
   : blogPosts as BlogPostMeta[]
 
-const currentPost = blogData.find((post) => post.link === route.path)
+const currentPost = shouldApplySeo
+  ? blogData.find((post) => post.link === route.path)
+  : undefined
 
-useSeoMeta({
-  ogTitle: currentPost?.title,
-  ogDescription: currentPost?.excerpt,
-  ogType: "article",
-  articleTag: currentPost?.tags,
-})
+if (shouldApplySeo && currentPost) {
+  useSeoMeta({
+    ogTitle: currentPost.title,
+    ogDescription: currentPost.excerpt,
+    ogType: "article",
+    articleTag: currentPost.tags,
+  })
 
-defineOgImage("SystemOgImageTakumi", {
-  title: currentPost?.title,
-  description: currentPost?.excerpt,
-  path: route.path,
-})
+  if (import.meta.server) {
+    defineOgImage("SystemOgImageTakumi", {
+      title: currentPost.title,
+      description: currentPost.excerpt,
+      path: route.path,
+    })
+  }
+}
 </script>
 
 <style scoped lang="scss">
