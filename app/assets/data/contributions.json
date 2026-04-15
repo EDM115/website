@@ -304,6 +304,14 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 86,
+    "name": "nuxt-modules/og-image",
+    "description": "fix: the og:image meta property doesn't change when navigating to other pages",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/nuxt-modules/og-image/issues/567"
+  },
+  {
     "id": 85,
     "name": "unchihugo/FluentFlyout",
     "description": "[WEBSITE] WinGet installation is advertised but the package doesn't exist",
