@@ -296,6 +296,7 @@ function resizeCanvas(rect?: DOMRect, qualityOverride?: QualityProfile) {
       type: "resize",
       width: targetW,
       height: targetH,
+      // oxlint-disable-next-line unicorn/require-post-message-target-origin
     })
   } else {
     if (cvs.width !== targetW || cvs.height !== targetH) {

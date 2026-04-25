@@ -10,7 +10,6 @@ dedupePeers: true
 lockfileIncludeTarballUrl: true
 
 overrides:
-  unhead: ~3.0.5
   vite: ~8.0.10
 
 patchedDependencies:

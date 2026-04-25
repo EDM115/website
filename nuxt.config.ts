@@ -187,7 +187,7 @@ export default defineNuxtConfig({
         output: {
           comments: false,
           minify: true,
-        }
+        },
       },
     },
     clearScreen: false,

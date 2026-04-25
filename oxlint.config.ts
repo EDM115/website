@@ -16,6 +16,7 @@ export default defineConfig({
     "**/patches/",
     "**/public/",
     "**/*.md",
+    "**/assembly/",
   ],
   "options": {
     typeAware: true,
