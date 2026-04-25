@@ -70,9 +70,10 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/hints",
     "@nuxt/image",
-    "@nuxt/scripts",
+    // "@nuxt/scripts",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
+    // "@nuxtjs/partytown",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
     "nuxt-svgo",
@@ -486,6 +487,9 @@ export default defineNuxtConfig({
       width: 1920,
     },
     enabled: true,
+    security: {
+      renderTimeout: 120_000,
+    },
     zeroRuntime: true,
   },
   schemaOrg: { identity: definePerson({

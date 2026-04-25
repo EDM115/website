@@ -59,9 +59,7 @@ function handleAccept(accepted: boolean) {
 if (!import.meta.dev) {
   useScriptCloudflareWebAnalytics({
     token: cloudflareWebAnalyticsToken,
-    spa: false,
     scriptOptions: {
-      bundle: true,
       partytown: true,
       trigger: cookieConsentTrigger,
     },

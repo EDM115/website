@@ -9,7 +9,7 @@
       </div>
     </main>
     <BackToTop />
-    <CookieConsent />
+    <!-- <CookieConsent /> -->
   </div>
 </template>
 
