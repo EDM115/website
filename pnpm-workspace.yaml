@@ -10,7 +10,8 @@ dedupePeers: true
 lockfileIncludeTarballUrl: true
 
 overrides:
-  vite: ~8.0.8
+  unhead: ~3.0.5
+  vite: ~8.0.10
 
 patchedDependencies:
   '@mdit/plugin-alert@0.23.2': patches/@mdit__plugin-alert@0.23.2.patch

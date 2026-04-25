@@ -62,6 +62,7 @@ if (!import.meta.dev) {
     spa: false,
     scriptOptions: {
       bundle: true,
+      partytown: true,
       trigger: cookieConsentTrigger,
     },
   })
