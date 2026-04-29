@@ -56,7 +56,7 @@ function handleAccept(accepted: boolean) {
   }
 }
 
-if (!import.meta.dev) {
+if (import.meta.client) {
   useScriptCloudflareWebAnalytics({
     token: cloudflareWebAnalyticsToken,
     scriptOptions: {
