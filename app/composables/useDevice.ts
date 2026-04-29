@@ -1,9 +1,9 @@
 import type { ScreenSize } from "~/types"
 
 /**
- * Device/computed screen state.
- * - isMobile: true when hover is none or pointer is coarse, or width <= 820px
- * - screen: responsive bucket: xs, sm, md, lg, xl, xxl
+ * Device/computed screen state
+ * - isMobile : true when hover is none or pointer is coarse, or width <= 820px
+ * - screen : responsive bucket: xs, sm, md, lg, xl, xxl
  */
 export function useDevice() {
   const isMobile = ref(false)

@@ -28,26 +28,11 @@ export default defineNuxtRouteMiddleware((to, _from) => {
     || publicPaths.includes(to.path)
 
   if (!routeExists) {
-    // used for pre-built HTML pages
-    // const internalMap: Record<string, string> = {}
-
     const externalMap: Record<string, string> = {
       "/hugo": "https://edm115.github.io/hugo",
       "/sporttrack": "https://edm115.github.io/sport-track",
       "/underrated": "https://edm115.github.io/underrated-producers-list",
     }
-
-    /* const internal = Object.keys(internalMap)
-      .find((route) => to.path.startsWith(route))
-
-    if (internal) {
-      return navigateTo({
-        path: internalMap[internal],
-        hash: to.hash,
-        query: to.query,
-        replace: true,
-      })
-    } */
 
     const external = Object.keys(externalMap)
       .find((route) => to.path.startsWith(route))
@@ -73,9 +58,5 @@ export default defineNuxtRouteMiddleware((to, _from) => {
         path: "/blog", hash: to.hash, query: to.query, replace: true,
       })
     }
-
-    /* return navigateTo({
-      path: "/", hash: to.hash, query: to.query, replace: true,
-    }) */
   }
 })

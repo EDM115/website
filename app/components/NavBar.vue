@@ -372,10 +372,6 @@ function toggleMobileMenu() {
   border-bottom-left-radius: 8px;
 }
 
-/* .navbar-mobile-toggle :deep(.ui-btn--inside-text) {
-  margin-right: 0.5rem;
-} */
-
 .navbar-mobile-panel {
   position: fixed;
   inset: 0;
