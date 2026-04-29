@@ -52,7 +52,7 @@
     "name": "pnpm/pnpm",
     "description": "fix(global): preserve build approvals and dlx behavior",
     "type": "pr",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/pnpm/pnpm/pull/10492"
   },
   {
@@ -302,6 +302,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 87,
+    "name": "pnpm/codemod",
+    "description": "[BUG] The pnpm-v10-to-v11 fails to run on Windows",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/pnpm/codemod/issues/14"
   },
   {
     "id": 86,
