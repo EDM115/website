@@ -308,7 +308,7 @@
     "name": "pnpm/codemod",
     "description": "[BUG] The pnpm-v10-to-v11 fails to run on Windows",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/pnpm/codemod/issues/14"
   },
   {
@@ -332,7 +332,7 @@
     "name": "adambasis/public-quick-switch",
     "description": "some issues found",
     "type": "issue",
-    "state": "closed",
+    "state": "open",
     "link": "https://github.com/adambasis/public-quick-switch/issues/2"
   },
   {
@@ -404,7 +404,7 @@
     "name": "marticliment/UniGetUI",
     "description": "[BUG] Can't upgrade WinGet packages that provide a CLI alias on v3.3.7",
     "type": "issue",
-    "state": "ignored",
+    "state": "open",
     "link": "https://github.com/marticliment/UniGetUI/issues/4366"
   },
   {
