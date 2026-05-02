@@ -163,7 +163,7 @@ export default defineNuxtConfig({
     viewTransition: true,
     viteEnvironmentApi: true,
   },
-  compatibilityDate: "2026-04-01",
+  compatibilityDate: "2026-05-01",
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -187,6 +187,24 @@ export default defineNuxtConfig({
         },
         output: {
           comments: false,
+          // Work around Rolldown placing __exportAll across a Vue/Nuxt runtime cycle
+          // See https://github.com/rolldown/rolldown/issues/8809
+          manualChunks(id) {
+            const normalizedId = id.replace(/\\/g, "/")
+
+            if (
+              normalizedId.includes("/node_modules/.pnpm/@vue+")
+              || normalizedId.includes("/node_modules/.pnpm/vue@")
+              || (
+                normalizedId.includes("/node_modules/.pnpm/nuxt@")
+                && normalizedId.includes("/node_modules/nuxt/dist/app/")
+              )
+            ) {
+              return "runtime-vue-nuxt"
+            }
+
+            return undefined
+          },
           minify: true,
         },
       },
@@ -194,17 +212,6 @@ export default defineNuxtConfig({
     clearScreen: false,
     optimizeDeps: {
       include: [
-        "country-flag-emoji-polyfill",
-        "light-odometer",
-        "temporal-polyfill",
-        "@sindresorhus/slugify",
-        "emoji-regex-xs",
-        "highlight.js",
-        "markdown-it-anchor",
-        "markdown-it-attrs",
-        "markdown-it-highlightjs",
-        "markdown-it-link-attributes",
-        "markdown-it-emoji",
         "@mdit/plugin-alert",
         "@mdit/plugin-footnote",
         "@mdit/plugin-img-lazyload",
@@ -215,8 +222,19 @@ export default defineNuxtConfig({
         "@mdit/plugin-spoiler",
         "@mdit/plugin-tab",
         "@mdit/plugin-tasklist",
+        "@sindresorhus/slugify",
+        "country-flag-emoji-polyfill",
+        "emoji-regex-xs",
         "gemoji",
+        "highlight.js",
+        "light-odometer",
         "markdown-exit",
+        "markdown-it-anchor",
+        "markdown-it-attrs",
+        "markdown-it-emoji",
+        "markdown-it-highlightjs",
+        "markdown-it-link-attributes",
+        "temporal-polyfill",
       ],
     },
     plugins: [
