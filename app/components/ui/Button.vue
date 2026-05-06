@@ -247,12 +247,12 @@ const classes = computed(() => [
 ])
 
 const isLocal = computed(() => props.link !== undefined && props.link.startsWith("/"))
-const isDocs = computed(() => props.link !== undefined && props.link.startsWith("/docs/"))
+const isLocalButNewTab = computed(() => props.link !== undefined && (props.link.startsWith("/docs/") || props.link.startsWith("/feeds/")))
 
-const linkTarget = computed(() => ((isLocal.value && !isDocs.value)
+const linkTarget = computed(() => ((isLocal.value && !isLocalButNewTab.value)
   ? "_self"
   : "_blank"))
-const linkExternal = computed(() => !isLocal.value || isDocs.value)
+const linkExternal = computed(() => !isLocal.value || isLocalButNewTab.value)
 
 function unFocus() {
   const activeElement = document.activeElement as HTMLElement | null

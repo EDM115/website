@@ -2,6 +2,7 @@ import type { Token } from "markdown-exit"
 
 import brOnEmptyLines from "./app/utils/mdBreaks"
 import videoControls from "./app/utils/mdVideoControls"
+import videoTag from "./app/utils/mdVideoTag"
 import ogSlugify from "@sindresorhus/slugify"
 import emojiRegex from "emoji-regex-xs"
 import hljs from "highlight.js"
@@ -65,10 +66,8 @@ function getTokensText(tokens: Token[]) {
 
 export default defineNuxtConfig({
   modules: [
-    "@nuxt/a11y",
     "@nuxt/eslint",
     "@nuxt/fonts",
-    "@nuxt/hints",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxtjs/color-mode",
@@ -105,6 +104,42 @@ export default defineNuxtConfig({
       link: [
         {
           rel: "icon", type: "image/webp", href: "/img/profile-img.webp",
+        },
+        {
+          rel: "alternate",
+          type: "application/rss+xml",
+          title: "Blog RSS feed",
+          href: "/feeds/blog.xml",
+        },
+        {
+          rel: "alternate",
+          type: "application/atom+xml",
+          title: "Blog Atom feed",
+          href: "/feeds/blog.atom",
+        },
+        {
+          rel: "alternate",
+          type: "application/feed+json",
+          title: "Blog JSON feed",
+          href: "/feeds/blog.json",
+        },
+        {
+          rel: "alternate",
+          type: "application/rss+xml",
+          title: "Telegram RSS feed",
+          href: "/feeds/telegram.xml",
+        },
+        {
+          rel: "alternate",
+          type: "application/atom+xml",
+          title: "Telegram Atom feed",
+          href: "/feeds/telegram.atom",
+        },
+        {
+          rel: "alternate",
+          type: "application/feed+json",
+          title: "Telegram JSON feed",
+          href: "/feeds/telegram.json",
         },
       ],
     },
@@ -285,6 +320,7 @@ export default defineNuxtConfig({
           })
           md.use(tasklist, { disabled: false })
           md.use(brOnEmptyLines)
+          md.use(videoTag)
           md.use(videoControls)
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state

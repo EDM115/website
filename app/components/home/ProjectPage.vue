@@ -67,7 +67,8 @@ const {
 
     for (const b of branches) {
       try {
-        // oxlint-disable-next-line no-await-in-loop Need to try branches sequentially
+        // Need to try branches sequentially
+        // oxlint-disable-next-line no-await-in-loop
         raw = await $fetch<string>(
           `https://raw.githubusercontent.com/${props.name}/${b}/README.md`,
           { retry: 1 },
@@ -76,7 +77,7 @@ const {
 
         break
       } catch {
-        // Ignore: continue trying other branches
+        // Ignore : continue trying other branches
         // skipcq: JS-0098
         void 0
       }
@@ -101,6 +102,7 @@ const {
         { default: mditLinkAttributes },
         { default: brOnEmptyLines },
         { default: videoControls },
+        { default: videoTag },
         { full: emoji },
         { alert },
         { footnote },
@@ -127,6 +129,7 @@ const {
         import("markdown-it-link-attributes"),
         import("~/utils/mdBreaks"),
         import("~/utils/mdVideoControls"),
+        import("~/utils/mdVideoTag"),
         import("markdown-it-emoji"),
         import("@mdit/plugin-alert"),
         import("@mdit/plugin-footnote"),
@@ -207,6 +210,7 @@ const {
         .use(tab, { name: "tabs" })
         .use(tasklist, { disabled: false })
         .use(brOnEmptyLines)
+        .use(videoTag)
         .use(videoControls)
 
       md.core.ruler.push("heading_copy_icon", (state) => {

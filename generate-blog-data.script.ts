@@ -9,6 +9,7 @@ import { performance } from "node:perf_hooks"
 
 import grayMatter from "gray-matter"
 
+import { Feed } from "feed"
 import { nameToEmoji } from "gemoji"
 import {
   close as closePagefind,
@@ -25,6 +26,8 @@ import type {
   ParsedPost,
 } from "./app/types.ts"
 
+const siteUrl = "https://edm115.dev"
+
 function codeToEmoji(match: string, name: string): string {
   return nameToEmoji[name] ?? match
 }
@@ -39,6 +42,10 @@ function cleanupMarkdown(content: string, singleLine: boolean): string {
     .replace(/^#+\s+/gm, "")
     // Remove images and keep alt text if it exists
     .replace(/!\[([^\]]*)\]\((?:[^)\\]|\\.)*\)/g, (_, alt) => (alt
+      ? `[${alt.trim()}]`
+      : ""))
+    // Remove videos and keep alt text if it exists
+    .replace(/\?\[([^\]]*)\]\((?:[^)\\]|\\.)*\)/g, (_, alt) => (alt
       ? `[${alt.trim()}]`
       : ""))
     // Remove bold
@@ -163,6 +170,48 @@ function parseFilePath(relativePath: string): FileInfo | null {
     month,
     day,
     slug,
+  }
+}
+
+function absoluteUrl(path: string): string {
+  return new URL(path, siteUrl).toString()
+}
+
+function dateFromParsedPost(parsed: ParsedPost): Date {
+  if (parsed.publishedTime > 0) {
+    return new Date(parsed.publishedTime)
+  }
+
+  if (parsed.post.date) {
+    return new Date(`${parsed.post.date}T00:00:00.000Z`)
+  }
+
+  return new Date(0)
+}
+
+function feedUpdatedAt(posts: ParsedPost[]): Date {
+  return posts.length
+    ? dateFromParsedPost(posts[0]!)
+    : new Date()
+}
+
+function addParsedPostsToFeed(feed: Feed, posts: ParsedPost[]): void {
+  for (const parsed of posts) {
+    const url = absoluteUrl(parsed.post.link)
+    const date = dateFromParsedPost(parsed)
+
+    feed.addItem({
+      title: parsed.post.title,
+      link: url,
+      date,
+      id: url,
+      guid: url,
+      description: parsed.post.excerpt,
+      content: cleanupMarkdown(parsed.markdownContent, false),
+      // author ?
+      category: parsed.post.tags.map((tag) => ({ name: tag })),
+      published: date,
+    })
   }
 }
 
@@ -504,6 +553,69 @@ async function generatePagefindData(
   console.log("✅ Generated Pagefind index for blog + telegram\n")
 }
 
+async function generateSyndicationFeeds(
+  blogParsed: ParsedPost[],
+  telegramParsed: ParsedPost[],
+): Promise<void> {
+  console.log("🔄️ Generating RSS/Atom/JSON feeds...\n")
+
+  const outputDir = join(process.cwd(), "public", "feeds")
+
+  await mkdir(outputDir, { recursive: true })
+
+  // maybe add an image field with the OG image but that's brittle for now
+  const feedConfigs = [
+    {
+      description: "Blog posts from edm115.dev",
+      link: "/blog",
+      name: "blog",
+      posts: blogParsed,
+      title: "Blog - EDM115",
+    },
+    {
+      description: "Telegram posts from @EDM115bots",
+      link: "/blog/telegram",
+      name: "telegram",
+      posts: telegramParsed,
+      title: "Telegram posts - EDM115",
+    },
+  ]
+
+  for (const config of feedConfigs) {
+    const feed = new Feed({
+      title: config.title,
+      id: absoluteUrl(config.link),
+      link: absoluteUrl(config.link),
+      description: config.description,
+      language: "en",
+      updated: feedUpdatedAt(config.posts),
+      favicon: absoluteUrl("/favicon.ico"),
+      author: {
+        name: "EDM115",
+        email: "website@edm115.dev",
+        link: siteUrl,
+        avatar: absoluteUrl("/img/profile-img.webp"),
+      },
+      feedLinks: {
+        rss: absoluteUrl(`/feeds/${config.name}.xml`),
+        atom: absoluteUrl(`/feeds/${config.name}.atom`),
+        json: absoluteUrl(`/feeds/${config.name}.json`),
+      },
+      ttl: 60,
+    })
+
+    addParsedPostsToFeed(feed, config.posts)
+
+    await writeFile(join(outputDir, `${config.name}.xml`), `${feed.rss2()}\n`)
+    await writeFile(join(outputDir, `${config.name}.atom`), `${feed.atom1()}\n`)
+    await writeFile(join(outputDir, `${config.name}.json`), `${feed.json1()}\n`)
+
+    console.log(`✅ Generated feeds/${config.name}.{xml,atom,json} (${config.posts.length} posts)`)
+  }
+
+  console.log("")
+}
+
 try {
   const {
     blogParsed,
@@ -512,6 +624,7 @@ try {
 
   await generateDocfindData(blogParsed, telegramParsed)
   await generatePagefindData(blogParsed, telegramParsed)
+  await generateSyndicationFeeds(blogParsed, telegramParsed)
 } catch (e) {
   console.error("❌ Error generating blog data :", e)
   process.exitCode = 1

@@ -31,6 +31,7 @@ jobs:
       - name: "Prepare the project for edm115.eu.org"
         run: |
           sed -i 's|edm115.dev|edm115.eu.org|g' nuxt.config.ts
+          sed -i 's|//edm115.dev|//edm115.eu.org|g' generate-blog-data.script.ts
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/components/system/OgImage.takumi.vue
           sed -i '/ogImage/,$ s/enabled: true/enabled: false/' nuxt.config.ts
