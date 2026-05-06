@@ -73,7 +73,7 @@
 
       <span
         class="font-medium"
-        :style="{ color: '#8be9fd', fontSize: '36px', fontFamily: 'Inter500' }"
+        :style="{ color: '#8be9fd', fontSize: '36px', fontFamily: 'Inter', fontWeight: 500 }"
       >
         {{ cleanPath }}
       </span>

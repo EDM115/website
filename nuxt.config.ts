@@ -30,10 +30,8 @@ import { tasklist } from "@mdit/plugin-tasklist"
 import { definePerson } from "@unhead/schema-org"
 import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
-import {
-  fileURLToPath,
-  resolve,
-} from "node:url"
+import { resolve } from "node:path"
+import { fileURLToPath } from "node:url"
 import { readFile } from "node:fs/promises"
 
 const localMdi = await lookupCollection("mdi")
