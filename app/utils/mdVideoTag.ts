@@ -14,60 +14,70 @@ export interface MarkdownVideoTagOptions {
    *
    * @default true
    */
-  controls?: boolean
+  controls?: boolean;
+
   /**
    * Add a `preload` attribute. Set to `false` to omit it.
    *
    * @default "metadata"
    */
-  preload?: "auto" | "metadata" | "none" | false
+  preload?: "auto" | "metadata" | "none" | false;
+
   /**
    * Add an `autoplay` attribute.
    *
    * @default false
    */
-  autoplay?: boolean
+  autoplay?: boolean;
+
   /**
    * Add a `loop` attribute.
    *
    * @default false
    */
-  loop?: boolean
+  loop?: boolean;
+
   /**
    * Add a `muted` attribute.
    *
    * @default false
    */
-  muted?: boolean
+  muted?: boolean;
+
   /**
    * Add a `playsinline` attribute.
    *
    * @default true
    */
-  playsInline?: boolean
+  playsInline?: boolean;
+
   /**
    * Add a `poster` attribute.
    */
-  poster?: string
+  poster?: string;
+
   /**
    * Extra class names for generated `<video>` tags.
    */
-  className?: string
+  className?: string;
+
   /**
    * Extra attributes for generated `<video>` tags.
    */
-  attrs?: VideoAttributeRecord
+  attrs?: VideoAttributeRecord;
+
   /**
    * Copy the video label into `aria-label` when the video has no explicit aria label.
    *
    * @default true
    */
-  labelAsAriaLabel?: boolean
+  labelAsAriaLabel?: boolean;
+
   /**
    * Validate the parsed video source before emitting a token.
    * Defaults to the markdown-exit link validator.
    */
-  validateSrc?: (src: string) => boolean
+  validateSrc?: (src: string) => boolean;
 }
 
 const questionMarkCode = "?".charCodeAt(0)
@@ -179,9 +189,7 @@ function parseVideoTag(state: StateInline, silent: boolean) {
     const token = state.push("video", "video", 0)
     const label = src.slice(start + 2, labelEnd)
 
-    token.attrs = [
-      ["src", state.md.normalizeLink(destination.src)],
-    ]
+    token.attrs = [[ "src", state.md.normalizeLink(destination.src) ]]
     token.content = label
     token.markup = "?"
     token.children = []
@@ -203,7 +211,9 @@ function setAttribute(token: Token, name: string, value: VideoAttributeValue) {
     return
   }
 
-  token.attrSet(name, value === true ? "" : String(value))
+  token.attrSet(name, value === true
+    ? ""
+    : String(value))
 }
 
 function applyVideoOptions(token: Token, options: Required<Omit<MarkdownVideoTagOptions, "attrs" | "className" | "poster" | "validateSrc">> & Pick<MarkdownVideoTagOptions, "attrs" | "className" | "poster">) {
@@ -271,7 +281,7 @@ const videoTag: PluginWithOptions<MarkdownVideoTagOptions> = (md, options = {}) 
     return true
   })
 
-  md.renderer.rules.video = (tokens, idx, renderOptions, env, self) => {
+  md.renderer.rules["video"] = (tokens, idx, renderOptions, env, self) => {
     const token = tokens[idx]
 
     if (!token) {

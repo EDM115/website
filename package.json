@@ -45,7 +45,7 @@
     "temporal-polyfill": "~0.3.2",
     "ufo": "~1.6.4",
     "vue": "~3.5.34",
-    "vue-i18n": "~11.4.0"
+    "vue-i18n": "~11.4.2"
   },
   "description": "EDM115's website",
   "devDependencies": {
@@ -71,7 +71,7 @@
     "pagefind": "~1.5.2",
     "reading-time": "~1.5.0",
     "sass-embedded": "~1.99.0",
-    "sass-loader": "~16.0.7",
+    "sass-loader": "~16.0.8",
     "typescript": "~6.0.3",
     "unplugin-icons": "~23.0.1",
     "unplugin-vue-components": "~32.0.0",
@@ -82,7 +82,7 @@
   "homepage": "https://edm115.dev",
   "license": "MIT",
   "name": "edm115-website",
-  "packageManager": "pnpm@11.0.6",
+  "packageManager": "pnpm@11.0.8",
   "private": true,
   "repository": {
     "type": "git",
@@ -116,5 +116,5 @@
     "typecheck": "nuxt typecheck"
   },
   "type": "module",
-  "version": "2.18.0"
+  "version": "2.18.1"
 }

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "composite": true,
@@ -45,6 +46,9 @@
   },
   "files": [
     "./app/types.ts",
+    "./app/utils/mdBreaks.ts",
+    "./app/utils/mdVideoControls.ts",
+    "./app/utils/mdVideoTag.ts",
     "./generate-blog-data.script.ts",
     "./generate-projects-data.script.ts",
     "./post.generate-blog-data.script.ts",

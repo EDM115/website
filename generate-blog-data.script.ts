@@ -6,6 +6,7 @@ import {
 } from "node:fs/promises"
 import { join } from "node:path"
 import { performance } from "node:perf_hooks"
+import { stdout } from "node:process"
 
 import grayMatter from "gray-matter"
 
@@ -104,6 +105,193 @@ function extractExcerpt(content: string, maxLength = 200): string {
     : text
 }
 
+function removeMarkdownRuntimeMarkers(content: string): string {
+  return content.replace(/^\s*\[\[(?:toc|drt)\]\]\s*$/gim, "")
+}
+
+function normalizeFeedHtml(content: string): string {
+  return content
+    .split(/(<pre\b[\s\S]*?<\/pre>)/gi)
+    .map((part) => (part.startsWith("<pre")
+      ? part.replace(/\n/g, "&#10;")
+      : part
+          .replace(/<br>\n/g, "<br>")
+          .replace(/\n/g, "")))
+    .join("")
+}
+
+type MarkdownRenderer = (content: string) => Promise<string>
+
+let markdownRendererPromise: Promise<MarkdownRenderer> | undefined
+
+async function getMarkdownRenderer(): Promise<MarkdownRenderer> {
+  markdownRendererPromise ??= createMarkdownRenderer()
+
+  return markdownRendererPromise
+}
+
+async function createMarkdownRenderer(): Promise<MarkdownRenderer> {
+  const [
+    { default: slugify },
+    { default: emojiRegex },
+    { default: hljs },
+    { default: mditAnchor },
+    mditAttrs,
+    mditHljs,
+    { default: mditLinkAttributes },
+    { default: brOnEmptyLines },
+    { default: videoControls },
+    { default: videoTag },
+    { full: emoji },
+    { alert },
+    { footnote },
+    { imgLazyload },
+    { imgSize },
+    { ins },
+    { katex },
+    { mark },
+    { spoiler },
+    { tab },
+    { tasklist },
+    { emojiToName },
+    { createMarkdownExit },
+  ] = await Promise.all([
+    import("@sindresorhus/slugify"),
+    import("emoji-regex-xs"),
+    import("highlight.js"),
+    import("markdown-it-anchor"),
+    import("markdown-it-attrs").then((module): unknown => module.default),
+    import("markdown-it-highlightjs").then((module): unknown => module.default),
+    import("markdown-it-link-attributes"),
+    import("./app/utils/mdBreaks.ts"),
+    import("./app/utils/mdVideoControls.ts"),
+    import("./app/utils/mdVideoTag.ts"),
+    import("markdown-it-emoji"),
+    import("@mdit/plugin-alert"),
+    import("@mdit/plugin-footnote"),
+    import("@mdit/plugin-img-lazyload"),
+    import("@mdit/plugin-img-size"),
+    import("@mdit/plugin-ins"),
+    import("@mdit/plugin-katex"),
+    import("@mdit/plugin-mark"),
+    import("@mdit/plugin-spoiler"),
+    import("@mdit/plugin-tab"),
+    import("@mdit/plugin-tasklist"),
+    import("gemoji"),
+    import("markdown-exit"),
+  ])
+
+  type Token = import("markdown-exit").Token
+
+  type PluginSimple = import("markdown-exit").PluginSimple
+
+  type HighlightPluginOptions = {
+    hljs: typeof hljs;
+    inline: boolean;
+  }
+
+  type HighlightPlugin = (md: import("markdown-exit").MarkdownExit, options?: HighlightPluginOptions) => void
+
+  const erx = emojiRegex()
+
+  function isPluginSimple(plugin: unknown): plugin is PluginSimple {
+    return typeof plugin === "function"
+  }
+
+  function isHighlightPlugin(plugin: unknown): plugin is HighlightPlugin {
+    return typeof plugin === "function"
+  }
+
+  const markdownItAttrs: PluginSimple = (md) => {
+    if (!isPluginSimple(mditAttrs)) {
+      throw new TypeError("markdown-it-attrs did not resolve to a plugin function")
+    }
+
+    mditAttrs(md)
+  }
+  const markdownItHighlight: HighlightPlugin = (md, options) => {
+    if (!isHighlightPlugin(mditHljs)) {
+      throw new TypeError("markdown-it-highlightjs did not resolve to a plugin function")
+    }
+
+    mditHljs(md, options)
+  }
+
+  // skipcq: JS-0016
+  function demojifyToGithub(s: string) {
+    return s.replace(erx, (m) => {
+      const name = emojiToName[m]
+
+      if (!name) {
+        return " "
+      }
+
+      return ` ${name.replace(/_/g, " ")} `
+    })
+  }
+
+  // skipcq: JS-0016
+  function getTokensText(tokens: Token[]) {
+    return tokens
+      .filter((token) => ![ "html_inline", "image" ].includes(token.type))
+      .map((token) => token.content)
+      .join("")
+  }
+
+  const md = createMarkdownExit({
+    breaks: true,
+    html: true,
+    linkify: true,
+    typographer: true,
+  })
+    .use(markdownItHighlight, {
+      hljs,
+      inline: true,
+    })
+    .use(emoji, { shortcuts: {} })
+    .use(mditAnchor, {
+      slugify: (s) => slugify(demojifyToGithub(s)),
+      permalink: mditAnchor.permalink.headerLink(),
+      permalinkClass: "header-link",
+      getTokensText,
+    })
+    .use(markdownItAttrs)
+    .use(mditLinkAttributes, {
+      attrs: {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      matcher(href: string, _config: unknown) {
+        return !href.startsWith("#")
+      },
+    })
+    .use(alert, { deep: true })
+    .use(footnote)
+    .use(imgLazyload)
+    .use(imgSize)
+    .use(ins)
+    .use(katex, { delimiters: "all" })
+    .use(mark)
+    .use(spoiler)
+    .use(tab, { name: "tabs" })
+    .use(tasklist, { disabled: false })
+    .use(brOnEmptyLines)
+    .use(videoTag)
+    .use(videoControls)
+
+  md.renderer.rules.hardbreak = () => "<br>"
+  md.renderer.rules.softbreak = () => "<br>"
+
+  return (markdownContent) => md.renderAsync(markdownContent)
+}
+
+async function renderMarkdown(content: string): Promise<string> {
+  const renderer = await getMarkdownRenderer()
+  const rendered = await renderer(content)
+
+  return rendered
+}
+
 function parsePublishedTime(publishedTime: Date | undefined): {
   date: string;
   link: string;
@@ -174,7 +362,8 @@ function parseFilePath(relativePath: string): FileInfo | null {
 }
 
 function absoluteUrl(path: string): string {
-  return new URL(path, siteUrl).toString()
+  return new URL(path, siteUrl)
+    .toString()
 }
 
 function dateFromParsedPost(parsed: ParsedPost): Date {
@@ -207,7 +396,7 @@ function addParsedPostsToFeed(feed: Feed, posts: ParsedPost[]): void {
       id: url,
       guid: url,
       description: parsed.post.excerpt,
-      content: cleanupMarkdown(parsed.markdownContent, false),
+      content: parsed.markdownContent,
       // author ?
       category: parsed.post.tags.map((tag) => ({ name: tag })),
       published: date,
@@ -553,6 +742,45 @@ async function generatePagefindData(
   console.log("✅ Generated Pagefind index for blog + telegram\n")
 }
 
+function updateMarkdownRenderProgress(renderedCount: number, totalCount: number): void {
+  const message = `📝 Rendering Markdown (${renderedCount}/${totalCount})`
+
+  if (
+    stdout.isTTY
+    && typeof stdout.clearLine === "function"
+    && typeof stdout.cursorTo === "function"
+  ) {
+    stdout.clearLine(0)
+    stdout.cursorTo(0)
+    stdout.write(message)
+  } else if (renderedCount === 0 || renderedCount === totalCount || renderedCount % 10 === 0) {
+    console.log(message)
+  }
+}
+
+async function renderPostMarkdown(parsed: ParsedPost, markRendered: () => void): Promise<ParsedPost> {
+  const renderedMarkdown = await renderMarkdown(removeMarkdownRuntimeMarkers(parsed.markdownContent))
+
+  markRendered()
+
+  return {
+    ...parsed,
+    markdownContent: normalizeFeedHtml(renderedMarkdown),
+  }
+}
+
+async function renderPostsMarkdown(posts: ParsedPost[], markRendered: () => void): Promise<ParsedPost[]> {
+  const renderedPosts: ParsedPost[] = []
+
+  for (const post of posts) {
+    // Sequential rendering keeps progress output meaningful
+    // oxlint-disable-next-line no-await-in-loop
+    renderedPosts.push(await renderPostMarkdown(post, markRendered))
+  }
+
+  return renderedPosts
+}
+
 async function generateSyndicationFeeds(
   blogParsed: ParsedPost[],
   telegramParsed: ParsedPost[],
@@ -563,20 +791,39 @@ async function generateSyndicationFeeds(
 
   await mkdir(outputDir, { recursive: true })
 
+  const totalMarkdownToRender = blogParsed.length + telegramParsed.length
+  let renderedMarkdownCount = 0
+
+  updateMarkdownRenderProgress(renderedMarkdownCount, totalMarkdownToRender)
+
+  function markMarkdownRendered(): void {
+    renderedMarkdownCount++
+    updateMarkdownRenderProgress(renderedMarkdownCount, totalMarkdownToRender)
+  }
+
+  const blogRendered = await renderPostsMarkdown(blogParsed, markMarkdownRendered)
+  const telegramRendered = await renderPostsMarkdown(telegramParsed, markMarkdownRendered)
+
+  if (stdout.isTTY) {
+    stdout.write("\n")
+  } else {
+    console.log("")
+  }
+
   // maybe add an image field with the OG image but that's brittle for now
   const feedConfigs = [
     {
       description: "Blog posts from edm115.dev",
       link: "/blog",
       name: "blog",
-      posts: blogParsed,
+      posts: blogRendered,
       title: "Blog - EDM115",
     },
     {
       description: "Telegram posts from @EDM115bots",
       link: "/blog/telegram",
       name: "telegram",
-      posts: telegramParsed,
+      posts: telegramRendered,
       title: "Telegram posts - EDM115",
     },
   ]
@@ -606,9 +853,12 @@ async function generateSyndicationFeeds(
 
     addParsedPostsToFeed(feed, config.posts)
 
-    await writeFile(join(outputDir, `${config.name}.xml`), `${feed.rss2()}\n`)
-    await writeFile(join(outputDir, `${config.name}.atom`), `${feed.atom1()}\n`)
-    await writeFile(join(outputDir, `${config.name}.json`), `${feed.json1()}\n`)
+    // oxlint-disable-next-line no-await-in-loop
+    await Promise.all([
+      writeFile(join(outputDir, `${config.name}.xml`), `${feed.rss2()}\n`),
+      writeFile(join(outputDir, `${config.name}.atom`), `${feed.atom1()}\n`),
+      writeFile(join(outputDir, `${config.name}.json`), `${feed.json1()}\n`),
+    ])
 
     console.log(`✅ Generated feeds/${config.name}.{xml,atom,json} (${config.posts.length} posts)`)
   }
