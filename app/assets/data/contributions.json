@@ -312,6 +312,38 @@
     "link": "https://github.com/pnpm/codemod/issues/14"
   },
   {
+    "id": 90,
+    "name": "pnpm/pnpm",
+    "description": "[WinGet] PNPM 11 can't be used through WinGet when Windows Developer mode is enabled",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/pnpm/pnpm/issues/11603"
+  },
+  {
+    "id": 89,
+    "name": "unchihugo/FluentFlyout",
+    "description": "[BUG] When the Volume Flyout is enabled, it also hides the luminosity Windows-native one without replacement",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/unchihugo/FluentFlyout/issues/791"
+  },
+  {
+    "id": 88,
+    "name": "mdit-plugins/mdit-plugins",
+    "description": "[Feature Request] video plugin",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/mdit-plugins/mdit-plugins/issues/464"
+  },
+  {
+    "id": 87,
+    "name": "josegonzalez/python-github-backup",
+    "description": "[BUG] Repos with issues/pr disabled shouldn't error",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/josegonzalez/python-github-backup/issues/511"
+  },
+  {
     "id": 86,
     "name": "nuxt-modules/og-image",
     "description": "fix: the og:image meta property doesn't change when navigating to other pages",

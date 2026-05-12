@@ -153,16 +153,16 @@ import { Temporal } from "temporal-polyfill"
 const route = useRoute()
 const { t } = useI18n()
 
-const stars = ref(134)
-const forks = ref(166)
-const days = ref(1368)
-const loc = ref(7237)
+const stars = ref(140)
+const forks = ref(171)
+const days = ref(1451)
+const loc = ref(7172)
 
 const stats = computed(() => [
   {
     id: 0,
     name: t("unzip.stats.users"),
-    value: 43954,
+    value: 46627,
     icon: mdiUsersOutline,
   },
   {

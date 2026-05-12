@@ -539,9 +539,6 @@ export default defineNuxtConfig({
       width: 1920,
     },
     enabled: true,
-    security: {
-      renderTimeout: 120_000,
-    },
     zeroRuntime: true,
   },
   schemaOrg: { identity: definePerson({
