@@ -1,0 +1,18 @@
+diff --git a/index.d.ts b/index.d.ts
+index 6a24fa3616104dc406c7efad21549c69f58f1866..49478202923b0e3d6a273ef33c80eaf8d708f59d 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,4 +1,4 @@
+-import MarkdownIt = require('markdown-it');
++import type { MarkdownExit } from "markdown-exit";
+ 
+ declare namespace markdownItAttrs {
+   type AllowedAttribute = string | RegExp;
+@@ -11,6 +11,6 @@ declare namespace markdownItAttrs {
+   }
+ }
+ 
+-declare function markdownItAttrs(md: MarkdownIt, options?: markdownItAttrs.Options): void;
++declare function markdownItAttrs(md: MarkdownExit, options?: markdownItAttrs.Options): void;
+ 
+ export = markdownItAttrs;

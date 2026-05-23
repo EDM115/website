@@ -90,7 +90,7 @@
               "summary": "A 10 week internship where I learnt how to work in a team, how to use Docker Compose, Vue, Nuxt, ..."
             },
             "location": "Vannes, France",
-            "title": "Internship \\@ Koumoul"
+            "title": "Frontend developer internship \\@ Koumoul"
           },
           "nexelec": {
             "date": "February 2025 - June 2025",
@@ -106,20 +106,20 @@
               "summary": "A 16 week internship where I learnt how to work in a large team, how to use Next.js, Fastify, Terraform, InfluxDB, ..."
             },
             "location": "Saint-Avé, France",
-            "title": "Internship \\@ Nexelec"
+            "title": "Full-Stack developer internship \\@ Nexelec"
           }
         },
         "full-time": {
-          "???": {
-            "date": "??? - Now",
+          "agorinfo": {
+            "date": "May 2026 - Now",
             "description": {
               "details": [
-                "???"
+                "Come back later 😉"
               ],
-              "summary": "???"
+              "summary": "My current job where I work on Python desktop apps, some Django websites and more !"
             },
-            "location": "???, France",
-            "title": "Software developer \\@ ???"
+            "location": "Isneauville, France",
+            "title": "Python software developer \\@ Agorinfo"
           }
         },
         "professional": "Professional experience"

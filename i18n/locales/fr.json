@@ -72,7 +72,7 @@
             "1": "3 ans où j'ai appris Java, SQL, Bash, l'économie, la gestion, l'anglais, la communication, ..."
           },
           "location": "IUT de Vannes, France",
-          "title": "BUT Informatique, BAC+3"
+          "title": "BUT Informatique (BAC+3)"
         }
       },
       "experience": {
@@ -90,7 +90,7 @@
               "summary": "Un stage de 10 semaines où j'ai appris à travailler en équipe, à utiliser Docker Compose, Vue, Nuxt, ..."
             },
             "location": "Vannes, France",
-            "title": "Stage \\@ Koumoul"
+            "title": "Stage de développeur Frontend \\@ Koumoul"
           },
           "nexelec": {
             "date": "Février 2025 - Juin 2025",
@@ -106,20 +106,20 @@
               "summary": "Un stage de 16 semaines où j'ai appris à travailler dans une grande équipe, à utiliser Next.js, Fastify, Terraform, InfluxDB, ..."
             },
             "location": "Saint-Avé, France",
-            "title": "Stage \\@ Nexelec"
+            "title": "Stage de développeur Full-Stack \\@ Nexelec"
           }
         },
         "full-time": {
-          "???": {
-            "date": "??? - Maintenant",
+          "agorinfo": {
+            "date": "Mai 2026 - Maintenant",
             "description": {
               "details": [
-                "???"
+                "Revenez plus tard 😉"
               ],
-              "summary": "???"
+              "summary": "Mon poste actuel où je travaille sur des applications de bureau Python, quelques sites Django et plus encore !"
             },
-            "location": "???, France",
-            "title": "Développeur informatique \\@ ???"
+            "location": "Isneauville, France",
+            "title": "Développeur Python \\@ Agorinfo"
           }
         },
         "professional": "Expérience professionnelle"

@@ -505,7 +505,10 @@ export default defineNuxtConfig({
       fallbackLocale: "en",
       useCookie: false,
     },
-    experimental: { typedOptionsAndMessages: "all" },
+    experimental: {
+      prerenderMessages: true,
+      typedOptionsAndMessages: "all",
+    },
     locales: [
       {
         code: "en", name: "English", language: "en-US",
@@ -539,6 +542,9 @@ export default defineNuxtConfig({
       width: 1920,
     },
     enabled: true,
+    security: {
+      renderTimeout: 30_000,
+    },
     zeroRuntime: true,
   },
   schemaOrg: { identity: definePerson({

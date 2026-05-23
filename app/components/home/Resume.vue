@@ -36,26 +36,26 @@
 
       <UiStepperVerticalItem
         :subtitle="t('home.resume.experience.professional')"
-        :title="t('home.resume.experience.full-time.???.title')"
+        :title="t('home.resume.experience.full-time.agorinfo.title')"
         :icon="mdiBriefcaseOutline"
       >
         <UiList>
           <UiListItem no-hover>
             <template #title>
-              {{ t("home.resume.experience.full-time.???.date") }}
+              {{ t("home.resume.experience.full-time.agorinfo.date") }}
             </template>
             <template #subtitle>
               <div class="mb-2">
-                {{ t("home.resume.experience.full-time.???.location") }}
+                {{ t("home.resume.experience.full-time.agorinfo.location") }}
               </div>
             </template>
-            {{ t("home.resume.experience.full-time.???.description.summary") }}
+            {{ t("home.resume.experience.full-time.agorinfo.description.summary") }}
             <ul
               class="mt-4 ml-4"
               style="text-align: left; list-style-type: disc;"
             >
               <li
-                v-for="(detail, index) in tm('home.resume.experience.full-time.???.description.details') as VueMessageType"
+                v-for="(detail, index) in tm('home.resume.experience.full-time.agorinfo.description.details') as VueMessageType"
                 :key="index"
                 style="text-wrap: balance;"
               >

@@ -304,15 +304,15 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
-    "id": 87,
-    "name": "pnpm/codemod",
-    "description": "[BUG] The pnpm-v10-to-v11 fails to run on Windows",
+    "id": 92,
+    "name": "microsoft/vscode",
+    "description": "[BUG] No results returned for the fileSearch tool when querying a network drive, works fine when ommited",
     "type": "issue",
-    "state": "closed",
-    "link": "https://github.com/pnpm/codemod/issues/14"
+    "state": "open",
+    "link": "https://github.com/microsoft/vscode/issues/317771"
   },
   {
-    "id": 90,
+    "id": 91,
     "name": "pnpm/pnpm",
     "description": "[WinGet] PNPM 11 can't be used through WinGet when Windows Developer mode is enabled",
     "type": "issue",
@@ -320,7 +320,7 @@
     "link": "https://github.com/pnpm/pnpm/issues/11603"
   },
   {
-    "id": 89,
+    "id": 90,
     "name": "unchihugo/FluentFlyout",
     "description": "[BUG] When the Volume Flyout is enabled, it also hides the luminosity Windows-native one without replacement",
     "type": "issue",
@@ -328,7 +328,7 @@
     "link": "https://github.com/unchihugo/FluentFlyout/issues/791"
   },
   {
-    "id": 88,
+    "id": 89,
     "name": "mdit-plugins/mdit-plugins",
     "description": "[Feature Request] video plugin",
     "type": "issue",
@@ -336,7 +336,7 @@
     "link": "https://github.com/mdit-plugins/mdit-plugins/issues/464"
   },
   {
-    "id": 87,
+    "id": 88,
     "name": "josegonzalez/python-github-backup",
     "description": "[BUG] Repos with issues/pr disabled shouldn't error",
     "type": "issue",
@@ -344,7 +344,7 @@
     "link": "https://github.com/josegonzalez/python-github-backup/issues/511"
   },
   {
-    "id": 86,
+    "id": 87,
     "name": "nuxt-modules/og-image",
     "description": "fix: the og:image meta property doesn't change when navigating to other pages",
     "type": "issue",
@@ -352,7 +352,7 @@
     "link": "https://github.com/nuxt-modules/og-image/issues/567"
   },
   {
-    "id": 85,
+    "id": 86,
     "name": "unchihugo/FluentFlyout",
     "description": "[WEBSITE] WinGet installation is advertised but the package doesn't exist",
     "type": "issue",
@@ -360,7 +360,7 @@
     "link": "https://github.com/unchihugo/FluentFlyout/issues/646"
   },
   {
-    "id": 84,
+    "id": 85,
     "name": "adambasis/public-quick-switch",
     "description": "some issues found",
     "type": "issue",
@@ -368,7 +368,7 @@
     "link": "https://github.com/adambasis/public-quick-switch/issues/2"
   },
   {
-    "id": 83,
+    "id": 84,
     "name": "nuxt-modules/og-image",
     "description": "help: Takumi is... too fast !",
     "type": "issue",
@@ -376,7 +376,7 @@
     "link": "https://github.com/nuxt-modules/og-image/issues/512"
   },
   {
-    "id": 82,
+    "id": 83,
     "name": "nuxt-modules/og-image",
     "description": "help: issues encountered since the v6 dropped",
     "type": "issue",
@@ -384,7 +384,7 @@
     "link": "https://github.com/nuxt-modules/og-image/issues/505"
   },
   {
-    "id": 81,
+    "id": 82,
     "name": "fullcalendar/temporal-polyfill",
     "description": "Rollup complains since v0.3.1",
     "type": "issue",
@@ -392,7 +392,7 @@
     "link": "https://github.com/fullcalendar/temporal-polyfill/issues/90"
   },
   {
-    "id": 80,
+    "id": 81,
     "name": "obsproject/obs-studio",
     "description": "[INSTALL] The Windows installer of v32.1.0-rc3 can't run due to a certificate issue",
     "type": "issue",
@@ -400,7 +400,7 @@
     "link": "https://github.com/obsproject/obs-studio/issues/13195"
   },
   {
-    "id": 79,
+    "id": 80,
     "name": "microsoft/vscode",
     "description": "[BUG] Copilot creates garbled files whenever it uses the create_file tool",
     "type": "issue",
@@ -408,7 +408,7 @@
     "link": "https://github.com/microsoft/vscode/issues/299276"
   },
   {
-    "id": 78,
+    "id": 79,
     "name": "vuetifyjs/nuxt-module",
     "description": "Is Vuetify v4 supported ?",
     "type": "issue",
@@ -416,7 +416,7 @@
     "link": "https://github.com/vuetifyjs/nuxt-module/issues/352"
   },
   {
-    "id": 77,
+    "id": 78,
     "name": "vercel-labs/skills",
     "description": "[Bug]: The update command can fail when skills is not installed with npm",
     "type": "issue",
