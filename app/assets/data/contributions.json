@@ -324,7 +324,7 @@
     "name": "unchihugo/FluentFlyout",
     "description": "[BUG] When the Volume Flyout is enabled, it also hides the luminosity Windows-native one without replacement",
     "type": "issue",
-    "state": "open",
+    "state": "ignored",
     "link": "https://github.com/unchihugo/FluentFlyout/issues/791"
   },
   {
