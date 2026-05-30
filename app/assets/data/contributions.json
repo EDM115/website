@@ -332,7 +332,7 @@
     "name": "mdit-plugins/mdit-plugins",
     "description": "[Feature Request] video plugin",
     "type": "issue",
-    "state": "open",
+    "state": "ignored",
     "link": "https://github.com/mdit-plugins/mdit-plugins/issues/464"
   },
   {
