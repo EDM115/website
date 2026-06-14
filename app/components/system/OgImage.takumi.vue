@@ -132,11 +132,11 @@ const mainStyle = computed(() => ({
   padding: "50px 80px",
   fontFamily: "Inter",
   fontWeight: 400,
-  fontFeatureSettings: `
+  /* fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
     "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
     "ss02" 1, "ss07" 1, "ss08" 1, "tnum" 0, "zero" 1
-  `,
+  `, */
 }))
 
 const contentRowStyle = computed(() => ({
@@ -163,10 +163,10 @@ const titleStyle = computed(() => ({
   textWrap: "pretty",
   fontFamily: "Nunito",
   fontWeight: 700,
-  fontFeatureSettings: `
+  /* fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "frac" 0,
     "ss01" 0, "ss02" 0,
-  `,
+  `, */
 }))
 
 const descriptionStyle = computed(() => ({
@@ -184,11 +184,11 @@ const descriptionStyle = computed(() => ({
   textWrap: "pretty",
   fontFamily: "Inter",
   fontWeight: 400,
-  fontFeatureSettings: `
+  /* fontFeatureSettings: `
     "liga" 1, "calt" 1, "case" 1, "ccmp" 1, "cpsp" 1,
     "cv01" 1, "cv05" 1, "cv08" 1, "cv10" 1, "dlig" 1, "frac" 1, "ss01" 1,
     "ss02" 1, "ss07" 1, "ss08" 1, "tnum" 0, "zero" 1
-  `,
+  `, */
 }))
 
 const cleanPath = computed(() => {
