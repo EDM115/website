@@ -3,7 +3,7 @@ import { defineConfig } from "oxlint"
 
 export default defineConfig({
   "env": {
-    "es2025": true,
+    "es2026": true,
     "browser": true,
     "shared-node-browser": true,
   },

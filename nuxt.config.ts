@@ -256,6 +256,7 @@ export default defineNuxtConfig({
         "@mdit/plugin-tab",
         "@mdit/plugin-tasklist",
         "@sindresorhus/slugify",
+        "@unhead/schema-org/vue",
         "country-flag-emoji-polyfill",
         "emoji-regex-xs",
         "gemoji",
@@ -263,9 +264,12 @@ export default defineNuxtConfig({
         "light-odometer",
         "markdown-exit",
         "markdown-it-anchor",
+        // CJS
         "markdown-it-attrs",
         "markdown-it-emoji",
+        // CJS
         "markdown-it-highlightjs",
+        // CJS
         "markdown-it-link-attributes",
         "temporal-polyfill",
       ],

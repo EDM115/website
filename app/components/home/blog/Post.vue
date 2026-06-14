@@ -24,6 +24,7 @@ const blogDrtState = useState<{
   readingTime: string;
 } | null>("blog-drt", () => null)
 
+// @ts-expect-error: path can be a Never
 const rawPath = route.params.path
 const pathSegments = Array.isArray(rawPath)
   ? rawPath

@@ -1,8 +1,8 @@
-# AGENTS.md — EDM115/website
-Rules for AI agents working in this repo (personal website).
+# AGENTS.md - EDM115/website
+Rules for AI agents working in this repo (personal website)
 
 ## Stack & tooling (quick view)
-- Runtime/package manager: `Node.js v25`, `PNPM`
+- Runtime/package manager: `Node.js v26`, `PNPM v11`
 - Framework: `Nuxt 4` + `Vue 3` + Composition API + `TypeScript` + `Vite`
 - Lint/format: `oxlint` + ESLint (Vue + Stylistic)
 - WASM: `assemblyscript` + generated `docfind`/`pagefind` assets
@@ -31,7 +31,7 @@ Ignore other commands unless needed.
 - No CSS framework; all styling is custom SCSS
 - No component library; UI components live in `app/components/ui/`
 - SSG app: keep everything SSR-safe so dev/generation works properly
-- No cookies; preferences use `localStorage` (e.g. theme)
+- No cookies; preferences use `localStorage` (ex theme)
 - Theme styles:
 	- `app/assets/styles/_variables.scss` = color system
 	- `app/assets/styles/main.scss` = global styles
@@ -43,9 +43,8 @@ Ignore other commands unless needed.
 - No tests required (Vitest/TDD not part of this project)
 - Do not create git worktrees; use current branch
 - Use available Skills, but validate suggestions against repo conventions
-	- no dedicated skill tool here: use `read_file`
 - TypeScript only (no JavaScript); top-level await is allowed
-- SCSS for styles; use SCSS features (nesting, etc.)
+- SCSS for styles; use SCSS features (nesting, ...)
 - Prefer function declarations over arrow functions unless necessary
 - Vue files should follow this order:
 	1. `<template>`
@@ -56,14 +55,14 @@ Ignore other commands unless needed.
 	- keep style consistent when editing
 	- document new props
 	- new components must be generic/reusable and use PascalCase
-	- do not use raw HTML controls outside UI components (e.g. `<input>`)
-	- if a UI component is not right (e.g. link/image), check Nuxt components (`<NuxtLink>`, `<NuxtImg>`) used in repo
+	- do not use raw HTML controls outside UI components (ex `<input>`)
+	- if a UI component is not right (ex link/image), check Nuxt components (`<NuxtLink>`, `<NuxtImg>`) used in repo
 - Never use `any` or disable typechecking
 	- use proper typing (`unknown` + narrowing if needed)
 - Add comments for complex or non-obvious logic
 - Do not stage files or commit
 	- user handles git
-	- if asked, suggest Conventional Commits:
+	- if asked (ex suggestion of message), suggest Conventional Commits:
 		- `<type>(<scope>): <short description>`
 		- scope examples: `ui`, `deps`, `docs`, `ci`
 		- optional body with bullet points for details
@@ -92,8 +91,7 @@ Ignore other commands unless needed.
 ## Extras (living notes)
 > Free space for future AI-agent tips/gotchas/rules. Keep useful entries, remove outdated ones.
 
-- `create_file` can produce garbled output; prefer creating empty then filling with `apply_patch`/`edit_file`
-- Last resort: create files via terminal, then verify file content
+- (copilot only) `create_file` can produce garbled output; prefer creating empty then filling with `apply_patch`/`edit_file`. last resort: create files via terminal, then verify file content
 - For complex tasks, create:
 	- `plans/feature-name/implementation.md` with goals, steps, files, deps, gotchas
 	- `plans/feature-name/progress.md` with completed / in progress / next

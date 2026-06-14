@@ -1,5 +1,13 @@
 [
   {
+    "id": 39,
+    "name": "ramensoftware/windhawk-mods",
+    "description": "feat: add taskbar-multi-tray mod",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/ramensoftware/windhawk-mods/pull/4320"
+  },
+  {
     "id": 38,
     "name": "pingdotgg/t3code",
     "description": "fix(server): parse git branches correctly when column.ui is enabled",
@@ -302,6 +310,30 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 95,
+    "name": "microsoft/vscode",
+    "description": "[BUG] Copilot never marks command as completed until we manually click on Send to Background",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/microsoft/vscode/issues/321273"
+  },
+  {
+    "id": 94,
+    "name": "leonardssh/vscord",
+    "description": "The latest release haven't been published to the marketplace",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/leonardssh/vscord/issues/422"
+  },
+  {
+    "id": 93,
+    "name": "antfu/ghfs",
+    "description": "Saved replies does indeed have an API",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/antfu/ghfs/issues/60"
   },
   {
     "id": 92,
