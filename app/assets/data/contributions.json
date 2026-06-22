@@ -4,7 +4,7 @@
     "name": "ramensoftware/windhawk-mods",
     "description": "feat: add taskbar-multi-tray mod",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/ramensoftware/windhawk-mods/pull/4320"
   },
   {
@@ -312,11 +312,19 @@
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
   },
   {
+    "id": 96,
+    "name": "openai/codex",
+    "description": "The Codex windows app should NOT ship with beta Codex CLI, the Codex Beta app is here for that",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/openai/codex/issues/29433"
+  },
+  {
     "id": 95,
     "name": "microsoft/vscode",
     "description": "[BUG] Copilot never marks command as completed until we manually click on Send to Background",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/microsoft/vscode/issues/321273"
   },
   {

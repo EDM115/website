@@ -1,5 +1,5 @@
 allowBuilds:
-  '@parcel/watcher': true
+  "@parcel/watcher": true
   esbuild: true
   sharp: true
   unrs-resolver: true
@@ -10,38 +10,122 @@ dedupePeers: true
 lockfileIncludeTarballUrl: true
 
 minimumReleaseAgeExclude:
-  - '@takumi-rs/core-darwin-arm64@1.8.5'
-  - '@takumi-rs/core-darwin-x64@1.8.5'
-  - '@takumi-rs/core-linux-arm64-gnu@1.8.5'
-  - '@takumi-rs/core-linux-arm64-musl@1.8.5'
-  - '@takumi-rs/core-linux-x64-gnu@1.8.5'
-  - '@takumi-rs/core-linux-x64-musl@1.8.5'
-  - '@takumi-rs/core-win32-arm64-msvc@1.8.5'
-  - '@takumi-rs/core-win32-x64-msvc@1.8.5'
-  - '@takumi-rs/core@1.8.5'
-  - '@takumi-rs/helpers@1.8.5'
-  - '@vue/language-core@3.3.5'
-  - vue-tsc@3.3.5
+  - "@iconify/json"
+  - "@mdit/plugin-alert"
+  - "@mdit/plugin-align"
+  - "@mdit/plugin-footnote"
+  - "@mdit/plugin-img-lazyload"
+  - "@mdit/plugin-img-size"
+  - "@mdit/plugin-ins"
+  - "@mdit/plugin-katex"
+  - "@mdit/plugin-mark"
+  - "@mdit/plugin-spoiler"
+  - "@mdit/plugin-tab"
+  - "@mdit/plugin-tasklist"
+  - "@nuxt/eslint"
+  - "@nuxt/fonts"
+  - "@nuxt/image"
+  - "@nuxt/scripts"
+  - "@nuxtjs/color-mode"
+  - "@nuxtjs/i18n"
+  - "@nuxtjs/partytown"
+  - "@nuxtjs/seo"
+  - '@oxlint/binding-android-arm-eabi'
+  - '@oxlint/binding-android-arm64'
+  - '@oxlint/binding-darwin-arm64'
+  - '@oxlint/binding-darwin-x64'
+  - '@oxlint/binding-freebsd-x64'
+  - '@oxlint/binding-linux-arm-gnueabihf'
+  - '@oxlint/binding-linux-arm-musleabihf'
+  - '@oxlint/binding-linux-arm64-gnu'
+  - '@oxlint/binding-linux-arm64-musl'
+  - '@oxlint/binding-linux-ppc64-gnu'
+  - '@oxlint/binding-linux-riscv64-gnu'
+  - '@oxlint/binding-linux-riscv64-musl'
+  - '@oxlint/binding-linux-s390x-gnu'
+  - '@oxlint/binding-linux-x64-gnu'
+  - '@oxlint/binding-linux-x64-musl'
+  - '@oxlint/binding-openharmony-arm64'
+  - '@oxlint/binding-win32-arm64-msvc'
+  - '@oxlint/binding-win32-ia32-msvc'
+  - '@oxlint/binding-win32-x64-msvc'
+  - "@sindresorhus/slugify"
+  - "@stylistic/eslint-plugin"
+  - "@takumi-rs/core"
+  - "@types/markdown-it-emoji"
+  - "@types/markdown-it-link-attributes"
+  - "@types/node"
+  - "@typescript-eslint/parser"
+  - '@typescript-eslint/project-service'
+  - '@typescript-eslint/scope-manager'
+  - '@typescript-eslint/tsconfig-utils'
+  - '@typescript-eslint/types'
+  - '@typescript-eslint/typescript-estree'
+  - '@typescript-eslint/visitor-keys'
+  - "@unhead/schema-org"
+  - "@vueuse/components"
+  - "@vueuse/core"
+  - "@vueuse/nuxt"
+  - assemblyscript
+  - country-flag-emoji-polyfill
+  - edm115-lint
+  - emoji-regex-xs
+  - eslint
+  - eslint-plugin-vue
+  - feed
+  - gemoji
+  - globals
+  - gray-matter
+  - jiti
+  - highlight.js
+  - light-odometer
+  - lightningcss
+  - markdown-exit
+  - markdown-it-anchor
+  - markdown-it-attrs
+  - markdown-it-emoji
+  - markdown-it-highlightjs
+  - markdown-it-link-attributes
+  - markdown-it-toc-done-right
+  - nuxt
+  - nuxt-svgo
+  - oxlint
+  - oxlint-tsgolint
+  - pagefind
+  - reading-time
+  - sass-embedded
+  - sass-loader
+  - temporal-polyfill
+  - typescript
+  - ufo
+  - unplugin-icons
+  - unplugin-vue-components
+  - unplugin-vue-markdown
+  - vite
+  - vue
+  - vue-i18n
+  - vue-eslint-parser
+  - vue-tsc
 
 overrides:
   markdown-exit: ~1.1.0-beta.2
   vite: ~8.0.16
 
 patchedDependencies:
-  '@mdit/plugin-alert@0.23.2': patches/@mdit__plugin-alert@0.23.2.patch
-  '@mdit/plugin-align@0.24.2': patches/@mdit__plugin-align@0.24.2.patch
-  '@mdit/plugin-footnote@0.23.2': patches/@mdit__plugin-footnote@0.23.2.patch
-  '@mdit/plugin-img-lazyload@0.23.2': patches/@mdit__plugin-img-lazyload@0.23.2.patch
-  '@mdit/plugin-img-size@0.23.2': patches/@mdit__plugin-img-size@0.23.2.patch
-  '@mdit/plugin-ins@0.23.2': patches/@mdit__plugin-ins@0.23.2.patch
-  '@mdit/plugin-katex@0.25.2': patches/@mdit__plugin-katex@0.25.2.patch
-  '@mdit/plugin-mark@0.23.2': patches/@mdit__plugin-mark@0.23.2.patch
-  '@mdit/plugin-spoiler@0.23.2': patches/@mdit__plugin-spoiler@0.23.2.patch
-  '@mdit/plugin-tab@0.24.2': patches/@mdit__plugin-tab@0.24.2.patch
-  '@mdit/plugin-tasklist@0.23.2': patches/@mdit__plugin-tasklist@0.23.2.patch
-  '@mdit/plugin-tex@0.24.2': patches/@mdit__plugin-tex@0.24.2.patch
-  '@types/markdown-it-emoji@3.0.1': patches/@types__markdown-it-emoji@3.0.1.patch
-  '@types/markdown-it-link-attributes@3.0.5': patches/@types__markdown-it-link-attributes@3.0.5.patch
+  "@mdit/plugin-alert@0.23.2": patches/@mdit__plugin-alert@0.23.2.patch
+  "@mdit/plugin-align@0.24.2": patches/@mdit__plugin-align@0.24.2.patch
+  "@mdit/plugin-footnote@0.23.2": patches/@mdit__plugin-footnote@0.23.2.patch
+  "@mdit/plugin-img-lazyload@0.23.2": patches/@mdit__plugin-img-lazyload@0.23.2.patch
+  "@mdit/plugin-img-size@0.23.2": patches/@mdit__plugin-img-size@0.23.2.patch
+  "@mdit/plugin-ins@0.23.2": patches/@mdit__plugin-ins@0.23.2.patch
+  "@mdit/plugin-katex@0.25.2": patches/@mdit__plugin-katex@0.25.2.patch
+  "@mdit/plugin-mark@0.23.2": patches/@mdit__plugin-mark@0.23.2.patch
+  "@mdit/plugin-spoiler@0.23.2": patches/@mdit__plugin-spoiler@0.23.2.patch
+  "@mdit/plugin-tab@0.24.2": patches/@mdit__plugin-tab@0.24.2.patch
+  "@mdit/plugin-tasklist@0.23.2": patches/@mdit__plugin-tasklist@0.23.2.patch
+  "@mdit/plugin-tex@0.24.2": patches/@mdit__plugin-tex@0.24.2.patch
+  "@types/markdown-it-emoji@3.0.1": patches/@types__markdown-it-emoji@3.0.1.patch
+  "@types/markdown-it-link-attributes@3.0.5": patches/@types__markdown-it-link-attributes@3.0.5.patch
   markdown-exit@1.1.0-beta.2: patches/markdown-exit@1.1.0-beta.2.patch
   markdown-it-anchor@9.2.0: patches/markdown-it-anchor@9.2.0.patch
   markdown-it-attrs@5.0.0: patches/markdown-it-attrs@5.0.0.patch
@@ -49,8 +133,8 @@ patchedDependencies:
   markdown-it-toc-done-right@4.2.0: patches/markdown-it-toc-done-right@4.2.0.patch
 
 publicHoistPattern:
-  - '@unhead/schema-org'
+  - "@unhead/schema-org"
 
 resolutionMode: highest
 
-savePrefix: ''
+savePrefix: ""
