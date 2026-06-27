@@ -380,7 +380,7 @@
     "name": "josegonzalez/python-github-backup",
     "description": "[BUG] Repos with issues/pr disabled shouldn't error",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/josegonzalez/python-github-backup/issues/511"
   },
   {
