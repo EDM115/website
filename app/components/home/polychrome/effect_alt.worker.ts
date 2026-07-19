@@ -6,5 +6,5 @@ setupPolychromeWorker({
   loadWasm: loadPolychromeAltWasm,
   fallbackRenderer: renderPolychromeAlt,
   computeFrameTime: (now) => now / 1000,
-  createState: () => ({} as Record<string, never>),
+  createState: () => {},
 })

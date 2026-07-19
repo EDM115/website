@@ -8,7 +8,7 @@ import { join } from "node:path"
 import { performance } from "node:perf_hooks"
 import { stdout } from "node:process"
 
-import grayMatter from "gray-matter"
+import grayMatter from "@11ty/gray-matter"
 
 import { Feed } from "feed"
 import { nameToEmoji } from "gemoji"

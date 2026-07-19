@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 07f25246dd39c88327d74b57733fcef542d65b57..6fa53e8e857a87072c75cf242189d0a5bb5d8e53 100644
+index f148f75ce84961df8df1a75b8833a87f19d2cf2a..67e7f8e4a6dfa35ed1e7a817c9d6670e6d4c4a9e 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,17 +1,17 @@
@@ -24,7 +24,7 @@ index 07f25246dd39c88327d74b57733fcef542d65b57..6fa53e8e857a87072c75cf242189d0a5
 -  logger?: KatexLogger<MarkdownItEnv>;
 +  logger?: KatexLogger<MarkdownExitEnv>;
    /**
-    * transformer on output content
+    * Transformer on output content
     *
 @@ -21,14 +21,14 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
  }
@@ -41,5 +41,5 @@ index 07f25246dd39c88327d74b57733fcef542d65b57..6fa53e8e857a87072c75cf242189d0a5
 -}?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
 +}?: MarkdownItKatexOptions<MarkdownExitEnv>) => void;
  //#endregion
- export { KatexLogger, MarkdownItKatexOptions, TeXTransformer, katex };
+ export { type KatexLogger, type MarkdownItKatexOptions, type TeXTransformer, katex };
  //# sourceMappingURL=index.d.ts.map

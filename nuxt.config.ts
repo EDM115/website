@@ -27,7 +27,6 @@ import { mark } from "@mdit/plugin-mark"
 import { spoiler } from "@mdit/plugin-spoiler"
 import { tab } from "@mdit/plugin-tab"
 import { tasklist } from "@mdit/plugin-tasklist"
-import { definePerson } from "@unhead/schema-org"
 import { emojiToName } from "gemoji"
 import { full as emoji } from "markdown-it-emoji"
 import { resolve } from "node:path"
@@ -190,13 +189,15 @@ export default defineNuxtConfig({
     normalizeComponentNames: true,
     normalizePageNames: true,
     parseErrorData: true,
+    prefetchPreloadTags: true,
     sharedPrerenderData: true,
     typedPages: true,
     typescriptPlugin: true,
     viewTransition: true,
     viteEnvironmentApi: true,
+    watcher: "builder",
   },
-  compatibilityDate: "2026-05-01",
+  compatibilityDate: "2026-07-01",
   nitro: {
     compressPublicAssets: {
       brotli: true,
@@ -310,10 +311,10 @@ export default defineNuxtConfig({
           md.use(footnote)
           md.use(imgLazyload)
           md.use(imgSize)
-          md.use(ins)
+          md.use(ins, { "double": true })
           md.use(katex, { delimiters: "all" })
-          md.use(mark)
-          md.use(spoiler)
+          md.use(mark, { "double": true })
+          md.use(spoiler, { "double": true })
           md.use(tab, { name: "tabs" })
           md.use(markdownItTocDoneRight, {
             level: 2,
@@ -551,7 +552,8 @@ export default defineNuxtConfig({
     },
     zeroRuntime: true,
   },
-  schemaOrg: { identity: definePerson({
+  schemaOrg: { identity: {
+    type: "Person",
     name: "EDM115",
     image: "/img/profile-img.webp",
     description: "EDM115 - French dev/gamer/music producer",
@@ -562,7 +564,7 @@ export default defineNuxtConfig({
       "https://x.com/_EDM115",
       "https://www.reddit.com/user/EDM115",
     ],
-  }) },
+  } },
   seo: { automaticDefaults: false },
   sitemap: {
     cacheMaxAgeSeconds: 432000,

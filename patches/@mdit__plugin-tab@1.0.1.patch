@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index b134d9b357e0e9d639226abeb22a86bbbaf6c0b9..12f456af4d792f3e0725027d2e7c6abf364e4be2 100644
+index 6131ac49125ea7b86ab007e21cd0f9bd30a9effa..d4526c66e3e93831ffebafed59ad0c2e0cc854ed 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,6 +1,4 @@
@@ -10,7 +10,7 @@ index b134d9b357e0e9d639226abeb22a86bbbaf6c0b9..12f456af4d792f3e0725027d2e7c6abf
  
  //#region src/options.d.ts
  interface MarkdownItTabData {
-@@ -47,8 +45,8 @@ interface MarkdownItTabInfo {
+@@ -45,8 +43,8 @@ interface MarkdownItTabInfo {
     */
    data: MarkdownItTabData[];
  }
