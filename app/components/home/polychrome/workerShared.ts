@@ -13,8 +13,12 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
   let fps = 60
   let frameInterval = 1000 / fps
   let intensity = 0
+  let pointerX = 0.5
+  let pointerY = 0.5
   let quality = 1
+  let baseURL = "/"
   let lastTime = 0
+  let timer: ReturnType<typeof setTimeout> | null = null
   let workerState = config.createState()
 
   let wasmPromise: Promise<PolychromeWasmInstance | null> | null = null
@@ -34,7 +38,7 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
       return
     }
 
-    wasmPromise = config.loadWasm()
+    wasmPromise = config.loadWasm(baseURL)
       .then((instance) => {
         if (!instance) {
           wasmSupported = false
@@ -111,10 +115,11 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
     return fallbackBuffers
   }
 
-  function scheduleNext() {
-    setTimeout(() => {
+  function scheduleNext(delay: number) {
+    timer = setTimeout(() => {
+      timer = null
       drawFrame(performance.now())
-    }, frameInterval)
+    }, delay)
   }
 
   function drawFrame(now: number) {
@@ -137,7 +142,7 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
     let renderedWithWasm = false
 
     if (wasmInstance && tryPrepareWasm()) {
-      const bytesWritten = wasmInstance.render(width, height, renderTime, intensity, quality)
+      const bytesWritten = wasmInstance.render(width, height, renderTime, intensity, quality, pointerX, pointerY)
 
       if (bytesWritten > 0 && wasmImage) {
         ctx.putImageData(wasmImage, 0, 0)
@@ -160,13 +165,15 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
         const buffers = ensureFallbackBuffers(ctx)
 
         if (buffers) {
-          config.fallbackRenderer(buffers.buffer, width, height, renderTime, intensity, quality)
+          config.fallbackRenderer(buffers.buffer, width, height, renderTime, intensity, quality, pointerX, pointerY)
           ctx.putImageData(buffers.image, 0, 0)
         }
       }
     }
 
-    scheduleNext()
+    const elapsed = performance.now() - now
+
+    scheduleNext(Math.max(0, frameInterval - elapsed))
   }
 
   addEventListener("message", (e: MessageEvent<PolychromeWorkerMessage>) => {
@@ -176,9 +183,17 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
       case "init": {
         const canvas = msg.canvas
 
+        if (timer) {
+          clearTimeout(timer)
+          timer = null
+        }
+
         fps = Math.max(10, Math.min(60, msg.fps))
         frameInterval = 1000 / fps
         quality = msg.quality
+        baseURL = msg.baseURL
+        canvas.width = msg.width
+        canvas.height = msg.height
         ctx = canvas.getContext("2d", {
           alpha: true,
           desynchronized: true,
@@ -189,21 +204,27 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
         lastTime = 0
         resetBuffers()
         startLoadingWasm()
-        setTimeout(() => {
-          drawFrame(performance.now())
-        }, frameInterval)
+        scheduleNext(frameInterval)
 
         break
       }
       case "resize": {
         width = msg.width
         height = msg.height
+
+        if (ctx) {
+          ctx.canvas.width = width
+          ctx.canvas.height = height
+        }
+
         resetBuffers()
 
         break
       }
       case "setIntensity": {
         intensity = Math.max(0, Math.min(1, msg.intensity))
+        pointerX = Math.max(0, Math.min(1, msg.pointerX))
+        pointerY = Math.max(0, Math.min(1, msg.pointerY))
 
         break
       }
@@ -213,15 +234,18 @@ export function setupPolychromeWorker<State>(config: PolychromeWorkerConfig<Stat
           lastTime = 0
           resetBuffers()
           startLoadingWasm()
-          setTimeout(() => {
-            drawFrame(performance.now())
-          }, frameInterval)
+          scheduleNext(frameInterval)
         }
 
         break
       }
       case "stop": {
         running = false
+
+        if (timer) {
+          clearTimeout(timer)
+          timer = null
+        }
 
         break
       }

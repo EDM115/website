@@ -19,17 +19,12 @@
       ref="inner"
       class="holo-inner"
     >
-      <!-- This secondary glow is needed to have an uniform background for the holo-overlay to take place. Otherwise, pitch black regions won't have the Polychrome effect, and it will appear over-saturated -->
-      <span
-        v-if="enabled"
-        class="holo-glow"
-        aria-hidden="true"
-      />
       <slot />
       <canvas
         v-if="enabled && !isMobile"
+        :key="altRendering ? 'balatro' : 'holo'"
         ref="canvasEl"
-        class="holo-caustics"
+        :class="['holo-caustics', altRendering && 'alt-rendering']"
         aria-hidden="true"
       />
       <span
@@ -86,10 +81,6 @@ let proximity = 0
 let ptrX = 0.5
 let ptrY = 0.5
 let cssIntensity = 0
-// dynamic overlay hues derived from polychrome shader
-// 0..360
-let polyHueBase = 0
-let polyTime = 0
 let prefersReducedMotion = false
 let saveData = false
 let effectiveCores = 4
@@ -108,6 +99,7 @@ let onWindowResize: (() => void) | null = null
 let onWindowScroll: (() => void) | null = null
 // track fallback rAF so we can cancel/restart cleanly when toggling
 let fallbackRaf: number | null = null
+let rendererGeneration = 0
 
 const MAX_DPR = props.maxDpr ?? 2
 const FPS = props.fps ?? 60
@@ -152,14 +144,6 @@ function setVars(x: number, y: number, amp = 1) {
   el.style.setProperty("--ty", `${ty}px`)
   el.style.setProperty("--mx", `${x * 100}%`)
   el.style.setProperty("--my", `${y * 100}%`)
-
-  if (altRendering.value) {
-    // set hue seeds so overlay follows pointer subtly
-    const hue = ((x * 360) + (y * 60)) % 360
-
-    polyHueBase = hue
-    el.style.setProperty("--poly-hue", `${polyHueBase.toFixed(1)}deg`)
-  }
 }
 
 function updateIntensityVars(el: HTMLElement) {
@@ -175,6 +159,8 @@ function updateIntensityVars(el: HTMLElement) {
     worker.postMessage({
       type: "setIntensity",
       intensity: cssIntensity,
+      pointerX: ptrX,
+      pointerY: ptrY,
     }, [])
   }
 }
@@ -306,6 +292,45 @@ function resizeCanvas(rect?: DOMRect, qualityOverride?: QualityProfile) {
   }
 }
 
+function stopRenderer(clearCanvas = true) {
+  const wasUsingOffscreen = usingOffscreen
+
+  rendererGeneration += 1
+
+  if (worker) {
+    try {
+      worker.postMessage({ type: "stop" } as const, [])
+    } catch {
+      // The worker may already have been disposed
+      // skipcq: JS-0098
+      void 0
+    }
+
+    worker.terminate()
+    worker = null
+  }
+
+  usingOffscreen = false
+
+  if (fallbackRaf) {
+    cancelAnimationFrame(fallbackRaf)
+    fallbackRaf = null
+  }
+
+  const cvs = canvasEl.value
+
+  if (clearCanvas && cvs && !wasUsingOffscreen) {
+    try {
+      cvs.getContext("2d")
+        ?.clearRect(0, 0, cvs.width, cvs.height)
+    } catch {
+      // A transferred canvas cannot expose a main-thread context
+      // skipcq: JS-0098
+      void 0
+    }
+  }
+}
+
 function startCaustics() {
   if (isMobile.value) {
     return
@@ -319,6 +344,7 @@ function startCaustics() {
   }
 
   const qualityProfile = refreshQuality()
+  const generation = rendererGeneration
 
   // attempt OffscreenCanvas worker
   try {
@@ -337,6 +363,7 @@ function startCaustics() {
       worker.postMessage({
         type: "init",
         canvas: offscreen,
+        baseURL: app.baseURL,
         width,
         height,
         fps: qualityProfile.fps,
@@ -345,6 +372,8 @@ function startCaustics() {
       worker.postMessage({
         type: "setIntensity",
         intensity: cssIntensity,
+        pointerX: ptrX,
+        pointerY: ptrY,
       }, [])
 
       if (!onWindowResize) {
@@ -460,7 +489,7 @@ function startCaustics() {
     requestWasm()
 
     const draw = (now: number) => {
-      if (!enabled.value) {
+      if (!enabled.value || generation !== rendererGeneration) {
         if (raf) {
           cancelAnimationFrame(raf)
         }
@@ -488,7 +517,7 @@ function startCaustics() {
         const wasmTime = altRendering.value
           ? (now / 1000)
           : time
-        const bytes = wasmFallbackInstance.render(width, height, wasmTime, cssIntensity, qualityProfile.quality)
+        const bytes = wasmFallbackInstance.render(width, height, wasmTime, cssIntensity, qualityProfile.quality, ptrX, ptrY)
 
         if (bytes > 0) {
           ctx.putImageData(wasmImageData, 0, 0)
@@ -518,9 +547,9 @@ function startCaustics() {
 
         if (fallbackBuffer && fallbackImageData) {
           if (altRendering.value) {
-            renderPolychromeAlt(fallbackBuffer, width, height, now / 1000, cssIntensity, qualityProfile.quality)
+            renderPolychromeAlt(fallbackBuffer, width, height, now / 1000, cssIntensity, qualityProfile.quality, ptrX, ptrY)
           } else {
-            renderPolychromeCaustics(fallbackBuffer, width, height, time, cssIntensity, qualityProfile.quality)
+            renderPolychromeCaustics(fallbackBuffer, width, height, time, cssIntensity, qualityProfile.quality, ptrX, ptrY)
           }
 
           ctx.putImageData(fallbackImageData, 0, 0)
@@ -539,7 +568,6 @@ function startCaustics() {
       onWindowResize = () => {
         const refreshed = refreshQuality()
 
-        wasmRenderedOnce = false
         resizeCanvas(undefined, refreshed)
       }
       window.addEventListener("resize", onWindowResize)
@@ -581,15 +609,6 @@ function startIdle() {
     const gloss = (((tIdle + (Math.sin(tIdle * 0.8) * 0.5)) % (Math.PI * 2)) * (180 / Math.PI))
 
     el.style.setProperty("--gloss-angle", `${gloss}deg`)
-    el.style.setProperty("--caustics-angle", `${(gloss * 1.1)}deg`)
-
-    if (altRendering.value) {
-      // polychrome overlay hue/time drift akin to shader polychrome.y contribution
-      polyTime += 0.012
-      const drift = (polyTime * 40) % 360
-
-      el.style.setProperty("--poly-drift", `${drift.toFixed(1)}deg`)
-    }
 
     updateIntensityVars(el)
     idleRaf = requestAnimationFrame(loop)
@@ -756,6 +775,8 @@ function queueStart() {
       worker.postMessage({
         type: "setIntensity",
         intensity: cssIntensity,
+        pointerX: ptrX,
+        pointerY: ptrY,
       }, [])
     } else {
       startCaustics()
@@ -801,39 +822,8 @@ function handleEnableChange(v: boolean) {
     // Remove will-change when paused
     inner.value?.style.removeProperty("will-change")
 
-    // Stop and fully clean worker or fallback. With v-if, the canvas will be removed, so an OffscreenCanvas previously transferred becomes orphaned. We must terminate and recreate on next enable.
-    // Remember if the canvas was transferred to Offscreen to avoid main-thread getContext()
-    const wasUsingOffscreen = usingOffscreen
-
-    if (usingOffscreen && worker) {
-      worker.postMessage({ type: "stop" }, [])
-      worker.terminate()
-      worker = null
-      usingOffscreen = false
-    }
-
-    if (fallbackRaf) {
-      cancelAnimationFrame(fallbackRaf)
-      fallbackRaf = null
-    }
-
-    // If we had transferred control to OffscreenCanvas, calling getContext() will throw.
-    // In that case, rely on CSS (.is-disabled) to hide the last frame instead of clearing.
-    const cvs = canvasEl.value
-
-    if (cvs && !wasUsingOffscreen) {
-      try {
-        const ctx = cvs.getContext("2d")
-
-        if (ctx) {
-          ctx.clearRect(0, 0, cvs.width, cvs.height)
-        }
-      } catch {
-        // Ignore : can happen if the canvas was transferred, visibility is controlled via CSS.
-        // skipcq: JS-0098
-        void 0
-      }
-    }
+    // A transferred canvas cannot be reused, so terminate its renderer before v-if removes it
+    stopRenderer()
 
     // Allow future starts
     started = false
@@ -844,7 +834,6 @@ function handleEnableChange(v: boolean) {
     if (el) {
       tIdle = 0
       el.style.setProperty("--gloss-angle", "45deg")
-      el.style.setProperty("--caustics-angle", "50deg")
     }
   }
 }
@@ -913,44 +902,24 @@ watch(() => props.modelValue, (val) => {
   }
 })
 
+// OffscreenCanvas can only be transferred once. Keying the canvas mounts a fresh element, then this watcher starts the renderer matching the newly selected mode.
+watch(altRendering, async () => {
+  if (!enabled.value || isMobile.value || !started) {
+    return
+  }
+
+  stopRenderer(false)
+  await nextTick()
+
+  if (enabled.value && !isMobile.value) {
+    startCaustics()
+  }
+})
+
 // Stop caustics on mobile and restart on desktop
 watch(isMobile, (mobile) => {
   if (mobile) {
-    const wasUsingOffscreen = usingOffscreen
-
-    if (usingOffscreen && worker) {
-      try {
-        worker.postMessage({ type: "stop" } as const, [])
-      } catch {
-        // Ignored : worker might already be stopped or disposed
-        // skipcq: JS-0098
-        void 0
-      }
-      worker.terminate()
-      worker = null
-      usingOffscreen = false
-    }
-
-    if (fallbackRaf) {
-      cancelAnimationFrame(fallbackRaf)
-      fallbackRaf = null
-    }
-
-    const cvs = canvasEl.value
-
-    if (cvs && !wasUsingOffscreen) {
-      try {
-        const ctx = cvs.getContext("2d")
-
-        if (ctx) {
-          ctx.clearRect(0, 0, cvs.width, cvs.height)
-        }
-      } catch {
-        // Ignore : canvas might be in an invalid state
-        // skipcq: JS-0098
-        void 0
-      }
-    }
+    stopRenderer()
 
     // mark not started so we can re-init when leaving mobile
     started = false
@@ -971,8 +940,7 @@ onBeforeUnmount(() => {
   resizeObs = null
   interObs?.disconnect()
   interObs = null
-  worker?.terminate()
-  worker = null
+  stopRenderer(false)
 
   if (onWindowResize) {
     window.removeEventListener("resize", onWindowResize)
@@ -986,11 +954,6 @@ onBeforeUnmount(() => {
 
   window.removeEventListener("pointermove", onDocumentPointerMove as EventListener)
   window.removeEventListener("polychrome-toggle", onPolychromeToggle as EventListener)
-
-  if (fallbackRaf) {
-    cancelAnimationFrame(fallbackRaf)
-    fallbackRaf = null
-  }
 })
 </script>
 
@@ -1060,29 +1023,31 @@ onBeforeUnmount(() => {
 }
 
 .holo-glow {
-  /* soft animated glow behind the image */
   position: absolute;
   inset: -14px;
   z-index: 0;
   border-radius: inherit;
   background:
     radial-gradient(
-      60% 60% at 50% 50%,
-      rgb(255 255 255 / 0.20),
-      transparent 70%
+      52% 64% at var(--mx) var(--my),
+      rgb(170 235 255 / 0.32),
+      transparent 72%
     ),
-    conic-gradient(
-      rgb(255 184 108 / 0.20),
-      rgb(80 250 123 / 0.18),
-      rgb(139 233 253 / 0.18),
-      rgb(189 147 249 / 0.18),
-      rgb(255 184 108 / 0.20)
+    radial-gradient(
+      58% 55% at calc(100% - var(--mx)) calc(100% - var(--my)),
+      rgb(255 112 214 / 0.22),
+      transparent 76%
+    ),
+    radial-gradient(
+      70% 55% at 50% 50%,
+      rgb(255 222 120 / 0.16),
+      transparent 78%
     );
   filter:
-    blur(18px)
-    saturate(120%);
+    blur(20px)
+    saturate(145%);
   mix-blend-mode: screen;
-  opacity: calc(0.15 + 0.35 * var(--intensity));
+  opacity: calc(0.14 + 0.28 * var(--intensity));
   pointer-events: none;
   animation: glow-pulse 6s ease-in-out infinite alternate;
 }
@@ -1091,57 +1056,53 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  mix-blend-mode: color-dodge;
-  opacity: calc(0.05 + 0.35 * var(--intensity));
+  mix-blend-mode: screen;
+  opacity: calc(0.08 + 0.28 * var(--intensity));
   background:
-    /* moving white gloss following the cursor */
     radial-gradient(
-      60% 60% at var(--mx) var(--my),
-      rgb(255 255 255 / 0.28),
-      transparent 60%
+      42% 38% at var(--mx) var(--my),
+      rgb(255 255 255 / 0.38),
+      rgb(215 242 255 / 0.10) 42%,
+      transparent 72%
     ),
-    /* iridescent conic gradient */
-    conic-gradient(
-      from var(--gloss-angle) at var(--mx) var(--my),
-      hsl(0, 100%, 50%),
-      hsl(30, 100%, 50%),
-      hsl(60, 100%, 50%),
-      hsl(90, 100%, 50%),
-      hsl(120, 100%, 50%),
-      hsl(150, 100%, 50%),
-      hsl(180, 100%, 50%),
-      hsl(210, 100%, 50%),
-      hsl(240, 100%, 50%),
-      hsl(270, 100%, 50%),
-      hsl(300, 100%, 50%),
-      hsl(330, 100%, 50%),
-      hsl(360, 100%, 50%)
+    linear-gradient(
+      var(--gloss-angle),
+      transparent 28%,
+      rgb(255 255 255 / 0.03) 41%,
+      rgb(255 255 255 / 0.22) 49%,
+      rgb(255 255 255 / 0.04) 57%,
+      transparent 70%
     );
   filter:
-    saturate(120%)
-    brightness(105%)
-    contrast(105%);
+    brightness(110%)
+    contrast(108%);
   transition: opacity 150ms ease, filter 150ms ease;
 
   &.alt-rendering {
+    opacity: calc(0.06 + 0.22 * var(--intensity));
     filter:
-      saturate(120%)
-      brightness(105%)
-      contrast(105%)
-      /* tie hue to pointer base and drifting time like shader polychrome */
-      hue-rotate(var(--poly-hue, 0deg))
-      hue-rotate(var(--poly-drift, 0deg));
+      brightness(112%)
+      contrast(112%);
   }
 }
 
 .holo-caustics {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: inherit;
   pointer-events: none;
-  opacity: calc(0.05 + 0.05 * var(--intensity));
-  mix-blend-mode: soft-light;
+  opacity: calc(0.58 + 0.32 * var(--intensity));
+  mix-blend-mode: screen;
+  filter: saturate(135%) contrast(108%);
   display: block;
+
+  &.alt-rendering {
+    opacity: calc(0.38 + 0.22 * var(--intensity));
+    mix-blend-mode: screen;
+    filter: saturate(108%) brightness(96%) contrast(102%);
+  }
 }
 
 /* Hover scale for subtle lift */

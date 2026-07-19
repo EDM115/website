@@ -29,7 +29,7 @@
             {{ t('home.disableAnimation') }}
           </UiCheckbox>
           <UiCheckbox
-            v-if="enableCounter > 4"
+            v-if="enableCounter >= 2"
             name="alt-polychrome-animation"
             color="secondary"
             toggle

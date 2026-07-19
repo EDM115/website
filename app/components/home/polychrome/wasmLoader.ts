@@ -14,6 +14,13 @@ async function instantiate(url: URL): Promise<PolychromeWasmInstance | null> {
 
   try {
     const response = await fetch(url)
+    const imports: WebAssembly.Imports = {
+      env: {
+        abort() {
+          throw new Error("Polychrome WASM renderer aborted")
+        },
+      },
+    }
 
     if (!response.ok) {
       return null
@@ -21,7 +28,7 @@ async function instantiate(url: URL): Promise<PolychromeWasmInstance | null> {
 
     if ("instantiateStreaming" in WebAssembly && typeof WebAssembly.instantiateStreaming === "function") {
       try {
-        const { instance } = await WebAssembly.instantiateStreaming(response.clone(), {})
+        const { instance } = await WebAssembly.instantiateStreaming(response.clone(), imports)
         const validated = validateExports(instance.exports)
 
         if (validated) {
@@ -35,7 +42,7 @@ async function instantiate(url: URL): Promise<PolychromeWasmInstance | null> {
     }
 
     const source = await response.arrayBuffer()
-    const { instance } = await WebAssembly.instantiate(source, {})
+    const { instance } = await WebAssembly.instantiate(source, imports)
 
     return validateExports(instance.exports)
   } catch {
@@ -62,8 +69,8 @@ function validateExports(exports: WebAssembly.Exports): PolychromeWasmInstance |
     return null
   }
 
-  const render: PolychromeWasmInstance["render"] = (width, height, time, intensity, quality) => {
-    const result = renderCandidate(width, height, time, intensity, quality)
+  const render: PolychromeWasmInstance["render"] = (width, height, time, intensity, quality, pointerX, pointerY) => {
+    const result = renderCandidate(width, height, time, intensity, quality, pointerX, pointerY)
 
     return typeof result === "number"
       ? result

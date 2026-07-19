@@ -10,7 +10,7 @@ interface QualityProfile {
 
 interface PolychromeWasmInstance {
   memory: WebAssembly.Memory;
-  render(width: number, height: number, time: number, intensity: number, quality: number): number;
+  render(width: number, height: number, time: number, intensity: number, quality: number, pointerX: number, pointerY: number): number;
   getBufferPointer(): number;
   getBufferCapacity(): number;
 }
@@ -18,6 +18,7 @@ interface PolychromeWasmInstance {
 interface PolychromeWorkerInitMessage {
   type: "init";
   canvas: OffscreenCanvas;
+  baseURL: string;
   width: number;
   height: number;
   fps: number;
@@ -33,6 +34,8 @@ interface PolychromeWorkerResizeMessage {
 interface PolychromeWorkerSetIntensityMessage {
   type: "setIntensity";
   intensity: number;
+  pointerX: number;
+  pointerY: number;
 }
 
 interface PolychromeWorkerControlMessage {
@@ -46,7 +49,7 @@ type PolychromeWorkerMessage
     | PolychromeWorkerControlMessage
 
 interface PolychromeWorkerConfig<State> {
-  loadWasm: () => Promise<PolychromeWasmInstance | null>;
+  loadWasm: (baseURL: string) => Promise<PolychromeWasmInstance | null>;
   fallbackRenderer: (
     buffer: Uint8ClampedArray,
     width: number,
@@ -54,6 +57,8 @@ interface PolychromeWorkerConfig<State> {
     time: number,
     intensity: number,
     quality: number,
+    pointerX: number,
+    pointerY: number,
   ) => void;
   computeFrameTime: (now: number, state: State) => number;
   createState: () => State;
