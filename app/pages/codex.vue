@@ -50,5 +50,6 @@ defineOgImage("SystemOgImageTakumi", {
   description: t("codex.description"),
   path: route.path,
   image: [ "/img/system/projects/Codex.jpg", "500px", "500px" ] as const,
+  glowColor: false,
 })
 </script>
