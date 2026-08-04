@@ -1,9 +1,8 @@
 allowBuilds:
   "@parcel/watcher": true
   esbuild: true
-  sharp: true
+  sharp: false
   unrs-resolver: true
-  vue-demi: true
 
 dedupePeers: true
 
@@ -17,26 +16,27 @@ minimumReleaseAgeExclude:
 
 overrides:
   markdown-exit: ~1.1.0-beta.2
-  nuxt-schema-org: ~6.2.6
+  nuxt-schema-org: ~6.2.8
+  sharp: ~0.35.3
 
 patchedDependencies:
-  '@mdit/plugin-alert@1.0.1': patches/@mdit__plugin-alert@1.0.1.patch
-  '@mdit/plugin-align@1.0.1': patches/@mdit__plugin-align@1.0.1.patch
-  '@mdit/plugin-footnote@1.0.1': patches/@mdit__plugin-footnote@1.0.1.patch
-  '@mdit/plugin-img-lazyload@1.0.1': patches/@mdit__plugin-img-lazyload@1.0.1.patch
-  '@mdit/plugin-img-size@1.0.1': patches/@mdit__plugin-img-size@1.0.1.patch
-  '@mdit/plugin-ins@2.0.0': patches/@mdit__plugin-ins@2.0.0.patch
-  '@mdit/plugin-katex@1.0.1': patches/@mdit__plugin-katex@1.0.1.patch
-  '@mdit/plugin-mark@2.0.0': patches/@mdit__plugin-mark@2.0.0.patch
-  '@mdit/plugin-spoiler@2.0.0': patches/@mdit__plugin-spoiler@2.0.0.patch
-  '@mdit/plugin-tab@1.0.1': patches/@mdit__plugin-tab@1.0.1.patch
-  '@mdit/plugin-tasklist@1.0.1': patches/@mdit__plugin-tasklist@1.0.1.patch
-  '@mdit/plugin-tex@1.0.1': patches/@mdit__plugin-tex@1.0.1.patch
+  "@mdit/plugin-alert@1.0.2": patches/@mdit__plugin-alert@1.0.2.patch
+  "@mdit/plugin-align@1.0.2": patches/@mdit__plugin-align@1.0.2.patch
+  "@mdit/plugin-footnote@1.0.2": patches/@mdit__plugin-footnote@1.0.2.patch
+  "@mdit/plugin-img-lazyload@1.0.2": patches/@mdit__plugin-img-lazyload@1.0.2.patch
+  "@mdit/plugin-img-size@1.0.2": patches/@mdit__plugin-img-size@1.0.2.patch
+  "@mdit/plugin-ins@2.0.1": patches/@mdit__plugin-ins@2.0.1.patch
+  "@mdit/plugin-katex@1.0.2": patches/@mdit__plugin-katex@1.0.2.patch
+  "@mdit/plugin-mark@2.0.1": patches/@mdit__plugin-mark@2.0.1.patch
+  "@mdit/plugin-spoiler@2.0.1": patches/@mdit__plugin-spoiler@2.0.1.patch
+  "@mdit/plugin-tab@1.0.3": patches/@mdit__plugin-tab@1.0.3.patch
+  "@mdit/plugin-tasklist@1.0.2": patches/@mdit__plugin-tasklist@1.0.2.patch
+  "@mdit/plugin-tex@1.0.2": patches/@mdit__plugin-tex@1.0.2.patch
   "@types/markdown-it-emoji@3.0.1": patches/@types__markdown-it-emoji@3.0.1.patch
   "@types/markdown-it-link-attributes@3.0.5": patches/@types__markdown-it-link-attributes@3.0.5.patch
   markdown-exit@1.1.0-beta.2: patches/markdown-exit@1.1.0-beta.2.patch
   markdown-it-anchor@9.2.1: patches/markdown-it-anchor@9.2.1.patch
-  markdown-it-attrs@5.0.0: patches/markdown-it-attrs@5.0.0.patch
+  markdown-it-attrs@5.0.1: patches/markdown-it-attrs@5.0.1.patch
   markdown-it-highlightjs@4.3.0: patches/markdown-it-highlightjs@4.3.0.patch
   markdown-it-toc-done-right@4.2.0: patches/markdown-it-toc-done-right@4.2.0.patch
 
@@ -45,4 +45,4 @@ publicHoistPattern:
 
 resolutionMode: highest
 
-savePrefix: ""
+savePrefix: "~"

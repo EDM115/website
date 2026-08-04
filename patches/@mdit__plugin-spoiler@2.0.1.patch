@@ -1,10 +1,10 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 2d68fe860d095cef16121aced796c04936f7aa46..a93f63da86c3eb8a439cdf4f770dcb3e5c86a666 100644
+index 8650bfa6b0d48bc5931a7d1cc718c567ef34ca35..7e011d6cf76c768fc459975640f43034c4734c83 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,4 +1,4 @@
 -import { PluginWithOptions } from "markdown-it";
 +import type { PluginWithOptions } from "markdown-exit";
- 
  //#region src/options.d.ts
- interface MarkdownItTaskListOptions {
+ interface MarkdownItSpoilerOptions {
+   /** @default "span" */

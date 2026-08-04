@@ -420,6 +420,7 @@ declare module 'vue' {
     UiMenu: typeof import('./components/ui/Menu.vue')['default']
     UiOdometer: typeof import('./components/ui/Odometer.vue')['default']
     UiProgressCircular: typeof import('./components/ui/ProgressCircular.vue')['default']
+    UiReadmeRenderer: typeof import('./components/ui/ReadmeRenderer.vue')['default']
     UiRow: typeof import('./components/ui/Row.vue')['default']
     UiSearchBar: typeof import('./components/ui/SearchBar.vue')['default']
     UiShowcase: typeof import('./components/ui/Showcase.vue')['default']

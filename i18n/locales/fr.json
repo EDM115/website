@@ -26,6 +26,12 @@
     "telegram_button": "Posts du canal Telegram",
     "title": "Blog"
   },
+  "codex": {
+    "description": "Outils, SDKs, RFCs et mods non officiels pour l'application de bureau Codex",
+    "explanation": "WIP, je travaille encore sur ce projet (énorme), le code source sera publié à une date ultérieure, revenez régulièrement pour voir les progrès !",
+    "head": "CodexMods - EDM115",
+    "warning": "Avertissement"
+  },
   "cookies": {
     "accept": "Accepter",
     "reject": "Refuser",
@@ -50,6 +56,7 @@
     "alternativeAnimation": "Rendu d'effet alternatif",
     "back": "Retour",
     "blog": "Blog",
+    "codex": "CodexMods",
     "disableAnimation": "Effet polychrome",
     "downloadResume": "Télécharger mon CV",
     "home": "Accueil",

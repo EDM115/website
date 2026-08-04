@@ -1,5 +1,5 @@
 diff --git a/index.d.ts b/index.d.ts
-index 6a24fa3616104dc406c7efad21549c69f58f1866..49478202923b0e3d6a273ef33c80eaf8d708f59d 100644
+index 90ed51e4ec640dd968e5820994ab0d8dd2510ca4..14227a4ce03c2f29304bd80bed31e53be433c050 100644
 --- a/index.d.ts
 +++ b/index.d.ts
 @@ -1,4 +1,4 @@
@@ -8,7 +8,7 @@ index 6a24fa3616104dc406c7efad21549c69f58f1866..49478202923b0e3d6a273ef33c80eaf8
  
  declare namespace markdownItAttrs {
    type AllowedAttribute = string | RegExp;
-@@ -11,6 +11,6 @@ declare namespace markdownItAttrs {
+@@ -13,6 +13,6 @@ declare namespace markdownItAttrs {
    }
  }
  

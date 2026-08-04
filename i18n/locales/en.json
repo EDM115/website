@@ -26,6 +26,12 @@
     "telegram_button": "Telegram channel posts",
     "title": "Blog"
   },
+  "codex": {
+    "description": "Unofficial tooling, SDKs, RFCs, and mods for the Codex desktop app",
+    "explanation": "WIP, I'm still working on this (massive) project, source will be published at a later date, check back regularly to see the progress !",
+    "head": "CodexMods - EDM115",
+    "warning": "Warning"
+  },
   "cookies": {
     "accept": "Accept",
     "reject": "Reject",
@@ -50,6 +56,7 @@
     "alternativeAnimation": "Alternative effect rendering",
     "back": "Back",
     "blog": "Blog",
+    "codex": "CodexMods",
     "disableAnimation": "Polychrome effect",
     "downloadResume": "Download my resume",
     "home": "Home",

@@ -269,10 +269,10 @@ async function createMarkdownRenderer(): Promise<MarkdownRenderer> {
     .use(footnote)
     .use(imgLazyload)
     .use(imgSize)
-    .use(ins)
+    .use(ins, { "double": true })
     .use(katex, { delimiters: "all" })
-    .use(mark)
-    .use(spoiler)
+    .use(mark, { "double": true })
+    .use(spoiler, { "double": true })
     .use(tab, { name: "tabs" })
     .use(tasklist, { disabled: false })
     .use(brOnEmptyLines)
@@ -292,17 +292,19 @@ async function renderMarkdown(content: string): Promise<string> {
   return rendered
 }
 
-function parsePublishedTime(publishedTime: Date | undefined): {
+function parsePublishedTime(publishedTime: Date | string | undefined): {
   date: string;
   link: string;
 } {
-  if (!(publishedTime instanceof Date)) {
+  if (!(publishedTime instanceof Date) && typeof publishedTime !== "string") {
     return {
       date: "", link: "",
     }
   }
 
-  const instant = Temporal.Instant.from(publishedTime.toISOString())
+  const instant = typeof publishedTime === "string"
+    ? Temporal.Instant.from(publishedTime)
+    : Temporal.Instant.from(publishedTime.toISOString())
   const date = instant.toZonedDateTimeISO("UTC")
     .toPlainDate()
   const year = date.year.toString()
@@ -515,7 +517,9 @@ async function parseBlogPost(
     markdownContent,
     publishedTime: publishedTime instanceof Date
       ? Temporal.Instant.from(publishedTime.toISOString()).epochMilliseconds
-      : 0,
+      : typeof publishedTime === "string"
+        ? Temporal.Instant.from(publishedTime).epochMilliseconds
+        : 0,
     pagefindMeta,
     pagefindTags,
   }

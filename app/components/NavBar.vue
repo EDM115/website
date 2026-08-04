@@ -51,6 +51,17 @@
         <UiButton
           expandable
           :expanded="route.path === '/' && !isMobile"
+          :color="route.path.startsWith('/codex') ? 'primary' : undefined"
+          hover-color="primary"
+          :icon="codex"
+          :text="t('home.codex')"
+          variant="frosted"
+          link="/codex"
+          aria="CodexMods"
+        />
+        <UiButton
+          expandable
+          :expanded="route.path === '/' && !isMobile"
           :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
           hover-color="primary"
           :icon="materialSymbolsFolderZipOutline"
@@ -164,6 +175,17 @@
           />
           <UiButton
             class="navbar-mobile-panel--link"
+            :color="route.path.startsWith('/codex') ? 'primary' : undefined"
+            hover-color="primary"
+            :prepend-icon="codex"
+            :text="t('home.codex')"
+            variant="frosted"
+            link="/codex"
+            aria="CodexMods"
+            @click="toggleMobileMenu"
+          />
+          <UiButton
+            class="navbar-mobile-panel--link"
             :color="route.path.startsWith('/unzip') ? 'primary' : undefined"
             hover-color="primary"
             :prepend-icon="materialSymbolsFolderZipOutline"
@@ -209,6 +231,8 @@ import mdiMenu from "~icons/mdi/menu"
 import mdiTextBoxEditOutline from "~icons/mdi/textBoxEditOutline"
 import mdiWeatherNight from "~icons/mdi/weatherNight"
 import mdiWeatherSunny from "~icons/mdi/weatherSunny"
+
+import codex from "~~/public/img/icons/Codex.svg"
 
 const {
   locale,

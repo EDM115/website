@@ -1,10 +1,10 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 6b36456b9d7cf47ba26dc3a2748a3aa3e72dacf6..78ec99840d6ec556896db2b6a3a24e60d1313081 100644
+index 93c9430f8bca142530a4ca88ebb26f0b861f20ab..14b19584da4dddfea1b94148313c8c09c0866263 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,4 +1,4 @@
 -import { PluginSimple } from "markdown-it";
 +import type { PluginSimple } from "markdown-exit";
- 
  //#region src/plugin.d.ts
- declare const align: PluginSimple;
+ declare const ins: PluginSimple;
+ //#endregion
