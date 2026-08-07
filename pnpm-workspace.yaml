@@ -1,8 +1,10 @@
 allowBuilds:
   "@parcel/watcher": true
+  better-sqlite3: false
   esbuild: true
   sharp: false
   unrs-resolver: true
+  vue-demi: false
 
 dedupePeers: true
 
@@ -13,6 +15,7 @@ minimumReleaseAge: 120
 minimumReleaseAgeExclude:
   - "@takumi-rs/*"
   - nuxt-schema-org
+  - eslint@10.8.1
 
 overrides:
   markdown-exit: ~1.1.0-beta.2

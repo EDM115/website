@@ -35,6 +35,7 @@ jobs:
           sed -i 's|edm115.dev|edm115.eu.org|g' app/layouts/default.vue
           sed -i 's|edm115.dev|edm115.eu.org|g' app/components/system/OgImage.takumi.vue
           sed -i '/ogImage/,$ s/enabled: true/enabled: false/' nuxt.config.ts
+          sed -i '/aiReady/,$ s/enabled: true/enabled: false/' nuxt.config.ts
           # Avoid bundling the resume files since they balloon the size by x8
           sed -i 's|/docs|https://edm115.dev/docs|g' app/components/home/Resume.vue
           # Also redirect blog files

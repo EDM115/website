@@ -1,5 +1,13 @@
 [
   {
+    "id": 40,
+    "name": "raycast/extensions",
+    "description": "feat(agent-usage): add support for ClinePass & more improvements",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/raycast/extensions/pull/30057"
+  },
+  {
     "id": 39,
     "name": "ramensoftware/windhawk-mods",
     "description": "feat: add taskbar-multi-tray mod",

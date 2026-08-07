@@ -72,6 +72,7 @@ export default defineNuxtConfig({
     "@nuxtjs/partytown",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
+    "nuxt-ai-ready",
     "nuxt-svgo",
     "unplugin-icons/nuxt",
   ],
@@ -435,6 +436,33 @@ export default defineNuxtConfig({
           }
         }
       }
+    },
+  },
+  aiReady: {
+    contentSignal: {
+      aiInput: true,
+      aiTrain: true,
+      search: true,
+    },
+    enabled: true,
+    indexNow: true,
+    llmsTxt: {
+      markdownLinks: true,
+    },
+    mdreamOptions: {
+      clean: {
+        blankLines: true,
+        emptyImages: false,
+        emptyLinks: true,
+        emptyLinkText: false,
+        fragments: true,
+        redundantLinks: true,
+        selfLinkHeadings: true,
+        urls: true,
+      },
+      frontmatter: true,
+      isolateMain: true,
+      wrapWidth: 0,
     },
   },
   eslint: { config: {

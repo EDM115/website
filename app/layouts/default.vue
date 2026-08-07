@@ -28,7 +28,7 @@ const className = computed(() => {
   const path = route.path
   const limit = path.startsWith("/codex")
     ? 2
-      : path.startsWith("/projects")
+    : path.startsWith("/projects")
       ? 3
       : path.startsWith("/blog/telegram")
         ? 7

@@ -6,13 +6,15 @@
     >
       <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
         <UiIcon :icon="lucideConstruction" />
-        <h3 style="margin-left: 0.5rem;">{{ t('codex.warning') }}</h3>
+        <h3 style="margin-left: 0.5rem;">
+          {{ t('codex.warning') }}
+        </h3>
       </div>
       {{ t('codex.explanation') }}
     </UiAlert>
 
     <UiDivider style="justify-self: center; width: 80%;" />
-    
+
     <UiReadmeRenderer
       name="CodexMods/.github"
       path="profile/README.md"
