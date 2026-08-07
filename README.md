@@ -264,7 +264,7 @@ location ^~ /_nuxt/ {
   log_not_found off;
 }
 
-location ~* \.(?:js|mjs|css|map|json|txt|xml|webmanifest|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot)$ {
+location ~* \.(?:js|mjs|css|map|json|atom|xml|webmanifest|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot)$ {
   try_files $uri =404;
 
   expires 1d;
@@ -274,7 +274,7 @@ location ~* \.(?:js|mjs|css|map|json|txt|xml|webmanifest|png|jpe?g|gif|webp|avif
   log_not_found off;
 }
 
-location ~* \.md$ {
+location ~* \.(?:md|txt)$ {
   try_files $uri =404;
 
   default_type text/plain;
