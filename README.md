@@ -274,6 +274,19 @@ location ~* \.(?:js|mjs|css|map|json|txt|xml|webmanifest|png|jpe?g|gif|webp|avif
   log_not_found off;
 }
 
+location ~* \.md$ {
+  try_files $uri =404;
+
+  default_type text/plain;
+  charset utf-8;
+
+  expires 1d;
+  add_header Cache-Control "public, max-age=86400" always;
+
+  access_log off;
+  log_not_found off;
+}
+
 location = /index.html {
   try_files $uri =404;
   add_header Cache-Control "no-cache, must-revalidate" always;
