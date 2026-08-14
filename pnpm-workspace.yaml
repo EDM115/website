@@ -15,26 +15,27 @@ minimumReleaseAge: 120
 minimumReleaseAgeExclude:
   - "@takumi-rs/*"
   - nuxt-schema-org
-  - eslint@10.8.1
+  - light-odometer@0.1.3
 
 overrides:
   markdown-exit: ~1.1.0-beta.2
-  nuxt-schema-org: ~6.2.8
+  nuxt-schema-org: ~6.2.9
   sharp: ~0.35.3
 
 patchedDependencies:
-  "@mdit/plugin-alert@1.0.2": patches/@mdit__plugin-alert@1.0.2.patch
-  "@mdit/plugin-align@1.0.2": patches/@mdit__plugin-align@1.0.2.patch
-  "@mdit/plugin-footnote@1.0.2": patches/@mdit__plugin-footnote@1.0.2.patch
-  "@mdit/plugin-img-lazyload@1.0.2": patches/@mdit__plugin-img-lazyload@1.0.2.patch
-  "@mdit/plugin-img-size@1.0.2": patches/@mdit__plugin-img-size@1.0.2.patch
-  "@mdit/plugin-ins@2.0.1": patches/@mdit__plugin-ins@2.0.1.patch
-  "@mdit/plugin-katex@1.0.2": patches/@mdit__plugin-katex@1.0.2.patch
-  "@mdit/plugin-mark@2.0.1": patches/@mdit__plugin-mark@2.0.1.patch
-  "@mdit/plugin-spoiler@2.0.1": patches/@mdit__plugin-spoiler@2.0.1.patch
-  "@mdit/plugin-tab@1.0.3": patches/@mdit__plugin-tab@1.0.3.patch
-  "@mdit/plugin-tasklist@1.0.2": patches/@mdit__plugin-tasklist@1.0.2.patch
-  "@mdit/plugin-tex@1.0.2": patches/@mdit__plugin-tex@1.0.2.patch
+  "@mdit/helper@1.1.0": patches/@mdit__helper@1.1.0.patch
+  "@mdit/plugin-alert@2.0.0": patches/@mdit__plugin-alert@2.0.0.patch
+  "@mdit/plugin-align@1.1.0": patches/@mdit__plugin-align@1.1.0.patch
+  "@mdit/plugin-footnote@1.1.0": patches/@mdit__plugin-footnote@1.1.0.patch
+  "@mdit/plugin-img-lazyload@1.1.0": patches/@mdit__plugin-img-lazyload@1.1.0.patch
+  "@mdit/plugin-img-size@1.1.0": patches/@mdit__plugin-img-size@1.1.0.patch
+  "@mdit/plugin-ins@2.1.0": patches/@mdit__plugin-ins@2.1.0.patch
+  "@mdit/plugin-katex@1.1.0": patches/@mdit__plugin-katex@1.1.0.patch
+  "@mdit/plugin-mark@2.1.0": patches/@mdit__plugin-mark@2.1.0.patch
+  "@mdit/plugin-spoiler@2.1.0": patches/@mdit__plugin-spoiler@2.1.0.patch
+  "@mdit/plugin-tab@2.0.0": patches/@mdit__plugin-tab@2.0.0.patch
+  "@mdit/plugin-tasklist@1.1.0": patches/@mdit__plugin-tasklist@1.1.0.patch
+  "@mdit/plugin-tex@1.1.0": patches/@mdit__plugin-tex@1.1.0.patch
   "@types/markdown-it-emoji@3.0.1": patches/@types__markdown-it-emoji@3.0.1.patch
   "@types/markdown-it-link-attributes@3.0.5": patches/@types__markdown-it-link-attributes@3.0.5.patch
   markdown-exit@1.1.0-beta.2: patches/markdown-exit@1.1.0-beta.2.patch

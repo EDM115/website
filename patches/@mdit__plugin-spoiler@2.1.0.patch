@@ -1,0 +1,10 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 0dc4ed35288a423cd8d99bb060367da673f9fa51..a38a7732004bb7f81729604a8742104cea4eddad 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginWithOptions } from "@mdit/helper";
++import type { PluginWithOptions } from "@mdit/helper";
+ //#region src/options.d.ts
+ interface MarkdownItSpoilerOptions {
+   /** @default "span" */

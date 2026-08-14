@@ -1,0 +1,23 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index b0a2afe9d0897eb2aa5cdbebb57270367395b467..9ce139286772a8b8af31a8603e3677861d15e1d5 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,5 +1,5 @@
+-import { PluginWithOptions } from "@mdit/helper";
+-import { Env, MarkdownItOptions, Renderer, RendererRule, Token } from "markdown-it";
++import type { PluginWithOptions } from "@mdit/helper";
++import type { MarkdownExitEnv, MarkdownExitOptions, Renderer, RendererRule, Token } from "markdown-exit";
+ //#region src/options.d.ts
+ interface MarkdownItTabData {
+   /**
+@@ -49,8 +49,8 @@ interface MarkdownItTabInfo {
+    */
+   data: MarkdownItTabData[];
+ }
+-type TabsOpenRenderer = (info: MarkdownItTabInfo, tokens: Token[], index: number, options: Required<MarkdownItOptions>, env: Env | undefined, self: Renderer) => string;
+-type TabOpenRenderer = (data: MarkdownItTabData, tokens: Token[], index: number, options: Required<MarkdownItOptions>, env: Env | undefined, self: Renderer) => string;
++type TabsOpenRenderer = (info: MarkdownItTabInfo, tokens: Token[], index: number, options: Required<MarkdownExitOptions>, env: MarkdownExitEnv | undefined, self: Renderer) => string;
++type TabOpenRenderer = (data: MarkdownItTabData, tokens: Token[], index: number, options: Required<MarkdownExitOptions>, env: MarkdownExitEnv | undefined, self: Renderer) => string;
+ interface MarkdownItTabOptions {
+   /**
+    * The name of the tab container.

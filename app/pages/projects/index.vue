@@ -51,12 +51,16 @@
 </template>
 
 <script setup lang="ts">
+import mdiLinkVariant from "~icons/mdi/linkVariant"
 import simpleGithub from "~icons/simple-icons/github"
 import simpleNpm from "~icons/simple-icons/npm"
 import simplePypi from "~icons/simple-icons/pypi"
-import mdiLinkVariant from "~icons/mdi/linkVariant"
+import simpleRust from "~icons/simple-icons/rust"
+import vsCodeFileTypeSkill from "~icons/vscode-icons/file-type-skill"
+import vsCodeFileTypeLightSkill from "~icons/vscode-icons/file-type-light-skill"
 
 const route = useRoute()
+const { isDark } = useCustomTheme()
 const { isMobile } = useDevice()
 const {
   locale,
@@ -145,16 +149,46 @@ const projects = computed(() => [
     ],
   },
   {
-    title: "Better Maps",
+    title: "miniproto",
     description: locale.value === "fr"
-      ? "Google Maps mais avec des pins personnalisables sur la carte et quelques filtres/recherches. Fait pour ma copine aussi, mais pas de version publique parce que l'API n'est pas gratuite."
-      : "Google Maps but there's customizable pins on the map and some filters/search. Made for my gf again, but no public version because the API ain't free.",
-    link: "/projects/better-maps",
-    image: "/img/projects/better-maps.webp",
+      ? "Une bibliothèque MTProto très rapide pour interagir avec Telegram, écrite en Python avec des optimisations Rust [ALPHA]"
+      : "A very fast MTProto library to interact with Telegram, written in Python with Rust speedups [ALPHA]",
+    link: "/projects/miniproto",
+    image: "/img/projects/miniproto.webp",
     actions: [
       {
+        text: t("projects.pypi"),
+        link: "https://pypi.org/project/miniproto/",
+        icon: simplePypi,
+      },
+      {
+        text: t("projects.crates"),
+        link: "https://crates.io/crates/miniproto",
+        icon: simpleRust,
+      },
+      {
         text: t("opensource.link"),
-        link: "https://github.com/EDM115/better-maps",
+        link: "https://github.com/EDM115/miniproto",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "MPGram",
+    description: locale.value === "fr"
+      ? "Le meilleur et le plus rapide framework Python pour Telegram, l'implémentation de référence de miniproto (pas encore commencé)"
+      : "Best & fastest Python Telegram framework, the reference implementation of miniproto (not started yet)",
+    link: "/projects/mpgram",
+    image: "/img/projects/mpgram.webp",
+    actions: [
+      {
+        text: t("projects.pypi"),
+        link: "https://pypi.org/project/mpgram/",
+        icon: simplePypi,
+      },
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/MPGram",
         icon: simpleGithub,
       },
     ],
@@ -170,6 +204,91 @@ const projects = computed(() => [
       {
         text: t("opensource.link"),
         link: "https://github.com/EDM115/unrar-alpine",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "Better Maps",
+    description: locale.value === "fr"
+      ? "Google Maps mais avec des pins personnalisables sur la carte et quelques filtres/recherches. Fait pour ma copine aussi, mais pas de version publique parce que l'API n'est pas gratuite."
+      : "Google Maps but there's customizable pins on the map and some filters/search. Made for my gf again, but no public version because the API ain't free.",
+    link: "/projects/better-maps",
+    image: "/img/projects/better-maps.webp",
+    actions: [
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/better-maps",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "skills",
+    description: locale.value === "fr"
+      ? "Des skills pour agents IA que j'ai écrits parce que personne d'autre ne les a faits"
+      : "Skills for AI agents that I wrote because nobody else made them",
+    link: "/projects/skills",
+    image: "/img/projects/skills.webp",
+    actions: [
+      {
+        text: t("projects.more-info"),
+        link: "https://skills.sh/EDM115/skills",
+        icon: isDark.value ? vsCodeFileTypeLightSkill : vsCodeFileTypeSkill,
+      },
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/skills",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "THOUGHTS",
+    description: locale.value === "fr"
+      ? "Une skill & un plugin Codex pour garder ce que le contexte oublie (pour que vos agents ne se perdent pas)"
+      : "A skill & Codex plugin to keep what context forgets (so your agents don't get lost)",
+    link: "/projects/thoughts",
+    image: "/img/projects/thoughts.webp",
+    actions: [
+      {
+        text: t("projects.more-info"),
+        link: "https://www.skills.sh/edm115/thoughts/thoughts",
+        icon: isDark.value ? vsCodeFileTypeLightSkill : vsCodeFileTypeSkill,
+      },
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/THOUGHTS",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "Codex usage tool",
+    description: locale.value === "fr"
+      ? "Visualisez votre utilisation de Codex dans un joli rapport, incluant les tokens utilisés, le coût estimé de l'API, le ROI, l'utilisation des skills/plugins, la répartition des modèles et surfaces et bien plus encore"
+      : "Visualize your Codex usage in a nice report, includes tokens used, estimated API cost, ROI, skills/plugins usage, models & surfaces breakdown and much much more",
+    link: "/projects/codex-usage-tool",
+    image: "/img/projects/codex-usage-tool.webp",
+    actions: [
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/codex-usage-tool",
+        icon: simpleGithub,
+      },
+    ],
+  },
+  {
+    title: "Cline usage tool",
+    description: locale.value === "fr"
+      ? "Visualisez votre utilisation de ClinePass dans un joli rapport, incluant les tokens utilisés, le coût estimé de l'API, les limites, la répartition des modèles et bien plus encore"
+      : "Visualize your ClinePass usage in a nice report, includes tokens used, estimated API cost, limits, models breakdown and much more",
+    link: "/projects/cline-usage-tool",
+    image: "/img/projects/cline-usage-tool.webp",
+    actions: [
+      {
+        text: t("opensource.link"),
+        link: "https://github.com/EDM115/cline-usage-tool",
         icon: simpleGithub,
       },
     ],
@@ -385,7 +504,7 @@ const projects = computed(() => [
     ],
   },
   {
-    title: "Dotfiles",
+    title: "dotfiles",
     description: locale.value === "fr"
       ? "Eh bien, ce sont des dotfiles... Pour Windows et Linux, avec quelques scripts personnalisés et même ma propre animation de démarrage Linux parce que pourquoi pas."
       : "Well, it's dotfiles... For Windows and Linux, with some custom scripts and even my very own Linux boot animation because why not.",
@@ -400,7 +519,7 @@ const projects = computed(() => [
     ],
   },
   {
-    title: "Web logs",
+    title: "web logs",
     description: locale.value === "fr"
       ? "Mes bots Discord généraient des logs, je voulais les voir sur une page sans passer par SSH, alors voilà la solution."
       : "My discord bots spat logs, I wanted to see them in one page without SSH-ing, so here is the solution.",

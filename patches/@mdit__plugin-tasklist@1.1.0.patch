@@ -1,0 +1,21 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 6914f970b9350ac87770a68e1e5f7e783a4b5b39..a4a2a879c7a276df1dd98facf9e6991cef7531e0 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,5 +1,5 @@
+-import { PluginWithOptions } from "@mdit/helper";
+-import { Env } from "markdown-it";
++import type { PluginWithOptions } from "@mdit/helper";
++import type { MarkdownExitEnv } from "markdown-exit";
+ //#region src/options.d.ts
+ interface MarkdownItTaskListOptions {
+   /**
+@@ -57,7 +57,7 @@ declare const tasklist: PluginWithOptions<MarkdownItTaskListOptions>;
+ //#endregion
+ //#region src/types.d.ts
+ declare const tasklistIdKey: unique symbol;
+-interface TaskListEnv extends Env {
++interface TaskListEnv extends MarkdownExitEnv {
+   [tasklistIdKey]?: number;
+ }
+ //#endregion

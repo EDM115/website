@@ -1,0 +1,28 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index b288b47a6af4ca36dc66f06343c5750bc63b84af..eda39e1ad7642efeddbfb5cc01c759dd708f521e 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,4 +1,4 @@
+-import { MarkdownIt, StateBlock, StateCore, StateInline } from "markdown-it";
++import type { MarkdownExit, StateBlock, StateCore, StateInline } from "markdown-exit";
+ //#region src/dedent.d.ts
+ /**
+  * Removes common leading whitespace from each line in the given text.
+@@ -52,7 +52,7 @@ declare const UNESCAPE_RE: RegExp;
+  *
+  * @param md - MarkdownIt instance / MarkdownIt 实例
+  */
+-type PluginSimple = (md: MarkdownIt) => void;
++type PluginSimple = (md: MarkdownExit) => void;
+ /**
+  * Plugin with options.
+  *
+@@ -61,7 +61,7 @@ type PluginSimple = (md: MarkdownIt) => void;
+  * @param md - MarkdownIt instance / MarkdownIt 实例
+  * @param options - Plugin options / 插件选项
+  */
+-type PluginWithOptions<T = unknown> = (md: MarkdownIt, options?: T) => void;
++type PluginWithOptions<T = unknown> = (md: MarkdownExit, options?: T) => void;
+ /**
+  * Block rule.
+  *

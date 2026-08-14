@@ -1,0 +1,23 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index f99f4ff82305e9df695e10250c30124831f4d66f..ffbc4b074ea3ef1594c06b4442ace3ea7c91ebf7 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,6 +1,6 @@
+-import { MarkdownItTexOptions } from "@mdit/plugin-tex";
+-import { KatexOptions, Token } from "katex";
+-import { Env, MarkdownIt } from "markdown-it";
++import type { MarkdownItTexOptions } from "@mdit/plugin-tex";
++import type { KatexOptions, Token } from "katex";
++import type { MarkdownExitEnv, MarkdownExit } from "markdown-exit";
+ //#region src/options.d.ts
+ type KatexLogger<MarkdownItEnv = unknown> = (errorCode: "unknownSymbol" | "unicodeTextInMathMode" | "mathVsTextUnits" | "commentAtEnd" | "htmlExtension" | "newLineInDisplayMode", errorMsg: string, token: Token, env: MarkdownItEnv) => "error" | "warn" | "ignore" | boolean | undefined;
+ type TeXTransformer = (content: string, displayMode: boolean) => string;
+@@ -20,7 +20,7 @@ interface MarkdownItKatexOptions<MarkdownItEnv = unknown> extends KatexOptions,
+ }
+ //#endregion
+ //#region src/plugin.d.ts
+-declare const katex: <MarkdownItEnv extends Env = Env>(md: MarkdownIt, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
++declare const katex: <MarkdownItEnv extends MarkdownExitEnv = MarkdownExitEnv>(md: MarkdownExit, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
+ //#endregion
+ export { type KatexLogger, type MarkdownItKatexOptions, type TeXTransformer, katex };
+ //# sourceMappingURL=index.d.ts.map

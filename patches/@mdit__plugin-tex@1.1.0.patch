@@ -1,0 +1,15 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 2a7882673214f02455b1e5206c9487eda6b03800..713bc4461bb0d4916ea0f81990769595bff0c4fd 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,7 +1,7 @@
+-import { Env } from "markdown-it";
+-import { PluginWithOptions } from "@mdit/helper";
++import type { MarkdownExitEnv } from "markdown-exit";
++import type { PluginWithOptions } from "@mdit/helper";
+ //#region src/options.d.ts
+-interface MarkdownItTexOptions<MarkdownItEnv = Env> {
++interface MarkdownItTexOptions<MarkdownItEnv = MarkdownExitEnv> {
+   /**
+    * Math delimiter syntax to enable
+    *

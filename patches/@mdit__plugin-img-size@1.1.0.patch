@@ -1,0 +1,10 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 659fad2fa3064f8db74d593a9f1f41d2aeb5b782..d9657d36772539d220e8637f135b31dd26b90030 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,4 +1,4 @@
+-import { InlineRule, PluginSimple } from "@mdit/helper";
++import type { InlineRule, PluginSimple } from "@mdit/helper";
+ //#region src/legacy.d.ts
+ /**
+  * @deprecated Recommended to use `imgSize` instead.

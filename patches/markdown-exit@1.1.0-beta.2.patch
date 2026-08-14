@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 27f73f98238f54658b071cfa87bb1205a74d580d..da5e6ee63b264730b04e42764d1124f99b4c105d 100644
+index 27f73f98238f54658b071cfa87bb1205a74d580d..2053290203f0acc7cac6c647492ef086c7ef945e 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1122,4 +1122,4 @@ declare function createMarkdownExit(presetName: PresetName, options?: MarkdownEx
@@ -8,4 +8,4 @@ index 27f73f98238f54658b071cfa87bb1205a74d580d..da5e6ee63b264730b04e42764d1124f9
  //#endregion
 -export { HTMLAttribute, MarkdownExit, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRuleRecord, Renderer, type RuleBlock, type RuleCore, type RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };
 \ No newline at end of file
-+export { HTMLAttribute, MarkdownExit, MarkdownExitEnv, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRuleRecord, Renderer, type RuleBlock, type RuleCore, type RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };
++export { HTMLAttribute, MarkdownExit, MarkdownExitEnv, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRule as RendererRule, RenderRuleRecord, Renderer, type RuleBlock, type RuleCore, type RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };

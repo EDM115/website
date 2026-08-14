@@ -1,0 +1,10 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index f36152a3b541d11ce9761e5a7a4d99d0d3d258a7..63c95ca29e13c1f1e874c5c8a63f20ea83d81451 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,4 +1,4 @@
+-import { PluginSimple } from "@mdit/helper";
++import type { PluginSimple } from "@mdit/helper";
+ //#region src/plugin.d.ts
+ declare const imgLazyload: PluginSimple;
+ //#endregion

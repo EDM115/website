@@ -176,12 +176,13 @@
   },
   "projects": {
     "back": "Back to projects list",
+    "crates": "View on crates.io",
     "demo": "Demo",
     "description": "A list of all my interesting projects",
     "gh": "Find all my projects on my GitHub",
     "head": "Projects - EDM115",
     "more-info": "More info",
-    "npm": "View on NPM",
+    "npm": "View on npmx",
     "project": "Project",
     "pypi": "View on PyPI",
     "title": "My projects"

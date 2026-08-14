@@ -1,10 +1,18 @@
 [
   {
+    "id": 41,
+    "name": "raycast/extensions",
+    "description": "fix(agent-usage): Fix ClinePass usage limits windows",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/raycast/extensions/pull/30142"
+  },
+  {
     "id": 40,
     "name": "raycast/extensions",
     "description": "feat(agent-usage): add support for ClinePass & more improvements",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/raycast/extensions/pull/30057"
   },
   {
@@ -318,6 +326,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 100,
+    "name": "harlan-zw/nuxt-ai-ready",
+    "description": "feat: add the ability to depend on no database",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/harlan-zw/nuxt-ai-ready/issues/83"
   },
   {
     "id": 99,
