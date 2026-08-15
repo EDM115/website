@@ -28,6 +28,20 @@
     "description": "Download multiple videos at once with one simple script. Works with Youtube and all other sites supported by yt-dlp."
   },
   {
+    "repo": "EDM115/cline-usage-tool",
+    "branch": "master",
+    "path": "cline-usage-tool",
+    "name": "EDM115/cline-usage-tool",
+    "description": "Check in detail your usage of Cline, with charts, price estimate and more !"
+  },
+  {
+    "repo": "EDM115/codex-usage-tool",
+    "branch": "master",
+    "path": "codex-usage-tool",
+    "name": "EDM115/codex-usage-tool",
+    "description": "Check in detail your usage of Codex, with charts, price estimate and more !"
+  },
+  {
     "repo": "EDM115/dotfiles",
     "branch": "master",
     "path": "dotfiles",
@@ -70,11 +84,25 @@
     "description": "Help to write in Markdown on Github [French]"
   },
   {
+    "repo": "EDM115/miniproto",
+    "branch": "master",
+    "path": "miniproto",
+    "name": "EDM115/miniproto",
+    "description": "A very fast minimalistic MTProto library to interact with Telegram, backed by Rust. Create your own frameworks or use the raw methods directly !"
+  },
+  {
     "repo": "EDM115/monorepo-hash",
     "branch": "master",
     "path": "monorepo-hash",
     "name": "EDM115/monorepo-hash",
     "description": "A CLI tool to generate hashes for the workspaces of your monorepo"
+  },
+  {
+    "repo": "EDM115/MPGram",
+    "branch": "master",
+    "path": "mpgram",
+    "name": "EDM115/MPGram",
+    "description": "Best-in-class Telegram framework, easy to use, simple to understand, and FAST ! (backed by benchmarks) The reference implementation of miniproto."
   },
   {
     "repo": "EDM115/palex",
@@ -98,6 +126,13 @@
     "description": "A simple way to share files across multiple repos without editing them manually. Write once, push anywhere 😄"
   },
   {
+    "repo": "EDM115/skills",
+    "branch": "master",
+    "path": "skills",
+    "name": "EDM115/skills",
+    "description": "Skills generated for my own purpose, created because nobody made them before"
+  },
+  {
     "repo": "EDM115/spendly",
     "branch": "master",
     "path": "spendly",
@@ -110,6 +145,13 @@
     "path": "the-very-restrictive-license",
     "name": "EDM115/The-Very-Restrictive-License",
     "description": "A very restrictive license. Anyway..."
+  },
+  {
+    "repo": "EDM115/THOUGHTS",
+    "branch": "master",
+    "path": "thoughts",
+    "name": "EDM115/THOUGHTS",
+    "description": "[SKILL + Codex plugin] Keep what context forgets (Things Heard, Observed, Unclear, Guessed, Hacked, Tracked, or Suspected)"
   },
   {
     "repo": "EDM115/unrar-alpine",
