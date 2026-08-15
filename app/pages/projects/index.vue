@@ -234,7 +234,9 @@ const projects = computed(() => [
       {
         text: t("projects.more-info"),
         link: "https://skills.sh/EDM115/skills",
-        icon: isDark.value ? vsCodeFileTypeLightSkill : vsCodeFileTypeSkill,
+        icon: isDark.value
+          ? vsCodeFileTypeLightSkill
+          : vsCodeFileTypeSkill,
       },
       {
         text: t("opensource.link"),
@@ -254,7 +256,9 @@ const projects = computed(() => [
       {
         text: t("projects.more-info"),
         link: "https://www.skills.sh/edm115/thoughts/thoughts",
-        icon: isDark.value ? vsCodeFileTypeLightSkill : vsCodeFileTypeSkill,
+        icon: isDark.value
+          ? vsCodeFileTypeLightSkill
+          : vsCodeFileTypeSkill,
       },
       {
         text: t("opensource.link"),
