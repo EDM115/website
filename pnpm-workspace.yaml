@@ -1,5 +1,6 @@
 allowBuilds:
   "@parcel/watcher": true
+  better-sqlite3: false
   esbuild: true
   sharp: false
   unrs-resolver: true
