@@ -194,7 +194,7 @@ export default defineNuxtConfig({
     sharedPrerenderData: true,
     typedPages: true,
     typescriptPlugin: true,
-    viewTransition: true,
+    viewTransition: false,
     viteEnvironmentApi: true,
     watcher: "builder",
   },
@@ -444,8 +444,8 @@ export default defineNuxtConfig({
       aiTrain: true,
       search: true,
     },
+    database: false,
     enabled: true,
-    indexNow: true,
     llmsTxt: {
       markdownLinks: true,
     },

@@ -51,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import mdiBookOutline from "~icons/mdi/bookOutline"
 import mdiLinkVariant from "~icons/mdi/linkVariant"
 import simpleGithub from "~icons/simple-icons/github"
 import simpleNpm from "~icons/simple-icons/npm"
@@ -156,6 +157,11 @@ const projects = computed(() => [
     link: "/projects/miniproto",
     image: "/img/projects/miniproto.webp",
     actions: [
+      {
+        text: t("projects.documentation"),
+        link: "https://miniproto.edm115.dev",
+        icon: mdiBookOutline,
+      },
       {
         text: t("projects.pypi"),
         link: "https://pypi.org/project/miniproto/",

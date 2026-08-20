@@ -267,6 +267,7 @@ function unFocus() {
 .ui-btn {
   display: inline-flex;
   vertical-align: middle;
+  height: fit-content;
   align-items: center;
   justify-content: center;
   border: none;
@@ -280,21 +281,21 @@ function unFocus() {
   &--sm {
     padding: 0 0.75rem;
     font-size: 0.75rem;
-    height: 1.75rem;
+    min-height: 1.75rem;
     --ui-btn-height: 28px;
   }
 
   &--md {
     padding: 0 1rem;
     font-size: 0.875rem;
-    height: 2.25rem;
+    min-height: 2.25rem;
     --ui-btn-height: 36px;
   }
 
   &--lg {
     padding: 0 1.25rem;
     font-size: 1rem;
-    height: 2.75rem;
+    min-height: 2.75rem;
     --ui-btn-height: 44px;
   }
 
@@ -611,7 +612,8 @@ function unFocus() {
   &--expandable {
     border-radius: 50%;
     padding: 0.2em 0;
-    height: 2em;
+    height: fit-content;
+    min-height: 2em;
     font-size: 1.5em;
     min-width: 2em;
     overflow: hidden;

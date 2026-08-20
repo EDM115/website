@@ -165,6 +165,8 @@ defineProps<{
     @media (max-width: 720px) {
       flex-direction: row;
       margin-left: unset;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 }
