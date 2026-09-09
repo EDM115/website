@@ -90,15 +90,8 @@ export default defineNuxtConfig({
           name: "darkreader-lock",
           content: "true",
         },
-        {
-          name: "description",
-          content: "Find all infos about EDM115, his projects, blog posts, ...",
-        },
       ],
-      htmlAttrs: {
-        lang: "en",
-        translate: "no",
-      },
+      htmlAttrs: { translate: "no" },
       link: [
         {
           rel: "icon", type: "image/webp", href: "/img/profile-img.webp",
@@ -445,6 +438,7 @@ export default defineNuxtConfig({
       search: true,
     },
     database: false,
+    describedby: true,
     enabled: true,
     llmsTxt: {
       markdownLinks: true,
@@ -464,6 +458,7 @@ export default defineNuxtConfig({
       isolateMain: true,
       wrapWidth: 0,
     },
+    sitemapMd: true,
   },
   eslint: { config: {
     autoInit: false,

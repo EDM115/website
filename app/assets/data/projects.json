@@ -85,7 +85,7 @@
   },
   {
     "repo": "EDM115/miniproto",
-    "branch": "master",
+    "branch": "codex/v1",
     "path": "miniproto",
     "name": "EDM115/miniproto",
     "description": "A very fast minimalistic MTProto library to interact with Telegram, backed by Rust. Create your own frameworks or use the raw methods directly !"
@@ -99,7 +99,7 @@
   },
   {
     "repo": "EDM115/MPGram",
-    "branch": "master",
+    "branch": "codex/v1",
     "path": "mpgram",
     "name": "EDM115/MPGram",
     "description": "Best-in-class Telegram framework, easy to use, simple to understand, and FAST ! (backed by benchmarks) The reference implementation of miniproto."
@@ -151,7 +151,7 @@
     "branch": "master",
     "path": "thoughts",
     "name": "EDM115/THOUGHTS",
-    "description": "[SKILL + Codex plugin] Keep what context forgets (Things Heard, Observed, Unclear, Guessed, Hacked, Tracked, or Suspected)"
+    "description": "[SKILL + Codex plugin] Keep what context forgets (Things Heard, Observed, Unclear, Guessed, Hacked, Tracked or Suspected)"
   },
   {
     "repo": "EDM115/unrar-alpine",

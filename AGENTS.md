@@ -16,7 +16,6 @@ Rules for AI agents working in this repo (personal website)
 - If dependencies change:
 	- keep `~` ranges in `package.json`
 	- run `pnpm up` for upgrades and `pnpm dedupe` to refresh lockfile
-- Do **not** use `pnpm i` / `pnpm add`
 
 ## Main commands
 ```zsh
@@ -87,38 +86,3 @@ Ignore other commands unless needed.
 	4. share a detailed summary (with examples if useful)
 - If shell output is silent for 45s, skip tests and ask user to run them
 - If command execution is denied 3 times in a row, stop retrying and ask user to run them
-
-## Extras (living notes)
-> Free space for future AI-agent tips/gotchas/rules. Keep useful entries, remove outdated ones.
-
-- (copilot only) `create_file` can produce garbled output; prefer creating empty then filling with `apply_patch`/`edit_file`. last resort: create files via terminal, then verify file content
-- For complex tasks, create:
-	- `plans/feature-name/implementation.md` with goals, steps, files, deps, gotchas
-	- `plans/feature-name/progress.md` with completed / in progress / next
-- `pnpm typecheck` **will** take a very long time to run, it is normal to see it running for several minutes. Just do something else as we'll warn you when it finishes. IF you want to run another command, open a new terminal
-- ...
-
-## Repo structure
-```text
-/
-├── app/                    # Main Nuxt app
-│   ├── assets/             # Data and styles
-│   ├── components/         # Vue components
-│   │   ├── blog/           # Markdown blog posts
-│   │   ├── home/blog       # Blog UI components
-│   │   ├── home/polychrome # Graphical effect
-│   │   └── ui/             # Custom reusable UI components
-│   ├── composables/        # Vue composables
-│   ├── layouts/            # Main layout(s)
-│   ├── middleware/         # Route redirections
-│   ├── pages/              # Nuxt routes (file-based)
-│   ├── utils/              # Utilities
-│   ├── error.vue           # Error UI
-│   └── router.options.ts   # Route scroll behavior
-├── assembly/               # AssemblyScript source for WASM
-├── i18n/                   # Locale config/messages (en/fr)
-├── public/                 # Public assets
-├── *.script.ts             # Build scripts
-├── nuxt.config.ts          # Nuxt config
-└── package.json            # Project metadata/deps
-```

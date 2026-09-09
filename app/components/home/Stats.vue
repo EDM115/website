@@ -5,46 +5,56 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const projectsNumber = ref(113)
-const usersNumber = 46627
+const projectsNumber = ref(120)
+const usersNumber = 51275
 const projectsLoc = {
   // active
   "ban-all-except-admins": 435,
   "better-maps": 14301,
   "booleanfix": 534,
-  "bulk-youtube-download": 320,
+  "bulk-youtube-download": 355,
+  "cline-usage-tool": 6066,
+  "CodexMods": 350148,  // private monorepo for now, will be split later
+  "codex-usage-tool": 94047,
+  "codex-sessions-viewer": 57361,
   "dashboard": 56131,
-  "dotfiles": 35195,
+  "dotfiles": 38773,
   "EDM115": 191,
   "EDM115.github.io": 90,
-  "EDM115-discord-bot": 1294,
+  "EDM115-discord-bot": 1297,
   "edm115-lint": 608,
-  "edm115-npm": 61,
+  "edm115-npm": 143,
   "EDM115-ohmyposh-theme": 839,
+  "electron-hotswap": 106745,
   "jean-marie-bot": 1238,
   "js-imports-sort": 3550,
   "learning-stack": 18412,
-  "light-odometer": 2534,
+  "light-odometer": 3000,
   "llm-benchmark-demo": 14255,
   "lmgtfy": 8230,
   "Markdown_Syntax_FR": 674,
-  "monorepo-hash": 29472,
-  "obsidian": 108583,
+  "miniproto": 770296,
+  "monorepo-hash": 26318,
+  "MPGram": 84,
+  "obsidian": 110728,
   "palex": 5536,
-  "playground": 305,
+  "playground": 4106,
+  "PZP-AI": 68911,
   "random-algorithm": 370491 - 370118,
-  "shared-files": 296,
-  "skills": 24511,
-  "spendly": 40197,
+  "shared-files": 302,
+  "skills": 26128,
+  "spendly": 53885,
+  "teledrive-rebirth": 11,
   "telegram-auto-upload-folder": 369,
   "telegram-backup-dump": 506,
   "The-Very-Restrictive-License": 311,
-  "unrar-alpine": 1649,
+  "THOUGHTS": 1081,
+  "unrar-alpine": 1654,
   "unzip-bot": 7172,
   "useful-stuff": 6242,
   "VGM-KHI-download": 310,
   "web-logs": 303,
-  "website": 50172,
+  "website": 51477,
   "website-export-action": 1145,
 
   // School, mostly archived
@@ -103,18 +113,18 @@ const projectsLoc = {
   "Werewolf_Discord_bot": 70,
 }
 
+const totalProjectsLoc = Object.values(projectsLoc)
+  .reduce((acc, cur) => acc + cur, 0)
+
 const stats = computed(() => [
   {
-    id: 0, name: t("stats.projects"), value: projectsNumber.value,
+    id: 0, name: t("stats.projects"), value: projectsNumber,
   },
   {
     id: 1, name: t("stats.users"), value: usersNumber,
   },
   {
-    id: 2,
-    name: t("stats.loc"),
-    value: Object.values(projectsLoc)
-      .reduce((acc, cur) => acc + cur, 0),
+    id: 2, name: t("stats.loc"), value: totalProjectsLoc,
   },
 ])
 
@@ -124,6 +134,10 @@ async function fetchProjectsNumber() {
       "Accept": "application/vnd.github+json",
       "X-GitHub-Api-Version": "2026-03-10",
     } })
+
+    if (!Number.isSafeInteger(public_repos) || public_repos < 0) {
+      throw new Error("Invalid public repository count")
+    }
 
     projectsNumber.value = public_repos
   } catch (error) {

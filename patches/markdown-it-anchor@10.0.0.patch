@@ -1,5 +1,5 @@
 diff --git a/types/index.d.ts b/types/index.d.ts
-index 40c25c0be1add8b0fc2c51489c25a423dbc49d2c..58bef073172b5b26979a3f72c578c1b11317d416 100644
+index dea877ba8ac3f5a23c0938d588549f66d8f4afd5..334de1043e443a9f06bd47b56d610ea0cdf99fe9 100644
 --- a/types/index.d.ts
 +++ b/types/index.d.ts
 @@ -1,6 +1,8 @@
@@ -14,7 +14,7 @@ index 40c25c0be1add8b0fc2c51489c25a423dbc49d2c..58bef073172b5b26979a3f72c578c1b1
  
  declare namespace anchor {
    export type Token = MarkdownItToken
-@@ -69,6 +71,6 @@ declare namespace anchor {
+@@ -70,6 +72,6 @@ declare namespace anchor {
    };
  }
  

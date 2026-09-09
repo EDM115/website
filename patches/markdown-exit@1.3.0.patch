@@ -1,8 +1,8 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 27f73f98238f54658b071cfa87bb1205a74d580d..2053290203f0acc7cac6c647492ef086c7ef945e 100644
+index 9dddb34a9b4e1e3aec3ca2592c6de0e541146bcd..fb738ea137f8b464110de40732dba8e4a30b8ccd 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
-@@ -1122,4 +1122,4 @@ declare function createMarkdownExit(presetName: PresetName, options?: MarkdownEx
+@@ -1130,4 +1130,4 @@ declare function createMarkdownExit(presetName: PresetName, options?: MarkdownEx
  type MarkdownExitConstructor = InstanceType<typeof MarkdownExit>;
  declare const MarkdownExitConstructor: (typeof createMarkdownExit & typeof MarkdownExit);
  //#endregion

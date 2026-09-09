@@ -153,16 +153,16 @@ import { Temporal } from "temporal-polyfill"
 const route = useRoute()
 const { t } = useI18n()
 
-const stars = ref(140)
-const forks = ref(171)
-const days = ref(1451)
+const stars = ref(144)
+const forks = ref(174)
+const days = ref(1572)
 const loc = ref(7172)
 
 const stats = computed(() => [
   {
     id: 0,
     name: t("unzip.stats.users"),
-    value: 46627,
+    value: 51275,
     icon: mdiUsersOutline,
   },
   {
@@ -192,19 +192,19 @@ const stats = computed(() => [
   {
     id: 5,
     name: t("unzip.stats.files"),
-    value: 513267,
+    value: 601954,
     icon: materialSymbolsScanOutline,
   },
   {
     id: 6,
     name: t("unzip.stats.links"),
-    value: 62790,
+    value: 78304,
     icon: mdiLinkVariant,
   },
   {
     id: 7,
     name: t("unzip.stats.data"),
-    value: 1832019,
+    value: 2361754,
     icon: biHdd,
   },
 ])
@@ -332,7 +332,7 @@ async function getRepoDetails() {
       throw new Error("Repository not found")
     }
 
-    if (!data.stargazers_count || !data.forks_count) {
+    if (!Number.isSafeInteger(data.stargazers_count) || data.stargazers_count < 0 || !Number.isSafeInteger(data.forks_count) || data.forks_count < 0) {
       throw new Error("Repository not found")
     }
 
@@ -373,18 +373,21 @@ async function getLoc() {
 onMounted(async () => {
   days.value = daysSinceLaunch()
 
-  const repoDetails = await getRepoDetails()
-
-  if (repoDetails) {
-    stars.value = repoDetails.stars
-    forks.value = repoDetails.forks
-  }
-
-  const locValue = await getLoc()
-
-  if (locValue !== 0) {
-    loc.value = locValue
-  }
+  await Promise.all([
+    getRepoDetails()
+      .then((repoDetails) => {
+        if (repoDetails) {
+          stars.value = repoDetails.stars
+          forks.value = repoDetails.forks
+        }
+      }),
+    getLoc()
+      .then((locValue) => {
+        if (locValue !== 0) {
+          loc.value = locValue
+        }
+      }),
+  ])
 })
 </script>
 

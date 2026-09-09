@@ -16,11 +16,13 @@
           </span>
         </template>
 
+        <span class="odometer-accessible-value">{{ formatValue(stat.value) }}</span>
         <div
           :id="'od-' + stat.id"
           class="mockup-odometer"
+          aria-hidden="true"
         >
-          {{ formatZeros(stat.value) }}
+          {{ placeholders.get(stat.id) ?? "0" }}
         </div>
       </UiCard>
     </UiRow>
@@ -44,6 +46,19 @@ const props = defineProps<{ stats: {
 
 const { isMobile } = useDevice()
 
+// This component explicitly creates and owns its instances
+LightOdometer.setGlobalOptions({ auto: false })
+
+const valueFormatter = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 })
+
+function formatValue(value: number | Ref<number>): string {
+  const num = unref(value) ?? 0
+
+  return valueFormatter.format(Number.isFinite(num)
+    ? num
+    : 0)
+}
+
 function formatZeros(value: number | Ref<number>): string {
   const num = unref(value) ?? 0
   const len = num.toString().length
@@ -52,109 +67,51 @@ function formatZeros(value: number | Ref<number>): string {
   return zeros.replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 }
 
+// Keep Vue from overwriting the library-owned digits when a value gains a digit
+const placeholders = new Map(props.stats.map((stat) => [ stat.id, formatZeros(stat.value) ]))
+
 let observer: IntersectionObserver | null = null
 let odometersReady = false
 let odos: Record<number, LightOdometer> = {}
-let digitObservers: Record<number, MutationObserver> = {}
 let unsubscribers: Array<() => void> = []
 const pending = new Map<number, number>()
 const revealed = new Set<number>()
-
-const MUTATION_OBSERVER_CONFIG: MutationObserverInit = {
-  childList: true,
-  subtree: true,
-  characterData: true,
-}
 
 function toggleMobileClass(el: HTMLElement | null | undefined, mobile: boolean) {
   el?.classList.toggle("odometer-mobile", mobile)
 }
 
-function applyDigitGrouping(container: HTMLElement, observerInstance?: MutationObserver) {
-  toggleMobileClass(container, isMobile.value)
-  observerInstance?.disconnect()
+function applyDigitGrouping(odo: LightOdometer) {
+  toggleMobileClass(odo.el, isMobile.value)
 
-  const inside = container.querySelector<HTMLElement>(".odometer-inside")
-
-  if (!inside) {
-    observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
-
-    return
-  }
-
-  inside.querySelectorAll<HTMLElement>(".odometer-digit-group")
-    .forEach((group) => {
-      while (group.firstChild) {
-        inside.insertBefore(group.firstChild, group)
-      }
-
-      group.remove()
-    })
-
-  const digits = Array.from(inside.querySelectorAll<HTMLElement>(".odometer-digit"))
-    .filter((digit) => {
-      const val = digit.querySelector<HTMLElement>(".odometer-value")?.textContent ?? ""
-
-      return val.trim() !== ""
-    })
-
-  if (digits.length === 0) {
-    observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
-
-    return
-  }
-
-  digits.forEach((digit) => {
-    digit.classList.remove("group-left", "group-right", "both-groups")
-  })
-
-  const groups: HTMLElement[][] = []
-  const remainder = digits.length % 3
+  // The render hook receives complete, ungrouped digits in one pass
+  const digits = odo.digits.toReversed()
   let index = 0
 
-  if (remainder > 0) {
-    groups.push(digits.slice(0, remainder))
-    index = remainder
-  }
+  while (index < digits.length) {
+    const size = index === 0
+      ? (digits.length % 3 || 3)
+      : 3
+    const group = digits.slice(index, index + size)
+    const first = group[0]
 
-  for (; index < digits.length; index += 3) {
-    groups.push(digits.slice(index, index + 3))
-  }
-
-  groups.forEach((group) => {
-    if (group.length === 0) {
-      return
+    if (!first) {
+      break
     }
 
     const wrapper = document.createElement("span")
 
     wrapper.className = "odometer-digit-group"
-    const firstDigit = group[0]
+    odo.inside.insertBefore(wrapper, first)
 
-    if (!firstDigit) {
-      return
-    }
-
-    inside.insertBefore(wrapper, firstDigit)
-
-    group.forEach((digit, idx) => {
+    group.forEach((digit, position) => {
+      digit.classList.toggle("both-groups", group.length === 1)
+      digit.classList.toggle("group-left", group.length > 1 && position === 0)
+      digit.classList.toggle("group-right", group.length > 1 && position === group.length - 1)
       wrapper.appendChild(digit)
-
-      if (group.length === 1) {
-        digit.classList.add("both-groups")
-      } else {
-        if (idx === 0) {
-          digit.classList.add("group-left")
-        }
-
-        if (idx === group.length - 1) {
-          digit.classList.add("group-right")
-        }
-      }
     })
-  })
-
-  observerInstance?.observe(container, MUTATION_OBSERVER_CONFIG)
+    index += size
+  }
 }
 
 function attachEvents(odo: LightOdometer, id: number) {
@@ -180,8 +137,6 @@ function attachEvents(odo: LightOdometer, id: number) {
 }
 
 onMounted(() => {
-  window.odometerOptions = { selector: ".mockup-odometer" }
-
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -233,7 +188,10 @@ onMounted(() => {
         animation: "slide",
         duration: 8000,
         format: "( ddd)",
-        framerate: 20,
+        framerate: 60,
+        maxValues: 256,
+        respectReducedMotion: true,
+        onRender: applyDigitGrouping,
       })
 
       attachEvents(odo, id)
@@ -241,12 +199,6 @@ onMounted(() => {
       containerEl.classList.remove("mockup-odometer")
       odos[id] = odo
       observer?.observe(containerEl)
-      toggleMobileClass(containerEl, isMobile.value)
-
-      const mo = new MutationObserver((_records, observerInstance) => applyDigitGrouping(containerEl, observerInstance))
-
-      digitObservers[id] = mo
-      applyDigitGrouping(containerEl, mo)
     })
 
   odometersReady = true
@@ -254,9 +206,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   observer?.disconnect()
-  Object.values(digitObservers)
-    .forEach((m) => m.disconnect())
-  digitObservers = {}
   Object.values(odos)
     .forEach((o) => o.disconnect())
   odos = {}
@@ -265,20 +214,8 @@ onBeforeUnmount(() => {
 })
 
 watch(isMobile, (mobile) => {
-  Object.entries(odos)
-    .forEach(([ key, odo ]) => {
-      if (!odo) {
-        return
-      }
-
-      const el = odo.el
-
-      toggleMobileClass(el, mobile)
-
-      const observerInstance = digitObservers[Number(key)]
-
-      applyDigitGrouping(el, observerInstance)
-    })
+  Object.values(odos)
+    .forEach((odo) => toggleMobileClass(odo.el, mobile))
 })
 
 watch(
@@ -330,6 +267,18 @@ watch(
 <style lang="scss">
 $borderRadius: .2em;
 $padding: .15em;
+
+.odometer-accessible-value {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 .mockup-odometer {
   display: inline-block;
@@ -430,7 +379,6 @@ $padding: .15em;
 
     .odometer-value {
       display: block;
-      transform: translateZ(0);
       user-select: none;
 
       &.odometer-last-value {

@@ -1,5 +1,13 @@
 [
   {
+    "id": 42,
+    "name": "actions/runner-images",
+    "description": "[Windows] Disable the first-logon privacy experience on ARM64 images",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/actions/runner-images/pull/14673"
+  },
+  {
     "id": 41,
     "name": "raycast/extensions",
     "description": "fix(agent-usage): Fix ClinePass usage limits windows",
@@ -326,6 +334,22 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 102,
+    "name": "JanDeDobbeleer/oh-my-posh",
+    "description": "[BUG] The upgrade text is overriden by the progressbar",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/JanDeDobbeleer/oh-my-posh/issues/7856"
+  },
+  {
+    "id": 101,
+    "name": "pnpm/pnpm",
+    "description": "[v12] PNPM eats previous terminal lines, fails to stay up to date & fails to install global dependencies",
+    "type": "issue",
+    "state": "closed",
+    "link": "https://github.com/pnpm/pnpm/issues/14270"
   },
   {
     "id": 100,
@@ -1128,4 +1152,3 @@
     "link": "https://github.com/matafokka/ExcelDarkThemeFix/issues/10"
   }
 ]
-
