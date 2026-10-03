@@ -364,7 +364,7 @@
     "name": "ramensoftware/windhawk-mods",
     "description": "[taskbar-multi-tray] The hidden icon flyout teleports when its line count changes",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/ramensoftware/windhawk-mods/issues/4961"
   },
   {
