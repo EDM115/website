@@ -1,5 +1,13 @@
 [
   {
+    "id": 43,
+    "name": "ramensoftware/windhawk-mods",
+    "description": "fix(taskbar-multi-tray): v1.3.0 (and way less issues !)",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/ramensoftware/windhawk-mods/pull/5810"
+  },
+  {
     "id": 42,
     "name": "actions/runner-images",
     "description": "[Windows] Disable the first-logon privacy experience on ARM64 images",

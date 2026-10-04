@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index f99f4ff82305e9df695e10250c30124831f4d66f..ffbc4b074ea3ef1594c06b4442ace3ea7c91ebf7 100644
+index 4d29f9d3ece2147f7ef95dada832ab82b8b6353a..f3431e3342f9e1bd8a1a15ea6b50cd44ed6b4235 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,6 +1,6 @@
@@ -16,8 +16,8 @@ index f99f4ff82305e9df695e10250c30124831f4d66f..ffbc4b074ea3ef1594c06b4442ace3ea
  }
  //#endregion
  //#region src/plugin.d.ts
--declare const katex: <MarkdownItEnv extends Env = Env>(md: MarkdownIt, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
-+declare const katex: <MarkdownItEnv extends MarkdownExitEnv = MarkdownExitEnv>(md: MarkdownExit, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
+-export declare const katex: <MarkdownItEnv extends Env = Env>(md: MarkdownIt, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
++export declare const katex: <MarkdownItEnv extends MarkdownExitEnv = MarkdownExitEnv>(md: MarkdownExit, { allowInlineWithSpace, delimiters, mathFence, logger, transformer, ...userOptions }?: MarkdownItKatexOptions<MarkdownItEnv>) => void;
  //#endregion
- export { type KatexLogger, type MarkdownItKatexOptions, type TeXTransformer, katex };
+ export type { KatexLogger, MarkdownItKatexOptions, TeXTransformer };
  //# sourceMappingURL=index.d.ts.map

@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 6914f970b9350ac87770a68e1e5f7e783a4b5b39..a4a2a879c7a276df1dd98facf9e6991cef7531e0 100644
+index bcae32482dad54b555ce0b032c680bc0088b4b92..582add257e3ae19de1f35e0e47b4f32653c08ac4 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,5 +1,5 @@
@@ -10,7 +10,7 @@ index 6914f970b9350ac87770a68e1e5f7e783a4b5b39..a4a2a879c7a276df1dd98facf9e6991c
  //#region src/options.d.ts
  interface MarkdownItTaskListOptions {
    /**
-@@ -57,7 +57,7 @@ declare const tasklist: PluginWithOptions<MarkdownItTaskListOptions>;
+@@ -57,7 +57,7 @@ export declare const tasklist: PluginWithOptions<MarkdownItTaskListOptions>;
  //#endregion
  //#region src/types.d.ts
  declare const tasklistIdKey: unique symbol;

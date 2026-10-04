@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index b8700180133caf10a463e3b4dff9472088f32ee9..6d15ae712e5c32fc4d08bce738b602a87f1a5959 100644
+index e3237e82053a1382a5c703a7d0a0b08f6eb80a05..2f87fd87a9ba8c46eeea53d87efa6eb778ef242b 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,5 +1,5 @@
@@ -8,7 +8,7 @@ index b8700180133caf10a463e3b4dff9472088f32ee9..6d15ae712e5c32fc4d08bce738b602a8
 +import type { PluginSimple } from "@mdit/helper";
 +import type { MarkdownExitEnv, Token } from "markdown-exit";
  //#region src/plugin.d.ts
- declare const footnote: PluginSimple;
+ export declare const footnote: PluginSimple;
  //#endregion
 @@ -11,7 +11,7 @@ interface FootNoteToken extends Token {
      label: string;

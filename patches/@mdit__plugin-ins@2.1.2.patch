@@ -1,10 +1,10 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 753c1d9827fab7d3e4824dc78859bc7c93c365c9..73e2bc82797ef9af7b69a6290d282f9cd1501186 100644
+index 4e86d99802777bde02938a46ab1aef9cae1cd732..6d0089fb88e7387c7d5c18e4b291c2b29f7ed78f 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,4 +1,4 @@
 -import { PluginSimple } from "@mdit/helper";
 +import type { PluginSimple } from "@mdit/helper";
  //#region src/plugin.d.ts
- declare const mark: PluginSimple;
+ export declare const ins: PluginSimple;
  //#endregion
