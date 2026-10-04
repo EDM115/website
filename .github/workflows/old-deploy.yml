@@ -6,6 +6,10 @@ on:
       - master
   workflow_dispatch:
 
+concurrency:
+  group: deploy-edm115-eu-org
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
