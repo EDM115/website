@@ -10,6 +10,7 @@ import blogPosts from "~/assets/data/blog-posts.json"
 import telegramPosts from "~/assets/data/telegram-posts.json"
 
 import { Temporal } from "temporal-polyfill"
+import { withBase } from "ufo"
 
 const docfindCache = {
   blog: {
@@ -47,9 +48,10 @@ async function loadDocfindModule(isTelegram: boolean): Promise<DocfindModule | n
     return cached.mod
   }
 
-  const mod = isTelegram
-    ? await import("~~/public/docfind/docfind_telegram.js")
-    : await import("~~/public/docfind/docfind_blog.js")
+  const { app } = useRuntimeConfig()
+  const moduleURL = withBase(`/docfind/docfind_${key}.js`, app.baseURL)
+  // Keep Nuxt warmup from treating wasm-bindgen's asset URL as a WASM module import
+  const mod: DocfindModule = await import(/* @vite-ignore */ moduleURL)
 
   cached.mod = mod
 

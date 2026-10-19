@@ -14,7 +14,8 @@ const projectsLoc = {
   "booleanfix": 534,
   "bulk-youtube-download": 355,
   "cline-usage-tool": 6066,
-  "CodexMods": 350148,  // private monorepo for now, will be split later
+  // private monorepo for now, will be split later
+  "CodexMods": 350148,
   "codex-usage-tool": 94047,
   "codex-sessions-viewer": 57361,
   "dashboard": 56131,

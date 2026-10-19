@@ -72,7 +72,6 @@ export default defineNuxtConfig({
     "@nuxtjs/partytown",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
-    "nuxt-ai-ready",
     "nuxt-svgo",
     "unplugin-icons/nuxt",
   ],
@@ -151,6 +150,7 @@ export default defineNuxtConfig({
   site: {
     description: "Find all infos about EDM115, his projects, blog posts, ...",
     name: "EDM115 - French dev/gamer/music producer",
+    trailingSlash: true,
     url: "https://edm115.dev",
   },
   colorMode: {
@@ -385,6 +385,12 @@ export default defineNuxtConfig({
     vue: { include: [ /\.vue$/, /\.vue\?vue/, /\.md$/ ] },
   },
   typescript: {
+    nodeTsConfig: {
+      compilerOptions: { experimentalDecorators: true },
+    },
+    sharedTsConfig: {
+      compilerOptions: { experimentalDecorators: true },
+    },
     tsConfig: { compilerOptions: {
       allowArbitraryExtensions: true,
       disableSizeLimit: true,
@@ -445,7 +451,6 @@ export default defineNuxtConfig({
     },
     mdreamOptions: {
       clean: {
-        blankLines: true,
         emptyImages: false,
         emptyLinks: true,
         emptyLinkText: false,
@@ -593,6 +598,7 @@ export default defineNuxtConfig({
     cacheMaxAgeSeconds: 432000,
     zeroRuntime: true,
   },
+  skewProtection: false,
   svgo: {
     autoImportPath: "./public/img",
     defaultImport: "component",

@@ -1,6 +1,5 @@
 allowBuilds:
   "@parcel/watcher": true
-  better-sqlite3: false
   esbuild: true
   sharp: false
   unrs-resolver: true
@@ -20,7 +19,7 @@ minimumReleaseAgeExclude:
 
 overrides:
   markdown-exit: ~1.3.0
-  nuxt-schema-org: ~6.4.3
+  nuxt-schema-org: ~7.0.1
   sharp: ~0.35.5
 
 patchedDependencies:

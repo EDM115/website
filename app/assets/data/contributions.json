@@ -1,5 +1,21 @@
 [
   {
+    "id": 45,
+    "name": "rojvv/tglib-bench",
+    "description": "feat: add miniproto (15) & bump action deps",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/rojvv/tglib-bench/pull/39"
+  },
+  {
+    "id": 44,
+    "name": "raycast/extensions",
+    "description": "feat(agent-usage): Cursor sign-in on Windows",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/raycast/extensions/pull/32341"
+  },
+  {
     "id": 43,
     "name": "ramensoftware/windhawk-mods",
     "description": "fix(taskbar-multi-tray): v1.3.0 (and way less issues !)",
@@ -342,6 +358,14 @@
     "type": "pr",
     "state": "merged",
     "link": "https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/pull/30"
+  },
+  {
+    "id": 103,
+    "name": "cline/cline",
+    "description": "[BUG] Desktop sessions import don't detect Codex compressed ones",
+    "type": "issue",
+    "state": "open",
+    "link": "https://github.com/cline/cline/issues/15136"
   },
   {
     "id": 102,

@@ -87,7 +87,7 @@ const socialLinks = [
   {
     icon: simpleX,
     text: "𝕏",
-    url: "https://x.com/_EDM115",
+    url: "https://x.com/EDM115",
   },
   {
     icon: simpleInstagram,

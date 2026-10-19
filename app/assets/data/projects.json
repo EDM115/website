@@ -85,7 +85,7 @@
   },
   {
     "repo": "EDM115/miniproto",
-    "branch": "codex/v1",
+    "branch": "master",
     "path": "miniproto",
     "name": "EDM115/miniproto",
     "description": "A very fast minimalistic MTProto library to interact with Telegram, backed by Rust. Create your own frameworks or use the raw methods directly !"
