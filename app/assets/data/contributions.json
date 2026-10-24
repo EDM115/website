@@ -2,9 +2,9 @@
   {
     "id": 45,
     "name": "rojvv/tglib-bench",
-    "description": "feat: add miniproto (15) & bump action deps",
+    "description": "Add miniproto and bump deps",
     "type": "pr",
-    "state": "open",
+    "state": "merged",
     "link": "https://github.com/rojvv/tglib-bench/pull/39"
   },
   {
@@ -124,7 +124,7 @@
     "name": "Balatro-Multiplayer/BalatroMultiplayer",
     "description": "fix: rework the French localization",
     "type": "pr",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/Balatro-Multiplayer/BalatroMultiplayer/pull/319"
   },
   {
@@ -436,7 +436,7 @@
     "name": "leonardssh/vscord",
     "description": "The latest release haven't been published to the marketplace",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/leonardssh/vscord/issues/422"
   },
   {
@@ -956,7 +956,7 @@
     "name": "marticliment/UniGetUI",
     "description": "[CRASH] Uniget doesn't respond for certain packages (Claude)",
     "type": "issue",
-    "state": "open",
+    "state": "closed",
     "link": "https://github.com/marticliment/UniGetUI/issues/2979"
   },
   {
