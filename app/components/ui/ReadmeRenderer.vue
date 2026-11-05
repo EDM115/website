@@ -200,6 +200,9 @@ const {
         .use(videoTag)
         .use(videoControls)
 
+      md.linkify.set({
+        fuzzyLink: true, urlAuth: true,
+      })
       md.core.ruler.push("heading_copy_icon", (state) => {
         const { tokens } = state
 

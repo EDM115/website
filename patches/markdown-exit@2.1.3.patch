@@ -1,0 +1,21 @@
+diff --git a/dist/index.core-CUvw_AWg.d.ts b/dist/index.core-CUvw_AWg.d.ts
+index 633922624bd1e07da4e27de471d896d3d333fad8..a4c32902151491a72448700c88ebe990f3b93b77 100644
+--- a/dist/index.core-CUvw_AWg.d.ts
++++ b/dist/index.core-CUvw_AWg.d.ts
+@@ -1142,4 +1142,4 @@ declare function createMarkdownExit(presetName: PresetName, options?: MarkdownEx
+ type MarkdownExitConstructor = InstanceType<typeof MarkdownExit>;
+ declare const MarkdownExitConstructor: (typeof createMarkdownExit & typeof MarkdownExit);
+ //#endregion
+-export { Ruler as C, Token as D, SourceMapLineRange as E, RuleOptions as S, Nesting as T, StateInline as _, PluginWithOptions as a, RuleBlock as b, createMarkdownExit as c, RenderRuleRecord as d, Renderer as f, defaultOptions as g, ParserOptions as h, PluginSimple as i, RenderOptions as l, Parser as m, MarkdownExit as n, PluginWithParams as o, RuleInline as p, MarkdownExitOptions as r, PresetName as s, MarkdownExitConstructor as t, RenderRule as u, RuleCore as v, HTMLAttribute as w, StateBlock as x, StateCore as y };
+\ No newline at end of file
++export { Ruler as C, Token as D, SourceMapLineRange as E, RuleOptions as S, Nesting as T, StateInline as _, PluginWithOptions as a, RuleBlock as b, createMarkdownExit as c, RenderRuleRecord as d, Renderer as f, defaultOptions as g, ParserOptions as h, PluginSimple as i, RenderOptions as l, Parser as m, MarkdownExit as n, PluginWithParams as o, RuleInline as p, MarkdownExitOptions as r, PresetName as s, MarkdownExitConstructor as t, RenderRule as u, RuleCore as v, HTMLAttribute as w, StateBlock as x, StateCore as y, MarkdownExitEnv as z };
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index c0dc598cb7c2bcea5768f74aed65fa2d6078dd66..f780af352372ba6ea96ce271fda53736f8ec145a 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,2 +1,2 @@
+-import { C as Ruler, D as Token, E as SourceMapLineRange, S as RuleOptions, T as Nesting, _ as StateInline, a as PluginWithOptions, b as RuleBlock, c as createMarkdownExit, d as RenderRuleRecord, f as Renderer, g as defaultOptions, h as ParserOptions, i as PluginSimple, l as RenderOptions, m as Parser, n as MarkdownExit, o as PluginWithParams, p as RuleInline, r as MarkdownExitOptions, s as PresetName, t as MarkdownExitConstructor, u as RenderRule, v as RuleCore, w as HTMLAttribute, x as StateBlock, y as StateCore } from "./index.core-CUvw_AWg.js";
+-export { HTMLAttribute, MarkdownExit, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRuleRecord, Renderer, RuleBlock, RuleCore, RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };
+\ No newline at end of file
++import { C as Ruler, D as Token, E as SourceMapLineRange, S as RuleOptions, T as Nesting, _ as StateInline, a as PluginWithOptions, b as RuleBlock, c as createMarkdownExit, d as RenderRuleRecord, f as Renderer, g as defaultOptions, h as ParserOptions, i as PluginSimple, l as RenderOptions, m as Parser, n as MarkdownExit, o as PluginWithParams, p as RuleInline, r as MarkdownExitOptions, s as PresetName, t as MarkdownExitConstructor, u as RenderRule, v as RuleCore, w as HTMLAttribute, x as StateBlock, y as StateCore, z as MarkdownExitEnv } from "./index.core-CUvw_AWg.js";
++export { HTMLAttribute, MarkdownExit, MarkdownExitEnv, MarkdownExitOptions, Nesting, Parser, ParserOptions, PluginSimple, PluginWithOptions, PluginWithParams, PresetName, RenderOptions, RenderRule, RenderRule as RendererRule, RenderRuleRecord, Renderer, RuleBlock, RuleCore, RuleInline, RuleOptions, Ruler, SourceMapLineRange, StateBlock, StateCore, StateInline, Token, createMarkdownExit, MarkdownExitConstructor as default, defaultOptions };

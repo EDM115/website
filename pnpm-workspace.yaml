@@ -18,7 +18,7 @@ minimumReleaseAgeExclude:
   - nuxt-schema-org
 
 overrides:
-  markdown-exit: ~1.3.0
+  markdown-exit: ~2.1.3
   nuxt-schema-org: ~7.0.1
   sharp: ~0.35.5
 
@@ -38,7 +38,7 @@ patchedDependencies:
   "@mdit/plugin-tex@1.1.2": patches/@mdit__plugin-tex@1.1.2.patch
   "@types/markdown-it-emoji@3.0.1": patches/@types__markdown-it-emoji@3.0.1.patch
   "@types/markdown-it-link-attributes@3.0.5": patches/@types__markdown-it-link-attributes@3.0.5.patch
-  markdown-exit@1.3.0: patches/markdown-exit@1.3.0.patch
+  markdown-exit@2.1.3: patches/markdown-exit@2.1.3.patch
   markdown-it-anchor@10.0.0: patches/markdown-it-anchor@10.0.0.patch
   markdown-it-attrs@5.0.1: patches/markdown-it-attrs@5.0.1.patch
   markdown-it-highlightjs@4.3.0: patches/markdown-it-highlightjs@4.3.0.patch

@@ -281,6 +281,9 @@ async function createMarkdownRenderer(): Promise<MarkdownRenderer> {
 
   md.renderer.rules.hardbreak = () => "<br>"
   md.renderer.rules.softbreak = () => "<br>"
+  md.linkify.set({
+    fuzzyLink: true, urlAuth: true,
+  })
 
   return (markdownContent) => md.renderAsync(markdownContent)
 }

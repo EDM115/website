@@ -266,7 +266,7 @@ const videoTag: PluginWithOptions<MarkdownVideoTagOptions> = (md, options = {}) 
 
     if (!silent && token?.type === "video") {
       const rawSrc = token.attrGet("src") || ""
-      const validateSrc = options.validateSrc || md.validateLink
+      const validateSrc = options.validateSrc ?? ((src: string) => md.validateLink(src))
 
       if (!validateSrc(rawSrc)) {
         state.tokens.pop()

@@ -215,24 +215,6 @@ export default defineNuxtConfig({
         },
         output: {
           comments: false,
-          // Work around Rolldown placing __exportAll across a Vue/Nuxt runtime cycle
-          // See https://github.com/rolldown/rolldown/issues/8809
-          manualChunks(id) {
-            const normalizedId = id.replace(/\\/g, "/")
-
-            if (
-              normalizedId.includes("/node_modules/.pnpm/@vue+")
-              || normalizedId.includes("/node_modules/.pnpm/vue@")
-              || (
-                normalizedId.includes("/node_modules/.pnpm/nuxt@")
-                && normalizedId.includes("/node_modules/nuxt/dist/app/")
-              )
-            ) {
-              return "runtime-vue-nuxt"
-            }
-
-            return undefined
-          },
           minify: true,
         },
       },
@@ -319,6 +301,9 @@ export default defineNuxtConfig({
           md.use(brOnEmptyLines)
           md.use(videoTag)
           md.use(videoControls)
+          md.linkify.set({
+            fuzzyLink: true, urlAuth: true,
+          })
           md.core.ruler.push("heading_copy_icon", (state) => {
             const { tokens } = state
 

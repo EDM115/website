@@ -1,5 +1,21 @@
 [
   {
+    "id": 47,
+    "name": "baliestri/pinentry-for-windows",
+    "description": "fix(pinentry): handle localized GnuPG prompt encoding",
+    "type": "pr",
+    "state": "merged",
+    "link": "https://github.com/baliestri/pinentry-for-windows/pull/31"
+  },
+  {
+    "id": 46,
+    "name": "PowerShell/PowerShell",
+    "description": "chore: update DefaultPrompt in FR",
+    "type": "pr",
+    "state": "open",
+    "link": "https://github.com/PowerShell/PowerShell/pull/28240"
+  },
+  {
     "id": 45,
     "name": "rojvv/tglib-bench",
     "description": "Add miniproto and bump deps",

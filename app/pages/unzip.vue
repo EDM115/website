@@ -34,7 +34,7 @@
               color="primary"
               :prepend-icon="simpleGithub"
               :text="t('unzip.github')"
-              link="https://github.com/EDM115/unzip-bot/tree/v7-rework-part-1"
+              link="https://github.com/EDM115/unzip-bot"
               variant="elevated"
               aria="unzip-bot GitHub"
             />

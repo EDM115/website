@@ -130,7 +130,7 @@
     "branch": "master",
     "path": "skills",
     "name": "EDM115/skills",
-    "description": "Skills generated for my own purpose, created because nobody made them before"
+    "description": "Skills & plugins created for my own purpose, because nobody made them before"
   },
   {
     "repo": "EDM115/spendly",
@@ -162,7 +162,7 @@
   },
   {
     "repo": "EDM115/unzip-bot",
-    "branch": "v7-rework-part-1",
+    "branch": "master",
     "path": "unzip-bot",
     "name": "EDM115/unzip-bot",
     "description": "A Telegram bot deployable to Heroku/VPS that can extract every archive ! With support for split archives, password protected, download from URL, file rename, thumbnail changer, ..."
