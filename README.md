@@ -99,17 +99,17 @@ Prepare for Brotli compression (optional but recommended) :
 ```zsh
 sudo apt install brotli build-essential git ca-certificates wget libpcre2-dev zlib1g-dev libssl-dev
 # Get NGINX's version
-nginx -V  # here 1.30.2, note the flags
+nginx -V  # here 1.30.6, note the flags
 mkdir -p /tmp/nginx-brotli-build
 cd /tmp/nginx-brotli-build
-wget http://nginx.org/download/nginx-1.30.2.tar.gz
-tar xf nginx-1.30.2.tar.gz
+wget http://nginx.org/download/nginx-1.30.6.tar.gz
+tar xf nginx-1.30.6.tar.gz
 git clone https://github.com/google/ngx_brotli.git
 cd ngx_brotli
 git submodule update --init --recursive
 # Run configure with the EXACT flags you had, plus the brotli module on top
 # Check for "adding module in /tmp/nginx-brotli-build/ngx_brotli" & "+ ngx_brotli was configured" in the output. Example :
-cd /tmp/nginx-brotli-build/nginx-1.30.2
+cd /tmp/nginx-brotli-build/nginx-1.30.6
 ./configure \
   --prefix=/etc/nginx \
   --sbin-path=/usr/sbin/nginx \
@@ -151,7 +151,7 @@ cd /tmp/nginx-brotli-build/nginx-1.30.2
   --with-stream_realip_module \
   --with-stream_ssl_module \
   --with-stream_ssl_preread_module \
-  --with-cc-opt='-g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/home/builder/debuild/nginx-1.30.2/debian/debuild-base/nginx-1.30.2=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/home/builder/debuild/nginx-1.30.2/debian/debuild-base/nginx-1.30.2=/usr/src/nginx-1.30.2-1~noble -fPIC' \
+  --with-cc-opt='-g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/home/builder/debuild/nginx-1.30.6/debian/debuild-base/nginx-1.30.6=. -flto=auto -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -fdebug-prefix-map=/home/builder/debuild/nginx-1.30.6/debian/debuild-base/nginx-1.30.6=/usr/src/nginx-1.30.6-1~noble -fPIC' \
   --with-ld-opt='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie' \
   --add-dynamic-module=/tmp/nginx-brotli-build/ngx_brotli
 make modules
@@ -188,6 +188,8 @@ events {
 
 
 http {
+  js_engine qjs;
+
   include      /etc/nginx/mime.types;
   default_type application/octet-stream;
 
@@ -274,7 +276,24 @@ location ~* \.(?:js|mjs|css|map|json|atom|xml|webmanifest|png|jpe?g|gif|webp|avi
   log_not_found off;
 }
 
-location ~* \.(?:md|txt)$ {
+location ~* ^(?<md_base>/.*)\.md$ {
+  types { text/markdown md; }
+  default_type text/markdown;
+
+  charset utf-8;
+  charset_types text/markdown;
+
+  # Support both /about.md and /about/index.md on disk
+  try_files $uri $md_base/index.md =404;
+
+  add_header Vary "Accept" always;
+  add_header Cache-Control "public, max-age=86400" always;
+
+  access_log off;
+  log_not_found off;
+}
+
+location ~* \.txt$ {
   try_files $uri =404;
 
   default_type text/plain;
@@ -289,15 +308,26 @@ location ~* \.(?:md|txt)$ {
 
 location = /index.html {
   try_files $uri =404;
+
+  add_header Vary "Accept" always;
   add_header Cache-Control "no-cache, must-revalidate" always;
 }
 
 location ~* \.html$ {
   try_files $uri =404;
+
+  add_header Vary "Accept" always;
   add_header Cache-Control "no-cache, must-revalidate" always;
 }
 
 location / {
+  if ($markdown_redirect != "") {
+    add_header Vary "Accept" always;
+    add_header Cache-Control "private, no-store" always;
+
+    return 307 $markdown_redirect$is_args$args;
+  }
+
   try_files $uri $uri/ /404.html;
 }
 ```
@@ -317,6 +347,9 @@ server {
 ```nginx
 js_import blog from /etc/nginx/js/blog.js;
 js_set $blog_search_redirect blog.blog_redirect;
+
+js_import markdown from /etc/nginx/js/markdown.js;
+js_set $markdown_redirect markdown.redirect;
 
 server {
   listen 443 ssl;
@@ -359,20 +392,6 @@ server {
   }
 }
 
-# dicewizard-vps.edm115.dev -> :8686
-server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  http2 on;
-  server_name dicewizard-vps.edm115.dev;
-  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
-
-  location / {
-    include /etc/nginx/snippets/proxy-common.conf;
-    proxy_pass http://127.0.0.1:8686;
-  }
-}
-
 # edm115-discord-vps.edm115.dev -> :8888
 server {
   listen 443 ssl;
@@ -384,34 +403,6 @@ server {
   location / {
     include /etc/nginx/snippets/proxy-common.conf;
     proxy_pass http://127.0.0.1:8888;
-  }
-}
-
-# logs-vps.edm115.dev -> :10000
-server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  http2 on;
-  server_name logs-vps.edm115.dev;
-  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
-
-  location / {
-    include /etc/nginx/snippets/proxy-common.conf;
-    proxy_pass http://127.0.0.1:10000;
-  }
-}
-
-# maps.edm115.dev -> :27400
-server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  http2 on;
-  server_name maps.edm115.dev;
-  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
-
-  location / {
-    include /etc/nginx/snippets/proxy-common.conf;
-    proxy_pass http://127.0.0.1:27400;
   }
 }
 
@@ -429,17 +420,6 @@ server {
   }
 }
 
-# senescalade.edm115.dev -> github redirect
-server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  http2 on;
-  server_name senescalade.edm115.dev;
-  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
-
-  return 301 https://github.com/EDM115-org/Senescalade;
-}
-
 # next.edm115.dev -> netlify redirect
 server {
   listen 443 ssl;
@@ -451,9 +431,59 @@ server {
   return 301 https://edm115.netlify.app$request_uri;
 }
 
+# unzip.edm115.dev -> no dashboard/webapp yet, redirect to repo
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+  server_name unzip.edm115.dev;
+  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
+
+  return 302 https://github.com/EDM115/unzip-bot$request_uri;
+}
+
+# lmgtfy.edm115.dev -> not live yet, redirect to repo
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+  server_name lmgtfy.edm115.dev;
+  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
+
+  return 302 https://github.com/EDM115/lmgtfy$request_uri;
+}
+
+# miniproto.edm115.dev -> 6743 (~GRAM)
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+  server_name miniproto.edm115.dev;
+  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
+
+  location / {
+    include /etc/nginx/snippets/proxy-common.conf;
+    proxy_pass http://127.0.0.1:6743;
+  }
+}
+
+# mpgram.edm115.dev -> live docs not ready, redirect to repo
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+  server_name mpgram.edm115.dev;
+  include /etc/nginx/snippets/ssl-cloudflare-origin.conf;
+
+  return 302 https://github.com/EDM115/mpgram$request_uri;
+}
+
 ## defunct services
-# foudre-vps.edm115.dev -> :8989
 # cursedchess-vps.edm115.dev -> :6969
+# dicewizard-vps.edm115.dev -> :8686
+# foudre-vps.edm115.dev -> :8989
+# logs-vps.edm115.dev -> :10000
+# maps.edm115.dev -> :27400
 # trackfit.edm115.dev -> :56000
 # trackfit-api.edm115.dev -> :56001
 ```
@@ -510,6 +540,80 @@ function blog_redirect(r) {
 }
 
 export default { blog_redirect }
+```
+
+#### `/etc/nginx/js/markdown.js`
+```javascript
+function quality(accept, wanted) {
+  const group = wanted.split("/")[0]
+  let bestSpec = -1
+  let bestQuality = 0
+
+  for (const entry of accept.toLowerCase().split(",")) {
+    const [media, ...params] = entry.trim().split(";")
+    const spec =
+      media === wanted
+        ? 2
+        : media === `${group}/*`
+          ? 1
+          : media === "*/*"
+            ? 0
+            : -1
+
+    if (spec < 0) {
+      continue
+    }
+
+    let weight = 1
+
+    for (const param of params) {
+      const match = /^q\s*=\s*(.*)$/.exec(param.trim())
+
+      if (match) {
+        weight = Number(match[1])
+
+        break
+      }
+    }
+
+    if (!Number.isFinite(weight) || weight < 0 || weight > 1) {
+      continue
+    }
+
+    if (spec > bestSpec || (spec === bestSpec && weight > bestQuality)) {
+      bestSpec = spec
+      bestQuality = weight
+    }
+  }
+
+  return bestQuality
+}
+
+function redirect(r) {
+  const accept = String(r.headersIn.Accept || "")
+  const markdown = quality(accept, "text/markdown")
+  const html = quality(accept, "text/html")
+
+  // Require Markdown to be explicitly preferred
+  if (markdown <= 0 || markdown <= html) {
+    return ""
+  }
+
+  const uri = r.uri || "/"
+
+  // Don't negotiate files with extensions
+  if (/\.[^/]+$/.test(uri)) {
+    return ""
+  }
+
+  if (uri === "/") {
+    return "/index.md"
+  }
+
+  return `${uri.replace(/\/+$/, "")}.md`
+}
+
+export default { redirect }
 ```
 Finally, set the correct permissions *(assuming that the repo is at `/home/edm115/website` and that it is built)* :
 ```zsh
